@@ -1,0 +1,71 @@
+main.container{
+	padding-top: 85px;
+}
+.cmp-container--standard_width.cmp-container--card--padding.cq-Editable-dom--container{
+    .cmp-container{
+        .aem-Grid{
+            display: block;
+        }
+    }
+}
+.container{
+	max-width: 100%;
+	padding: 0;
+}
+.cmp-container--standard_width{
+	margin: 0 auto;
+	float: inherit !important;
+	padding: 0 20px;
+}
+
+
+@media (min-width: 375px) {
+	main.container{
+		padding-top: 80px;
+	}
+}
+@media (min-width: 576px) {
+	main.container{
+		padding-top: 115px;
+	}
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+	main.container{
+		padding-top: 115px;
+	}
+    .cmp-container--standard_width.cmp-container--card--padding{
+        .cmp-container .aem-Grid{
+            display: flex;
+            gap: 10px;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+	.container.cmp-container--standard_width {
+		max-width: 960px;
+	}
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+	
+	.container.cmp-container--standard_width {
+		max-width: 1140px;
+	}
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { 
+	.container.cmp-container--standard_width {
+		max-width: 1320px;
+	}
+}
+
+@media (min-width: 1920px) { 
+	.container.cmp-container--standard_width {
+		max-width: 1720px;
+	}
+}

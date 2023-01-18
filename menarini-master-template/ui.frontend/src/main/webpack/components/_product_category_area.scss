@@ -1,0 +1,33 @@
+.cmp_product_category_area {
+    list-style: none;
+    margin-left: 0;
+    margin-top: 35px;
+    font-family: $font-family-arimo;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 1rem;
+    padding-left: 0;
+
+    .cmp_icon_product_category_area {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 80px;
+        background-position: left center;
+        background-repeat: no-repeat;
+
+        a {
+            color: $color-link-secondary-corporate;
+            font-family: $font-family-oswald;
+            font-weight: $font-light;
+            font-size: 30px;
+            background-image: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_arrowRight.svg);
+            background-position: right center;
+            background-repeat: no-repeat;
+            padding-right: 30px;
+            background-size: auto 50%;
+            text-decoration: none;
+        }
+    }
+}

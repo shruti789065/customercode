@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  |  Copyright 2015 Adobe Systems Incorporated
  |
@@ -13,28 +13,24 @@
  |  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
---><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.amenariniindustriefarmaceuticheriunite</groupId>
-    <artifactId>aem-amenariniindustriefarmaceuticheriunite-project</artifactId>
+    <groupId>com.adiacent</groupId>
+    <artifactId>menarini</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>A. MENARINI INDUSTRIEFARMACEUTICHE RIUNITE</name>
-    <description>A. MENARINI INDUSTRIEFARMACEUTICHE RIUNITE</description>
+    <version>1.0-SNAPSHOT</version>
+    <name>Menarini Adobe Cloud</name>
+    <description>Menarini Adobe Cloud</description>
 
     <modules>
-        <module>all</module>
-        <module>core</module>
-        <module>ui.frontend</module>
-         <module>ui.apps</module>
-        <module>ui.apps.structure</module>
-        <module>ui.config</module>
-        <module>ui.content</module>
-        <module>it.tests</module>
-        <module>dispatcher</module>
-        <module>ui.tests</module>
-  </modules>
+        <module>menarini-master-template</module>
+        <module>house-of-science</module>
+        <module>shared</module>
+    </modules>
 
     <properties>
         <aem.host>localhost</aem.host>
@@ -46,14 +42,15 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
+        <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
+        <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
         <core.wcm.components.version>2.19.0</core.wcm.components.version>
-
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2022.12.10488.20221222T085327Z-220900</aem.sdk.api>
-        <aemanalyser.version>1.4.10</aemanalyser.version>
-        <componentGroupName>A. MENARINI INDUSTRIEFARMACEUTICHE RIUNITE</componentGroupName>
+        <aem.sdk.api>2022.11.9850.20221116T162329Z-220900</aem.sdk.api>
+        <aemanalyser.version>1.4.2</aemanalyser.version>
+        <componentGroupName>Menarini Adobe Cloud</componentGroupName>
     </properties>
 
     <build>
@@ -126,8 +123,8 @@
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${frontend-maven-plugin.version}</version>
                     <configuration>
-                        <nodeVersion>v16.17.0</nodeVersion>
-                        <npmVersion>8.15.0</npmVersion>
+                        <nodeVersion>v12.22.7</nodeVersion>
+                        <npmVersion>6.14.0</npmVersion>
                     </configuration>
                     <executions>
                         <execution>
@@ -137,7 +134,7 @@
                             </goals>
                         </execution>
                         <execution>
-                            <id>npm ci</id>
+                            <id>npm install</id>
                             <goals>
                                 <goal>npm</goal>
                             </goals>
@@ -170,14 +167,11 @@
                             <configuration>
                                 <bnd><![CDATA[
 Bundle-Category: ${componentGroupName}
-
 # export all versioned packages except for conditional ones (https://github.com/bndtools/bnd/issues/3721#issuecomment-579026778)
 -exportcontents: ${removeall;${packages;VERSIONED};${packages;CONDITIONAL}}
-
 # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
 -noextraheaders: true
 -snapshot: SNAPSHOT
-
 Bundle-DocURL:
 -plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
 -plugin org.apache.sling.bnd.models.ModelsScannerPlugin
@@ -505,7 +499,9 @@ Bundle-DocURL:
                                         <goal>install</goal>
                                     </goals>
                                     <configuration>
-                                        <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+                                        <targetURL>
+                                            http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp
+                                        </targetURL>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -582,6 +578,12 @@ Bundle-DocURL:
                 <groupId>uk.org.lidalia</groupId>
                 <artifactId>slf4j-test</artifactId>
                 <version>1.0.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.9</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

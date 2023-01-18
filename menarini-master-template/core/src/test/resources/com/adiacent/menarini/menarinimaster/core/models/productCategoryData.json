@@ -1,0 +1,168 @@
+{
+  "jcr:primaryType": "sling:Folder",
+  "jcr:mixinTypes": [
+    "rep:AccessControllable"
+  ],
+  "jcr:createdBy": "admin",
+  "jcr:created": "Thu Jul 21 2022 09:19:24 GMT+0200",
+  "menarinimaster": {
+    "jcr:primaryType": "sling:Folder",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Menarini Master Template",
+    "jcr:created": "Mon Jul 25 2022 15:59:39 GMT+0200",
+    "settings": {
+      "jcr:primaryType": "sling:Folder",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Mon Jul 25 2022 15:59:39 GMT+0200",
+      "dam": {
+        "jcr:primaryType": "sling:Folder",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Jul 25 2022 15:59:39 GMT+0200",
+        "cfm": {
+          "jcr:primaryType": "cq:Page",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Mon Jul 25 2022 15:59:39 GMT+0200",
+          "models": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Jul 25 2022 15:59:39 GMT+0200",
+            "jcr:content": {
+              "jcr:primaryType": "nt:unstructured"
+            }
+          }
+        }
+      },
+      "wcm": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Jul 25 2022 15:59:39 GMT+0200",
+        "templates": {
+          "jcr:primaryType": "cq:Page",
+          "jcr:mixinTypes": [
+            "rep:AccessControllable"
+          ],
+          "jcr:createdBy": "admin",
+          "jcr:created": "Mon Jul 25 2022 15:59:39 GMT+0200",
+          "page-content": {
+            "jcr:primaryType": "cq:Template",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+            "thumbnail.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+              "jcr:content": {
+                "jcr:primaryType": "nt:resource",
+                "jcr:mixinTypes": [
+                  "dam:Thumbnails"
+                ],
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Mon Jul 25 2022 15:59:40 GMT+0200",
+                ":jcr:data": 2160,
+                "jcr:uuid": "b1fce678-1fa9-4c4d-a1d9-07f7be18941d"
+              }
+            },
+            "initial": {
+              "jcr:primaryType": "cq:Page",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+              "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:createdBy": "admin",
+                "cq:template": "/conf/menarinimaster/settings/wcm/templates/page-content",
+                "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/page"
+              }
+            },
+            "jcr:content": {
+              "jcr:primaryType": "cq:PageContent",
+              "jcr:createdBy": "admin",
+              "jcr:title": "Menarini MT - Country",
+              "status": "enabled",
+              "allowedPaths": [
+                "/content/menarinimaster"
+              ],
+              "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+              "cq:lastModified": "Mon Dec 02 2019 17:37:24 GMT+0100",
+              "jcr:description": "My Site Page Template",
+              "cq:templateType": "/conf/menarinimaster/settings/wcm/template-types/page",
+              "cq:lastModifiedBy": "admin"
+            }
+          },
+          "menarini---product-list-pharmaceutical": {
+            "jcr:primaryType": "cq:Template",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+            "thumbnail.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+              "jcr:content": {
+                "jcr:primaryType": "nt:resource",
+                "jcr:mixinTypes": [
+                  "dam:Thumbnails"
+                ],
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Mon Jul 25 2022 15:59:40 GMT+0200",
+                ":jcr:data": 2160,
+                "jcr:uuid": "64ba4246-e413-4455-b53b-1b358fd9319b"
+              }
+            },
+            "jcr:content": {
+              "jcr:primaryType": "cq:PageContent",
+              "jcr:createdBy": "admin",
+              "jcr:title": "Menarini MT - Product List Pharmaceutical",
+              "status": "enabled",
+              "allowedParents": [
+                "/conf/menarinimaster/settings/wcm/templates/menarini---product-category"
+              ],
+              "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+              "cq:lastModified": "Tue Jul 26 2022 17:55:06 GMT+0200",
+              "cq:templateType": "/conf/menarinimaster/settings/wcm/template-types/page",
+              "cq:lastModifiedBy": "admin"
+            }
+          },
+          "menarini---product-list-healthcare": {
+            "jcr:primaryType": "cq:Template",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+            "thumbnail.png": {
+              "jcr:primaryType": "nt:file",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+              "jcr:content": {
+                "jcr:primaryType": "nt:resource",
+                "jcr:mixinTypes": [
+                  "dam:Thumbnails"
+                ],
+                "jcr:lastModifiedBy": "admin",
+                "jcr:mimeType": "image/png",
+                "jcr:lastModified": "Mon Jul 25 2022 15:59:40 GMT+0200",
+                ":jcr:data": 2160,
+                "jcr:uuid": "3d02b278-9ca2-4f67-9b59-dc3508539e46"
+              }
+            },
+            "jcr:content": {
+              "jcr:primaryType": "cq:PageContent",
+              "jcr:createdBy": "admin",
+              "jcr:title": "Menarini MT - Product List Healthcare",
+              "status": "enabled",
+              "allowedParents": [
+                "/conf/menarinimaster/settings/wcm/templates/menarini---product-category"
+              ],
+              "jcr:created": "Mon Jul 25 2022 15:59:40 GMT+0200",
+              "cq:lastModified": "Tue Jul 26 2022 17:54:37 GMT+0200",
+              "allowedChildren": [
+                "/conf/menarinimaster/settings/wcm/templates/menarini---details-product"
+              ],
+              "cq:templateType": "/conf/menarinimaster/settings/wcm/template-types/page",
+              "cq:lastModifiedBy": "admin"
+            }
+          }
+        }
+      }
+    }
+  }
+}

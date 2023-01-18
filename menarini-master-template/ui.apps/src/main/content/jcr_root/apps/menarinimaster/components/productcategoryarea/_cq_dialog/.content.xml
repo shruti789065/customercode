@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Product Category Area"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            granite:class="cmp-teaser__editor cmp-image__editor"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <actions
+
+                    granite:hide="${cqDesign.actionsDisabled}"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                    composite="{Boolean}true"
+                    fieldDescription="Allows to specify category areas you want to display on the page"
+                    fieldLabel="Category area">
+                <field
+
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        name="./categoryareas">
+                    <items jcr:primaryType="nt:unstructured">
+                        <icon
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                required="{Boolean}true"
+                                rootPath="/content"
+                                fieldDescription="Category Area Icon"
+                                fieldLabel="Icon"
+                                name="./icon"/>
+                        <template
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Template"
+                                fieldDescription="Category Area Template"
+                                emptyText="Template"
+                                name="./template"
+                                required="{Boolean}true">
+                            <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="productCategoryArea/categoryServlet"/>
+                        </template>
+                        <label
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="LAbel"
+                                fieldDescription="Category Area LAbeò"
+                                emptyText="Label"
+                                name="./label"
+                                required="{Boolean}true"/>
+                    </items>
+                </field>
+            </actions>
+        </items>
+    </content>
+</jcr:root>

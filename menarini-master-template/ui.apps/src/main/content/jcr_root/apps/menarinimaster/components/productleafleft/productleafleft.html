@@ -1,0 +1,45 @@
+<!--/*
+    Copyright 2015 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+
+
+
+<sly data-sly-resource="${image}"/>
+<sly data-sly-resource="${linktext}"/>
+<sly data-sly-resource="${pdflink}"/>
+
+
+*/-->
+
+<div class="container responsivegrid cmp-product-leaflet">
+    <div id="container-85b2c5bb95" class="cmp-container">
+        <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+
+            <div class="image aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--6">
+                <div data-asset-id=""   class="cmp-image" itemscope="" itemtype="http://schema.org/ImageObject">
+                    <img srcset="" src="${properties.image}" loading="lazy" class="cmp-image__image" itemprop="contentUrl" alt="" title="">
+                    <meta itemprop="caption" content="">
+                </div>
+            </div>
+
+            <div class="button cmp-title--primary cmp-button--small aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--default--0">
+                <a class="cmp-button"   href="${properties.pdflink}">
+                    <span class="cmp-button__text">${properties.linktext}</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,231 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Thu Jun 30 2022 16:32:20 GMT+0200",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Content News Test",
+    "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---content-news",
+    "jcr:created": "Thu Jun 30 2022 16:32:20 GMT+0200",
+    "cq:lastModified": "Mon Jul 04 2022 10:16:35 GMT+0200",
+    "sling:resourceType": "menarinimaster/components/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "menarinimaster/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "internalheader": {
+          "jcr:primaryType": "nt:unstructured",
+          "altValueFromPageImage": "true",
+          "jcr:title": "News",
+          "imageFromPageImage": "false",
+          "fileReference": "/content/dam/menarinimaster/assets/logo_menarini_group.svg",
+          "videoFilePath": "/content/dam/menarinimaster/assets/video/Video_news1.mp4",
+          "titleFromPage": "false",
+          "alt": "News",
+          "sling:resourceType": "menarinimaster/components/internalheader",
+          "isDecorative": "false",
+          "textIsRich": "true",
+          "altValueFromDAM": "false"
+        },
+        "breadcrumb": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "menarinimaster/components/breadcrumb"
+        },
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "menarinimaster/components/container",
+          "title": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "menarinimaster/components/title"
+          },
+          "list": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "menarinimaster/components/list"
+          },
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri Jul 01 2022 16:53:36 GMT+0200",
+            "jcr:lastModified": "Fri Jul 01 2022 16:53:36 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container",
+            "cq:styleIds": [
+              "1655202404538"
+            ],
+            "banner": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:title": "Lorem ipsum",
+              "imageFromPageImage": "false",
+              "fileReference": "/content/dam/menarinimaster/assets/diagnostics_Content6Box.jpg",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Fri Jul 01 2022 16:49:48 GMT+0200",
+              "titleFromPage": "false",
+              "jcr:description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa urna, lacinia in nunc vel, consectetur varius justo. Praesent ac efficitur sapien.</p>\r\n",
+              "linkTarget": "_self",
+              "jcr:lastModified": "Fri Jul 01 2022 16:51:18 GMT+0200",
+              "descriptionFromPage": "false",
+              "sling:resourceType": "menarinimaster/components/banner",
+              "isDecorative": "true",
+              "textIsRich": "true",
+              "cq:styleIds": [
+                "1655107229265"
+              ],
+              "actions": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "link": "#",
+                  "text": "READ MORE",
+                  "linkTarget": "_self"
+                }
+              }
+            },
+            "news_card": {
+              "jcr:primaryType": "nt:unstructured",
+              "altValueFromPageImage": "true",
+              "jcr:createdBy": "admin",
+              "imageFromPageImage": "false",
+              "fileReference": "/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Mon Jul 04 2022 10:16:01 GMT+0200",
+              "titleFromPage": "true",
+              "linkTarget": "_self",
+              "jcr:lastModified": "Mon Jul 04 2022 10:16:35 GMT+0200",
+              "descriptionFromPage": "true",
+              "sling:resourceType": "menarinimaster/components/news_card",
+              "isDecorative": "true",
+              "textIsRich": "true",
+              "altValueFromDAM": "false",
+              "actions": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "link": "/content/menarinimaster/en/en/content-news-test/news-details-test",
+                  "text": "News Details Test",
+                  "linkTarget": "_self"
+                }
+              }
+            },
+            "news_card_due": {
+              "jcr:primaryType": "nt:unstructured",
+              "altValueFromPageImage": "true",
+              "jcr:createdBy": "admin",
+              "imageFromPageImage": "false",
+              "fileReference": "/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Mon Jul 04 2022 10:16:01 GMT+0200",
+              "titleFromPage": "true",
+              "date": "Fri Jul 29 2022 16:13:00 GMT+0200",
+              "linkTarget": "_self",
+              "jcr:lastModified": "Mon Jul 04 2022 10:16:35 GMT+0200",
+              "descriptionFromPage": "true",
+              "sling:resourceType": "menarinimaster/components/news_card",
+              "isDecorative": "true",
+              "textIsRich": "true",
+              "altValueFromDAM": "false"
+            }
+          }
+        }
+      }
+    }
+  },
+  "news-details-test": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Thu Jun 30 2022 16:32:20 GMT+0200",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:mixinTypes": [
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:title": "News Details Test",
+      "cq:lastReplicatedBy_publish": "admin",
+      "cq:lastReplicationAction": "Activate",
+      "jcr:versionHistory": "0a2c89c1-2bb2-4b17-b4a3-a0ab09644a86",
+      "pwaOrientation": "any",
+      "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---details-news",
+      "cq:lastReplicatedBy": "admin",
+      "cq:lastReplicationAction_publish": "Activate",
+      "jcr:predecessors": [
+        "feace71d-14ae-40ce-adb6-301363ee770f"
+      ],
+      "jcr:created": "Thu Jun 30 2022 16:32:20 GMT+0200",
+      "pwaDisplay": "standalone",
+      "cq:lastReplicated": "Mon Jul 04 2022 14:45:48 GMT+0200",
+      "jcr:description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec risus a odio porta lobortis. Vestibulum iaculis neque dolor, convallis aliquet nibh placerat at. Nam felis nunc, dignissim eu consequat non, porta eget felis. Aliquam erat volutpat. Sed commodo quis elit eu pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam euismod lorem tincidunt, vestibulum tellus suscipit, pretium urna.",
+      "pwaCachestrategy": "staleWhileRevalidate",
+      "jcr:baseVersion": "feace71d-14ae-40ce-adb6-301363ee770f",
+      "jcr:isCheckedOut": true,
+      "pageTitle": "News Detail",
+      "jcr:uuid": "357065c8-2038-4589-a50f-0ad27ee495b3",
+      "sling:resourceType": "menarinimaster/components/page",
+      "cq:lastReplicated_publish": "Mon Jul 04 2022 14:45:48 GMT+0200",
+      "root": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "menarinimaster/components/container",
+          "internalheader": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "menarinimaster/components/internalheader"
+          },
+          "breadcrumb": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "menarinimaster/components/breadcrumb"
+          },
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "layout": "responsiveGrid",
+            "sling:resourceType": "menarinimaster/components/container",
+            "internalmenu": {
+              "jcr:primaryType": "nt:unstructured",
+              "sling:resourceType": "menarinimaster/components/internalmenu",
+              "cq:responsive": {
+                "jcr:primaryType": "nt:unstructured",
+                "default": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "offset": "0",
+                  "width": "4"
+                }
+              }
+            },
+            "container": {
+              "jcr:primaryType": "nt:unstructured",
+              "layout": "responsiveGrid",
+              "sling:resourceType": "menarinimaster/components/container",
+              "news_data": {
+                "jcr:primaryType": "nt:unstructured",
+                "sling:resourceType": "menarinimaster/components/news_data",
+                "cq:responsive": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "default": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "offset": "0",
+                    "width": "8"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "cq:featuredimage": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "core/wcm/components/image/v3/image",
+        "altValueFromDAM": "false"
+      }
+    }
+  }
+}

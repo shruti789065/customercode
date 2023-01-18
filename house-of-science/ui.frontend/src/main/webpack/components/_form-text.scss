@@ -1,0 +1,39 @@
+
+.cmp-form-text {
+	display: flex;
+	flex-direction: column;
+	padding: 0 10px;
+	margin-bottom: 50px;
+	&[data-cmp-required-message]{
+		label{
+			&::after{
+				content: "*";
+				color: $black;
+			}
+		}
+	}
+
+	label {
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 10px;
+		font-size: 24px;
+	}
+
+	input {
+		height: 60px;
+	}
+
+	textarea {
+		min-height: 340px;
+	}
+
+	input,
+	textarea {
+		border: 0;
+		background-color: $color-background;
+	}
+}
+.cmp-form-text__help-block {}
+.cmp-form-text__textarea {}
+.cmp-form-text__text {}

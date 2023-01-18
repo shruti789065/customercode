@@ -1,0 +1,23 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "jcr:createdBy": "admin",
+  "jcr:lastModifiedBy": "admin",
+  "jcr:created": "Wed Jul 20 2022 11:25:22 GMT+0200",
+  "jcr:lastModified": "Wed Jul 20 2022 11:26:06 GMT+0200",
+  "sling:resourceType": "menarinimaster/components/productcategoryarea",
+  "categoryareas": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-healthcare",
+      "icon": "/content/dam/menarinimaster/assets/ico_health_productcategory.svg",
+      "label": "Health consumer"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-pharmaceutical",
+      "icon": "/content/dam/menarinimaster/assets/ico_pharma_productcategory.svg",
+      "label": "Pharmaceutical"
+    }
+  }
+}

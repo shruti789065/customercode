@@ -1,0 +1,58 @@
+//== Base
+* {
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+html,
+body {
+  margin: 0;
+  font-size: $font-size;
+  font-family: $font-family;
+  line-height: $font-height;
+  color: $color-foreground;
+  background: $color-background;
+}
+p {
+  font-family: $font-family;
+  font-weight: $medium;
+  font-style: normal;
+}
+
+a {
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+//BREAKPOINTS, COPIARE DOVE SERVE
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}

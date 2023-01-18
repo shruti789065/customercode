@@ -1,0 +1,48 @@
+.cmp-form{
+	.button{
+		text-align: center;
+		.cmp-form-button {
+			position: relative;
+			margin: 60px auto;
+			border: 0px;
+			background-color: $primary-color-three;
+			color: $white;
+			text-align: left;
+			font-size: 20px;
+			font-weight: bold;
+			letter-spacing: 0;
+			line-height: 30px;
+			max-width: 250px;
+			min-height: 77px;
+			padding-left: 20px;
+			padding-right: 20px;
+			cursor: pointer;
+			width: 100%;
+			&:hover {
+				transform: scale(1.02);
+			}
+			&::after{
+				content: "";
+				background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-book.svg');
+				width: 34px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				height: 34px;
+				right: 20px;
+				position: absolute;
+			}
+		}
+		@media (min-width: 576px) {
+			.cmp-form-button {
+				max-width: 350px;
+				font-size: 23px;
+				&::after{
+					width: 44px;
+					height: 44px;
+					transform: translateY(-10%);
+				}
+			}
+		}
+	}
+}

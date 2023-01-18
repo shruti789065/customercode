@@ -1,0 +1,20 @@
+<!--/* Placeholder Content
+   ============================================= */-->
+<img data-sly-test="${(wcmmode.edit || wcmmode.design) }" data-emptytext="Video" style="min-width: 450px" src="/libs/cq/ui/resources/0.gif" class="cq-placeholder" alt="video" />
+<div class="video--teaser">
+    <div class="video-container">
+        <video class="video" loop>
+            <source src="${properties.mediaLink}" type="video/mp4">
+        </video>
+        <div class="playpause"></div>
+    </div>
+    <sly data-sly-test="${properties.title || properties.description}">
+        <div class="content">
+            <h3 class="cmp-teaser__title">${properties.title}</h3>
+            <div class="cmp-teaser__description">
+                <p>${properties.description}</p>
+            </div>
+        </div>
+    </sly>
+
+</div>

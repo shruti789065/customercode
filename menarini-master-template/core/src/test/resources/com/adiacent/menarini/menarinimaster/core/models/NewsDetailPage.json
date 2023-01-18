@@ -1,0 +1,83 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Mon Jun 20 2022 16:07:34 GMT+0200",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:mixinTypes": [
+      "mix:versionable"
+    ],
+    "jcr:createdBy": "admin",
+    "jcr:title": "detail news",
+    "cq:lastReplicatedBy_publish": "admin",
+    "cq:lastReplicationAction": "Activate",
+    "jcr:versionHistory": "e683f951-4b02-4743-bd87-c7dac7bf4112",
+    "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---details-news",
+    "cq:lastReplicatedBy": "admin",
+    "cq:lastReplicationAction_publish": "Activate",
+    "jcr:predecessors": [
+      "142d6e91-6d2d-4cc2-a53f-c52bb206ac3c"
+    ],
+    "jcr:created": "Mon Jun 20 2022 16:07:34 GMT+0200",
+    "cq:lastReplicated": "Tue Jun 21 2022 14:11:19 GMT+0200",
+    "cq:lastModified": "Tue Jun 21 2022 12:30:55 GMT+0200",
+    "jcr:baseVersion": "142d6e91-6d2d-4cc2-a53f-c52bb206ac3c",
+    "jcr:isCheckedOut": true,
+    "jcr:uuid": "751941a6-24df-4c1e-b9d8-356e4eff97a4",
+    "sling:resourceType": "menarinimaster/components/page",
+    "cq:lastReplicated_publish": "Tue Jun 21 2022 14:11:19 GMT+0200",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "menarinimaster/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "internalheader": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Tue May 31 2022 10:33:18 GMT+0200",
+          "jcr:lastModified": "Tue May 31 2022 10:33:18 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/internalheader"
+        },
+        "breadcrumb": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Tue May 31 2022 10:33:26 GMT+0200",
+          "jcr:lastModified": "Tue May 31 2022 10:33:26 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/breadcrumb"
+        },
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "layout": "responsiveGrid",
+          "jcr:created": "Tue May 31 2022 10:33:45 GMT+0200",
+          "jcr:lastModified": "Tue May 31 2022 10:33:53 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/container",
+          "internalmenu": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Tue May 31 2022 10:34:05 GMT+0200",
+            "jcr:lastModified": "Tue May 31 2022 10:34:05 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/internalmenu"
+          },
+          "news_data": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Mon Jun 20 2022 16:10:24 GMT+0200",
+            "jcr:lastModified": "Tue Jun 21 2022 12:30:55 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/news_data",
+            "newsDate": "Wed Jun 22 2022 11:39:00 GMT+0200"
+          }
+        }
+      }
+    }
+  }
+}

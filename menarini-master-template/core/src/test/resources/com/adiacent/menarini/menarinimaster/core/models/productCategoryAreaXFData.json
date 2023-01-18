@@ -1,0 +1,48 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Mon Jul 25 2022 15:59:43 GMT+0200",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Product Category Area XF",
+    "cq:template": "/conf/menarinimaster/settings/wcm/templates/xf-web-variation",
+    "cq:xfMasterVariation": true,
+    "jcr:created": "Mon Jul 25 2022 15:59:43 GMT+0200",
+    "cq:lastModified": "Fri Jul 15 2022 09:59:05 GMT+0200",
+    "cq:xfVariantType": "web",
+    "cq:tags": [
+      "experience-fragments:variation/web"
+    ],
+    "sling:resourceType": "menarinimaster/components/xfpage",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "menarinimaster/components/container",
+      "productcategoryarea": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Fri Jul 15 2022 09:47:53 GMT+0200",
+        "jcr:lastModified": "Fri Jul 15 2022 09:59:05 GMT+0200",
+        "sling:resourceType": "menarinimaster/components/productcategoryarea",
+        "categoryareas": {
+          "jcr:primaryType": "nt:unstructured",
+          "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-healthcare",
+            "icon": "/content/dam/menarinimaster/assets/ico_health_productcategory.svg",
+            "label": "Consumer Healthcare"
+          },
+          "item1": {
+            "jcr:primaryType": "nt:unstructured",
+            "template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-pharmaceutical",
+            "icon": "/content/dam/menarinimaster/assets/ico_pharma_productcategory.svg",
+            "label": "Pharmaceuticals"
+          }
+        }
+      }
+    }
+  }
+}

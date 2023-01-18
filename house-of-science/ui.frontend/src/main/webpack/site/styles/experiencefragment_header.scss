@@ -1,0 +1,70 @@
+//== XF Header style, used on page template
+
+header.experiencefragment {
+	position: fixed;
+	z-index: 99;
+  .cmp-experiencefragment--header {
+    > .cmp-container {
+      height: 85px;
+    }
+  }
+
+  a {
+    color: $black;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $primary-color-three;
+    }
+  }
+
+  .navigation{
+	margin: auto;
+  }
+  .cmp-container--standard_width {
+    padding: 20px 20px 0;
+  }
+  .image {
+    position: relative;
+    bottom: 0;
+  }
+  .cmp-image {
+    text-align: center;
+  }
+  .cmp-image__image {
+    height: auto;
+    min-height: 60px;
+    max-width: 144px;
+    object-fit: contain;
+  }
+  .cmp-container > div {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+	height: 100%;
+  }
+
+  @media (min-width: 1200px) {
+    .navigation {
+		margin: 0;
+    }
+    .cmp-navigation {
+      display: block;
+    }
+  }
+  @media (min-width: 375px) {
+	.cmp-experiencefragment--header {
+		  > .cmp-container {
+			  height: 80px;
+			}
+		}
+  }
+
+  @media (min-width: 576px) {
+	  .cmp-experiencefragment--header {
+		  > .cmp-container {
+			  height: 115px;
+			}
+		}
+	}
+}

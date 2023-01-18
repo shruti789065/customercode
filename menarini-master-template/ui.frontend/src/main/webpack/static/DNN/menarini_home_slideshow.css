@@ -1,0 +1,114 @@
+/********* slideshow home page *********/
+
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding: 0px !important;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-container{
+    width: 100% !important;
+    max-height: calc(100vh - 40px) !important;
+    min-height: calc(100vh - 40px) !important;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-stage{
+    bottom: 0px;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-stage .galleria-image-nav .galleria-image-nav-left, 
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-stage .galleria-image-nav .galleria-image-nav-right{
+    width: 10%;
+    background-image: none;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: -moz-linear-gradient(top, rgba(20, 63, 89, 1) 0%, rgba(20, 63, 89,0.5) 50%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(20, 63, 89, 1) 0%,rgba(20, 63, 89,0.5) 50%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(20, 63, 89, 1) 0%,rgba(20, 63, 89,0.5) 50%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#143f59', endColorstr='#0000fff5',GradientType=0 ); /* IE6-9 */
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text{
+    width: 95%;
+    margin: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title h2{
+    color: #FFF;
+    font-style: normal;
+    font-size: 40px;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title h3{
+    color: #FFF;
+    font-style: normal;
+    margin-bottom: 8%;
+    font-size: 60px;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    line-height: 1.1;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title a.sliderReadMore{
+    background-color: #F5333F;
+    padding: 18px 35px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 17px;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title a.sliderReadMore:hover{
+    background-color: #D32D39;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-thumbnails-container .galleria-thumbnails .galleria-image{
+    border: 2px solid #ffffff;
+    background-image: none;
+    border-radius: 50%;
+    opacity: 1 !important;
+}
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-thumbnails-container .galleria-thumbnails .galleria-image.active{
+    background-color: #ffffff;
+    background-image: none;
+    opacity: 1 !important;
+}
+/* nasconde navigatore se solo uno slide */
+#dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-thumbnails-container .galleria-thumbnails .galleria-image:only-child {
+    display: none;
+}
+
+
+@media screen and (max-width: 992px) {
+    #dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title h2{
+        font-size: 3vw;
+    }
+    #dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title h3{
+        font-size: 5vw;
+    }
+    #dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title a.sliderReadMore{
+        padding: 10px 35px;
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 420px) {
+    #dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title h2{
+        font-size: 5vw;
+    }
+    #dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title h3{
+        font-size: 7vw;
+    }
+    #dnn_SliderPane .ModEasyDNNGalleryC .contentgalleria .galleria-info .galleria-info-text .galleria-info-title a.sliderReadMore{
+        padding: 8px 30px;
+        font-size: 12px;
+    }
+}

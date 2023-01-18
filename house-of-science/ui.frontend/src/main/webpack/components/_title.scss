@@ -1,0 +1,23 @@
+.cmp-title {
+}
+.cmp-title--border__left {
+}
+.cmp-title__text {
+  font-family: $font-family-Libre;
+  color: $black;
+  font-weight: bold;
+}
+.cmp-title--color {
+  &__white {
+	.cmp-title__text{
+		color: $white;
+	}
+  }
+  &__primary {
+	.cmp-title__text{
+		color: $primary-color-three;
+	}
+  }
+}
+.cmp-title__link {
+}

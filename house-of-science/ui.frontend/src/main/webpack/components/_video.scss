@@ -1,0 +1,152 @@
+.cmp-container--standard_width{
+    .video--teaser{
+        .playpause{
+            transform: translateY(-150%);
+        }
+    }
+}
+.video--teaser{
+    width: 100%;
+    position: relative;
+    .video{
+        width: 100%;
+        //position: absolute;
+    }
+    .playpause {
+        background-image:url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-play.svg');
+        background-repeat:no-repeat;
+        width:45px;
+        height:45px;
+        position:absolute;
+        left:0%;
+        right:0%;
+        top:0%;
+        bottom:0%;
+        margin:auto;
+        background-size:contain;
+        background-position: center;
+        transform: translateY(-206%);
+    }
+    .content{
+        text-align: center;
+        position: initial;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        z-index: 1;
+        color: $black;
+        text-transform: uppercase;
+        .cmp-teaser__title{
+            font-family: "Libre Baskerville";
+            font-size: 25px;
+            font-weight: 700;
+        }
+        .cmp-teaser__description p{
+            font-weight: 300;
+        }
+    }
+}
+
+// Small devices (smallphone, 576px and up)
+@media (min-width: 323px) {
+    .video--teaser{
+        .playpause {
+            transform: translateY(-180%);
+        }
+    }
+    .cmp-container--standard_width{
+        .video--teaser{
+            .playpause{
+                transform: translateY(-150%);
+            }
+        }
+    }
+}
+
+@media (min-width: 344px) {
+    .cmp-container--standard_width{
+        .video--teaser{
+            .playpause{
+                transform: translateY(-120%);
+            }
+        }
+    }
+}
+
+@media (min-width: 384px) {
+    .video--teaser{
+        .playpause {
+            transform: translateY(-150%);
+        }
+    }
+    .cmp-container--standard_width{
+        .video--teaser{
+            .playpause{
+                transform: translateY(-120%);
+            }
+        }
+    }
+}
+
+@media (min-width: 424px) {
+    .video--teaser{
+        .playpause {
+            transform: translateY(-120%);
+        }
+    }
+    .cmp-container--standard_width{
+        .video--teaser{
+            .playpause{
+                transform: translateY(-120%);
+            }
+        }
+    }
+}
+
+
+@media (min-width: 546px) {
+    .video--teaser{
+        .content{
+            .cmp-teaser__title{
+                font-size: 35px;
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 1200px) {
+    .video--teaser{
+        .video{
+            //position: absolute;
+            transition: .5s ease;
+        }
+        .playpause {
+            display: none;
+        }
+        .content{
+            position: absolute;
+            display:none;
+            color: $white;
+            .cmp-teaser__title{
+                font-size: 24px;
+            }
+        }
+        &:hover>{
+            .content{
+                opacity: 1;
+                display: flex;
+                background: rgba(0,0,0,.3);
+            }
+            .video{
+                opacity: 0.3;
+            }
+        } 
+    }
+}

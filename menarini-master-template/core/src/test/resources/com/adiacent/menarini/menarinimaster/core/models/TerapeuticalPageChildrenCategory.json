@@ -1,0 +1,1209 @@
+{
+	"jcr:primaryType": "cq:Page",
+	"jcr:createdBy": "admin",
+	"jcr:created": "Tue Jul 05 2022 16:51:09 GMT+0200",
+	"jcr:content": {
+		"jcr:primaryType": "cq:PageContent",
+		"jcr:createdBy": "admin",
+		"jcr:title": "en",
+		"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---homepage",
+		"jcr:created": "Tue Jul 05 2022 16:51:09 GMT+0200",
+		"siteName":"menarinimaster",
+		"sling:resourceType": "menarinimaster/components/page",
+		"root": {
+			"jcr:primaryType": "nt:unstructured",
+			"layout": "responsiveGrid",
+			"sling:resourceType": "menarinimaster/components/container",
+			"container": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"slideshow": {
+					"jcr:primaryType": "nt:unstructured",
+					"autopauseDisabled": "false",
+					"delay": "5000",
+					"sling:resourceType": "menarinimaster/components/slideshow",
+					"autoplay": "false",
+					"cq:styleIds": [
+						"1654598462270"
+					],
+					"actions": {
+						"jcr:primaryType": "nt:unstructured",
+						"item0": {
+							"jcr:primaryType": "nt:unstructured",
+							"link": "/content/menarinimaster/language-masters/it/about-us",
+							"text": "Read More",
+							"linkTarget": "_self"
+						}
+					},
+					"item_1653653527361": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:title": "In the Menarini Group ",
+						"imageFromPageImage": "false",
+						"fileReference": "/content/dam/menarinimaster/assets/slider_qualityprovette.jpg",
+						"cq:panelTitle": "Elem1",
+						"titleFromPage": "false",
+						"alt": "ski",
+						"title": "First Teaser Title",
+						"jcr:description": "<p>Quality comes first</p>\r\n",
+						"linkTarget": "_self",
+						"descriptionFromPage": "false",
+						"sling:resourceType": "menarinimaster/components/teaser",
+						"isDecorative": "false",
+						"textIsRich": "true",
+						"altValueFromDAM": "false",
+						"actions": {
+							"jcr:primaryType": "nt:unstructured",
+							"item0": {
+								"jcr:primaryType": "nt:unstructured",
+								"link": "/content/menarinimaster/language-masters/it/about-us",
+								"text": "Read More",
+								"linkTarget": "_self"
+							}
+						}
+					},
+					"item_1653653543341": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:title": "In the Menarini Group ",
+						"imageFromPageImage": "false",
+						"fileReference": "/content/dam/menarinimaster/assets/slide_breast_cancer.jpg",
+						"cq:panelTitle": "Elem2",
+						"titleFromPage": "false",
+						"alt": "beach",
+						"title": "Second Teaser Title",
+						"jcr:description": "<p>Quality comes first</p>\r\n",
+						"linkTarget": "_self",
+						"descriptionFromPage": "false",
+						"sling:resourceType": "menarinimaster/components/teaser",
+						"isDecorative": "false",
+						"textIsRich": "true",
+						"altValueFromDAM": "false",
+						"actions": {
+							"jcr:primaryType": "nt:unstructured",
+							"item0": {
+								"jcr:primaryType": "nt:unstructured",
+								"link": "/content/menarinimaster/language-masters/it/about-us",
+								"text": "Read More",
+								"linkTarget": "_self"
+							}
+						}
+					}
+				},
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"sling:resourceType": "menarinimaster/components/container",
+					"cq:styleIds": [
+						"1655202404538"
+					],
+					"title": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:title": "Explore our Areas",
+						"type": "h3",
+						"linkTarget": "_self",
+						"sling:resourceType": "menarinimaster/components/title"
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"cardhover": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:title": "Customer healthcare",
+							"imageFromPageImage": "false",
+							"fileReference": "/content/dam/menarinimaster/assets/diagnostics_Content6Box.jpg",
+							"titleFromPage": "false",
+							"alt": "caption 2",
+							"icon": "/content/dam/menarinimaster/assets/consumerhelthcare_homeicon.svg",
+							"linkURL": "#",
+							"jcr:description": "<p>quality &amp; innovation are the drivers of our customer healthcare acivities</p>\r\n",
+							"linkTarget": "_self",
+							"descriptionFromPage": "false",
+							"sling:resourceType": "menarinimaster/components/cardHover",
+							"isDecorative": "false",
+							"textIsRich": "true",
+							"altValueFromDAM": "false",
+							"cq:styleIds": [
+								"1654760922061",
+								"1654760974554"
+							],
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								}
+							}
+						},
+						"cardhover_689540263": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:title": "pharmaceuticals",
+							"imageFromPageImage": "false",
+							"fileReference": "/content/dam/menarinimaster/assets/consumerhelthcare_Content6Box.jpg",
+							"titleFromPage": "false",
+							"alt": "caption 3",
+							"icon": "/content/dam/menarinimaster/assets/pharmaceutical_homeicon.svg",
+							"linkURL": "#",
+							"jcr:description": "<p>quality comes first</p>\r\n",
+							"linkTarget": "_self",
+							"descriptionFromPage": "false",
+							"sling:resourceType": "menarinimaster/components/cardHover",
+							"isDecorative": "false",
+							"textIsRich": "true",
+							"altValueFromDAM": "false",
+							"cq:styleIds": [
+								"1654760917220",
+								"1654760980212"
+							],
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								}
+							}
+						},
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"layout": "responsiveGrid",
+							"sling:resourceType": "menarinimaster/components/container",
+							"cardhover_689540263_": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:title": "pharmaceuticals",
+								"imageFromPageImage": "false",
+								"fileReference": "/content/dam/menarinimaster/assets/consumerhelthcare_Content6Box.jpg",
+								"titleFromPage": "false",
+								"alt": "caption 3",
+								"icon": "/content/dam/menarinimaster/assets/pharmaceutical_homeicon.svg",
+								"linkURL": "#",
+								"jcr:description": "<p>quality comes first</p>\r\n",
+								"linkTarget": "_self",
+								"descriptionFromPage": "false",
+								"sling:resourceType": "menarinimaster/components/cardHover",
+								"isDecorative": "false",
+								"textIsRich": "true",
+								"altValueFromDAM": "false",
+								"cq:styleIds": [
+									"1654760980212",
+									"1654760922061"
+								],
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "6"
+									}
+								}
+							},
+							"cardhover_copy": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:title": "Customer healthcare",
+								"imageFromPageImage": "false",
+								"fileReference": "/content/dam/menarinimaster/assets/diagnostics_Content6Box.jpg",
+								"titleFromPage": "false",
+								"alt": "caption 2",
+								"icon": "/content/dam/menarinimaster/assets/consumerhelthcare_homeicon.svg",
+								"linkURL": "#",
+								"jcr:description": "<p>quality &amp; innovation are the drivers of our customer healthcare acivities</p>\r\n",
+								"linkTarget": "_self",
+								"descriptionFromPage": "false",
+								"sling:resourceType": "menarinimaster/components/cardHover",
+								"isDecorative": "false",
+								"textIsRich": "true",
+								"altValueFromDAM": "false",
+								"cq:styleIds": [
+									"1654760974554",
+									"1654760917220"
+								],
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "6"
+									}
+								}
+							}
+						}
+					},
+					"latestnews": {
+						"jcr:primaryType": "nt:unstructured",
+						"showModificationDate": "true",
+						"tagsMatch": "any",
+						"linkItems": "true",
+						"target": "_self",
+						"sortOrder": "asc",
+						"displayItemAsTeaser": "false",
+						"pages": [
+							"/content/menarinimaster/language-masters/it/news/address-book",
+							"/content/menarinimaster/language-masters/it/news/news-detail",
+							"/content/menarinimaster/language-masters/it/news/news-detail-3"
+						],
+						"showDescription": "true",
+						"sling:resourceType": "menarinimaster/components/latestNews",
+						"childDepth": "1",
+						"listFrom": "static"
+					}
+				}
+			}
+		}
+	},
+	"therapeutic-area": {
+		"jcr:primaryType": "cq:Page",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Tue Jul 05 2022 16:52:09 GMT+0200",
+		"jcr:content": {
+			"jcr:primaryType": "cq:PageContent",
+			"jcr:createdBy": "admin",
+			"jcr:title": "Therapeutic Area",
+			"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-area",
+			"jcr:created": "Tue Jul 05 2022 16:52:09 GMT+0200",
+			"cq:lastModified": "Tue Jul 05 2022 16:52:09 GMT+0200",
+			"sling:resourceType": "menarinimaster/components/page",
+			"cq:lastModifiedBy": "admin",
+			"root": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"internalheader": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Fri Jun 24 2022 16:44:30 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:44:30 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/internalheader"
+					},
+					"breadcrumb": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Fri Jun 24 2022 16:44:51 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:44:51 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/breadcrumb"
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"layout": "responsiveGrid",
+						"jcr:created": "Fri Jun 24 2022 16:45:10 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:58:46 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/container",
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:45:38 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:45:38 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title"
+						},
+						"text": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:58:28 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:58:28 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/text",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "7"
+								}
+							}
+						},
+						"image": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:58:36 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:58:36 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/image",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "5"
+								}
+							}
+						},
+						"productcategorylist": {
+							"jcr:primaryType": "nt:unstructured",
+							"showModificationDate": "false",
+							"jcr:createdBy": "admin",
+							"tagsMatch": "any",
+							"linkItems": "false",
+							"productArea": "all",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Mon Jun 27 2022 17:26:06 GMT+0200",
+							"sortOrder": "asc",
+							"displayItemAsTeaser": "true",
+							"showDescription": "false",
+							"jcr:lastModified": "Mon Jun 27 2022 17:26:20 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/productcategorylist",
+							"childDepth": "1",
+							"listFrom": "children"
+						}
+					}
+				}
+			}
+		},
+		"allergology": {
+			"jcr:primaryType": "cq:Page",
+			"jcr:createdBy": "admin",
+			"jcr:created": "Tue Jul 05 2022 16:52:48 GMT+0200",
+			"jcr:content": {
+				"jcr:primaryType": "cq:PageContent",
+				"jcr:createdBy": "admin",
+				"jcr:title": "Allergology",
+				"pwaOrientation": "any",
+				"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-category",
+				"jcr:created": "Tue Jul 05 2022 16:52:48 GMT+0200",
+				"pwaDisplay": "standalone",
+				"cq:lastModified": "Tue Jul 05 2022 17:01:09 GMT+0200",
+				"pwaCachestrategy": "staleWhileRevalidate",
+				"sling:resourceType": "menarinimaster/components/page",
+				"cq:lastModifiedBy": "admin",
+				"root": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"internalheader": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:03 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:03 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/internalheader"
+						},
+						"breadcrumb": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:10 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:10 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/breadcrumb"
+						},
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:24 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:24 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/container",
+							"title": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Thu Jun 30 2022 12:01:13 GMT+0200",
+								"jcr:lastModified": "Thu Jun 30 2022 12:01:13 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/title"
+							},
+							"productcategoryarea": {
+								"jcr:primaryType": "nt:unstructured",
+								"showModificationDate": "false",
+								"jcr:createdBy": "admin",
+								"tagsMatch": "any",
+								"linkItems": "false",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Thu Jun 30 2022 14:25:40 GMT+0200",
+								"sortOrder": "asc",
+								"displayItemAsTeaser": "false",
+								"showDescription": "false",
+								"jcr:lastModified": "Thu Jun 30 2022 14:26:15 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/productcategoryarea",
+								"childDepth": "1",
+								"listFrom": "children"
+							},
+							"image": {
+								"jcr:primaryType": "nt:unstructured",
+								"altValueFromPageImage": "true",
+								"jcr:createdBy": "admin",
+								"imageFromPageImage": "true",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Mon Jul 04 2022 15:53:09 GMT+0200",
+								"displayPopupTitle": "true",
+								"linkTarget": "_self",
+								"jcr:lastModified": "Mon Jul 04 2022 15:53:27 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/image",
+								"isDecorative": "false"
+							}
+						}
+					}
+				},
+				"cq:featuredimage": {
+					"jcr:primaryType": "nt:unstructured",
+					"fileReference": "/content/dam/menarinimaster/assets/slide_breast_cancer.jpg",
+					"jcr:lastModifiedBy": "admin",
+					"jcr:lastModified": "Tue Jul 05 2022 17:01:09 GMT+0200",
+					"sling:resourceType": "core/wcm/components/image/v3/image",
+					"altValueFromDAM": "false"
+				}
+			},
+			"healtcare1": {
+				"jcr:primaryType": "cq:Page",
+				"jcr:createdBy": "admin",
+				"jcr:created": "Tue Jul 05 2022 16:55:42 GMT+0200",
+				"jcr:content": {
+					"jcr:primaryType": "cq:PageContent",
+					"jcr:createdBy": "admin",
+					"jcr:title": "Healtcare1",
+					"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-healthcare",
+					"jcr:created": "Tue Jul 05 2022 16:55:42 GMT+0200",
+					"cq:lastModified": "Tue Jul 05 2022 16:55:42 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/page",
+					"cq:lastModifiedBy": "admin",
+					"root": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"layout": "responsiveGrid",
+							"sling:resourceType": "menarinimaster/components/container",
+							"internalheader": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/internalheader"
+							},
+							"breadcrumb": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/breadcrumb"
+							},
+							"container": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"layout": "responsiveGrid",
+								"jcr:created": "Tue Jul 05 2022 09:40:56 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:47:05 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/container",
+								"internalmenu": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/internalmenu",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "3"
+										}
+									}
+								},
+								"container": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"layout": "responsiveGrid",
+									"jcr:created": "Tue Jul 05 2022 10:09:23 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 10:09:36 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/container",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "9"
+										}
+									},
+									"title": {
+										"jcr:primaryType": "nt:unstructured",
+										"jcr:createdBy": "admin",
+										"jcr:lastModifiedBy": "admin",
+										"jcr:created": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"jcr:lastModified": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"sling:resourceType": "menarinimaster/components/title"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"andrology": {
+			"jcr:primaryType": "cq:Page",
+			"jcr:createdBy": "admin",
+			"jcr:created": "Tue Jul 05 2022 16:53:33 GMT+0200",
+			"jcr:content": {
+				"jcr:primaryType": "cq:PageContent",
+				"jcr:createdBy": "admin",
+				"jcr:title": "Andrology",
+				"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-category",
+				"jcr:created": "Tue Jul 05 2022 16:53:33 GMT+0200",
+				"cq:lastModified": "Tue Jul 05 2022 16:53:33 GMT+0200",
+				"sling:resourceType": "menarinimaster/components/page",
+				"cq:lastModifiedBy": "admin",
+				"root": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"internalheader": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:03 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:03 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/internalheader"
+						},
+						"breadcrumb": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:10 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:10 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/breadcrumb"
+						},
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:24 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:24 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/container",
+							"title": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Thu Jun 30 2022 12:01:13 GMT+0200",
+								"jcr:lastModified": "Thu Jun 30 2022 12:01:13 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/title"
+							},
+							"productcategoryarea": {
+								"jcr:primaryType": "nt:unstructured",
+								"showModificationDate": "false",
+								"jcr:createdBy": "admin",
+								"tagsMatch": "any",
+								"linkItems": "false",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Thu Jun 30 2022 14:25:40 GMT+0200",
+								"sortOrder": "asc",
+								"displayItemAsTeaser": "false",
+								"showDescription": "false",
+								"jcr:lastModified": "Thu Jun 30 2022 14:26:15 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/productcategoryarea",
+								"childDepth": "1",
+								"listFrom": "children"
+							},
+							"image": {
+								"jcr:primaryType": "nt:unstructured",
+								"altValueFromPageImage": "true",
+								"jcr:createdBy": "admin",
+								"imageFromPageImage": "true",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Mon Jul 04 2022 15:53:09 GMT+0200",
+								"displayPopupTitle": "true",
+								"linkTarget": "_self",
+								"jcr:lastModified": "Mon Jul 04 2022 15:53:27 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/image",
+								"isDecorative": "false"
+							}
+						}
+					}
+				}
+			},
+			"pharmaceutical": {
+				"jcr:primaryType": "cq:Page",
+				"jcr:createdBy": "admin",
+				"jcr:created": "Tue Jul 05 2022 16:56:50 GMT+0200",
+				"jcr:content": {
+					"jcr:primaryType": "cq:PageContent",
+					"jcr:createdBy": "admin",
+					"jcr:title": "Pharmaceutical",
+					"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-pharmaceutical",
+					"jcr:created": "Tue Jul 05 2022 16:56:50 GMT+0200",
+					"cq:lastModified": "Tue Jul 05 2022 16:56:50 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/page",
+					"cq:lastModifiedBy": "admin",
+					"root": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"layout": "responsiveGrid",
+							"sling:resourceType": "menarinimaster/components/container",
+							"internalheader": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/internalheader"
+							},
+							"breadcrumb": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/breadcrumb"
+							},
+							"container": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"layout": "responsiveGrid",
+								"jcr:created": "Tue Jul 05 2022 09:40:56 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:47:05 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/container",
+								"internalmenu": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/internalmenu",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "3"
+										}
+									}
+								},
+								"container": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"layout": "responsiveGrid",
+									"jcr:created": "Tue Jul 05 2022 10:09:23 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 10:09:36 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/container",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "9"
+										}
+									},
+									"title": {
+										"jcr:primaryType": "nt:unstructured",
+										"jcr:createdBy": "admin",
+										"jcr:lastModifiedBy": "admin",
+										"jcr:created": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"jcr:lastModified": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"sling:resourceType": "menarinimaster/components/title"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"anti-infective": {
+			"jcr:primaryType": "cq:Page",
+			"jcr:createdBy": "admin",
+			"jcr:created": "Tue Jul 05 2022 16:53:50 GMT+0200",
+			"jcr:content": {
+				"jcr:primaryType": "cq:PageContent",
+				"jcr:createdBy": "admin",
+				"jcr:title": "Anti-infective",
+				"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-category",
+				"jcr:created": "Tue Jul 05 2022 16:53:50 GMT+0200",
+				"cq:lastModified": "Tue Jul 05 2022 16:53:50 GMT+0200",
+				"sling:resourceType": "menarinimaster/components/page",
+				"cq:lastModifiedBy": "admin",
+				"root": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"internalheader": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:03 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:03 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/internalheader"
+						},
+						"breadcrumb": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:10 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:10 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/breadcrumb"
+						},
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jun 30 2022 12:00:24 GMT+0200",
+							"jcr:lastModified": "Thu Jun 30 2022 12:00:24 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/container",
+							"title": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Thu Jun 30 2022 12:01:13 GMT+0200",
+								"jcr:lastModified": "Thu Jun 30 2022 12:01:13 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/title"
+							},
+							"productcategoryarea": {
+								"jcr:primaryType": "nt:unstructured",
+								"showModificationDate": "false",
+								"jcr:createdBy": "admin",
+								"tagsMatch": "any",
+								"linkItems": "false",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Thu Jun 30 2022 14:25:40 GMT+0200",
+								"sortOrder": "asc",
+								"displayItemAsTeaser": "false",
+								"showDescription": "false",
+								"jcr:lastModified": "Thu Jun 30 2022 14:26:15 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/productcategoryarea",
+								"childDepth": "1",
+								"listFrom": "children"
+							},
+							"image": {
+								"jcr:primaryType": "nt:unstructured",
+								"altValueFromPageImage": "true",
+								"jcr:createdBy": "admin",
+								"imageFromPageImage": "true",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Mon Jul 04 2022 15:53:09 GMT+0200",
+								"displayPopupTitle": "true",
+								"linkTarget": "_self",
+								"jcr:lastModified": "Mon Jul 04 2022 15:53:27 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/image",
+								"isDecorative": "false"
+							}
+						}
+					}
+				}
+			},
+			"healthcare2": {
+				"jcr:primaryType": "cq:Page",
+				"jcr:createdBy": "admin",
+				"jcr:created": "Tue Jul 05 2022 16:57:17 GMT+0200",
+				"jcr:content": {
+					"jcr:primaryType": "cq:PageContent",
+					"jcr:createdBy": "admin",
+					"jcr:title": "Healthcare2",
+					"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-healthcare",
+					"jcr:created": "Tue Jul 05 2022 16:57:17 GMT+0200",
+					"cq:lastModified": "Tue Jul 05 2022 16:57:17 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/page",
+					"cq:lastModifiedBy": "admin",
+					"root": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"layout": "responsiveGrid",
+							"sling:resourceType": "menarinimaster/components/container",
+							"internalheader": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/internalheader"
+							},
+							"breadcrumb": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/breadcrumb"
+							},
+							"container": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"layout": "responsiveGrid",
+								"jcr:created": "Tue Jul 05 2022 09:40:56 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:47:05 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/container",
+								"internalmenu": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/internalmenu",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "3"
+										}
+									}
+								},
+								"container": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"layout": "responsiveGrid",
+									"jcr:created": "Tue Jul 05 2022 10:09:23 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 10:09:36 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/container",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "9"
+										}
+									},
+									"title": {
+										"jcr:primaryType": "nt:unstructured",
+										"jcr:createdBy": "admin",
+										"jcr:lastModifiedBy": "admin",
+										"jcr:created": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"jcr:lastModified": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"sling:resourceType": "menarinimaster/components/title"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"pharmaceutical2": {
+				"jcr:primaryType": "cq:Page",
+				"jcr:createdBy": "admin",
+				"jcr:created": "Tue Jul 05 2022 16:57:44 GMT+0200",
+				"jcr:content": {
+					"jcr:primaryType": "cq:PageContent",
+					"jcr:createdBy": "admin",
+					"jcr:title": "Pharmaceutical2",
+					"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-pharmaceutical",
+					"jcr:created": "Tue Jul 05 2022 16:57:44 GMT+0200",
+					"cq:lastModified": "Tue Jul 05 2022 16:57:44 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/page",
+					"cq:lastModifiedBy": "admin",
+					"root": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"layout": "responsiveGrid",
+							"sling:resourceType": "menarinimaster/components/container",
+							"internalheader": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:28 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/internalheader"
+							},
+							"breadcrumb": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:40:37 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/breadcrumb"
+							},
+							"container": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"layout": "responsiveGrid",
+								"jcr:created": "Tue Jul 05 2022 09:40:56 GMT+0200",
+								"jcr:lastModified": "Tue Jul 05 2022 09:47:05 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/container",
+								"internalmenu": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 09:41:34 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/internalmenu",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "3"
+										}
+									}
+								},
+								"container": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"layout": "responsiveGrid",
+									"jcr:created": "Tue Jul 05 2022 10:09:23 GMT+0200",
+									"jcr:lastModified": "Tue Jul 05 2022 10:09:36 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/container",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "9"
+										}
+									},
+									"title": {
+										"jcr:primaryType": "nt:unstructured",
+										"jcr:createdBy": "admin",
+										"jcr:lastModifiedBy": "admin",
+										"jcr:created": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"jcr:lastModified": "Tue Jul 05 2022 10:09:53 GMT+0200",
+										"sling:resourceType": "menarinimaster/components/title"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"healthcare-area": {
+		"jcr:primaryType": "cq:Page",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Tue Jul 05 2022 16:58:57 GMT+0200",
+		"jcr:content": {
+			"jcr:primaryType": "cq:PageContent",
+			"jcr:createdBy": "admin",
+			"jcr:title": "Healthcare area",
+			"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-area",
+			"jcr:created": "Tue Jul 05 2022 16:58:57 GMT+0200",
+			"cq:lastModified": "Tue Jul 05 2022 17:02:30 GMT+0200",
+			"sling:resourceType": "menarinimaster/components/page",
+			"cq:lastModifiedBy": "admin",
+			"root": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"internalheader": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Fri Jun 24 2022 16:44:30 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:44:30 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/internalheader"
+					},
+					"breadcrumb": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Fri Jun 24 2022 16:44:51 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:44:51 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/breadcrumb"
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"layout": "responsiveGrid",
+						"jcr:created": "Fri Jun 24 2022 16:45:10 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:58:46 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/container",
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:45:38 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:45:38 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title"
+						},
+						"text": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:58:28 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:58:28 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/text",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "7"
+								}
+							}
+						},
+						"image": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:58:36 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:58:36 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/image",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "5"
+								}
+							}
+						},
+						"productcategorylist": {
+							"jcr:primaryType": "nt:unstructured",
+							"showModificationDate": "false",
+							"jcr:createdBy": "admin",
+							"tagsMatch": "any",
+							"linkItems": "false",
+							"productArea": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-healthcare",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Mon Jun 27 2022 17:26:06 GMT+0200",
+							"parentPage": "/content/menarinimaster/en/en/therapeutic-area",
+							"sortOrder": "asc",
+							"displayItemAsTeaser": "true",
+							"showDescription": "false",
+							"jcr:lastModified": "Tue Jul 05 2022 17:02:30 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/productcategorylist",
+							"childDepth": "1",
+							"listFrom": "children"
+						}
+					}
+				}
+			}
+		}
+	},
+	"pharmaceutical-area": {
+		"jcr:primaryType": "cq:Page",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Tue Jul 05 2022 16:59:25 GMT+0200",
+		"jcr:content": {
+			"jcr:primaryType": "cq:PageContent",
+			"jcr:createdBy": "admin",
+			"jcr:title": "Pharmaceutical area",
+			"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-area",
+			"jcr:created": "Tue Jul 05 2022 16:59:25 GMT+0200",
+			"cq:lastModified": "Tue Jul 05 2022 17:16:39 GMT+0200",
+			"sling:resourceType": "menarinimaster/components/page",
+			"cq:lastModifiedBy": "admin",
+			"root": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"internalheader": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Fri Jun 24 2022 16:44:30 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:44:30 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/internalheader"
+					},
+					"breadcrumb": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Fri Jun 24 2022 16:44:51 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:44:51 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/breadcrumb"
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"layout": "responsiveGrid",
+						"jcr:created": "Fri Jun 24 2022 16:45:10 GMT+0200",
+						"jcr:lastModified": "Fri Jun 24 2022 16:58:46 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/container",
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:45:38 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:45:38 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title"
+						},
+						"text": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:58:28 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:58:28 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/text",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "7"
+								}
+							}
+						},
+						"image": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Jun 24 2022 16:58:36 GMT+0200",
+							"jcr:lastModified": "Fri Jun 24 2022 16:58:36 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/image",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "5"
+								}
+							}
+						},
+						"productcategorylist": {
+							"jcr:primaryType": "nt:unstructured",
+							"showModificationDate": "false",
+							"jcr:createdBy": "admin",
+							"tagsMatch": "any",
+							"linkItems": "false",
+							"productArea": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-pharmaceutical",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Mon Jun 27 2022 17:26:06 GMT+0200",
+							"parentPage": "/content/menarinimaster/en/en/therapeutic-area",
+							"sortOrder": "asc",
+							"displayItemAsTeaser": "true",
+							"showDescription": "false",
+							"jcr:lastModified": "Tue Jul 05 2022 17:16:39 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/productcategorylist",
+							"childDepth": "1",
+							"listFrom": "children"
+						}
+					}
+				}
+			}
+		}
+	}
+}
