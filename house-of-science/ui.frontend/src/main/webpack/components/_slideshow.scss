@@ -1,0 +1,337 @@
+.carousel-indicators {
+	bottom: 6%;
+	top: inherit;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+	flex-wrap: nowrap;
+	-webkit-flex-wrap: nowrap;
+}
+.carousel-indicators .button_container {
+	padding: 0 28px;
+	margin-top: 10px;
+	text-align: left;
+	width: 100%;
+}
+.button_container:has(.slidebutton:not(.active)) {
+	display:none;
+}
+.carousel-indicators .button_container button {
+	width: 100%;
+}
+.carousel-indicators .button_container div.title {
+	font-family: $font-family-Libre;
+	font-size: 10px;
+	line-height: 14px;
+	font-weight: $bold;
+	color: #FFF;
+	margin-top: 8px;margin-top: 8px;
+}
+.carousel-indicators .button_container div.subtitle {
+	font-family: $font-family-Libre;
+	font-size: 10px;
+	line-height: 14px;
+	font-weight: 400;
+	color: #FFF;
+}
+.carousel-control-prev,
+.carousel-control-next {
+	display: none;
+}
+.carousel-inner{
+	height:350px;
+}
+.carousel-inner .carousel-item{
+	height: 100%;
+}
+.carousel-inner .carousel-item .testo {
+	position: absolute;
+	bottom: inherit;
+	top: 20%;
+	left: 28px;
+}
+.carousel-inner .carousel-item .testo .titolo {
+	font-family: 'Montserrat';
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: $bold;
+	color: #FFF;
+}
+.carousel-inner .carousel-item .testo .sottotitolo {
+	font-family: 'Montserrat';
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 300;
+	color: #FFF;
+	margin-bottom: 10px;
+}
+.carousel-inner .carousel-item .contenitore_bottoni {
+	float: left;
+	margin-bottom: 30px;
+}
+.carousel-inner .carousel-item .contenitore_bottoni div.button {
+	float: left;
+	margin-left: 0px;
+	clear: both;
+	margin-bottom:10px;
+}
+.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button{
+	min-width: 160px;
+	padding-left:10px;
+	padding-right:10px;
+	height: 36px;
+}
+.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__icon{
+	
+}
+.carousel-inner .carousel-item .contenitore_bottoni div.button:first-child {
+	margin-left: 0px;
+}
+.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__text{
+	font-size: 10px;
+	line-height: 14px;
+}
+.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__icon{
+	height:30px;
+	width:30px;
+}
+.carousel {
+	cursor: pointer;
+}
+.slidebutton {
+	.progress {
+		background-color: rgba(255, 255, 255, 0.5);
+		height: 3px;
+		width: 100%;
+	}
+	&.active {
+		.progress-value {
+			animation-name: load;
+			animation-direction: normal;
+			background-color: $primary-color-three;
+			height: 3px;
+			width: 0%;
+		}
+	}
+}
+@keyframes load {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}
+.carousel-inner video{
+	height:100%;
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+	.button_container:has(.slidebutton:not(.active)) {
+		display:none;
+	}
+	.carousel-indicators .button_container div.title {
+		font-size: 10px;
+		line-height: 14px;
+	}
+	.carousel-indicators .button_container div.subtitle {
+		font-size: 10px;
+		line-height: 14px;
+	}
+	.carousel-inner .carousel-item .testo {
+		bottom: inherit;
+		top: 20%;
+	}
+	.carousel-inner .carousel-item .testo .titolo {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	.carousel-inner .carousel-item .testo .sottotitolo {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni div.button {
+		margin-left: 0px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni div.button:first-child {
+		margin-left: 0px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__text{
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button{
+		height: 60px;
+		min-width:180px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__icon{
+		display:block;
+		height:30px;
+		width:30px;
+	}
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+	.carousel-indicators {
+		bottom: inherit;
+		top: 0;
+	}
+	.carousel-indicators .button_container {
+		margin-top: 40px;
+	}
+	.button_container:has(.slidebutton:not(.active)) {
+		display:block;
+	}
+	.carousel-indicators .button_container div.title {
+		font-size: 12px;
+		line-height: 16px;
+		margin-top: 24px;
+	}
+	.carousel-indicators .button_container div.subtitle {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	.carousel-inner{
+		height:inherit;
+	}
+	.carousel-inner .carousel-item{
+		height: inherit;
+	}
+	.carousel-inner .carousel-item .testo {
+		bottom: 0%;
+		top:inherit;
+	}
+	.carousel-inner .carousel-item .testo .titolo {
+		font-size: 20px;
+		line-height: 30px;
+	}
+	.carousel-inner .carousel-item .testo .sottotitolo {
+		font-size: 20px;
+		line-height: 30px;
+		margin-bottom: 28px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button{
+		min-width: 280px;
+		padding-left:20px;
+		padding-right:20px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni div.button {
+		height: 58px;
+		clear: none;
+		margin-left:20px;
+		margin-bottom:0px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni div.button:first-child {
+		margin-left: 0px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__text{
+		font-size: 20px;
+		line-height: 30px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button{
+		height: 60px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__icon{
+		height:40px;
+		width:40px;
+	}
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+	.carousel-indicators .button_container div.title {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.carousel-indicators .button_container div.subtitle {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.carousel-inner .carousel-item .testo {
+		bottom: 15%;
+	}
+	.carousel-inner .carousel-item .testo .titolo {
+		font-size: 24px;
+		line-height: 34px;
+	}
+	.carousel-inner .carousel-item .testo .sottotitolo {
+		font-size: 24px;
+		line-height: 34px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button{
+		height: 60px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni div.button:first-child {
+		margin-left: 0px;
+	}
+}
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+	.carousel-indicators .button_container div.title {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.carousel-indicators .button_container div.subtitle {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.carousel-inner .carousel-item .testo .titolo {
+		font-size: 24px;
+		line-height: 34px;
+	}
+	.carousel-inner .carousel-item .testo .sottotitolo {
+		font-size: 24px;
+		line-height: 34px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button{
+		height: 60px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni div.button:first-child {
+		margin-left: 0px;
+	}
+}
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+	.carousel-indicators .button_container div.title {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.carousel-indicators .button_container div.subtitle {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.carousel-inner .carousel-item .testo .titolo {
+		font-size: 24px;
+		line-height: 34px;
+	}
+	.carousel-inner .carousel-item .testo .sottotitolo {
+		font-size: 24px;
+		line-height: 34px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button{
+		height: 60px;
+	}
+	.carousel-inner .carousel-item .contenitore_bottoni div.button:first-child {
+		margin-left: 0px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

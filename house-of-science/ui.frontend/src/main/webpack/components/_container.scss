@@ -1,13 +1,7 @@
 main.container{
 	padding-top: 85px;
 }
-.cmp-container--standard_width.cmp-container--card--padding.cq-Editable-dom--container{
-    .cmp-container{
-        .aem-Grid{
-            display: block;
-        }
-    }
-}
+
 .container{
 	max-width: 100%;
 	padding: 0;
@@ -16,6 +10,18 @@ main.container{
 	margin: 0 auto;
 	float: inherit !important;
 	padding: 0 20px;
+	
+}
+
+
+.cmp-container .aem-Grid:has(.teaser.card.cq-Editable-dom) {
+    display: block;
+}
+.cmp-container_card-padding{
+	display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 
@@ -34,12 +40,6 @@ main.container{
 	main.container{
 		padding-top: 115px;
 	}
-    .cmp-container--standard_width.cmp-container--card--padding{
-        .cmp-container .aem-Grid{
-            display: flex;
-            gap: 10px;
-        }
-    }
 }
 
 // Large devices (desktops, 992px and up)
@@ -54,6 +54,9 @@ main.container{
 	
 	.container.cmp-container--standard_width {
 		max-width: 1140px;
+	}
+	.cmp-container_card-padding{
+		flex-wrap: nowrap;
 	}
 }
 

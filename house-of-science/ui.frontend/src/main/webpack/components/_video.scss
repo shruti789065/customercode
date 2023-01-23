@@ -1,12 +1,13 @@
 .cmp-container--standard_width{
     .video--teaser{
         .playpause{
-            transform: translateY(-150%);
+            transform: translateY(-225%);
         }
     }
 }
 .video--teaser{
     width: 100%;
+    margin: 55px auto;
     position: relative;
     .video{
         width: 100%;
@@ -63,7 +64,7 @@
     .cmp-container--standard_width{
         .video--teaser{
             .playpause{
-                transform: translateY(-150%);
+                transform: translateY(-230%);
             }
         }
     }
@@ -73,7 +74,7 @@
     .cmp-container--standard_width{
         .video--teaser{
             .playpause{
-                transform: translateY(-120%);
+                transform: translateY(-170%);
             }
         }
     }
@@ -88,7 +89,7 @@
     .cmp-container--standard_width{
         .video--teaser{
             .playpause{
-                transform: translateY(-120%);
+                transform: translateY(-175%);
             }
         }
     }
@@ -103,7 +104,7 @@
     .cmp-container--standard_width{
         .video--teaser{
             .playpause{
-                transform: translateY(-120%);
+                transform: translateY(-150%);
             }
         }
     }
@@ -123,6 +124,7 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 1200px) {
     .video--teaser{
+        width: 70%;
         .video{
             //position: absolute;
             transition: .5s ease;

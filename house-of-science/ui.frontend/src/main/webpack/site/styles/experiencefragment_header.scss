@@ -3,6 +3,11 @@
 header.experiencefragment {
 	position: fixed;
 	z-index: 99;
+	&.cq-Editable-dom{
+		position:relative;
+		margin-bottom: 50px;
+
+	}
   .cmp-experiencefragment--header {
     > .cmp-container {
       height: 85px;
@@ -27,6 +32,7 @@ header.experiencefragment {
   .image {
     position: relative;
     bottom: 0;
+    top: 15px;
   }
   .cmp-image {
     text-align: center;
@@ -40,7 +46,7 @@ header.experiencefragment {
   .cmp-container > div {
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 	height: 100%;
   }
 
@@ -50,6 +56,12 @@ header.experiencefragment {
     }
     .cmp-navigation {
       display: block;
+    }
+    .cmp-container > div {
+      align-items: flex-end;
+    }
+    .image {
+      top: 45px;
     }
   }
   @media (min-width: 375px) {

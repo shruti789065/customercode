@@ -1,53 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-01-09T14:25:24.097+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/mhos/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="who we are"
         sling:resourceType="mhos/components/page">
         <root
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="mhos/components/container"
-            layout="responsiveGrid">
-            <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="mhos/components/container"
                 layout="responsiveGrid">
-                <container
+            <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="mhos/components/container"
                     layout="responsiveGrid">
-                    <container
-                        jcr:created="{Date}2023-01-03T17:47:11.898+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2023-01-03T17:47:34.234+01:00"
-                        jcr:lastModifiedBy="admin"
+                <container
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="mhos/components/container"
                         layout="responsiveGrid">
-                        <internal_header
-                            jcr:created="{Date}2023-01-09T14:24:28.817+01:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2023-01-09T14:24:28.817+01:00"
-                            jcr:lastModifiedBy="admin"
+                    <container
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="mhos/components/internal-header">
-                            <internal_header_back
-                                jcr:created="{Date}2023-01-05T14:31:16.109+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2023-01-05T16:21:24.461+01:00"
-                                jcr:lastModifiedBy="admin"
+                            sling:resourceType="mhos/components/container"
+                            layout="responsiveGrid">
+                        <internal_header
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/internal-header-background-image"
-                                backgroundImageReference="/content/dam/mhos/background-placeholder-2.jpg">
+                                sling:resourceType="mhos/components/internal-header">
+                            <internal_header_back
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/internal-header-background-image"
+                                    backgroundImageReference="/content/dam/mhos/background-placeholder-2.jpg">
                                 <image
-                                    jcr:lastModified="{Date}2023-01-05T14:32:12.692+01:00"
-                                    jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="mhos/components/image"
+                                    disableLazyLoading="false"
                                     displayPopupTitle="true"
                                     fileReference="/content/dam/mhos/macchina-da-scrivere.png"
                                     imageFromPageImage="false"
@@ -55,15 +41,18 @@
                                     linkTarget="_self"
                                     titleValueFromDAM="true"/>
                                 <title
-                                    jcr:lastModified="{Date}2023-01-09T14:25:24.093+01:00"
-                                    jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
                                     jcr:title="WHO WE ARE"
                                     sling:resourceType="mhos/components/title"
-                                    type="h1"/>
+                                    type="h1">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="11"/>
+                                    </cq:responsive>
+                                </title>
                                 <text
-                                    jcr:lastModified="{Date}2023-01-05T14:33:05.028+01:00"
-                                    jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="mhos/components/text"
                                     text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lacus rutrum, lobortis neque et, feugiat libero. Nullam tempor vehicula nisl, at euismod lorem aliquam sed. Etiam consectetur eros vitae risus finibus, ac luctus arcu.&lt;/p>&#xd;&#xa;"
@@ -71,9 +60,51 @@
                             </internal_header_back>
                         </internal_header>
                     </container>
+                    <container_317422360
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/container">
+                        <container
+                                cq:styleIds="[1670947509108]"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/container"
+                                layout="responsiveGrid">
+                            <video
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/video"
+                                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales. "
+                                mediaLink="https://auditoriumfondazionemenarini.com/video/videoMelani.mp4"
+                                title="house of sciences"/>
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="OUR PURPOSE"
+                                sling:resourceType="mhos/components/title"
+                                type="h2"/>
+                            <separator
+                                    cq:styleIds="[1672664491569]"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/separator">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="2"/>
+                                    <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="3"
+                                            width="6"/>
+                                </cq:responsive>
+                            </separator>
+                            <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/text"
+                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales. Cras finibus nulla id pharetra sollicitudin. Integer eget tellus mi. Duis eros mauris, pellentesque quis accumsan in, efficitur et diam. In eget bibendum velit, sit amet ultricies lacus. Donec posuere tellus et est elementum, sed accumsan dui imperdiet. Morbi suscipit, neque eu pulvinar mattis, justo diam laoreet dui, ut venenatis ipsum risus consequat lectus. Vivamus eleifend est placerat, pulvinar est et, eleifend sapien. Cras aliquet ligula quis neque cursus vehicula cursus vel neque. Donec convallis urna ac mollis mattis.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
+                        </container>
+                    </container_317422360>
                 </container>
             </container>
         </root>
     </jcr:content>
     <contact-us/>
+    <fondazione-projects/>
 </jcr:root>
