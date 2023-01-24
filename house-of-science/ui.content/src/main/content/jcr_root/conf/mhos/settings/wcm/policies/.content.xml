@@ -317,7 +317,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Detail "
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/libs/core/wcm/components/form/container/v2/container,group:Core Form,/apps/mhos/components/detail-breadcrumb,/apps/mhos/components/accordion,/apps/mhos/components/breadcrumb,/apps/mhos/components/button,/apps/mhos/components/carousel,/apps/mhos/components/container,/apps/mhos/components/download,/apps/mhos/components/embed,/apps/mhos/components/experiencefragment,/apps/mhos/components/detail-container,/apps/mhos/components/image,/apps/mhos/components/internal-header,/apps/mhos/components/list,/apps/mhos/components/pdfviewer,/apps/mhos/components/progressbar,/apps/mhos/components/separator,/apps/mhos/components/tabs,/apps/mhos/components/teaser,/apps/mhos/components/text,/apps/mhos/components/title,/apps/mhos/components/video,/apps/mhos/components/card-hover-container,/apps/mhos/components/carousel-dialog-container]"
+                    components="[/libs/core/wcm/components/form/container/v2/container,group:Core Form,/apps/mhos/components/detail-breadcrumb,/apps/mhos/components/accordion,/apps/mhos/components/breadcrumb,/apps/mhos/components/button,/apps/mhos/components/dialog-card-container,/apps/mhos/components/card-hover-container,/apps/mhos/components/carousel,/apps/mhos/components/container,/apps/mhos/components/carousel-dialog-container,/apps/mhos/components/download,/apps/mhos/components/embed,/apps/mhos/components/experiencefragment,/apps/mhos/components/detail-container,/apps/mhos/components/image,/apps/mhos/components/internal-header,/apps/mhos/components/list,/apps/mhos/components/pdfviewer,/apps/mhos/components/progressbar,/apps/mhos/components/separator,/apps/mhos/components/tabs,/apps/mhos/components/teaser,/apps/mhos/components/text,/apps/mhos/components/title,/apps/mhos/components/video]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -606,6 +606,17 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1674227260298>
             </carousel-dialog-container>
+            <card-hover-container jcr:primaryType="nt:unstructured">
+                <policy_1674552948816
+                    jcr:lastModified="{Date}2023-01-24T10:36:08.507+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="card hover policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/mhos/components/teaser">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1674552948816>
+            </card-hover-container>
         </components>
     </mhos>
 </jcr:root>
