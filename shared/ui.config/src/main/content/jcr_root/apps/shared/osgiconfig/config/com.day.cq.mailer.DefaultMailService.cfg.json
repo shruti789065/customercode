@@ -1,7 +1,7 @@
 {
   "smtp.host": "$[env:AEM_PROXY_HOST;default=proxy.tunnel]",
-  "smtp.port": "25",
-  "smtp.user": "$[env:EMAIL_USERNAME;default=myApiKey]",
+  "smtp.port": "30710",
+  "smtp.user": "$[env:EMAIL_USERNAME;default=menarinismtp]",
   "smtp.password": "$[secret:EMAIL_PASSWORD]",
   "from.address": "webmaster@menarini.it",
   "smtp.ssl": false,
