@@ -1,7 +1,7 @@
 <!--/* Placeholder Content
    ============================================= */-->
 <img data-sly-test="${(wcmmode.edit || wcmmode.design) }" data-emptytext="Video" style="min-width: 450px" src="/libs/cq/ui/resources/0.gif" class="cq-placeholder" alt="video" />
-<div class="video--teaser">
+<div class="video--teaser" data-sly-test="${!wcmmode.edit && !wcmmode.preview}">
     <div class="video-container">
         <video class="video" loop>
             <source src="${properties.mediaLink}" type="video/mp4">
