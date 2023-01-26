@@ -26,4 +26,4 @@ jQuery(function ($) {
         }
 
     
-})
+}) 
