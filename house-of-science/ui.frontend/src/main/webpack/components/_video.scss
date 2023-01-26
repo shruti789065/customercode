@@ -1,17 +1,15 @@
-.cmp-container--standard_width{
-    .video--teaser{
-        .playpause{
-            transform: translateY(-225%);
-        }
-    }
-}
 .video--teaser{
     width: 100%;
     margin: 55px auto;
     position: relative;
+    .video-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .video{
         width: 100%;
-        //position: absolute;
     }
     .playpause {
         background-image:url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-play.svg');
@@ -26,7 +24,6 @@
         margin:auto;
         background-size:contain;
         background-position: center;
-        transform: translateY(-206%);
     }
     .content{
         text-align: center;
@@ -43,6 +40,7 @@
         z-index: 1;
         color: $black;
         text-transform: uppercase;
+        padding: 5%;
         .cmp-teaser__title{
             font-family: "Libre Baskerville";
             font-size: 25px;
@@ -54,63 +52,6 @@
     }
 }
 
-// Small devices (smallphone, 576px and up)
-@media (min-width: 323px) {
-    .video--teaser{
-        .playpause {
-            transform: translateY(-180%);
-        }
-    }
-    .cmp-container--standard_width{
-        .video--teaser{
-            .playpause{
-                transform: translateY(-230%);
-            }
-        }
-    }
-}
-
-@media (min-width: 344px) {
-    .cmp-container--standard_width{
-        .video--teaser{
-            .playpause{
-                transform: translateY(-170%);
-            }
-        }
-    }
-}
-
-@media (min-width: 384px) {
-    .video--teaser{
-        .playpause {
-            transform: translateY(-150%);
-        }
-    }
-    .cmp-container--standard_width{
-        .video--teaser{
-            .playpause{
-                transform: translateY(-175%);
-            }
-        }
-    }
-}
-
-@media (min-width: 424px) {
-    .video--teaser{
-        .playpause {
-            transform: translateY(-120%);
-        }
-    }
-    .cmp-container--standard_width{
-        .video--teaser{
-            .playpause{
-                transform: translateY(-150%);
-            }
-        }
-    }
-}
-
-
 @media (min-width: 546px) {
     .video--teaser{
         .content{
@@ -121,12 +62,10 @@
     }
 }
 
-// Large devices (desktops, 992px and up)
 @media (min-width: 1200px) {
     .video--teaser{
         width: 70%;
         .video{
-            //position: absolute;
             transition: .5s ease;
         }
         .playpause {
