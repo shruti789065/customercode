@@ -75,6 +75,18 @@
                                 .cmp-teaser__description {
                                     font-size: 20px;
                                 }
+                            }                            
+
+                        }
+                        @media (max-width: 768px) {
+                            .cmp-teaser__content {
+                                opacity: 1;
+                                .cmp-teaser__title {
+                                    font-size: 30px;
+                                }
+                                .cmp-teaser__description {
+                                    font-size: 20px;
+                                }
                             }
                         }
     
@@ -111,6 +123,7 @@
             }
         }
 }
+
 @media (min-width: 992px) {
     .dialogCarousel{   
             .cmp-container {    
