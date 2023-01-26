@@ -23,7 +23,7 @@
     <!-- ====================================================================== -->
     <parent>
         <groupId>com.adiacent.menarini</groupId>
-        <artifactId>shared</artifactId>
+        <artifactId>com-menarini</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -31,10 +31,10 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>shared.all</artifactId>
+    <artifactId>com-menarini.all</artifactId>
     <packaging>content-package</packaging>
-    <name>Menarini Shared code - All</name>
-    <description>All content package for shared code</description>
+    <name>Menarini Common code - All</name>
+    <description>All content package for common code</description>
 
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
@@ -56,9 +56,9 @@
                     <embeddeds>
                         <embedded>
                             <groupId>com.adiacent.menarini</groupId>
-                            <artifactId>shared.ui.config</artifactId>
+                            <artifactId>com-menarini.ui.config</artifactId>
                             <type>zip</type>
-                            <target>/apps/shared-packages/application/install</target>
+                            <target>/apps/com-menarini-packages/application/install</target>
                         </embedded>
                     </embeddeds>
                 </configuration>
@@ -162,7 +162,7 @@
     <dependencies>
         <dependency>
             <groupId>com.adiacent.menarini</groupId>
-            <artifactId>shared.ui.config</artifactId>
+            <artifactId>com-menarini.ui.config</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
