@@ -132,21 +132,16 @@
                                         width="2"/>
                                 <phone
                                         jcr:primaryType="nt:unstructured"
-                                        offset="3"
-                                        width="5"/>
+                                        offset="4"
+                                        width="4"/>
                             </cq:responsive>
                         </separator>
                         <text
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="mhos/components/text"
-                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&lt;/p>&#xd;&#xa;"
-                                textIsRich="true">
+                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"                                textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="1"
-                                        width="10"/>
-                                <phone
                                         jcr:primaryType="nt:unstructured"
                                         offset="1"
                                         width="10"/>
