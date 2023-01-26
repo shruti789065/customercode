@@ -466,6 +466,30 @@
                         </item0>
                     </cq:styleGroups>
                 </policy_1575031387650>
+                <policy_1674738412222
+                    jcr:lastModified="{Date}2023-01-26T14:08:07.951+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="dialog container teaser policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Dialog Conatiner Card"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="dialogCarousel__item"
+                                    cq:styleId="1674738460725"
+                                    cq:styleLabel="Dialog Card"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1674738412222>
             </teaser>
             <download jcr:primaryType="nt:unstructured">
                 <policy_1575032193319
@@ -622,7 +646,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="dialog container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="/apps/mhos/components/carousel-dialog-container-item"
+                    components="/apps/mhos/components/teaser"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1674227260298>
