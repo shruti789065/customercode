@@ -35,6 +35,8 @@
                 justify-content: center;
     
                 .cmp-teaser {
+                    position: relative;
+                    .cmp-teaser__link {
                         position: relative;
                         .cmp-teaser__content {
                             position: absolute;
@@ -117,6 +119,7 @@
                                 }
                             }
                         }
+                    }
                 }
             }
         }
