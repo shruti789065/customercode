@@ -5,21 +5,25 @@ import jQuery from "jquery";
 jQuery(function ($) {
 
 
-	const myCarousel = document.getElementById('carouselExampleIndicators');
+	const myCarousel = document.getElementById('slideshowCarousel');
 	var videos = myCarousel.querySelectorAll('video');
-	var allVids = $("#carouselExampleIndicators").find('.carousel-item');
+	var allVids = $("#slideshowCarousel").find('.carousel-item');
 	var slides = myCarousel.querySelectorAll('.carousel-item');
 	var durations = [];
+
 
 	allVids.each(function (index, el) {
 		if (index !== 0) {
 			$(this).find('video')[0].pause();
 		}
-		durations.push(videos[index].duration);
-		//in caso di carousel misto questo parametro dovrà prevedere un valore standard per le img
-		slides[index].setAttribute('data-bs-interval', durations[index]*1000);
 	});
-	
+
+	for (let i = 0; i < videos.length; i++) {
+		videos[i].onloadedmetadata = function () {
+			durations.push(videos[i].duration);
+			slides[i].setAttribute('data-bs-interval', durations[i] * 1000);
+		};
+	}
 
 
 	myCarousel.addEventListener('slide.bs.carousel', event => {
@@ -40,28 +44,6 @@ jQuery(function ($) {
 			pvid.pause();
 		}
 	});
-
-
-
-
-
-	/* carousel.addEventListener('mouseenter', pauseProgressBar, false);
-	carousel.addEventListener('touchstart', pauseProgressBar, false);
-
-	carousel.addEventListener('mouseleave', resumeProgressBar, false);
-	carousel.addEventListener('touchend', resumeProgressBar, false); */
-
-
-
-
-	function pauseProgressBar() {
-		//document.querySelector('.progress-value').style.animationPlayState = 'paused';
-
-	}
-	function resumeProgressBar() {
-		//document.querySelector('.progress-value').style.animationPlayState = 'running';
-
-	}
 
 
 

@@ -1,267 +1,329 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-            cq:lastModified="{Date}2023-01-20T09:28:51.555+01:00"
-            cq:lastModifiedBy="admin"
-            cq:template="/conf/mhos/settings/wcm/templates/homepage"
-            jcr:primaryType="cq:PageContent"
-            jcr:title="it"
-            sling:resourceType="mhos/components/page">
+        cq:lastModified="{Date}2023-01-26T17:16:01.371+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/mhos/settings/wcm/templates/homepage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="it"
+        sling:resourceType="mhos/components/page">
         <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="mhos/components/container"
+            layout="responsiveGrid">
+            <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="mhos/components/container"
                 layout="responsiveGrid">
-            <container
+                <slideshow_container
+                    jcr:created="{Date}2023-01-26T13:00:31.314+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-01-26T16:35:46.716+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mhos/components/Slideshow/slideshow-container"
+                    autopauseDisabled="false"
+                    autoplay="false"
+                    delay="5000">
+                    <slide_475762376
+                        cq:panelTitle="Slide 1"
+                        jcr:created="{Date}2023-01-26T15:23:31.331+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-01-26T17:11:14.649+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/Slideshow/slide"
+                        captionDescription="House of Science"
+                        captionTitle="Fiesole"
+                        descriptionFromPage="true"
+                        mediaLink="/content/dam/mhos/video/hd0029.mp4"
+                        textIsRich="true"
+                        titleFromPage="true">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Button 1"/>
+                        </actions>
+                    </slide_475762376>
+                    <slide_1120357632
+                        cq:panelTitle="Slide 2"
+                        jcr:created="{Date}2023-01-26T15:23:03.112+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-01-26T17:15:23.503+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/Slideshow/slide"
+                        captionDescription="Dialogs"
+                        captionTitle="Alessandro Vespignani"
+                        descriptionFromPage="false"
+                        mediaLink="/content/dam/mhos/video/hd0983.mp4"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Button 2"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Button 2"/>
+                        </actions>
+                    </slide_1120357632>
+                    <slide_1776522046
+                        cq:panelTitle="Slide 3"
+                        jcr:created="{Date}2023-01-26T15:22:53.880+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-01-26T17:16:01.361+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/Slideshow/slide"
+                        captionDescription="Dialogs"
+                        captionTitle="Louis J.ignarro"
+                        descriptionFromPage="true"
+                        mediaLink="/content/dam/mhos/video/hd0992.mp4"
+                        textIsRich="true"
+                        titleFromPage="true">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Button 3"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Button 3"/>
+                        </actions>
+                    </slide_1776522046>
+                </slideshow_container>
+                <container_454931412
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="mhos/components/container"
+                    backgroundImageReference="/content/dam/mhos/background-placeholder-2.jpg"
                     layout="responsiveGrid">
-                <container
+                    <container
+                        cq:styleIds="[1670947509108]"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="mhos/components/container"
-                        layout="responsiveGrid">
-                    <carousel
+                        sling:resourceType="mhos/components/container">
+                        <container
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="mhos/components/carousel">
-                        <image
+                            sling:resourceType="mhos/components/container">
+                            <teaser
+                                cq:styleIds="[1671718042877]"
+                                jcr:description="&lt;p>Lorem ipsum dolor sit amet&lt;/p>&#xd;&#xa;"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/image"
-                                displayPopupTitle="true"
-                                fileReference="/content/dam/mhos/slider-placeholder.jpg"
+                                jcr:title="scientific library"
+                                sling:resourceType="mhos/components/teaser"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/mhos/background-covid-placeholder.jpg"
                                 imageFromPageImage="false"
                                 isDecorative="true"
                                 linkTarget="_self"
-                                titleValueFromDAM="true"/>
-                    </carousel>
-                </container>
-                <container_454931412
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="mhos/components/container"
-                        backgroundImageReference="/content/dam/mhos/background-placeholder-2.jpg"
-                        layout="responsiveGrid">
-                    <container
-                            cq:styleIds="[1670947509108]"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="mhos/components/container">
-                        <container
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/container">
-                            <card_hover_container
-                                jcr:lastModified="{Date}2023-01-20T09:25:38.635+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/card-hover-container">
-                                <card
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/foundation/components/parsys">
-                                    <teaser
-                                        cq:styleIds="[1671718042877]"
-                                        jcr:description="&lt;p>Lorem ipsum dolor sit amet&lt;/p>&#xd;&#xa;"
-                                        jcr:lastModified="{Date}2023-01-20T09:28:20.085+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="mhos/components/teaser"
-                                        descriptionFromPage="false"
-                                        disableLazyLoading="false"
-                                        fileReference="/content/dam/mhos/background-covid-placeholder.jpg"
-                                        imageFromPageImage="false"
-                                        isDecorative="true"
+                                        link="/content/mhos/it/it/scientific-library"
                                         linkTarget="_self"
-                                        textIsRich="true"
-                                        titleFromPage="true">
-                                        <actions jcr:primaryType="nt:unstructured">
-                                            <item0
-                                                jcr:primaryType="nt:unstructured"
-                                                link="/content/mhos/it/it/scientific-library"
-                                                linkTarget="_self"
-                                                text="Find ou now"/>
-                                        </actions>
-                                    </teaser>
-                                    <teaser_378325168
-                                        cq:styleIds="[1671719335213]"
-                                        jcr:description="&lt;p>Lorem ipsum dolor sit amet&lt;/p>&#xd;&#xa;"
-                                        jcr:lastModified="{Date}2023-01-20T09:28:44.103+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        text="Find out now"/>
+                                </actions>
+                            </teaser>
+                            <teaser_1243066571
+                                cq:styleIds="[1671719335213]"
+                                jcr:description="&lt;p>Lorem ipsum dolor sit amet&lt;/p>&#xd;&#xa;"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="dialogs"
+                                sling:resourceType="mhos/components/teaser"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/mhos/background-darwin-placeholder.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="mhos/components/teaser"
-                                        descriptionFromPage="false"
-                                        disableLazyLoading="false"
-                                        fileReference="/content/dam/mhos/background-darwin-placeholder.jpg"
-                                        imageFromPageImage="false"
-                                        isDecorative="true"
+                                        link="/content/mhos/it/it/dialogs"
                                         linkTarget="_self"
-                                        textIsRich="true"
-                                        titleFromPage="true">
-                                        <actions jcr:primaryType="nt:unstructured">
-                                            <item0
-                                                jcr:primaryType="nt:unstructured"
-                                                link="/content/mhos/it/it/dialogsFind ou now"
-                                                linkTarget="_self"
-                                                text="dialogs"/>
-                                        </actions>
-                                    </teaser_378325168>
-                                </card>
-                            </card_hover_container>
+                                        text="Find ou now"/>
+                                </actions>
+                            </teaser_1243066571>
                         </container>
                     </container>
+                    <download
+                        jcr:created="{Date}2023-01-26T12:06:40.023+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-01-26T12:06:40.023+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/download"/>
                 </container_454931412>
                 <container_647554258
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="mhos/components/container"
-                        backgroundImageReference="/content/dam/mhos/lampada.png"
-                        layout="responsiveGrid">
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mhos/components/container"
+                    backgroundImageReference="/content/dam/mhos/lampada.png"
+                    layout="responsiveGrid">
                     <container
-                            cq:styleIds="[1670947509108]"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="mhos/components/container">
+                        cq:styleIds="[1670947509108]"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/container">
                         <title
-                                cq:styleIds="[1673622954330]"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="FONDAZIONE PROJECTS"
-                                sling:resourceType="mhos/components/title"
-                                type="h2"/>
+                            cq:styleIds="[1673622954330]"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="FONDAZIONE PROJECTS"
+                            sling:resourceType="mhos/components/title"
+                            type="h2"/>
                         <separator
-                                cq:styleIds="[1672664491569]"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/separator">
+                            cq:styleIds="[1672664491569]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/separator">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
-                                        jcr:primaryType="nt:unstructured"
-                                        behavior="newline"
-                                        offset="5"
-                                        width="2"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    behavior="newline"
+                                    offset="5"
+                                    width="2"/>
                                 <phone
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="3"
-                                        width="5"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="3"
+                                    width="5"/>
                             </cq:responsive>
                         </separator>
                         <text
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/text"
-                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&lt;/p>&#xd;&#xa;"
-                                textIsRich="true">
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/text"
+                            text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="1"
-                                        width="10"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="10"/>
                                 <phone
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="1"
-                                        width="10"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="10"/>
                             </cq:responsive>
                         </text>
                         <container
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/container"
-                                layout="responsiveGrid">
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/container"
+                            layout="responsiveGrid">
                             <teaser
-                                    cq:styleIds="[1671636816926]"
-                                    jcr:description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="scientific edition"
-                                    sling:resourceType="mhos/components/teaser"
-                                    descriptionFromPage="false"
-                                    fileReference="/content/dam/mhos/card-placeholder-2.png"
-                                    imageFromPageImage="false"
-                                    isDecorative="true"
-                                    linkTarget="_self"
-                                    pretitle="minuti"
-                                    textIsRich="true"
-                                    titleFromPage="false">
+                                cq:styleIds="[1671636816926]"
+                                jcr:description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="scientific edition"
+                                sling:resourceType="mhos/components/teaser"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/mhos/card-placeholder-2.png"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                pretitle="minuti"
+                                textIsRich="true"
+                                titleFromPage="false">
                                 <actions jcr:primaryType="nt:unstructured">
                                     <item0
-                                            jcr:primaryType="nt:unstructured"
-                                            link="/content/mhos/it/it/scientific-library"
-                                            linkTarget="_self"
-                                            text="Discover Science"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        link="/content/mhos/it/it/scientific-library"
+                                        linkTarget="_self"
+                                        text="Discover Science"/>
                                 </actions>
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <phone
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
                                     <tablet
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
                                     <default
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="4"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
                                 </cq:responsive>
                             </teaser>
                             <teaser_998349181
-                                    cq:styleIds="[1671719205012]"
-                                    jcr:description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="events section"
-                                    sling:resourceType="mhos/components/teaser"
-                                    descriptionFromPage="false"
-                                    fileReference="/content/dam/mhos/card-placeholder.png"
-                                    imageFromPageImage="false"
-                                    isDecorative="true"
-                                    linkTarget="_self"
-                                    pretitle="fondazione"
-                                    textIsRich="true"
-                                    titleFromPage="false">
+                                cq:styleIds="[1671719205012]"
+                                jcr:description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="events section"
+                                sling:resourceType="mhos/components/teaser"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/mhos/card-placeholder.png"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                pretitle="fondazione"
+                                textIsRich="true"
+                                titleFromPage="false">
                                 <actions jcr:primaryType="nt:unstructured">
                                     <item0
-                                            jcr:primaryType="nt:unstructured"
-                                            link="/content/mhos/it/it/who-we-are/fondazione-projects"
-                                            linkTarget="_self"
-                                            text="Discover the events"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        link="/content/mhos/it/it/who-we-are/fondazione-projects"
+                                        linkTarget="_self"
+                                        text="Discover the events"/>
                                 </actions>
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <phone
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
                                     <tablet
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
                                     <default
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="4"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
                                 </cq:responsive>
                             </teaser_998349181>
                             <teaser_207740754
-                                    cq:styleIds="[1671636816926]"
-                                    jcr:description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="artistic edition"
-                                    sling:resourceType="mhos/components/teaser"
-                                    descriptionFromPage="false"
-                                    fileReference="/content/dam/mhos/card-placeholder-2.png"
-                                    imageFromPageImage="false"
-                                    isDecorative="true"
-                                    linkTarget="_self"
-                                    pretitle="minuti"
-                                    textIsRich="true"
-                                    titleFromPage="false">
+                                cq:styleIds="[1671636816926]"
+                                jcr:description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales.&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="artistic edition"
+                                sling:resourceType="mhos/components/teaser"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/mhos/card-placeholder-2.png"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                pretitle="minuti"
+                                textIsRich="true"
+                                titleFromPage="false">
                                 <actions jcr:primaryType="nt:unstructured">
                                     <item0
-                                            jcr:primaryType="nt:unstructured"
-                                            link="/content/mhos/it/it/typography"
-                                            linkTarget="_self"
-                                            text="Discover Art"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        link="/content/mhos/it/it/typography"
+                                        linkTarget="_self"
+                                        text="Discover Art"/>
                                 </actions>
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <phone
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
                                     <tablet
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
                                     <default
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="4"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
                                 </cq:responsive>
                             </teaser_207740754>
                         </container>
@@ -274,4 +336,5 @@
     <scientific-library/>
     <typography/>
     <who-we-are/>
+    <content-test/>
 </jcr:root>

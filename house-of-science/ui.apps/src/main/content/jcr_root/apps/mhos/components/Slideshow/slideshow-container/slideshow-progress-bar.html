@@ -1,0 +1,35 @@
+<sly data-sly-template.progressBar>
+	<div class="button_container">
+
+		<button type="button"
+		        data-bs-target="#slideshowCarousel"
+		        data-bs-slide-to="0"
+		        id="slidebutton_0"
+		        class="slidebutton active"
+		        aria-current="true"
+		        aria-label="Slide 1">
+			<div class="progress">
+				<div class="progress-value"></div>
+			</div>
+
+		</button>
+		<div class="title">Fiesole</div>
+		<div class="subtitle">House of
+			sciences
+		</div>
+	</div>
+</sly>
+
+
+<ol class="cmp-carousel__indicators"
+    role="tablist"
+    aria-label="${carousel.accessibilityTablist || 'Choose a slide to display' @ i18n}"
+    data-cmp-hook-carousel="indicators">
+	<li data-sly-repeat.item="${carousel.items}"
+	    id="${item.id}-tab"
+	    class="cmp-carousel__indicator${itemList.first ? ' cmp-carousel__indicator--active' : ''}"
+	    role="tab"
+	    aria-controls="${item.id}-tabpanel"
+	    aria-label="${'Slide {0}' @ format=[itemList.count], i18n}"
+	    data-cmp-hook-carousel="indicator">${item.title}</li>
+</ol>
