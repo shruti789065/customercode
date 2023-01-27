@@ -2,7 +2,7 @@
     .cmp-dialog-card__container-item{
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
     }
     .cmp-dialog-card{
         flex: 0 1 100%;
@@ -17,6 +17,9 @@
     @media (min-width: 1500px) {
         .cmp-dialog-card{ flex: 0 1 calc(24% - 20px); }
     }
+    @media (min-width: 1700px) {
+        .cmp-dialog-card{ flex: 0 1 calc(20% - 20px); }
+    }
     
 }
 
@@ -30,7 +33,7 @@
 
 .cmp-dialog-card {
     position: relative;
-    max-width: 330px;
+    max-width: unset; /*settare 330px per larghezza fissa*/ 
     min-height: 330px;
     background: linear-gradient(180deg, #eaeaea 70%, #1b5393 70%, #2a6fbe 75%);
     background: -webkit-linear-gradient(180deg, #eaeaea 70%, #1b5393 70%, #2a6fbe 75%);

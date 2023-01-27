@@ -12,7 +12,7 @@
 </head>
 
 <body class="page basicpage">
-<div class="root container responsivegrid mt-3 p-5">
+<div class="root container responsivegrid containerTestComponent">
 	<main class="cmp-container maindocs-container maximum-heigth">
 		<div class="accordion panelcontainer">
 			<div>
@@ -1551,7 +1551,7 @@
 											</div>
 										</div>
 										<!-- END BANNER COMPONENT -->
-										<!-- START VIDEO COMPONENT -->
+										<!-- START VIDEO COMPONENT --> 
 										<div class="cmp-accordion__item" data-cmp-hook-accordion="item"
 										     id="accordion-fea0a02d81-item-62e9ebe552">
 											<h4 class="cmp-accordion__header">
@@ -1574,18 +1574,38 @@
 														<hr>
 														<div class="video--teaser">
 															<div class="video-container">
-																<video class="video" loop muted>
-																	<source
-																			src="https://auditoriumfondazionemenarini.com/video/videoMelani.mp4"
-																			type="video/mp4">
+																<video class="video" loop muted id="videotest1">
+																	<source src="https://auditoriumfondazionemenarini.com/video/videoMelani.mp4" type="video/mp4">
 																</video>
 																<div class="playpause"></div>
 															</div>
 															<div class="content">
 																<h3 class="cmp-teaser__title">house of sciences</h3>
 																<div class="cmp-teaser__description">
-																	<p>Lorem ipsum dolor sit amet, consectetur
-																		adipiscing elit.</p>
+																	<p>Short description</p>
+																</div>
+															</div>
+														</div>
+														<hr>
+														<div class="video--teaser">
+															<div class="video-container">
+																<video class="video" loop muted id="videotest2">
+																	<source src="https://auditoriumfondazionemenarini.com/video/videoMelani.mp4" type="video/mp4">
+																</video>
+																<div class="playpause"></div>
+															</div>
+															<div class="content">
+																<h3 class="cmp-teaser__title">house of sciences</h3>
+																<div class="cmp-teaser__description">
+																	<p>Very Long description Very Long description Very Long description 
+																		Very Long description Very Long description Very Long description 
+																		Very Long description Very Long description Very Long description 
+																		Very Long description Very Long description Very Long description 
+																		Very Long description Very Long description Very Long description 
+																		Very Long description Very Long description Very Long description 
+																		Very Long description Very Long description Very Long description 
+																		Very Long description Very Long description Very Long description 
+																	</p>
 																</div>
 															</div>
 														</div>
@@ -2590,8 +2610,7 @@
 														<!-- INFO: -->
 														<div class="dialogCarousel container aem-GridColumn aem-GridColumn--default--12">
 															<div class="cmp-container">
-																<div class="dialogCarousel__item">
-																	<div class="teaser">
+																<div class="teaser dialogCarousel__item">
 																		<div id="teaser-1c0bc06021" class="cmp-teaser"
 																		     data-cmp-data-layer='{"teaser-1c0bc06021":{"@type":"core-components-examples/components/teaser","dc:title":"First Teaser Title","dc:description":"<p>Teaser Description</p>","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html"}}'>
 																			<a class="cmp-teaser__link"
@@ -2629,85 +2648,80 @@
 																			</a>
 																		</div>
 																	</div>
-																</div>
-																<div class="dialogCarousel__item">
-																	<div class="teaser">
-																		<div id="teaser-47f1a7ca67" class="cmp-teaser"
-																		     data-cmp-data-layer='{"teaser-47f1a7ca67":{"@type":"core-components-examples/components/teaser","dc:title":"Second Teaser Title","dc:description":"<p>Teaser Description</p>","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html"}}'>
-																			<a class="cmp-teaser__link"
-																			   data-cmp-clickable=""
-																			   href="/content/core-components-examples/library/core-content/carousel.html">
-																				<div class="cmp-teaser__content">
-																					<h2 class="cmp-teaser__title">Second
-																						Teaser</h2>
+																<div class="teaser dialogCarousel__item">
+																	<div id="teaser-47f1a7ca67" class="cmp-teaser"
+																		 data-cmp-data-layer='{"teaser-47f1a7ca67":{"@type":"core-components-examples/components/teaser","dc:title":"Second Teaser Title","dc:description":"<p>Teaser Description</p>","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html"}}'>
+																		<a class="cmp-teaser__link"
+																		   data-cmp-clickable=""
+																		   href="/content/core-components-examples/library/core-content/carousel.html">
+																			<div class="cmp-teaser__content">
+																				<h2 class="cmp-teaser__title">Second
+																					Teaser</h2>
 
-																					<div class="cmp-teaser__description">
-																						<p>Teaser Description</p>
-																					</div>
+																				<div class="cmp-teaser__description">
+																					<p>Teaser Description</p>
 																				</div>
+																			</div>
 
-																				<div class="cmp-teaser__image">
-																					<div data-cmp-src="/content/core-components-examples/library/core-content/carousel/_jcr_content/root/responsivegrid/demo/component/carousel_8337507762/teaser_841933659.coreimg.82{.width}.jpeg"
-																					     data-asset-id="45c6ee92-90e1-4af2-af69-b6dcbc7daeb7"
-																					     id="teaser-47f1a7ca67-image"
-																					     data-cmp-data-layer='{"teaser-47f1a7ca67-image":{"@type":"core-components-examples/components/image","dc:title":"Snowy mountain glacier","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html","image":{"repo:id":"45c6ee92-90e1-4af2-af69-b6dcbc7daeb7","repo:modifyDate":"1970-01-01T00:00:00Z","@type":"image/jpeg","repo:path":"/content/dam/core-components-examples/library/sample-assets/snowy-mountain-glacier.jpg"}}}'
-																					     data-cmp-hook-image="imageV3"
-																					     class="cmp-image" itemscope=""
-																					     itemtype="http://schema.org/ImageObject">
-																						<img src="/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/sample-2.jpg"
-																						     srcset="" loading="lazy"
-																						     class="cmp-image__image"
-																						     itemprop="contentUrl"
-																						     width="850" height="509"
-																						     alt="Snowy mountain glacier"
-																						     title="Snowy mountain glacier"/>
+																			<div class="cmp-teaser__image">
+																				<div data-cmp-src="/content/core-components-examples/library/core-content/carousel/_jcr_content/root/responsivegrid/demo/component/carousel_8337507762/teaser_841933659.coreimg.82{.width}.jpeg"
+																					 data-asset-id="45c6ee92-90e1-4af2-af69-b6dcbc7daeb7"
+																					 id="teaser-47f1a7ca67-image"
+																					 data-cmp-data-layer='{"teaser-47f1a7ca67-image":{"@type":"core-components-examples/components/image","dc:title":"Snowy mountain glacier","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html","image":{"repo:id":"45c6ee92-90e1-4af2-af69-b6dcbc7daeb7","repo:modifyDate":"1970-01-01T00:00:00Z","@type":"image/jpeg","repo:path":"/content/dam/core-components-examples/library/sample-assets/snowy-mountain-glacier.jpg"}}}'
+																					 data-cmp-hook-image="imageV3"
+																					 class="cmp-image" itemscope=""
+																					 itemtype="http://schema.org/ImageObject">
+																					<img src="/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/sample-2.jpg"
+																						 srcset="" loading="lazy"
+																						 class="cmp-image__image"
+																						 itemprop="contentUrl"
+																						 width="850" height="509"
+																						 alt="Snowy mountain glacier"
+																						 title="Snowy mountain glacier"/>
 
-																						<meta itemprop="caption"
-																						      content="Snowy mountain glacier"/>
-																					</div>
+																					<meta itemprop="caption"
+																						  content="Snowy mountain glacier"/>
 																				</div>
-																			</a>
-																		</div>
+																			</div>
+																		</a>
 																	</div>
 																</div>
-																<div class="dialogCarousel__item">
-																	<div class="teaser">
-																		<div id="teaser-43ec4c9761" class="cmp-teaser"
-																		     data-cmp-data-layer='{"teaser-43ec4c9761":{"@type":"core-components-examples/components/teaser","dc:title":"Third Teaser Title","dc:description":"<p>Teaser Description</p>","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html"}}'>
-																			<a class="cmp-teaser__link"
-																			   data-cmp-clickable=""
-																			   href="/content/core-components-examples/library/core-content/carousel.html">
-																				<div class="cmp-teaser__content">
-																					<h2 class="cmp-teaser__title">Third
-																						Teaser</h2>
+																<div class="teaser dialogCarousel__item">
+																	<div id="teaser-43ec4c9761" class="cmp-teaser"
+																		 data-cmp-data-layer='{"teaser-43ec4c9761":{"@type":"core-components-examples/components/teaser","dc:title":"Third Teaser Title","dc:description":"<p>Teaser Description</p>","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html"}}'>
+																		<a class="cmp-teaser__link"
+																		   data-cmp-clickable=""
+																		   href="/content/core-components-examples/library/core-content/carousel.html">
+																			<div class="cmp-teaser__content">
+																				<h2 class="cmp-teaser__title">Third
+																					Teaser</h2>
 
-																					<div class="cmp-teaser__description">
-																						<p>Teaser Description</p>
-																					</div>
+																				<div class="cmp-teaser__description">
+																					<p>Teaser Description</p>
 																				</div>
+																			</div>
 
-																				<div class="cmp-teaser__image">
-																					<div data-cmp-src="/content/core-components-examples/library/core-content/carousel/_jcr_content/root/responsivegrid/demo/component/carousel_8337507762/teaser.coreimg.82{.width}.jpeg"
-																					     data-asset-id="c58c09f6-e382-4698-bfbd-e8c8d37712c8"
-																					     id="teaser-43ec4c9761-image"
-																					     data-cmp-data-layer='{"teaser-43ec4c9761-image":{"@type":"core-components-examples/components/image","dc:title":"Gray lava rock formation","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html","image":{"repo:id":"c58c09f6-e382-4698-bfbd-e8c8d37712c8","repo:modifyDate":"1970-01-01T00:00:00Z","@type":"image/jpeg","repo:path":"/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg"}}}'
-																					     data-cmp-hook-image="imageV3"
-																					     class="cmp-image" itemscope=""
-																					     itemtype="http://schema.org/ImageObject">
-																						<img src="/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/sample-3.jpg"
-																						     srcset="" loading="lazy"
-																						     class="cmp-image__image"
-																						     itemprop="contentUrl"
-																						     width="850" height="509"
-																						     alt="Gray lava rock formation"
-																						     title="Gray lava rock formation"/>
+																			<div class="cmp-teaser__image">
+																				<div data-cmp-src="/content/core-components-examples/library/core-content/carousel/_jcr_content/root/responsivegrid/demo/component/carousel_8337507762/teaser.coreimg.82{.width}.jpeg"
+																					 data-asset-id="c58c09f6-e382-4698-bfbd-e8c8d37712c8"
+																					 id="teaser-43ec4c9761-image"
+																					 data-cmp-data-layer='{"teaser-43ec4c9761-image":{"@type":"core-components-examples/components/image","dc:title":"Gray lava rock formation","xdm:linkURL":"/content/core-components-examples/library/core-content/carousel.html","image":{"repo:id":"c58c09f6-e382-4698-bfbd-e8c8d37712c8","repo:modifyDate":"1970-01-01T00:00:00Z","@type":"image/jpeg","repo:path":"/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg"}}}'
+																					 data-cmp-hook-image="imageV3"
+																					 class="cmp-image" itemscope=""
+																					 itemtype="http://schema.org/ImageObject">
+																					<img src="/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/sample-3.jpg"
+																						 srcset="" loading="lazy"
+																						 class="cmp-image__image"
+																						 itemprop="contentUrl"
+																						 width="850" height="509"
+																						 alt="Gray lava rock formation"
+																						 title="Gray lava rock formation"/>
 
-																						<meta itemprop="caption"
-																						      content="Gray lava rock formation"/>
-																					</div>
+																					<meta itemprop="caption"
+																						  content="Gray lava rock formation"/>
 																				</div>
-																			</a>
-																		</div>
+																			</div>
+																		</a>
 																	</div>
 																</div>
 															</div>

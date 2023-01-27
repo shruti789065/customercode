@@ -466,6 +466,18 @@
                         </item0>
                     </cq:styleGroups>
                 </policy_1575031387650>
+                <policy_1674738412222
+                    cq:styleDefaultClasses="dialogCarousel__item"
+                    jcr:lastModified="{Date}2023-01-26T15:17:50.936+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="dialog container teaser policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1674738412222>
             </teaser>
             <download jcr:primaryType="nt:unstructured">
                 <policy_1575032193319
@@ -527,6 +539,17 @@
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
+                        <item1
+                            cq:styleGroupLabel="Margin"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-button__margin-bottom"
+                                    cq:styleId="1674723563973"
+                                    cq:styleLabel="Margin Bottom"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
                     </cq:styleGroups>
                 </policy_1670944679146>
             </button>
@@ -611,7 +634,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="dialog container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="/apps/mhos/components/carousel-dialog-container-item"
+                    components="/apps/mhos/components/teaser"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1674227260298>

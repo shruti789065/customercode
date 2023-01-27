@@ -19,17 +19,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.adiacent</groupId>
-    <artifactId>menarini</artifactId>
+    <groupId>com.adiacent.menarini</groupId>
+    <artifactId>com-menarini</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Menarini Adobe Cloud</name>
-    <description>Menarini Adobe Cloud</description>
+    <name>Menarini common code</name>
+    <description>Common code</description>
 
     <modules>
-        <module>menarini-master-template</module>
-        <module>house-of-science</module>
-        <module>com-menarini</module>
+        <module>all</module>
+        <module>ui.apps.structure</module>
+        <module>ui.config</module>
     </modules>
 
     <properties>
@@ -42,16 +42,16 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
-        <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
-        <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
         <core.wcm.components.version>2.19.0</core.wcm.components.version>
+
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <aem.sdk.api>2022.11.9850.20221116T162329Z-220900</aem.sdk.api>
-        <aemanalyser.version>1.4.2</aemanalyser.version>
-        <componentGroupName>Menarini Adobe Cloud</componentGroupName>
+        <aemanalyser.version>1.4.10</aemanalyser.version>
+        <componentGroupName>Menarini Commons</componentGroupName>
     </properties>
+
 
     <build>
         <plugins>
@@ -118,29 +118,6 @@
                         <tarLongFileMode>posix</tarLongFileMode>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>com.github.eirslett</groupId>
-                    <artifactId>frontend-maven-plugin</artifactId>
-                    <version>${frontend-maven-plugin.version}</version>
-                    <configuration>
-                        <nodeVersion>v12.22.7</nodeVersion>
-                        <npmVersion>6.14.0</npmVersion>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>install node and npm</id>
-                            <goals>
-                                <goal>install-node-and-npm</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>npm install</id>
-                            <goals>
-                                <goal>npm</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
                 <!-- Maven Jar Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -165,13 +142,26 @@
                                 <goal>bnd-process</goal>
                             </goals>
                             <configuration>
-                                <bnd><![CDATA[
+                                <bnd>
+                                    Import-Package: \
+                                    <!-- For build compatibility with Java 11 -->\
+                                    javax.annotation;version="[0.0,2)",\
+                                    org.osgi.*,\
+                                    *
+
+                                    <!-- Export all non-internal packages by default -->
+                                    Export-Package: !*.impl.*,!*.internal.*,\
+                                    dh.com.shared.core.*
+                                    <![CDATA[
 Bundle-Category: ${componentGroupName}
+
 # export all versioned packages except for conditional ones (https://github.com/bndtools/bnd/issues/3721#issuecomment-579026778)
 -exportcontents: ${removeall;${packages;VERSIONED};${packages;CONDITIONAL}}
+
 # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
 -noextraheaders: true
 -snapshot: SNAPSHOT
+
 Bundle-DocURL:
 -plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
 -plugin org.apache.sling.bnd.models.ModelsScannerPlugin
@@ -341,7 +331,7 @@ Bundle-DocURL:
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -361,7 +351,7 @@ Bundle-DocURL:
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -382,7 +372,7 @@ Bundle-DocURL:
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -499,9 +489,7 @@ Bundle-DocURL:
                                         <goal>install</goal>
                                     </goals>
                                     <configuration>
-                                        <targetURL>
-                                            http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp
-                                        </targetURL>
+                                        <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -524,11 +512,6 @@ Bundle-DocURL:
                 <version>${aem.sdk.api}</version>
                 <scope>provided</scope>
             </dependency>
-            <dependency>
-                <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.core</artifactId>
-                <version>${core.wcm.components.version}</version>
-            </dependency>
 
 
             <!-- Testing -->
@@ -547,6 +530,12 @@ Bundle-DocURL:
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
+                <artifactId>mockito-inline</artifactId>
+                <version>4.1.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
                 <artifactId>mockito-junit-jupiter</artifactId>
                 <version>4.1.0</version>
                 <scope>test</scope>
@@ -560,7 +549,7 @@ Bundle-DocURL:
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-                <version>4.1.8</version>
+                <version>4.1.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -569,21 +558,9 @@ Bundle-DocURL:
                 <version>1.3.6</version>
             </dependency>
             <dependency>
-                <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.testing.aem-mock-plugin</artifactId>
-                <version>${core.wcm.components.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>uk.org.lidalia</groupId>
                 <artifactId>slf4j-test</artifactId>
                 <version>1.0.1</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>2.8.9</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
