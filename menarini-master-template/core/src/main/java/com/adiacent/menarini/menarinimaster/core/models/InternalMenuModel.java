@@ -49,10 +49,11 @@ public class InternalMenuModel extends GenericBaseModel implements InternalMenuI
 
 				Page homepage = ModelUtils.getHomePage(resourceResolver, currentPage.getPath());
 				ValueMap properties = homepage.getProperties();
-				String siteName = properties.containsKey("siteName") ? properties.get("siteName", String.class) : "";
-				String PARENT_TEMPLATE_NAME = "/conf/"+siteName+"/settings/wcm/templates/menarini---homepage";
+				/*String siteName = properties.containsKey("siteName") ? properties.get("siteName", String.class) : "";
+				String PARENT_TEMPLATE_NAME = "/conf/"+siteName+"/settings/wcm/templates/menarini---homepage";*/
+				String template = properties.containsKey("cq:template") ? properties.get("cq:template", String.class) : "";
 
-				Page parentPage = ModelUtils.findPageByParentTemplate(currentPage, PARENT_TEMPLATE_NAME);
+				Page parentPage = ModelUtils.findPageByParentTemplate(currentPage, template);
 				navigationRoot = parentPage;
 				if(!isPublishMode()){
 					Node node = currentResource.adaptTo(Node.class);
