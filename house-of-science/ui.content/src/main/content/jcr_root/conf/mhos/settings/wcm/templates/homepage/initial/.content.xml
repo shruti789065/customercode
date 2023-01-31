@@ -13,25 +13,97 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="mhos/components/container"
                 layout="responsiveGrid">
-                <container
+                <slideshow_container
+                    jcr:lastModified="{Date}2023-01-31T12:49:01.722+01:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="mhos/components/container"
-                    layout="responsiveGrid">
-                    <carousel
+                    sling:resourceType="mhos/components/Slideshow/slideshow-container"
+                    accessibilityAutoItemTitles="false"
+                    autopauseDisabled="false"
+                    autoplay="false"
+                    delay="5000">
+                    <slide
+                        cq:panelTitle="slide 1"
+                        jcr:description="&lt;p>Lorem ipsum dolor&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2023-01-31T12:48:21.560+01:00"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="mhos/components/carousel">
-                        <image
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="mhos/components/image"
-                            disableLazyLoading="false"
-                            displayPopupTitle="true"
-                            fileReference="/content/dam/mhos/slider-placeholder.jpg"
-                            imageFromPageImage="false"
-                            isDecorative="true"
-                            linkTarget="_self"
-                            titleValueFromDAM="true"/>
-                    </carousel>
-                </container>
+                        jcr:title=" House of sciences"
+                        sling:resourceType="mhos/components/Slideshow/slide"
+                        captionDescription="house of science"
+                        captionTitle="Fiesole"
+                        descriptionFromPage="false"
+                        mediaLink="/content/dam/mhos/video/hd0029.mp4"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Find out now"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Watch Now"/>
+                        </actions>
+                    </slide>
+                    <item_1675165709553
+                        cq:panelTitle="slide 2"
+                        jcr:description="&lt;p>Lorem ipsum dolor&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2023-01-31T12:49:55.901+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title=" House of sciences"
+                        sling:resourceType="mhos/components/Slideshow/slide"
+                        captionDescription="Dialogs"
+                        captionTitle="Alessandro Vespignani"
+                        descriptionFromPage="false"
+                        mediaLink="/content/dam/mhos/video/hd0983.mp4"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Find out now"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Watch Now"/>
+                        </actions>
+                    </item_1675165709553>
+                    <item_1675165727446
+                        cq:panelTitle="slide 3"
+                        jcr:description="&lt;p>Lorem ipsum dolor&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2023-01-31T12:50:42.950+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title=" House of sciences"
+                        sling:resourceType="mhos/components/Slideshow/slide"
+                        captionDescription="Dialogs"
+                        captionTitle="Louis J.ignarro"
+                        descriptionFromPage="false"
+                        mediaLink="/content/dam/mhos/video/hd0992.mp4"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Find out now"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                link="#"
+                                linkTarget="_self"
+                                text="Watch Now"/>
+                        </actions>
+                    </item_1675165727446>
+                </slideshow_container>
                 <container_1565617191
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="mhos/components/container"

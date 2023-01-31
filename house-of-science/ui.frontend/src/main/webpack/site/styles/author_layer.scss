@@ -31,5 +31,14 @@
 			} 
 		}
 	}
+
+	&.slideshow-container{
+		#slideshowCarousel{
+			height: 600px;
+			.carousel-indicators{
+				display: none;
+			}
+		}
+	}
 }
 

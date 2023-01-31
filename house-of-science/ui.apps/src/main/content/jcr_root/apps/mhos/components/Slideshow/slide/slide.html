@@ -20,7 +20,7 @@
 							${properties.jcr:title}
 						</div>
 						<div class="sottotitolo">
-							${properties.jcr:description}
+							${properties.jcr:description @ context='html'}
 						</div>
 						<div class="contenitore_bottoni">
 							<sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
