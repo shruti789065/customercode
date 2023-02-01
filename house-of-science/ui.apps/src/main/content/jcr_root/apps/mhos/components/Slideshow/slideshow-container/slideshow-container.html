@@ -18,7 +18,7 @@
     <div class="carousel-indicators" role="tablist" aria-label="${'Choose a slide to display' @ i18n}"
       data-cmp-hook-carouselbs="indicators">
 
-        <button data-sly-repeat.item="${carousel.items}" type="button" data-bs-target="#${carousel.id}"
+        <button data-sly-repeat.item="${carousel.items}" type="button" data-bs-target="#slideshowCarousel"
           data-bs-slide-to="${itemList.index}" class="button_container slidebutton ${itemList.first ? 'active' : ''}" aria-current="true"
           aria-label="${'Slide {0} of {1}' @ format=[itemList.count, carousel.items.size], i18n}"
           aria-controls="${item.id}-tabpanel" role="tab" data-cmp-hook-carouselbs="indicator" >
