@@ -28,7 +28,7 @@ import javax.jcr.RepositoryException;
 
 public class InternalMenuModel extends GenericBaseModel implements InternalMenuI {
 
-	// points to the the component resource path in ui.apps
+	// points to the component resource path in ui.apps
 	public static final String RESOURCE_TYPE = "menarinimaster/components/internalmenu";
 	//private static final String PARENT_TEMPLATE_NAME = "/conf/menarinimaster/settings/wcm/templates/menarini---homepage";//"Menarini - Homepage";
 
