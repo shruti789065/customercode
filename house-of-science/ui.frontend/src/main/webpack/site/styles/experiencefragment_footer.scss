@@ -17,6 +17,13 @@ footer.experiencefragment {
 		max-width: 140px;
 		margin: 0 auto 30px;
 	}
+	.title{
+		.cmp-title{
+			.cmp-title__text{
+				margin-top: 0;
+			}
+		}
+	} 
 	.cmp-image__image {
 		height: auto;
 		min-height: 50px;
@@ -59,6 +66,10 @@ footer.experiencefragment {
 			&:focus{
 				border: 2px solid $white;
 				font-weight: bold;
+			}
+			.cmp-list__item-link{
+				color: $white;
+				text-decoration: none;
 			}
 		}
 	}

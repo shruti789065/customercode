@@ -10,5 +10,35 @@
 	&.cmp-detail--header {
 		max-height: 100%;
 	}
+	&.card-hover-container{
+		.cardHoverContainer{
+			.new.newpar{
+				width: 50%;
+    			margin: auto;
+			}
+		}
+
+	}
+	&.cmp-dialog-card__container-item{
+		.newpar.new{
+			width: 100%;
+		} 
+	}
+	&.dialogCarousel{
+		.cmp-container {
+			.newpar.new{
+				width: 100%;
+			} 
+		}
+	}
+
+	&.slideshow-container{
+		#slideshowCarousel{
+			height: 600px;
+			.carousel-indicators{
+				display: none;
+			}
+		}
+	}
 }
 

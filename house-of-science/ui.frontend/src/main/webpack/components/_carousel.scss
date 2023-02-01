@@ -35,6 +35,7 @@
                 justify-content: center;
     
                 .cmp-teaser {
+                    position: relative;
                     .cmp-teaser__link {
                         position: relative;
                         .cmp-teaser__content {
@@ -68,6 +69,18 @@
                             }
 
                             &:hover {
+                                opacity: 1;
+                                .cmp-teaser__title {
+                                    font-size: 30px;
+                                }
+                                .cmp-teaser__description {
+                                    font-size: 20px;
+                                }
+                            }                            
+
+                        }
+                        @media (max-width: 768px) {
+                            .cmp-teaser__content {
                                 opacity: 1;
                                 .cmp-teaser__title {
                                     font-size: 30px;
@@ -111,6 +124,7 @@
             }
         }
 }
+
 @media (min-width: 992px) {
     .dialogCarousel{   
             .cmp-container {    

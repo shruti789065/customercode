@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-01-23T12:17:21.015+01:00"
+        cq:lastModified="{Date}2023-01-23T13:03:01.002+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/mhos/settings/wcm/templates/content-detail"
         jcr:primaryType="cq:PageContent"
@@ -78,7 +78,14 @@
                                 jcr:lastModified="{Date}2023-01-17T10:44:20.661+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/title"/>
+                                sling:resourceType="mhos/components/title">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="11"/>
+                                </cq:responsive>
+                            </title>
                             <container
                                 jcr:created="{Date}2023-01-17T10:41:49.300+01:00"
                                 jcr:createdBy="admin"
@@ -108,7 +115,14 @@
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="LOREM IPSUM"
                                         sling:resourceType="mhos/components/title"
-                                        type="h2"/>
+                                        type="h2">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="1"
+                                                width="7"/>
+                                        </cq:responsive>
+                                    </title>
                                     <separator
                                         cq:styleIds="[1672664491569]"
                                         jcr:created="{Date}2023-01-20T12:31:06.909+01:00"
@@ -120,8 +134,8 @@
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
                                                 jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="3"/>
+                                                offset="1"
+                                                width="2"/>
                                         </cq:responsive>
                                     </separator>
                                     <text
@@ -132,7 +146,14 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/text"
                                         text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mauris vulputate, vehicula purus quis, scelerisque dui. Proin congue, libero rhoncus tristique tincidunt, odio purus commodo augue, in aliquam nisi nunc quis mi. Aliquam ipsum turpis, varius ut nisl eu, commodo molestie diam. Sed vel auctor ex, id faucibus turpis. Quisque cursus quam vel pellentesque tempor. Morbi nec facilisis nunc. Quisque feugiat mi lacinia finibus pulvinar. Quisque vitae sagittis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mauris vulputate, vehicula purus quis, scelerisque dui.&lt;/p>&#xd;&#xa;"
-                                        textIsRich="true"/>
+                                        textIsRich="true">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="1"
+                                                width="7"/>
+                                        </cq:responsive>
+                                    </text>
                                     <button
                                         cq:styleIds="[1670944695700]"
                                         jcr:created="{Date}2023-01-20T12:32:02.519+01:00"
@@ -148,8 +169,8 @@
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
                                                 jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="3"/>
+                                                offset="1"
+                                                width="2"/>
                                         </cq:responsive>
                                     </button>
                                 </container>
@@ -167,34 +188,31 @@
                                             offset="0"
                                             width="3"/>
                                     </cq:responsive>
-                                    <image
-                                        jcr:created="{Date}2023-01-20T12:44:11.539+01:00"
+                                    <teaser
+                                        jcr:created="{Date}2023-01-23T13:00:25.177+01:00"
                                         jcr:createdBy="admin"
-                                        jcr:lastModified="{Date}2023-01-20T12:44:11.539+01:00"
+                                        jcr:description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xd;&#xa;"
+                                        jcr:lastModified="{Date}2023-01-23T13:02:42.077+01:00"
                                         jcr:lastModifiedBy="admin"
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="mhos/components/image"/>
-                                    <text
-                                        jcr:created="{Date}2023-01-20T12:44:27.665+01:00"
-                                        jcr:createdBy="admin"
-                                        jcr:lastModified="{Date}2023-01-20T12:47:49.336+01:00"
-                                        jcr:lastModifiedBy="admin"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="mhos/components/text"
-                                        text="&lt;p style=&quot;text-align: center;&quot;>&lt;b>Dott. Mario Rossi&lt;/b>&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: center;&quot;>Cardiology section director&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: center;&quot;>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xd;&#xa;"
-                                        textIsRich="true"/>
-                                    <button
-                                        cq:styleIds="[1670944735581]"
-                                        jcr:created="{Date}2023-01-20T12:44:39.313+01:00"
-                                        jcr:createdBy="admin"
-                                        jcr:lastModified="{Date}2023-01-20T12:45:06.533+01:00"
-                                        jcr:lastModifiedBy="admin"
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="Read bio"
-                                        sling:resourceType="mhos/components/button"
-                                        icon="book"
+                                        jcr:title="Cardiology Section director"
+                                        sling:resourceType="mhos/components/teaser"
+                                        descriptionFromPage="false"
+                                        fileReference="/content/dam/mhos/doctor-placeholder.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
                                         linkTarget="_self"
-                                        linkURL="#"/>
+                                        pretitle="Dott.Mario Rossi"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <actions jcr:primaryType="nt:unstructured">
+                                            <item0
+                                                jcr:primaryType="nt:unstructured"
+                                                link="#"
+                                                linkTarget="_self"
+                                                text="Read Bio"/>
+                                        </actions>
+                                    </teaser>
                                 </container_796316910>
                             </container>
                         </container>
