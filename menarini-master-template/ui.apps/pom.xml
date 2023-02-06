@@ -50,16 +50,32 @@
                 <configuration>
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
+                        <noIntermediateSaves>true</noIntermediateSaves>
                     </properties>
                     <group>com.adiacent.menarini.menarinimaster</group>
                     <name>menarinimaster.ui.apps</name>
                     <packageType>application</packageType>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
                             <artifactId>menarinimaster.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
+                    <validatorsSettings>
+                        <!-- disable nodetype validation as workaround until JCRVLT-463 got fixed -->
+                        <jackrabbit-nodetypes>
+                            <isDisabled>true</isDisabled>
+                        </jackrabbit-nodetypes>
+                        <jackrabbit-packagetype>
+                            <isDisabled>true</isDisabled>
+                        </jackrabbit-packagetype>
+                        <jackrabbit-filter>
+                            <options>
+                                <validRoots>/apps,/libs,/oak:index</validRoots>
+                            </options>
+                        </jackrabbit-filter>
+                    </validatorsSettings>
                     <dependencies>
                     </dependencies>
                 </configuration>
