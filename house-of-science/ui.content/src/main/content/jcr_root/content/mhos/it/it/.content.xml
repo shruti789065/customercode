@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:lastModified="{Date}2023-01-31T12:22:13.516+01:00"
@@ -32,8 +32,8 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title=" House of sciences"
                         sling:resourceType="mhos/components/Slideshow/slide"
-                        captionTitle="Fiesole"
                         captionDescription="house of science"
+                        captionTitle="Fiesole"
                         descriptionFromPage="false"
                         mediaLink="/content/dam/mhos/video/hd0029.mp4"
                         textIsRich="true"
