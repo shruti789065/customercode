@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="8a1140c3-c40d-4ee7-9e84-e071194c31cd">
+    <jcr:content
+        cq:name="podcast-1"
+        cq:parentPath="/content/dam/mhos/content-fragments/en/cardiology"
+        jcr:lastModified="{Date}2023-02-06T12:36:19.636+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Podcast 1"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-02-06T12:36:19.636+01:00">
+        <data
+            cq:model="/conf/mhos/settings/dam/cfm/models/result-fragment"
+            jcr:primaryType="nt:unstructured">
+            <master
+                cq:tags="[house-of-science:cardiology/author/attanasio,house-of-science:cardiology/source/accademia-dei-lincei,house-of-science:cardiology/topic/public-health,house-of-science:cardiology/generic-tags/blood,house-of-science:cardiology/typology/podcasts]"
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                articleDate="{Date}2022-12-13T00:00:00.000Z"
+                articleDate_x0040_LastModified="{Date}2023-02-06T12:36:19.610+01:00"
+                author="[house-of-science:cardiology/author/attanasio]"
+                author_x0040_LastModified="{Date}2023-02-06T12:36:19.609+01:00"
+                description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&amp;nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xa;"
+                description_x0040_ContentType="text/html"
+                description_x0040_LastModified="{Date}2023-02-06T12:36:19.611+01:00"
+                linkl="https://www.msn.com/it-it/notizie/mondo/tesla-model-3-finisce-dentro-una-piscina-la-causa-%C3%A8-davvero-delle-pi%C3%B9-banali/ss-AA177P7N?ocid=entnewsntp&amp;cvid=0a8b50b6cc6b4c0396bfe967e2fea20f"
+                linkl_x0040_LastModified="{Date}2023-02-06T12:36:19.612+01:00"
+                source="[house-of-science:cardiology/source/accademia-dei-lincei]"
+                source_x0040_LastModified="{Date}2023-02-06T12:36:19.612+01:00"
+                tags="[house-of-science:cardiology/generic-tags/blood]"
+                tags_x0040_LastModified="{Date}2023-02-06T12:36:19.609+01:00"
+                topic="[house-of-science:cardiology/topic/public-health]"
+                topic_x0040_LastModified="{Date}2023-02-06T12:36:19.611+01:00"
+                typology="[house-of-science:cardiology/typology/podcasts]"
+                typology_x0040_LastModified="{Date}2023-02-06T12:36:19.612+01:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
