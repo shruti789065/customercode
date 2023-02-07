@@ -1,9 +1,4 @@
-// This script fetches a JSON file from the given URL and then stores the data in local storage
-// The data is later retrieved from local storage and filtered based on selected criteria
-// The filtered data is then displayed on the page
-
-/* eslint-disable max-len */
-console.log("search Filter OK");
+import _ from 'lodash';
 
 fetch('https://davide-mariotti.github.io/lodash/data.json')
     .then(response => response.json()) // Convert response to JSON
