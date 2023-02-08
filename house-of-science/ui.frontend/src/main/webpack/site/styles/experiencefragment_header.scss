@@ -32,16 +32,17 @@ header.experiencefragment {
   .image {
     position: relative;
     bottom: 0;
-    top: 15px;
+    top: 0px;
   }
   .cmp-image {
     text-align: center;
   }
   .cmp-image__image {
     height: auto;
-    min-height: 60px;
-    max-width: 144px;
+    min-height: unset;
+    max-width: 100px;
     object-fit: contain;
+    margin-bottom: 5px;
   }
   .cmp-container > div {
     position: relative;
@@ -61,7 +62,7 @@ header.experiencefragment {
       align-items: flex-end;
     }
     .image {
-      top: 45px;
+      //top: 45px;
     }
   }
   @media (min-width: 375px) {
