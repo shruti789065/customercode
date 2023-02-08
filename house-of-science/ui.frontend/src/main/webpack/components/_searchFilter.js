@@ -31,7 +31,7 @@ const filterData = () => _.filter(data, item => {
     (_.isEmpty(filters.source) || _.includes(filters.source, item.source)) &&
     (_.isEmpty(filters.year) || _.includes(filters.year, item.year)) &&
     (_.isEmpty(filters.typology) || _.includes(filters.typology, item.typology)) &&
-    (_.isEmpty(filters.tag) || _.includes(filters.tag, item.tag))
+    (_.isEmpty(filters.Tag) || _.includes(filters.Tag, item.Tag))
   );
 });
 

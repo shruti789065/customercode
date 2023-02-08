@@ -9,7 +9,12 @@ jQuery(function ($) {
 	var allVids = $("#slideshowCarousel").find('.carousel-item');						// Get all the carousel items
 	var slides = myCarousel.querySelectorAll('.carousel-item');							// Get all the slides in the carousel
 	var durations = [];																	// Array to store the durations of all videos
-	var progressBars = $("#slideshowCarousel").find('.slidebutton .progress-value'); 	// Get all the progress bars
+	var progressBars = $("#slideshowCarousel").find('.slidebutton .progress-value'); 
+	
+	
+	if(myCarousel){
+
+	// Get all the progress bars
 		// Pause all videos except the first one
 		allVids.each(function (index, el) {
 			if (index !== 0) {
@@ -72,5 +77,5 @@ jQuery(function ($) {
 				pvid.pause();
 			}
 		});
-
+	}
 });
