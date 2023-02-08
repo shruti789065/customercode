@@ -11,9 +11,6 @@ header.experiencefragment {
   .cmp-experiencefragment--header {
     > .cmp-container {
       height: 85px;
-      .cmp-image__image {
-        max-height: 85px;
-      }
     }
   }
 
@@ -30,11 +27,12 @@ header.experiencefragment {
 	margin: auto;
   }
   .cmp-container--standard_width {
-    padding: 0 20px;
+    padding: 20px 20px 0;
   }
   .image {
     position: relative;
     bottom: 0;
+    top: 15px;
   }
   .cmp-image {
     text-align: center;
@@ -44,7 +42,6 @@ header.experiencefragment {
     min-height: 60px;
     max-width: 144px;
     object-fit: contain;
-    margin-bottom: unset;
   }
   .cmp-container > div {
     position: relative;
@@ -63,14 +60,14 @@ header.experiencefragment {
     .cmp-container > div {
       align-items: flex-end;
     }
+    .image {
+      top: 45px;
+    }
   }
   @media (min-width: 375px) {
 	.cmp-experiencefragment--header {
 		  > .cmp-container {
 			  height: 80px;
-        .cmp-image__image {
-          max-height: 80px;
-        }
 			}
 		}
   }
@@ -79,9 +76,6 @@ header.experiencefragment {
 	  .cmp-experiencefragment--header {
 		  > .cmp-container {
 			  height: 115px;
-        .cmp-image__image {
-          max-height: 115px;
-        }
 			}
 		}
 	}
