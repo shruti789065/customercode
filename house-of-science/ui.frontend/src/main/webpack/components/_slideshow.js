@@ -5,14 +5,15 @@ import jQuery from "jquery";
 jQuery(function ($) {
 
 	const myCarousel = document.getElementById('slideshowCarousel');					// Get the carousel element from the DOM
-	var videos = myCarousel.querySelectorAll('video');									// Get all the videos in the carousel
+	if(myCarousel){
+	
+		var videos = myCarousel.querySelectorAll('video');									// Get all the videos in the carousel
 	var allVids = $("#slideshowCarousel").find('.carousel-item');						// Get all the carousel items
 	var slides = myCarousel.querySelectorAll('.carousel-item');							// Get all the slides in the carousel
 	var durations = [];																	// Array to store the durations of all videos
 	var progressBars = $("#slideshowCarousel").find('.slidebutton .progress-value'); 
 	
 	
-	if(myCarousel){
 
 	// Get all the progress bars
 		// Pause all videos except the first one
