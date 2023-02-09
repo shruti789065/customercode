@@ -1,5 +1,10 @@
 .button { 
     .cmp-button{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        width: fit-content;
+        text-decoration: unset;
         position: relative;
         height: 75px;
         font-family: $font-family;
@@ -35,6 +40,9 @@
             
             &.cmp-button__icon--book{
                 background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-book.svg');
+            }
+            &.cmp-button__icon--book-red{
+                background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-book-red.svg');
             }
             &.cmp-button__icon--play{
                 background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-play.svg');
