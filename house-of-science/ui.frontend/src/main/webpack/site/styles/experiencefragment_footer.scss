@@ -48,17 +48,19 @@ footer.experiencefragment {
 	}
 	.cmp-list {
 		display: flex;
+		align-items: center;
 		position: relative;
 		flex-direction: column;
 		justify-content: space-between;
 		font-weight: 300;
 		font-size: 22px;
 		padding-left: 0;
+		margin-bottom: unset;
 		.cmp-list__item {
 			color: $white;
 			list-style: none;
-			width: 100%;
-			padding: 10px 0;
+			width: fit-content;
+			padding: 10px 20px;
 			text-align: center;
 			border: 2px solid transparent;
 			cursor: pointer;
@@ -149,6 +151,20 @@ footer.experiencefragment {
 			}
 			.xf-master-building-block {
 				flex-direction: row;
+				align-items: center;
+				.text {					
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					.cmp-text {
+						display: flex;
+						align-items: center;
+						* {
+							color: $white;
+							margin-bottom: 0px;
+						}
+					}
+				}
 				.button{
 					margin-left: 0;
 				}
