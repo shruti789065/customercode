@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-console.log("search Filter OK");
+import _ from 'lodash';
 
 window.onload = function () {
   // Select the carousel
@@ -31,15 +30,15 @@ Tag: []
 
 // Function to filter data based on criteria
 const filterData = () => _.filter(data, item => {
-// Check if each filter is empty or if the current item matches the criteria
-return (
-(_.isEmpty(filters.topic) || _.includes(filters.topic, item.topic)) &&
-(_.isEmpty(filters.author) || _.includes(filters.author, item.author)) &&
-(_.isEmpty(filters.source) || _.includes(filters.source, item.source)) &&
-(_.isEmpty(filters.year) || _.includes(filters.year, item.year)) &&
-(_.isEmpty(filters.typology) || _.includes(filters.typology, item.typology)) &&
-(_.isEmpty(filters.tag) || _.includes(filters.tag, item.tag))
-);
+  // Check if each filter is empty or if the current item matches the criteria
+  return (
+    (_.isEmpty(filters.topic) || _.includes(filters.topic, item.topic)) &&
+    (_.isEmpty(filters.author) || _.includes(filters.author, item.author)) &&
+    (_.isEmpty(filters.source) || _.includes(filters.source, item.source)) &&
+    (_.isEmpty(filters.year) || _.includes(filters.year, item.year)) &&
+    (_.isEmpty(filters.typology) || _.includes(filters.typology, item.typology)) &&
+    (_.isEmpty(filters.Tag) || _.includes(filters.Tag, item.Tag))
+  );
 });
 
 // Function to display filtered data
