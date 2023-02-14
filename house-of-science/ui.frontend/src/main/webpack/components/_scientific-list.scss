@@ -46,24 +46,25 @@
 
 				.cmp-teaser__image {
 					height: 100%;
-					transition: all .2s;
-
+					cursor: pointer;
+					
 					.cmp-image {
 						height: 100%;
-
+						
 						.cmp-image__image {
 							max-width: 350px;
 							max-height: 100%;
 							height: 100%;
 							padding: 25px;
+							transition: transform 330ms ease-in-out;
 							margin: auto;
+							
+							&:hover {
+								transform: scale(1.1);
+							}
 						}
 					}
 
-					&:hover {
-						cursor: pointer;
-						transform: scale(1.1);
-					}
 				}
 			}
 		}
