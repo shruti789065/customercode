@@ -1,165 +1,166 @@
 /*cardFilters*/
-.cardFilters {}
-.cardFilters .card {}
-.cardFilters .card .card-header {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+.cardFilters {
+    .cardSF {
+        .card-header {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            h2 {
+                cursor: pointer;
+                position: relative;
 
-.cardFilters .card .card-header h2 {
-    cursor: pointer;
-    position: relative;
-}
-.cardFilters .card .card-header h2::before,
-.cardFilters .card .card-header h2:has(button[aria-expanded="false"]):before {
-    display: flex;
-    content: " ";
-    background-image: url('./img/arrow-up.svg');
-    background-repeat: no-repeat;
-	width: 24px;
-	height: 24px;
-	position: absolute;
-	right: 0px;
-	top: 10px;
-}
-.cardFilters .card .card-header h2:has(button[aria-expanded="true"]):before {
-    rotate: 180deg;
-}
-
-.cardFilters .card .card-header h2 button {
-    width: 100%;
-    padding: 0px;
-}
-.cardFilters .card .card-header h2 button:focus,
-.cardFilters .card .card-header h2 button:hover {
-    box-shadow: unset;
-    text-decoration: unset;
-}
-.cardFilters .card .card-header h2 button label {
-    width: 100%;
-    display: flex;
-	justify-content: flex-start;
-    color: $primary-color-three;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-}
-.cardFilters .card .card-body {
-    padding: 15px 0px;
-    max-height: 300px;
-	scroll-behavior: auto;
-	overflow: auto;
-	overflow-x: hidden;
-}
-    /* for webkit browsers */
-    .cardFilters .card .card-body::-webkit-scrollbar {
-        width: 15px;
-        background-color: #F5F5F5;
+                &:before,
+                &:has(button[aria-expanded="false"]):before {
+                    display: flex;
+                    content: " ";
+                    background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/arrow-up.svg');
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    right: 0px;
+                    top: 10px;
+                }
+                &:has(button[aria-expanded="true"]):before {
+                    rotate: 180deg;
+                }
+                button {
+                    width: 100%;
+                    padding: 0px;
+                    text-decoration: unset;
+                    &:focus,
+                    &:hover {
+                        box-shadow: unset;
+                        text-decoration: unset;
+                    }
+                    label {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        color: $primary-color-three;
+                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                        font-weight: bold;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .card-body {
+            padding: 15px 0px;
+            max-height: 300px;
+            scroll-behavior: auto;
+            overflow: auto;
+            overflow-x: hidden;
+            
+            &::-webkit-scrollbar {
+                width: 15px;
+                background-color: #F5F5F5;
+            }
+            &::-ms-thumb {
+                width: 12px;
+                background-color: #F5F5F5;
+            }
+            &::-ms-track {
+                width: 12px;
+                background-color: #F5F5F5;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $primary-color-three;
+                border-radius: 6px;
+                border: 1px solid $primary-color-three;
+            }
+            scrollbar {
+                width: 12px;
+                background-color: #F5F5F5;
+                thumb {
+                    background-color: #F5F5F5;
+                }
+            }
+            [id*='-filter'] {
+                label {
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    margin: 0px;
+                    width: 100%;
+                    border-bottom: 1px solid rgb(128 128 128 / 50%);
+                    padding: 15px;
+                    font-size: 14px;
+                    &.filter-selected {
+                        border: 2px solid $primary-color-three;
+                        background-color: rgb(182 38 35 / 80%);
+                        color: #FFFFFF;
+                    }
+                    input[type="checkbox"] {
+                        display: none;
+                        &:checked+label {
+                            &:before {
+                                background-color: #337ab7;
+                                border-color: #337ab7;
+                            }
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                width: 10px;
+                                height: 5px;
+                                top: 5px;
+                                left: 5px;
+                                border: solid #fff;
+                                border-width: 0 2px 2px 0;
+                                transform: rotate(45deg);
+                            }
+                        }
+                        
+                    }
+                    input[type="checkbox"]+label {
+                        position: relative;
+                        padding-left: 25px;
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            left: 0;
+                            top: 0;
+                            background-color: #fff;
+                            border: 1px solid #ccc;
+                        }
+                    }
+                }
+            }
+        }
     }
-    /* for firefox */
-    .cardFilters .card .card-body scrollbar {
-        width: 12px;
-        background-color: #F5F5F5;
-    }
-    /* for internet explorer */
-    .cardFilters .card .card-body::-ms-thumb {
-        width: 12px;
-        background-color: #F5F5F5;
-    }
-    /* for internet explorer */
-    .cardFilters .card .card-body::-ms-track {
-        width: 12px;
-        background-color: #F5F5F5;
-    }
-    /* for firefox */
-    .cardFilters .card .card-body scrollbar thumb {
-        background-color: #F5F5F5;
-    }
-    /* for webkit browsers */
-    .cardFilters .card .card-body::-webkit-scrollbar-thumb {
-        background: $primary-color-three;
-        border-radius: 6px;
-        border: 1px solid $primary-color-three;
-    }
-.cardFilters .card .card-body [id*='-filter'] {}
-.cardFilters .card .card-body [id*='-filter'] label {
-    cursor: pointer;
-    padding: 5px 10px;
-    margin: 0px;
-    width: 100%;
-	border-bottom: 1px solid rgb(128 128 128 / 50%);
-	padding: 15px;
-	font-size: 14px;
-}
-.cardFilters .card .card-body [id*='-filter'] label.filter-selected {
-    border: 2px solid $primary-color-three;
-    background-color: rgb(182 38 35 / 80%);
-	color: #FFFFFF;
-}
-.cardFilters .card .card-body [id*='-filter'] label input[type="checkbox"] {
-    display: none;
-}
-.cardFilters .card .card-body [id*='-filter'] label input[type="checkbox"]+label {
-    position: relative;
-    padding-left: 25px;
-}
-.cardFilters .card .card-body [id*='-filter'] label input[type="checkbox"]+label:before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 0;
-    top: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-}
-.cardFilters .card .card-body [id*='-filter'] label input[type="checkbox"]:checked+label:before {
-    background-color: #337ab7;
-    border-color: #337ab7;
-}
-.cardFilters .card .card-body [id*='-filter'] label input[type="checkbox"]:checked+label:after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 5px;
-    top: 5px;
-    left: 5px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
+} 
 
 
 #results {}
-#results .card {
+#results .cardSFR {
     border: 0px;
     background-color: unset;
     border-bottom: 1px solid rgb(128 128 128 / 50%);
     border-radius: 0px;
 }
-#results .card .card-header {
+#results .cardSFR .card-header {
     border-bottom: unset;
     padding: 15px;
 }
-#results .card .card-header button {
+#results .cardSFR .card-header button {
     display: flex;
 	flex-direction: column;
 	align-items: flex-start;
     text-decoration: unset;
     padding: 0px;
 }
-#results .card .card-header button:focus {
+#results .cardSFR .card-header button:focus {
     box-shadow: unset;
 }
-#results .card .card-header button .typology {
+#results .cardSFR .card-header button .typology {
     /*background-color: $primary-color-three;*/
     color: #FFFFFF;
     text-transform: uppercase;
     padding: 5px 15px;
     margin: 0px;
 }
-#results .card .card-header button .description {
+#results .cardSFR .card-header button .description {
     text-align: left;
     color: black;
     font-size: 24px;
@@ -169,39 +170,39 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-#results .card .card-header .date {
+#results .cardSFR .card-header .date {
     display: flex;
     color: grey;
     font-size: 16px;
     margin-top: 10px;
 }
-#results .card [id*='collapse-']{}
-#results .card .card-body {
+#results .cardSFR [id*='collapse-']{}
+#results .cardSFR .card-body {
     display: flex;
     flex-direction: column;
 }
-#results .card .card-body * {
+#results .cardSFR .card-body * {
     display: flex;
 }
-#results .card .card-body .meta-data {
+#results .cardSFR .card-body .meta-data {
     flex-direction: column;
 }
-#results .card .card-body .meta-data .meta-data-item{}
-#results .card .card-body .meta-data .meta-data-item.Topic {}
-#results .card .card-body .meta-data .meta-data-item.Author {    
+#results .cardSFR .card-body .meta-data .meta-data-item{}
+#results .cardSFR .card-body .meta-data .meta-data-item.Topic {}
+#results .cardSFR .card-body .meta-data .meta-data-item.Author {    
     margin-top: 30px;
 }
-#results .card .card-body .meta-data .meta-data-item.Source {
+#results .cardSFR .card-body .meta-data .meta-data-item.Source {
     margin-top: 30px;
 }
-#results .card .card-body .meta-data .meta-data-item.Year {}
-#results .card .card-body .meta-data .meta-data-item.Tag {
+#results .cardSFR .card-body .meta-data .meta-data-item.Year {}
+#results .cardSFR .card-body .meta-data .meta-data-item.Tag {
     margin-top: 30px;
 }
-#results .card .card-body .description {    
+#results .cardSFR .card-body .description {    
     margin-top: 30px;
 }
-#results .card .card-body .Link {
+#results .cardSFR .card-body .Link {
     background-color: $primary-color-three;
     color: #FFFFFF;
     font-weight: bold;
