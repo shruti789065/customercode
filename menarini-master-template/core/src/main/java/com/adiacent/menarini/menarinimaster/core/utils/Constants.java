@@ -20,4 +20,8 @@ public class Constants {
 
     public static final String FORMAT_GIORNO_MESE_ANNO="dd - MM - YYYY";
 
+    public static final String APPLICATION_JSON = "application/json";
+
+    public static final String JSON = "json";
+
 }
