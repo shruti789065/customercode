@@ -61,7 +61,7 @@ window.$ = jQuery;
 					var boxes = Object.keys(data).filter(v => !v.startsWith('jcr:')).map(e => data[e]);
 					boxes.forEach((item,index) => {
 						
-						if(typeof item == 'string') return;
+						if(typeof item == 'string') {return;}
 						if ('jcr:content' in item && index >= mainChildren){
 							_createElement(item,mainContainer);
 						} 

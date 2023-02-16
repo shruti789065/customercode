@@ -22,7 +22,7 @@ window.$ = jQuery;
 		function init() {
 			$internalMenu = document.querySelectorAll('.internalmenu');
 			$menuButton = document.querySelector('.cmp-internalmenu__button .cmp-button');
-			if ($internalMenu.length <= 0) return;
+			if ($internalMenu.length <= 0) {return;}
 
 			$menuButton.addEventListener('click', (e) => {
 				e.preventDefault();

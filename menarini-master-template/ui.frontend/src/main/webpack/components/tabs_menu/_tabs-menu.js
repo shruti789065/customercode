@@ -32,7 +32,7 @@ window.$ = jQuery;
 		 */
 		function init() {
 			$tabsMenu = $('.tabs-menu');
-			if ($tabsMenu.length <= 0) return;
+			if ($tabsMenu.length <= 0) {return;}
 
 			$myActiveTab = $tabsMenu.find("." + CONST.ACTIVE_TAB);
 			$myActiveTabPanel = $tabsMenu.find("." + CONST.ACTIVE_PANEL);

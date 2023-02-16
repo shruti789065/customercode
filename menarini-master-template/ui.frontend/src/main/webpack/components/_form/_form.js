@@ -29,7 +29,7 @@ window.$ = jQuery;
 		 */
 		function init() {
 			$contactForm = document.querySelector('form.cmp-form');
-			if ($contactForm == undefined || $contactForm == '') return;
+			if ($contactForm == undefined || $contactForm == '') {return;}
 
 			$formButton = document.querySelector(CONST.BUTTON);
 			$formSelect = document.querySelector(CONST.SELECT);
@@ -59,11 +59,11 @@ window.$ = jQuery;
 				let parentMessage = event.target.closest('[data-cmp-required-message]').dataset.cmpRequiredMessage || ' field required ';
 				let parentTarget;
 				if(event.target.type === 'radio'){
-					if (event.target.required) parentTarget = event.target.parentNode.parentElement;
+					if (event.target.required) {parentTarget = event.target.parentNode.parentElement;}
 				}else{
 					parentTarget = event.target.parentElement;
 				}
-				if (event.target.nextElementSibling !== null && event.target.nextElementSibling.classList.value == 'text-danger') return;
+				if (event.target.nextElementSibling !== null && event.target.nextElementSibling.classList.value == 'text-danger') {return;}
 				_appendErrorMessage(parentTarget, parentMessage);
 			},true);
 
@@ -103,7 +103,7 @@ window.$ = jQuery;
 					count += 1;
 				} 
 				if(!radio.checked && radio.required){
-					if (radio.nextElementSibling !== null && radio.closest('fieldset').querySelector('.text-danger') != undefined) return;
+					if (radio.nextElementSibling !== null && radio.closest('fieldset').querySelector('.text-danger') != undefined) {return;}
 					_appendErrorMessage(radio.parentNode.parentElement,radio.closest('[data-cmp-required-message]').dataset.cmpRequiredMessage);
 				} 
 			});
