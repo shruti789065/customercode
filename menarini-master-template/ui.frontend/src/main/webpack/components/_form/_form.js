@@ -37,12 +37,14 @@ window.$ = jQuery;
 			_allRadioButton = $contactForm.querySelectorAll('input[type=radio]');
 			radioValidation = false;
 
-			$formSelect.addEventListener('change', (event) => {
-				if (getComputedStyle($formButton).visibility === 'hidden') {
-					$formButton.style.visibility = 'visible';
-				}
-				$formButton.innerHTML = _formButtonHTML + ` ${event.target.value}`;
-			});
+			if($formSelect){
+				$formSelect.addEventListener('change', (event) => {
+					/* if (getComputedStyle($formButton).visibility === 'hidden') {
+						$formButton.style.visibility = 'visible';
+					} */
+					$formButton.innerHTML = _formButtonHTML + ` ${event.target.value}`;
+				});
+			}
 
 			$contactForm.querySelectorAll("[required]").forEach((item) => {
 				if (item.type === 'radio') {
