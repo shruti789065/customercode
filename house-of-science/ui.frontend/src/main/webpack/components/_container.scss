@@ -1,59 +1,70 @@
-main.container{
+main.container {
 	padding-top: 85px;
 }
 
-.container{
+.container {
 	max-width: 100%;
 	padding: 0;
 }
-.cmp-container--standard_width{
+
+.cmp-container--standard_width {
 	margin: 0 auto;
 	float: inherit !important;
 	padding: 0 20px;
-	
+
 }
-.containerTestComponent{
+
+
+
+.containerTestComponent {
 	margin-top: 1rem !important;
 	padding: 3rem !important;
 }
+
 @media (max-width: 768px) {
-	.containerTestComponent{
+	.containerTestComponent {
 		padding: 0.3rem !important;
-		.cmp-accordion__panel{
-			padding: 0.3rem !important;;
+
+		.cmp-accordion__panel {
+			padding: 0.3rem !important;
+			;
 		}
 	}
 }
+
 .cmp-container .aem-Grid:has(.teaser.card.cq-Editable-dom) {
-    display: block;
+	display: block;
 }
-.cmp-container_card-padding{
+
+.cmp-container_card-padding {
 	display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	flex-wrap: wrap;
 }
 
 
 @media (min-width: 375px) {
-	main.container{
+	main.container {
 		padding-top: 80px;
 	}
 }
+
 @media (min-width: 576px) {
-	main.container{
+	main.container {
 		padding-top: 115px;
 	}
 }
+
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-	main.container{
+	main.container {
 		padding-top: 115px;
 	}
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
 	.container.cmp-container--standard_width {
 		max-width: 960px;
 	}
@@ -61,23 +72,24 @@ main.container{
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-	
+
 	.container.cmp-container--standard_width {
 		max-width: 990pt;
 	}
-	.cmp-container_card-padding{
+
+	.cmp-container_card-padding {
 		flex-wrap: nowrap;
 	}
 }
 
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) { 
+@media (min-width: 1400px) {
 	.container.cmp-container--standard_width {
 		max-width: 990pt;
 	}
 }
 
-@media (min-width: 1920px) { 
+@media (min-width: 1920px) {
 	.container.cmp-container--standard_width {
 		max-width: 990pt;
 	}
