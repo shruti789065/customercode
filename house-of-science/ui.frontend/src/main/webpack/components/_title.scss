@@ -19,5 +19,30 @@
 	}
   }
 }
+.cmp-title--alignment__left{
+  text-align: left;
+}
+
+.cmp-title--alignment__center{
+  text-align: center;
+}
+
 .cmp-title__link {
 }
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+  .cmp-title__text{
+    text-align: center;
+  }
+}
+
+.title{
+  .cmp-title{
+    .cmp-title__text{
+      margin-top: 60px;
+    }
+  }
+} 
+
+

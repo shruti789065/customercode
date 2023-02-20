@@ -16,7 +16,8 @@
     "sync": "aemsync -d -p ../ui.apps/src/main/content",
     "chokidar": "chokidar -c \"clientlib\" ./dist",
     "aemsyncro": "aemsync -w ../ui.apps/src/main/content",
-    "watch": "npm-run-all --parallel start chokidar aemsyncro"
+    "watch": "npm-run-all --parallel start chokidar aemsyncro",
+	"lint": "eslint ."
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -59,7 +60,8 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.2",
-    "jquery-ui": "^1.13.2"
+    "jquery-ui": "^1.13.2",
+    "lodash": "^4.17.21"
   },
   "browserslist": [
     "last 2 version",

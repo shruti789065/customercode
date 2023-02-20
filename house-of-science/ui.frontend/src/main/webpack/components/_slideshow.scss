@@ -1,0 +1,370 @@
+#slideshowCarousel {
+	position: relative;
+	height: 100vh;
+
+	.carousel-indicators {
+		top: inherit;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		flex-flow: row wrap;
+		-webkit-flex-flow: row wrap;
+		justify-content: space-around;
+		-webkit-justify-content: space-around;
+		flex-wrap: nowrap;
+		-webkit-flex-wrap: nowrap;
+		background-color: black;
+		height: 80px;
+		padding: 0 28px;
+	}
+
+	.carousel-indicators .button_container {
+		/* padding: 0 28px; */
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+		text-indent: inherit;
+	}
+	.button_container.slidebutton{
+		display: none;
+		&.active{
+			display: block;
+		}
+	}	
+
+	.carousel-indicators .button_container div.title {
+		font-family: $font-family-Libre;
+		font-size: 10px;
+		line-height: 14px;
+		font-weight: $bold;
+		color: #FFF;
+		margin-top: 8px;
+		margin-top: 8px;
+	}
+
+	.carousel-indicators .button_container div.subtitle {
+		font-family: $font-family-Libre;
+		font-size: 10px;
+		line-height: 14px;
+		font-weight: 400;
+		color: #FFF;
+	}
+
+	.carousel-control-prev,
+	.carousel-control-next {
+		display: none;
+	}
+
+	.carousel-inner {
+		height: 100%;
+	}
+
+	.carousel-inner .carousel-item {
+		height: 100%;
+	}
+
+	.carousel-inner .carousel-item .testo {
+		position: absolute;
+		left: 28px;
+		bottom: 15%;
+	}
+
+	.carousel-inner .carousel-item .testo .titolo {
+		font-family: 'Montserrat';
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: $bold;
+		color: #FFF;
+	}
+
+	.carousel-inner .carousel-item .testo .sottotitolo {
+		font-family: 'Montserrat';
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 300;
+		color: #FFF;
+		margin-bottom: 10px;
+	}
+
+	.carousel-inner .carousel-item .contenitore_bottoni {
+		float: left;
+		margin-bottom: 30px;
+		.cmp-teaser__action-container{
+			.cmp-teaser__action-link{
+				display: block;
+				text-decoration: none;
+				font-size: 20px;
+				line-height: 30px;
+				height: 60px;
+				border: 2px solid #FFFFFF;
+				background-color: unset;
+				position: relative;
+				font-family: "Montserrat", sans-serif;
+				font-weight: 700;
+				color: #FFFFFF;
+				cursor: pointer;
+				text-align: left;
+				padding: 12px 90px 12px 10px;
+				margin-bottom: 10px;
+				transition: 0.5s;
+				min-width: 160px;
+				&::after{
+					background-image: url(/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-play.svg);
+					content: "";
+					position: absolute;
+					top: 50%;
+					right: 27px;
+					transform: translate(0%, -50%);
+					-webkit-transform: translate(0%, -50%);
+					height: 35px;
+					width: 35px;
+					background-color: #FFFFFF;
+					border-radius: 50%;
+					background-repeat: no-repeat;
+					background-size: 40px;
+					background-position: center;
+				}
+				
+			}
+		}
+	}
+
+
+	.carousel-inner .carousel-item .contenitore_bottoni .button .cmp-button__icon {}
+
+	
+
+	.carousel-inner .carousel-item .contenitore_bottoni .cmp-teaser__action-container .cmp-teaser__action-link:first-child {
+		margin-left: 0px;
+		&::after{
+			background-image: url(/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-book.svg);
+		}
+	}
+
+	.carousel {
+		cursor: pointer;
+	}
+
+	.carousel-indicators {
+		.slidebutton{
+			.progress {
+				background-color: rgba(255, 255, 255, 0.5);
+				height: 3px;
+				width: 100%;
+			}
+	
+			&.active {
+				.progress-value {
+					animation-name: load;
+					animation-direction: normal;
+					background-color: $primary-color-three;
+					height: 3px;
+					width: 0%;
+				}
+			}
+		}
+	}
+
+	@keyframes load {
+		0% {
+			width: 0;
+		}
+
+		100% {
+			width: 100%;
+		}
+	}
+
+	.carousel-inner video {
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+	}
+
+	// Small devices (landscape phones, 576px and up)
+	@media (min-width: 576px) {
+		
+
+		.carousel-indicators .button_container div.title {
+			font-size: 10px;
+			line-height: 14px;
+		}
+
+		.carousel-indicators .button_container div.subtitle {
+			font-size: 10px;
+			line-height: 14px;
+		}
+
+
+		.carousel-inner .carousel-item .testo .titolo {
+			font-size: 18px;
+			line-height: 24px;
+		}
+
+		.carousel-inner .carousel-item .testo .sottotitolo {
+			font-size: 18px;
+			line-height: 24px;
+		}
+
+		.carousel-inner .carousel-item .contenitore_bottoni {
+			.cmp-teaser__action-container{
+				.cmp-teaser__action-link{
+					min-width: 180px;
+				}
+			}
+		}
+	}
+
+	// Medium devices (tablets, 768px and up)
+	@media (min-width: 768px) {
+		.carousel-indicators {
+			bottom: inherit;
+			top: 15%;
+			margin: 0 20px;
+			gap: 20px;
+			background-color: unset;
+    		height: unset;
+		}
+
+		.carousel-indicators .button_container {
+			margin-top: 40px;
+		}
+
+		.button_container.slidebutton{
+			display: block;
+		}
+
+		.carousel-indicators .button_container div.title {
+			font-size: 12px;
+			line-height: 16px;
+			margin-top: 24px;
+		}
+
+		.carousel-indicators .button_container div.subtitle {
+			font-size: 12px;
+			line-height: 16px;
+		}
+
+		.carousel-inner {
+			height: inherit;
+		}
+
+		.carousel-inner .carousel-item {
+			height: inherit;
+		}
+
+		.carousel-inner .carousel-item .testo {
+			bottom: 5%;
+		}
+
+		.carousel-inner .carousel-item .testo .titolo {
+			font-size: 20px;
+			line-height: 30px;
+		}
+
+		.carousel-inner .carousel-item .testo .sottotitolo {
+			font-size: 20px;
+			line-height: 30px;
+			margin-bottom: 28px;
+		}
+
+		.carousel-inner .carousel-item .contenitore_bottoni {
+			.cmp-teaser__action-container{
+				.cmp-teaser__action-link{
+					min-width: 280px;
+					margin-left: 20px;
+					padding: 12px 90px 12px 20px;
+					display: inline-block;
+					&:hover{
+						transform: scale(1.1);
+					}
+					&::after{
+						height: 40px;
+						width: 40px;
+					}
+				}
+			}
+		}
+
+
+		.carousel-inner .carousel-item .contenitore_bottoni .cmp-teaser__action-container .cmp-teaser__action-link:first-child {
+			margin-left: 0px;
+		}
+		
+	}
+
+	// Large devices (desktops, 992px and up)
+	@media (min-width: 992px) {
+		.carousel-indicators .button_container div.title {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		.carousel-indicators .button_container div.subtitle {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+
+		.carousel-inner .carousel-item .testo .titolo {
+			font-size: 24px;
+			line-height: 34px;
+		}
+
+		.carousel-inner .carousel-item .testo .sottotitolo {
+			font-size: 24px;
+			line-height: 34px;
+		}
+	}
+
+	// X-Large devices (large desktops, 1200px and up)
+	@media (min-width: 1200px) {
+		.carousel-indicators .button_container div.title {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		.carousel-indicators .button_container div.subtitle {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		.carousel-inner .carousel-item .testo .titolo {
+			font-size: 24px;
+			line-height: 34px;
+		}
+
+		.carousel-inner .carousel-item .testo .sottotitolo {
+			font-size: 24px;
+			line-height: 34px;
+		}
+	}
+
+	// XX-Large devices (larger desktops, 1400px and up)
+	@media (min-width: 1400px) {
+		.carousel-indicators .button_container div.title {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		.carousel-indicators .button_container div.subtitle {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		.carousel-inner .carousel-item .testo .titolo {
+			font-size: 24px;
+			line-height: 34px;
+		}
+
+		.carousel-inner .carousel-item .testo .sottotitolo {
+			font-size: 24px;
+			line-height: 34px;
+		}
+	}
+}

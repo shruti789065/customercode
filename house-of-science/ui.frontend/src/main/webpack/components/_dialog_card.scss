@@ -1,0 +1,184 @@
+.cmp-dialog-card__container{
+    .cmp-dialog-card__container-item{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .cmp-dialog-card{
+        flex: 0 1 100%;
+        margin: 10px 10px;
+    }
+    @media (min-width: 768px) {
+        .cmp-dialog-card{ flex: 0 1 calc(50% - 20px); }
+    }
+    @media (min-width: 1100px) {
+        .cmp-dialog-card{ flex: 0 1 calc(33% - 20px); }
+    }
+    @media (min-width: 1500px) {
+        .cmp-dialog-card{ flex: 0 1 calc(25% - 20px); }
+    }
+    @media (min-width: 1700px) {
+        .cmp-dialog-card{ flex: 0 1 calc(25% - 20px); }
+    }
+    
+}
+
+
+
+.cmp-dialog-card__container.cq-Editable-dom.cq-Editable-dom--container{
+    .newpar.new.section.cq-Editable-dom{
+        width: 100%;
+    }
+}
+
+.cmp-dialog-card {
+    position: relative;
+    max-width: unset; /*settare 330px per larghezza fissa*/ 
+    min-height: 330px;
+    background: linear-gradient(180deg, #eaeaea 70%, #1b5393 70%, #2a6fbe 75%);
+    background: -webkit-linear-gradient(180deg, #eaeaea 70%, #1b5393 70%, #2a6fbe 75%);
+    box-shadow: 0 2px 6px -3px #0000008a;
+
+    &::before {
+        background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/portraits/icon-DBB.png');
+        background-repeat: no-repeat;
+        background-size: 75px;
+        background-position: center;
+        content: " ";
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        height: 75px;
+        width: 75px;
+        z-index: 5;
+    }
+    &::after {
+        background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/portraits/icon-card-dialog.png');
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: center;
+        content: " ";
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        height: 40px;
+        width: 40px;
+        z-index: 15;
+        transition: background-image 0.3s linear;
+    }
+
+    .cmp-teaser {
+        min-height: 330px;
+
+        .cmp-teaser__content {
+            min-height: 330px;
+            padding-left: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .cmp-teaser__pretitle {
+                display: flex;
+                order: 2;
+                text-transform: uppercase;
+                font-family: $font-family;
+                color: $color-foreground;
+                font-size: 12px;
+                font-weight: $bold;
+                margin-bottom: 0px;
+                text-align: center;
+            }
+
+            .cmp-teaser__title {
+                display: flex;
+                order: 1;
+                text-transform: uppercase;
+                font-family: $font-family-Libre;
+                color: $primary-color-two;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .cmp-teaser__description {
+                opacity: 0;
+                transition: opacity 0.3s linear;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                height: 100%;
+                display: flex;
+                background-color: rgb(42 111 190 / 70%);
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                color: $white;
+                padding: 40px;
+                z-index: 10;                
+
+                p {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 6;
+                    -webkit-box-orient: vertical;
+                    width: 100%;
+                    overflow: hidden;
+                    font-family: $font-family;
+                    font-weight: $extra-light;
+                }
+            }
+
+            .cmp-teaser__action-container {
+                opacity: 0;
+                transition: opacity 0.3s linear;
+                position: absolute;
+                left: 50%;
+                bottom: 20%;
+                -webkit-transform: translate(-50%, 100%);
+                transform: translate(-50%, 100%);
+                height: 100%;
+                z-index: 15;
+
+                .cmp-teaser__action-link {
+                    text-decoration: underline;
+                    font-size: 22px;
+                    font-family: $font-family;
+                    font-weight: $bold;
+                    color: $white;
+                }
+            }
+        }
+
+        .cmp-teaser__image {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            max-width: 180px;
+            overflow: hidden;
+            min-width: 180px;
+            .cmp-image {
+                img {
+                    margin-left: -40px !important;
+                }
+            }
+        }
+    }
+    &:hover {
+        &::after {
+            background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/portraits/icon-card-dialog-hover.png');
+        }
+        .cmp-teaser{
+            .cmp-teaser__description {                    
+                opacity: 1;
+
+                * {}
+            }
+
+            .cmp-teaser__action-container {
+                opacity: 1;
+
+                .cmp-teaser__action-link {}
+            }
+        }
+    }
+}

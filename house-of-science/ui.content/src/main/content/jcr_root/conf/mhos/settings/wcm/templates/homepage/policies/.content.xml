@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-01-02T14:02:45.294+01:00"
+        cq:lastModified="{Date}2023-01-03T11:07:27.534+01:00"
         cq:lastModifiedBy="admin"
         cq:policy="mhos/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -37,6 +37,20 @@
                                 cq:policy="mhos/components/teaser/policy_1575031387650"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <text
+                            cq:policy="mhos/components/text/policy_641562756958017"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <card-hover-container
+                            cq:policy="mhos/components/card-hover-container/policy_1674552948816"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <Slideshow jcr:primaryType="nt:unstructured">
+                            <slideshow-container
+                                cq:policy="mhos/components/Slideshow/slideshow-container/policy_1675165479996"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </Slideshow>
                     </components>
                 </mhos>
             </container>

@@ -2,6 +2,9 @@
 
 footer.experiencefragment {
 	border-top: 8px solid $primary-color-two;
+	&.cq-Editable-dom{
+		margin-top: 50px;
+	}
 	.cmp-separator__horizontal-rule {
 		box-sizing: border-box;
 		border: 1px solid $white;
@@ -14,6 +17,13 @@ footer.experiencefragment {
 		max-width: 140px;
 		margin: 0 auto 30px;
 	}
+	.title{
+		.cmp-title{
+			.cmp-title__text{
+				margin-top: 0;
+			}
+		}
+	} 
 	.cmp-image__image {
 		height: auto;
 		min-height: 50px;
@@ -38,17 +48,19 @@ footer.experiencefragment {
 	}
 	.cmp-list {
 		display: flex;
+		align-items: center;
 		position: relative;
 		flex-direction: column;
 		justify-content: space-between;
 		font-weight: 300;
 		font-size: 22px;
 		padding-left: 0;
+		margin-bottom: unset;
 		.cmp-list__item {
 			color: $white;
 			list-style: none;
-			width: 100%;
-			padding: 10px 0;
+			width: fit-content;
+			padding: 10px 20px;
 			text-align: center;
 			border: 2px solid transparent;
 			cursor: pointer;
@@ -56,6 +68,10 @@ footer.experiencefragment {
 			&:focus{
 				border: 2px solid $white;
 				font-weight: bold;
+			}
+			.cmp-list__item-link{
+				color: $white;
+				text-decoration: none;
 			}
 		}
 	}
@@ -86,6 +102,7 @@ footer.experiencefragment {
 			}
 			.cmp-button {
 				padding: 0;
+				display: unset;
 				.cmp-button__icon {
 					position: relative;
 					top: auto;
@@ -134,6 +151,20 @@ footer.experiencefragment {
 			}
 			.xf-master-building-block {
 				flex-direction: row;
+				align-items: center;
+				.text {					
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					.cmp-text {
+						display: flex;
+						align-items: center;
+						* {
+							color: $white;
+							margin-bottom: 0px;
+						}
+					}
+				}
 				.button{
 					margin-left: 0;
 				}

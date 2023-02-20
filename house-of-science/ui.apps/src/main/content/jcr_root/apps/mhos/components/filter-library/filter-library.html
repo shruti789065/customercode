@@ -1,0 +1,148 @@
+<div class="row">
+	<div class="col-md-4">
+		<h3>Search by:</h3>
+		<div class="cardFilters">
+			<div class="card">
+				<div class="card-header" id="heading-topic">
+					<h2>
+						<button class="btn btn-link"
+						        type="button"
+						        data-toggle="collapse"
+						        data-target="#collapse-topic"
+						        aria-expanded="false"
+						        aria-controls="collapse-topic">
+							<label for="topic-filter">Topic</label>
+						</button>
+					</h2>
+				</div>
+				<div id="collapse-topic" class="collapse"
+				     aria-labelledby="heading-topic"
+				     data-parent=".cardFilters">
+					<div class="card-body">
+						<div id="topic-filter"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="heading-author">
+					<h2>
+						<button class="btn btn-link"
+						        type="button"
+						        data-toggle="collapse"
+						        data-target="#collapse-author"
+						        aria-expanded="false"
+						        aria-controls="collapse-author">
+							<label for="author-filter">Author</label>
+						</button>
+					</h2>
+				</div>
+				<div id="collapse-author" class="collapse"
+				     aria-labelledby="heading-author"
+				     data-parent=".cardFilters">
+					<div class="card-body">
+						<div id="author-filter"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="heading-source">
+					<h2>
+						<button class="btn btn-link"
+						        type="button"
+						        data-toggle="collapse"
+						        data-target="#collapse-source"
+						        aria-expanded="false"
+						        aria-controls="collapse-source">
+							<label for="source-filter">Source</label>
+						</button>
+					</h2>
+				</div>
+				<div id="collapse-source" class="collapse"
+				     aria-labelledby="heading-source"
+				     data-parent=".cardFilters">
+					<div class="card-body">
+						<div id="source-filter"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="heading-year">
+					<h2>
+						<button class="btn btn-link"
+						        type="button"
+						        data-toggle="collapse"
+						        data-target="#collapse-year"
+						        aria-expanded="false"
+						        aria-controls="collapse-year">
+							<label for="year-filter">Year</label>
+						</button>
+					</h2>
+				</div>
+				<div id="collapse-year" class="collapse"
+				     aria-labelledby="heading-year"
+				     data-parent=".cardFilters">
+					<div class="card-body">
+						<div id="year-filter"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="heading-typology">
+					<h2>
+						<button class="btn btn-link"
+						        type="button"
+						        data-toggle="collapse"
+						        data-target="#collapse-typology"
+						        aria-expanded="false"
+						        aria-controls="collapse-typology">
+							<label for="typology-filter">Typology</label>
+						</button>
+					</h2>
+				</div>
+				<div id="collapse-typology" class="collapse"
+				     aria-labelledby="heading-typology"
+				     data-parent=".cardFilters">
+					<div class="card-body">
+						<div id="typology-filter"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="heading-tag">
+					<h2>
+						<button class="btn btn-link"
+						        type="button"
+						        data-toggle="collapse"
+						        data-target="#collapse-tag"
+						        aria-expanded="false"
+						        aria-controls="collapse-tag">
+							<label for="tag-filter">Tag</label>
+						</button>
+					</h2>
+				</div>
+				<div id="collapse-tag" class="collapse"
+				     aria-labelledby="heading-tag"
+				     data-parent=".cardFilters">
+					<div class="card-body">
+						<div id="tag-filter"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="col-md-8">
+		<sly data data-sly-test="${wcmmode.edit}">
+			<div data-sly-resource="${'contentFragmentList' @ resourceType='/apps/mhos/components/contentfragmentlist'}">
+			</div>
+		</sly>
+		<sly data data-sly-test="${!wcmmode.edit}">
+			<div id="results"></div>
+		</sly>
+	</div>
+</div>
