@@ -83,7 +83,25 @@ window.$ = jQuery;
 					ev.preventDefault();
 				} 
 			});
+
+			let inputFile = $('#myfile');
+			let filesContainer = $('#myFiles');
+			
+			inputFile.change(function () {
+				let file = inputFile[0].files[0];
+				var fileNameExt = file.name.substring(file.name.indexOf('.')+1);
+				var fileExtension = ['pdf', 'doc', 'docx'];
+				// 2 MB (this size is in bytes)
+				if(file && (file.size < 3 *1048576)){
+					filesContainer.text(file.name);
+				}else{
+					alert('File non ammesso; dimensioni : ' + file.size);
+				}
+				
+			});
+
 		}
+
 
 		function _appendErrorMessage(el, str) {
 			var span = document.createElement('span');
