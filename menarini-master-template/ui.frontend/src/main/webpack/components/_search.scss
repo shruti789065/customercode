@@ -11,3 +11,85 @@
 .cmp-search__item--is-focused {}
 .cmp-search__item-mark {}
 .cmp-search__item-title {}
+
+.searchGlobal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    #search-input {
+        border: 0px;
+        border-bottom: 1px solid $color-background-corporate;
+        width: 100%;
+        box-sizing: border-box;
+        height: 50px;
+        font-size: 25px;
+        color: $color-text;
+
+        &:focus-visible {
+            outline: unset;
+        }
+    }
+
+    #search-button {
+        width: fit-content;
+        box-sizing: border-box;
+        margin: 0px;
+        background: unset;
+        border: unset;
+        cursor: pointer;
+        background-color: $color-link-primary-corporate;
+        text-transform: uppercase;
+        font-family: $font-family-oswald;
+        font-weight: $font-bolder;
+        padding: 7px 25px;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.5s;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            background-color: $color-link-primary-corporate-hover;
+        }
+    }
+}
+
+#search-results {
+
+    ul {
+        list-style: none;
+        padding-left: 0px;
+        margin: 40px 0px 0px 0px;
+
+        li {
+            margin-bottom: 25px;
+
+            a {
+                text-decoration: unset;
+                font-family: $font-family-oswald;
+                font-weight: $font-bolder;
+                color: $color-background-corporate;
+                font-size: 20px;
+                transition: 0.2s;
+
+                &:hover {
+                    color: $color-link-secondary-corporate;
+                }
+            }
+
+            p {
+                color: $color-text;
+                margin: 0px;
+                font-family: $font-family-arimo;
+                font-size: 18px;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+
+    }
+
+}
