@@ -23,7 +23,7 @@ window.$ = jQuery;
 		};
 
 		var $tabsMenu, $tabsMenuContainer, $tablistMobile, $myActiveTab, $myActiveTabPanel, $genericTab, $genericPanel,
-			$mobileTabsActive, $whiteMenu, $shareButton, $mobileResize;
+			$mobileTabsActive, $whiteMenu, $shareButton, $mobileResize,$headerFragment;
 
 		/**
 		 * Initializes the MenuTabs
@@ -41,9 +41,10 @@ window.$ = jQuery;
 			$whiteMenu = false;
 			$tabsMenuContainer = document.querySelectorAll('.tabs-menu__container');
 			$shareButton = document.querySelector(".cmp-share-desktop .cmp-button");
+			$headerFragment = document.querySelector("header.cmp-experiencefragment--header");
 
 			$(window).on('scroll', function () {
-				if (document.querySelectorAll("header.cmp-experiencefragment--header").length > 0) {
+				if ($headerFragment) {
 					if ($(window).scrollTop() > 40) {
 						_addWhiteMenu();
 					} else {
@@ -144,14 +145,14 @@ window.$ = jQuery;
 		}
 
 		function _addWhiteMenu() {
-			if (!$whiteMenu) {
+			if (!$whiteMenu && $headerFragment) {
 				document.querySelector("header.cmp-experiencefragment--header").classList.add("scrolled-page");
 				$whiteMenu = true;
 			}
 		}
 
 		function _removeWhiteMenu() {
-			if ($whiteMenu) {
+			if ($whiteMenu && $headerFragment) {
 				document.querySelector("header.cmp-experiencefragment--header").classList.remove("scrolled-page");
 				$whiteMenu = false;
 			}
