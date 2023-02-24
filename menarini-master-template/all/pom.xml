@@ -77,7 +77,12 @@
                             <artifactId>menarinimaster.pt.ui.content</artifactId>
                             <type>zip</type>
                             <target>/apps/menarinimaster-packages/content/install</target>
-                        </embedded>
+                        </embedded><embedded>
+                        <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                        <artifactId>menarinimaster.stemline.ui.content</artifactId>
+                        <type>zip</type>
+                        <target>/apps/menarinimaster-packages/content/install</target>
+                    </embedded>
                         <embedded>
                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
                             <artifactId>menarinimaster.ui.config</artifactId>
