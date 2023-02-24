@@ -2,7 +2,6 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
-    <rep:policy/>
     <menarinimaster jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
             <form jcr:primaryType="nt:unstructured">
@@ -545,21 +544,41 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_13297555366500>
                 <policy_18390849275000
+                    jcr:lastModified="{Date}2023-02-24T17:08:29.206+01:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0 jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-container--standard_width"
+                                    cq:styleId="1677232233407"
+                                    cq:styleLabel="Standard"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Layout"
+                            jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="cmp-container--text-image"
                                     cq:styleId="1653912867306"
                                     cq:styleLabel="text &amp; Image"
                                     jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-container--border"
+                                    cq:styleId="1677232185176"
+                                    cq:styleLabel="border box"
+                                    jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
-                        </item0>
+                        </item1>
                     </cq:styleGroups>
                 </policy_18390849275000>
                 <policy_4452714892300

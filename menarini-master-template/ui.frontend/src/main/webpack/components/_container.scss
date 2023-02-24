@@ -1,3 +1,15 @@
+.container {
+	max-width: 100%;
+	padding: 0;
+}
+
+.cmp-container--standard_width {
+	margin: 0 auto;
+	float: inherit !important;
+	padding: 0 25px;
+
+}
+
 .cmp-container--border {
 	border: 1px solid #D0CFB6;
 	padding: 3%;
@@ -88,9 +100,57 @@
 	}
 }
 
+
 @media (max-width: 768px) {
+	.containerTestComponent {
+		padding: 0.3rem !important;
+
+		.cmp-accordion__panel {
+			padding: 0.3rem !important;
+			;
+		}
+	}
 	.cmp-product-leaflet .cmp-container {
 		flex-direction: column;
 		justify-content: center;
+	}
+}
+
+
+@media (min-width: 375px) {
+}
+
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+	.container.cmp-container--standard_width {
+		max-width: 684px;
+	}
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+	.container.cmp-container--standard_width {
+		max-width: 828pt;
+	}
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+	.container.cmp-container--standard_width {
+		max-width: 864pt;
+	}
+}
+
+@media (min-width: 1920px) {
+	.container.cmp-container--standard_width {
+		max-width: 1200pt;
 	}
 }
