@@ -103,6 +103,24 @@
                                                     </workflowTitle>
                                                 </items>
                                             </workflowcontainer>
+                                            <mailClientText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text for Client email"
+                                                    fieldLabel="Mail Text for client"
+                                                    name="./mailClientText"
+                                                    required="{Boolean}true"
+                                                    value="Placeholder for client text">
+                                            </mailClientText>
+                                            <mailAdminText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text for Admin email"
+                                                    fieldLabel="Mail Text for Admin"
+                                                    name="./mailAdminText"
+                                                    required="{Boolean}true"
+                                                    value="Placeholder for Admin text">
+                                            </mailAdminText>
                                             <mailForMenarini
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"

@@ -3,10 +3,12 @@ package com.adiacent.menarini.menarinimaster.core.models;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.replication.ReplicationStatus;
 import com.day.cq.wcm.api.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 
 import javax.annotation.PostConstruct;
@@ -27,7 +29,8 @@ public class MessageViewerModel {
     private Node currentNode;
 
     @Inject
-    private String reqattrname;
+    @Optional
+    private String sessionattrname;
     private List<String> messageList = null;
 
     @Self
@@ -36,7 +39,8 @@ public class MessageViewerModel {
     @PostConstruct
     protected void init() throws RepositoryException {
 
-        this.messageList = (List<String>)request.getSession().getAttribute(reqattrname);
+        if(StringUtils.isNotBlank(sessionattrname))
+            this.messageList = (List<String>)request.getSession().getAttribute(sessionattrname);
 
     }
 

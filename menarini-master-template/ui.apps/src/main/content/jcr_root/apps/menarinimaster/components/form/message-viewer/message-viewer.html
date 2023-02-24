@@ -15,10 +15,14 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <sly data-sly-use.messageViewerModel="${'com.adiacent.menarini.menarinimaster.core.models.MessageViewerModel'}"></sly>
 
+
+<div style="text-align:center;padding:10px;height:auto;" class="cq-placeholder" data-emptytext="${component.properties.jcr:title}"
+     data-sly-test="${(wcmmode.edit || wcmmode.preview)}">${component.properties.jcr:title}</div>
+
+
+
+
 <div data-sly-list.item="${messageViewerModel.messageList}">
-
-    <div><p>${item}</p>
-
-    </div>
+    <div><p>${item}</p></div>
 </div>
 

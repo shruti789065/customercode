@@ -28,11 +28,12 @@
 				jcr:primaryType="nt:unstructured"
 				sling:resourceType="granite/ui/components/coral/foundation/container">
 		<items jcr:primaryType="nt:unstructured">
-			<reqAttrName
+			<sessionAttrName
 					jcr:primaryType="nt:unstructured"
 					sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-					fieldLabel="Request Attribute Name"
-					name="./reqattrname"/>
+					fieldLabel="Session Attribute Name"
+					value="contactFormErrorAttr"
+					name="./sessionattrname"/>
 		</items>
 		</column>
 		</items>

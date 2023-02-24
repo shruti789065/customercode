@@ -14,21 +14,18 @@ package com.adiacent.menarini.menarinimaster.core.servlets;
 import java.io.IOException;
 import java.util.*;
 
-import javax.inject.Inject;
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
+
 import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
 
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
-import com.day.cq.search.PredicateGroup;
-import com.day.cq.search.Query;
+
 import com.day.cq.search.QueryBuilder;
-import com.day.cq.search.result.Hit;
-import com.day.cq.search.result.SearchResult;
+
 import com.day.cq.wcm.api.NameConstants;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.ByteArrayDataSource;
@@ -46,7 +43,7 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.propertytypes.ServiceDescription;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -95,9 +92,14 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     protected static final String FROM_PROPERTY = "from";
 
+    protected static final String CLIENTTEXT_PROPERTY = "mailClientText";
+
+    protected static final String ADMINTEXT_PROPERTY = "mailAdminText";
+
     private String[] fileExtensionAllowed = {"doc","docx","odt","sxw"}; //estensioni file allegato consentite
 
-    private static final Integer MAX_FILE_SIZE = new Integer(3*1024*1024);//in byte //max dimensione file allegato
+    private static final Integer MAX_FILE_SIZE_MB = new Integer(3);//in Mbyte
+    private static final Integer MAX_FILE_SIZE = new Integer(MAX_FILE_SIZE_MB *1024*1024);//in byte //max dimensione file allegato
 
     private static final String ERROR_MESSAGE_ATTRIBUTE_NAME = "contactFormErrorAttr"; //Nome attributo in sessione contenente eventuali messaggi di errore
     //inerenti il fallito invio del form contatti
@@ -146,12 +148,14 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
         final ResourceBundle resBundle = request.getResourceBundle(null);
         ResourceResolver resourceResolver = request.getResource().getResourceResolver();
-        int status = 200;
+
         String[] mailTo = null;
         String[] ccRecs = null;
         String[] bccRecs = null;
         String subject = null;
         String fromAddress = null;
+        String clientText = null;
+        String adminText = null;
         List<String> errors = new ArrayList<String>();
         /**
          * Adapting the resource resolver to the session object
@@ -168,13 +172,127 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         Resource resourceContainer = ModelUtils.findResourceByPredicate(qBuilder,predicate,session,resourceResolver);
         if(resourceContainer != null){
             final ValueMap values = ResourceUtil.getValueMap(resourceContainer);
-            mailTo = values.get(MAILTO_PROPERTY, String[].class);//destinatario di default settato a livello di container
+            mailTo = values.get(MAILTO_PROPERTY, String[].class);//destinatario admin di default settato a livello di container
             ccRecs = values.get(CC_PROPERTY, String[].class);
             bccRecs = values.get(BCC_PROPERTY, String[].class);
             subject = values.get(SUBJECT_PROPERTY, resBundle.getString("Form Mail"));
-            fromAddress = values.get(FROM_PROPERTY, "");
+            fromAddress = values.get(FROM_PROPERTY, ""); //mittente quando email è per il cliente
+            clientText = values.get(CLIENTTEXT_PROPERTY, "");
+            adminText = values.get(ADMINTEXT_PROPERTY, "");
         }
 
+        final String informationValue = request.getParameter("information"); // nome campo del form contenente il drop down delle opzioni
+        String optMailTo = null;
+        if(StringUtils.isNotBlank(informationValue)){
+            //si cerca il nodo child di container il cui nome è information
+            predicate = new HashMap<>();
+            predicate.put("path", resourceContainer.getPath());
+            predicate.put("type", "nt:unstructured");
+            predicate.put("property", "name");
+            predicate.put("property.value", "information");
+
+            Resource optResource = ModelUtils.findResourceByPredicate(qBuilder, predicate, session, resourceResolver);
+            if(optResource != null){
+                predicate = new HashMap<>();
+                predicate.put("path", optResource.getPath());
+                predicate.put("type", "nt:unstructured");
+                predicate.put("property", "value");
+                predicate.put("property.value", informationValue);
+
+                Resource optItemResource =  ModelUtils.findResourceByPredicate(qBuilder, predicate, session, resourceResolver);
+                ValueMap property = optItemResource.adaptTo(ValueMap.class);
+                optMailTo = property.get("optMailTo", String.class);
+            }
+        }
+
+
+        final String emailValue = request.getParameter("email"); //nome campo del form contenente l'indirizzo email del cliente.E' sia il destinatario della mail per il cliente
+        //nonché il mittente della mail per l'admin
+
+
+        // we sort the names first - we use the order of the form field and
+        // append all others at the end (for compatibility)
+
+        // let's get all parameters first and sort them alphabetically!
+        final List<String> contentNamesList = new ArrayList<String>();
+        final Iterator<String> names = FormsHelper.getContentRequestParameterNames(request);
+        while (names.hasNext()) {
+            final String name = names.next();
+            contentNamesList.add(name);
+        }
+        Collections.sort(contentNamesList);
+
+        final List<String> namesList = new ArrayList<String>();
+        final Iterator<Resource> fields = FormsHelper.getFormElements(request.getResource());
+        while (fields.hasNext()) {
+            final Resource field = fields.next();
+            final FieldDescription[] descs = FieldHelper.getFieldDescriptions(request, field);
+            for (final FieldDescription desc : descs) {
+                // remove from content names list
+                contentNamesList.remove(desc.getName());
+                if (!desc.isPrivate()) {
+                    namesList.add(desc.getName());
+                }
+            }
+        }
+        namesList.addAll(contentNamesList);
+
+        if(StringUtils.isBlank(fromAddress)){
+            this.logger.debug("No sender specified for client email");
+            errors.add("It's not possible to send the email.\nPlease, contact the help desk ");
+        }
+        if(   StringUtils.isBlank(optMailTo) && ( mailTo == null || mailTo.length == 0 ) )  {
+            this.logger.debug("No receiver specified for admin email");
+            errors.add("It's not possible to send the email.\nPlease, contact the help desk ");
+        }
+
+        //controllo errori in file uploaded
+        final List<RequestParameter> attachments = new ArrayList<RequestParameter>();
+        for (final String name : namesList) {
+            final RequestParameter rp = request.getRequestParameter(name);
+            if (rp != null &&  !rp.isFormField()) {
+                if(!isExtensionValid(rp.getFileName())){
+                    this.logger.debug("File extension for " + rp.getFileName() +" not allowed. File allowed {0}", String.join(",", fileExtensionAllowed));
+                    errors.add("File extension for " + rp.getFileName() +" not allowed. File allowed " + String.join(",", fileExtensionAllowed));
+                }
+                //int size = ea.getInputStream().available();
+                if(rp.getSize() > MAX_FILE_SIZE.intValue()) {
+                    this.logger.debug("File size for " + rp.getFileName() +" not allowed. Max size {0} MB", new Object[] { MAX_FILE_SIZE_MB });
+                    errors.add("File size for " + rp.getFileName() +" not allowed. Max size MAX_FILE_SIZE_MB MB");
+                }
+
+            }
+        }
+        int status = 200;
+        if(errors == null || errors.size() == 0) {
+
+            //email per cliente
+           status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle);
+            //email per admin
+           sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, emailValue, ccRecs, bccRecs, subject, namesList, resBundle);
+        }
+
+
+        // check for redirect
+        String redirectTo = request.getParameter(":redirect");
+        if (redirectTo != null) {
+            int pos = redirectTo.indexOf('?');
+            redirectTo = redirectTo + (pos == -1 ? '?' : '&') + "status=" + status;
+            request.getSession().setAttribute(ERROR_MESSAGE_ATTRIBUTE_NAME, errors);
+            response.sendRedirect(redirectTo);
+            return;
+        }
+        if (FormsHelper.isRedirectToReferrer(request)) {
+            FormsHelper.redirectToReferrer(request, response,
+                    Collections.singletonMap("stats", new String[] { String.valueOf(status) }));
+            return;
+        }
+        response.setStatus(status);
+    }
+
+
+    private int sendEmail(SlingHttpServletRequest request, String mailText, String[] mailTo, String fromAddress, String[] ccRecs, String[] bccRecs, String subject, List<String> namesList, ResourceBundle resBundle ){
+        int status = 200;
         try {
             final StringBuilder builder = new StringBuilder();
             builder.append(request.getScheme());
@@ -189,38 +307,17 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
             // construct msg
             final StringBuilder buffer = new StringBuilder();
-            String text = resBundle.getString("You've received a new form based mail from {0}.");
+            String text = resBundle.getString("You've received a new form based mail from {0}.");//testo editoriale
             text = text.replace("{0}", builder.toString());
             buffer.append(text);
             buffer.append("\n\n");
+            if(StringUtils.isNotBlank(mailText)) {
+                buffer.append(mailText);
+                buffer.append("\n\n");
+            }
             buffer.append(resBundle.getString("Values"));
             buffer.append(":\n\n");
-            // we sort the names first - we use the order of the form field and
-            // append all others at the end (for compatibility)
 
-            // let's get all parameters first and sort them alphabetically!
-            final List<String> contentNamesList = new ArrayList<String>();
-            final Iterator<String> names = FormsHelper.getContentRequestParameterNames(request);
-            while (names.hasNext()) {
-                final String name = names.next();
-                contentNamesList.add(name);
-            }
-            Collections.sort(contentNamesList);
-
-            final List<String> namesList = new ArrayList<String>();
-            final Iterator<Resource> fields = FormsHelper.getFormElements(request.getResource());
-            while (fields.hasNext()) {
-                final Resource field = fields.next();
-                final FieldDescription[] descs = FieldHelper.getFieldDescriptions(request, field);
-                for (final FieldDescription desc : descs) {
-                    // remove from content names list
-                    contentNamesList.remove(desc.getName());
-                    if (!desc.isPrivate()) {
-                        namesList.add(desc.getName());
-                    }
-                }
-            }
-            namesList.addAll(contentNamesList);
 
             // now add form fields to message
             // and uploads as attachments
@@ -241,17 +338,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
                     }
                     buffer.append("\n");
                 } else if (rp.getSize() > 0) {
-                    if(!isExtensionValid(rp.getFileName())){
-                        this.logger.debug("File extention for " + rp.getFileName() +" not allowed");
-                        errors.add("File extention for " + rp.getFileName() +" not allowed");
-                    }else{
-                        //int size = ea.getInputStream().available();
-                        if(rp.getSize() > MAX_FILE_SIZE.intValue()) {
-                            this.logger.debug("File size for " + rp.getFileName() +" not allowed");
-                            errors.add("File size for " + rp.getFileName() +" not allowed");
-                        }
-                        else attachments.add(rp);
-                    }
+                    attachments.add(rp);
                 } else {
                     //ignore
                 }
@@ -265,7 +352,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
                 final MultiPartEmail mpEmail = new MultiPartEmail();
                 email = mpEmail;
                 for (final RequestParameter rp : attachments) {
-                                            final ByteArrayDataSource ea = new ByteArrayDataSource(rp.getInputStream(),
+                    final ByteArrayDataSource ea = new ByteArrayDataSource(rp.getInputStream(),
                             rp.getContentType());
 
                     mpEmail.attach(ea, rp.getFileName(), rp.getFileName());
@@ -280,37 +367,10 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
             email.setMsg(buffer.toString());
 
-            final String informationValue = request.getParameter("information");
-            String optMailTo = null;
-            if(StringUtils.isNotBlank(informationValue)){
-                //si cerca il nodo child di container il cui nome è information
-                predicate = new HashMap<>();
-                predicate.put("path", resourceContainer.getPath());
-                predicate.put("type", "nt:unstructured");
-                predicate.put("property", "name");
-                predicate.put("property.value", "information");
-
-                Resource optResource = ModelUtils.findResourceByPredicate(qBuilder, predicate, session, resourceResolver);
-                if(optResource != null){
-                    predicate = new HashMap<>();
-                    predicate.put("path", optResource.getPath());
-                    predicate.put("type", "nt:unstructured");
-                    predicate.put("property", "value");
-                    predicate.put("property.value", informationValue);
-
-                    Resource optItemResource =  ModelUtils.findResourceByPredicate(qBuilder, predicate, session, resourceResolver);
-                    ValueMap property = optItemResource.adaptTo(ValueMap.class);
-                    optMailTo = property.get("optMailTo", String.class);
-                }
+            // mailto
+            for (final String rec : mailTo) {
+                email.addTo(rec);
             }
-            if(StringUtils.isNotBlank(optMailTo))
-                email.addTo(optMailTo);
-            else
-                // mailto
-                for (final String rec : mailTo) {
-                    email.addTo(rec);
-                }
-
             // cc
             if (ccRecs != null) {
                 for (final String rec : ccRecs) {
@@ -332,31 +392,15 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
                 this.logger.debug("Sending form activated mail: fromAddress={}, to={}, subject={}, text={}.",
                         new Object[] { fromAddress, mailTo, subject, buffer });
             }
-            if(errors.size() == 0)
-                this.mailService.sendEmail(email);
 
-        } catch (EmailException e) {
+            this.mailService.sendEmail(email);
+
+        } catch (EmailException | IOException e) {
             logger.error("Error sending email: " + e.getMessage(), e);
             status = 500;
         }
-
-        // check for redirect
-        String redirectTo = request.getParameter(":redirect");
-        if (redirectTo != null) {
-            int pos = redirectTo.indexOf('?');
-            redirectTo = redirectTo + (pos == -1 ? '?' : '&') + "status=" + status;
-            request.getSession().setAttribute(ERROR_MESSAGE_ATTRIBUTE_NAME, errors);
-            response.sendRedirect(redirectTo);
-            return;
-        }
-        if (FormsHelper.isRedirectToReferrer(request)) {
-            FormsHelper.redirectToReferrer(request, response,
-                    Collections.singletonMap("stats", new String[] { String.valueOf(status) }));
-            return;
-        }
-        response.setStatus(status);
+        return status;
     }
-
     public boolean isExtensionValid(String filename) {
 
         String fileExt = FilenameUtils.getExtension(filename);
