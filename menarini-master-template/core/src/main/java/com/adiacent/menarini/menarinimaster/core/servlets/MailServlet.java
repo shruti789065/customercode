@@ -12,17 +12,25 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
+import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
-import com.adiacent.menarini.menarinimaster.core.utils.Constants;
+
+import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.Hit;
+import com.day.cq.search.result.SearchResult;
 import com.day.cq.wcm.api.NameConstants;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.ByteArrayDataSource;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
@@ -31,14 +39,13 @@ import org.apache.commons.mail.SimpleEmail;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.request.RequestParameter;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceUtil;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.resource.*;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.OptingServlet;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,6 +85,8 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     protected static final String MAILTO_PROPERTY = "mailto";
 
+    protected static final String OPTMAILTO_PROPERTY = "optMailTo";
+
     protected static final String CC_PROPERTY = "cc";
 
     protected static final String BCC_PROPERTY = "bcc";
@@ -86,9 +95,21 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     protected static final String FROM_PROPERTY = "from";
 
+    private String[] fileExtensionAllowed = {"doc","docx","odt","sxw"}; //estensioni file allegato consentite
+
+    private static final Integer MAX_FILE_SIZE = new Integer(3*1024*1024);//in byte //max dimensione file allegato
+
+    private static final String ERROR_MESSAGE_ATTRIBUTE_NAME = "contactFormErrorAttr"; //Nome attributo in sessione contenente eventuali messaggi di errore
+    //inerenti il fallito invio del form contatti
+
     /** @scr.reference policy="dynamic" cardinality="0..1" */
+    @Reference
     protected MailService mailService;
 
+    @Reference
+    private QueryBuilder qBuilder;
+
+    private Session session;
     /**
      * @see org.apache.sling.api.servlets.OptingServlet#accepts(org.apache.sling.api.SlingHttpServletRequest)
      */
@@ -109,164 +130,222 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
      */
     public void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response)
             throws ServletException, IOException {
-        final MailService localService = this.mailService;
+
         if (ResourceUtil.isNonExistingResource(request.getResource())) {
             logger.debug("Received fake request!");
             response.setStatus(500);
             return;
         }
-        final ResourceBundle resBundle = request.getResourceBundle(null);
-
-        final ValueMap values = ResourceUtil.getValueMap(request.getResource());
-        final String[] mailTo = values.get(MAILTO_PROPERTY, String[].class);
-        int status = 200;
-        if (mailTo == null || mailTo.length == 0 || mailTo[0].length() == 0) {
-            // this is a sanity check
-            logger.error(
-                    "The mailto configuration is missing in the form begin at " + request.getResource().getPath());
-
-            status = 500;
-        } else if (localService == null) {
+        if (this.mailService == null) {
             logger.error("The mail service is currently not available! Unable to send form mail.");
+            response.setStatus(500);
+            return;
+        }
+        //Clean attributo in sessione
+        request.getSession().removeAttribute(ERROR_MESSAGE_ATTRIBUTE_NAME);
 
-            status = 500;
-        } else {
-            try {
-                final StringBuilder builder = new StringBuilder();
-                builder.append(request.getScheme());
-                builder.append("://");
-                builder.append(request.getServerName());
-                if ((request.getScheme().equals("https") && request.getServerPort() != 443)
-                        || (request.getScheme().equals("http") && request.getServerPort() != 80)) {
-                    builder.append(':');
-                    builder.append(request.getServerPort());
-                }
-                builder.append(request.getRequestURI());
+        final ResourceBundle resBundle = request.getResourceBundle(null);
+        ResourceResolver resourceResolver = request.getResource().getResourceResolver();
+        int status = 200;
+        String[] mailTo = null;
+        String[] ccRecs = null;
+        String[] bccRecs = null;
+        String subject = null;
+        String fromAddress = null;
+        List<String> errors = new ArrayList<String>();
+        /**
+         * Adapting the resource resolver to the session object
+         */
+        session = resourceResolver.adaptTo(Session.class);
+        /**
+         * Configuring the Map for the predicate
+         */
+        Map<String, String> predicate = new HashMap<>();
+        predicate.put("path", request.getResource().getPath()+"/jcr:content");
+        predicate.put("type", "nt:unstructured");
+        predicate.put("property", MAILTO_PROPERTY);
+        predicate.put("property.operation", "exists");
+        Resource resourceContainer = ModelUtils.findResourceByPredicate(qBuilder,predicate,session,resourceResolver);
+        if(resourceContainer != null){
+            final ValueMap values = ResourceUtil.getValueMap(resourceContainer);
+            mailTo = values.get(MAILTO_PROPERTY, String[].class);//destinatario di default settato a livello di container
+            ccRecs = values.get(CC_PROPERTY, String[].class);
+            bccRecs = values.get(BCC_PROPERTY, String[].class);
+            subject = values.get(SUBJECT_PROPERTY, resBundle.getString("Form Mail"));
+            fromAddress = values.get(FROM_PROPERTY, "");
+        }
 
-                // construct msg
-                final StringBuilder buffer = new StringBuilder();
-                String text = resBundle.getString("You've received a new form based mail from {0}.");
-                text = text.replace("{0}", builder.toString());
-                buffer.append(text);
-                buffer.append("\n\n");
-                buffer.append(resBundle.getString("Values"));
-                buffer.append(":\n\n");
-                // we sort the names first - we use the order of the form field and
-                // append all others at the end (for compatibility)
+        try {
+            final StringBuilder builder = new StringBuilder();
+            builder.append(request.getScheme());
+            builder.append("://");
+            builder.append(request.getServerName());
+            if ((request.getScheme().equals("https") && request.getServerPort() != 443)
+                    || (request.getScheme().equals("http") && request.getServerPort() != 80)) {
+                builder.append(':');
+                builder.append(request.getServerPort());
+            }
+            builder.append(request.getRequestURI());
 
-                // let's get all parameters first and sort them alphabetically!
-                final List<String> contentNamesList = new ArrayList<String>();
-                final Iterator<String> names = FormsHelper.getContentRequestParameterNames(request);
-                while (names.hasNext()) {
-                    final String name = names.next();
-                    contentNamesList.add(name);
-                }
-                Collections.sort(contentNamesList);
+            // construct msg
+            final StringBuilder buffer = new StringBuilder();
+            String text = resBundle.getString("You've received a new form based mail from {0}.");
+            text = text.replace("{0}", builder.toString());
+            buffer.append(text);
+            buffer.append("\n\n");
+            buffer.append(resBundle.getString("Values"));
+            buffer.append(":\n\n");
+            // we sort the names first - we use the order of the form field and
+            // append all others at the end (for compatibility)
 
-                final List<String> namesList = new ArrayList<String>();
-                final Iterator<Resource> fields = FormsHelper.getFormElements(request.getResource());
-                while (fields.hasNext()) {
-                    final Resource field = fields.next();
-                    final FieldDescription[] descs = FieldHelper.getFieldDescriptions(request, field);
-                    for (final FieldDescription desc : descs) {
-                        // remove from content names list
-                        contentNamesList.remove(desc.getName());
-                        if (!desc.isPrivate()) {
-                            namesList.add(desc.getName());
-                        }
+            // let's get all parameters first and sort them alphabetically!
+            final List<String> contentNamesList = new ArrayList<String>();
+            final Iterator<String> names = FormsHelper.getContentRequestParameterNames(request);
+            while (names.hasNext()) {
+                final String name = names.next();
+                contentNamesList.add(name);
+            }
+            Collections.sort(contentNamesList);
+
+            final List<String> namesList = new ArrayList<String>();
+            final Iterator<Resource> fields = FormsHelper.getFormElements(request.getResource());
+            while (fields.hasNext()) {
+                final Resource field = fields.next();
+                final FieldDescription[] descs = FieldHelper.getFieldDescriptions(request, field);
+                for (final FieldDescription desc : descs) {
+                    // remove from content names list
+                    contentNamesList.remove(desc.getName());
+                    if (!desc.isPrivate()) {
+                        namesList.add(desc.getName());
                     }
                 }
-                namesList.addAll(contentNamesList);
+            }
+            namesList.addAll(contentNamesList);
 
-                // now add form fields to message
-                // and uploads as attachments
-                final List<RequestParameter> attachments = new ArrayList<RequestParameter>();
-                for (final String name : namesList) {
-                    final RequestParameter rp = request.getRequestParameter(name);
-                    if (rp == null) {
-                        //see Bug https://bugs.day.com/bugzilla/show_bug.cgi?id=35744
-                        logger.debug("skipping form element {} from mail content because it's not in the request",
-                                name);
-                    } else if (rp.isFormField()) {
-                        buffer.append(name);
-                        buffer.append(" : \n");
-                        final String[] pValues = request.getParameterValues(name);
-                        for (final String v : pValues) {
-                            buffer.append(v);
-                            buffer.append("\n");
-                        }
+            // now add form fields to message
+            // and uploads as attachments
+            final List<RequestParameter> attachments = new ArrayList<RequestParameter>();
+            for (final String name : namesList) {
+                final RequestParameter rp = request.getRequestParameter(name);
+                if (rp == null) {
+                    //see Bug https://bugs.day.com/bugzilla/show_bug.cgi?id=35744
+                    logger.debug("skipping form element {} from mail content because it's not in the request",
+                            name);
+                } else if (rp.isFormField()) {
+                    buffer.append(name);
+                    buffer.append(" : \n");
+                    final String[] pValues = request.getParameterValues(name);
+                    for (final String v : pValues) {
+                        buffer.append(v);
                         buffer.append("\n");
-                    } else if (rp.getSize() > 0) {
-                        attachments.add(rp);
-
-                    } else {
-                        //ignore
                     }
-                }
-                // if we have attachments we send a multi part, otherwise a simple email
-                final Email email;
-                if (attachments.size() > 0) {
                     buffer.append("\n");
-                    buffer.append(resBundle.getString("Attachments"));
-                    buffer.append(":\n");
-                    final MultiPartEmail mpEmail = new MultiPartEmail();
-                    email = mpEmail;
-                    for (final RequestParameter rp : attachments) {
-                        final ByteArrayDataSource ea = new ByteArrayDataSource(rp.getInputStream(),
-                                rp.getContentType());
-                        mpEmail.attach(ea, rp.getFileName(), rp.getFileName());
-
-                        buffer.append("- ");
-                        buffer.append(rp.getFileName());
-                        buffer.append("\n");
+                } else if (rp.getSize() > 0) {
+                    if(!isExtensionValid(rp.getFileName())){
+                        this.logger.debug("File extention for " + rp.getFileName() +" not allowed");
+                        errors.add("File extention for " + rp.getFileName() +" not allowed");
+                    }else{
+                        //int size = ea.getInputStream().available();
+                        if(rp.getSize() > MAX_FILE_SIZE.intValue()) {
+                            this.logger.debug("File size for " + rp.getFileName() +" not allowed");
+                            errors.add("File size for " + rp.getFileName() +" not allowed");
+                        }
+                        else attachments.add(rp);
                     }
                 } else {
-                    email = new SimpleEmail();
+                    //ignore
                 }
+            }
+            // if we have attachments we send a multi part, otherwise a simple email
+            final Email email;
+            if (attachments.size() > 0) {
+                buffer.append("\n");
+                buffer.append(resBundle.getString("Attachments"));
+                buffer.append(":\n");
+                final MultiPartEmail mpEmail = new MultiPartEmail();
+                email = mpEmail;
+                for (final RequestParameter rp : attachments) {
+                                            final ByteArrayDataSource ea = new ByteArrayDataSource(rp.getInputStream(),
+                            rp.getContentType());
 
-                email.setMsg(buffer.toString());
+                    mpEmail.attach(ea, rp.getFileName(), rp.getFileName());
+
+                    buffer.append("- ");
+                    buffer.append(rp.getFileName());
+                    buffer.append("\n");
+                }
+            } else {
+                email = new SimpleEmail();
+            }
+
+            email.setMsg(buffer.toString());
+
+            final String informationValue = request.getParameter("information");
+            String optMailTo = null;
+            if(StringUtils.isNotBlank(informationValue)){
+                //si cerca il nodo child di container il cui nome è information
+                predicate = new HashMap<>();
+                predicate.put("path", resourceContainer.getPath());
+                predicate.put("type", "nt:unstructured");
+                predicate.put("property", "name");
+                predicate.put("property.value", "information");
+
+                Resource optResource = ModelUtils.findResourceByPredicate(qBuilder, predicate, session, resourceResolver);
+                if(optResource != null){
+                    predicate = new HashMap<>();
+                    predicate.put("path", optResource.getPath());
+                    predicate.put("type", "nt:unstructured");
+                    predicate.put("property", "value");
+                    predicate.put("property.value", informationValue);
+
+                    Resource optItemResource =  ModelUtils.findResourceByPredicate(qBuilder, predicate, session, resourceResolver);
+                    ValueMap property = optItemResource.adaptTo(ValueMap.class);
+                    optMailTo = property.get("optMailTo", String.class);
+                }
+            }
+            if(StringUtils.isNotBlank(optMailTo))
+                email.addTo(optMailTo);
+            else
                 // mailto
                 for (final String rec : mailTo) {
                     email.addTo(rec);
                 }
-                // cc
-                final String[] ccRecs = values.get(CC_PROPERTY, String[].class);
-                if (ccRecs != null) {
-                    for (final String rec : ccRecs) {
-                        email.addCc(rec);
-                    }
-                }
-                // bcc
-                final String[] bccRecs = values.get(BCC_PROPERTY, String[].class);
-                if (bccRecs != null) {
-                    for (final String rec : bccRecs) {
-                        email.addBcc(rec);
-                    }
-                }
 
-                // subject and from address
-                final String subject = values.get(SUBJECT_PROPERTY, resBundle.getString("Form Mail"));
-                email.setSubject(subject);
-                final String fromAddress = values.get(FROM_PROPERTY, "");
-                if (fromAddress.length() > 0) {
-                    email.setFrom(fromAddress);
+            // cc
+            if (ccRecs != null) {
+                for (final String rec : ccRecs) {
+                    email.addCc(rec);
                 }
-                if (this.logger.isDebugEnabled()) {
-                    this.logger.debug("Sending form activated mail: fromAddress={}, to={}, subject={}, text={}.",
-                            new Object[] { fromAddress, mailTo, subject, buffer });
-                }
-                localService.sendEmail(email);
-
-            } catch (EmailException e) {
-                logger.error("Error sending email: " + e.getMessage(), e);
-                status = 500;
             }
+            // bcc
+            if (bccRecs != null) {
+                for (final String rec : bccRecs) {
+                    email.addBcc(rec);
+                }
+            }
+            // subject and from address
+            email.setSubject(subject);
+            if (fromAddress.length() > 0) {
+                email.setFrom(fromAddress);
+            }
+            if (this.logger.isDebugEnabled()) {
+                this.logger.debug("Sending form activated mail: fromAddress={}, to={}, subject={}, text={}.",
+                        new Object[] { fromAddress, mailTo, subject, buffer });
+            }
+            if(errors.size() == 0)
+                this.mailService.sendEmail(email);
+
+        } catch (EmailException e) {
+            logger.error("Error sending email: " + e.getMessage(), e);
+            status = 500;
         }
+
         // check for redirect
         String redirectTo = request.getParameter(":redirect");
         if (redirectTo != null) {
             int pos = redirectTo.indexOf('?');
             redirectTo = redirectTo + (pos == -1 ? '?' : '&') + "status=" + status;
+            request.getSession().setAttribute(ERROR_MESSAGE_ATTRIBUTE_NAME, errors);
             response.sendRedirect(redirectTo);
             return;
         }
@@ -278,4 +357,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         response.setStatus(status);
     }
 
+    public boolean isExtensionValid(String filename) {
+
+        String fileExt = FilenameUtils.getExtension(filename);
+        return Arrays.stream(fileExtensionAllowed).anyMatch(fileExt::equalsIgnoreCase);
+    }
 }

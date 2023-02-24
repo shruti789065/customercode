@@ -15,7 +15,7 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <form data-sly-use.container="com.adobe.cq.wcm.core.components.models.form.Container"
       data-sly-use.grid="com.day.cq.wcm.foundation.model.responsivegrid.ResponsiveGrid"
-      method="${container.method}" action="${container.action @ selectors='customMail'}" id="${container.id}" name="${container.name}"
+      method="${container.method}" action="${container.action @ addSelectors='customMail'}" id="${container.id}" name="${container.name}"
       enctype="${container.enctype}"
       class="cmp-form ${grid.cssClass}">
     <div data-sly-test="${container.errorMessages}"
@@ -23,7 +23,7 @@
          class="cmp-form-error">
         <p class="cmp-form-error__item">${item}</p>
     </div>
-    <input type="hidden" name=":formstart" value="${resource.path}"/>
+    <input data-sly-test="${properties.actionType != 'foundation/components/form/actions/mail'}" type="hidden" name=":formstart" value="${resource.path}"/>
     <input type="hidden" name="_charset_" value="utf-8"/>
     <input data-sly-test="${container.redirect}" type="hidden" name=":redirect" value="${container.redirect @ extension='html'}"/>
     <sly data-sly-repeat.paragraph="${grid.paragraphs}"
