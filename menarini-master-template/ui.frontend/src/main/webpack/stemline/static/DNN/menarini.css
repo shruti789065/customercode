@@ -1,0 +1,7066 @@
+@charset "UTF-8";
+/*----- google font import external resources -----*/
+/*** @import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&subset=cyrillic,latin-ext'); ***/
+/*----- fine import -----*/
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+
+/*----- Oswald font scaricato -----*/
+	/* cyrillic */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 200;
+	  src: local('Oswald ExtraLight'), local('Oswald-ExtraLight'), url(./fonts/TK3hWkUHHAIjg75-1h4Tvs9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	}
+	/* vietnamese */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 200;
+	  src: local('Oswald ExtraLight'), local('Oswald-ExtraLight'), url(./fonts/TK3hWkUHHAIjg75-1h4Ttc9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+	}
+	/* latin-ext */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 200;
+	  src: local('Oswald ExtraLight'), local('Oswald-ExtraLight'), url(./fonts/TK3hWkUHHAIjg75-1h4TtM9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	/* latin */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 200;
+	  src: local('Oswald ExtraLight'), local('Oswald-ExtraLight'), url(./fonts/TK3hWkUHHAIjg75-1h4Tus9CAZek1w.woff2) format('woff2');
+	  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	/* cyrillic */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 300;
+	  src: local('Oswald Light'), local('Oswald-Light'), url(./fonts/TK3hWkUHHAIjg75-sh0Tvs9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	}
+	/* vietnamese */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 300;
+	  src: local('Oswald Light'), local('Oswald-Light'), url(./fonts/TK3hWkUHHAIjg75-sh0Ttc9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+	}
+	/* latin-ext */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 300;
+	  src: local('Oswald Light'), local('Oswald-Light'), url(./fonts/TK3hWkUHHAIjg75-sh0TtM9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	/* latin */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 300;
+	  src: local('Oswald Light'), local('Oswald-Light'), url(./fonts/TK3hWkUHHAIjg75-sh0Tus9CAZek1w.woff2) format('woff2');
+	  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	/* cyrillic */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Oswald Regular'), local('Oswald-Regular'), url(./fonts/TK3iWkUHHAIjg752HT8Gl-1PK62t.woff2) format('woff2');
+	  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	}
+	/* vietnamese */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Oswald Regular'), local('Oswald-Regular'), url(./fonts/TK3iWkUHHAIjg752Fj8Gl-1PK62t.woff2) format('woff2');
+	  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+	}
+	/* latin-ext */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Oswald Regular'), local('Oswald-Regular'), url(./fonts/TK3iWkUHHAIjg752Fz8Gl-1PK62t.woff2) format('woff2');
+	  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	/* latin */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Oswald Regular'), local('Oswald-Regular'), url(./fonts/TK3iWkUHHAIjg752GT8Gl-1PKw.woff2) format('woff2');
+	  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	/* cyrillic */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 500;
+	  src: local('Oswald Medium'), local('Oswald-Medium'), url(./fonts/TK3hWkUHHAIjg75-6hwTvs9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	}
+	/* vietnamese */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 500;
+	  src: local('Oswald Medium'), local('Oswald-Medium'), url(./fonts/TK3hWkUHHAIjg75-6hwTtc9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+	}
+	/* latin-ext */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 500;
+	  src: local('Oswald Medium'), local('Oswald-Medium'), url(./fonts/TK3hWkUHHAIjg75-6hwTtM9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	/* latin */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 500;
+	  src: local('Oswald Medium'), local('Oswald-Medium'), url(./fonts/TK3hWkUHHAIjg75-6hwTus9CAZek1w.woff2) format('woff2');
+	  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	/* cyrillic */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 600;
+	  src: local('Oswald SemiBold'), local('Oswald-SemiBold'), url(./fonts/TK3hWkUHHAIjg75-xhsTvs9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	}
+	/* vietnamese */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 600;
+	  src: local('Oswald SemiBold'), local('Oswald-SemiBold'), url(./fonts/TK3hWkUHHAIjg75-xhsTtc9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+	}
+	/* latin-ext */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 600;
+	  src: local('Oswald SemiBold'), local('Oswald-SemiBold'), url(./fonts/TK3hWkUHHAIjg75-xhsTtM9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	/* latin */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 600;
+	  src: local('Oswald SemiBold'), local('Oswald-SemiBold'), url(./fonts/TK3hWkUHHAIjg75-xhsTus9CAZek1w.woff2) format('woff2');
+	  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	/* cyrillic */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 700;
+	  src: local('Oswald Bold'), local('Oswald-Bold'), url(./fonts/TK3hWkUHHAIjg75-ohoTvs9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	}
+	/* vietnamese */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 700;
+	  src: local('Oswald Bold'), local('Oswald-Bold'), url(./fonts/TK3hWkUHHAIjg75-ohoTtc9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+	}
+	/* latin-ext */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 700;
+	  src: local('Oswald Bold'), local('Oswald-Bold'), url(./fonts/TK3hWkUHHAIjg75-ohoTtM9CAZek1wEt.woff2) format('woff2');
+	  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	/* latin */
+	@font-face {
+	  font-family: 'Oswald';
+	  font-style: normal;
+	  font-weight: 700;
+	  src: local('Oswald Bold'), local('Oswald-Bold'), url(./fonts/TK3hWkUHHAIjg75-ohoTus9CAZek1w.woff2) format('woff2');
+	  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+/*----- fine font -----*/
+
+.clear {
+	clear: both;
+}
+button.dnn-ui-common-button[role=primary] {
+	pointer-events: none !important;
+	cursor: default !important;
+}
+
+body{
+	background:#FFF;
+	font-size:12px;
+	color:#333333;
+	font-size:14px;
+	line-height:20px;
+	font-weight:400;
+}
+.dnnbooster{
+	background:#FFF;
+	float:left;
+	width:100%;
+}
+.dnnbooster.home{
+	background:#FFFFFF;
+}
+img { max-width:100%; }
+iframe { max-width: 100%; }
+/*----- stili sovrascrittura DNN -----*/
+.dnnModuleManager .DnnModule.floating,
+.dnnModuleSorting .DnnModule.floating {
+	position: absolute;
+	z-index: 9999999 !important;
+	top: 30% !important;
+}
+.actionMenuAdmin ul li a img { max-width: 20px; }
+
+.dnnEditState #ot-sdk-btn-floating {
+	margin-bottom: 100px;
+}
+/*----- stili sovrascrittura boostrap -----*/
+html { scroll-behavior: smooth; }
+
+.container-fluid {
+	padding: 0px 100px; /* FONDAMENTALE NON TOCCARE by DAVIDE*/
+}
+a {
+	text-decoration: unset;
+}
+.dxgvDetailCell_Material .row{ 
+	display: block; 
+} 
+@media (min-width: 768px) { 
+	.container { 
+		max-width: 900px; 
+		} 
+	#dnn_SliderPane .DNNContainer_noTitle { 
+		text-align: center; width: 100%; 
+		}
+	}
+@media (min-width: 992px) { 
+	.container { 
+		max-width: 98%; /*--- messo in % per evitare troppi scatti ---*/
+		} 
+	}
+@media (min-width: 1200px) { 
+	.container { 
+		max-width: 1500px; 
+		} 
+	}
+#Form > div.dnnbooster.home.de-DE > header > div > nav > div > div.navbar-brand.float-left {
+	max-width: 30%;
+}
+#dnnbootsterNavDesktop {
+	width: 70%;
+}
+#search.float-right {
+	display : block;
+}
+#searchmobile {
+	display : none;
+}
+
+/*----- moduli nascosti se senza contenuto -----*/
+body:not(.dnnEditState) .DNNEmptyPane { display: none; }
+
+/*----- font -----*/
+.h1, h1{font-size: 28px;}
+.h2, h2{font-size: 24px;}
+.h3, h3{font-size: 19px;}
+.h1, h1, .h2, h2,.h3, h3{
+	width: 100%;
+}
+.dnnbooster ul {
+	margin-left: 18px;
+    font-family: arimo;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 1rem;
+}
+.dnnbooster ol {
+	margin-left: 18px;
+    font-family: arimo;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 1rem;
+}
+
+#dnn_SliderPane,
+.dnnLogin { margin-top: 150px; }
+#dnn_SliderPane { margin-bottom: -150px; }
+.home #dnn_SliderPane { margin-bottom: 30px; }
+.dnnbooster header .navbar .navbar-nav .nav-link{
+	color:#000;
+	text-transform:uppercase;
+}
+.dnnbooster header .fixed-top,
+.dnnbooster header .navbar .navbar-nav .nav-link:hover {
+	background: #FFF;
+}
+.dnnbooster header .navbar .navbar-nav .nav-item a.active {
+    color: #999999;
+    text-decoration:underline;
+}
+.dnnbooster header .topbar {
+    background: #ececec;
+}
+.dnnbooster header #search{
+	max-width:160px;
+}
+.navbar-expand-lg .navbar-nav .nav-link { 
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+}
+/*-----bottone menu mobile-----*/
+.dnnbooster header .navbar .navbar-toggler,
+.dnnbooster header .navbar .navbar-toggler.collapsed {
+	background: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/mobileMenuBtn.png) center center no-repeat;
+}
+.dnnbooster header .navbar .navbar-toggler.open {
+	background: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/mobileMenuBtnClose.png) center center no-repeat;
+}
+.dnnbooster header .navbar .navbar-toggler .toggle-bar,
+.dnnbooster header .navbar .navbar-toggler.collapsed .toggle-bar,
+.dnnbooster header .navbar .navbar-toggler.open .toggle-bar {
+	display: none;
+}
+/*----- fine -----*/
+
+/******************************/
+
+/***** selettore lingua *****/
+
+.language .language-object{
+	margin-left:20px;
+	margin-right:20px;
+	margin-top:2px;
+}
+.language.right.no_mobile .language-object .Language{
+	padding: 0px 5px;
+}
+.language.right.no_mobile .language-object .Language .LanguageFalse{
+	color: #333333;
+}
+.language.right.no_mobile .language-object .Language .LanguageTrue{
+	color: #999;
+}
+.language .language-object a {
+	color:#333333;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	text-transform:uppercase;
+	text-decoration:none;
+	border-left:1px solid #999;
+	padding-left:4px;
+	padding-right:4px;
+}
+.language .language-object a:hover{
+	text-decoration:underline;
+}
+.language .language-object a:first-child {
+	border-left:0px;
+}
+.language .language-object span:first-child {
+    padding: 0px;
+}
+.language .language-object span {
+    margin: 0;
+    padding: 0px;
+}
+.language .language-object span.LanguageTrue{
+	color:#999999;
+	text-decoration:underline;
+}
+/**************/
+
+header .search {
+    width: 165px;
+    height: 22px;
+}
+header .search a {
+    background: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/search.png) no-repeat scroll center center #E7E7DA;
+    margin-left: 0px;
+    padding: 0px;
+    width: 22px;
+    height: 22px;
+    float: left;
+}
+header #search .form-control.search-box{
+	background:none;
+	-webkit-box-shadow:inset 0 0px 0px rgba(0,0,0,.075);
+	box-shadow:inset 0 0px 0px rgba(0,0,0,.075);
+	border-radius: 0px;
+}
+.dnnbooster header .topbar .general-functions .search a:link{
+	float:right;
+}
+.dnnbooster header .topbar .general-functions li .material-icons {
+    height: 22px;
+    line-height: 22px;
+	width: 24px;
+	background:#f6f6f6;
+}
+.row.topbar a.worldwide_link {
+    background: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/worldwide_link_bg.png) left center no-repeat;
+    padding-bottom: 4px;
+    padding-left: 32px;
+    padding-top: 4px;
+	color:#333333;
+	text-transform:uppercase;
+	padding-right: 36px;
+}
+
+header .navbar .navbar-nav .nav-item .nav-link{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size:15px ;
+	color:#777472;
+	line-height: 16px;
+    font-weight: 400;
+}
+.dnnbooster header .navbar .navbar-nav .nav-item a.active,
+.dnnbooster header .navbar .navbar-nav .nav-item a.active:hover{
+	color:#999999;
+}
+.dnnbooster header .navbar .navbar-nav .nav-item.active .dropdown-menu .dropdown-item{
+	color:#000000;
+}
+header .navbar .navbar-nav .nav-item .nav-link:hover{
+	color:#333333;
+}
+
+header .Search .adv-search {
+	width: 100%;
+}
+header .Search .adv-search .twitter-typeahead,
+header .Search .adv-search .twitter-typeahead .form-control {
+	height: 60px !important;
+	font-size: 30px !important;
+	background-color: unset !important;
+	border: 0px;
+    border-bottom: 1px solid #FFF;
+    color: #FFF;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+}
+header .Search .adv-search .search-btn {
+	border:0px;
+	height: 60px;
+}
+header .Search .adv-search .glyphicon {
+	font-size: 35px;
+}
+header .Search .adv-search .btn-primary {
+    background-color: unset !important;
+    border-color: unset !important;
+}
+
+.dropdown-toggle::after{
+	display:none !important;
+}
+#dnn_avtSearch_pnlInput .bstrap30 .sb-default .input-group span.twitter-typeahead{
+	height: 22px;
+}
+#dnn_avtSearch_pnlInput .bstrap30 .sb-default .input-group span.twitter-typeahead:not(:first-child):not(:last-child) .form-control{
+	height: 100%;
+}
+#dnn_avtSearch_pnlInput .bstrap30 .input-group-btn{
+	vertical-align:top;
+}
+#dnn_avtSearch_pnlInput .bstrap30 .sb-default{
+	padding-top:9px;
+}
+#dnn_avtSearch_pnlInput .input-group.dropdown.sb-dropdown.adv-search .search-box{
+	background-color:#f6f6f6 !important;
+	border:0px;
+	height: 100%;
+	font-size:14px;
+}
+#dnn_avtSearch_pnlInput .btn.btn-primary.search-btn{
+	background: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/search.png) no-repeat scroll center center #f6f6f6;
+    margin-left: 0px;
+    padding: 0px;
+    width: 22px;
+    height: 22px;
+    float: left;
+	border:0px;
+	border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#dnn_avtSearch_pnlInput .bstrap30 .glyphicon-search:before{
+	content:" " !important;
+}
+#dnn_avtSearch_pnlInput .btn-primary {
+    background-color: #f6f6f6 !important;
+    border-color: #f6f6f6 !important;
+}
+.uppercontent { margin-bottom: 20px; margin-top: 20px;}
+
+/*----- fine -----*/
+
+#Breadcrumb{
+	background:#FFFFFF;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	font-style: normal;
+	margin-top: 150px;
+}
+.breadcrumbLink.linkHome {
+	margin-left:0px;
+	margin-right:0px;
+}
+	.breadcrumbLink.linkHome:after{
+		content: "/";
+		color: #333333;
+		margin-left: 15px;
+	}
+
+.breadcrumbLink {
+	margin-left:15px;
+	margin-right:15px;
+}
+#Breadcrumb a.breadcrumbLink span{
+	color:#A8A8A8;
+	font-weight:400;
+	font-family: 'Arimo', sans-serif;
+	text-transform: uppercase;
+	font-size: 13px;
+	margin-left:0px;
+	margin-right:0px;
+}
+	#Breadcrumb a.breadcrumbLink span:last-child {
+		color:#484542;
+	}
+	#Breadcrumb a.breadcrumbLink.linkHome span{
+	color:#A8A8A8;
+	}
+
+#Breadcrumb .container span span span:last-child a span{
+	font-weight:bold;
+}
+#contentWrapper{
+	margin-top: 50px;
+}
+#dnn_SidebarTopPane{
+	padding-left:0px;
+}
+#dnn_SidebarTopPane .DnnModule-DDRMenu{
+	padding-bottom: 30px;
+}
+
+#Divider { float: left; width: 100%; clear: both; }
+
+#Divider hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 3px solid rgb(1, 120, 129);
+} 
+/*****stili generici****************/
+
+.DnnModule-EasyDNNnews h1 span.TitleH1 {
+	font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 50px;
+    width: 100%;
+	float: left;
+}
+.DnnModule-EasyDNNnews .DNNContainer_Title_h2 {
+	padding: 0px; 
+}
+.DnnModule-EasyDNNnews h2 span.TitleH2 {
+	font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: 400;
+	width: 100%;
+	float: left;
+	position:relative;
+	margin-top:50px;
+}
+.DnnModule-EasyDNNnews h2 span.TitleH2:before{
+    position: absolute;
+	height: 1px;
+    width: 105%;
+	border-bottom: 3px solid #007881;
+	content: "";
+	top: -25px;
+	left: -15px;
+}
+
+#dnn_ContentPane .DnnModule-EasyDNNnews h2 span.TitleH2 {
+	margin-top:0px;
+}
+#dnn_ContentPane .DnnModule-EasyDNNnews h2 span.TitleH2:before{
+	display: none;
+}
+
+.eds_news_NewsOne .article.in_list h2 {
+	font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: 400;
+	width: 100%;
+	float: left;
+}
+.eds_news_NewsOne .article.in_list h2 a {
+	font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: 400;
+	color:#007881;
+}
+.eds_news_NewsOne .article.in_list h2 a:hover {
+	color: #666666;
+	text-decoration: none;
+}
+.eds_news_NewsOne.eds_subCollection_news .article.in_list.span{
+	float: left;
+}
+.eds_news_NewsOne .article.in_list.span{
+	width: 47%;
+	float: left;
+	min-height: auto;
+	position: relative;
+}
+.eds_news_NewsOne .article.in_list.span:nth-child(odd) {
+	margin-right: 5%;
+} 
+.eds_news_NewsOne .article.in_list .article_date {
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-weight: normal;
+	color:#333333;
+	font-size:14px;
+	float: left;
+	margin-bottom:25px;
+}
+.eds_news_NewsOne .article .open_article_btn {
+	position: relative;
+}
+.eds_news_NewsOne.eds_subCollection_news .article a{
+    color: #007881;
+    text-decoration: none;
+	font-size: 14px;
+}
+.eds_news_NewsOne .article a.open_article_btn {
+	color: #e83643;
+	text-transform:uppercase;
+	font-family: Tahoma, Helvetica, sans-serif;
+}
+/*paginazione*/
+.eds_news_NewsOne.eds_subCollection_news .article_pager {
+    float: left;
+	width: 100%;
+	text-align: left;
+}
+.eds_news_NewsOne.eds_subCollection_news .article_pager a,
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.active,
+.eds_news_NewsOne.eds_subCollection_news .article_pager a:hover {
+	font-size: 13px;
+	border: 0px;
+    color: #333333;
+	background: none;
+	box-shadow: none;
+	position: relative;
+	padding-left: 13px;
+	padding-right: 13px;
+}
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.active,
+.eds_news_NewsOne.eds_subCollection_news .article_pager a:hover {
+    color: #e83643;
+}
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.page:after{
+    content: "-";
+	position: absolute;
+	left: -3px;
+	top: 2px;
+    width: 5px;
+    height: 5px; 
+}
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.page:first-child,
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.prev,
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.first{
+	padding-left: 0;
+}
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.first,
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.last,
+.eds_news_NewsOne.eds_subCollection_news .article_pager a.page:first-child:after{
+	display: none;
+}
+/*---fine stili generici---*/
+
+/*****HOME*******************/
+
+.home .DnnModule-EasyDNNnews h2 span.TitleH2{
+	font-size: 28px;
+	padding: 0px;
+}
+.home .eds_news_NewsOne .article.in_list.span{
+	border-bottom: 1px solid #FFF;
+}
+.home .DnnModule-EasyDNNnews h2 span.TitleH2 {
+	margin-top:0px;
+}
+.home .DnnModule-EasyDNNnews h2 span.TitleH2:before{
+	display: none;
+}
+.home .DnnModule-EasyDNNnews .DNNContainer_Title_h2 {
+	padding: 20px;
+}
+/*----- fine news -----*/
+
+#Content2Box #dnn_1F24_Pane2 .DnnModule {
+	max-width: 48%;
+	float: left;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+#Content2Box #dnn_1F24_Pane2 .DnnModule:last-child {
+	margin-right: 0px;
+} 
+#dnn_vnav li.depth-1.in-breadcrumb > div > a,
+#dnn_vnav li.depth-2.in-breadcrumb > div > a,
+#dnn_vnav li.depth-3.in-breadcrumb > div > a{
+	color:#007881 !important;
+}
+#dnn_vnav .depth-0 .childs {
+	display:none;
+}
+#dnn_vnav ul.childs.in-breadcrumb {
+	display:block;
+}
+#dnn_vnav li.in-breadcrumb div.depth-0 a, 
+#dnn_vnav li.active div.depth-0 a{
+	color:#007881;
+}
+#dnn_vnav {
+    border:4px solid #FFF;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:16px;
+	padding-bottom:16px;
+}
+#dnn_vnav li.depth-0.first div.depth-0{
+	padding-top:0px;
+}
+#dnn_vnav li div.depth-0 {
+    padding-top: 28px;
+}
+#dnn_vnav li.last div.depth-0 {
+    padding-bottom: 0px;
+}
+#dnn_vnav li div.depth-1 {
+	padding-top:16px;
+	padding-left: 10%;
+}
+#dnn_vnav li {
+    list-style: none;
+}
+#dnn_vnav li a{
+	text-transform:uppercase;
+	color:#333333;
+	font-size: 17px;
+	line-height:18px;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight:400;
+	word-wrap: break-word;
+}
+#dnn_vnav div.depth-0 div.depth-1 a,
+#dnn_vnav .depth-1 .not-active a{
+	color:#333333;
+}
+#dnn_vnav div.depth-0.active a,
+#dnn_vnav div.depth-0 .depth-1.in-breadcrumb a,
+#dnn_vnav .depth-1 .active a{
+	color:#007881;
+}
+#dnn_vnav .depth-1{
+	background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/dnn_vnav_li_bg.png') left center no-repeat;
+	background-position-x: 10px;
+	background-position-y: 25px;
+}
+#dnn_vnav li.depth-1.in-breadcrumb li div.depth-2 a,
+#dnn_vnav li div.depth-2 a,
+#dnn_vnav li div.depth-2 .not-active a{
+	color:#5E5E5E;
+}
+#dnn_vnav li div.depth-2.active a,
+#dnn_vnav li div.depth-2.in-breadcrumb a,
+#dnn_vnav li.depth-1.in-breadcrumb li div.depth-2.in-breadcrumb a,
+#dnn_vnav li div.depth-2 .active a{
+	color:#007881 !important;
+}
+#dnn_vnav li div.depth-2 {
+	padding-top:10px;
+	padding-left: 10%;
+}
+#dnn_vnav .depth-2{
+	background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/dnn_vnav_li_bg.png') left center no-repeat;
+	background-position-x: 5%;
+	background-position-y: 20px;
+}
+#dnn_vnav .depth-2 a{
+	font-size: 13px;
+}
+
+#dnn_vnav li.depth-1.in-breadcrumb li div.depth-3 a,
+#dnn_vnav li div.depth-3 a,
+#dnn_vnav li div.depth-3 .not-active a{
+	color:#5E5E5E;
+}
+#dnn_vnav li div.depth-3.active a,
+#dnn_vnav li div.depth-3.in-breadcrumb a,
+#dnn_vnav li.depth-1.in-breadcrumb li div.depth-3.in-breadcrumb a,
+#dnn_vnav li div.depth-3 .active a{
+	color:#007881 !important;
+}
+#dnn_vnav li div.depth-3 {
+	padding-top:10px; 
+	padding-left: 14%;
+}
+#dnn_vnav .depth-3{
+	background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/dnn_vnav_li_bg.png') left center no-repeat;
+	background-position-x: 10%;
+	background-position-y: 20px;
+}
+#dnn_vnav .depth-3 a{
+	font-size: 13px;
+}
+
+#dnn_vnav li.depth-1.in-breadcrumb li div.depth-4 a,
+#dnn_vnav li div.depth-4 a,
+#dnn_vnav li div.depth-4 .not-active a{
+	color:#5E5E5E;
+}
+#dnn_vnav li div.depth-4.active a,
+#dnn_vnav li div.depth-4.in-breadcrumb a,
+#dnn_vnav li.depth-1.in-breadcrumb li div.depth-4.in-breadcrumb a,
+#dnn_vnav li div.depth-4 .active a{
+	color:#007881 !important;
+}
+#dnn_vnav li div.depth-4 {
+	padding-top:10px; 
+	padding-left: 18%;
+}
+#dnn_vnav .depth-4{
+	background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/dnn_vnav_li_bg.png') left center no-repeat;
+	background-position-x: 15%;
+	background-position-y: 20px;
+}
+#dnn_vnav .depth-4 a{
+	font-size: 13px;
+}
+
+#dnn_plnav{
+	list-style: none;
+}
+#dnn_plnav li.depth-0{
+	background:#FFF;
+	float:left;
+	position:relative;
+	min-height: 210px;
+	margin-bottom: 40px;
+	border: 0.5px solid #e83643;
+}
+#dnn_plnav li.depth-0:nth-child(2n+1){
+	width:44%;
+	margin-left:0%;
+	margin-right:4%;
+}
+#dnn_plnav li.depth-0:nth-child(2n){
+	width:44%;
+	margin-left:4%;
+	margin-right:0%;
+}
+#dnn_plnav div.depth-0{
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-bottom:20%;
+}
+#dnn_plnav div.depth-0 a{
+    color: #333333; 
+    font-size: 30px;
+    line-height: 28px;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+#dnn_plnav li.depth-0 .childs{
+	float:left;
+	list-style: none;
+	margin-left:5%;
+}
+#dnn_plnav li.depth-1 .childs{
+	float:left;
+	list-style: none;
+	margin-left:10%;
+}
+#dnn_plnav ul li{
+	float:left;
+	clear:both;
+}
+#BottomPaneWrapper{
+	background:#007881;
+	color:#FFF;
+	font-size: 26px;
+	float: left;
+    clear: both;
+    width: 100%;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight:500;
+}
+#BottomPaneWrapper p{
+	margin-bottom:0;
+	padding-top: 30px;
+    padding-bottom: 30px;
+}
+#Bottom3PaneWrapper{
+	float: left;
+    width: 100%;
+}
+#Bottom4PaneWrapper {
+	float: left;
+    width: 100%;
+}
+/*----- goTopLink -----*/
+    #Bottom4PaneWrapper .goTop {
+    	display: none;
+    }
+/*----- footer -----*/
+.dnnbooster footer{
+	background:#143F59;
+	color:#FFF;
+	float: left;
+    width: 100%;
+}
+.dnnbooster footer .container{
+	background:#143F59;
+}
+.dnnbooster footer .legal-footer{
+	background:#ffffff;
+	color:#666666;
+}
+.dnnbooster footer .legal-footer p {
+	font-size: 12px;
+}
+.dnnbooster footer .legal-footer .footerLogo img {
+	max-width: 165px;
+}
+.ot-sdk-show-settings {
+	cursor: pointer;
+}
+/*******************
+box with backround image
+*******************/
+.box_with_background{
+	margin-bottom: 20px;
+}
+.box_with_background .DNNModuleContent.ModDNNHTMLC{
+	background-size: cover;
+	background-position: center right;
+}
+.box_with_background .DNNModuleContent.ModDNNHTMLC > div{
+	background-color: rgba(0,0,0,0.2);
+	position: relative;
+	padding-left: 3%;
+	padding-top: 3%;
+	padding-bottom: 45px;
+	margin-top: 20px;
+	min-height: 230px;
+}
+.box_with_background .DNNModuleContent.ModDNNHTMLC > div img{
+	display: none;
+}
+.box_with_background table{
+	max-width: 70%;
+}
+.box_with_background h2 { 
+	color: #FFF; 
+	text-transform: uppercase;
+	font-size: 30px;
+	margin-bottom:20px;
+}
+.box_with_background h3 { 
+	color: #FFF; 
+	text-transform:uppercase;
+	font-size:22px;
+	font-weight:300;
+	margin-bottom:10px;
+}
+.box_with_background p:nth-child(2){
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+}
+.DnnModule.DnnModule-DNN_HTML .box_with_background p { 
+	color: #FFF;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+}
+.box_with_background span.subtitle {
+	color: #FFF;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-weight: 400; 
+	font-size:30px;
+	margin-bottom:25px;
+	display: block;
+}
+@media (max-width: 768px){
+	.box_with_background span.subtitle {
+		line-height: 35px;
+	}
+}
+
+.box_with_background table td{ 
+	color: #FFF; 
+}
+/*----- upper menu dropdown MENARINI -----*/
+header { position: relative; }
+header .headerMenu .whiteBG .SpacingBottom { padding-top: 0px; padding-bottom: 0px; margin-top: 0px; margin-bottom: 0px; }
+header .topbarMenu {
+	position: fixed;
+	z-index: 1000;
+	padding: 0px !important;
+}
+header .headerMenu {
+	position: fixed;
+	width: 100%;
+	z-index: 900;
+	background-color: #FFF;
+	top: 40px;
+}
+	.dnnbooster header .HeaderTopPane .navbar {
+		padding-top: 10px;
+	}
+	.dnnbooster header .HeaderTopPane .navbar .navbar-nav .nav-link:hover {
+		background: #f7f6f4;
+	}
+	.dnnbooster header .HeaderTopPane .navbar .navbar-nav .nav-item.dropdown.show:after { 
+		content: unset; 
+	}
+.dnnbooster header .HeaderTopPane .navbar .navbar-nav .nav-item .dropdown-menu {
+	top: 40px;
+	background-color: #143F59;
+	height: 100vh;
+}
+@media (max-width: 768px){
+	header .headerMenu .col-md-3,
+	header .headerMenu .col-md-9 { /*sovrascrittura bootstrap per menu fino a 768px tutto in una riga*/
+		width: 50% !important;
+	}
+}
+/*----- personalizzazione menu ITA / ENG MENARINI -----*/
+html[lang="en-US"] .cultureENG,
+html[lang="it-IT"] .cultureITA { display: flex; }
+html[lang="it-IT"] .cultureENG,
+html[lang="en-US"] .cultureITA { display: none; }
+
+/*----- personalizzazione greenfield MENARINI-----*/
+h2.greenfield1000,
+h2.greenfield240,
+h2.greenfield100 {
+	padding: 25px 0px 25px 70px;
+		background-repeat: no-repeat;
+		background-size: 60px;
+		background-position: left;
+}
+h2.greenfield1000 { background-image: url("/Portals/31/Images/greenfield/greenfield1000.svg"); }
+h2.greenfield240 { background-image: url("/Portals/31/Images/greenfield/greenfield240.svg"); }
+h2.greenfield100 { background-image: url("/Portals/31/Images/greenfield/greenfield100.svg"); }
+
+.DnnModule-23003 { 
+	margin-left: -5%;
+    margin-right: -5%;
+	background-image: url("/portals/31/Images/greenfield/greenfield_project_focus_B.jpg"); 
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+@media (min-width: 1366px) {
+	.DnnModule-23003 {
+		margin-left: -13%;
+    	margin-right: -13%;
+	}
+}
+.officesGreenfield .circleWhite {
+	background-color: #FFF;
+    border-radius: 50%;
+    height: 300px;
+    max-width: 300px;
+    margin: 20px;
+}
+	@media (max-width: 768px){
+		.officesGreenfield .circleWhite {
+			margin: 20px auto;
+		}
+	}
+.officesGreenfield .circleWhite h3 {
+	color: #0783FF !important;
+	font-weight: 200 !important;
+	padding-top: 100px !important;
+	font-size: 40px !important;
+	text-transform: capitalize !important;
+	margin-bottom: 10px !important;
+}
+.officesGreenfield .circleWhite p.dimension {
+	margin-bottom: 10px;
+}
+.officesGreenfield .circleWhite .dimension strong {
+	color: #143F59 !important;
+	font-weight: 600 !important;
+	font-size: 35px !important;
+}
+.officesGreenfield .circleWhite .description {
+	color: #143F59 !important;
+	font-size: 14px !important;
+}
+/*----- personalizzazione news archivio MENARINI-----*/
+.DnnModule-23449 {
+	clear: both;
+	margin-top: 40px;
+}
+.DnnModule-19455 {
+	display: flex;
+}
+/*----- YTflag MENARINI -----*/
+.YTflag {
+	text-align: center;
+}
+.YTflag p {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif !important;
+	font-size: 14px;
+	font-weight: 200;
+	margin-top: 15px;
+}
+/*----- topbarMenu MENARINI -----*/
+.dnnbooster .topbarMenu .navbar-brand img{
+	max-width: 165px !important;
+	height: auto !important;
+	position: relative;
+	top:2px;
+}
+.dnnbooster .topbarMenu .navbar-brand {
+	margin-bottom: 40px;
+}
+.topbarMenu .dropdown-menu .container-fluid {
+	padding-left: 10% !important;
+	padding-right: 10% !important;
+}
+.topbarMenu h1,
+.topbarMenu h4,
+.topbarMenu h5 {
+	color: #FFF !important;
+}
+	.topbarMenu h1 {
+		text-transform: uppercase;
+	}
+.dnnbooster .topbarMenu h4 {
+	font-weight: 200 ;
+}
+.topbarMenu h4,
+.topbarMenu .readMore.white {
+	display: inline-table;
+}
+.topbarMenu .mainAreaBox {
+	margin: 40px 0px;
+	border-right: 1px solid #FFF;
+	display: flex;
+	position: relative;
+}
+	.dnnbooster .topbarMenu .mainAreaBox img {
+		max-width: 200px;
+		height: auto !important;
+		float: left;
+		padding-right: 20px;
+	}
+	.topbarMenu .readMore.white {
+		bottom: 0px;
+		left: 200px;
+	}
+.topbarMenu .countries {
+	margin: 40px 0px;
+}
+	.topbarMenu .countries h4 {
+		display: block;
+	}
+	.topbarMenu .countries ul {
+		list-style: none;
+	}
+	.topbarMenu .countries p {
+		color: #FFF;
+	}
+	.topbarMenu .countries .darkRedBG:nth-child(1) {
+		margin-top: 50px;
+	}
+	.topbarMenu .darkRedBG {
+		background-color: #b32834;
+	}
+	.topbarMenu .darkPurpleBG {
+		background-color: #3B627C;
+	}
+	.topbarMenu .countries .darkRedBG {
+	    padding: 10px 0px 10px 40px;
+	    margin-bottom: 0px;
+	    max-width: 350px;
+	    position: relative;
+	}
+		.topbarMenu .countries .darkRedBG img {
+			right: 30px;
+		    position: absolute;
+		    margin-top: 25px;
+		}
+	.topbarMenu .countries .readMore.white {
+		left: 15px;
+	}
+	.topbarMenu .countries .readMore.white img {
+		max-width: 30px;
+	}
+.topbarMenu .Topics {
+	margin: 40px 0px;
+	box-sizing: border-box;
+    width: 25%;
+}
+.topbarMenu .Topics .readMore {
+	margin-left: 0px;
+	padding-left: 0px;
+	font-size: 20px !important;
+}
+.topbarMenu .Topics .readMore img {
+	margin-bottom: 5px;
+	margin-left: 20px;
+}
+.topbarMenu .Topics ul {
+	list-style: none;
+}
+.topbarMenu .Topics#Topics4{
+	border-left: 1px #FFF solid;
+    padding-left: 30px;
+    margin-left: 30px;
+    max-width: 250px;
+}
+.topbarMenu .Topics#Topics4 ul {
+	margin-left: 0px;
+}
+.topbarMenu .container-fluid.darkRedBG {
+	height: 100vh;
+}
+	.topbarMenu .container-fluid.darkRedBG .Search {
+		margin-top: 50px;
+	}
+.topbarMenu .informationAbout .col-md-3.darkPurpleBG,
+.topbarMenu .reportProblem .col-md-3.darkPurpleBG {
+	padding: 30px;
+	min-height: 180px;
+	text-align: center;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FFF;
+    background-color: unset;
+}
+.topbarMenu .reportProblem {
+	margin-top: 40px;
+}
+.topbarMenu .informationAbout .ContactUs,
+.topbarMenu .reportProblem .ContactUs {
+	margin-bottom: 30px;
+}
+/*----- -----*/
+.InternalStandardRow .bstrap30 .alert-info {
+	background-color: unset !important;
+    border-color: unset !important;
+    color: #143f59 !important;
+    float: left !important;
+    text-align: left !important;
+}
+.InternalStandardRow .bstrap30 .alert {
+	border:unset !important;
+}
+/*----- searchMENU MENARINI -----*/
+.dropdown-menu .bstrap30 .glyphicon-search:before{
+	content: "";
+	background-image: url("/Portals/31/Images/icons/search.svg") !important;
+	background-repeat: no-repeat;
+	background-size: 50px;
+	width: 50px; 
+    height: 50px;
+    padding-right: 50px;
+}
+/*----- topMenu TOPIC MENARINI -----*/
+.imgTopic {
+	position: relative;
+	margin-bottom: 30px;
+}
+.imgTopic h2 {
+	position: absolute;
+	bottom: 0px;
+	padding-left: 15px;
+	color: #FFF;
+	margin-bottom: 0px;
+	background-color: rgb(20, 63, 89, 0.7);
+    font-size: 30px !important;
+}
+/*----- VGMenariniCorporateTopicView MENARINI -----*/
+.VGMenariniCorporateTopicView {
+	text-align: center;
+}
+.VGMenariniCorporateTopicView .tags {
+	margin: 0px auto;
+	column-count: 5;
+}
+.VGMenariniCorporateTopicView .tags .tags-item {
+	padding-top: 20px;
+	padding-bottom: 20px; 
+}
+.VGMenariniCorporateTopicView .tags .tags-item a {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 25px;
+    color: #143F59;
+    line-height: normal;
+    background: url(/Portals/31/Images/icons/freccia_left_B.svg) no-repeat right;
+    background-size: 30px;
+    background-position: right;
+    background-position-y:5px;
+    padding-right: 40px;
+}
+.VGMenariniCorporateTopicView .results {
+	text-align: left;
+	font-size: 18px;
+	color: #143F59;
+}
+.VGMenariniCorporateTopicView .results h2 {
+	color: #F5333F;
+	margin-bottom: 30px;
+}
+.VGMenariniCorporateTopicView .results .results-item {
+	border-bottom: 0.5px solid rgb(20, 63, 89, 0.3);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+	.VGMenariniCorporateTopicView .results .results-item:last-child {
+		border-bottom: unset;
+	}
+.VGMenariniCorporateTopicView .results .results-item-link {
+	text-decoration: unset;
+	color: rgb(7 131 255 / 0.8);
+	font-size: 14px;
+}
+	.VGMenariniCorporateTopicView .results .results-item-link:hover {
+		text-decoration: underline;
+		color: #0783FF;
+	}
+.VGMenariniCorporateTopicView .results .results-item-info {
+	padding-top: 0px;
+}
+.VGMenariniCorporateTopicView .results .results-item-info p {
+	margin-bottom: 0px;
+}
+.VGMenariniCorporateTopicView .results .results-item-info .results-item-info-name {
+	font-weight: 200;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    line-height: 30px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 8px;
+    display: block;
+}
+/*----- main menu dropdown MENARINI -----*/
+.mainMenu { float: right; }
+	@media (max-width: 992px){.mainMenu, .HeaderTopPane { display: none; }}
+header .mainMenu .navbar{
+	padding-top:10px;
+	min-height: 80px;
+	float: right;
+}
+.mainMenu #BusinessArea {
+	font-size: 20px;
+	color: #b7b5ab;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: 400;
+}
+.mainMenu #BusinessArea h3,
+.mainMenu #BusinessArea a {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 25px 0px;
+}
+.mainMenu #BusinessArea .searchButtonMenu { padding-left: 25px; }
+.mainMenu #BusinessArea .searchButtonMenu a {
+	background-color: #f53440;
+	padding: 3px 15px;
+	color: #FFF;
+	max-width: 150px;
+	text-transform: uppercase;
+	font-size: 12px; 
+	line-height: 20px;
+	margin: 30px 0px;
+}
+.mainMenu #BusinessArea .searchButtonMenu a:after {
+	padding-left: 20px;
+    margin-left: 10px;
+	color: #FFF;
+	content: "";
+    width: 10px;
+    height: 10px;
+    background: url(/Portals/31/Images/icon/search_icon_white.png) no-repeat;
+    background-size: contain;
+}
+.mainMenu #BusinessArea i {
+	text-transform: initial;
+	font-weight: 200;
+	font-family: initial;
+	margin-left: 25px;
+}
+.mainMenu #BusinessArea .pharmacovigilanceButtonMenu {
+	font-weight: 400;
+    border: solid 1px #b7b5ab;
+    border-radius: 10px;
+    padding: 5px 20px 5px 5px;
+    max-width: 190px;
+    line-height: 25px;
+    margin: 30px 25px;
+}
+.mainMenu #BusinessArea .pharmacovigilanceButtonMenu a {
+	text-transform: capitalize;
+	padding-left: 0px;
+	margin: 10px 0;
+}
+.mainMenu #BusinessArea .pharmacovigilanceButtonMenu a:after {
+	content: "›";
+	color: #f53440;
+	padding-left: 15px;
+}
+/*----- SharedModuleAllPages MENARINI -----*/
+#SharedModuleAllPages { 
+	display: none; 
+}
+.dnnEditState #SharedModuleAllPages { 
+	display: block; 
+	height: 200px;
+}
+/*----- board table about us MENARINI -----*/
+.boardHR {
+	border-top: 2px solid #A8A8A8; 
+}
+.boardTable tr {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 110px;
+}
+	.boardTable.singleRow tr {
+		height: unset;
+	}
+	.boardTable.multyRow tr {
+		height: 90px;
+	}
+	.boardTable.multyRow td {
+		vertical-align: top;
+	}
+	.boardTable.singleRow tr .boardName {
+		margin-top: 20px;
+	}
+	.boardTable.singleRow tr .boardRole,
+	.boardTable.multyRow tr .boardDescription {
+		margin-bottom: 0px;
+	}
+	.boardTable.multyRow tr .boardName {
+		color: #0783FF;
+		font-size: 30px;
+		font-weight: 200 !important;
+		margin-bottom: 10px;
+    	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    	margin: 10px;
+    	text-align: center;
+	}
+	.boardTable.multyRow tr .boardDescription {
+    	font-weight: 400;
+    	line-height: 18px;
+    	margin: auto;
+    	text-align: center;
+	}
+.boardTable img {
+	max-width: 100px;
+	padding-right: 15px;
+}
+.boardTable .boardName a {
+	font-size: 20px;
+	line-height: 20px;
+	color: #0783FF;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-weight: 300 !important;
+    text-transform: capitalize;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+.boardTable .boardRole {
+	font-size: 14px;
+	color: #484542;
+}
+.boardTable .boardDescription {
+	font-weight: 600;
+	max-width: 60%;
+}
+/*----- board table about us MENARINI DIV -----*/
+	div.boardTable .boardName {
+		margin-top: 20px;
+	}
+	div.boardTable .boardRole,
+	div.boardTable .boardDescription {
+		margin-bottom: 0px;
+	}
+	div.boardTable .boardName {
+		color: #0783FF;
+		font-size: 30px;
+		font-weight: 200 !important;
+		margin-bottom: 10px;
+    	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    	margin: 10px;
+    	text-align: center;
+	}
+	div.boardTable .boardDescription {
+    	font-weight: 400;
+    	line-height: 18px;
+    	margin: auto;
+    	text-align: center;
+	}
+div.boardTable img {
+	max-width: 100px;
+	padding-right: 15px;
+}
+div.boardTable .boardName a {
+	font-size: 20px;
+	line-height: 20px;
+	color: #0783FF;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-weight: 300 !important;
+    text-transform: capitalize;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+div.boardTable .boardRole {
+	font-size: 14px;
+	color: #484542;
+}
+div.boardTable .boardDescription {
+	/*font-weight: 600;*/
+	max-width: 60%;
+}
+.accordionBoard {
+  background-color: unset;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+button.accordionBoard:focus{
+	outline: 0px;
+}
+.panelBoard {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+/*----- Content10row Internal MENARINI -----*/
+.whiteBG { background-color: #FFF; }
+.greyBG { background-color: #F7F6F4; }
+.whiteBG .SpacingBottom 
+/*.greyBG .SpacingBottom*/ {
+	margin: 40px 0px;
+}
+.whiteBG .SpacingBottom.InternalBanner 
+{
+	margin-top: 0px;
+	padding-top: 0px;
+}
+/*----- Internal MENARINI content -----*/
+.dnnbooster p {
+	font-weight: 400; /*regular 400 bold 700*/
+	font-family: 'Arimo', sans-serif;
+	font-size: 18px;
+	line-height: 25px;
+	color: #484542;
+		-webkit-font-smoothing: antialiased;
+	  	-moz-osx-font-smoothing: grayscale;
+}
+	.gm-style-pbt {color: #FFF !important;}
+.dnnbooster h1 {
+	font-weight: 400;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 50px;
+	line-height: 55px;
+		-webkit-font-smoothing: antialiased;
+	  	-moz-osx-font-smoothing: grayscale;
+}
+.dnnbooster h2 {
+	font-weight: 200;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	line-height: 55px;
+		-webkit-font-smoothing: antialiased;
+	  	-moz-osx-font-smoothing: grayscale;
+}
+.dnnbooster h3 {
+	font-weight: 400;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	line-height: 55px;
+	text-transform: uppercase;
+		-webkit-font-smoothing: antialiased;
+	  	-moz-osx-font-smoothing: grayscale;
+}
+.dnnbooster h4 {
+	font-weight: 300;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	line-height: 45px;
+		-webkit-font-smoothing: antialiased;
+	  	-moz-osx-font-smoothing: grayscale;
+}
+.dnnbooster h5 {
+	font-weight: 400;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 30px;
+	text-transform: uppercase;
+		-webkit-font-smoothing: antialiased;
+	  	-moz-osx-font-smoothing: grayscale;
+	color: #143f59;
+}
+.dnnbooster h5 a { font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif !important; }
+/*----- Internal clearPane MENARINI -----*/
+.clearPane {
+	height: 1px;
+}
+/*----- menuPharmaceuticals MENARINI -----*/
+.menuPharmaceuticals .RedInternal {
+	padding-left: 40px;
+	margin-bottom: 40px;
+}
+/*----- menuNews MENARINI -----*/
+#navbarNavDropdown .menuNews4 .RedInternal h5 {
+	font-size: 16px;
+	font-weight: 500;
+}
+/*----- menuResponsibility MENARINI -----*/
+.menuResponsibility,
+.menuPartnering {
+	padding-bottom: 20px;
+}
+/*----- video slider interni MENARINI-----*/
+.video-container {
+		width: 100%;
+		height: 360px;
+		position: relative;
+		overflow: hidden;
+	}
+		@media (max-width: 992px){.video-container {height: 300px;}}
+	.video-container video {
+		position: absolute; 
+	    left: 50%;
+	    top: 50%;
+    	transform: translate(-50%, -50%);
+	    min-width: 100%; 
+	    min-height: 100%;
+	    width: auto; 
+	    height: auto; 
+	    z-index: 0;
+	    background-size: cover;
+	    overflow: hidden;
+	}
+	@media (max-width: 1060px) {
+		.video-container video.responsibility{
+			transform: translate(-75%, -50%);
+		}
+	}
+/*----- legenda pipeline MENARINI -----*/
+.legenda-pipeline {
+    font-size: 14px;
+    font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.35;
+    line-height: 40px;
+    color: #484542;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: table;
+}
+.legenda-pipeline b,
+.legenda-pipeline strong {
+    font-weight: 400;
+}
+.legenda-pipeline .labelPipline {
+    color: #484542;
+    float: left;
+}
+.legenda-pipeline .labelPipline:after {
+    content: "|";
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.legenda-pipeline .labelPipline:last-child:after {
+    content: unset;
+}
+/*----- Internal BannerHeader MENARINI -----*/
+#dnn_SliderPane .BannerHeader h1 {
+	background: rgba(2,0,36,1); /* For browsers that do not support gradients */ 
+	background: transparent linear-gradient(245deg, #2A2741CC 0%, #143f59 100%) 0% 0% no-repeat padding-box;
+	opacity: 0.6;
+    position: absolute;
+    max-width: 33%;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    font-weight: 400;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-size: 3vW; /*50px*/
+	line-height: 55px;
+	text-transform: capitalize;
+	text-align: left;
+	padding: 4%;
+	margin: 0px;
+}
+@media (max-width: 768px){
+	.dnnbooster {
+		overflow-x: hidden; /* valutare se crea problemi */
+	}
+	#dnn_SliderPane .BannerHeader img {
+		max-width: 300% !important;
+	    max-height: 300px;
+	    margin-left: -130%;
+	    overflow-x: hidden;
+	}
+	#dnn_SliderPane .BannerHeader h1 {
+		padding: 10% 4%;
+		font-size: 40px;
+		width: 100%;
+		max-width: 90%;
+	}
+}
+/*----- RedInternal MENARINI -----*/
+.RedInternal {
+	padding: 0px 40px; 
+}
+.RedInternal h2 {
+	color: #F5333F;
+}
+#Body .RedInternal a,
+#Body .dettaglio_articolo .main_content a {
+	color: #0783FF;
+}
+#Body .RedInternal a:hover,
+#Body .dettaglio_articolo .main_content a:hover {
+	color: #143F59;
+}
+/*----- accordionTabsPro MENARINI -----*/
+.accordionTabsPro {
+	padding: 50px 0px;
+}
+/*----- accordion Partnering MENARINI -----*/
+.accordion_recent_agreements {
+	padding: 20px 0px;
+}
+/*.anti-infectivesPartnering,*/
+.respiratoryPartnering,
+.oncologyPartnering {
+	margin-bottom: 40px;
+}
+.labelPartnering {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	color: #FFF;
+	line-height: 55px;
+	font-weight: 400;
+    position: absolute;
+    left: 25%;
+    top: 1.3vw;
+}
+.oncologyPartnering img.logoPartnering,
+.respiratoryPartnering img.logoPartnering,
+.anti-infectivesPartnering img.logoPartnering {
+	max-width: 230px;
+}
+.oncologyPartnering p,
+.respiratoryPartnering p,
+.anti-infectivesPartnering p {
+	text-align: left;
+}
+/*----- ProductList_Border MENARINI -----*/
+.ProductList_Border {
+	border: 3px #f7f6f4 solid;
+    padding: 45px;
+    margin: 0px 40px !important;
+    min-height: 400px;
+}
+.ProductList_Border h5 {
+	margin-top: 100px;
+}
+.ProductList_Border img {
+	max-width: 170px !important;
+	position: absolute;
+    margin: auto;
+    top: 45px;
+    left: 0;
+    right: 0;
+}
+/*----- Banner 33-50 img+txt+button MENARINI -----*/
+.InternalBanner {
+	text-align: center;
+	padding: 50px 40px;
+}
+	.InternalBanner img {
+		max-width: 555px !important;
+	}
+.InternalBanner h4 {
+	color: #0783FF;
+	padding-top: 30px;
+    padding-bottom: 10px;
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+}
+.InternalBanner a { /* - Read More Piccolo Rosso - */
+	background-color: #F5333F;
+    color: #FFF !important;
+    text-transform: uppercase;
+    padding: 5px 30px;
+}
+.InternalBanner p {
+	margin-bottom: 30px;
+	display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100px;
+}
+/*----- history accordion MENARINI -----*/
+.DnnModule-avtTabsPro.DnnModule-25347,
+.DnnModule-avtTabsPro.DnnModule-25403 {
+	padding: 0px 10%;
+}
+.bstrap30 .historyAccordion .tabLink {
+    position: relative;
+    width: 150px;
+    height: 80px;
+    background-color: #143f59 !important;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #FFF !important;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+}
+.bstrap30 .historyAccordion .tab-icon img {
+    height: 80px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.25;
+}
+.bstrap30 .historyAccordion .nav-tabs>li.active>a.tabLink {
+	background-color: transparent;
+}
+.bstrap30 .historyAccordion h4 {
+	font-weight: 600;
+}
+.linkBigBlu {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif !important;
+    font-weight: 200 !important;
+    font-size: 30px;
+    line-height: 1.3;
+    color: #143f59 !important;
+    margin-left: 50px;
+}
+.linkBigBlu:before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    height: 1px;
+    width: 36px;
+    background-color: #143f59;
+}
+.directorsTable h2 {
+	color: #0783FF !important;
+	font-size: 30px;
+}
+/*----- internal_anchor anchorMENARINI -----*/
+a.internal_anchor{
+    float: left;
+    display: block !important;
+    margin-top: -220px !important;/*-150px*/
+}
+/*----- NoTitle Black_Internal_left + button MENARINI -----*/
+.BlackInternal {
+	padding: /*50px 40px*/ 3.5vw 2.5vw;
+}
+.BlackInternal h2 {
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+    color: #143F59;
+}
+	.BlackInternal h2.textNoCut,
+	.BlackInternal p.textNoCut { -webkit-line-clamp: unset; margin-bottom: 40px;}
+.BlackInternal p {
+	display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+}
+@media (min-width: 768px){
+	.BlackInternal p {
+		-webkit-line-clamp: 2;
+	}
+}
+@media (min-width: 1500px){
+	.BlackInternal p {
+		-webkit-line-clamp: 3;
+	}
+}
+/*----- Banner 33-50 Border+img+txt+button MENARINI -----*/
+.InternalBannerBorder {
+	border: 1px solid #D0CFB6;
+	padding: 20px 35px;
+	margin-left: 40px !important;
+    margin-right: 40px !important;
+}
+.InternalBannerBorder b,
+.InternalBannerBorder strong {
+	text-transform: uppercase;
+	font-weight: 400;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.InternalBannerBorder a {
+	text-transform: uppercase;
+	font-weight: 500;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+/*----- mapWithSearch MENARINI -----*/
+.full_size_pane .ModVGMenariniCorporateSearchInMapViewC .map_search_container .map_search_form {
+	padding-left: 10%;
+	padding-right:10%;
+}
+.full_size_pane .ModVGMenariniCorporateSearchInMapViewC .map_search_container .map_search_form .form_container {
+	max-width: 66%;
+}
+/*----- mapWithFilterView MENARINI -----*/
+#mapWithFilterView {
+	height: 28vw;
+}
+@media (max-width: 992px) {
+	#mapWithFilterView {
+		height: 100vw;
+	}
+}
+.map_search_container .country {
+	border-bottom: 1px solid #A8A8A8;
+    padding-bottom: 40px;
+}
+.map_search_container .dxeButton.dxeButtonEditButton {
+	display: none !important;
+}
+.DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-22818,
+.DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-24100 {
+	margin-left: -13%;
+	margin-right: -13%;
+}
+@media (max-width: 992px) {
+	.DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-22818,
+	.DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-24100 {
+		margin-left: -5%;
+		margin-right: -5%;
+	}
+}
+.map_search_container .map_search_categories,
+.searchMapResults {
+	padding-left: 10% !important;
+	padding-right: 10% !important;
+}
+.SharedRow .searchMapResults {
+	text-align: left;
+}
+/*----- mapWhithPicker MENARINI -----*/
+.picker .companyName {
+	font-size: 20px;
+	font-weight: 400;
+	color: #143f59 !important;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	line-height: 20px;
+}
+.picker .cityName {
+	font-family: 'Arimo', sans-serif;
+	color: #484542;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 15px;
+	margin-bottom: 5px;
+}
+.picker .websiteName,
+.picker .websiteName a {
+	font-family: 'Arimo', sans-serif;
+	color: #0783ff;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 15px;
+	margin-bottom: 5px;
+}
+/*----- DnnModule-VGMenariniCorporateLinkedInLastArticleView MENARINI -----*/
+.DnnModule-VGMenariniCorporateLinkedInLastArticleView {
+	text-align: center;
+}
+.DnnModule-VGMenariniCorporateLinkedInLastArticleView .FollowUs {
+	margin: 40px 0px;
+}
+/*---- ModEasyDNNGalleryC -----*/
+.ModEasyDNNGalleryC .VideoBodyEmbed {
+	text-align: center;
+}
+.DnnModule-21368 .SpacingBottom {
+	margin-bottom: 0px;
+}
+.DnnModule-21368 .EDGimage img {
+	width: 200px !important;
+}
+/*----- VGMenariniCorporateBlogFeedView MENARINI -----*/
+.VGMenariniCorporateBlogFeedView .blog-item.card:nth-child(1) {
+	padding-left: 0px;
+} 
+.VGMenariniCorporateBlogFeedView .blog-item.card:nth-child(3) {
+	padding-right: 0px;
+} 
+/*----- VGMenariniCorporateAvailablePositionSelector MENARINI -----*/
+.VGMenariniCorporateAvailablePositionSelector .content-filter-dynamic {
+	margin-left: 0px;
+	margin-top: 30px;
+}
+.VGMenariniCorporateAvailablePositionSelector .content-filter-therapeutical {
+	margin-bottom: 30px;
+}
+.VGMenariniCorporateAvailablePositionSelector .select2-selection__rendered {
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 95%;
+    overflow: hidden;
+}
+/*----- VGMenariniCorporatePharmacoVigilanceReportForm MENARINI -----*/
+.pharmacovigilanceReportForm .selectCountry h3,
+.pharmacovigilanceReportForm .selectCompany h3,
+.pharmacovigilanceReportForm .companyResult h3
+ {
+	font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    color: #484542;
+    text-transform: unset;
+}
+.pharmacovigilanceReportForm .select2-container--default .select2-selection--single .select2-selection__arrow {
+	top: 20px !important;
+}
+.pharmacovigilanceReportForm .companyResult,
+.pharmacovigilanceReportForm .selectCompany {
+	margin-top: 20px;
+}
+.pharmacovigilanceReportForm .select2.select2-container.select2-container--default {
+	width: 100% !important;
+}
+.pharmacovigilanceReportForm .companyResult a {
+    color: #0783FF;
+}
+/*----- DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView MENARINI -----*/
+.VGMenariniCorporateProductByTherapeuticalAreaView .UpdateProgress {
+    border: 6px solid #adadad;
+    border-top: 6px solid #143F59;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+    margin: 50px auto;
+}
+.VGMenariniCorporateProductByTherapeuticalAreaView .UpdateProgressOverlay {
+	width: 100%;
+    z-index: 1000000;
+    background-color: #e6e6e64d;
+        padding: 10px;
+        position: absolute
+}
+@media (max-width: 1300px) {
+	.VGMenariniCorporateProductByTherapeuticalAreaView .UpdateProgressOverlay {
+		padding: 70px;
+	}
+}
+@media (max-width: 850px) {
+	.VGMenariniCorporateProductByTherapeuticalAreaView .UpdateProgressOverlay {
+		padding: 100px;
+	}
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.VGMenariniCorporateProductByTherapeuticalAreaView {
+	min-height: 230px;
+}
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView h2{
+	color: #F5333F;
+}
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-filter-remove {
+	float: left;
+    width: 350px;
+    margin-right: 60px;
+}
+.content-filter-country .select2.select2-container,
+.content-filter-therapeutical .select2.select2-container{
+	padding: 30px 0px 0px 0px;
+	width: 380px !important;
+    float: left;
+    clear: both;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	top: 50px !important;
+	right: 15px !important
+}
+.select2-container .select2-selection--single {
+	height: 60px !important;
+}
+.select2-container--default .select2-selection--single {
+	border-radius: 0px !important;
+	border-color: #D0CFB6 !important;
+}
+.select2-container--default .select2-selection--single:focus {
+	border-color: red !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-results__option {
+	font-size: 20px;
+	text-transform: uppercase;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	padding-top: 15px;
+	color: #143F59 !important;
+	padding-left: 30px !important;
+}
+.select2-results__option {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+.content-filter-country,
+.content-filter-dynamic .content-filter-therapeutical {
+	float: left;
+	width: 370px !important;
+}
+.content-filter-dynamic {
+	float: left;
+	margin-left: 30px;
+}
+	.col-md-6 .content-filter-dynamic {
+		margin-left: unset;
+		margin-top: 30px;
+	}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: #0783FF !important;
+}
+.content-introduction p {
+	margin-bottom: 30px;
+}
+.content-filter-country > span,
+.content-filter-therapeutical > span {
+	color: #143F59;
+	font-size: 30px;
+	font-weight: 200;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	float: left;
+}
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-filter-country select,
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-filter-therapeutical select {
+	width: 100%;
+	display: flex;
+	clear: both;
+	margin-top: 20px;
+	padding: 15px 20px 15px 35px;
+		font-size: 20px;
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		text-transform: uppercase;
+		color: #B6B59C;
+}
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-filter-remove {
+	font-size: 20px;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: #B6B59C;
+	padding-top: 70px;
+	margin-left: 60px;
+}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-filter-remove a {
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		color: #484542 !important;
+		padding-left: 35px;
+		background-image: url("/Portals/31/Images/icons/close_grey.svg");
+		background-repeat: no-repeat;
+		background-size: 25px;
+		background-position: left;
+	}
+	.col-md-6 .DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-filter-remove {
+		margin-left: unset;
+		margin-right: unset;
+		padding-top: 30px;
+		width: 100%;
+	}
+	.col-md-6 .DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-title,
+	.col-md-6 .DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-introduction {
+		display: none;
+	}
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results {
+	clear: both;
+	float: left;
+	margin-top: 40px;
+}
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company {
+	border: 1px solid #bbbaa3;
+	padding: 20px 20px 35px 20px;
+	margin-bottom: 60px;
+	max-width: 800px;
+}
+.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company-products {
+	margin-bottom: 40px;
+	columns: 3;
+		-webkit-columns: 3;
+		-moz-columns: 3;
+}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company-name {
+		color: #484542;
+		text-transform: uppercase;
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		margin: 15px;
+	}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company-products-item {
+		border-bottom: 1px solid #bbbaa3;
+	    min-height: 40px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    margin-bottom: 0px;
+	    margin-right: 15px;
+	    margin-left: 15px;
+	    width: 85%;
+	    display: inline-block;
+	}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company-products-item a {
+		color: #0783FF;
+		font-size: 20px;
+		line-height: 25px;
+		font-weight: 200;
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company-link {
+		margin-left: 15px;
+	}
+		.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company-link .readMore {
+			width: fit-content !important;
+			width: -moz-fit-content;
+			padding: 20px 40px;
+		}
+@media (max-width: 992px) {
+	.content-filter-country .select2.select2-container,
+	.content-filter-therapeutical .select2.select2-container{
+		width: 340px !important;
+	}
+	.content-filter-dynamic {
+		margin-left: 0px;
+		margin-top: 20px;
+	}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-filter-remove {
+		padding-top: 30px;
+    	margin-left: 0px;
+	}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company {
+		max-width: 100%;
+    	margin-right: 0px;
+	}
+	.DnnModule-VGMenariniCorporateProductByTherapeuticalAreaView .content-results .content-results-company-products {
+		columns: 2;
+	    -webkit-columns: 2;
+	    -moz-columns: 2;
+	}
+}
+/*----- HeaderTopClaimPane MENARINI -----*/
+#Body .HeaderTopClaimPane a {
+	color: #FFF;
+	font-size: 16px;
+	font-family: Georgia, Arial, Tahoma, Helvetica, sans-serif;
+	font-style: italic;
+}
+/*----- pulsanti generici READ MORE MENARINI -----*/
+a.readMore {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 20px;
+	padding: 5px 30px;
+	color: #FFF !important;
+	text-transform: uppercase !important;
+	pointer-events: auto !important;
+	cursor: pointer !important;
+}									
+a.readMore.red {
+	background-color: #F5333F;
+}
+a.readMore.white {
+	background-color: #FFF;
+	color: #000000 !important;
+}
+	a.readMore.white.onlyBorder {
+		background-color: unset;
+		color: #FFF !important;
+		border: 1px solid #FFFFFF;
+	}
+a.readMore.blue {
+	background-color: #0783FF;
+}
+a.readMore.grey {
+	background-color: #CBCBCB;
+}
+a.readMore.big {
+	font-size: 16px;
+	padding: 20px 40px;
+	line-height: 20px;
+	display: flex;
+    width: fit-content;
+    width: -moz-fit-content;
+	block-size: fit-content;
+}
+ 	.it-IT a.readMore.big { width: 160px; }
+a.readMore.allNews {
+	position: absolute;
+    right: 0px;
+    top: 15px;
+}
+@media (max-width: 992px) {
+	
+	    a.readMore.allNews {
+    position: relative;
+    display: block;
+    top: 0px;
+    margin-bottom: 35px;
+    width: fit-content;
+    width: -moz-fit-content;
+    }
+}
+/*----- NoTitle img MENARINI -----*/
+.ImgInternal {
+	text-align: center;
+}
+.ImgInternal img {
+	width: 650px;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: -300px;
+}
+/*----- side_menu MENARINI -----*/
+.SidebarMenuSX .side_menu .menu_content_container ul.vertical_menu li.has_children ul.submenu {
+	display: none;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul.vertical_menu li.active.has_children ul.submenu {
+	display: block;
+}
+/*******************
+main menu: dropdown
+*******************/
+#dnnbootsterNav.collapse {
+	display: none;
+}
+#dnnbootsterNav.collapse.in {
+	display: block;
+}
+#dnnbootsterNav{
+	margin-top: 25px;
+}
+.dnnbooster header .navbar .navbar-nav .nav-item{
+	padding-bottom: 8px;
+}
+.dnnbooster header .navbar .navbar-nav .nav-item.dropdown.show:after{
+	content: "x";
+    color: #777472;
+    right: 5px;
+    top: -5px;
+    position: absolute;
+}
+.dnnbooster header .navbar .navbar-nav .nav-item .dropdown-menu{
+	background-color: #F7F6F4;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 120px;
+    z-index: 10;
+}
+.navbar-expand-md .navbar-nav .dropdown-menu-right{
+	right: auto;
+}
+.navbar-expand-md .navbar-nav li:last-child .dropdown-menu-right {
+	right: 0;
+}
+.dnnbooster a:link, .dnnbooster a:visited, .dnnbooster a:active, .dnnbooster a:focus {
+	color: #333333;
+	font-weight: normal;
+}
+.dnnbooster header .navbar .navbar-nav .nav-item .dropdown-menu .dropdown-item:focus, .dnnbooster header .navbar .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    color: #333333;
+    background-color: #f5f5f5;
+}
+/*--- menu interni imgMenu MENARINI ---*/
+#navbarNavDropdown .imgMenu {
+	position: relative;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+	#navbarNavDropdown .menuDerma .imgMenu {
+	margin-bottom: 40px;
+}
+#navbarNavDropdown .imgMenu img {
+	height: unset !important;
+}
+#navbarNavDropdown .imgMenu h2 {
+	position: absolute;
+	color: #FFF;
+	bottom: 0px;
+	left: 35px;
+	font-size: 30px;
+}
+	#navbarNavDropdown .imgMenu h2.readMore {
+		width: fit-content;
+		width: -moz-fit-content;
+		line-height: 40px;
+		position: absolute;
+		color: #FFF;
+		bottom: 0px;
+		right: 100px;
+		left: unset;
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		font-weight: 500;
+		font-size: 15px;
+		text-transform: uppercase !important;
+		pointer-events: auto !important;
+		cursor: pointer !important;
+	}
+#navbarNavDropdown h5 {
+	font-size: 14px;
+	line-height: 16px;
+	color: #143F59;
+}
+#navbarNavDropdown ul.nav-list {
+	list-style-image: url('/portals/31/Images/icons/listMenuBoxRed.svg');
+	margin-bottom: 40px;
+}
+#navbarNavDropdown ul.nav-list li {
+	margin-bottom: 15px;
+}
+#navbarNavDropdown ul.nav-list a {
+	color: #143F59;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+}
+#navbarNavDropdown .ricercaLinkMenu {
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 40px;
+	padding-top: 40px;
+	border-top: 1px solid #949283;
+	color: #143F59;
+	line-height: normal;
+}
+	#navbarNavDropdown .ricercaLinkMenu .readMore {
+		margin-left: 30px;
+	}
+#navbarNavDropdown .RedInternal {
+	margin-top: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+	#navbarNavDropdown .RedInternal p {
+		font-size: 20px;
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		margin-bottom: 0px;
+	}
+	#navbarNavDropdown .menuPharmaceuticals.leftBorder {
+		border-left: 1px solid #B6B59C;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+/*----- titoli manufacturing MENARINI -----*/
+.DnnModule-21096 .SpacingBottom { margin-bottom: 0px !important; }
+.titleRed {
+        font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        color: #f5333f;
+        font-size: 16px;
+        font-weight: 500;
+    }
+/*----- ModVGMenariniCorporateSearchInMapViewC MENARINI -----*/
+.ModVGMenariniCorporateSearchInMapViewC .venue-list {
+	margin-top: 60px;
+}
+.ModVGMenariniCorporateSearchInMapViewC .category h2 {
+	color: #F5333F;
+}
+.ModVGMenariniCorporateSearchInMapViewC .country h5 {
+	margin-top: 40px;
+}
+.ModVGMenariniCorporateSearchInMapViewC .company h4 {
+	color: #0783FF;
+	font-size: 24px;
+	font-weight: 200;
+	margin-top: 30px;
+	display: -webkit-box;
+	    -webkit-line-clamp: 1;
+	    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+}
+.ModVGMenariniCorporateSearchInMapViewC .venue-info .address,
+.BlackInternal .venue-info .address {
+	color: #484542;
+	font-size: 18px;
+	line-height: 20px;
+	padding-left: 50px;
+}
+.ModVGMenariniCorporateSearchInMapViewC .venue-info .address {
+	background-image: url("/Portals/31/Images/icons/icon_marker_2.svg");
+	background-repeat: no-repeat;
+	background-size: 35px;
+	background-position: top left;
+}
+.ModVGMenariniCorporateSearchInMapViewC .venue-info .address-3 {
+margin-top:15px;
+}
+.ModVGMenariniCorporateSearchInMapViewC .map-legend{
+width:100%;
+}
+.ModVGMenariniCorporateSearchInMapViewC .venue-info .production {
+	padding-left: 50px;
+	padding-bottom: 5px;
+	font-size: 16px;
+	font-style: italic;
+}
+.BlackInternal .venue-info {
+	background-image: url("/Portals/31/Images/icons/icon_marker_2.svg");
+	background-repeat: no-repeat;
+	background-size: 35px;
+	background-position: left;
+	font-family: 'Arimo', sans-serif !important;
+}
+.ModVGMenariniCorporateSearchInMapViewC .venue-info {
+	font-family: 'Arimo', sans-serif !important;
+	margin: 10px 0px;
+}
+/*******************
+search result
+*******************/
+.ModavtSearchBoostResultsC .highlight{
+	padding: 0px;
+    margin-bottom: 0px;
+    background-color: yellow;
+    border: 0px;
+}
+/*******************
+ stili generici
+*******************/
+.dnnbooster a.green{
+	color:#e83643;
+}
+span.green_text_over_image{
+	position:absolute;
+	bottom:10%;
+	display: table;
+    margin: 0 auto;
+	color:#FFF;
+	text-transform:uppercase;
+	font-size:25px;
+	background:#e83643;
+	line-height:32px;
+	margin-left: 5%;
+    margin-right: 5%;
+	padding-bottom: 4%;
+    padding-top: 4%;
+}
+#dnn_LOGIN1_loginLink{
+	position: inherit; 
+	padding-left:60px;
+	padding-right:60px;
+	padding-top:10px;
+	padding-bottom:10px;
+	float: left;
+	margin-bottom:30px;
+}
+.padding_bottom{
+	padding-bottom:40px;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.link_more a{
+	color:#e83643;
+	text-transform:uppercase;
+	font-size:17px;
+	font-weight: 400;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+}
+a.link_more{
+	color:#e83643;
+	text-transform:uppercase;
+	font-size:17px;
+	font-weight: 400;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+}
+.link_more.white,
+.link_more.white a{
+	color:#FFF !important;
+	font-size: 19px;
+	font-weight: 400;
+}
+.link_more.white{
+	background:#e83643;
+}
+.link_more.right_bottom a,
+.link_more.left_bottom a,
+a.link_more.right_bottom,
+a.link_more.left_bottom{
+	position:absolute;
+	margin-bottom: 0px;
+	right:0px;
+	bottom:0px;
+	padding: 10px 60px;
+	background: #e83643;
+}
+.link_more.right_bottom a:hover,
+.link_more.left_bottom a:hover,
+a.link_more.right_bottom:hover,
+a.link_more.left_bottom:hover{
+	text-decoration: none;
+} 
+table .image_max_40{
+	width:40px;
+}
+table .title_18{
+	font-size:18px;
+}
+.padding_top_10{
+	padding-top:10px;
+}
+.home .DnnModule-ContentLayout{
+	margin-bottom:0px;
+}
+
+.DNNContainer_DDR_interno.DNNContainer_Title_h2 {
+    padding: 0px;
+}
+.DNNContainer_DDR_interno.DNNContainer_Title_h2 h2 .TitleH2{
+	font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.DNNContainer_DDR_interno .childs{
+	display: none;
+} 
+.home #dnn_ContentPane .DNNModuleContent.ModDNNHTMLC > div > h2:first-child {
+	margin-bottom: 20px;
+}
+#dnn_ContentPane .DnnModule.DnnModule-DNN_HTML p.subtitle-georgia-italic{ 
+	color: #333333;
+	bottom: 50px;
+	font-family: Georgia, Arial, Tahoma, Helvetica, sans-serif;
+	font-style: italic;
+	font-size: 18px;
+	line-height: 24px;
+}
+/***correzioni mail mercoledì 26/09/2018 12:30 ***************/
+header .navbar .navbar-nav .nav-item .nav-link.inbreadcrumb{
+	color: #999999;
+	text-decoration: underline;
+}
+.outer_text.banner_left{
+	position:relative;
+}
+.outer_text.banner_left .inner_text_top{
+	position: absolute;
+	top:35px;
+	width: 100%;
+	text-align:center;
+}
+.outer_text.banner_left .inner_text_bottom{
+	position: absolute;
+	bottom:25px;
+	width: 100%;
+	text-align:center;
+} 
+.home a.green {
+	color: #e83643;
+    text-transform: uppercase;
+    font-family: Tahoma, Helvetica, sans-serif;
+	text-decoration: none;
+    font-size: 14px; 
+}
+.home p.small_text{
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+}
+.table-kontakt{
+	width: 100%;
+}
+.table-kontakt td{
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	vertical-align: top;
+	width: 50%;
+}
+.table-kontakt .table-kontakt-title{
+    font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: #007881;
+	margin-top:25px;
+	display: block;
+} 
+/***************************************/
+.simple-button-p a{
+	color: #FFF !important;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-weight: 400 ;
+    font-size: 19px ;
+    font-weight: 400;
+	padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #e83643;
+	float:left;
+} 
+/***************************************/
+#dnn_vnav_sitemap .childs {
+	margin-left:20px;
+}
+#dnn_vnav_sitemap li{
+	list-style-type: none;
+	position:relative;
+	font-size: 20px;
+	margin-bottom: 10px;
+    margin-top: 10px;
+}
+#dnn_vnav_sitemap li a{
+    padding: 3px;
+}
+#dnn_vnav_sitemap li a:hover{
+    background: #d4d4d4;
+}
+
+#dnn_vnav_sitemap li.depth-0{
+	margin-bottom: 40px;
+}
+
+#dnn_vnav_sitemap div.depth-0{
+	border-bottom: 2px solid #007881;
+    padding: 5px;
+}
+#dnn_vnav_sitemap div.depth-0 a{
+	text-transform: uppercase;
+    color: #333333;
+    font-size: 17px;
+    line-height: 18px;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+#dnn_vnav_sitemap .depth-1 .childs {
+    margin-bottom: 20px;
+}
+#dnn_vnav_sitemap div.depth-1 a{
+    font-size: 15px;
+}
+#dnn_vnav_sitemap div.depth-2 a{
+    font-size: 13px;
+}
+#dnn_vnav_sitemap li.depth-1{
+	margin-bottom: 6px;
+    margin-top: 6px;
+}
+#dnn_vnav_sitemap li.depth-2{
+	margin-bottom: 6px;
+    margin-top: 6px;
+}
+#dnn_vnav_sitemap li::before {
+	content: "-";
+	position: absolute;
+	left: -10px;
+    top: 0px;
+	width: 10px;
+	height: 10px;
+}
+#dnn_vnav_sitemap li.depth-0::before {
+	display:none;
+} 
+/*******************
+media query
+*******************/
+/*-----menu-----*/
+.dnnbooster header .navbar .navbar-toggler.open .toggle-bar.middle1,
+.dnnbooster header .navbar .navbar-toggler.open .toggle-bar.middle2,
+.dnnbooster header .navbar .navbar-toggler .toggle-bar.middle1, 
+.dnnbooster header .navbar .navbar-toggler .toggle-bar.middle2 {
+    background: #035d63;
+}
+/*----------*/
+@media (min-width: 576px){
+	#dnn_bannerPane .banner_text_wrapper {
+		max-width: 540px;
+	}
+}
+@media (min-width: 768px){
+	#dnn_bannerPane .banner_text_wrapper {
+		max-width: 720px;
+	}
+	.bstrap30 .sb-default .adv-search {
+		margin: 0 auto;
+	}
+	#contentWrapper .left{
+		padding-left: 0px;
+		padding-right: 0%;
+		width: 23.784%;
+		margin-right: 5.766%;
+	}
+	#contentWrapper .right .content{
+		padding-left: 0px;
+		padding-right:0px;
+	}
+	#dnn_SidebarTopPane{
+		padding-right:0px;
+	}
+	#contentWrapper .row{
+		margin-right: 0px;
+		margin-left: 0px;
+	} 
+}
+@media (min-width: 768px) and (max-width: 1024px){
+	#contentWrapper .left { 
+		width: 26%; margin-right: 2%;
+	}
+}
+@media only screen and (min-width: 769px){
+	.wrapper{
+		max-width:1920px;
+	}
+	#banner-content{
+	    margin: auto;
+	}
+	#contentWrapper .right{
+		padding-left: 0px;
+		margin-left: 2.793%;
+		padding-right: 0px;
+		width: 67.658%;
+	}
+}
+@media (min-width: 992px){
+	#dnn_bannerPane .banner_text_wrapper {
+		max-width: 960px;
+	}
+}
+@media (min-width: 1200px){
+	#dnn_bannerPane .banner_text_wrapper {
+		max-width: 1142px;
+	}
+}
+/*****************************************************/
+.only_mobile{
+	display:none;
+}
+.no_mobile{
+	display:block;
+}
+@media (max-width: 768px) {
+	.only_mobile{
+		display:block;
+	}
+	.no_mobile{
+		display:none;
+	}
+}
+.row.topbar a.worldwide_link,
+.row.topbar .LanguageTrue,
+.row.topbar .LanguageFalse {
+	font-size: 12px;
+}
+.dnnbooster header .topbar { background-color: #F7F6F4; }
+#dnn_avtSearch_pnlInput .form-control.search-box.typeahead.search-box{
+	font-family: sans-serif !important;
+}
+.home #dnn_SliderPane .container .wrapper a.link_more.white {
+	background: #007881;
+    color: #FFF;
+    font-family: Georgia;
+    font-style: italic;
+    font-size: 26px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: none;
+    width: 100%;
+    float: left;
+}
+.home #Content1Box .wrapper {
+	width: 100%;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	padding-left:10px;
+	padding-right: 10px;
+}
+.home #Content1Box .row1 #dnn_Content1BoxPane{
+	border: 1px solid #F5333F;
+	float: left;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+.home #Content1Box .wrapper h2{
+	color: #333333;
+    font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+    font-weight: 300;
+    width: 100%;
+}
+.home #Content1Box .wrapper a{
+    background-color: #FFF;
+    color: #000;
+    text-transform: uppercase;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+}
+.banner_title{
+    font-family: Georgia;
+    font-style: italic;
+    font-size: 26px;
+}
+.dnnbooster footer .legal-footer .container a {
+ 	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	color: #666666;
+	font-size: 0.75rem;
+    padding: 30px 0 10px 0;
+	text-decoration: none;
+}
+.dnnbooster footer .legal-footer .container a:hover { text-decoration: none; }
+
+#Breadcrumb.breadcrumb-no-banner{ 
+	padding-top: 35px;
+}
+
+.DNNContainer_noTitle.SpacingBottom.bg_grey{ 
+	float:left;
+	width: 100%;
+}
+/*----- titleOut_bgGrey MENARINI -----*/
+p.titleOut_bgGrey {
+	position: absolute;
+	left: -18px;
+    margin-top: -60px;
+    border: solid 5px #f7f6f4;
+    border-radius: 0px;
+    padding: 15px 15px;
+    background-color: #f7f6f4;
+    font-size: 20px;
+    font-weight: 500;
+    color: #143f59;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+}
+/*----- galleryTitleH3 carousel timeline MENARINI -----*/
+.VGMenariniCorporateGallerySliderView {
+	min-height: 600px;
+}
+.VGMenariniCorporateGallerySliderView .horizontal-timeline .events a {
+	max-width: 230px;
+	padding-right: 0.5%;
+}
+#VGMenariniCorporateGallerySliderView .horizontal-timeline .events a{max-width: 270px;padding-right: 0.5%;}
+.galleryTitleH3 {
+	font-size: 40px;
+	font-weight: 500 !important;
+	margin-top: 55px;
+	color: #143F59 !important;
+	text-align: left;
+}
+@media (max-width: 992px) {	
+	.galleryTitleH3 {
+		padding-bottom: 0px;
+	}
+}
+	.galleryTitleH3 > img {
+		max-height: 40px;
+	    width: auto;
+	    padding-bottom: 10px;
+	}
+/*------ galleryNews MENARINI -----*/
+.galleryNews .cbp-l-grid-team-name,
+.galleryNews .cbp-l-loadMore-button-link {
+	color: #143F59 !important;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: 300 !important;
+}
+.galleryNews .cbp-l-caption-body {
+	background-color: #143F59 !important;
+}
+.galleryNews .cbp-l-caption-text {
+	font-family: 'Arimo', sans-serif;
+	color: #FFF;
+}
+	.cbp-popup-singlePage .cbp-popup-navigation-wrap {
+		background-color: #143F59 !important;
+	}
+	.cbp-popup-singlePage-counter {
+		font-family: 'Arimo', sans-serif;
+		color: #FFF;
+	}
+	.cbp-popup-singlePage .cbp-l-project-desc-title {
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		font-size: 20px;
+		text-align: center;
+	}
+	.cbp-popup-singlePage .cbp-l-project-desc-text {
+		font-family: 'Arimo', sans-serif;
+		color: #143F59;
+		font-size: 16px;
+		text-align: center;
+	}
+	.cbp-popup-singlePage .cbp-popup-content {
+		text-align: center;
+	}
+	.cbp-popup-singlePage .cbp-l-project-desc-title span,
+	.cbp-popup-singlePage .cbp-l-project-details-title span {
+		border-bottom: 1px solid #143F59;
+	}
+	.cbp-l-project-img {
+		max-width: 750px !important;
+	}
+.galleryNews .nivo-caption {
+	background-color: #143F59;
+}
+.galleryNews .nivo-caption p {
+	color: #FFF;
+	font-size: 16px;
+	font-family: 'Arimo', sans-serif;
+}
+#Body .galleryNews #LightBoxGallery .title {
+	background-color: #143F59;
+	left: 4px;
+	max-width: 232px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+	#Body .galleryNews #LightBoxGallery .title .Description,
+	#Body .galleryNews #LightBoxGallery .title .Description p {
+		font-size: 14px;
+		font-family: 'Arimo', sans-serif;
+		font-style: italic;
+		color: #FFF;
+		margin-bottom: 0px;
+	}
+/*----- gallery specifica fair play 2018
+		gallery specifica pills of arts -----*/
+#Body .galleryNews #LightBoxGallery .title,
+#Body .galleryNews #LightBoxGallery .title {
+	max-width: 362px !important;
+}
+#Body .galleryNews #LightBoxGallery .title,
+#Body .galleryNews #LightBoxGallery .title:hover {
+	font-size: 14px !important;
+	color: #FFF !important;
+	font-weight: 600 !important;
+}
+@media (max-width: 992px) {
+	
+	    #Body .galleryNews #LightBoxGallery .title span{
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+	#Body .galleryNews #LightBoxGallery .title span.Description{
+		display: -webkit-box;
+	    -webkit-line-clamp: 2;
+	    -webkit-box-orient: vertical;
+	    width: 100%;
+	    overflow: hidden;
+	}
+}
+#Body .galleryNews #LightBoxGallery .title .Description p{
+	font-size: 12px !important;
+    line-height: 15px !important;
+    margin-bottom: 0px !important;
+    font-weight: 200 !important;
+}
+/*----- WhiteBGBorderGray MENARINI -----*/
+.InternalBanner.WhiteBGBorderGray img {
+	width: 80px;
+}
+.InternalBanner.WhiteBGBorderGray {
+	border: 1px solid #D0CFB6;
+	box-sizing: content-box;
+    width: /*555px*/ 30vw;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+    margin: 50 auto;
+    background-color: #FFF !important;
+}
+@media (max-width: 992px) {
+	.InternalBanner.WhiteBGBorderGray{
+			width: 75%;
+		}
+}
+#M21435EasyDNNGallery .EDGresponsive .EDGmain .EDGimage a .title,
+#M21435EasyDNNGallery .EDGresponsive .EDGmain .EDGimage a .title span {
+	width: 362px !important;
+    margin-left: 2px;
+}
+/*----- CarouselBG MENARINI (pharmaceuticals)-----*/
+.CarouselBG a[class^="next"],
+.carouselBorderGrey a[class^="next"],
+.CarouselBG a[class^="next"]:hover,
+.carouselBorderGrey a[class^="next"]:hover {
+	background: url("/Portals/31/Images/icons/freccia_right_big_B.svg") no-repeat;
+	background-position: center;
+}
+.CarouselBG a[class^="prev"],
+.carouselBorderGrey a[class^="prev"] {
+	background: url("/Portals/31/Images/icons/freccia_left_big_B.svg") no-repeat;
+	background-position: center;
+}
+.carouselBorderGrey a[class^="next"],
+.carouselBorderGrey a[class^="prev"] {
+	margin-top: -100px;
+}
+.CarouselBG a[class^="prev"]:hover,
+.CarouselBG a[class^="prev"]:hover,
+.carouselBorderGrey a[class^="prev"]:hover,
+.carouselBorderGrey a[class^="prev"]:hover {
+	background-position: center;
+}
+	.CarouselBG a.prevM21621:hover,
+	.CarouselBG a.nextM21621:hover,
+	.carouselBorderGrey a.prevM21591:hover,
+	.carouselBorderGrey a.nextM21591:hover {
+		background-position: center;
+	}
+.CarouselBG [class^="pagination"],
+.carouselBorderGrey [class^="pagination"] {
+	margin-top: 40px;
+}
+.CarouselBG [class^="pagination"] a,
+.carouselBorderGrey [class^="pagination"] a {
+		background: unset;
+		border-radius: 50%;
+		border: 2px solid #D0CFB6;
+		width: 10px;
+		height: 10px;
+}
+.CarouselBG [class^="pagination"] a.selected,
+.carouselBorderGrey [class^="pagination"] a.selected {
+		background: red;
+		border: 1px solid red;
+	}
+.carouselBorderGrey #EDG_1_Nobg .EDGcontent .image_carousel,
+.carouselBorderGrey #EDG_1_Nobg .EDGcontent .image_carousel .caroufredsel_wrapper,
+.carouselBorderGrey #EDG_1_Nobg .EDGcontent .image_carousel .caroufredsel_wrapper #ICM21591 {
+	height: 300px !important;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a {
+	width: 1000px;
+	height: 300px;
+	position: relative;
+	display: block;
+	border: 1px solid #D0CFB6;
+	background-color: #FFF;
+	padding: 15px;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a img {
+	width: 200px !important;
+	height: 200px !important;
+	position: absolute;
+	left: 30px;
+	top: 30px;
+	display: block;
+	border: 0px !important;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title {
+	background: unset;
+	display: block; 
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title span:nth-child(1) {
+	display: none;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title span.Description {
+	width: 650px;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title span.Description h2 {
+	color: #0783FF;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title span,
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title span.Description,
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title span.Description p {
+	position: absolute;
+    display: block;
+    left: 270px;
+    color: #484542;
+}
+.carouselBorderGrey #EDG_1_Nobg .EDGmain .EDGimage a .title span.Description p {
+	left: 0px;
+	font-size: 18px;
+}
+/*----- blogfeed MENARINI -----*/
+.blog-item {
+	float: left;
+}
+.blog-item.card {
+	background-color: unset;
+	border:0px;
+}
+.blog-item .card-title{
+	display: -webkit-box;
+	    -webkit-line-clamp: 2;
+	    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+    min-height: 65px;
+}
+.blog-item .card-tag { display: contents; }
+.blog-item .card-tag ul {
+    position: absolute;
+    top: -40px;
+    right: 0px;
+    padding: 10px 20px;
+    color: #0783FF;
+    background-color: #fff;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    text-transform: uppercase;
+    list-style: none;
+    margin-left: unset;
+    margin-bottom: unset;
+    line-height: unset;
+}
+.blog-item .card-tag ul li {
+	display: none;
+}
+.blog-item .card-tag ul li:first-child {
+	display: block;
+}
+/*----- InternalBannerBorder imgRight MENARINI -----*/
+.InternalBannerBorder.imgRight {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+.InternalBannerBorder.imgRight img {
+	position: absolute;
+    right: -80px;
+    bottom: -60px;
+}
+
+/*----- carousel with BG MENARINI -----*/
+#EDG_1_Nobg .EDGmain,
+#EDG_1_Nobg .image_carousel > div,
+#EDG_1_Nobg .caroufredsel_wrapper > div,
+#EDG_1_Nobg .EDGmain .EDGimage a {
+	pointer-events: none;
+  	cursor: default !important;
+}
+#EDG_1_Nobg .EDGmain {
+	margin-left: 45px;
+	margin-right: 45px;
+}
+#EDG_1_Nobg .EDGmain .EDGimage a.readMore {
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+	cursor: pointer !important;
+
+}
+#EDG_1_Nobg .EDGmain .EDGimage a img {
+	border: 0px !important;
+}
+#EDG_1_Nobg .EDGmain .EDGimage a .title {
+	opacity: 0.8;
+	background: transparent linear-gradient(90deg, #2A274180 0%, #143f59 100%) 0% 0% no-repeat padding-box;
+	height: 100%;
+	width: 327px;
+	padding: 30px;
+	bottom: 0px;
+	max-height: 300px;
+	text-align: left;
+	border: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	border-left-color: unset;
+	border-right-color: unset;
+	border-bottom-color: unset;
+}
+	#EDG_1_Nobg .EDGmain .EDGimage a .title span {
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		font-size: 30px;
+		font-weight: 300;
+		color: #FFF;
+		line-height: 45px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		display: block;
+	}
+	#EDG_1_Nobg .EDGmain .EDGimage a .title span.Description,
+	#EDG_1_Nobg .EDGmain .EDGimage a .title span.Description p {
+		font-size: 18px;
+		font-style: normal;
+		line-height: 25px;
+		color: #FFF;
+	}
+#EDG_1_Nobg .image_carousel .paginationM19947 {
+	margin-top: 25px;
+}
+/*----- gallery playlist YouTube MENARINI -----*/
+#VideoGallery .EDGTitleText,
+#VideoGallery .VideoDescription,
+#VideoGallery .buttonPrev,
+#VideoGallery .buttonNext { 
+	display: none !important; 
+}
+#VideoGallery #EDG_3_nobg .EDGmain .EDGimage a img,
+#VideoGallery .EDGmain .EDGimage a img:hover {
+	border: 0px !important;
+	border-radius: 0px !important;
+}
+#VideoGallery .EDGmain .EDGimage a .title {
+	top: 100px;
+	bottom: unset;
+}
+	#EDG_3_nobg .EDGmain .EDGimage a .title,
+	#EDG_3_nobg .EDGmain .EDGimage a .title:hover {
+		background-color: unset !important;
+		background: unset !important;
+	}
+#VideoGallery .EDGcontent .EDGpager {
+	height: 80px;
+}
+/*----- searchPane MENARINI -----*/
+.searchPane .bstrap30 .sb-default {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.searchPane .bstrap30 .sb-default .input-group span.twitter-typeahead,
+.searchPane .bstrap30 .form-control {
+	padding-top: 0px;
+	height: 22px !important;
+}
+.searchPane .bstrap30 .btn {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.searchPane .bstrap30 .btn-primary,
+.searchPane .bstrap30 .btn-primary:hover,
+.searchPane .bstrap30 .btn-primary:focus,
+.searchPane .bstrap30 .btn-primary:active {
+    background-color: unset;
+    border-color: unset;
+    border:0px;
+}
+.searchPane .bstrap30 .glyphicon {
+	font-size: 20px;
+	top:0px;
+}
+.searchPane .bstrap30 pre {
+	background-color: rgba(20, 63, 89, 1);
+}
+.searchPane .bstrap30 .form-control:focus {
+    border-color: unset;
+}
+.searchPane .form-control.search-box.typeahead.tt-hint,
+.searchPane .form-control.search-box.typeahead.tt-input {
+	background-color: unset !important;
+	color: #FFF !important;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	width: 145px;
+}
+.searchPane .bstrap30 .glyphicon-search:before {
+	content: '';
+	background:url('/Portals/31/Images/icons/search.svg');
+	width: 25px;
+	height: 25px;
+	display: block;
+}
+/*----- SharedRow MENARINI -----*/
+.SharedRow { 
+	text-align: center; 
+	position: relative;
+}
+#dnn_SharedRow1Pane,
+#dnn_SharedRow2Pane,
+#dnn_SharedRow3Pane,
+#dnn_SharedRow4Pane {
+	margin-bottom: 50px;
+}
+.whiteBG .col-md-12, 
+.greyBG .col-md-12,
+.whiteBG .col-md-6, 
+.greyBG .col-md-6 ,
+.whiteBG .col-md-4, 
+.greyBG .col-md-4,
+.whiteBG .col-md-8, 
+.greyBG .col-md-8 { 
+	min-height: 0px; 
+	} /*sovrascrittura bootstrap*/
+.SharedRowPane {
+	margin-top: 50px;
+}
+.SharedRowPane .blackShape {
+	text-align: center;
+    width: 750px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: #FFF;
+    padding: 10% 30px 30px 30px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -375px;
+}
+@media (max-width: 768px){
+	.SharedRowPane .blackShape { 
+		width: 100%; 
+		height: 500px; 
+		padding-top: 60px; 
+	}
+}
+	.SharedRowPane .blackShape h2 { 
+		color: #FFF;
+		font-size: 35px;
+		line-height: 55px;
+		font-weight: 400;
+		padding-bottom: 50px;
+		text-transform: uppercase;
+	}
+	.SharedRowPane .blackShape p { 
+		color: #FFF;
+		font-size: 18px;
+		line-height: 25px;
+		padding-bottom: 100px;
+		font-family: Georgia;
+    	font-style: italic;
+	}
+	.SharedRowPane .blackShape a.sharedReadMoreBlu { 
+		background-color: #0783FF;
+	    padding: 19px 33px;
+	    font-size: 16px;
+	    text-transform: uppercase;
+	    font-family: oswald;
+	    font-weight: 400;
+	    font-style: normal;
+	    color: #FFF;
+	}
+/************************************/
+
+.bannerWrapper-no-banner {
+    min-height: 28px;
+	background-color: #FFFFFF;
+}
+.breadcrumb-no-banner#Breadcrumb{
+	padding-top: 13px;
+}
+.bannerWrapper-no-banner div.bannerPaneWave {
+	margin-top: 0px;
+}
+@media (max-width: 768px){
+	.bannerWrapper-no-banner {
+		min-height: auto;
+		background-color: transparent;
+	}
+	.bannerWrapper-no-banner div.bannerPaneWave {
+		margin-top: -6px;
+	}
+}
+@media only screen and (min-width: 768px) and (max-width: 1100px){
+	.bannerWrapper-no-banner img{
+		height: 28px;
+	}
+}
+.home.en-US #Content1Box .row1 {
+    border: 0px solid #FFFFFF; /*in inglese non è presente questa sezione*/
+}
+.bstrap3-material .grant-publication{
+	background: #f7f7f7;
+	width: 100%;
+    text-align: left;
+}
+.bstrap3-material .grant-publication tr{
+	border-bottom: 10px #f7f7f7 solid;
+}
+.bstrap3-material .grant-publication td{
+	background: #e6e6e6;
+	padding: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.bstrap3-material .grant-publication td a{
+    float: right;
+    text-transform: uppercase;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #ffffff;
+    border: 1px solid #007881;
+    background-color: #007881;
+	color: #FFFFFF;
+}
+html .bstrap3-material .grant-publication td a:not(.close){
+	color: #FFFFFF;
+}
+.bstrap3-material .grant-publication td p{
+	padding: 0px;
+	margin: 0px;
+}
+@media (max-width: 450px){
+	.bstrap3-material .grant-publication td{
+		display: block;
+		min-height: 76px;
+	}
+	.bstrap3-material .grant-publication td a{
+		width: 100%;
+		text-align: center;
+	}
+}
+.dnn-cl .clearfix:before, 
+.dnn-cl .clearfix:after, 
+.dnn-cl .container:before, 
+.dnn-cl .container:after, 
+.dnn-cl .container-fluid:before, 
+.dnn-cl .container-fluid:after, 
+.dnn-cl .row:before, 
+.dnn-cl .row:after {
+	content: unset !important;
+}
+.home.en-US #Content2Box .container .Content2Box{
+	float: left;
+    background: #e6e6e6;
+}
+.DnnModule-avtSearchBoostResults .sb-exectime.text-center{
+	display: none;
+}
+
+.bstrap30 .sb-default .adv-search {
+    width: 90%;
+    margin-left: 15px;
+}
+@media (min-width: 768px){
+	.bstrap30 .sb-default .adv-search {
+		margin: 0 auto;
+	}
+	.ModavtSearchBoostResultsC{
+		margin-left: -15px;
+	}
+}
+@media (max-width: 768px){
+	#contentWrapper .right {
+		width: 100%; 
+	}
+}
+/***************************************************************/
+.link_more.right_bottom a, .link_more.left_bottom a, a.link_more.right_bottom, a.link_more.left_bottom{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px; 
+} 
+/***************************************************************/
+.footerData li {
+    padding-bottom: 3px;
+}
+/****************************************************************/
+@media (max-width: 800px){
+	a.dropdown-item.no-menu{ 
+		white-space: normal;
+		line-height: 20px !important;
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+		width: 90% !important;
+	}
+}
+/***************************************************************/
+@media (max-width: 768px){
+	
+	.ver-ffentlichung-der-zuwendungen .row .alert.alert-info.submit-confirm{
+		padding-left: 0px;
+		padding-right: 0px;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+}
+/***************************************************************/
+@media (max-width: 767px){
+img.classic-image-md-6{
+		width: 100% !important;
+		margin-bottom:10px;
+	}
+}
+@media (max-width: 350px){
+	p.classic-image img,
+	img.classic-image{
+		width: 100% !important;
+	}
+}
+html .form-garantieregistrerung  .bstrap3-material .alert-info {
+    width: 100% !important;
+}
+.contact-us .bstrap30 .alert.alert-info.submit-confirm {
+	width: 100%;
+    background-color: #f5f5f5 !important;
+    border-color: #e2e2e2;
+    color: #212121;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.08);
+    box-shadow: 1px 1px 2px rgba(0,0,0,.08);
+}
+.form-group-label-custom-required-field label span{
+	background: #f5f5f5 !important;
+	position: relative;
+	color: #333333;
+}
+.form-group-label-custom-required-field label span::after{
+	content: "*";
+	position: absolute;
+	color: #f13544;
+	margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 17px;
+}
+/***** messaggio ringraziamento ActionForm *****/
+html .bstrap3-material .alert-info {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: #212121 !important;
+    -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,.0) !important;
+    box-shadow: 0px 0px 0px rgba(0,0,0,.0) !important;
+}
+#Body a.readMore.disabled {
+	pointer-events: none !important;
+	cursor: default !important;
+}
+#Body .disabled {
+	pointer-events: none !important;
+	cursor: default !important;	
+}
+/*
+*   SIMONEG
+*/
+/********* stili generali *********/
+.container-fluid {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+/* button e link */
+a.readMore.red:hover,
+.InternalBanner a:hover {
+    background-color: #D32D39;
+    text-decoration: none;
+}
+.SharedRowPane .blackShape a.sharedReadMoreBlu:hover {
+    background-color: #407bb7;
+    text-decoration: none;
+}
+a.readMore.white.big_with_border {
+    border: 1px solid #000;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+a.readMore.white.big_with_border:hover {
+    background-color: #F0F0F0;
+}
+/* breadcrumbs */
+#Breadcrumb {
+    color: #A8A8A8 !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#Breadcrumb .wrapper .row > div > a{
+    display: inline-block;
+    margin-right: 0px;
+}
+#Breadcrumb .wrapper .row > div > a::after{
+    content: "/";
+    color: #A8A8A8 !important; 
+    float: right;
+    margin-left: 15px;
+}
+#Breadcrumb .wrapper .row a.breadcrumbLink span {
+    color: #A8A8A8 !important;
+}
+#Breadcrumb .wrapper .row #dnn_dnnBreadcrumb_lblBreadCrumb > span:last-child > span:last-child a span{
+    color: #484542 !important;
+}
+@media (max-width: 768px){
+    #Breadcrumb {
+        display: block;
+        visibility: hidden;
+        height: 0px;
+    }
+}
+/* footer */
+#dnn_FooterPane {
+	padding-bottom: 0px;
+}
+#dnn_FooterPane p,
+#dnn_FooterPanePharma p {
+    margin: 0px;
+}
+#dnn_FooterPane {
+ 	padding-bottom: 20px;
+    display: flex;
+}
+#dnn_FooterPane > .row {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#dnn_FooterPane ul,
+#dnn_FooterPanePharma ul {
+	list-style: none;
+	margin-left: 0px;
+}
+#dnn_FooterPane ul {
+    float: left;
+    min-width: auto;
+}
+#dnn_FooterPanePharma ul {
+    float: left;
+    clear: both;
+    margin-bottom: 30px;
+}
+#dnn_FooterPane li,
+#dnn_FooterPanePharma li {
+	min-height: 50px;
+    padding: 13px;
+}
+#dnn_FooterPane li {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#dnn_FooterPanePharma li.border-footer {
+    border: 1px solid #FFF;
+    width: 245px;
+}
+#dnn_FooterPane a,
+#dnn_FooterPane a:link,
+#dnn_FooterPane a:visited,
+#dnn_FooterPanePharma a,
+#dnn_FooterPanePharma a:link,
+#dnn_FooterPanePharma a:visited {
+	color: #FFF;
+    width: 88%;
+    padding-right: 30px;
+    display: block;
+    float: left;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight:200;
+	font-size: 25px;
+	background: url('https://www.menarini.com/Portals/31/Images/icons/freccia_left_W.svg') no-repeat right;
+	background-size: 10%;
+}
+#dnn_FooterPaneSocial {
+	float: right;
+}
+#dnn_FooterPaneSocial img {
+	max-width: 60px;
+}
+#dnn_FooterPaneSocial p {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight:200;
+	font-size: 40px;
+	line-height: 45px;
+	color: #FFF;
+}
+.dnnbooster footer #dnn_FooterPaneSocial .ModDNNHTMLC p {
+    color: #ffffff;
+}
+@media (max-width: 1110px){
+    #dnn_FooterPane a,
+    #dnn_FooterPane a:link,
+    #dnn_FooterPane a:visited,
+    #dnn_FooterPanePharma a,
+    #dnn_FooterPanePharma a:link,
+    #dnn_FooterPanePharma a:visited {
+        font-size: 20px;
+    }
+}
+@media (max-width: 768px){
+    #dnn_FooterPaneSocial{
+        float: none;
+    }
+    #dnn_FooterPaneSocial .ModDNNHTMLC > div{
+        text-align: center;
+    }
+    .legal-footer .Copyright{
+        margin-top: 15px;
+        text-align: center;
+    }
+}
+/* containers */
+.RedInternal {
+    padding: 0px 0px;
+}
+/* contenuti */
+.InternalBanner img {
+    max-width: 100% !important;
+    width: 555px;
+}
+@media (max-width: 1400px){
+    .SharedRowPane .blackShape{
+        padding-top: 5%;
+    }
+    .SharedRowPane .blackShape h2,
+    .SharedRowPane .blackShape p {
+        padding-bottom: 5%;
+    }
+}
+@media (max-width: 930px){
+    .SharedRowPane .blackShape > h2,
+    .SharedRowPane .blackShape > p {
+        padding-bottom: 2%;
+    }
+    .SharedRowPane .blackShape a.sharedReadMoreBlu{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+@media (max-width: 768px){
+    .ImgInternal img{
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: auto;
+    }
+    .SharedRowPane .blackShape{
+        padding-top: 7%;
+    }
+    .SharedRowPane .blackShape {
+        height: 100%;
+        left: 0px;
+        margin-left: 0px;
+    }
+    .SharedRowPane .blackShape > h2{
+        padding-bottom: 6%;
+        font-size: 4.7vw;
+    }
+    .SharedRowPane .blackShape > h2 + p {
+        display: none;
+    }
+    .SharedRowPane .blackShape a.sharedReadMoreBlu{
+        padding-top: 6px;
+        padding-bottom: 6px;
+        font-size: 14px;
+    }
+}
+@media (max-width: 420px){
+    .SharedRowPane .blackShape {
+        padding-top: 3%;
+    }
+    .SharedRowPane .blackShape > h2{
+        padding-bottom: 3%;
+    }
+}
+/********* contact form *********/
+html .ModActionFormC{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+html .ModActionFormC .bstrap30 h2{
+    color: #F5333F;
+    font-weight: 200;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    line-height: 55px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 20px;
+}
+html .ModActionFormC .form-horizontal label.control-label{
+    font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif !important;
+    font-size: 30px !important;
+    font-weight: 300 !important;
+    color: #484542 !important;
+	margin-bottom: 18px !important;
+}
+.ModActionFormC .bstrap30 .form-control::-webkit-input-placeholder { /* Edge */
+    color: #CBCBCB;
+    opacity: 1;
+    text-transform: uppercase;
+}
+.ModActionFormC .bstrap30 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #CBCBCB;
+    opacity: 1;
+    text-transform: uppercase;
+}
+.ModActionFormC .bstrap30 .form-control::placeholder {
+    color: #CBCBCB;
+    opacity: 1;
+    text-transform: uppercase;
+}
+.ModActionFormC textarea, 
+.ModActionFormC textarea.form-control, 
+.ModActionFormC input.form-control, 
+.ModActionFormC input[type="text"], 
+.ModActionFormC input[type="password"], 
+.ModActionFormC input[type="email"], 
+.ModActionFormC input[type="number"], 
+.ModActionFormC [type="text"].form-control, 
+.ModActionFormC [type="password"].form-control, 
+.ModActionFormC [type="email"].form-control, 
+.ModActionFormC [type="tel"].form-control, 
+.ModActionFormC [contenteditable].form-control,
+.ModActionFormC select, .ModActionFormC select.form-control{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif !important; 
+    font-size: 20px !important; 
+	font-weight: 300 !important;
+    color: #484542;
+	border: 0px;
+	background: #FFFFFF;
+	box-shadow: none !important; 
+	width: 100%;
+	height: 65px;
+	padding-left: 20px !important;
+    border-radius: 0px;
+    border: 1px solid #3C3A37;
+}
+.ModActionFormC select, .ModActionFormC select.form-control{
+	background-position: right 30px center !important;
+	background-image: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/Icon/arrow_down_green.png) !important;
+	background-repeat: no-repeat;
+	border-radius: 0px;
+	background-color: #ffffff; 
+	-webkit-appearance: none;
+    -moz-appearance: none; 
+}
+.ModActionFormC select::-ms-expand , .ModActionFormC select.form-controlselect::-ms-expand {
+    display: none;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 10000px;
+    text-overflow: ''
+} 
+.ModActionFormC textarea, html .ModActionFormC textarea.form-control{
+    max-height: 180px;
+}
+.ModActionFormC .bstrap30 .field-container.consent_label{
+    margin-bottom: 0px !important;
+}
+.ModActionFormC .label-align-top .radio, .ModActionFormC .label-align-top .checkbox{
+    margin-left: 0px !important;
+    padding-top: 0px !important;
+}
+.ModActionFormC .label-align-top .radio, .ModActionFormC .label-align-top .checkbox > label > input[type="checkbox"] {
+    margin-top: 5px;
+}
+.ModActionFormC .label-align-top .radio, .ModActionFormC .label-align-top .checkbox > label > span{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-size: 18px;
+    font-weight: 300;
+    color: #484542;
+}
+.ModActionFormC p.ng-pristine.ng-untouched.ng-valid.ng-not-empty{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+	font-size: 18px;
+    font-weight: 300;
+    color: #484542;
+	float: left;
+	width: 100%; 
+}
+.ModActionFormC .required.radio.radio-inline.ng-scope{
+    margin-left: 0px;
+	margin-right: 10px;
+}
+.ModActionFormC .required.radio.radio-inline.ng-scope span{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-size: 18px;
+    font-weight: 300;
+}
+.ModActionFormC .radio label, 
+.ModActionFormC .radio-inline label, 
+.ModActionFormC .checkbox label, 
+.ModActionFormC .checkbox-inline label{
+    padding-left: 0px;
+}
+.ModActionFormC .btn-info{
+    padding-top: 10px ;
+	padding-bottom: 10px ;
+	padding-left: 30px ;
+	padding-right: 30px ;
+	background-color: #D32D39 ;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+    font-weight: 400 ;
+    font-size: 19px ; 
+}
+#contentWrapper .ModActionFormC .row{
+	margin-left: -15px;
+    margin-right: -15px;
+}
+.ModActionFormC .form-group {
+	margin-bottom:25px;
+}
+.ModActionFormC .form-group .btn-form button {
+	font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background: #F5333F;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0px;
+	text-transform: uppercase;
+	box-shadow: none;
+	border-radius: 0px;
+}
+.ModActionFormC .form-group .btn-form button:hover {
+	background: #BE101B;
+}
+.ModActionFormC .form-group span.text-danger{
+    font-size: 16px;
+}
+.bstrap3-material .form-group-privacy-text.privacy-text-1.col-sm-12 {
+	max-height: 130px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	border: 1px solid #dadada;
+	padding: 15px 20px;
+	border: 1px solid #dadada;
+	margin-bottom: 15px;
+	margin-left: 15px;  
+	margin-right: 15px;  
+	width: auto !important;
+}
+.bstrap3-material .form-group-privacy-text.privacy-text-2.col-sm-12, .form-group-privacy-kontakt{
+	overflow-y: hidden;
+	overflow-x: hidden;
+	border: 1px solid #dadada;
+	padding: 15px 20px;
+	border: 1px solid #dadada;
+	margin-bottom: 15px;
+	margin-left: 15px;  
+	margin-right: 15px;  
+	width: auto !important;
+}
+.bstrap3-material .form-group-privacy-text.privacy-text-2.col-sm-12 p, 
+.form-group-privacy-kontakt p{
+	margin-bottom: 0px;
+} 
+@media (max-width: 768px){
+	.form-group-privacy-text.privacy-text-1, 
+	.form-group-privacy-text.privacy-text-2, 
+	.form-group-privacy-kontakt{
+		width: 90%;
+	}
+} 
+@media (max-width: 768px){
+	.form-group-privacy-text.privacy-text-1, 
+	.form-group-privacy-text.privacy-text-2, 
+	.form-group-privacy-kontakt{
+		width: 90%;
+	}
+} 
+
+/********* sidebar menu *********/
+/* elimina i padding dal contenitore principale in cui si trova il menu */
+.SidebarMenuSX .container_sidebar_sx{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.SidebarMenuSX .container_sidebar_sx > div > .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.SidebarMenuSX .container_sidebar_sx > div > .row > div{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.SidebarMenuSX .container_sidebar_sx > div > .row > div > .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+/*** sidebar menu ***/
+.SidebarMenuSX .side_menu .menu_toggler .toggler_title{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #143f59;
+}
+.SidebarMenuSX .side_menu .menu_toggler .toggler_icon{
+    width: 42px;
+    height: 36px;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_side_menu_close.svg");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.SidebarMenuSX .side_menu .menu_toggler .toggler_icon.icon_close{
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_side_menu_open.svg");
+}
+.SidebarMenuSX .side_menu .menu_container > div{
+    float: left;
+    width: 100%;  
+}
+.SidebarMenuSX .side_menu .menu_title_container .menu_title{
+    float: left;
+    max-width: 80%;
+    margin-top: 24px;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    color: #F5333F;
+    visibility: hidden;
+}
+.SidebarMenuSX .side_menu .menu_title_container .menu_toggler{
+    float: right;
+    margin-right: 15px;
+}
+.SidebarMenuSX .side_menu .menu_content_container{
+    padding-top: 15px;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul{
+    list-style: none;
+    margin-left: 0px;
+    visibility: hidden;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul li{
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul li a{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #484542;
+}
+.SidebarMenuSX .side_menu .menu_content_container > ul > li > a{
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #143f59;
+}
+.SidebarMenuSX .side_menu .menu_content_container > ul > li.active > a{
+    color: #F5333F;
+}
+/* submenu */
+.SidebarMenuSX .side_menu .menu_content_container ul.submenu{
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul.submenu > li{
+    padding-left: 46px;
+    position: relative;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul.submenu > li::before{
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    height: 1px;
+    width: 36px;
+    background-color: #484542;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul.submenu > li.active > a{
+    color: #F5333F;
+}
+.SidebarMenuSX .side_menu .menu_content_container ul.submenu > li.active::before{
+    background-color: #F5333F;
+}
+/* default, menu chiuso */
+.SidebarMenuSX .side_menu > .menu_toggler_container{
+    display: block;
+    left: 0%;
+    top: 0px;
+    position: absolute;
+    transition:all 0.6s;
+    background-color: #F7F6F4;
+    padding: 20px;
+}
+.SidebarMenuSX .side_menu > .menu_container{
+    width: 90%;
+    left: -110%;
+    top: 0px;
+    position: relative;
+    transition:all 0.6s;
+    transition-delay: -1s;
+    background-color: #F7F6F4;
+    float: left;
+    padding-left: 10%;
+    padding-right: 6%;
+    padding-bottom: 5%;
+    padding-top: 20px;
+}
+.SidebarMenuSX .container_sidebar_sx > div > .row{
+    position: relative;
+}
+.SidebarMenuSX .sidebar_sx{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 15%;
+    max-width: 15%;
+}
+.SidebarMenuSX .main_content_dx{
+    overflow-x: initial;
+    margin-left: 15%;
+}
+.SidebarMenuSX .main_content_dx .col-md-8 {
+    padding-right: 30px;
+}
+/* menu aperto */
+body.side_menu_open{
+    overflow-x: hidden;
+}
+body.side_menu_open .SidebarMenuSX .sidebar_sx{
+    width: 33%;
+    max-width: 33%;
+}
+body.side_menu_open .SidebarMenuSX .main_content_dx{
+    overflow-x: hidden;
+    margin-left: 33%;
+}
+body.side_menu_open .SidebarMenuSX .side_menu > .menu_toggler_container{
+    left: -110%;
+}
+body.side_menu_open .SidebarMenuSX .side_menu > .menu_container{
+    left: 0%;
+}
+body.side_menu_open .SidebarMenuSX .side_menu .menu_title_container .menu_title,
+body.side_menu_open .SidebarMenuSX .side_menu .menu_content_container ul{
+    visibility: visible;
+}
+@media screen and (max-width: 768px) {
+    body.side_menu_open .SidebarMenuSX .sidebar_sx{
+        width: 60%;
+        max-width: 60%;
+        z-index: 9;
+    }
+    body.side_menu_open .SidebarMenuSX .main_content_dx{
+        margin-left: 15%;
+    }
+}
+@media screen and (max-width: 520px) {
+    body.side_menu_open .SidebarMenuSX .sidebar_sx{
+        width: 100%;
+        max-width: 100%;
+    }
+    .SidebarMenuSX .side_menu > .menu_container {
+        width: 100%;
+    }
+    .SidebarMenuSX .main_content_dx {
+        margin-left: 20px;
+    	margin-top: 120px;
+    }
+    body.side_menu_open .SidebarMenuSX .main_content_dx{
+        margin-left: 20px;
+    }
+}
+/* override per edit (per poter gestire la colonna) */
+body.dnnEditState .SidebarMenuSX .sidebar_sx{
+    width: 18%;
+    max-width: 18%;
+}
+body.dnnEditState .SidebarMenuSX .main_content_dx{
+    overflow-x: hidden;
+    margin-left: 18%;
+}
+body.dnnEditState .SidebarMenuSX .side_menu > .menu_toggler_container{
+    left: -110%;
+}
+body.dnnEditState .SidebarMenuSX .side_menu > .menu_container{
+    left: 0%;
+}
+
+/********* horizontal timeline *********/
+
+body .horizontal-timeline .fa, 
+body .horizontal-timeline .far, 
+body .horizontal-timeline .fas {
+    font-family: "Fontawesome";
+}
+body .horizontal-timeline .fa-chevron-circle-left::before {
+    content: "\f053";
+    font-size: 1.5rem;
+}
+body .horizontal-timeline .fa-chevron-circle-right::before {
+    content: "\f054";
+    font-size: 1.5rem;
+}
+body .horizontal-timeline .timeline-navigation a{
+    color: #B6B59C;
+}
+body .horizontal-timeline .timeline-navigation#leftNav,
+body .horizontal-timeline .timeline-navigation#rightNav{
+    align-self: center;
+    width: 30px;
+    text-align: center;
+}
+body .horizontal-timeline .timeline-navigation#leftNav {
+    left: 0px;
+}
+body .horizontal-timeline .timeline-navigation#rightNav {
+    right: 0px;
+}
+body .horizontal-timeline .timeline-navigation a.inactive {
+    visibility: hidden;
+    border-color: #EFEED5;
+    color: #EFEED5;
+}
+body .horizontal-timeline .events-wrapper{
+    height: 85px;
+}
+body .horizontal-timeline .events-content {
+    margin: 3em 0px;
+    margin-bottom: 0px;
+}
+body .horizontal-timeline .events-content > ol{
+    list-style: none;
+}
+body .horizontal-timeline .events-content li[data-horizontal-timeline], 
+body .horizontal-timeline .events-content li[data-date]{
+    border-radius: 0px;
+    background-color: transparent;
+}
+body .horizontal-timeline .events a {
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #B6B59C;
+    padding-bottom: 30px;
+    padding-left: 0.5% !important;
+    text-transform: uppercase;
+}
+body .horizontal-timeline .events a::after {
+    height: 22px;
+    width: 22px;
+    line-height: 21px;
+    font-family: "Fontawesome";
+    font-size: 9px;
+    content: '\f111';
+    color: #B6B59C;
+    background-color: transparent;
+    bottom: -11px;
+}
+body .horizontal-timeline .events a.selected {
+    color: #F5333F;
+}
+body .horizontal-timeline .events a.selected::after{
+    font-size: 12px;
+    color: #F5333F;
+    background-color: rgba(245, 51, 63, 0.3);
+    bottom: -10px;
+}
+body .horizontal-timeline .events a.older-event::after {
+    background-color: transparent;
+}
+body .horizontal-timeline .events {
+    height: 2px;
+    background-color: #B6B59C;
+}
+body .horizontal-timeline .filling-line {
+    display: none;
+    background-color: #F5333F;
+}
+body .horizontal-timeline .events-content li .slide-container .text-content .text-title{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #143F59;
+    text-transform: capitalize;
+}
+body .horizontal-timeline .events-content li .slide-container .text-content .text-text,
+body .horizontal-timeline .events-content li .slide-container .text-content .text-text *{
+    font-family: 'Arimo', sans-serif;
+    line-height: 1.5;
+}
+body .horizontal-timeline .events-content li .slide-container .text-content .text-text .ReadMore {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+}
+@media screen and (max-width: 1100px) {
+    body .horizontal-timeline .timeline {
+        padding-bottom: 0px !important;
+    }
+}
+@media screen and (min-width: 1301px) {
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-title{
+        font-size: 30px;
+    }
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-text,
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-text *{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-title{
+        font-size: 2.5vw;
+    }
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-text,
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-text *{
+        font-size: 1.25vw;
+    }
+}
+@media only screen and (max-width: 768px) {
+    body .horizontal-timeline .events a {
+        font-size: 14px;
+        padding-left: .8% !important;
+    }
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-title{
+        font-size: 26px;
+    }
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-text,
+    body .horizontal-timeline .events-content li .slide-container .text-content .text-text *{
+        font-size: 14px;
+    }
+}
+/***** tipo 1: immagine a sinistra, testo a destra in sovrapposizione *****/
+body .horizontal-timeline.type-1 .events-content li .slide-container{
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 70% auto;
+}
+body .horizontal-timeline.type-1 .events-content li .slide-container .text-container{
+    position: relative;
+    width: 35%;
+    margin-left: 62%;
+    margin-top: 16%;
+}
+body .horizontal-timeline.type-1 .events-content li .slide-container .text-container:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+body .horizontal-timeline.type-1 .events-content li .slide-container .text-content{
+    background-color: #fff;
+    border: 1px solid #D0CFB6;
+    padding: 8%;
+    position: absolute;
+    width: 100%;
+    height: 92%;
+    text-align: left;
+}
+@media only screen and (max-width: 768px) {
+    body .horizontal-timeline.type-1 .events-content li .slide-container{
+        background-size: 100% auto;
+    }
+    body .horizontal-timeline.type-1 .events-content li .slide-container .text-container{
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 40%;
+    }
+    body .horizontal-timeline.type-1 .events-content li .slide-container .text-content{
+        position: relative;
+        width: 90%;
+        height: auto;
+        margin: auto;
+    }
+    body .horizontal-timeline.type-1 .events-content li .slide-container .text-container:after {
+        display: none;
+    }
+}
+
+/***** tipo 2: testo a sinistra, immagine a destra in sovrapposizione *****/
+body .horizontal-timeline.type-2 .events-content li .slide-container .text-container{
+    position: relative;
+    width: 58%;
+    margin-left: 10%;
+}
+body .horizontal-timeline.type-2 .events-content li .slide-container .text-container:after{
+    content: "";
+    display: block;
+}
+body .horizontal-timeline.type-2 .events-content li .slide-container .text-content{
+    background-color: #fff;
+    border: 1px solid #D0CFB6;
+    padding: 6%;
+    padding-right: 15%;
+    width: 100%;
+    min-height: 55%;
+    text-align: left;
+}
+body .horizontal-timeline.type-2 .events-content li .slide-container .img-container{
+    position: absolute;
+    width: 26%;
+    left: 61%;
+    top: 35%;
+    max-width: 326px;
+}
+body .horizontal-timeline.type-2 .events-content li .slide-container .img-container:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+body .horizontal-timeline.type-2 .events-content li .slide-container .img-container .img-content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+@media only screen and (max-width: 768px) {
+    body .horizontal-timeline.type-2 .events-content li .slide-container .text-container{
+        width: 80%;
+    }
+    body .horizontal-timeline.type-2 .events-content li .slide-container .text-content{
+        padding-right: 6%;
+        padding-bottom: 15%;
+        min-height: auto;
+    }
+    body .horizontal-timeline.type-2 .events-content li .slide-container .img-container{
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        left: unset;
+        top: unset;
+        text-align: center;
+    }
+    body .horizontal-timeline.type-2 .events-content li .slide-container .img-container:after{
+        display: none;
+    }
+    body .horizontal-timeline.type-2 .events-content li .slide-container .img-container .img-content{
+        width: 50%;
+        position: relative;
+        height: auto;
+        margin: auto;
+        margin-top: -10%;
+    }
+}
+@media only screen and (min-width: 1366px) {
+    body .horizontal-timeline.type-2 .events-content li .slide-container .text-content{
+        min-height: 386px;
+    }
+}
+/********* blog *********/
+.blog-item{
+    border-radius: 0px;
+    border: 0px;
+    margin-bottom: 15px;
+}
+.blog-item > a{
+    overflow: hidden;
+}
+.blog-item > a > img{
+    border-radius: 0px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.blog-item > a:hover > img{
+    -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+.blog-item .card-body {
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+}
+.blog-item .card-tag{
+    position: absolute;
+    right: 0px;
+    top: -40px;
+    padding: 10px 20px;
+    background-color: #fff;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #0783FF;
+    text-transform: uppercase;
+}
+.blog-item .card-text .text-muted {
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #484542;
+}
+.blog-item .card-title{
+    margin-bottom: 25px;
+}
+.blog-item .card-title,
+.blog-item .card-title a {
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 30px;
+    color: #143F59;
+    text-transform: none;
+}
+.blog-item .btn-readmore{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #484542;
+    text-transform: uppercase;
+    padding: 0px;
+    display: inline-flex;
+}
+.blog-item .btn-readmore::after{
+    float: right;
+    content: "";
+    width: 50px;
+    background-color: #484542;
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_readmore_link.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_readmore_link.svg") no-repeat 50% 50%;
+    /* per uniformare la transition a quella del btn */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.blog-item .btn-readmore:hover{
+    color: #F5333F;
+}
+.blog-item .btn-readmore:hover::after{
+    background-color: #F5333F;
+}
+/********* event *********/
+.blog-item.event-item .card-header{
+    background: none;
+    border-color: #D0CFB6;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.blog-item.event-item .card-header .text-muted {
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #484542;
+}
+.blog-item.event-item .card-header small{
+    padding-left: 35px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.blog-item.event-item .card-header small.event_location {
+    float: left;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_marker_location.svg");
+}
+.blog-item.event-item .card-header small.event_date {
+    float: right;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_calendar.svg");
+}
+/********* container per modulo con immagine di sfondo + titolo + testo + pulsante *********/
+.box_with_background_img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div img{
+    visibility: hidden;
+    position: absolute;
+}
+.box_with_background_img .overlay_container{
+    background: transparent linear-gradient(90deg, rgba(20, 63, 89, 0.5) 0%, rgba(20, 63, 89, 0.8) 100%) 0% 0% no-repeat padding-box;   
+}
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div{
+    padding: 8%;
+}
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div *{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff; 
+    line-height: 1.3;
+}
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div h1,
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div h2,
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div h3,
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div h4,
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div h5,
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div h6{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: #fff;
+    text-transform: none;
+    margin-bottom: 30px;
+}
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div a.readMore{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 7px 25px;
+}
+.box_with_background_img .DNNModuleContent.ModDNNHTMLC > div p:last-child{
+    margin-bottom: 0px;
+}
+.box_with_background_img .upperLogo {
+    position: absolute !important;
+    top: 0px;
+    right: 0px;
+    z-index: 100000;
+    visibility: unset !important;
+    max-width: 315px;
+    padding: 3%;
+}
+@media (max-width: 992px) { 
+	.box_with_background_img .upperLogo {
+	    visibility: hidden !important;
+	}
+}
+/********* container per modulo con immagine linkata + titolo *********/
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div{
+    position: relative;
+    overflow: hidden;
+}
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div p{
+    margin-bottom: 0px;
+}
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div h1,
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div h2,
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div h3,
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div h4,
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div h5,
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div h6{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 6px 13px;
+    width: 100%;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 30px;
+    color: #fff;
+    text-transform: none;
+    line-height: 1.2;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div > a img{
+    min-width: 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.box_maxi_link .DNNModuleContent.ModDNNHTMLC > div > a:hover img{
+    -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+/********* carousel default *********/
+.carousel_slider{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+body .carousel_slider .MS-content {
+    margin-left: 6.5%;
+}
+.carousel_slider .card{
+    margin-left: 6%;
+    margin-right: 6%;
+    padding: 6%;
+    padding-top: 7%;
+    border-radius: 0px;
+    border-color: #D0CFB6;
+}
+.carousel_slider .card-header,
+.carousel_slider .card-footer,
+.carousel_slider .card-body{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.carousel_slider .card-header{
+    padding: 0px;
+    border-bottom: 0px;
+    min-height: 100px;
+}
+.carousel_slider .card-header,
+.carousel_slider .card-footer{
+    background-color: transparent;
+    border-color: #D0CFB6;
+}
+.carousel_slider .card-title,
+.carousel_slider .card-title a{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 30px;
+    color: #0783FF;
+    text-transform: none;
+    line-height: 1.2;
+}
+.carousel_slider .card-body{
+    min-height: 120px;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #484542;
+}
+.carousel_slider .card-footer .text-muted {
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #484542;
+}
+.carousel_slider .card-footer small{
+    padding-left: 35px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.carousel_slider .card-footer small.location {
+    float: left;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_marker_location.svg");
+}
+body .carousel_slider .MS-controls .MS-left i,
+body .carousel_slider .MS-controls .MS-right i{
+    display: none;
+}
+body .carousel_slider .MS-controls .MS-left,
+body .carousel_slider .MS-controls .MS-right{
+    width: 50px;
+    height: 22px;
+    background-color: #484542;
+    /* per uniformare la transition a quella del btn */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+body .carousel_slider .MS-controls .MS-left {
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_carousel_left.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_carousel_left.svg") no-repeat 50% 50%;
+}
+body .carousel_slider .MS-controls .MS-right {
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_carousel_right.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_carousel_right.svg") no-repeat 50% 50%;
+}
+body .carousel_slider .MS-controls .MS-left:hover,
+body .carousel_slider .MS-controls .MS-right:hover{
+    background-color: #F5333F;
+}
+/********* accordion default *********/
+.ModavtTabsProC .accordion-root .panel-heading{
+    border-bottom: 1px solid #A8A8A8;
+    margin-bottom: 10px;
+    background-color: unset !important;
+    padding-bottom: 20px !important;
+    padding-left: 0px !important;
+}
+    /********* accordion manufacturing *********/
+        .ModavtTabsProC .accordion-root.accordion_manufacturing .panel-heading,
+        .ModavtTabsProC .accordion-root.accordion_manufacturing .panel {
+            background-color: #f7f6f4 !important;
+        }
+    /********* fine *********/
+.ModavtTabsProC .accordion-root .panel {
+    border-color: unset !important;
+    border: 0px !important;
+}
+.ModavtTabsProC .accordion-root .panel-heading .panel-title a{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 30px;
+}
+    .ModavtTabsProC .accordion-root .panel-heading .panel-title a,
+    .ModavtTabsProC .accordion-root .panel-heading .panel-title a:hover {
+        text-decoration: unset !important;
+    }
+.ModavtTabsProC .accordion-root .panel-body{
+    padding-top: 5px;
+    padding-bottom: 40px;
+}
+.ModavtTabsProC .accordion-root .panel-body .DNNModuleContent.ModDNNHTMLC > div{
+    font-family: 'Arimo', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+/********* stili nei contenuti HTML *********/
+/**** diagnostics: fascia prodotti ****/
+/** riga titolo **/
+.diagnostics-products.row-title{
+    margin-top: 30px;
+}
+.diagnostics-products.row-title > div{
+    margin-bottom: 30px;
+}
+.diagnostics-products.row-title p{
+    margin: 0px;
+}
+@media (max-width:520px){
+    .diagnostics-products.row-title > div .readMore{
+        font-size: 13px;
+        display: block;
+        text-align: center;
+    }
+}
+/** riga griglia prodotti **/
+.diagnostics-products.row-products{
+    margin-left: -20px;
+}
+.diagnostics-products.row-products .card-deck {
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.diagnostics-products.row-products .card-deck > div {
+    margin-bottom: 40px;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+.diagnostics-products.row-products .card-deck .card {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.diagnostics-products.row-products .card{
+    border-radius: 0px;
+    border-color: #e7e7da;
+    border-width: 2px;
+}
+.diagnostics-products.row-products .card img{
+    border-radius: 0px;
+    padding-top: 10%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.diagnostics-products.row-products .card-body {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+@media (max-width:576px){
+    .diagnostics-products.row-products .card-deck {
+        display:block;
+        width: 100%;
+    }
+}
+/** riga singolo prodotto **/
+.diagnostics-products.row-single-product{
+    border: 2px solid #e7e7da;
+    background-color: #ffffff;
+    padding: 2%;
+    margin-top: 45px;
+    margin-bottom: 65px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.diagnostics-products.row-single-product .row-title{
+    color: #0783FF;
+    font-weight: 200;
+}
+/**** Pharmaceuticals: Antiinfectives ****/
+.antiinfectives-intro-bg{
+    margin-top: 40px;
+    background-color: #00213a;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/antiinfectives-intro-bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.antiinfectives-intro-bg .antiinfectives-intro-bg-txt{
+    padding: 4% !important;
+}
+.antiinfectives-intro-bg .antiinfectives-intro-bg-txt,
+.antiinfectives-intro-bg .antiinfectives-intro-bg-txt p{
+    color: #ffffff;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    font-size: 20px;
+    line-height: 1.5;
+}
+.antiinfectives-intro-bg .antiinfectives-intro-bg-txt p:last-child{
+    margin-bottom: 0px;
+}
+.antiinfectives-intro-bg .antiinfectives-intro-bg-img{
+    position: relative;
+}
+.antiinfectives-intro-bg .antiinfectives-intro-bg-img img{
+    position: absolute;
+    right: -40px;
+    bottom: -238px;
+}
+ /****  sfondo bg sezione respiratory-allergology  erdita il resto da antiinfectives-intro-bg****/
+.respiratory-allergology-citazione-bg{
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/respiratory-allergology-citazione-bg.jpg");
+}
+/********* video gallery *********/
+#EDG_3_nobg .EDGbackground .EDGcontent table {
+    width: 100%;
+}
+#EDG_3_nobg .VideoBodyEmbed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+#EDG_3_nobg .VideoBodyEmbed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#EDG_3_nobg .EDGbackground .EDGcontent table .EDGimage a{
+    padding-bottom: 0%;
+}
+#EDG_3_nobg .EDGbackground .EDGcontent table .EDGimage a img{
+    width: 100%;
+}
+#EDG_3_nobg .EDGbackground .EDGcontent table .EDGimage a .title{
+    position: relative;
+    top: 48%;
+    color: #484542;
+    opacity: 1;
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 75px;
+    position: relative;
+    font-size: 18px;
+    font-family: 'Arimo', sans-serif;
+    line-height: 25px;
+}
+#EDG_3_nobg .EDGbackground .EDGcontent table[id$="repVideoList"] tr td {
+    width: 25%;
+    padding: 0px;
+}
+#EDG_3_nobg .EDGbackground .EDGcontent table[id$="repVideoList"] tr td .EDGmain {
+    width: 90%;
+    margin-left: 5%;
+}
+#EDG_3_nobg .EDGbackground .EDGcontent table[id$="repVideoList"] tr td:first-child .EDGmain {
+    float: left;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#EDG_3_nobg .EDGbackground .EDGcontent table[id$="repVideoList"] tr td:last-child .EDGmain {
+    float: right;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+/********* stili elenco staff *********/
+.innovation_research_staff{
+    padding: 0px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+}
+.innovation_research_staff > div{
+    margin-bottom: 15px; 
+}
+.innovation_research_staff > div img{
+    border: 1px solid rgba(182, 181, 156, 0.5);
+    border-radius: 50%;
+}
+/********* therapeutic area: links pagine figlie area *********/
+ul.therapeutic_area_child_page_links{
+    list-style: none;
+    margin-left: 0px;
+    margin-top: 35px;
+}
+ul.therapeutic_area_child_page_links li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+ul.therapeutic_area_child_page_links li.icon_pharmaceuticals{
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_pharma.svg");
+}
+ul.therapeutic_area_child_page_links li.icon_consumerhealtcare{
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/Icon_cons_health.svg");
+}
+ul.therapeutic_area_child_page_links li a{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200 !important;
+    font-size: 30px;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_arrow_right.svg");
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 30px;
+    background-size: auto 50%;
+}
+/********* therapeutic area - pharmaceuticals: lista prodotti *********/
+.pharmaceuticals_products_container{
+    padding-left: 40px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_spacer{
+    border-bottom: 2px solid #E3E4D2;
+    margin-bottom: 45px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_logo{
+    margin-bottom: 20px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_logo img{
+    max-width: 200px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_name{
+    font-family: 'Arimo', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #F5333F;
+    margin-bottom: 5px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_titles > div,
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_data > div{
+    padding-right: 15px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_titles > div{
+    padding-top: 5px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_data > div{
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_titles > div{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 300 !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #143F59;
+    line-height: 1.5;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_data > div{
+    font-family: 'Arimo', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: #484542;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_data > div .download_link{
+    float: left;
+    padding: 0px;
+    padding-top: 36px;
+    padding-left: 33px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.pharmaceuticals_product_container .pharmaceuticals_product_packaging_container .pharmaceuticals_product_info_data > div .download_link.icon_pdf{
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_pdf.svg");
+}
+
+/********* about us: griglia loghi *********/
+.logos_grid_container{
+    padding-left: 40px;
+    padding-right: 0px;
+}
+.logos_grid_container .logos_grid_row .logos_grid_item{
+    margin-bottom: 40px;
+}
+.logos_grid_container .logos_grid_row .logos_grid_item a{
+    display: block;
+}
+.logos_grid_container .logos_grid_row .logos_grid_item img{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    opacity: 0.4;
+    transition: 1s;
+}
+.logos_grid_container .logos_grid_row .logos_grid_item img:hover{
+    -webkit-filter: none;
+    -moz-filter: none;
+    -o-filter: none;
+    -ms-filter: none;
+    filter: none;
+    opacity: 1;
+}
+/********* fascia mappa *********/
+/** modifica margini del pane per renderlo full width **/
+div.full_size_pane[id^="dnn_SharedRow"]{
+    margin-left: -4.28% !important;
+    margin-right: -4.29% !important;
+}
+@media (min-width: 1366px){ 
+    div.full_size_pane[id^="dnn_SharedRow"]{
+        margin-left: -12.48% !important;
+        margin-right: -12.48% !important;
+    }
+}
+/********* mappe, con e senza ricerca *********/
+#mapWithSearchView,
+#mapWithoutSearchView {
+    height: 55vh;
+}
+.map_search_container{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.map_search_container .map_search_form{
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #143F59;
+    text-align: left;
+    color: #fff;
+}
+.map_search_container .map_search_form h3{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 40px;
+    color: #fff;
+}
+.map_search_container .map_search_form .form_container_label{
+    padding-top: 5px;
+    padding-bottom: 8px;
+}
+.map_search_container .map_search_form .form_container_label *{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #fff;
+}
+.map_search_container .map_search_form .form_container_info {
+    padding-top: 25px;
+}
+    .map_search_container .map_search_form .form_container_info p {
+        display: none;
+    }
+.map_search_container .map_search_form .form_container_info *{
+    font-family: 'Arimo', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #fff;
+}
+.map_search_container .map_search_form .form_container_info a.readMore{
+    color: #ffffff;
+    display: inline-block;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.map_search_container .map_search_form .form_container_info a.readMore::after{
+    float: right;
+    content: "";
+    width: 50px;
+    height: 22px;
+    background-color: #ffffff;
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_readmore_link.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_readmore_link.svg") no-repeat 50% 50%;
+}
+.map_search_container .map_search_form .form_container_input input{
+    height: 53px;
+    width: 100%;
+    border: 0px;
+    text-indent: 20px;
+}
+.map_search_container .map_search_form .form_container_input a::-webkit-input-placeholder { /* Edge */
+    color: #CCCCCC;
+}
+.map_search_container .map_search_form .form_container_input a:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #CCCCCC;
+}
+.map_search_container .map_search_form .form_container_input a::placeholder {
+    color: #CCCCCC;
+}
+.map_search_container .map_search_form .form_container_button a{
+    display: block;
+    width: 66px;
+    height: 60px;
+    border: 0px;
+    text-indent: -2000px;
+    cursor: pointer;
+    background-color: #F5333F;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/white_search.svg");
+    background-position: center center;
+    background-size: auto 65%;
+    background-repeat: no-repeat;
+}
+.map_search_container .map_search_form .form_container_button a:hover{
+    background-color: #DF1D29;
+}
+/**** categorie punti mappa ****/
+.map_search_container .map_search_categories{
+    background-color: #F7F6F4;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+.map_search_container .map_search_category{
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.map_search_container .map_search_category label{
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #143F59;
+    text-transform: uppercase;
+}
+.map_search_container .map_search_category label input {
+    display: none; /* Hide the default checkbox */
+}
+.map_search_container .map_search_category label img {
+    width: 41px;
+    max-width: 41px;
+    margin-right: 10px;
+}
+.map_search_container .map_search_category label span.checkbox,
+.map_search_container .map_search_category label img,
+.map_search_container .map_search_category label span.text{
+    float: left;
+}
+/* Style the artificial checkbox */
+.map_search_container .map_search_category label span.checkbox {
+    margin-top: 10px;
+    margin-right: 20px;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #3C3A37;
+    display: inline-block;
+    position: relative;
+}
+/* Style its checked state...with a ticked icon */
+.map_search_container .map_search_category label input[type=checkbox]:checked + span.checkbox:before {
+    content: '\2714';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    font-size: 20px;
+    color: #F5333F;
+}
+.map_search_container .map_search_category label span.text{
+    margin-top: 10px;
+    font-size: 1.133vw;
+    text-transform: uppercase;
+}
+
+@media (max-width: 991px){
+    .map_search_container .map_search_category label span.text{
+        font-size: 2vw;
+    }
+}
+@media (max-width: 575px){
+    .map_search_container .map_search_category label span.text{
+        font-size: 20px;
+    }
+}
+/********* stili nuova area di testata (agosto 2020) *********/
+/**** header ****/
+/** default **/
+header .navbar-brand {
+    padding-top: 0.5rem;
+}
+header #dnn_LOGO1_hypLogo{
+    display: block;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/logo_neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 200px;
+    margin-top: 9px;
+}
+header #dnn_LOGO1_hypLogo > img{
+    visibility: hidden;
+    width: 100%;
+}
+header .topbarMenu.greyBG,
+.dnnbooster header .topbar{
+    background-color:rgba(20, 63, 89, 1);
+}
+header .headerMenu,
+header .headerMenu .whiteBG{
+    background-color: transparent;
+    transition: background-color 0.8s ease;
+}
+header .navbar .navbar-nav .nav-item .nav-link{
+    color: #ffffff;
+}
+/* top menu */
+header #dnn_HeaderTopPane .navbar .navbar-nav .nav-item a{
+    font-size: 13px;
+}
+header #dnn_HeaderTopPane .navbar .navbar-nav .nav-item a.nav-link:hover,
+header #dnn_HeaderTopPane .navbar .navbar-nav .nav-item a.nav-link.active,
+header #dnn_HeaderTopPane .navbar .navbar-nav .nav-item a.nav-link.active:hover{
+    background-color: transparent;
+    color: #ffffff;
+    text-decoration: underline;
+}
+/* main menu */
+#dnn_MainMenu{
+    display: flex;
+    width: 100%;
+}
+#dnn_MainMenu .navbar.navbar-expand-lg{
+    flex: 0 0 89.999999%;
+    max-width: 89.999999%;
+}
+#dnn_MainMenu #navbarNavDropdown{
+    display: block !important;
+}
+header #dnn_MainMenu .navbar ul.navbar-nav{
+    float: right;
+    margin-bottom: 0px !important;
+}
+header #dnn_MainMenu .navbar .navbar-nav .nav-item a{
+    font-weight: 500;
+}
+header #dnn_MainMenu .navbar .navbar-nav .nav-item a.nav-link:hover,
+header #dnn_MainMenu .navbar .navbar-nav .nav-item a.nav-link.active,
+header #dnn_MainMenu .navbar .navbar-nav .nav-item a.nav-link.active:hover{
+    background-color: transparent;
+    color:#FFF;
+    text-decoration: underline;
+}
+@media (max-width: 1038px){
+    #dnn_MainMenu .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+/** scrolled-page **/
+header.scrolled-page #dnn_LOGO1_hypLogo{
+    background-image: none;
+}
+header.scrolled-page #dnn_LOGO1_hypLogo > img{
+    visibility: visible;
+}
+header.scrolled-page .topbarMenu.greyBG{
+    background-color: #143F59;
+}
+header.scrolled-page .headerMenu{
+    background-color: #ffffff;
+}
+header.scrolled-page #dnn_MainMenu .navbar .navbar-nav .nav-item .nav-link{
+    color: #484542;
+}
+/** social share **/
+ul.navbar-nav-social{
+    list-style: none;
+    margin: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    flex: 0 0 9.999999%;
+    max-width: 9.999999%;
+}
+ul.navbar-nav-social > li.nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+.navbar-nav-social #navbarDropdownMenuLinkSocialShare{
+    position: relative;
+    float: right;
+    padding: 0px;
+    width: 22px;
+    height: 24px;
+    background-image: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_share.svg");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu {
+	width: 10%;
+    right: 50%;
+    left: auto !important;
+	border-radius: 0 0 30px 30px;
+    padding: 0px 20px 0px 20px;
+    margin-top: 28px;
+    background-color: #F7F6F4;
+    border-top: 0px;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu .share-menu-link {
+	text-align: center;
+	padding-bottom: 10px;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.navbar-nav-social .nav-item.share-menu.dropdown.show::after {
+    display: none;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu .share-menu-title{
+    margin-bottom: 10px;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu .share-menu-title span {
+    display: block;
+    font-weight: 300;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #143F59;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu .share-menu-link {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu .share-menu-link i::before{
+    color: #F5333F;
+}
+.navbar-nav-social .nav-item .dropdown-menu.share-menu .share-menu-link i a {
+    font-size: 14px;
+    font-weight: 400 !important;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    line-height: 2;
+}
+/**** slider pane ****/
+#dnn_SliderPane{
+    margin-top: 40px;
+}
+/* override per edit (per poter gestire la colonna) */
+body.dnnEditState #dnn_SliderPane{
+    margin-top: 200px;
+}
+#dnn_SliderPane.internalSlider .BannerHeader .DNNModuleContent.ModDNNHTMLC > div img {
+    width: 100%;
+    margin-left: 0px;
+    object-fit: cover;
+}
+#dnn_SliderPane.internalSlider .BannerHeader h1{
+    max-width: 100%;
+    padding-bottom: 6%;
+    opacity: 1;
+    background: -moz-linear-gradient(top, rgba(20, 63, 89, 1) 0%, rgba(20, 63, 89,0.5) 50%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(20, 63, 89, 1) 0%,rgba(20, 63, 89,0.5) 50%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(20, 63, 89, 1) 0%,rgba(20, 63, 89,0.5) 50%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#143F59', endColorstr='#0000fff5',GradientType=0 ); /* IE6-9 */
+    line-height: 1.1;
+    font-weight: 200;
+    font-size: 3.6vw;
+    display: flex;
+    align-items: flex-end;
+}
+@media (max-width: 768px){
+    #dnn_SliderPane .BannerHeader img {
+        height: 100% !important;
+        max-height: 200px !important;
+        margin-left: 0px;
+        overflow-x: hidden;
+    }
+    #dnn_SliderPane.internalSlider .BannerHeader h1{
+        font-size: 6vw;
+    }
+}
+@media (max-width: 600px){
+    #dnn_SliderPane .BannerHeader img {
+        max-height: 300px !important;
+    }
+    #dnn_SliderPane.internalSlider .BannerHeader h1{
+        font-size: 9vw;
+    }
+}
+
+/*
+*   LORENZO
+*/
+/**** generico ****/
+img.icon_standard_width{
+	width:65px;
+}
+/**** generico container ****/
+.Generic.WhiteBGBorderGray{
+	background:#FFF;
+	width: initial;
+	padding-top:0px;
+	padding-bottom:0px;
+	padding: 10%;
+	padding-top: 16%;
+	padding-left:18%;
+	padding-right:18%;
+	margin-top: 30px;
+	margin-bottom: 60px;
+	min-height: 170px;
+}
+.Generic.WhiteBGBorderGray p a{
+	margin-bottom:0px;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size:30px;
+	line-height:38px;
+	color: #143f59;
+	font-weight:200;
+}
+.Generic.WhiteBGBorderGray.LongText{
+	padding-top: 10%;
+}
+/**** pagina valori ****/
+.Content10row1paneB .box_with_background_img .DNNModuleContent.ModDNNHTMLC > div h5{
+	text-transform: uppercase;
+	font-size:20px;
+	line-height:2.9;
+	margin-bottom:0px;
+	margin-top:20px;
+}
+.Content10row1paneB .box_with_background_img .DNNModuleContent.ModDNNHTMLC > div p{
+	margin-bottom:20px;
+}
+body .horizontal-timeline .events-content li .slide-container .text-content .text-title{
+	float:left;
+}
+body .horizontal-timeline .events-content li .slide-container .text-content .text-title img{
+	float:left;
+}
+body .horizontal-timeline .events-content li .slide-container .text-content .text-title span.no_capitalize{
+    text-transform: none;
+}
+/**** immagine titolo modulo VGMenariniCorporateGallerySliderView ****/
+.VGMenariniCorporateGallerySliderView h3.text-title img{
+	margin-right:10px;
+}
+/**** pagina contact us ***/
+#dnn_ContentPane .DnnModule.DnnModule-DNN_HTML p.lightblue_subtitle{
+	color: #0783FF;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight:200;
+	font-size:30px;
+}
+/**** pagina pharmacovigilance ***/
+.blue_numbers_list_container{
+	float:left;
+	width:100%;
+}
+.blue_numbers_list_container .left_div{
+	float:left;
+	width: 5%;
+}
+.blue_numbers_list_container .right_div{
+	float:right;
+	width: 95%;
+	padding-top: 10px;
+}
+.blue_numbers_list_container .right_div p{
+	font-size:16px;
+	line-height:25px;
+}
+.blue_numbers_list_container span.blue_big_numbers{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	color: #0783FF;
+	font-size:30px;
+	line-height:38px;
+	font-weight:200;
+}
+/**** Form pharmacovigilance ***/
+.DnnModule.DnnModule-ActionForm .report-a-problem-with-a-product-or-an-adverse-drug-reaction{
+	padding-left:40px;
+}
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction h2{
+	color: #F5333F !important;
+	font-weight: 200;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    line-height: 55px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-group{
+	float:left;
+	width:49%;
+}
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-group:nth-child(1),
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-group:nth-child(5)
+{
+	float:left;
+	width:100%;
+}
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-group:nth-child(3),
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-group:nth-child(4)
+{
+	float:left;
+	width:49%;
+	margin-left:2%
+}
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-group:nth-child(5)
+{
+	margin-top:30px;
+}
+.ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-group:nth-child(5) p{
+	margin-bottom:40px;
+}
+html .ModActionFormC .report-a-problem-with-a-product-or-an-adverse-drug-reaction .form-horizontal label.control-label
+{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif !important;
+	font-size: 30px !important;
+    line-height: 45px !important;
+	font-weight:300 !important;
+	color: #484542 !important;
+	text-transform:none !important;
+	padding-top:0px;
+}
+.ModActionFormC  .report-a-problem-with-a-product-or-an-adverse-drug-reaction select , .ModActionFormC  .report-a-problem-with-a-product-or-an-adverse-drug-reaction select.form-control option{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif !important;
+	font-size: 16px !important;
+    line-height: 45px !important;
+	color:#0783FF;
+	text-transform: uppercase;
+}
+.ModActionFormC  .report-a-problem-with-a-product-or-an-adverse-drug-reaction select.form-control option:checked{
+	color: #0783FF;
+}
+.ModActionFormC  .report-a-problem-with-a-product-or-an-adverse-drug-reaction select option:first-child
+{
+    color:#cbcbcb;
+}
+.ModActionFormC  .report-a-problem-with-a-product-or-an-adverse-drug-reaction select.form-control option{
+	color:#cbcbcb;
+}
+.DnnModule.DnnModule-ActionForm .report-a-problem-with-a-product-or-an-adverse-drug-reaction select.form-control{
+    border: 1px solid #3C3A37 !important;
+}
+/**** Form generico: cambio sfondo freccia ***/
+.ModActionFormC select, .ModActionFormC select.form-control{
+	background-image: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/Icon/arrow_down_grey.png) !important;
+}
+/**** VGProductListTherapeuticArea ***/
+.VGProductListTherapeuticArea .product_container{
+    text-align: center;
+}
+.VGProductListTherapeuticArea .product_container .internal_container{
+	margin-right:10%;
+	margin-left:0px;
+	margin-bottom:0px;
+	margin-top:60px;
+	border-bottom:1px solid #cbcbcb;
+}
+.VGProductListTherapeuticArea .product_container .title{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+    line-height: 30px;
+	color: #143f59;
+	text-transform: uppercase;
+	font-weight:500;
+	text-align:left;
+	margin-bottom: 20px;
+	min-height: 62px;
+}
+.VGProductListTherapeuticArea .product_container p{
+	text-align:left;
+}
+.VGProductListTherapeuticArea .product_container p.text{
+	-webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+	font-family: 'Arimo', sans-serif !important;
+    font-size: 16px;
+    line-height: 25px;
+}
+.VGProductListTherapeuticArea .product_container .text_readmore{
+	margin-bottom: 30px;
+    margin-top: 30px;
+}
+/**** VGProductDetailTherapeuticArea ***/
+.VGProductDetailTherapeuticArea .intro{
+	border-bottom:1px solid #cbcbcb;
+}
+.VGProductDetailTherapeuticArea .image{
+	text-align: center;
+	margin-top: 40px;
+}
+.VGProductDetailTherapeuticArea .image img{
+	max-width:100%;
+}
+.VGProductDetailTherapeuticArea .title{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+    line-height: 30px;
+	color: #143f59;
+	text-transform: uppercase;
+	font-weight:500;
+	text-align:left;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+.VGProductDetailTherapeuticArea .title.composition{
+	padding-left: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+	margin-top: 32px;
+    background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/icon_composition.svg') 110px center no-repeat;
+}
+.VGProductDetailTherapeuticArea .text, .VGProductDetailTherapeuticArea ul{
+	list-style: revert;
+}
+.VGProductDetailTherapeuticArea .text, .VGProductDetailTherapeuticArea ul li{
+	font-family: 'Arimo', sans-serif !important;
+    font-size: 16px;
+    line-height: 25px;
+	color: #484542;
+}
+.VGProductDetailTherapeuticArea .intro .text{
+	margin-bottom:40px;
+}
+.VGProductDetailTherapeuticArea .text{
+	margin-bottom:20px;
+}
+.VGProductDetailTherapeuticAreaul{
+	list-style: disc;
+}
+.VGProductDetailTherapeuticArea p.btn_go_to{
+    padding-bottom: 6px;
+    padding-top: 6px;
+	margin-bottom: 40px;
+    width: 132px;
+    background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/Symbol 4.svg') center right no-repeat;
+}
+.VGProductDetailTherapeuticArea p.btn_go_to a{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+	color: #484542;
+}
+.VGProductDetailTherapeuticArea .rwd-video{
+	background: #FFF;
+    border: 1px solid #cbcbcb ;
+	height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 0.5%;
+    position: relative;
+}
+.VGProductDetailTherapeuticArea .rwd-video iframe{
+	left: 1.2%;
+    width: 97.6%;
+}
+/***** accordion *****/
+.ModavtTabsProC .accordion-root .panel-heading .panel-title .accordionLink {
+    background:url('www.menarini.com/Portals/31/skins/menarini/assets/img/Icon/arrow_right_grey.svg') center right no-repeat;
+	padding-right: 30px;
+	background-position: right 8px;
+}
+.ModavtTabsProC .accordion-root .panel-heading .panel-title .accordionLink.highlighted {
+    background:url('www.menarini.com/Portals/31/skins/menarini/assets/img/Icon/arrow_down_grey.svg') center right no-repeat;
+	background-position: right 10px;
+}
+/****** stili specifici titoli pagina news ******/
+.galleryTitleH3.blog_title{
+	/*margin-bottom:100px;*/
+	margin-bottom:0px;
+}
+/****** titolo linkedin ******/
+.galleryTitleH3.linkedin_title{
+	margin-bottom:57px;
+}
+/****** tasto archivio news ******/
+.archive_button{
+	float:left;
+	clear:both;
+	margin: 40px 0px;
+	text-align:left;
+}
+/****** modulo DnnModule-VGMenariniCorporateCountryFromTherapeuticalAreaView  ******/
+.DnnModule-VGMenariniCorporateCountryFromTherapeuticalAreaView{
+	padding-top: 50px;
+    padding-bottom: 50px;
+	padding-left:20px;
+}
+/****** vnav ******/
+#dnn_vnav_sitemap div.depth-0 {
+    border-bottom: 2px solid #232037;
+    padding: 5px;
+}
+/****** modulo DnnModule-VGMenariniCorporateCountryFromTherapeuticalAreaView  ******/
+#EDG_1_Nobg .EDGmain .EDGimage a .title span.Description p{
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+/******* modulo gallery ******/
+#EDG_3_nobg .EDGbackground .EDGcontent table .EDGimage a .title{
+	min-height: 90px;
+	-webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-bottom: 0px;
+}
+/******* modulo VGPipeline ******/
+.DnnModule-VGMenariniCorporatePipelineView {
+	display: flex;
+}
+.DnnModule-VGMenariniCorporatePipelineView .SpacingBottom{
+	margin-top: 0px;
+}
+.VGPipeline{
+	float:left;
+	width:100%;
+}
+.VGPipeline .buttons{
+	float:left;
+	width:50%;
+	margin-bottom:30px;
+}
+.VGPipeline .buttons a{
+	float:left;
+}
+.VGPipeline .buttons a.second{
+	margin-left:30px;
+}
+		/*bottoni rossi grigi*/
+		.VGPipeline .buttons input {
+		    color: #FFF;
+		    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		    font-size: 15px;
+		    padding: 5px 30px;
+		    line-height: 20px;
+		    border:0px;
+		    text-transform: uppercase !important;
+		    pointer-events: auto !important;
+		    cursor: pointer !important;
+		}
+		.VGPipeline .buttons input.red {background-color: #F5333F;}
+		.VGPipeline .buttons input.grey {background-color: #CBCBCB;}
+.VGPipeline .genericInfo { height: 60px;}
+.VGPipeline .genericInfo td { border-top: 0px; padding: 0px !important;}
+.VGPipeline .genericInfo td img { max-width: 37px; padding-right: 10px; }
+.VGPipeline .genericInfo-text { 
+	padding-left: 60px !important;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 20px;
+    font-style: normal;
+}
+.VGPipeline .table{
+	float:left;
+	width:100%;
+}
+.VGPipeline .table{
+	float:left;
+	width:100%;
+}
+.VGPipeline .table .col {
+	padding-left: 26px;
+	padding-right: 20px;
+}
+.VGPipeline .table .col.first{
+	float:left;
+	width:21%;
+}
+.VGPipeline .table .col.second{
+	float:left;
+	width:21%;
+}
+.VGPipeline .table .col.third{
+	float:left;
+	width:23%;
+}
+.VGPipeline .table .col.fourth{
+	float:left;
+	width:21%;
+	padding-top:20px;
+}
+.VGPipeline .table .col.fifth {
+	float:left;
+	width:12%;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	max-height: 90px;
+	display: flex;
+	vertical-align: middle;
+}
+.VGPipeline .table .table_header_row{
+	float:left;
+	width:100%;
+	border-bottom:3px solid #eeeee6;
+	margin-bottom:10px;
+}
+.VGPipeline .table .table_header_row .col,
+.VGPipeline .table .col {
+	text-align: left;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size:20px;
+	line-height:24px;
+	letter-spacing: 0px;
+	color: #484542;
+	font-style:italic;
+}
+.VGPipeline .table .col {
+    float: left;
+    width: 20%;
+	padding-top: 20px;
+    padding-bottom: 20px;
+}
+.VGPipeline .table_row .col {
+	min-height: 100px;
+}
+.VGPipeline .table .table_header_row .col {
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+.VGPipeline .table .table_row{
+	float:left;
+	width:100%;
+	background-image: linear-gradient(to right, #8F8D80 33%, rgba(143,141,128,0) 0%);
+    background-position: bottom;
+    background-size: 15px 1px;
+    background-repeat: repeat-x;
+}
+.VGPipeline .table .table_row.no_border{
+	border-bottom:0px;
+	background-image: unset;
+    background-position: unset;
+    background-size: unset;
+    background-repeat: unset;
+}
+.VGPipeline .table .table_row.first{
+	padding-top:10px;
+}
+.VGPipeline .table .table_row .col.first{
+	border-right:1px solid #8F8D80;
+}
+.VGPipeline .table .table_row.first span{
+	float: left;
+    clear: both;
+}
+
+.VGPipeline .table .table_row span.title{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	text-align: left;
+	/*letter-spacing: 0.5px;*/
+	font-size:20px;
+	line-height:28px;
+	color: #143f59;
+	font-weight:400;
+	font-style: normal;
+	display: none;
+}
+	.VGPipeline .table .table_row span.title.first{
+		display: block;
+	}
+	@media (max-width: 992px){ 
+		.VGPipeline .table .table_row span.title{
+			display: block !important;
+		}
+	}
+	.VGPipeline .table .table_row span.title .text-lowercase {
+		clear: unset !important;
+		font-weight: 400 !important;
+	}
+	.VGPipeline .table .table_row span.internal-title .text-lowercase {
+		font-weight: 300 !important;
+	}
+.VGPipeline .table .table_row span.internal-title {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 20px;
+    line-height: 28px;
+    color: #143f59;
+    font-weight: 300;
+    display: block;
+    clear: both;
+    font-style: normal;
+}
+.VGPipeline .table .table_row span.text,
+.VGPipeline .table .table_row span.internal-text {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-size:16px;
+	line-height:28px;
+	font-weight:300;
+	color: #484542;
+	font-style: normal;
+}
+.VGPipeline .table .table_row .second{
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size:18px;
+	line-height:24px;
+	color: #143f59;
+	font-weight:500;
+}
+.VGPipeline .table .table_row .third{
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size:20px;
+	line-height:24px;
+	color: #143f59;
+	font-weight:500;
+}
+.VGPipeline .table .table_row .fifth,
+.VGPipeline .table .table_row .fifth td {
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size:20px;
+	line-height:36px;
+	color: #143f59;
+	font-weight:300;
+	display: table-cell;
+    vertical-align: middle;
+}
+	.VGPipeline .table .table_row .fifth h5.modal-title {font-style: normal;}
+.VGPipeline .table .table_row .fifth a{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	line-height:25px;
+	color: #0783ff;
+	font-weight:300;
+	text-decoration:underline;
+}
+.VGPipeline .table .pipeline{
+	float:left;
+	width:100%;
+}
+.VGPipeline .table .pipeline .pipeline_header{
+    float: left;
+    width: 100%;
+    margin-bottom: 4px;
+    clear: both;
+}
+.VGPipeline .table .pipeline .pipeline_body{
+	float:left;
+	width:100%;
+}
+.VGPipeline .table .pipeline .pipeline_col{
+	float:left;
+	width:16.66%;
+	height:23px;
+}
+	.VGPipeline .table .pipeline .pipeline_col.pipeline_col_50{
+		width:8.33%;
+	}
+.VGPipeline .table .pipeline .pipeline_header .pipeline_col{
+	text-align:center;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	line-height:22px;
+	color: #c1c0ab;
+	font-weight:400;
+	font-style: normal;
+}
+.VGPipeline .table .pipeline .pipeline_body .pipeline_col{
+	content:" ";
+}
+.VGPipeline .table .pipeline .pipeline_header .pipeline_col.active{
+	color:#143f59;
+}
+.VGPipeline .table .pipeline .pipeline_body .pipeline_col.active{
+	border-right:1px dashed #FFFFFF;
+}
+.VGPipeline .table .pipeline .pipeline_body .pipeline_col.active.green_bg{
+	background:#087669;
+}
+.VGPipeline .table .pipeline .pipeline_body .pipeline_col.active.lightblue_bg{
+	background:#0783FF;
+}
+.VGPipeline .table .pipeline .pipeline_body .pipeline_col.active.last {
+	border-right:0px;
+}
+.VGPipeline .table .table_row .first .text,
+.VGPipeline .table .table_row .third .internal-text {
+	display: none;
+}
+.VGPipeline .table .table_row .fifth .modal .modal-body p {
+	font-style: normal;
+}
+.VGPipeline .table .table_row .fifth .readMore {
+	font-style: normal;
+	color: #143f59 !important;
+	text-transform: uppercase !important;
+	background-color: unset !important;
+	text-decoration: unset !important;
+	font-size: 14px !important;
+	font-weight: 500!important;
+	position: relative;
+}
+.VGPipeline .table .table_row .fifth .readMore:after {
+    content: " ";
+    background-image: url(/portals/31/Images/icons/freccia_right_big_B.svg);
+    background-repeat: no-repeat;
+    color: #000000 !important;
+    width: 45px;
+    height: 10px;
+    display: block;
+    top: 12px;
+    right: -20px;
+    position: absolute;
+}
+/******* modulo VGPipeline clinical trials ******/
+.VGPipeline.clinicaltrials .table .table_header_row{
+	border-bottom:3px solid #CBCBCB;
+}
+.VGPipeline.clinicaltrials .buttons{
+	width:100%;
+} 
+.VGPipeline.clinicaltrials .buttons a.second, 
+.VGPipeline.clinicaltrials .buttons a.third, 
+.VGPipeline.clinicaltrials .buttons a.fourth, 
+.VGPipeline.clinicaltrials .buttons a.fifth, 
+.VGPipeline.clinicaltrials .buttons a.sixth{
+	margin-left:20px;
+}
+.VGPipeline.clinicaltrials .table .table_header_row .col {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #484542;
+    font-style: italic;
+}
+.VGPipeline.clinicaltrials .table .table_row .col.first{
+	border-right:0px;	
+}
+.VGPipeline.clinicaltrials .table .table_row .col{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 20px;
+    line-height: 28px;
+    color: #143f59;
+    font-weight: 300;
+    font-style: normal;
+}
+.VGPipeline.clinicaltrials .table .col.first{
+	width:19%;
+}
+.VGPipeline.clinicaltrials .table .table_row.first span {
+    float: left;
+    clear: inherit;
+}
+.VGPipeline.clinicaltrials .table .table_row span.male, .VGPipeline.clinicaltrials .table .table_row span.female {
+    float: left;
+	clear: none;
+}
+.VGPipeline.clinicaltrials .table .table_row .contenitore_icone{
+	float: left;
+    clear: both;
+    width: 100%;
+    margin-left: 19%;
+    align-items: center;
+}
+.VGPipeline.clinicaltrials .table .table_row .contenitore_tempo{
+	float: left;
+    clear: both;
+    width: 100%;
+    margin: auto;
+}
+.VGPipeline.clinicaltrials .table .col.second{
+	width:16%;
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .col.third{
+	width:8%;
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .col.fourth{
+	width:16%;
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .col.fifth{
+	/*width:10%;*/
+	width:16%;
+	text-align:center;
+	display: initial;
+}
+.VGPipeline.clinicaltrials .table .col.sixth{
+	width:18%;
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .col.seventh{
+	width:25%;
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .col.ninth{
+	width:100%;
+}
+.VGPipeline.clinicaltrials .table .col.ninth{
+    width: 100%;
+    font-size: 16px;
+    font-style: italic;
+}
+.VGPipeline.clinicaltrials .table .table_row .col.second{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    line-height: 28px;
+    color: #143f59;
+    font-weight: 300;
+    font-style: normal;
+}
+.VGPipeline.clinicaltrials .table .table_row .col.third{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 20px;
+    line-height: 28px;
+    color: #143f59;
+    font-weight: 300;
+    font-style: normal;
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .table_row .col.fifth{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 20px;
+    line-height: 28px;
+    color: #143f59;
+    font-weight: 300;
+    font-style: normal;
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .table_row .col.seventh{
+	text-align:center;
+}
+.VGPipeline.clinicaltrials .table .table_row .col a{
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 20px;
+    line-height: 28px;
+    color: #0783ff;
+    font-weight: 300;
+    font-style: normal;
+	text-decoration:underline;
+}
+.VGPipeline.clinicaltrials span.male{
+	content:' ';
+	background: url(https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon_uomo.svg) 10px center no-repeat;
+    width: 60px;
+    height: 60px;
+}
+.VGPipeline.clinicaltrials span.female{
+	content:' ';
+	background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/icon_donna.svg') -10px center no-repeat;
+	width: 60px;
+    height: 60px;
+}
+	.VGPipeline.clinicaltrials span.male.empty,
+	.VGPipeline.clinicaltrials span.female.empty {
+		background: url('www.menarini.com/Portals/31/skins/menarini/assets/img/icon_empty.svg') 0px center no-repeat;
+	}
+/*----- carouselOncoogy MENARINI -----*/
+.carouselOncoogy .carousel-indicators li { 
+  		border-radius: 50%;
+	    border: 2px solid #D0CFB6;
+	    width: 10px;
+	    height: 10px;
+	}
+	.carouselOncoogy .carousel-indicators li.active {
+	    background: red !important;
+	    background-color: red !important;
+    	border: 1px solid red !important;
+	}
+	.carouselOncoogy .carousel-caption {
+		right: 0px;
+		position: relative;
+		width: 65%;
+		left: unset;
+		float: left;
+		padding: 25px 15px;
+	}
+	.carouselOncoogy .carousel-inner {
+		background-color: #FFF; 
+		max-width: 70%;
+		border: 1px solid #D0CFB6;
+	}
+	.carouselOncoogy img.d-block {
+		max-width: 30%;
+	}
+	.carouselOncoogy h2 {
+		color: #0783FF;
+		font-size: 28px;
+    	line-height: 28px;
+	}
+	.carouselOncoogy .carousel-control-prev-icon {
+    	background-image: url("/Portals/31/Images/icons/freccia_left_big_B.svg");
+    	background-repeat: no-repeat;
+    	width: 50px;
+	}
+	.carouselOncoogy .carousel-control-next-icon {
+	    background-image: url("/Portals/31/Images/icons/freccia_right_big_B.svg");
+	    background-repeat: no-repeat;
+	    width: 50px;
+	}
+	.carouselOncoogy img.d-block.w-100 {
+		width: 30% !important;
+		float: left;
+	}
+@media (max-width: 992px) {
+	.carouselOncoogy .carousel-inner {
+		max-width: 80%;
+		height: auto;
+	}
+	.carouselOncoogy .carousel-item {
+		position: relative;
+		height: auto;
+	}
+	.carouselOncoogy .carousel-caption {
+		position: relative;
+		padding: 15px;
+		left: 0px;
+		right: 0px;
+		width: 100%;
+	}
+	.carouselOncoogy h2 {
+		font-size: 30px;
+    	line-height: 30px;
+	}
+	.carouselOncoogy img.d-block.w-100 {
+		margin: 0px auto;
+		width: 100% !important;
+		max-width: 100%;
+	}
+}
+/*----- FINE carouselOncoogy MENARINI -----*/
+/*** ricerca mobile sezione topic ***/
+@media (max-width: 768px) { 
+	.dropdown-menu .bstrap30 .glyphicon-search:before{
+		padding-right: 22px !important;
+		background-size:22px;
+	}
+	.Topics .imgTopic h2 {
+		margin-bottom: 42px;
+		font-weight: 200;
+		-webkit-font-smoothing: antialiased;
+		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.Topics .imgTopic h2 a{
+		color:#FFF;
+	}
+}
+/*
+*   LUCA
+*/
+.box_with_background_img h3.h3-box-min-height{
+	min-height: 130px;
+}
+.box_with_background_img p {
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+}
+.box_with_background_img p.bg_citazione {
+	overflow: unset;
+	-webkit-line-clamp: unset;
+	font-style: italic;
+	font-size: 20px;
+	line-height: 34px !important;
+	font-family: Georgia, Arial, Tahoma, Helvetica, sans-serif !important;
+}
+@media (min-width: 1366px) { 
+	.container-fluid {
+    	padding-left: 10% !important;
+    	padding-right: 10% !important;
+	}
+		.container-fluid.headerMenu {
+			padding-left: 10%;
+		}
+	#dnn_SliderPane.internalSlider .BannerHeader h1 {
+		padding-left: 10%;
+	}
+}
+/*----- topmenu nazioni MENARINI-----*/
+#navbarDropdownMenuCountries {
+	position: relative;
+}
+#UpperNavbarNavDropdown .bg_topMenuContactUs {
+	background-image: linear-gradient(to bottom, #143f59,#143f59, rgb(20 63 89 / 0%)), url(/Portals/31/Images/country/contactus_bg.jpg);
+	background-position: bottom;
+	    background-repeat: no-repeat;
+	    background-size: contain;
+}
+	#UpperNavbarNavDropdown .bg_topMenuCountrues {
+		background-image: linear-gradient(to bottom, #143f59,#143f59, rgb(20 63 89 / 0%)), url(/Portals/31/Images/country/contries_bg.jpg);
+	    background-position: bottom;
+	    background-repeat: no-repeat;
+	    background-size: contain;
+	}
+.continentList {
+	position: relative;
+}
+.continentList button,
+.continentList button:focus {
+	position: absolute;
+    top: -5px;
+    right: 50%;
+    background: unset;
+    border:unset;
+    outline: unset;
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+}
+.continentList ul {
+	display: none;
+    height: 200px;
+    overflow-y: scroll;
+    width: 50%;
+}
+	.continentList ul li h5 {
+		font-weight: 300;
+		font-size: 16px;
+	}
+.continentList ul::-webkit-scrollbar {
+	width: 4px;
+}
+.continentList ul::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey; 
+  	border-radius: 10px;
+}
+.continentList ul::-webkit-scrollbar-thumb {
+  background: #FFF; 
+  border-radius: 10px;
+}
+/*----- search standard MENARINI-----*/
+#Body .dnnSearchResultItem-Others {display:none;}
+#Body .dnnSearchBoxPanel {
+	background-color: unset;
+}
+#Body .dnnSearchResultAdvancedTip {
+	color: #FFFFFF;
+    cursor: default;
+	max-height:25px;
+}
+.dnnSearchBox > a.dnnSearchButton {
+	width: 40px;
+    height: 25px;
+    background-image: url(/Portals/31/Images/icons/search_blu.svg);
+}
+#Body #dnnSearchResult-advancedTipContainer,
+#Body .dnnSearchBox_advanced,
+#Body .dnnSearchResultPanel {
+	display: none !important;
+}
+#Body .dnnSearchResultContainer > .dnnSearchResultItem > .dnnSearchResultItem-Title {
+	font-size: 24px;
+	font-weight: 200;
+	-webkit-font-smoothing: antialiased;
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+	color: #143f59;
+}
+#Body .dnnSearchResultItem-Description {
+	font-weight: 400;
+    font-family: 'Arimo', sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+    color: #484542;
+    -webkit-font-smoothing: antialiased;
+}
+	#Body .dnnSearchResultItem-Description b {
+		color: #143f59;
+	}
+#Body .dnnSearchResultItem-Link,
+#Body .dnnSearchResultItem-Link a {
+	color: #0783FF;
+}
+#Body #dnnSearchResult_dnnSearchBox_input {
+	color: #143f59;
+    font-size: 20px;
+}
+/*----- box_with_background_img MENARINI-----*/
+.box_with_background_img.smallText h3 {
+    min-height: 130px;
+    font-weight: 200 !important;
+    margin-bottom: 10px !important;
+    font-size: 40px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.box_with_background_img.smallText p {
+    min-height: 105px;
+    -webkit-line-clamp: 4;
+    margin-bottom: 0px !important;
+}
+    .box_with_background_img.smallText p:first-child,
+    .box_with_background_img.smallText p:last-child {
+        min-height: unset;
+        margin-bottom: 0px;
+    }
+/*----- HeaderTopClaimPane MENARINI -----*/
+.HeaderTopClaimPane {
+    width: 300px;
+    /*padding-top: 10px;*/
+    box-sizing: border-box;
+}
+.home .HeaderTopClaimPane {
+    padding-top: 0px;
+}
+.topbar .col-me-3,
+.topbar .col-me-8,
+.topbar .col-me-1 {
+    max-height: 40px;
+}
+.sliderVideo {
+    display: contents;
+}
+.sliderVideo .col-md-12,
+.sliderVideo .row {
+    padding-left: 0px; 
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.i_r_oncology_academic_collaborations .row{
+	margin-bottom: 40px;
+}
+/***** careers **********************************/
+.title-and-button-right{
+	align-items: center;
+}
+.title-and-button-right h3{
+	margin: 0px;
+}
+.title-and-button-right div:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+.title-and-button-right div:nth-child(2) img {
+	width: auto;
+	margin-right: 20px;
+}
+/***** diagnostics ***************************/
+.VGMenariniCorporateCountryFromTherapeuticalAreaView .content-header{
+	display: none;
+}
+.VGMenariniCorporateCountryFromTherapeuticalAreaView .content-items{
+	max-width: 100%;
+	columns: 4;
+	-webkit-columns: 4;
+	-moz-columns: 4;
+}
+.VGMenariniCorporateCountryFromTherapeuticalAreaView .content-items .content-items-item {	
+	margin-bottom: 20px;
+}
+.VGMenariniCorporateCountryFromTherapeuticalAreaView .content-items .content-items-item a {	
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #484542;
+    line-height: 30px;
+    font-weight: 200;
+}
+/***** country ***************************/
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-header{
+	display: none;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items{
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+	
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item {	
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 100%;
+	flex: 0 0 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+	margin-left: 15px;	
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a {	
+	font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: 200;
+    color: #0783FF;	
+	position: relative;
+	padding-left: 70px;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a:before {	
+    content: "";
+	position: absolute;
+	left: 0;
+	top: -2px;
+    width: 60px;
+    height: 60px;
+	background-color: #484542;
+    /* per uniformare la transition a quella del btn */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+@media (min-width: 768px){ 
+	.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item {	
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+		margin-bottom: 30px;
+		margin-left: 0px;
+	}
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Allergology:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_allergology.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_allergology.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Urology:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_andrology.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_andrology.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Antinfectives:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_antinfectivearea.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_antinfectivearea.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Cardiovascular:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_cardiology.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_cardiology.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Gastrointestinal:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_ gastrointestinal.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_ gastrointestinal.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Ginecogy:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_ginecology.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_ginecology.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Respiratory:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_respiratory.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_respiratory.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Reumatology:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_reumatology.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_reumatology.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Pain:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_pain.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_pain.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Coughs:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_flu_colds.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_flu_colds.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Dermatoloy:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_dermatology.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_dermatoloy.svg") no-repeat 50% 50%;
+}
+.VGMenariniCorporateTherapeticalAreaFromCountryView .content-items .content-items-item a.Multivitamines:before {	
+    -webkit-mask:  url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_energy.svg") no-repeat 50% 50%;
+    mask: url("https://www.menarini.com/Portals/31/skins/menarini/assets/img/icon/ico_at_energy.svg") no-repeat 50% 50%;
+}
+
+/*========================================================+
+|  STILI per rendere responsive l'embed video MENARINI
++========================================================*/
+.rwd-video {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
+}
+.rwd-video iframe,
+.rwd-video object,
+.rwd-video embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+/*****precision-medicine*****************/
+.InternalBanner p.number-lines-4{
+    -webkit-line-clamp: 4;
+	max-width: 555px; /*come immagine sopra*/
+	margin: auto;	
+	margin-bottom: 30px;
+}
+.article.in_list img{
+	max-height: 350px;
+	width: auto
+}
+/***************************/
+.RedInternal a:link {
+  color: #143f59;
+}
+.RedInternal a:visited {
+  color: #143f59;
+}
+.RedInternal a:hover {
+  color: #F5333F;
+}
+.RedInternal a:active {
+  color: #143f59;
+}
+/********innovation-research -> oncology******************/
+ul.ul-stemline-therapeutics {
+    list-style: none;
+    margin-left: 0px;
+}
+ul.ul-stemline-therapeutics > li {
+    position: relative;
+	padding-left: 46px;
+}
+ul.ul-stemline-therapeutics > li::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 25px;
+    height: 1px;
+    width: 36px;
+    background-color: #484542;
+}
+/********pharmaceuticals + pharmaceuticals -> fellowship******************/
+.sgs-container{
+	padding-top: 15%;
+	text-align: center;
+}
+.sgs-container img{
+	max-width: 400px;
+}
+.table-fellowship{
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+}
+.table-fellowship .col-12{
+	display: flex;
+	align-items: center;
+    text-align: center;	
+	padding-top: 20px;
+	padding-bottom: 20px;
+	justify-content: center;
+	border-top: 1px solid;
+	border-left: 1px solid;
+}
+/********country******************/
+.box-country-location{
+	margin: 5%;
+	margin-bottom: 80px;
+	margin-top: 80px;
+}
+.box-country-location .venue-info img {
+	margin-bottom: 35px;
+}
+.box-country-location .address-container{
+	min-height: 35px;
+}
+.box-country-location h2{
+	font-weight: 300;
+	font-size: 30px;
+	color: #0783FF;
+}
+.box-country-location .venue-info {
+    background-image: url(/Portals/31/Images/icons/icon_marker_2.svg);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: top left;
+}
+.box-country-location .venue-info .address {
+    color: #484542;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 50px;
+}
+.box-country-location .venue-info .address img {
+	margin: 0px
+}
+.box-country-location .venue-info .address h5 {
+	margin-top: 20px;
+}
+@media (max-width: 1200px){ 
+	.box-country-location .address-container{
+		min-height: 70px;
+	}
+}
+@media (max-width: 850px){ 
+	.box-country-location .address-container{
+		min-height: 80px;
+	}
+}
+@media (max-width: 768px){ 
+	.box-country-location{
+		margin: 0px;
+		margin-top: 50px;
+	}
+	.box-country-location.last-box{
+		margin-bottom: 70px;
+	}
+	.box-country-location .address-container {
+		min-height: auto;
+	}	
+}
+/*----- .COM galleryTitleH3 carousel timeline MENARINI (quality-comes-first link troppo lungo)-----*/
+#dnn_ctr22574_ModuleContent .VGMenariniCorporateGallerySliderView .horizontal-timeline .events-wrapper,
+#dnn_ctr21119_ModuleContent .VGMenariniCorporateGallerySliderView .horizontal-timeline .events-wrapper{
+    height: 135px;
+}
+
+.MultipleBlogUrl{
+	display: none;
+}
+.imgRight h2{
+	color: #143f59 !important; 
+}
+
+/***** PERSONALIZZAZIONI careers MENARINI **********************************/
+.box_with_background_img.bigBanner .DNNModuleContent.ModDNNHTMLC > div{
+    padding: 40px 40px;
+    max-height: 380px;
+}
+.bigBanner h3{
+    font-size: 25px !important;
+    line-height: 33px !important;
+}
+
+/*----- personalizzazione our-commitment-to-science MENARINI-----*/
+h2.our-multimedia-material11000,
+h2.our-multimedia-material2100 {
+	padding: 25px 0px 25px 70px;
+		background-repeat: no-repeat;
+		background-size: 60px;
+		background-position: left;
+}
+h2.our-multimedia-material11000 { background-image: url("/Portals/31/Images/greenfield/greenfield240.svg"); }
+h2.our-multimedia-material2100 { background-image: url("/Portals/31/Images/greenfield/greenfield100.svg"); }
+
+/*
+*   SIMONEB
+*/
+.topbarRed{
+  animation: changeBg 0.5s forwards;
+  -webkit-animation: changeBg 0.5s forwards;
+  //background-color: #F5333F!important;
+}
+@keyframes changeBg {
+  from {background-color: rgba(42, 39, 65, 1);}
+  to {background-color: #F5333F;}
+}
+html.overflowHide{
+  overflow-y: hidden;
+}
+.scrolled-page .headerMenu .nav-item.dropdown.show a{
+	color:#484542!important;
+  text-decoration: underline;
+}
+.scrolled-page .headerMenu .nav-item.dropdown.show .dropdown-menu a{
+	color:#143f59!important;
+  text-decoration: none;
+}
+.scrolled-page .headerMenu .nav-item.dropdown.show .dropdown-menu .readMore{
+	color:white!important;
+}
+  .scrolled-page .headerMenu .nav-item.dropdown.show .dropdown-menu .txtMenu .readMore.black {
+    color: #143f59 !important;
+    padding-left: 0px;
+  }
+.scrolled-page .headerMenu .nav-item a:hover{
+  color:#143f59!important;
+  text-decoration: underline!important;
+}
+.navbar-closer{
+	display: none;
+    position: absolute;
+    right: 10%;
+    height: 50px;
+    width: 50px;
+    z-index: 3000;
+    cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cdefs%3E%3Cstyle%3E.a,.b%7Bfill:none;%7D.a%7Bstroke:%23000;%7D%3C/style%3E%3C/defs%3E%3Cg transform='translate(-1201.651 -16.02)'%3E%3Cpath class='a' d='M0,0,18.781.011' transform='translate(1210.018 24.533) rotate(45)' style='&%2310; stroke: %23fff;&%2310;'/%3E%3Cpath class='a' d='M0,.011,18.781,0' transform='translate(1210.01 37.66) rotate(-45)' style='&%2310; stroke: %23fff;&%2310;'/%3E%3C/g%3E%3Crect class='b' width='30' height='30'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+}
+#countries1 ul{
+	margin-left: 0px!important;
+}
+.ad-navbar-overlayer{
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 800;
+  cursor: pointer;
+}
+.horizontal-timeline .events{
+  //width: 250%!important;
+}
+
+
+
+.ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix,
+.ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix.ui-draggable-handle {
+	height: 0px;
+    padding: 0px;
+    border-bottom: 0px;
+}
+
+html .ModActionFormC .form-horizontal label.control-label.required:after {
+    content: " *";
+    color: #f94e52;
+    font-weight: 600;
+    float: right;
+}
