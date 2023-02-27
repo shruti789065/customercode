@@ -764,11 +764,14 @@
             <page jcr:primaryType="nt:unstructured">
                 <policy
                     jcr:description="Includes the required client libraries."
+                    jcr:lastModified="{Date}2023-02-27T14:22:35.080+01:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[menarinimaster.dependencies,menarinimaster.site]"
-                    clientlibsJsHead="menarinimaster.dependencies">
+                    clientlibs="[menarinimaster.dependencies,menarinimaster.site,menarinistemline.site]"
+                    clientlibsAsync="false"
+                    clientlibsJsHead="[menarinimaster.dependencies,menarinistemline.dependencies]">
                     <jcr:content
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>

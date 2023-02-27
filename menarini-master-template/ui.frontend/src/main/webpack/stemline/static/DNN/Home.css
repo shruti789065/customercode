@@ -1,0 +1,201 @@
+/********/
+#dnn_SliderPane img.no_mobile{
+    margin: auto;
+}
+
+/*--- ---*/
+body .HeaderTopClaimPane {
+padding-top: 0px;
+}
+/*******************
+stili slider homepage MENARINI
+*******************/
+#dnn_SliderPane .nivo-directionNav {
+display: none !important; /* passata dal supporto per abilitare i bullet */
+}
+
+#dnn_SliderPane .nivo-controlNav,
+#dnn_SliderPane .nivo-caption {
+right: 0px;
+width: 45%;
+padding-left: 60px;
+}
+#dnn_SliderPane .nivo-caption { 
+left: unset;
+height: 100%;
+background: #00000052;
+text-align: left;
+}
+#dnn_SliderPane .nivo-controlNav {
+    position: absolute;
+    margin-top: -10%;
+    text-align: left;
+    z-index: 100;
+}
+    .theme-default .nivo-controlNav a {
+        background: unset !important; /*url(https://www.menarini.com/portals/31/Images/icons/bullets_slider_home.png) no-repeat !important*/
+    }
+    .theme-default .nivo-controlNav a.nivo-control {
+        height: 12px;
+        width: 12px;
+        border: 2px solid #FFF;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 12px;
+    }
+    .theme-default .nivo-controlNav a.nivo-control.active {
+        background-color: #FFF !important;
+    }
+
+#dnn_SliderPane .nivo-caption .sliderText {
+display: block;
+position: absolute;
+bottom: 30%;
+}
+#dnn_SliderPane .nivo-caption h2 {
+color: #FFF;
+font-size: 40px;
+font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+font-weight: 400;
+}
+#dnn_SliderPane .nivo-caption h3 {
+color: #FFF;
+font-size: 70px;
+line-height: 75px;
+font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif; 
+font-weight: 400;
+margin-bottom: 30px;
+}
+#dnn_SliderPane .nivo-caption .sliderReadMore {
+background-color: rgb(255, 0, 0);
+padding: 25px 35px;
+color: #FFF;
+text-transform: uppercase;
+font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+font-weight: 600;
+font-style: normal;
+font-size: 17px;
+}
+
+
+/*******************
+stili Content6Box homepage MENARINI
+*******************/
+
+.home .RedBgHover img.BGimgageBoxHome,
+.home .BlueBgHover img.BGimgageBoxHome,
+.home .GreenBgHover img.BGimgageBoxHome { z-index: -1; }
+
+/*----- Content6Box MENARINI -----*/
+
+.home .Content6BoxPane .row .col-md-6{
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.home .Content6BoxPane .row .col-md-6 > div {
+margin-top: 35px;
+margin-bottom: 35px;
+}
+.home .Content6BoxPane .row .col-md-6 > div {
+height: calc(100% - 70px);
+}
+.home .Content6BoxPane .row .col-md-6 > div > .DnnModule{
+height: 100%;
+}
+.Content6Box h1 { 
+font-size: 40px !important; 
+text-transform: uppercase;
+font-family: Oswald, Arial, Tahoma, Helvetica, sans-serif;
+font-weight: 600 !important; 
+}
+.DNNContainer_noTitle.RedBgHover,
+.DNNContainer_noTitle.BlueBgHover,
+.DNNContainer_noTitle.GreenBgHover { 
+text-align: center; 
+/*height: 415px;*/
+height: 100%;
+}
+.boxAreas {
+text-align: center;
+}
+
+.home .textContent6Box,
+.boxAreas .textContent6Box {
+color: #FFF;
+padding: 80px 0px;
+}
+.home .textContent6Box h2 {
+    font-size: 40px;
+    line-height: 55px;
+    font-weight: 400;
+    color: #FFF;
+    text-transform: uppercase;
+}
+.boxAreas .textContent6Box h2 {
+    font-size: 1.5vw;
+    line-height: 55px;
+    font-weight: 400;
+    color: #FFF;
+    text-transform: uppercase;
+}
+.home .textContent6Box p,
+.boxAreas .textContent6Box p {
+    font-family: georgia;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFF;
+}
+@media (max-width: 992px) {
+.home .textContent6Box h2{
+    min-height: 110px;
+}
+.home .textContent6Box p{
+    min-height: 45px;
+}
+.eds_subCollection_news.news .lista_articoli_homepage {
+    margin: 0px 0px 50px 0px;
+}
+}
+.home .textContent6Box img,
+.boxAreas .textContent6Box img {
+    max-width: 100px;
+    background-color: #FFF;
+    border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+}
+.home .RedBgHover,
+.home .BlueBgHover { 
+background-color: rgba(0, 0, 0, 0.35);
+transition: 0.5s;
+}
+.home .RedBgHover:hover { 
+background-color: rgba(245, 51, 63, 0.7); 
+}
+.home .BlueBgHover:hover { 
+background-color: rgba(7, 131, 255, 0.7); 
+}
+.home #dnn_Content6Box1Pane {
+background: url(https://www.menarini.com/portals/31/Images/home/pharmaceutical_Content6Box.jpg) center no-repeat;
+background-size: cover;
+}
+.home #dnn_Content6Box2Pane {
+background: url(https://www.menarini.com/portals/31/Images/home/consumerhelthcare_Content6Box.jpg) center no-repeat;
+background-size: cover;
+}
+.home #dnn_Content6Box3Pane {
+background: url(https://www.menarini.com/portals/31/Images/home/innovation_Content6Box.jpg) center no-repeat;
+background-size: cover;
+}
+.home #dnn_Content6Box4Pane {
+background: url(https://www.menarini.com/portals/31/Images/home/precisionmedicine_Content6Box.jpg) center no-repeat;
+background-size: cover;
+}
+.home #dnn_Content6Box5Pane {
+background: url(https://www.menarini.com/portals/31/Images/home/diagnostics_Content6Box.jpg) center no-repeat;
+background-size: cover;
+}
+.home #dnn_Content6Box6Pane {
+background: url(https://www.menarini.com/portals/31/Images/home/dermatology_Content6Box.jpg) center no-repeat;
+background-size: cover;
+}
