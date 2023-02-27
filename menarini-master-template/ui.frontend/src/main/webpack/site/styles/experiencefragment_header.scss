@@ -108,7 +108,7 @@
 							position: absolute;
 							z-index: 1;
 							top: 0;
-							bottom: 0;
+							bottom: 10px;
 							left: 0;
 							right: 0;
 							min-height: auto;
@@ -146,11 +146,13 @@
 							position: relative;
 							max-width: 100%;
 							padding: 0;
+							min-height: 80px;
 
-							&__img {
+							&__image {
 								display: block;
 								width: 100%;
-								height: auto;
+								min-height: 80px;
+								object-fit: cover;
 							}
 						}
 					}
@@ -244,7 +246,7 @@
 			}
 
 			ul {
-				column-count: 2;
+				column-count: 1;
 			}
 		}
 	}
