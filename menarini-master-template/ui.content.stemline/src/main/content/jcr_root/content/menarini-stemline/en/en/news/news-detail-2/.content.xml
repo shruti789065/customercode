@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-07-28T14:55:58.835+02:00"
+        cq:lastModified="{Date}2023-02-28T16:19:29.306+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/menarini-stemline/settings/wcm/templates/menarini---details-news"
         jcr:description="Duis commodo sit amet lectus sed tristique. Cras nibh ligula, faucibus quis turpis ac, congue congue diam."
@@ -72,13 +72,13 @@
                             </cq:responsive>
                         </news_data>
                         <title
-                            cq:styleIds="[1653552520338]"
-                            jcr:lastModified="{Date}2022-07-28T14:40:11.570+02:00"
+                            cq:styleIds="[1653552493699]"
+                            jcr:lastModified="{Date}2023-02-28T16:19:21.369+01:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/title"
                             linkTarget="_self"
-                            type="h5">
+                            type="h2">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
@@ -143,9 +143,7 @@
                                 width="12"/>
                         </cq:responsive>
                         <button
-                            cq:styleIds="[1658918458097,1653579730618]"
-                            jcr:created="{Date}2022-07-28T14:41:27.119+02:00"
-                            jcr:createdBy="admin"
+                            cq:styleIds="[1653579730618,1658918458097,1653579684271]"
                             jcr:lastModified="{Date}2022-07-28T14:41:54.476+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
