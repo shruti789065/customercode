@@ -96,7 +96,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     protected static final String ADMINTEXT_PROPERTY = "mailAdminText";
 
-    private String[] fileExtensionAllowed = {"doc","docx","odt","sxw"}; //estensioni file allegato consentite
+    private String[] fileExtensionAllowed = {"doc","docx","odt","sxw","pdf"}; //estensioni file allegato consentite
 
     private static final Integer MAX_FILE_SIZE_MB = new Integer(3);//in Mbyte
     private static final Integer MAX_FILE_SIZE = new Integer(MAX_FILE_SIZE_MB *1024*1024);//in byte //max dimensione file allegato
