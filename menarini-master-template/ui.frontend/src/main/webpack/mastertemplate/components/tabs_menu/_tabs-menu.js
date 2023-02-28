@@ -22,8 +22,7 @@ window.$ = jQuery;
 			GENERIC_PANEL_CLASS: 'cmp-tabs__tabpanel'
 		};
 
-		var $tabsMenu, $tabsMenuContainer, $tablistMobile, $myActiveTab, $myActiveTabPanel, $genericTab, $genericPanel,
-			$mobileTabsActive, $whiteMenu, $shareButton, $mobileResize;
+		var $tabsMenu, $tabsMenuContainer, $tablistMobile,$mobileTabsActive, $whiteMenu, $shareButton;
 
 		/**
 		 * Initializes the MenuTabs
@@ -166,7 +165,7 @@ window.$ = jQuery;
 		}
 
 		function _prependHtml(el, str) {
-			var div = document.createElement('div'); //container to append to
+			var div = document.createElement('div'); 
 			div.innerHTML = str;
 			while (div.children.length > 0) {
 				el.prepend(div.children[0]);
