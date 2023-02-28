@@ -20,7 +20,7 @@ window.$ = jQuery;
 			SELECT: '.cmp-form-options__field--drop-down'
 		};
 
-		var $contactForm, $formButton, $formSelect, _formButtonHTML, _allRadioButton,radioValidation;
+		var $contactForm, $formButton, $formSelect, _formButtonHTML,radioValidation;
 
 		/**
 		 * Initializes the ContactForm
@@ -34,14 +34,10 @@ window.$ = jQuery;
 			$formButton = document.querySelector(CONST.BUTTON);
 			$formSelect = document.querySelector(CONST.SELECT);
 			_formButtonHTML = $formButton.innerHTML;
-			_allRadioButton = $contactForm.querySelectorAll('input[type=radio]');
 			radioValidation = false;
 
 			if($formSelect){
 				$formSelect.addEventListener('change', (event) => {
-					/* if (getComputedStyle($formButton).visibility === 'hidden') {
-						$formButton.style.visibility = 'visible';
-					} */
 					$formButton.innerHTML = _formButtonHTML + ` ${event.target.value}`;
 				});
 			}
@@ -68,13 +64,6 @@ window.$ = jQuery;
 				if (event.target.nextElementSibling !== null && event.target.nextElementSibling.classList.value == 'text-danger') {return;}
 				_appendErrorMessage(parentTarget, parentMessage);
 			},true);
-
-			/* $contactForm.querySelectorAll("input[type=radio][required]").forEach((item) => {
-				console.log({item});
-				item.addEventListener('invalid',(e) => {
-					console.log({e});
-				});
-			}); */
 
 			$contactForm.addEventListener("submit", (ev) => {
 				_checkRadioValidity();

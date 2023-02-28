@@ -20,8 +20,8 @@ window.$ = jQuery;
 			URL: _getJSON()
 		};
 
-		var $newsListContainer,mainContainer,mainChildren,itemCount,loader;
-		
+		var $newsListContainer, mainContainer, mainChildren, loader;
+
 		/**
 		 * Initializes the ListScroll
 		 *
@@ -29,11 +29,11 @@ window.$ = jQuery;
 		 */
 		function init() {
 			$newsListContainer = document.querySelector('.cmp-news-list');
-			if ($newsListContainer != undefined || $newsListContainer != null){
+			if ($newsListContainer != undefined || $newsListContainer != null) {
 				$newsListContainer.append(
 					Object.assign(document.createElement('div'), { id: 'loading' })
 				);
-				itemCount = 0;
+
 				mainContainer = document.querySelector(".cmp-news-list .cmp-list");
 				mainChildren = mainContainer.childElementCount;
 				loader = document.querySelector("#loading");
@@ -57,47 +57,47 @@ window.$ = jQuery;
 				.then(response => response.json())
 				.then(data => {
 					hideLoading(loader);
-					
+
 					var boxes = Object.keys(data).filter(v => !v.startsWith('jcr:')).map(e => data[e]);
-					boxes.forEach((item,index) => {
-						
-						if(typeof item == 'string') {return;}
-						if ('jcr:content' in item && index >= mainChildren){
-							_createElement(item,mainContainer);
-						} 
+					boxes.forEach((item, index) => {
+
+						if (typeof item == 'string') { return; }
+						if ('jcr:content' in item && index >= mainChildren) {
+							_createElement(item, mainContainer);
+						}
 					});
 				});
 		}
 
-		function _createElement(item,mainContainer){
+		function _createElement(item, mainContainer) {
 
 
 			let listItem = Object.assign(document.createElement('div'), { className: 'cmp-list__item' });
 			let teaserContainer = Object.assign(document.createElement('div'), { className: 'cmp-teaser' });
-			
+
 			let imageTeaserContainer = Object.assign(document.createElement('div'), { className: 'cmp-teaser__image' });
-			let imageComponent = Object.assign(document.createElement('div'), { className: 'cmp-image', itemtype:'http://schema.org/ImageObject' });
-			let image = Object.assign(document.createElement('img'), { className: 'cmp-image__image', itemprop:'contentUrl', loading : 'lazy'});
-			
+			let imageComponent = Object.assign(document.createElement('div'), { className: 'cmp-image', itemtype: 'http://schema.org/ImageObject' });
+			let image = Object.assign(document.createElement('img'), { className: 'cmp-image__image', itemprop: 'contentUrl', loading: 'lazy' });
+
 			let teaserContent = Object.assign(document.createElement('div'), { className: 'cmp-teaser__content' });
-			let teaserPretitle = Object.assign(document.createElement('p'), { className: 'cmp-teaser__pretitle', innerHTML :  _formatDate(item['jcr:content'])});
-			let teaserTitle = Object.assign(document.createElement('h2'), { className: 'cmp-teaser__title', innerHTML: item['jcr:content']['jcr:title']});
-			let teaserDescription = Object.assign(document.createElement('div'), { className: 'cmp-teaser__description' , innerHTML: item['jcr:content']['jcr:description'] || 'placeholder'});
-			
+			let teaserPretitle = Object.assign(document.createElement('p'), { className: 'cmp-teaser__pretitle', innerHTML: _formatDate(item['jcr:content']) });
+			let teaserTitle = Object.assign(document.createElement('h2'), { className: 'cmp-teaser__title', innerHTML: item['jcr:content']['jcr:title'] });
+			let teaserDescription = Object.assign(document.createElement('div'), { className: 'cmp-teaser__description', innerHTML: item['jcr:content']['jcr:description'] || 'placeholder' });
+
 			let teaserActionContainer = Object.assign(document.createElement('div'), { className: 'cmp-teaser__action-container' });
 			let teaserActionLink = Object.assign(document.createElement('a'), { className: 'cmp-teaser__action-container', href: '/content/prova', innerHTML: 'read more' });
-			let imageSrc='';
-			if('cq:featuredimage' in item['jcr:content']){
+			let imageSrc = '';
+			if ('cq:featuredimage' in item['jcr:content']) {
 				imageSrc = item['jcr:content']['cq:featuredimage'].fileReference;
 				image.src = imageSrc;
 			}
-			
+
 			mainContainer.appendChild(listItem).appendChild(teaserContainer)
-			.appendChild(imageTeaserContainer).appendChild(imageComponent)
-			.appendChild(image);
-			
+				.appendChild(imageTeaserContainer).appendChild(imageComponent)
+				.appendChild(image);
+
 			teaserContainer.appendChild(teaserContent).appendChild(teaserPretitle);
-			
+
 			teaserContent.appendChild(teaserTitle);
 			teaserContent.appendChild(teaserDescription);
 
@@ -117,11 +117,11 @@ window.$ = jQuery;
 			loader.classList.remove("display");
 		}
 
-		function _formatDate(jcrContent){
-			let formattedDate='';
+		function _formatDate(jcrContent) {
+			let formattedDate = '';
 			if ('cq:lastModified' in jcrContent) {
 				formattedDate = jcrContent['cq:lastModified'];
-			}else{
+			} else {
 				formattedDate = jcrContent['jcr:created'];
 			}
 			return formattedDate;
@@ -130,7 +130,6 @@ window.$ = jQuery;
 
 		function handleIntersect(entries) {
 			if (entries[0].isIntersecting) {
-				//console.log("viewport intercepted");
 				getData();
 			}
 		}
