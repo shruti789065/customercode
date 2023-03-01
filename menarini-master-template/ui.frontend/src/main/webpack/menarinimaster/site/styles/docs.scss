@@ -86,4 +86,35 @@ img.cq-LinkChecker.cq-LinkChecker--invalid{
 		max-width: inherit;
 		align-items: flex-end;
 	}
+	.cmp-accordion--custom-style{
+		.cmp-accordion{
+			.cmp-accordion__item{
+				.cmp-accordion__button{
+					position: unset;
+					&:not(.cmp-accordion__button--expanded) {
+						.cmp-accordion__icon {
+							&:before {
+								content: unset;
+							}
+						}
+					}
+					.cmp-accordion__icon{
+						top: unset;
+						right: unset;
+						&::before{
+							content: unset;
+						}
+					}
+				}
+				.cmp-accordion__panel--expanded{
+					.container{
+						padding: unset;
+					}
+				}
+			}
+			
+		}
+		
+		
+	}
 }

@@ -1,10 +1,58 @@
-.cmp-accordion {}
-.cmp-accordion__item {}
-.cmp-accordion__header {}
-.cmp-accordion__button {}
-.cmp-accordion__button--expanded {}
-.cmp-accordion__title {}
-.cmp-accordion__icon {}
-.cmp-accordion__panel {}
-.cmp-accordion__panel--expanded {}
-.cmp-accordion__panel--hidden {}
+.cmp-accordion--custom-style{
+    .cmp-accordion {
+        .cmp-accordion__item {
+            position: relative;
+            border-bottom: 0.0625rem solid;
+            padding: 0.5rem 0;
+            background: 0;
+            border-color: #A8A8A8;
+            .cmp-accordion__header {
+                .cmp-accordion__button {
+                    border: 0;
+                    background: 0;
+                    cursor: pointer;
+                    font-family: $font-family-oswald;
+                    font-size: 30px;
+                    font-weight: $font-light;
+                    line-height: 38px;
+                    letter-spacing: 0;
+                    padding: 0;
+                    .cmp-accordion__title {
+                        color: $color-link-primary-corporate;
+                    }
+                    .cmp-accordion__icon {
+                        position: absolute;
+                        background-image: url('/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_left.svg');
+                        width: 30px;
+                        height: 30px;
+                        transform: translate(0%, 10%);
+                        -webkit-transform: translate(0%, 10%);
+                        background-repeat: no-repeat;
+                        margin-left: 30px;
+                    }
+                    &.cmp-accordion__button--expanded{
+                        .cmp-accordion__icon {
+                            position: absolute;
+                            background-image: url('/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_down.svg');
+                            width: 30px;
+                            height: 30px;
+                            transform: translate(0%, 10%);
+                            -webkit-transform: translate(0%, 10%);
+                            background-repeat: no-repeat;
+                            margin-left: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    .cmp-accordion__button--expanded {}
+    .cmp-accordion__title {}
+    .cmp-accordion__icon {}
+    .cmp-accordion__panel {}
+    .cmp-accordion__panel--expanded {}
+    .cmp-accordion__panel--hidden {}
+}
