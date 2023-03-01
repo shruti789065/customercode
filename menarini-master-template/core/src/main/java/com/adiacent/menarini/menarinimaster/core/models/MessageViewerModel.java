@@ -23,12 +23,6 @@ import java.util.List;
 public class MessageViewerModel {
 
     @Inject
-    private Page currentPage;
-
-    @Inject
-    private Node currentNode;
-
-    @Inject
     @Optional
     private String sessionattrname;
     private List<String> messageList = null;
