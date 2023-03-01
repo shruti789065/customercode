@@ -101,7 +101,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
     private static final Integer MAX_FILE_SIZE_MB = new Integer(3);//in Mbyte
     private static final Integer MAX_FILE_SIZE = new Integer(MAX_FILE_SIZE_MB *1024*1024);//in byte //max dimensione file allegato
 
-    private static final String ERROR_MESSAGE_ATTRIBUTE_NAME = "contactFormErrorAttr"; //Nome attributo in sessione contenente eventuali messaggi di errore
+    public static final String ERROR_MESSAGE_ATTRIBUTE_NAME = "contactFormErrorAttr"; //Nome attributo in sessione contenente eventuali messaggi di errore
     //inerenti il fallito invio del form contatti
 
     /** @scr.reference policy="dynamic" cardinality="0..1" */
