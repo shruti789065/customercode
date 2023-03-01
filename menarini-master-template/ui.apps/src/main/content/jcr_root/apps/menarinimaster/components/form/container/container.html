@@ -39,21 +39,14 @@ form.addEventListener("submit", processForm);
 
 function processForm(e) {
     if (e.preventDefault) e.preventDefault();
-    /*alert('submit intercepted');
-    alert('recaptchaFlag' + recaptchaFlag)
-    alert('recaptcha response' + document.getElementById('g-recaptcha-response').value)
-    */
-    if(!recaptchaFlag){
+    // alert('recaptcha response' + document.getElementById('g-recaptcha-response').value)
+
+    var tokenRecaptcha = document.getElementById('g-recaptcha-response').value;
+    if( tokenRecaptcha === null || tokenRecaptcha === "" ){
         alert('Please, fill the recaptcha')
-        /* do what you want with the form */
         // You must return false to prevent the default form behavior
         return false;
     }
       form.submit()
-
-
 }
-
-
-
-        </script>
+</script>

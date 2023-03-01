@@ -15,7 +15,6 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <script type="text/javascript">
-  var recaptchaFlag = false
   var onloadCallback = function() {
     //alert("grecaptcha is ready!");
     //key public per menarini: 6Ld395kkAAAAALQnrEPfRp8KERjTW6aeJgHRaxLX
@@ -25,7 +24,6 @@
 var onSuccess = function(response) {
     //alert("grecaptcha is verified !" + response);
     $('#g-recaptcha-response').val(response);
-    recaptchaFlag = true;
    };
 
 </script>
