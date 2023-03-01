@@ -24,6 +24,12 @@ module.exports = env => {
                 chunks: ['site']
             }),
             new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/landing-research.html'),
+                filename: 'landing-research.html',
+                chunks: ['site', 'stemline']
+           }),
+            new HtmlWebpackPlugin({
                  inject: true,
                  template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/index.html'),
                  filename: 'stemline.html',
