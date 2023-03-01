@@ -2,12 +2,8 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./node_modules/glob-import-loader/index.js??ruleSet[1].rules[1].use[4]!./src/main/webpack/stemline/site/main.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* Font */
-/* Color */
 /* Normal mode*/
-/* Dark mode*/
-/* Menarini Corporate*/
-/* Berlin-chemie*/
-/* Header */
+/* Color */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -21,17 +17,10 @@ body {
   line-height: 1.5;
   color: #202020;
   background: #ECECEC;
-  /* @media (prefers-color-scheme: dark) {
-  	color: $color-foreground-dark;
-  	background: $color-background-dark;
-  } */
 }
 
 a {
   color: #2020E0;
-  /* @media (prefers-color-scheme: dark) {
-  	color: $color-link-dark;
-  } */
 }
 
 button,
@@ -53,7 +42,7 @@ textarea {
 #loading {
   width: 4rem;
   height: 4rem;
-  border: 4px solid #f3f3f3;
+  border: 4px solid #F7F6F4;
   border-top: 4px solid #143F59;
   border-radius: 100%;
   margin: auto;
@@ -92,7 +81,7 @@ textarea {
   border-bottom: 0.0625rem solid;
   padding: 0.5rem 0;
   background: 0;
-  border-color: #A8A8A8;
+  border-color: #949283;
 }
 .cmp-accordion--custom-style .cmp-accordion .cmp-accordion__item .cmp-accordion__header .cmp-accordion__button {
   border: 0;
@@ -130,7 +119,7 @@ textarea {
 }
 .cmp-breadcrumb {
   text-transform: uppercase;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 13px;
   padding: 0 4%;
 }
@@ -138,7 +127,7 @@ textarea {
   padding-left: 0px;
 }
 .cmp-breadcrumb .cmp-breadcrumb__list .cmp-breadcrumb__item-link {
-  color: #A8A8A8;
+  color: #B6B59C;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -148,7 +137,7 @@ textarea {
 }
 .cmp-breadcrumb .cmp-breadcrumb__list .cmp-breadcrumb__item::before {
   content: "/";
-  color: #A8A8A8;
+  color: #B6B59C;
   float: right;
   margin: -5px 15px 0px 15px;
   font-size: 20px;
@@ -170,14 +159,14 @@ textarea {
   background-color: #D3ECF2;
 }
 .cmp-title--primary .cmp-button:hover {
-  background-color: #D32D39;
+  background-color: #6FCBE6;
 }
 
 .cmp-title--secondary .cmp-button {
   background-color: #0783FF;
 }
 .cmp-title--secondary .cmp-button:hover {
-  background-color: #0066ff;
+  background-color: #BD6FE6;
 }
 
 .cmp-button--small .cmp-button {
@@ -186,7 +175,7 @@ textarea {
 
 .cmp-button {
   padding: 18px 35px;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -200,7 +189,7 @@ textarea {
   font-weight: 600;
 }
 .cmp-button .cmp-button__icon--search {
-  background-image: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/search.svg);
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/search.svg");
   background-repeat: no-repeat;
   width: 25px;
   height: 25px;
@@ -220,7 +209,7 @@ textarea {
   z-index: 3;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(20, 63, 89)), color-stop(50%, rgba(20, 63, 89, 0.5)), to(rgba(255, 255, 255, 0)));
   background-image: linear-gradient(to bottom, rgb(20, 63, 89) 0%, rgba(20, 63, 89, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$color-background-corporate", endColorstr="#0000fff5",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$color-corporate", endColorstr="#0000fff5",GradientType=0 );
 }
 
 .cq-Editable-dom .cmp-carousel {
@@ -236,14 +225,14 @@ textarea {
   background-color: #D3ECF2;
 }
 .cmp-slideshow-primary-button .cmp-teaser__content .cmp-teaser__action-container:hover {
-  background-color: #d32d39;
+  background-color: #6FCBE6;
 }
 
 .cmp-slideshow-secondary-button .cmp-teaser__content .cmp-teaser__action-container {
   background-color: #0783FF;
 }
 .cmp-slideshow-secondary-button .cmp-teaser__content .cmp-teaser__action-container:hover {
-  background-color: #407bb7;
+  background-color: #BD6FE6;
 }
 
 .cmp-slideshow-primary-button .cmp-teaser .cmp-teaser__content .cmp-teaser__action-container,
@@ -261,7 +250,7 @@ textarea {
 .cmp-slideshow-primary-button .cmp-teaser .cmp-teaser__content .cmp-teaser__action-container a,
 .cmp-slideshow-secondary-button .cmp-teaser .cmp-teaser__content .cmp-teaser__action-container a {
   color: #ffffff;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -408,7 +397,7 @@ textarea {
 }
 
 .cmp-container--border {
-  border: 1px solid #D0CFB6;
+  border: 1px solid #949283;
   padding: 3%;
 }
 .cmp-container--border .cmp-title__text {
@@ -443,7 +432,7 @@ textarea {
 .cmp-container--text-image .image .cmp-text,
 .cmp-container--text-image .text .cmp-text {
   font-weight: 400;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 18px;
   line-height: 25px;
   color: #484542;
@@ -461,7 +450,7 @@ textarea {
   margin-bottom: 25px;
 }
 .cmp-product-leaflet .cmp-container {
-  border: solid 1px #B7B7B7;
+  border: solid 1px #B6B59C;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -613,7 +602,7 @@ textarea {
 .teaser.cmp-custom-teaser .cmp-teaser .cmp-teaser__content .cmp-teaser__description,
 .teaser.cmp-custom-teaser .cmp-teaser .cmp-teaser__link .cmp-teaser__description {
   font-size: 18px;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -643,7 +632,7 @@ textarea {
 }
 .teaser.cmp-custom-teaser .cmp-teaser .cmp-teaser__content .cmp-teaser__action-container .cmp-teaser__action-link:hover,
 .teaser.cmp-custom-teaser .cmp-teaser .cmp-teaser__link .cmp-teaser__action-container .cmp-teaser__action-link:hover {
-  background-color: #D32D39;
+  background-color: #6FCBE6;
 }
 
 @media (min-width: 1200px) {
@@ -764,7 +753,7 @@ textarea {
   height: 65px;
   padding-left: 20px;
   border-radius: 0px;
-  border: 1px solid #3c3a37;
+  border: 1px solid #484542;
   padding: 6px 12px;
   -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
@@ -787,11 +776,6 @@ textarea {
   color: #484542;
   margin-bottom: 18px;
   display: block;
-  /* &:after {
-  	content: " *";
-  	color: #f94e52;
-  	font-weight: $font-bolder;
-  } */
 }
 
 .cmp-options {
@@ -843,10 +827,10 @@ textarea {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
+  color: #484542;
+  background-color: #ffffff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid #F7F6F4;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
@@ -860,14 +844,14 @@ textarea {
   font-weight: 300;
   color: #484542;
   border: 0px;
-  background: #FFFFFF;
+  background: #ffffff;
   -webkit-box-shadow: none;
           box-shadow: none;
   width: 100%;
   height: 65px;
   padding-left: 20px;
   border-radius: 0px;
-  border: 1px solid #3C3A37;
+  border: 1px solid #484542;
 }
 
 .cmp-form {
@@ -875,7 +859,7 @@ textarea {
 }
 .cmp-form .required-field:after {
   content: " *";
-  color: #f94e52;
+  color: #D3ECF2;
   font-weight: 600;
 }
 .cmp-form input:focus {
@@ -884,7 +868,7 @@ textarea {
 }
 .cmp-form span.text-danger {
   font-size: 16px;
-  color: #dc3545;
+  color: #D3ECF2;
   display: block;
 }
 
@@ -940,7 +924,7 @@ textarea {
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(20, 63, 89)), color-stop(50%, rgba(20, 63, 89, 0.5)), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(to bottom, rgb(20, 63, 89) 0%, rgba(20, 63, 89, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$color-background-corporate", endColorstr="#0000fff5",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$color-corporate", endColorstr="#0000fff5",GradientType=0 );
   /* IE6-9 */
 }
 .cmp-internal-header .cmp-teaser__title {
@@ -1014,7 +998,7 @@ textarea {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  color: #FFF;
+  color: #ffffff;
   background: #D3ECF2;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -1023,7 +1007,7 @@ textarea {
   padding: 5px 30px;
 }
 .latestNews .button .cmp-button:hover {
-  background-color: #D32D39;
+  background-color: #6FCBE6;
   text-decoration: none;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -1105,7 +1089,7 @@ textarea {
   padding-bottom: 6px;
   padding-top: 6px;
   width: 150px;
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_arrow_right.svg) center right no-repeat;
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_arrow_right.svg") center right no-repeat;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -1114,7 +1098,7 @@ textarea {
   opacity: 1;
 }
 .latestNews .latestNewsList .cmp-list__item .btn_read_more a {
-  color: #333333;
+  color: #484542;
   font-weight: normal;
   text-decoration: none;
   text-align: left;
@@ -1164,7 +1148,7 @@ textarea {
   transition: all 0.3s;
 }
 .link .cmp-link.cmp-link--icon .cmp-link--text:hover {
-  color: #0066ff;
+  color: #BD6FE6;
 }
 .link .cmp-link.cmp-link--icon .cmp-link__icon-asset {
   -webkit-box-ordinal-group: 2;
@@ -1179,7 +1163,7 @@ textarea {
 }
 .link .cmp-link.cmp-link--icon .cmp-link__final-arrow {
   content: " ";
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_left_B.svg) center center no-repeat;
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_left_B.svg") center center no-repeat;
   width: 40px;
   height: 50px;
   -webkit-box-ordinal-group: 4;
@@ -1208,7 +1192,7 @@ textarea {
   border-color: transparent;
 }
 .link .cmp-link.cmp-link--arrow .cmp-link__icon-asset {
-  background-image: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_right_big_B.svg);
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_right_big_B.svg");
   background-repeat: no-repeat;
   color: #000000 !important;
   width: 45px;
@@ -1368,14 +1352,14 @@ textarea {
     text-transform: uppercase;
     font-size: 16px;
     font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-    color: #2a2741 !important;
+    color: #484542 !important;
     text-align: center;
   }
   .cmp-navbar--text-mobile .cmp-text p {
     text-align: center !important;
   }
   .cmp-navbar--text-mobile .cmp-text p a {
-    color: #2a2741 !important;
+    color: #484542 !important;
     text-decoration: none;
   }
 }
@@ -1385,14 +1369,14 @@ textarea {
   }
 }
 .cmp-navigation__item--level-0:hover > .cmp-navigation__group {
-  background: #ECECEC;
+  background: #EEEEE4;
 }
 
 .cmp_product_category_area {
   list-style: none;
   margin-left: 0;
   margin-top: 35px;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 18px;
   line-height: 25px;
   margin-bottom: 1rem;
@@ -1412,7 +1396,7 @@ textarea {
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-weight: 200;
   font-size: 30px;
-  background-image: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_arrowRight.svg);
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_arrowRight.svg");
   background-position: right center;
   background-repeat: no-repeat;
   padding-right: 30px;
@@ -1460,7 +1444,7 @@ textarea {
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-weight: 600;
   padding: 7px 25px;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -1472,7 +1456,7 @@ textarea {
           align-items: center;
 }
 .searchGlobal #search-button:hover {
-  background-color: #D32D39;
+  background-color: #6FCBE6;
 }
 
 #search-results ul {
@@ -1498,7 +1482,7 @@ textarea {
 #search-results ul li p {
   color: #484542;
   margin: 0px;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 18px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -1600,7 +1584,7 @@ textarea {
 .cmp-share-menu_icon-facebook::before {
   content: "";
   position: relative;
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/facebook-f-brands.svg);
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/facebook-f-brands.svg");
   background-position: center;
   background-repeat: no-repeat;
   width: 15px;
@@ -1615,7 +1599,7 @@ textarea {
 .cmp-share-menu_icon-twitter::before {
   content: "";
   position: relative;
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/twitter-brands.svg);
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/twitter-brands.svg");
   background-position: center;
   background-repeat: no-repeat;
   width: 25px;
@@ -1690,7 +1674,7 @@ textarea {
     font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 300 !important;
-    color: #444;
+    color: #484542;
     text-transform: capitalize;
     word-wrap: break-word;
   }
@@ -1939,7 +1923,7 @@ textarea {
 }
 .teaser .cmp-card .cmp-teaser__content .cmp-teaser__description,
 .teaser .cmp-card .cmp-teaser__link .cmp-teaser__description {
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-weight: 200;
   font-size: 16px;
   display: -webkit-box;
@@ -1979,11 +1963,11 @@ textarea {
   background-color: #D3ECF2;
 }
 .teaser .cmp-card .cmp-teaser__action-container a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
 }
 .teaser .cmp-card .cmp-teaser__action-container:hover {
-  background-color: #d32d39;
+  background-color: #6FCBE6;
 }
 
 /* end teaser card*/
@@ -1994,7 +1978,7 @@ textarea {
   transition: 0.5s;
 }
 .teaser.cmp-banner--secondary .cmp-teaser__action-container:hover {
-  background-color: #0066ff;
+  background-color: #BD6FE6;
 }
 
 .teaser.cmp-banner--primary .cmp-teaser__action-container {
@@ -2003,7 +1987,7 @@ textarea {
   transition: 0.5s;
 }
 .teaser.cmp-banner--primary .cmp-teaser__action-container:hover {
-  background-color: #D32D39;
+  background-color: #6FCBE6;
 }
 
 .teaser.cmp-banner .cmp-teaser {
@@ -2018,7 +2002,7 @@ textarea {
   background-color: rgba(0, 0, 0, 0.35);
   height: 100%;
   text-align: center;
-  color: #fff;
+  color: #ffffff;
   padding: 6% 40px 30px 40px;
   top: 0;
   left: 0;
@@ -2142,7 +2126,7 @@ textarea {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0px auto;
-  border: 1px solid #ddd;
+  border: 1px solid #F7F6F4;
   position: relative;
   height: 150px;
   overflow: hidden;
@@ -2165,7 +2149,7 @@ textarea {
 .teaser .cmp-news-card .cmp-teaser__pretitle {
   font-weight: 500;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  color: #b6b59c;
+  color: #B6B59C;
   text-transform: uppercase;
   margin-top: 5px;
   margin-bottom: 0px;
@@ -2187,7 +2171,7 @@ textarea {
 }
 .teaser .cmp-news-card .cmp-teaser__description {
   font-weight: 400;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 18px;
   color: #484542;
   display: -webkit-box;
@@ -2209,8 +2193,8 @@ textarea {
   text-decoration: none;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-size: 16px;
-  color: #333333;
-  border-bottom: 4px solid #0783ff;
+  color: #484542;
+  border-bottom: 4px solid #0783FF;
   padding-bottom: 6px;
   padding-top: 6px;
   padding-right: 60px;
@@ -2220,7 +2204,7 @@ textarea {
 
 /* end news card*/
 .cmp-text {
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
 }
 
 .title.cmp-title--default h2.cmp-title__text,
@@ -2337,7 +2321,7 @@ textarea {
   background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_side_menu_open.svg");
 }
 .internalmenu .cmp-internalmenu__button .cmp-button {
-  color: #333333;
+  color: #484542;
   font-weight: normal;
   text-decoration: none;
   background-color: transparent;
@@ -2384,7 +2368,7 @@ textarea {
   list-style: none;
   margin-left: 0px;
   visibility: visible;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 16px;
   line-height: 25px;
   margin-bottom: 1rem;
@@ -2423,7 +2407,7 @@ textarea {
   background-color: #F7F6F4;
 }
 .internalmenu .cmp-navigation .cmp-navigation__group .cmp-navigation__item--level-1 .cmp-navigation__item-link {
-  /*color: $color-link-primary-corporate;*/
+  /*color: $color-primary;*/
 }
 .internalmenu .cmp-navigation .cmp-navigation__group .cmp-navigation__item--level-2, .internalmenu .cmp-navigation .cmp-navigation__group .cmp-navigation__item--level-3 {
   padding-left: 46px;
@@ -2480,7 +2464,7 @@ textarea {
   max-height: 84px;
   right: -10px;
   background-color: #ffffff;
-  border: 1px solid #b6b59c;
+  border: 1px solid #B6B59C;
   text-align: center;
   text-transform: uppercase;
 }
@@ -2542,7 +2526,7 @@ textarea {
 }
 
 .cmp-languagenavigation__item--active {
-  color: #b6b59c;
+  color: #B6B59C;
 }
 
 .cmp-languagenavigation__item-link {
@@ -2610,7 +2594,7 @@ textarea {
   color: #ffffff;
 }
 .cmp-list.cmp-card-list .cmp-list__item .cmp-teaser .cmp-teaser__content .cmp-teaser__description {
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-weight: 200;
   font-size: 16px;
   display: -webkit-box;
@@ -2676,7 +2660,7 @@ textarea {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0px auto;
-  border: 1px solid #ddd;
+  border: 1px solid #F7F6F4;
   position: relative;
   height: 150px;
   overflow: hidden;
@@ -2699,7 +2683,7 @@ textarea {
 .cmp-news-list .cmp-list .cmp-list__item .cmp-teaser .cmp-teaser__content .cmp-teaser__pretitle {
   font-weight: 500;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  color: #b6b59c;
+  color: #B6B59C;
   text-transform: uppercase;
   margin-top: 5px;
   margin-bottom: 0px;
@@ -2721,7 +2705,7 @@ textarea {
 }
 .cmp-news-list .cmp-list .cmp-list__item .cmp-teaser .cmp-teaser__content .cmp-teaser__description {
   font-weight: 400;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 18px;
   color: #484542;
   display: -webkit-box;
@@ -2740,8 +2724,8 @@ textarea {
   text-decoration: none;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-size: 16px;
-  color: #333333;
-  border-bottom: 4px solid #0783ff;
+  color: #484542;
+  border-bottom: 4px solid #0783FF;
   padding-bottom: 6px;
   padding-top: 6px;
   padding-right: 60px;
@@ -2805,7 +2789,7 @@ textarea {
           justify-content: center;
   margin-bottom: 50px;
   padding-bottom: 50px;
-  border-bottom: 1px solid #cbcbcb;
+  border-bottom: 1px solid #F7F6F4;
   width: 100%;
   max-width: 430px;
 }
@@ -2821,7 +2805,7 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid #cbcbcb;
+  border: 1px solid #F7F6F4;
 }
 .cmp-product-list .cmp-list .cmp-list__item .cmp-teaser .cmp-teaser__image .cmp-image .cmp-image__image {
   position: absolute;
@@ -2894,8 +2878,8 @@ textarea {
 }
 html,
 body {
-  color: #131313;
-  background: #fff;
+  color: #202020;
+  background: #ffffff;
   height: 100%;
 }
 
@@ -2943,8 +2927,8 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   border-bottom: 0.0625rem solid;
   padding: 0.5rem 0;
   background: 0;
-  border-color: #505050;
-  color: #505050;
+  border-color: #484542;
+  color: #484542;
   font: inherit;
   cursor: pointer;
 }
@@ -2952,7 +2936,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   cursor: default;
 }
 .maindocs .cmp-accordion__button--expanded {
-  color: #232323;
+  color: #202020;
 }
 .maindocs .cmp-accordion__button:hover {
   color: #a26c6c;
@@ -2983,6 +2967,22 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+.maindocs .cmp-accordion--custom-style .cmp-accordion .cmp-accordion__item .cmp-accordion__button {
+  position: unset;
+}
+.maindocs .cmp-accordion--custom-style .cmp-accordion .cmp-accordion__item .cmp-accordion__button:not(.cmp-accordion__button--expanded) .cmp-accordion__icon:before {
+  content: unset;
+}
+.maindocs .cmp-accordion--custom-style .cmp-accordion .cmp-accordion__item .cmp-accordion__button .cmp-accordion__icon {
+  top: unset;
+  right: unset;
+}
+.maindocs .cmp-accordion--custom-style .cmp-accordion .cmp-accordion__item .cmp-accordion__button .cmp-accordion__icon::before {
+  content: unset;
+}
+.maindocs .cmp-accordion--custom-style .cmp-accordion .cmp-accordion__item .cmp-accordion__panel--expanded .container {
+  padding: unset;
 }
 
 .cmp-layoutcontainer--footer {
@@ -3019,7 +3019,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   }
 }
 .cmp-layoutcontainer--footer .cmp-text {
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 25px;
@@ -3029,14 +3029,14 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   margin-bottom: 0px;
   margin-top: 0px;
   font-weight: 400;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   font-size: 12px;
   line-height: 25px;
   color: #484542;
 }
 .cmp-layoutcontainer--footer .cmp-text span {
   margin: 0;
-  font-family: "Arimo", sans-serif;
+  font-family: Arimo, sans-serif;
   padding: 0;
   font-size: 12px;
   border: 0;
@@ -3083,7 +3083,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
 }
 .cmp-layoutcontainer--footer .cmp-list__item-link {
   color: #ffffff;
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-R-W.svg) no-repeat right;
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-R-W.svg") no-repeat right;
   text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3119,16 +3119,16 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   background-size: contain;
 }
 .cmp-layoutcontainer--footer .cmp-button__icon--facebook::before {
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-facebook.svg) no-repeat center;
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-facebook.svg") no-repeat center;
 }
 .cmp-layoutcontainer--footer .cmp-button__icon--instagram::before {
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-instagram.svg) no-repeat center;
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-instagram.svg") no-repeat center;
 }
 .cmp-layoutcontainer--footer .cmp-button__icon--twitter::before {
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-twitter.svg) no-repeat center;
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-twitter.svg") no-repeat center;
 }
 .cmp-layoutcontainer--footer .cmp-button__icon--youtube::before {
-  background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-youtube.svg) no-repeat center;
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-youtube.svg") no-repeat center;
 }
 .cmp-layoutcontainer--footer .cmp-title__text {
   margin-bottom: 16px;
@@ -3192,7 +3192,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
 
 .scrolled-page .cmp-container__general-megamenu,
 .aem-AuthorLayer-Edit .cmp-container__general-megamenu {
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .scrolled-page .tabs-menu .cmp-tabs .cmp-tabs__tablist .cmp-tabs__tab,
 .scrolled-page .tabs-menu .cmp-tabs .cmp-tabs__tablist .cmp-link--text,
@@ -3221,7 +3221,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
 }
 .tabs-menu .cmp-tabs .cmp-tabs__button__item .cmp-accordion__icon:before {
   content: "x" !important;
-  color: #777472;
+  color: #484542;
   right: 10px;
   top: -5px;
   position: absolute;
@@ -3263,7 +3263,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   position: absolute;
   z-index: 1;
   top: 0;
-  bottom: 10px;
+  bottom: 0;
   left: 0;
   right: 0;
   min-height: auto;
@@ -3297,14 +3297,11 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   position: relative;
   max-width: 100%;
   padding: 0;
-  min-height: 80px;
 }
-.tabs-menu .cmp-tabs .cmp-tabs__tabpanel .cmp-teaser__link .cmp-teaser__image .cmp-image__image {
+.tabs-menu .cmp-tabs .cmp-tabs__tabpanel .cmp-teaser__link .cmp-teaser__image .cmp-image__img {
   display: block;
   width: 100%;
-  min-height: 80px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: auto;
 }
 .tabs-menu .cmp-tabs .cmp-tabs__tabpanel .cmp-list {
   list-style-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/listMenuBoxRed.svg");
@@ -3333,7 +3330,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
 }
 .tabs-menu .cmp-tabs .cmp-tabs__tablist .cmp-tabs__tab {
   position: relative;
-  color: #fff;
+  color: #ffffff;
   font-weight: 500;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -3348,7 +3345,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
 }
 .tabs-menu .cmp-tabs .cmp-tabs__tablist .cmp-tabs__tab .cmp-link .cmp-link--text {
-  color: #fff;
+  color: #ffffff;
   font-weight: 500;
   font-size: 15px;
   line-height: 16px;
@@ -3359,7 +3356,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
 }
 .tabs-menu .cmp-tabs .cmp-tabs__tablist .cmp-tabs__tab.cmp-tabs__tab--active:after {
   content: "x";
-  color: #777472;
+  color: #484542;
   right: 5px;
   top: 8px;
   position: absolute;
@@ -3381,9 +3378,9 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   border: 0px !important;
 }
 .tabs-menu .cmp-tabs .cmp-container ul {
-  -webkit-column-count: 1;
-     -moz-column-count: 1;
-          column-count: 1;
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
 }
 .tabs-menu .cmp-button--mobile {
   display: none;
@@ -3415,7 +3412,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
     text-transform: uppercase;
     font-size: 16px;
     font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-    color: #2a2741 !important;
+    color: #484542 !important;
   }
   .tabs-menu .menu-nav .cmp-tabs__tablist .cmp-tabs__tab.cmp-tabs__tab--active:after {
     content: none;
@@ -3605,7 +3602,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
     background-color: #143F59;
   }
   .scrolled-page .tabs-menu .cmp-button--mobile.cmp-button--mobile__toggler_close span {
-    color: #fff;
+    color: #ffffff;
   }
   .scrolled-page .tabs-menu .cmp-button--mobile.cmp-button--mobile__toggler_close span:nth-child(1) {
     -webkit-animation: ease 0.7s top forwards;
@@ -3644,7 +3641,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   .cmp-container--link_mobile .cmp-link__anchor {
     text-transform: uppercase;
     font-size: 16px;
-    color: #2a2741;
+    color: #484542;
     font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   }
   .cmp-container--link_mobile .cmp-link__anchor:hover {
@@ -3988,7 +3985,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 200;
-  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4Tvs9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4Tvs9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* vietnamese */
@@ -3996,7 +3993,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 200;
-  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4Ttc9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4Ttc9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4004,7 +4001,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 200;
-  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4TtM9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4TtM9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4012,7 +4009,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 200;
-  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4Tus9CAZek1w.woff2) format("woff2");
+  src: local("Oswald ExtraLight"), local("Oswald-ExtraLight"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-1h4Tus9CAZek1w.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic */
@@ -4020,7 +4017,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 300;
-  src: local("Oswald Light"), local("Oswald-Light"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0Tvs9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Light"), local("Oswald-Light"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0Tvs9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* vietnamese */
@@ -4028,7 +4025,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 300;
-  src: local("Oswald Light"), local("Oswald-Light"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0Ttc9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Light"), local("Oswald-Light"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0Ttc9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4036,7 +4033,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 300;
-  src: local("Oswald Light"), local("Oswald-Light"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0TtM9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Light"), local("Oswald-Light"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0TtM9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4044,7 +4041,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 300;
-  src: local("Oswald Light"), local("Oswald-Light"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0Tus9CAZek1w.woff2) format("woff2");
+  src: local("Oswald Light"), local("Oswald-Light"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-sh0Tus9CAZek1w.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic */
@@ -4052,7 +4049,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
-  src: local("Oswald Regular"), local("Oswald-Regular"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752HT8Gl-1PK62t.woff2) format("woff2");
+  src: local("Oswald Regular"), local("Oswald-Regular"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752HT8Gl-1PK62t.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* vietnamese */
@@ -4060,7 +4057,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
-  src: local("Oswald Regular"), local("Oswald-Regular"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752Fj8Gl-1PK62t.woff2) format("woff2");
+  src: local("Oswald Regular"), local("Oswald-Regular"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752Fj8Gl-1PK62t.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4068,7 +4065,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
-  src: local("Oswald Regular"), local("Oswald-Regular"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752Fz8Gl-1PK62t.woff2) format("woff2");
+  src: local("Oswald Regular"), local("Oswald-Regular"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752Fz8Gl-1PK62t.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4076,7 +4073,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
-  src: local("Oswald Regular"), local("Oswald-Regular"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752GT8Gl-1PKw.woff2) format("woff2");
+  src: local("Oswald Regular"), local("Oswald-Regular"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3iWkUHHAIjg752GT8Gl-1PKw.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic */
@@ -4084,7 +4081,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 500;
-  src: local("Oswald Medium"), local("Oswald-Medium"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTvs9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Medium"), local("Oswald-Medium"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTvs9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* vietnamese */
@@ -4092,7 +4089,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 500;
-  src: local("Oswald Medium"), local("Oswald-Medium"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTtc9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Medium"), local("Oswald-Medium"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTtc9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4100,7 +4097,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 500;
-  src: local("Oswald Medium"), local("Oswald-Medium"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTtM9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Medium"), local("Oswald-Medium"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTtM9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4108,7 +4105,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 500;
-  src: local("Oswald Medium"), local("Oswald-Medium"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTus9CAZek1w.woff2) format("woff2");
+  src: local("Oswald Medium"), local("Oswald-Medium"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-6hwTus9CAZek1w.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic */
@@ -4116,7 +4113,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 600;
-  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTvs9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTvs9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* vietnamese */
@@ -4124,7 +4121,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 600;
-  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTtc9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTtc9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4132,7 +4129,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 600;
-  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTtM9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTtM9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4140,7 +4137,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 600;
-  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTus9CAZek1w.woff2) format("woff2");
+  src: local("Oswald SemiBold"), local("Oswald-SemiBold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-xhsTus9CAZek1w.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic */
@@ -4148,7 +4145,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 700;
-  src: local("Oswald Bold"), local("Oswald-Bold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTvs9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Bold"), local("Oswald-Bold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTvs9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* vietnamese */
@@ -4156,7 +4153,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 700;
-  src: local("Oswald Bold"), local("Oswald-Bold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTtc9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Bold"), local("Oswald-Bold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTtc9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4164,7 +4161,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 700;
-  src: local("Oswald Bold"), local("Oswald-Bold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTtM9CAZek1wEt.woff2) format("woff2");
+  src: local("Oswald Bold"), local("Oswald-Bold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTtM9CAZek1wEt.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4172,7 +4169,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 700;
-  src: local("Oswald Bold"), local("Oswald-Bold"), url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTus9CAZek1w.woff2) format("woff2");
+  src: local("Oswald Bold"), local("Oswald-Bold"), url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/TK3hWkUHHAIjg75-ohoTus9CAZek1w.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /*end OSWALD*/
@@ -4183,7 +4180,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrOfQYYaA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrOfQYYaA.woff2") format("woff2");
   unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -4192,7 +4189,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrHfQYYaA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrHfQYYaA.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* greek-ext */
@@ -4201,7 +4198,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrPfQYYaA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrPfQYYaA.woff2") format("woff2");
   unicode-range: U+1F00-1FFF;
 }
 /* greek */
@@ -4210,7 +4207,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrAfQYYaA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrAfQYYaA.woff2") format("woff2");
   unicode-range: U+0370-03FF;
 }
 /* hebrew */
@@ -4219,7 +4216,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrBfQYYaA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrBfQYYaA.woff2") format("woff2");
   unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 /* vietnamese */
@@ -4228,7 +4225,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrMfQYYaA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrMfQYYaA.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4237,7 +4234,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrNfQYYaA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrNfQYYaA.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4246,7 +4243,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrDfQY.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sdzZCDf9_T_10c3i9MeUcyat4iJY-ERCrDfQY.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -4255,7 +4252,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10UxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10UxCF8jA.woff2") format("woff2");
   unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -4264,7 +4261,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10dxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10dxCF8jA.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* greek-ext */
@@ -4273,7 +4270,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10VxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10VxCF8jA.woff2") format("woff2");
   unicode-range: U+1F00-1FFF;
 }
 /* greek */
@@ -4282,7 +4279,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10axCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10axCF8jA.woff2") format("woff2");
   unicode-range: U+0370-03FF;
 }
 /* hebrew */
@@ -4291,7 +4288,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10bxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10bxCF8jA.woff2") format("woff2");
   unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 /* vietnamese */
@@ -4300,7 +4297,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10WxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10WxCF8jA.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4309,7 +4306,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10XxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10XxCF8jA.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4318,7 +4315,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10ZxCE.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10ZxCE.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -4327,7 +4324,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10UxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10UxCF8jA.woff2") format("woff2");
   unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -4336,7 +4333,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10dxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10dxCF8jA.woff2") format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* greek-ext */
@@ -4345,7 +4342,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10VxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10VxCF8jA.woff2") format("woff2");
   unicode-range: U+1F00-1FFF;
 }
 /* greek */
@@ -4354,7 +4351,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10axCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10axCF8jA.woff2") format("woff2");
   unicode-range: U+0370-03FF;
 }
 /* hebrew */
@@ -4363,7 +4360,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10bxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10bxCF8jA.woff2") format("woff2");
   unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 /* vietnamese */
@@ -4372,7 +4369,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10WxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10WxCF8jA.woff2") format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
@@ -4381,7 +4378,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10XxCF8jA.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10XxCF8jA.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -4390,17 +4387,26 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10ZxCE.woff2) format("woff2");
+  src: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/fonts/P5sMzZCDf9_T_10ZxCE.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /*end ARIMO*/
+.cmp-button {
+  color: #216DAE;
+}
+
+.cmp-slideshow-primary-button .cmp-teaser .cmp-teaser__content .cmp-teaser__action-container a,
+.cmp-slideshow-secondary-button .cmp-teaser .cmp-teaser__content .cmp-teaser__action-container a {
+  color: #216DAE;
+}
+
 /* Fullscreen background image */
 .bg-img {
-  background: url("etc.clientlibs/menarinimaster/clientlibs/clientlib-stemline/resources/images/sample-1.jpg") no-repeat center center fixed;
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-stemline/resources/images/landing-research/BG-landing-research.jpg");
+  background-position: center center;
   background-size: cover;
-  /* Center columns vertically */
-  /* Set height of columns */
-  /* Set width of images */
+  background-repeat: no-repeat;
+  padding: 60px 0px;
 }
 .bg-img .row {
   display: -webkit-box;
@@ -4409,10 +4415,146 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
-.bg-img .col {
-  height: 100vh;
+.bg-img .row * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-.bg-img .col img {
+.bg-img .row.row-1, .bg-img .row.row-3, .bg-img .row.row-5 {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.bg-img .row.row-1 .image, .bg-img .row.row-3 .image, .bg-img .row.row-5 .image {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.bg-img .row.row-1 .text, .bg-img .row.row-3 .text, .bg-img .row.row-5 .text {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+.bg-img .row.row-1 .icon, .bg-img .row.row-3 .icon, .bg-img .row.row-5 .icon {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+.bg-img .row.row-1 .arrow, .bg-img .row.row-3 .arrow, .bg-img .row.row-5 .arrow {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+.bg-img .title * {
+  color: #FFF;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 40px;
+}
+.bg-img .image {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 30px;
+}
+.bg-img .image img {
   width: 100%;
+  max-width: 450px;
+}
+.bg-img .icon {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 30px;
+}
+.bg-img .text {
+  color: #FFF;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 30px;
+}
+.bg-img .text h2 {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.bg-img .text p {
+  text-align: center;
+}
+.bg-img .arrow {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px auto;
+}
+.bg-img .arrow img {
+  max-width: 300px;
+}
+.bg-img .finalText {
+  color: #FFF;
+  text-align: center;
+  padding-top: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .bg-img .text {
+    text-align: left;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .bg-img .text p {
+    text-align: left;
+  }
+  .bg-img .finalText {
+    text-align: right;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: 0px;
+  }
+  .bg-img .row.row-1, .bg-img .row.row-3, .bg-img .row.row-5 {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .bg-img .row.row-1 .icon, .bg-img .row.row-3 .icon, .bg-img .row.row-5 .icon {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .bg-img .row.row-1 .text, .bg-img .row.row-3 .text, .bg-img .row.row-5 .text {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .bg-img .row.row-1 .image, .bg-img .row.row-3 .image, .bg-img .row.row-5 .image {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .bg-img .row.row-1 .arrow, .bg-img .row.row-3 .arrow, .bg-img .row.row-5 .arrow {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
 }

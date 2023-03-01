@@ -1,5 +1,5 @@
 .cmp-navbar {
-	background-color: $color-background-corporate;
+	background-color: $color-corporate;
 	max-height: 40px;
 	&.cq-Editable-dom {
 		max-height: 100%;
@@ -17,7 +17,7 @@
 			left: 100%;
 			transition: left 0.8s ease-in;
 			border: 0px;
-			background-color: $color-background-menu-second;
+			background-color: $color-six;
 			display: block;
 			overflow-y: auto;
 			padding-top: 1.5em;
@@ -45,7 +45,7 @@
 		font-family: $font-family-georgia;
 		font-style: italic;
 		font-weight: normal;
-		color: $color-navbar;
+		color: $white;
 		position: relative;
 		top: 5px;
 		p {
@@ -55,12 +55,12 @@
 				margin: 0;
 				font-family: $font-family-oswald;
 				font-weight: $font-regular;
-				color: $color-navbar;
+				color: $white;
 				font-style: normal;
 				text-decoration: none;
 				&:hover {
 					background-color: transparent;
-					color: #ffffff;
+					color: $white;
 					text-decoration: underline;
 				}
 			}
@@ -83,7 +83,7 @@
 			flex-direction: column;
 			justify-content: center;
 			width: 100%;
-			background-color: $color-background-menu-second;
+			background-color: $color-six;
 			padding-top: 10px;
 			padding-bottom: 10px;
 			margin-top: 50px;
@@ -91,12 +91,12 @@
 				text-transform: uppercase;
 				font-size: 16px;
 				font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-				color: #2a2741 !important;
+				color: $color-text !important;
 				text-align: center;
 				p {
 					text-align: center !important;
 					a{
-						color: #2a2741 !important;
+						color: $color-text !important;
 						text-decoration: none;
 					}
 				}

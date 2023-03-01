@@ -1,6 +1,6 @@
 /*start custom teaser*/
 .teaser.cmp-custom-teaser {
-	background-color: $color-background-menu-second;
+	background-color: $color-six;
 	display: flex;
 	width: 100%;
 	margin-bottom: 50px;
@@ -37,7 +37,7 @@
 
 			.cmp-teaser__title,
 			.cmp-teaser__title-link {
-				color: $color-background-corporate;
+				color: $color-corporate;
 				font-weight: $font-light;
 				font-size: $title-font-size;
 				font-family: $font-family-oswald;
@@ -67,8 +67,8 @@
 			}
 			.cmp-teaser__action-container {
 				.cmp-teaser__action-link {
-					background-color: $color-link-primary-corporate;
-					color: #ffffff;
+					background-color: $color-primary;
+					color: $white;
 					padding: 18px 35px;
 					text-decoration: none;
 					transition: 0.5s;
@@ -79,7 +79,7 @@
 					text-align: center;
 
 					&:hover {
-						background-color: $color-link-primary-corporate-hover;
+						background-color: $color-primary-hover;
 					}
 				}
 			}

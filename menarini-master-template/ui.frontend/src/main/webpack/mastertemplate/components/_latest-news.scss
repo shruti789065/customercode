@@ -1,5 +1,5 @@
 .latestNews {
-    background-color: $color-background-menu-second;
+    background-color: $color-six;
     padding: 60px 10%;
     margin-top: 40px;
 
@@ -11,7 +11,7 @@
         text-transform: uppercase;
         -webkit-font-smoothing: antialiased;
         font-weight: 500;
-        color: $color-background-corporate;
+        color: $color-corporate;
     }
 
     .button {
@@ -32,8 +32,8 @@
             text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
-            color: #FFF;
-            background: $color-link-primary-corporate;
+            color: $white;
+            background: $color-primary;
             font-family: $font-family-oswald;
             font-weight: normal;
             font-size: 15px;
@@ -41,7 +41,7 @@
             padding: 5px 30px;
 
             &:hover {
-                background-color: $color-link-primary-corporate-hover;
+                background-color: $color-primary-hover;
                 text-decoration: none;
                 transition: all 0.5s ease-in-out;
             }
@@ -109,7 +109,7 @@
                 font-size: 20px;
                 line-height: 30px;
                 text-align: left;
-                color: $color-background-corporate !important;
+                color: $color-corporate !important;
                 text-transform: none;
                 display: block;
                 font-family: $font-family-oswald;
@@ -118,11 +118,11 @@
             }
 
             .btn_read_more {
-                border-bottom: 4px solid $color-link-secondary-corporate;
+                border-bottom: 4px solid $color-secondary;
                 padding-bottom: 6px;
                 padding-top: 6px;
                 width: 150px;
-                background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_arrow_right.svg) center right no-repeat;
+                background: url($resources-path + '/images/icons/icon_arrow_right.svg') center right no-repeat;
                 transition: 0.2s;
 
                 &:hover {
@@ -131,7 +131,7 @@
                 }
 
                 a {
-                    color: #333333;
+                    color: $color-text;
                     font-weight: normal;
                     text-decoration: none;
                     text-align: left;
@@ -150,7 +150,7 @@
             .article_date {
                 font-family: $font-family-oswald;
                 font-size: 14px;
-                color: #B6B59C;
+                color: $color-fourth;
                 display: block;
                 min-height: 21px;
             }

@@ -27,10 +27,10 @@
 			rgba(20, 63, 89, 0.5) 50%,
 			rgba(255, 255, 255, 0) 100%
 		); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-background-corporate', endColorstr='#0000fff5',GradientType=0 ); /* IE6-9 */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-corporate', endColorstr='#0000fff5',GradientType=0 ); /* IE6-9 */
 	}
 	.cmp-teaser__title {
-		color: #ffffff;
+		color: $white;
 		font-size: 3.6vw;
 		font-family: $font-family-oswald;
 		font-weight: $font-light;

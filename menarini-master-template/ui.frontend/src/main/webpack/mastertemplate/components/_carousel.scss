@@ -24,7 +24,7 @@
 			rgba(20, 63, 89, 0.5) 50%,
 			rgba(255, 255, 255, 0) 100%
 		);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-background-corporate', endColorstr='#0000fff5',GradientType=0 );
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-corporate', endColorstr='#0000fff5',GradientType=0 );
 	}
 }
 
@@ -39,18 +39,18 @@
 }
 .cmp-slideshow-primary-button .cmp-teaser__content {
 	.cmp-teaser__action-container {
-		background-color: $color-link-primary-corporate;
+		background-color: $color-primary;
 		&:hover {
-			background-color: #d32d39;
+			background-color: $color-primary-hover;
 		}
 	}
 }
 
 .cmp-slideshow-secondary-button .cmp-teaser__content {
 	.cmp-teaser__action-container {
-		background-color: $color-link-secondary-corporate;
+		background-color: $color-secondary;
 		&:hover {
-			background-color: #407bb7;
+			background-color: $color-secondary-hover;
 		}
 	}
 }
@@ -68,9 +68,9 @@
 		font-size: $font-size;
 
 		a {
-			color: #ffffff;
+			color: $white;
 			// padding: 18px 35px;
-			color: #fff;
+			color: $white;
 			text-decoration: none;
 			-webkit-transition: 0.5s;
 			transition: 0.5s;
@@ -179,7 +179,7 @@
 			z-index: 8;
 
 			.cmp-teaser__title {
-				color: #ffffff;
+				color: $white;
 				font-size: $title-font-size;
 				font-family: $font-family-oswald;
 				font-weight: $font-regular;
@@ -188,12 +188,12 @@
 				margin-bottom: 8px;
 				.cmp-teaser__title-link {
 					text-decoration: none;
-					color: #ffffff;
+					color: $white;
 				}
 			}
 
 			.cmp-teaser__description {
-				color: #ffffff;
+				color: $white;
 				font-size: $title-big-font-size;
 				font-family: $font-family-oswald;
 				font-weight: $font-regular;
@@ -248,10 +248,10 @@
 
 	.cmp-carousel__indicator {
 		background-color: unset;
-		border: 2px solid #ffffff;
+		border: 2px solid $white;
 	}
 
 	.cmp-carousel__indicator.cmp-carousel__indicator--active {
-		background-color: #ffffff;
+		background-color: $white;
 	}
 }

@@ -9,8 +9,8 @@
 	max-width: 52px;
 	max-height: 84px;
 	right: -10px;
-	background-color: #ffffff;
-	border: 1px solid #b6b59c;
+	background-color: $white;
+	border: 1px solid $color-fourth;
 	text-align: center;
 	text-transform: uppercase;
 	&.showMenu {
@@ -23,7 +23,7 @@
 	&--langnavtoggle {
 		position: relative;
 		a {
-			color: #ffffff;
+			color: $white;
 			display: block;
 			margin: 0;
 			font-size: 13px;
@@ -56,7 +56,7 @@
 			}
 			&:hover {
 				text-decoration: none;
-				color: #ffffff;
+				color: $white;
 			}
 		}
 	}
@@ -72,7 +72,7 @@
 	font-size: 13px;
 }
 .cmp-languagenavigation__item--active {
-	color: #b6b59c;
+	color: $color-fourth;
 }
 //.cmp-languagenavigation__item--level-0 {}
 .cmp-languagenavigation__item-link {

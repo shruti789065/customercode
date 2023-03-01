@@ -8,7 +8,7 @@
         padding-left: 0px;
 
         .cmp-breadcrumb__item-link {
-            color: #A8A8A8;
+            color: $color-fourth;
             text-decoration: none;
             transition: 0.5s;
             &:hover{
@@ -19,7 +19,7 @@
         .cmp-breadcrumb__item {
             &::before {
                 content: "/";
-                color: #A8A8A8;
+                color: $color-fourth;
                 float: right;
                 margin: -5px 15px 0px 15px;
                 font-size: 20px;
