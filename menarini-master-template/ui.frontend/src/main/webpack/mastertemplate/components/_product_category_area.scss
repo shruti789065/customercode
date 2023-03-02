@@ -18,11 +18,11 @@
         background-repeat: no-repeat;
 
         a {
-            color: $color-link-secondary-corporate;
+            color: $color-secondary;
             font-family: $font-family-oswald;
             font-weight: $font-light;
             font-size: 30px;
-            background-image: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_arrowRight.svg);
+            background-image: url($resources-path + '/images/icons/icon_arrowRight.svg');
             background-position: right center;
             background-repeat: no-repeat;
             padding-right: 30px;

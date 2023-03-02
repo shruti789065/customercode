@@ -18,7 +18,7 @@
 					display: flex;
 					justify-content: center;
 					margin: 0px auto;
-					border: 1px solid #ddd;
+					border: 1px solid $color-six;
 					position: relative;
 					height: 150px;
 					overflow: hidden;
@@ -45,7 +45,7 @@
 					.cmp-teaser__pretitle {
 						font-weight: $font-bold;
 						font-family: $font-family-oswald;
-						color: #b6b59c;
+						color: $color-fourth;
 						text-transform: uppercase;
 						margin-top: 5px;
 						margin-bottom: 0px;
@@ -57,7 +57,7 @@
 						font-size: 25px;
 						line-height: 30px;
 						-webkit-font-smoothing: antialiased;
-						color: $color-background-corporate;
+						color: $color-corporate;
 						margin: 0px 0px 20px 0px;
 						display: -webkit-box;
 						-webkit-line-clamp: 2;
@@ -90,13 +90,13 @@
 							text-decoration: none;
 							font-family: $font-family-oswald;
 							font-size: $font-size;
-							color: #333333;
-							border-bottom: 4px solid #0783ff;
+							color: $color-text;
+							border-bottom: 4px solid $color-secondary;
 							padding-bottom: 6px;
 							padding-top: 6px;
 							padding-right: 60px;
 							width: 130px;
-							background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-R-B.svg")
+							background: url($resources-path + "/images/icons/arrow-R-B.svg")
 								center right no-repeat;
 						}
 					}

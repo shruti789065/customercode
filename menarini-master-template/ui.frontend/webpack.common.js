@@ -8,6 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const SOURCE_ROOT = __dirname + '/src/main/webpack';
+const SITE_masterTemplate='/mastertemplate';
 const SITE_menarinimaster='/menarinimaster';
 const SITE_stemline='/stemline';
 
@@ -90,7 +91,8 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_menarinimaster  + '/resources/'), to: './clientlib-site'},
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_masterTemplate  + '/resources/'), to: './clientlib-site'},
+				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_menarinimaster  + '/resources/'), to: './clientlib-site'},
                 { from: path.resolve(__dirname, SOURCE_ROOT + SITE_stemline + '/resources/'), to: './clientlib-stemline'}
             ]
         })
