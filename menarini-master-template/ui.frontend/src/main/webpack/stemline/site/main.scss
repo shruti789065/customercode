@@ -1,7 +1,11 @@
-
 @import './variables';
 @import './base';
+
+@import '../../mastertemplate/site/base';
 @import '../../mastertemplate/components/**/*.scss';
-@import './styles/*.scss';
+@import '../../mastertemplate/site/styles/*.scss';
+@import '../../mastertemplate/resources/fonts/fonts';
+
+@import '../components/**/*.scss';
 @import '../resources/fonts/fonts';
-@import '../components/*.scss';
+@import './styles/*.scss';

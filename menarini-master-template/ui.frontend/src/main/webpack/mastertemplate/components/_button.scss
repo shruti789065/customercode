@@ -4,20 +4,20 @@
 
 .cmp-title--primary {
 	.cmp-button {
-		background-color: $color-link-primary-corporate;
+		background-color: $color-primary;
 
 		&:hover {
-			background-color: $color-link-primary-corporate-hover;
+			background-color: $color-primary-hover;
 		}
 	}
 }
 
 .cmp-title--secondary {
 	.cmp-button {
-		background-color: $color-link-secondary-corporate;
+		background-color: $color-secondary;
 		
 		&:hover {
-			background-color: $color-link-secondary-corporate-hover;
+			background-color: $color-secondary-hover;
 		}
 	}
 }
@@ -30,7 +30,7 @@
 
 .cmp-button {
 	padding: 18px 35px;
-	color: #fff;
+	color: $white;
 	text-decoration: none;
 	transition: 0.5s;
 	display: flex;
@@ -43,7 +43,7 @@
 
 	.cmp-button__icon {
 		&--search{
-			background-image: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/search.svg);
+			background-image: url($resources-path + '/images/icons/search.svg');
 			background-repeat: no-repeat;
 			width: 25px;
 			height: 25px;

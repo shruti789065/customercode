@@ -19,7 +19,7 @@
 
     #search-input {
         border: 0px;
-        border-bottom: 1px solid $color-background-corporate;
+        border-bottom: 1px solid $color-corporate;
         width: 100%;
         box-sizing: border-box;
         height: 50px;
@@ -38,19 +38,19 @@
         background: unset;
         border: unset;
         cursor: pointer;
-        background-color: $color-link-primary-corporate;
+        background-color: $color-primary;
         text-transform: uppercase;
         font-family: $font-family-oswald;
         font-weight: $font-bolder;
         padding: 7px 25px;
-        color: #fff;
+        color: $white;
         text-decoration: none;
         transition: 0.5s;
         display: flex;
         align-items: center;
 
         &:hover {
-            background-color: $color-link-primary-corporate-hover;
+            background-color: $color-primary-hover;
         }
     }
 }
@@ -69,12 +69,12 @@
                 text-decoration: unset;
                 font-family: $font-family-oswald;
                 font-weight: $font-bolder;
-                color: $color-background-corporate;
+                color: $color-corporate;
                 font-size: 20px;
                 transition: 0.2s;
 
                 &:hover {
-                    color: $color-link-secondary-corporate;
+                    color: $color-secondary;
                 }
             }
 

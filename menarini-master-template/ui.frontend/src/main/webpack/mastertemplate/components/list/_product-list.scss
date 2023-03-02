@@ -23,7 +23,7 @@
 			justify-content: center;
 			margin-bottom: 50px;
 			padding-bottom: 50px;
-			border-bottom: 1px solid #cbcbcb;
+			border-bottom: 1px solid $color-six;
 			width: 100%;
 			max-width: 430px;
 			.cmp-teaser {
@@ -35,7 +35,7 @@
 					position: relative;
 					overflow: hidden;
 					display: flex;
-					border: 1px solid #cbcbcb;
+					border: 1px solid $color-six;
 					.cmp-image {
 						.cmp-image__image {
 							position: absolute;
@@ -60,7 +60,7 @@
 						text-transform: uppercase;
 						font-family: $font-family-oswald;
 						font-weight: $font-bold;
-						color: $color-background-corporate;
+						color: $color-corporate;
 					}
 					.cmp-teaser__description {
 					}
