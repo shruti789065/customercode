@@ -11,6 +11,7 @@ const SOURCE_ROOT = __dirname + '/src/main/webpack';
 const SITE_masterTemplate='/mastertemplate';
 const SITE_menarinimaster='/menarinimaster';
 const SITE_stemline='/stemline';
+const SITE_relifede='/relifede';
 
 const resolve = {
     extensions: ['.js', '.ts'],
@@ -93,7 +94,8 @@ module.exports = {
             patterns: [
                 { from: path.resolve(__dirname, SOURCE_ROOT + SITE_masterTemplate  + '/resources/'), to: './clientlib-site'},
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_menarinimaster  + '/resources/'), to: './clientlib-site'},
-                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_stemline + '/resources/'), to: './clientlib-stemline'}
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_stemline + '/resources/'), to: './clientlib-stemline'},
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_relifede + '/resources/'), to: './clientlib-relifede'}
             ]
         })
     ],
