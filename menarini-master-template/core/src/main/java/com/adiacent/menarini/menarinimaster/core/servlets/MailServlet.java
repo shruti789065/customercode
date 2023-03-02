@@ -96,6 +96,8 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     protected static final String ADMINTEXT_PROPERTY = "mailAdminText";
 
+    protected static final String MAIL_PROPERTY = "email";
+
     private String[] fileExtensionAllowed = {"doc","docx","odt","sxw","pdf"}; //estensioni file allegato consentite
 
     private static final Integer MAX_FILE_SIZE_MB = new Integer(3);//in Mbyte
@@ -110,6 +112,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     @Reference
     private QueryBuilder qBuilder;
+
 
     private Session session;
     /**
@@ -206,7 +209,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         }
 
 
-        final String emailValue = request.getParameter("email"); //nome campo del form contenente l'indirizzo email del cliente.E' sia il destinatario della mail per il cliente
+        final String emailValue = request.getParameter(MAIL_PROPERTY); //nome campo del form contenente l'indirizzo email del cliente.E' sia il destinatario della mail per il cliente
         //nonché il mittente della mail per l'admin
 
 
@@ -215,7 +218,8 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
         // let's get all parameters first and sort them alphabetically!
         final List<String> contentNamesList = new ArrayList<String>();
-        final Iterator<String> names = FormsHelper.getContentRequestParameterNames(request);
+
+        final Iterator<String> names = getRequestParamIterators(request);
         while (names.hasNext()) {
             final String name = names.next();
             contentNamesList.add(name);
@@ -223,7 +227,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         Collections.sort(contentNamesList);
 
         final List<String> namesList = new ArrayList<String>();
-        final Iterator<Resource> fields = FormsHelper.getFormElements(request.getResource());
+        final Iterator<Resource> fields = getResourceFormElements(request);
         while (fields.hasNext()) {
             final Resource field = fields.next();
             final FieldDescription[] descs = FieldHelper.getFieldDescriptions(request, field);
@@ -250,7 +254,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         final List<RequestParameter> attachments = new ArrayList<RequestParameter>();
         for (final String name : namesList) {
             final RequestParameter rp = request.getRequestParameter(name);
-            if (rp != null &&  !rp.isFormField()) {
+            if (rp != null &&  !rp.isFormField() && rp.getSize() > 0) {
                 if(!isExtensionValid(rp.getFileName())){
                     this.logger.debug("File extension for " + rp.getFileName() +" not allowed. File allowed {0}", String.join(",", fileExtensionAllowed));
                     errors.add("File extension for " + rp.getFileName() +" not allowed. File allowed " + String.join(",", fileExtensionAllowed));
@@ -289,6 +293,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         }
         response.setStatus(status);
     }
+
 
 
     private int sendEmail(SlingHttpServletRequest request, String mailText, String[] mailTo, String fromAddress, String[] ccRecs, String[] bccRecs, String subject, List<String> namesList, ResourceBundle resBundle ){
@@ -406,4 +411,13 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         String fileExt = FilenameUtils.getExtension(filename);
         return Arrays.stream(fileExtensionAllowed).anyMatch(fileExt::equalsIgnoreCase);
     }
+
+    public Iterator getRequestParamIterators(SlingHttpServletRequest request){
+        return FormsHelper.getContentRequestParameterNames(request);
+    }
+
+    public Iterator<Resource> getResourceFormElements(SlingHttpServletRequest request) {
+        return FormsHelper.getFormElements(request.getResource());
+    }
+
 }

@@ -33,6 +33,7 @@ public class MessageViewerModel {
     @PostConstruct
     protected void init() throws RepositoryException {
 
+        this.messageList = null;//reset
         if(StringUtils.isNotBlank(sessionattrname))
             this.messageList = (List<String>)request.getSession().getAttribute(sessionattrname);
 
