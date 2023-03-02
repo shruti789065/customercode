@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <therapeutic-area/>
+    <contacts/>
+    <jcr:content
+        cq:lastModified="{Date}2023-02-28T15:21:40.651+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/menarini-relifede/settings/wcm/templates/menarini---homepage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="en"
+        sling:resourceType="menarinimaster/components/page"
+        siteName="Menarini Relife DE">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <slideshow
+                    cq:styleIds="[1654598462270]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/slideshow"
+                    autopauseDisabled="false"
+                    autoplay="false"
+                    delay="5000">
+                    <item_1653653527361
+                        cq:panelTitle="Elem1"
+                        jcr:description="&lt;p>Teaser Description&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2022-11-09T16:00:06.288+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="First Teaser title"
+                        sling:resourceType="menarinimaster/components/teaser"
+                        alt="antimicrobial"
+                        altValueFromDAM="false"
+                        descriptionFromPage="false"
+                        disableLazyLoading="false"
+                        fileReference="/content/dam/menarini-relifede/assets/placeholders/slider-antimicrobial-resistance.jpg"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        linkTarget="_self"
+                        textIsRich="true"
+                        title="First Teaser Title"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="/content/menarini-relifede/de/de/about-us"
+                                linkTarget="_self"
+                                text="About Us"/>
+                        </actions>
+                    </item_1653653527361>
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-relifede/de/de/about-us"
+                            linkTarget="_self"
+                            text="Read More"/>
+                    </actions>
+                    <item_1653653543341
+                        cq:panelTitle="Elem2"
+                        jcr:description="&lt;p>Teaser Description&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2022-07-12T10:50:27.339+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Second Teaser Title"
+                        sling:resourceType="menarinimaster/components/teaser"
+                        alt="beach"
+                        altValueFromDAM="false"
+                        descriptionFromPage="false"
+                        fileReference="/content/dam/menarini-relifede/assets/slider_qualityprovette.jpg"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        linkTarget="_self"
+                        textIsRich="true"
+                        title="Second Teaser Title"
+                        titleFromPage="false"/>
+                </slideshow>
+                <container_1196404612
+                    cq:styleIds="[1656586523714]"
+                    jcr:lastModified="{Date}2022-11-08T15:49:29.475Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/container">
+                    <container
+                        cq:styleIds="[1677232233407]"
+                        jcr:lastModified="{Date}2023-02-28T15:21:40.643+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container"
+                        layout="responsiveGrid">
+                        <title
+                            jcr:lastModified="{Date}2022-11-08T16:22:20.355Z"
+                            jcr:lastModifiedBy="a.messori@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="LOREM IPSUM"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h1"/>
+                        <cardhover
+                            cq:styleIds="[1654760922061,1654760974554]"
+                            jcr:description="&lt;p>Banner with short text&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2022-11-09T16:06:08.681+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="PHOTO BACKGROUND"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-relifede/assets/placeholders/sample-300-100.jpg"
+                            icon="/content/dam/menarini-relifede/icons/icon_composition.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_self"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover>
+                        <cardhover_319877496
+                            cq:styleIds="[1654760917220,1654760980212]"
+                            jcr:description="&lt;p>Banner with short text&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2022-11-09T16:06:42.893+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="PHOTO BACKGROUND"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-relifede/assets/placeholders/sample-300-100.jpg"
+                            icon="/content/dam/menarini-relifede/icons/icon_composition.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_self"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover_319877496>
+                        <cardhover_548367522
+                            cq:styleIds="[1654760922061,1654760980212]"
+                            jcr:description="&lt;p>Banner with short text&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2022-11-09T16:06:52.211+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="PHOTO BACKGROUND"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-relifede/assets/placeholders/sample-300-100.jpg"
+                            icon="/content/dam/menarini-relifede/icons/icon_composition.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_self"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover_548367522>
+                        <cardhover_1900501394
+                            cq:styleIds="[1654760917220,1654760974554]"
+                            jcr:description="&lt;p>Banner with short text&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2022-11-09T16:07:01.028+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="PHOTO BACKGROUND"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-relifede/assets/placeholders/sample-300-100.jpg"
+                            icon="/content/dam/menarini-relifede/icons/icon_composition.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_self"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover_1900501394>
+                        <banner
+                            cq:styleIds="[1655107234107]"
+                            jcr:description="&lt;p>Banner - Size image 1920 x 740 px&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2022-11-09T16:07:12.885+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="PHOTO BACKGROUND"
+                            sling:resourceType="menarinimaster/components/banner"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-relifede/assets/placeholders/sample-1920-740.jpg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_self"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <actions jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    link="#"
+                                    linkTarget="_self"
+                                    text="Read More"/>
+                            </actions>
+                        </banner>
+                    </container>
+                </container_1196404612>
+            </container>
+        </root>
+    </jcr:content>
+    <about-us/>
+    <news/>
+    <pharmaceuticals/>
+    <consumer-healtcare/>
+    <contact-us/>
+    <thank-you-page/>
+    <data-privacy/>
+    <search/>
+    <careers/>
+</jcr:root>
