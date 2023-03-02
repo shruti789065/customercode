@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <en/>
+    <jcr:content
+        cq:redirectTarget="/content/menarini-stemline/en/en"
+        cq:template="/conf/menarini-stemline/settings/wcm/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Stemline"
+        sling:resourceType="menarinimaster/components/page"
+        hideInNav="{Boolean}true"/>
+</jcr:root>

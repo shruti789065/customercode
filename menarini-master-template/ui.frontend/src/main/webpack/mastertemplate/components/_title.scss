@@ -1,0 +1,112 @@
+.title {
+    &.cmp-title--default {
+        h2 {
+            &.cmp-title__text,
+            .cmp-title__link {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                width: 100%;
+                overflow: hidden;
+                color: $color-corporate;
+                font-weight: $font-light;
+                font-family: $font-family-oswald;
+                font-size: $title-font-size;
+                line-height: 55px;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+        h3 {
+            &.cmp-title__text,
+            .cmp-title__link {
+                font-family: $font-family-oswald;
+                font-size: $title-font-size;
+                line-height: 55px;
+                text-transform: uppercase;
+                -webkit-font-smoothing: antialiased;
+                color: $color-corporate;
+                font-weight: $font-bold;
+            }
+        }
+        h4 {
+            &.cmp-title__text,
+            .cmp-title__link {
+                color: $color-secondary;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                width: 100%;
+                font-weight: 300;
+                font-family: $font-family-oswald;
+                font-size: 30px;
+                line-height: 45px;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+
+        h5 {
+            &.cmp-title__text,
+            .cmp-title__link {
+                font-weight: $font-regular;
+                font-family: $font-family-oswald;
+                font-size: 20px;
+                line-height: 30px;
+                text-transform: uppercase;
+                -webkit-font-smoothing: antialiased;
+                color: $color-corporate;
+            }
+        }
+    }
+
+    &.cmp-title--primary {
+        h2 {
+            &.cmp-title__text,
+            .cmp-title__link {
+                color: $color-primary;
+                font-weight: $font-light;
+                font-family: $font-family-oswald;
+                font-size: $title-font-size;
+                line-height: 55px;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+    }
+
+    &.cmp-title--secondary {
+        h2 {
+            &.cmp-title__text,
+            .cmp-title__link {
+                color: $color-secondary;
+                font-size: 30px;
+                font-weight: $font-light;
+                font-family: $font-family-oswald;
+                line-height: 55px;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+    }
+
+    .productComposition {
+        display: flex;
+        .composition {
+            //padding-left: 0px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            //margin-bottom: 15px;
+            //margin-top: 32px;
+            font-family: $font-family-oswald;
+            font-size: 20px;
+            line-height: 30px;
+            color: $color-corporate;
+            text-transform: uppercase;
+            font-weight: $font-bold;
+            //text-align: left;
+        }
+        span {
+            height: 100%;
+            min-width: 70px;
+            display: block;
+            min-height: 70px;
+        }
+    }
+}
