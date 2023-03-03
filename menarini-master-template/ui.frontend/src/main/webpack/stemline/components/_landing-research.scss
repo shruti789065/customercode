@@ -5,6 +5,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     padding: 60px 0px;
+    overflow: hidden;
 
     .row {
         display: flex;
@@ -47,6 +48,10 @@
     .icon {
         justify-content: center;
         padding-top: 30px;
+        img {
+            width: 100%;
+            max-width: 100px;
+        }
     }
 
     .text {
@@ -75,6 +80,7 @@
 
         img {
             max-width: 300px;
+            width: 100%;
         }
     }
 
