@@ -1,44 +1,28 @@
 /* eslint-disable max-len */
+console.log('search 2');
+function copyDataFromJson(query) {
+  const lang = document.documentElement.lang;
+  const domainName = window.location.hostname;
+  const url = `https://${domainName}/${lang}/search.searchresult.json?fulltext=${query}`;
+  
+  // Show loading spinner
+  const loadingSpinner = document.createElement('div');
+  loadingSpinner.classList.add('loading-spinner');
+  document.body.appendChild(loadingSpinner);
 
-/*const lang = document.documentElement.lang;
-  const url = `https://raw.githubusercontent.com/davide-mariotti/davide-mariotti.github.io/main/search2_.json/${lang}`;
-  fetch(url)*/
-
-function copyDataFromJson() {  
-  fetch('https://raw.githubusercontent.com/davide-mariotti/davide-mariotti.github.io/main/search2.json')
+  fetch(url)
     .then(response => response.json())
     .then(data => {
       localStorage.setItem('searchResults', JSON.stringify(data));
       console.log('Data copied to local storage!');
+      // Hide loading spinner
+      loadingSpinner.remove();
     })
     .catch(error => {
       console.error('Error copying data to local storage:', error);
+      // Hide loading spinner
+      loadingSpinner.remove();
     });
-}
-
-function performSearch() {
-  const input = document.querySelector('#search-input');
-  const searchButton = document.querySelector('#search-button');
-  const searchResults = JSON.parse(localStorage.getItem('searchResults'));
-
-  searchButton.addEventListener('click', () => {
-    const query = input.value.toLowerCase();
-    const matchingResults = searchResults.filter(result => {
-      return result.title.toLowerCase().includes(query) || (result.description && result.description.toLowerCase().includes(query));
-    });
-    displaySearchResults(matchingResults);
-  });
-
-  input.addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-      const query = input.value.toLowerCase();
-      const matchingResults = searchResults.filter(result => {
-        return result.title.toLowerCase().includes(query) || (result.description && result.description.toLowerCase().includes(query));
-      });
-      displaySearchResults(matchingResults);
-    }
-  });
-
 }
 
 function displaySearchResults(results) {
@@ -49,9 +33,6 @@ function displaySearchResults(results) {
     resultsContainer.innerHTML = 'No results found.';
     return;
   }
-
-  /*const domainName = window.location.hostname;
-  <a href="https://${domainName}${result.url}" target="_blank">${result.title}</a>*/
 
   const template = `
     <ul>
@@ -68,10 +49,16 @@ function displaySearchResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  copyDataFromJson();
+  const input = document.querySelector('#search-input');
   const searchButton = document.querySelector('#search-button');
+
   if (searchButton) {
-    performSearch();
+    searchButton.addEventListener('click', () => {
+      const query = input.value.toLowerCase().trim();
+      copyDataFromJson(query);
+      const searchResults = JSON.parse(localStorage.getItem('searchResults'));
+      displaySearchResults(searchResults);
+    });
   } else {
     console.log('No search filter found.');
   }
