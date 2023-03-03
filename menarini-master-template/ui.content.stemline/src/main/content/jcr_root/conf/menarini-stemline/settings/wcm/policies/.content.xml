@@ -765,14 +765,14 @@
             <page jcr:primaryType="nt:unstructured">
                 <policy
                     jcr:description="Includes the required client libraries."
-                    jcr:lastModified="{Date}2023-02-28T10:27:51.801+01:00"
+                    jcr:lastModified="{Date}2023-03-02T15:35:12.616+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[menarinimaster.dependencies,menarinimaster.site,menarinistemline.site]"
+                    clientlibs="[menarinistemline.dependencies,menarinistemline.site]"
                     clientlibsAsync="false"
-                    clientlibsJsHead="[menarinimaster.dependencies,menarinistemline.dependencies]">
+                    clientlibsJsHead="menarinistemline.dependencies">
                     <jcr:content
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
@@ -1075,14 +1075,14 @@
             </productTitleAndIcon>
             <accordion jcr:primaryType="nt:unstructured">
                 <policy_1677581474992
-                        cq:styleDefaultClasses="cmp-accordion--custom-style"
-                        jcr:lastModified="{Date}2023-03-01T09:57:42.378+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Accordion Policy"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        allowedHeadingElements="[h2,h3,h4,h5,h6]"
-                        headingElement="h3">
+                    cq:styleDefaultClasses="cmp-accordion--custom-style"
+                    jcr:lastModified="{Date}2023-03-01T09:57:42.378+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Accordion Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h2,h3,h4,h5,h6]"
+                    headingElement="h3">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1677581474992>
             </accordion>

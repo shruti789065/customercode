@@ -11,7 +11,7 @@
 				font-family: $font-family-oswald;
 				font-weight: 100;
 				text-align: left;
-				color: $color-background-corporate;
+				color: $color-corporate;
 				font-size: 30px;
 				float: left;
 				margin-left: 10px;
@@ -22,7 +22,7 @@
 				transition: all .3s;
 
 				&:hover {
-					color: $color-link-secondary-corporate-hover;
+					color: $color-secondary-hover;
 				}
 			}
 
@@ -38,7 +38,7 @@
 
 			.cmp-link__final-arrow {
 				content: " ";
-				background: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_left_B.svg) center center no-repeat;
+				background: url($resources-path + '/images/icons/freccia_left_B.svg') center center no-repeat;
 				width: 40px;
 				height: 50px;
 				order: 3;
@@ -48,7 +48,7 @@
 
 		&.cmp-link--standard {
 			.cmp-link--text {
-				color: $color-link-secondary-corporate;
+				color: $color-secondary;
 				font-weight: normal;
 				font-size: 18px;
 			}
@@ -57,7 +57,7 @@
 		&.cmp-link--arrow {
 			.cmp-link--text {
 				font-style: normal;
-				color: $color-background-corporate;
+				color: $color-corporate;
 				text-transform: uppercase;
 				font-family: $font-family-oswald;
 				font-size: 16px;
@@ -69,9 +69,9 @@
 			}
 
 			.cmp-link__icon-asset {
-				background-image: url(/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_right_big_B.svg);
+				background-image: url($resources-path + '/images/icons/freccia_right_big_B.svg');
 				background-repeat: no-repeat;
-				color: #000000 !important;
+				color: $black !important;
 				width: 45px;
 				height: 10px;
 				display: block;
@@ -94,7 +94,7 @@
 				font-family: $font-family-oswald;
 				font-weight: 100;
 				text-align: left;
-				color: $color-background-corporate;
+				color: $color-corporate;
 				font-size: 30px;
 				line-height: 38px;
 				float: left;
@@ -108,7 +108,7 @@
 				content: " ";
 				width: 36px;
 				height: 0px;
-				border: 1px solid $color-background-corporate;
+				border: 1px solid $color-corporate;
 				margin-top: 20px;
 				font-weight: 100;
 			}
@@ -117,7 +117,7 @@
 		&.cmp-link--menu-list {
 			align-items: center;
 			.cmp-link--text {
-				color: $color-background-corporate;
+				color: $color-corporate;
 				display: block;
 				font-family: $font-family-oswald;
 				font-size: 14px;
@@ -129,7 +129,7 @@
 
 			.cmp-link__icon-asset {
 				position: relative;
-				background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/listMenuBoxRed.svg");
+				background-image: url($resources-path + '/images/icons/listMenuBoxRed.svg');
 				background-repeat: no-repeat;
 				display: inline;
 				width: 10px;

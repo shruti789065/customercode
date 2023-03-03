@@ -19,7 +19,7 @@
 
     #search-input {
         border: 0px;
-        border-bottom: 1px solid $color-background-corporate;
+        border-bottom: 1px solid $color-corporate;
         width: 100%;
         box-sizing: border-box;
         height: 50px;
@@ -38,29 +38,30 @@
         background: unset;
         border: unset;
         cursor: pointer;
-        background-color: $color-link-primary-corporate;
+        background-color: $color-primary;
         text-transform: uppercase;
         font-family: $font-family-oswald;
         font-weight: $font-bolder;
         padding: 7px 25px;
-        color: #fff;
+        color: $white;
         text-decoration: none;
         transition: 0.5s;
         display: flex;
         align-items: center;
 
         &:hover {
-            background-color: $color-link-primary-corporate-hover;
+            background-color: $color-primary-hover;
         }
     }
 }
 
 #search-results {
+    margin-top: 40px;
 
     ul {
         list-style: none;
         padding-left: 0px;
-        margin: 40px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
 
         li {
             margin-bottom: 25px;
@@ -69,12 +70,12 @@
                 text-decoration: unset;
                 font-family: $font-family-oswald;
                 font-weight: $font-bolder;
-                color: $color-background-corporate;
+                color: $color-corporate;
                 font-size: 20px;
                 transition: 0.2s;
 
                 &:hover {
-                    color: $color-link-secondary-corporate;
+                    color: $color-secondary;
                 }
             }
 
@@ -93,3 +94,18 @@
     }
 
 }
+
+.loading-spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid $color-primary;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
