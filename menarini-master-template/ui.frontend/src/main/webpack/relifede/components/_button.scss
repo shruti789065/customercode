@@ -1,0 +1,16 @@
+.cmp-button {
+	color: $color-primary;
+}
+
+.cmp-title--primary {
+	.cmp-button {
+		background-color: $color-rel-thir;
+		color: $color-primary;
+
+		&:hover {
+			background-color: $color-primary;
+			color: $white;
+		}
+	}
+}
+

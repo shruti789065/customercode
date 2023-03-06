@@ -2368,7 +2368,16 @@ textarea {
   line-height: 55px;
   -webkit-font-smoothing: antialiased;
 }
-.title.cmp-title--corporate h2 {
+.title.cmp-title--corporate h2.cmp-title__text,
+.title.cmp-title--corporate h2 .cmp-title__link,
+.title.cmp-title--corporate h3.cmp-title__text,
+.title.cmp-title--corporate h3 .cmp-title__link,
+.title.cmp-title--corporate h4.cmp-title__text,
+.title.cmp-title--corporate h4 .cmp-title__link,
+.title.cmp-title--corporate h5.cmp-title__text,
+.title.cmp-title--corporate h5 .cmp-title__link,
+.title.cmp-title--corporate h6.cmp-title__text,
+.title.cmp-title--corporate h6 .cmp-title__link {
   color: #143F59;
 }
 .title .productComposition {
