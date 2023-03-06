@@ -4,7 +4,7 @@
     <therapeutic-area/>
     <contacts/>
     <jcr:content
-        cq:lastModified="{Date}2023-02-28T15:21:40.651+01:00"
+        cq:lastModified="{Date}2023-03-06T14:34:02.699+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/menarini-relifede/settings/wcm/templates/menarini---homepage"
         jcr:primaryType="cq:PageContent"
@@ -29,7 +29,7 @@
                     <item_1653653527361
                         cq:panelTitle="Elem1"
                         jcr:description="&lt;p>Teaser Description&lt;/p>&#xd;&#xa;"
-                        jcr:lastModified="{Date}2022-11-09T16:00:06.288+01:00"
+                        jcr:lastModified="{Date}2023-03-06T12:13:04.918+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="First Teaser title"
@@ -38,7 +38,7 @@
                         altValueFromDAM="false"
                         descriptionFromPage="false"
                         disableLazyLoading="false"
-                        fileReference="/content/dam/menarini-relifede/assets/placeholders/slider-antimicrobial-resistance.jpg"
+                        fileReference="/content/dam/menarini-relifede/assets/237sstbHP_SLIDER_03.jpg"
                         imageFromPageImage="false"
                         isDecorative="false"
                         linkTarget="_self"
@@ -93,13 +93,27 @@
                         sling:resourceType="menarinimaster/components/container"
                         layout="responsiveGrid">
                         <title
-                            jcr:lastModified="{Date}2022-11-08T16:22:20.355Z"
-                            jcr:lastModifiedBy="a.messori@adiacent.com"
+                            jcr:lastModified="{Date}2023-03-06T14:31:59.914+01:00"
+                            jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="LOREM IPSUM"
+                            jcr:title="FOCUS ON"
                             sling:resourceType="menarinimaster/components/title"
                             linkTarget="_self"
                             type="h1"/>
+                        <text
+                            jcr:lastModified="{Date}2023-03-06T14:33:31.054+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p>As part of the Menarini Group, Stemline is revolutionizing the fight against cancer. We are a dedicated, commercial-stage biopharmaceutical company passionate about utilizing our cutting-edge research and industry expertise to bring life-changing oncology treatments to patients in need.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="8"/>
+                            </cq:responsive>
+                        </text>
                         <cardhover
                             cq:styleIds="[1654760922061,1654760974554]"
                             jcr:description="&lt;p>Banner with short text&lt;/p>&#xd;&#xa;"
@@ -212,30 +226,6 @@
                                     width="12"/>
                             </cq:responsive>
                         </cardhover_1900501394>
-                        <banner
-                            cq:styleIds="[1655107234107]"
-                            jcr:description="&lt;p>Banner - Size image 1920 x 740 px&lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2022-11-09T16:07:12.885+01:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="PHOTO BACKGROUND"
-                            sling:resourceType="menarinimaster/components/banner"
-                            descriptionFromPage="false"
-                            disableLazyLoading="false"
-                            fileReference="/content/dam/menarini-relifede/assets/placeholders/sample-1920-740.jpg"
-                            imageFromPageImage="false"
-                            isDecorative="true"
-                            linkTarget="_self"
-                            textIsRich="true"
-                            titleFromPage="false">
-                            <actions jcr:primaryType="nt:unstructured">
-                                <item0
-                                    jcr:primaryType="nt:unstructured"
-                                    link="#"
-                                    linkTarget="_self"
-                                    text="Read More"/>
-                            </actions>
-                        </banner>
                     </container>
                 </container_1196404612>
             </container>

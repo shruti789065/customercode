@@ -24,7 +24,8 @@ module.exports = {
     resolve: resolve,
     entry: {
         site: SOURCE_ROOT + SITE_menarinimaster +'/site/main.ts',
-        stemline: SOURCE_ROOT + SITE_stemline +'/site/main.ts'
+        stemline: SOURCE_ROOT + SITE_stemline +'/site/main.ts',
+		relifede: SOURCE_ROOT + SITE_relifede +'/site/main.ts'
     },
     output: {
         filename: (chunkData) => {
