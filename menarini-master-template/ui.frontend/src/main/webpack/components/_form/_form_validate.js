@@ -5,19 +5,60 @@ import jQuery from "jquery";
 //caricamento pagina
 
 jQuery(function () {
-    // assegnazione tabindex agli elementi selezionabili dall'utentedel form
+    // assegnazione tabindex agli elementi selezionabili dall'utente del form
     var tabindex = 1;
     jQuery('#new_form *').each(function(){
         var data_cmp_hook_form_text=jQuery(this).attr('data-cmp-hook-form-text');
         if (this.type == "text" || this.type == "checkbox" || data_cmp_hook_form_text=="input" || this.name == "info" || this.type == "radio" || this.type == "SUBMIT" ) {
             var input = jQuery(this);
-            input.attr("tabindex", tabindex);
-            tabindex++;
+            //al file non diamo il tabindex
+            if (this.type != "file"){
+                input.attr("tabindex", tabindex);
+                tabindex++;
+            }
         }
     });
     // assegnazione tabindex al submit dopo il ciclo
     var currentSubmit = jQuery('#new_form').closest('form').find(':submit');
     currentSubmit.attr("tabindex", tabindex);
+
+    //introduzione evento validazione file
+    let inputFile = $('#myfile');
+    let filesContainer = $('#myFiles');
+    
+    inputFile.change(function () {
+         let file = inputFile[0].files[0];
+        var fileNameExt = file.name.substring(file.name.indexOf('.')+1);
+        var fileExtensionsAllowed = ['pdf', 'doc', 'docx'];
+        // Limite: 3 MB (this size is in bytes)
+        if(file && (file.size < 3 *1048576)){
+            filesContainer.text(file.name);
+            if(jQuery(this).parent().find('.label_file_too_big').length){
+                jQuery(this).parent().find('.label_file_too_big').remove();
+            }
+        }else{
+            if(jQuery(this).parent().find('.label_file_too_big').length){
+                jQuery(this).parent().find('.label_file_too_big').remove();
+            }
+            if(jQuery(this).parent().find('.label_file_too_big').length==0){
+                jQuery(this).parent().append( "<p class='label_file_too_big'>File too big: Limit is 3MB</p>" );
+            }
+        }
+        //controllo estensione
+        if(jQuery.inArray(fileNameExt, fileExtensionsAllowed) !== -1) {
+            if(jQuery(this).parent().find('.label_file_extension_not_allowed').length){
+                jQuery(this).parent().find('.label_file_extension_not_allowed').remove();
+            }
+        } else {
+            if(jQuery(this).parent().find('.label_file_extension_not_allowed').length){
+                jQuery(this).parent().find('.label_file_extension_not_allowed').remove();
+            }
+            if(jQuery(this).parent().find('.label_file_extension_not_allowed').length==0){
+                jQuery(this).parent().append( "<p class='label_file_extension_not_allowed'>File extension not allowed</p>" );
+            }
+        }
+        
+    });
 });
 
 jQuery("button[type='submit']").on("click keypress", function() {
@@ -74,17 +115,81 @@ function validateInputs(){
                     }
                     //se non è select
                     else{
-                        if((jQuery(this).val().length == 0) ) {
-                            jQuery(this).css("border","3px solid #a94442");
-                            if(jQuery(this).parent().find('.label_required').length==0){
-                                jQuery(this).parent().append( "<p class='label_required'>This field is required</p>" );
+                        //se non è select
+                        //se è file
+                        if (jQuery(this).attr('type')=="file"){
+                            //se non ha contenuto
+                            if((jQuery(this).val().length == 0) ) {
+                                //se non è file si può dare il border
+                                if(jQuery(this).parent().find('.label_required').length==0){
+                                    jQuery(this).parent().append( "<p class='label_required'>This field is required</p>" );
+                                }
+                                inputsValid=false;
                             }
-                            inputsValid=false;
+                            //se ha contenuto viene fatta la validazione del file
+                            else{
+                                jQuery(this).css("border","3px solid #000");
+                                if(jQuery(this).parent().find('.label_required').length){
+                                    jQuery(this).parent().find('.label_required').remove();
+                                }
+                                let inputFile = $('#myfile');
+                                let filesContainer = $('#myFiles');
+                                
+                                //inputFile.change(function () {
+                                    let file = inputFile[0].files[0];
+                                    var fileNameExt = file.name.substring(file.name.indexOf('.')+1);
+                                    var fileExtensionsAllowed = ['pdf', 'doc', 'docx'];
+                                    // Limite: 3 MB (this size is in bytes)
+                                    //se grandezza file ok
+                                    if(file && (file.size < 3 *1048576)){
+                                        filesContainer.text(file.name);
+                                        if(jQuery(this).parent().find('.label_file_too_big').length){
+                                            jQuery(this).parent().find('.label_file_too_big').remove();
+                                        }
+                                    //se grandezza file nok
+                                    }else{
+                                        if(jQuery(this).parent().find('.label_file_too_big').length){
+                                            jQuery(this).parent().find('.label_file_too_big').remove();
+                                        }
+                                        if(jQuery(this).parent().find('.label_file_too_big').length==0){
+                                            jQuery(this).parent().append( "<p class='label_file_too_big'>File too big: Limit is 3MB</p>" );
+                                        }
+                                        inputsValid=false;
+                                    }
+                                    //controllo estensione
+                                    //se estensione ok
+                                    if(jQuery.inArray(fileNameExt, fileExtensionsAllowed) !== -1) {
+                                        if(jQuery(this).parent().find('.label_file_extension_not_allowed').length){
+                                            jQuery(this).parent().find('.label_file_extension_not_allowed').remove();
+                                        }
+                                    //se estensione nok
+                                    } else {
+                                        if(jQuery(this).parent().find('.label_file_extension_not_allowed').length){
+                                            jQuery(this).parent().find('.label_file_extension_not_allowed').remove();
+                                        }
+                                        if(jQuery(this).parent().find('.label_file_extension_not_allowed').length==0){
+                                            jQuery(this).parent().append( "<p class='label_file_extension_not_allowed'>File extension not allowed</p>" );
+                                        }
+                                        inputsValid=false;
+                                    }
+                            }
                         }
+                        //se non è file
                         else{
-                            jQuery(this).css("border","3px solid #000");
-                            if(jQuery(this).parent().find('.label_required').length){
-                                jQuery(this).parent().find('.label_required').remove();
+                            //se non ha contenuto
+                            if((jQuery(this).val().length == 0) ) {
+                                jQuery(this).css("border","3px solid #a94442");
+                                if(jQuery(this).parent().find('.label_required').length==0){
+                                    jQuery(this).parent().append( "<p class='label_required'>This field is required</p>" );
+                                }
+                                inputsValid=false;
+                            }
+                            //se ha contenuto
+                            else{
+                                jQuery(this).css("border","3px solid #000");
+                                if(jQuery(this).parent().find('.label_required').length){
+                                    jQuery(this).parent().find('.label_required').remove();
+                                }
                             }
                         }
                     }
@@ -183,30 +288,4 @@ function validateEmail(email){
     var re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     var emailFormat = re.test(email);
     return emailFormat;
-}
-//disabilita il tasto submit ed i suoi effetti all'evento hover
-function disableSubmit(){
-    jQuery("button[type='submit']").attr('disabled', 'true');
-    jQuery("button[type='submit']").css('cursor', 'not-allowed');
-    jQuery("button[type='submit']").css('background-color', '#EDEFF3');
-    jQuery("button[type='submit']").on("mouseenter", function(){ 
-        jQuery("button[type='submit']").css('-webkit-transform', 'none');
-        jQuery("button[type='submit']").css('transform', 'none');
-    }).on("mouseleave", function(){
-        jQuery("button[type='submit']").css('-webkit-transform', 'none');
-        jQuery("button[type='submit']").css('transform', 'none');
-    });
-}
-//abilita il tasto submit ed i suoi effetti all'evento hover
-function enableSubmit(){
-    jQuery("button[type='submit']").removeAttr('disabled');
-    jQuery("button[type='submit']").css('cursor', 'pointer');
-    jQuery("button[type='submit']").css('background-color', '#B62623');
-    jQuery("button[type='submit']").on("mouseenter", function(){ 
-        jQuery("button[type='submit']").css('-webkit-transform', 'scale(1.02)');
-        jQuery("button[type='submit']").css('transform', 'scale(1.02)');
-    }).on("mouseleave", function(){
-        jQuery("button[type='submit']").css('-webkit-transform', 'none');
-        jQuery("button[type='submit']").css('transform', 'none');
-    });
 }
