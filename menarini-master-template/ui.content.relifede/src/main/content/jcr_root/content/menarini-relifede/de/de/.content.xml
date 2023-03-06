@@ -108,10 +108,18 @@
                             text="&lt;p>As part of the Menarini Group, Stemline is revolutionizing the fight against cancer. We are a dedicated, commercial-stage biopharmaceutical company passionate about utilizing our cutting-edge research and industry expertise to bring life-changing oncology treatments to patients in need.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
                             textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
+                                <phone
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="8"/>
+                                    width="12"/>
+                                <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="8"/>
                             </cq:responsive>
                         </text>
                         <cardhover
