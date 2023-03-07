@@ -145,13 +145,15 @@
 .teaser.cmp-teaser--background_secondary .cmp-teaser__content,
 .teaser.cmp-teaser--background_secondary .cmp-teaser__link {
 	&:hover {
-		background-color: rgba(7, 131, 255, 0.7);
+		background-color: $color-secondary;
+		opacity: .7;
 	}
 }
 .teaser.cmp-teaser--background_primary .cmp-teaser__content,
 .teaser.cmp-teaser--background_primary .cmp-teaser__link {
 	&:hover {
-		background-color: rgba(245, 51, 63, 0.7);
+		background-color: $color-primary;
+		opacity: .7;
 	}
 }
 
