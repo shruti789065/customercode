@@ -17,7 +17,7 @@
 <script type="text/javascript">
   var onloadCallback = function() {
     //alert("grecaptcha is ready!");
-    var publicKey = "6Ld395kkAAAAALQnrEPfRp8KERjTW6aeJgHRaxLX"
+    var publicKey = '${properties.publicKey @ context='scriptString'}'
 	grecaptcha.render("g-recaptcha", { sitekey: publicKey });
   };
 var onSuccess = function(response) {
