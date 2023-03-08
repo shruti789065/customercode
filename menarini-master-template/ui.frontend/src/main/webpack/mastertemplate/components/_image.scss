@@ -1,3 +1,14 @@
+.aem-AuthorLayer-Edit{
+	.cmp-image--logo {
+		a{
+			.cmp-image{
+				.cmp-image__image{
+					content: url($logo-path + '/logo-pos.svg');
+				}
+			}
+		}
+	}
+}
 .cmp-image {}
 
 .cmp-image__link {}
@@ -19,8 +30,6 @@
 			display: flex;
 			.cmp-image__image{
 				content: url($logo-path + '/logo-neg.svg');
-				min-height: 50px;
-				min-width: 50px;
 			}
 		}
 	}
@@ -31,8 +40,6 @@
 			.cmp-image{
 				.cmp-image__image{
 					content: url($logo-path + '/logo-pos.svg');
-					min-height: 50px;
-					min-width: 50px;
 				}
 			}
 		}

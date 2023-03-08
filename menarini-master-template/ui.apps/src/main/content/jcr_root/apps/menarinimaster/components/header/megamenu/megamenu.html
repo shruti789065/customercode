@@ -24,8 +24,8 @@
      data-placeholder-text="${wcmmode.edit && 'Please drag Tab components here' @ i18n}">
 
 	<sly data-sly-test="${(wcmmode.edit || wcmmode.preview)}">
-		<div class="cmp-container__layout aem-Grid aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
-			<div class="image cmp-image--logo aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--6 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--6">
+		<div class="cmp-container__layout aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
+			<div class="image cmp-image--logo">
 				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"
 				   href="${btnLink.formattedLink}">
 					<div class="cmp-image">
@@ -33,7 +33,7 @@
 					</div>
 				</a>
 			</div>
-			<div class="menu-nav aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--6 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--6">
+			<div class="menu-nav">
 				<ol data-sly-test="${megamenuTabs.items && megamenuTabs.items.size > 0}"
 				    data-sly-list.tab="${megamenuTabs.items}"
 				    role="tablist"
@@ -69,7 +69,7 @@
 	<sly data-sly-test="${(!wcmmode.edit && !wcmmode.preview)}">
 		<sly data-sly-use.rrh="${'com.adiacent.menarini.menarinimaster.core.models.ResourceResolverHelper' @item=item}"
 		     data-sly-test.toShow="${rrh.resourceType!='menarinimaster/components/link'}"/>
-		<div class="cmp-container__layout aem-Grid aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
+		<div class="cmp-container__layout aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
 
 			<div class="image cmp-image--logo">
 				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"

@@ -39,6 +39,10 @@ textarea {
   display: none !important;
 }
 
+.xf-web-container {
+  background-color: lightgray;
+}
+
 #loading {
   width: 4rem;
   height: 4rem;
@@ -880,6 +884,10 @@ textarea {
   margin-top: 0;
 }
 
+.aem-AuthorLayer-Edit .cmp-image--logo a .cmp-image .cmp-image__image {
+  content: url("/content/dam/menarini-relifede/assets/logo/logo-pos.svg");
+}
+
 .cmp-image__image {
   -o-object-fit: cover;
      object-fit: cover;
@@ -903,14 +911,10 @@ textarea {
 }
 .cmp-image--logo a .cmp-image .cmp-image__image {
   content: url("/content/dam/menarini-relifede/assets/logo/logo-neg.svg");
-  min-height: 50px;
-  min-width: 50px;
 }
 
 .scrolled-page .cmp-image--logo a .cmp-image .cmp-image__image {
   content: url("/content/dam/menarini-relifede/assets/logo/logo-pos.svg");
-  min-height: 50px;
-  min-width: 50px;
 }
 
 /* start teaser internal-header */
@@ -2594,13 +2598,12 @@ textarea {
 .cmp-languagenavigation--langnavtoggle a {
   color: #ffffff;
   display: block;
-  margin: 0;
+  margin: 4px 10px 0 0;
   font-size: 13px;
   text-transform: uppercase;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-style: normal;
   line-height: 36px;
-  margin-right: 10px;
   text-decoration: inherit;
 }
 .cmp-languagenavigation--langnavtoggle a.open:after {
@@ -4084,6 +4087,7 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 100px;
 }
 
 .scrolled-page .cmp-container__general-megamenu,
