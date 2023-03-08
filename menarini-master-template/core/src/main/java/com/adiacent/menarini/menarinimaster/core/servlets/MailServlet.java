@@ -103,6 +103,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
     private static final Integer MAX_FILE_SIZE_MB = new Integer(3);//in Mbyte
     private static final Integer MAX_FILE_SIZE = new Integer(MAX_FILE_SIZE_MB *1024*1024);//in byte //max dimensione file allegato
 
+    private List<String> paramsToExclude = Arrays.asList("g-recaptcha-response");
     public static final String ERROR_MESSAGE_ATTRIBUTE_NAME = "contactFormErrorAttr"; //Nome attributo in sessione contenente eventuali messaggi di errore
     //inerenti il fallito invio del form contatti
 
@@ -329,9 +330,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
             final List<RequestParameter> attachments = new ArrayList<RequestParameter>();
             for (final String name : namesList) {
                 final RequestParameter rp = request.getRequestParameter(name);
-                if (rp == null) {
+                if (rp == null || paramsToExclude.contains(name)) {
                     //see Bug https://bugs.day.com/bugzilla/show_bug.cgi?id=35744
-                    logger.debug("skipping form element {} from mail content because it's not in the request",
+                    logger.debug("skipping form element {} from mail content because it's not in the request or is not allowed in the mail body",
                             name);
                 } else if (rp.isFormField()) {
                     buffer.append(name);
