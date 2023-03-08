@@ -29,12 +29,18 @@ module.exports = env => {
                 filename: 'landing-research.html',
                 chunks: ['site', 'stemline']
            }),
-            new HtmlWebpackPlugin({
-                 inject: true,
-                 template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/index.html'),
-                 filename: 'stemline.html',
-                 chunks: ['site', 'stemline']
-            })
+           new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/pipeline.html'),
+                filename: 'pipeline.html',
+                chunks: ['site', 'stemline']
+           }),
+           new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/index.html'),
+                filename: 'stemline.html',
+                chunks: ['site', 'stemline']
+           })
         ],
         devServer: {
             proxy: [{
