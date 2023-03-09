@@ -53,7 +53,7 @@ public class ProductCategoryAreaModel extends GenericBaseModel implements Compon
                         child.getContentResource().getValueMap().get(Constants.TEMPLATE_PROPERTY).toString() : null;
                 return StringUtils.isNotBlank(childTemplate);
 
-            }).collect(Collectors.toMap(entry -> entry.getContentResource().getValueMap().get(Constants.TEMPLATE_PROPERTY).toString(), entry -> entry.getPath()));
+            }).collect(Collectors.toMap(entry -> entry.getContentResource().getValueMap().get(Constants.TEMPLATE_PROPERTY).toString(), entry -> entry.getPath(), (a,b)->a) );
 
 
 
