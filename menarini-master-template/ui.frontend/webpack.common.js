@@ -11,6 +11,7 @@ const SOURCE_ROOT = __dirname + '/src/main/webpack';
 const SITE_masterTemplate='/mastertemplate';
 const SITE_menarinimaster='/menarinimaster';
 const SITE_stemline='/stemline';
+const SITE_relifede='/relifede';
 
 const resolve = {
     extensions: ['.js', '.ts'],
@@ -23,7 +24,8 @@ module.exports = {
     resolve: resolve,
     entry: {
         site: SOURCE_ROOT + SITE_menarinimaster +'/site/main.ts',
-        stemline: SOURCE_ROOT + SITE_stemline +'/site/main.ts'
+        stemline: SOURCE_ROOT + SITE_stemline +'/site/main.ts',
+		relifede: SOURCE_ROOT + SITE_relifede +'/site/main.ts'
     },
     output: {
         filename: (chunkData) => {
@@ -93,7 +95,8 @@ module.exports = {
             patterns: [
                 { from: path.resolve(__dirname, SOURCE_ROOT + SITE_masterTemplate  + '/resources/'), to: './clientlib-site'},
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_menarinimaster  + '/resources/'), to: './clientlib-site'},
-                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_stemline + '/resources/'), to: './clientlib-stemline'}
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_stemline + '/resources/'), to: './clientlib-stemline'},
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_relifede + '/resources/'), to: './clientlib-relifede'}
             ]
         })
     ],
