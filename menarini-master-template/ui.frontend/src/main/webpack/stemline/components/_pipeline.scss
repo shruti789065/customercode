@@ -1,0 +1,439 @@
+#pipeline {
+    display: flex;
+    flex-direction: column;
+
+    .buttonPipeline {
+        display: flex;
+        flex-direction: row;
+        margin: 20px 0px;
+
+        button {
+            background-color: $color-background;
+            color: $white;
+            padding: 7px 25px;
+            text-decoration: none;
+            transition: 0.5s;
+            text-transform: uppercase;
+            font-family: $font-family-oswald;
+            font-weight: $font-bolder;
+            border: 0px;
+            cursor: pointer;
+
+            &.active {
+                background-color: $color-primary;
+                color: $color-stem-third;
+            }
+        }
+
+        .compound-btn {
+            margin-right: 30px;
+        }
+
+        .indication-btn {}
+    }
+
+    .resultsCompound,
+    .resultsIndication {
+        flex-direction: column;
+        display: none;
+        opacity: 0;
+        transition: 2.5s;
+
+        &.show {
+            opacity: 1;
+            display: flex;
+        }
+
+        .compoundPipeline {
+            width: 12.5%;
+        }
+
+        .mechanismOfActionPipeline {
+            width: 20%;
+        }
+
+        .indicationPipeline {
+            width: 20%;
+        }
+
+        .developmentStagePipeline {
+            width: 22.5%;
+            padding-left: .25%;
+            padding-right: .25%;
+        }
+
+        .clinicalTrialsPipeline {
+            width: 10%;
+        }
+
+        .popUpPipeline {
+            width: 10%;
+        }
+
+        .headerPipeline {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 2px solid $color-third;
+            font-family: $font-family-Georgia;
+            font-weight: $font-regular;
+            font-size: 20px;
+            font-style: italic;
+            width: 100%;
+            margin-bottom: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            .compoundPipeline {
+                padding-left: 20px;
+            }
+
+            .mechanismOfActionPipeline {
+                padding-left: 26px;
+            }
+
+            .indicationPipeline {}
+
+            .developmentStagePipeline {}
+
+            .clinicalTrialsPipeline {}
+
+            .popUpPipeline {}
+        }
+
+        .bodyPipeline {
+            display: flex;
+            flex-direction: column;
+
+            .rowPipeline {
+                display: flex;
+                flex-direction: row;
+                align-items: start;
+
+                &.first {
+                    .compoundPipeline {
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        font-family: $font-family-oswald;
+                        font-weight: $font-regular;
+                        opacity: 1;
+                    }
+                }
+
+                &.last {
+                    background-image: linear-gradient(to right, $color-third 33%, $white 0%);
+                    background-position: bottom;
+                    background-size: 15px 1px;
+                    background-repeat: repeat-x;
+                }
+
+                .compoundPipeline {
+                    opacity: 0;
+                    padding: 20px 0px 20px 20px;
+                    overflow: hidden;
+                }
+
+                .mechanismOfActionPipeline {
+                    font-size: 20px;
+                    font-family: $font-family-oswald;
+                    font-weight: $font-light;
+                    padding: 20px 0px 20px 26px;
+                    border-left: 1px solid $color-third;
+                    min-height: 100px;
+                }
+
+                .indicationPipeline {
+                    font-size: 20px;
+                    font-family: $font-family-oswald;
+                    font-weight: $font-light;
+                    padding: 20px 0px;
+                }
+
+                .developmentStagePipeline {
+                    padding: 20px .25% 20px .25%;
+
+                    .developmentStageSteps {
+                        display: flex;
+                        flex-direction: column;
+
+                        .dsHeader {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+
+                            .label {
+                                font-family: $font-family-oswald;
+                                font-weight: $font-regular;
+                                font-size: 14px;
+                                color: $color-corporate;
+                                width: 16.66%;
+                                height: 23px;
+                                text-align: center;
+
+                                &.Ia,
+                                &.Ib {
+                                    width: 8.33%;
+                                }
+
+                                &.false {
+                                    color: $color-third;
+                                    opacity: 0.5;
+                                }
+                            }
+                        }
+
+                        .dsBody {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+
+                            .flow {
+                                width: 16.66%;
+                                height: 23px;
+
+                                &.Ia,
+                                &.Ib {
+                                    width: 8.33%;
+                                }
+
+                                &.true {
+                                    border-right: 1px dashed $white;
+                                    background-color: $color-secondary-hover;
+
+                                    &.last {
+                                        border-right: 0px;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                .clinicalTrialsPipeline {
+                    padding: 20px 0px;
+
+                    a {
+                        color: $color-link;
+                    }
+                }
+
+                .popUpPipeline {
+                    padding: 20px 0px;
+
+                    button {
+                        font-family: $font-family-oswald;
+                        border: 0px;
+                        background-color: unset;
+                        color: $color-corporate;
+                        text-transform: uppercase;
+                        font-weight: $font-regular;
+                        font-size: 14px;
+                    }
+
+                    .modal {
+                        .modal-dialog {
+                            .modal-content {
+                                border-radius: 0px;
+                                padding: 20px;
+
+                                .modal-header {
+                                    font-size: 20px;
+                                    text-transform: uppercase;
+                                    font-family: $font-family-oswald;
+                                    font-weight: $font-regular;
+                                    padding: 0px 0px 15px 0px;
+                                }
+
+                                .modal-body {
+                                    padding: 15px 0px 0px 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .resultsCompound {
+        &.show {
+            display: flex;
+        }
+    }
+
+    .resultsIndication {
+        .headerPipeline {
+            .indicationPipeline {
+                padding: 0px 0px 0px 20px;
+            }
+
+            .compoundPipeline {
+                padding: 0px 0px 0px 20px;
+            }
+        }
+
+        .bodyPipeline {
+            .rowPipeline {
+                &.first {
+                    .indicationPipeline {
+                        opacity: 1;
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        font-family: $font-family-oswald;
+                        font-weight: $font-regular;
+                    }
+
+                    .compoundPipeline {
+                        text-transform: unset;
+                        font-family: $font-family-oswald;
+                        font-weight: $font-light;
+                        font-size: 20px;
+                    }
+                }
+
+                .indicationPipeline {
+                    opacity: 0;
+                    padding: 20px 0px 20px 20px;
+                    font-size: 20px;
+                    font-family: $font-family-oswald;
+                    font-weight: $font-regular;
+                }
+
+                .compoundPipeline {
+                    opacity: 1;
+                    padding: 20px 0px 20px 20px;
+                    border-left: 1px solid $color-third;
+                    min-height: 100px;
+                    font-size: 20px;
+                    font-family: $font-family-oswald;
+                    font-weight: $font-light;
+                }
+
+                .mechanismOfActionPipeline {
+                    border-left: 0px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        .buttonPipeline {
+            .compound-btn {}
+
+            .indication-btn {}
+        }
+
+        .resultsCompound,
+        .resultsIndication {
+            width: 100%;
+            align-items: start;
+
+            .bodyPipeline {
+                width: 100%;
+
+                .rowPipeline {
+                    background-image: linear-gradient(to right, $color-third 33%, $white 0%);
+                    background-position: bottom;
+                    background-size: 15px 1px;
+                    background-repeat: repeat-x;
+
+                    &.last {
+                        background-image: linear-gradient(to right, $color-third 100%, $white 0%);
+                        background-size: 15px 2px;
+                    }
+
+                    .compoundPipeline,
+                    .mechanismOfActionPipeline,
+                    .indicationPipeline,
+                    .developmentStagePipeline,
+                    .clinicalTrialsPipeline,
+                    .popUpPipeline {
+                        width: 60%;
+                        min-height: 100px;
+                        margin-left: auto;
+                        padding: 20px 20px 20px 20px;
+                        position: relative;
+                        border-left: 1px solid $color-third;
+                        opacity: 1;
+                        overflow: visible;
+
+                        &:before {
+                            display: block;
+                            margin-left: -70%;
+                            margin-top: 0px;
+                            position: absolute;
+                            max-width: 90px;
+                            font-family: $font-family-Georgia;
+                            font-weight: $font-regular;
+                            font-size: 16px;
+                            font-style: italic;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    .compoundPipeline:before {
+                        content: "Compound";
+                    }
+
+                    .mechanismOfActionPipeline:before {
+                        content: "Mechanism Of Action";
+                    }
+
+                    .indicationPipeline:before {
+                        content: "Indication";
+                    }
+
+                    .developmentStagePipeline:before {
+                        content: "Development Stage";
+                    }
+
+                    .clinicalTrialsPipeline:before {
+                        content: "Clinical Trials";
+                    }
+
+                    .popUpPipeline:before {
+                        content: " ";
+                    }
+
+
+
+                }
+            }
+
+        }
+
+        .resultsCompound {
+            .headerPipeline {
+                display: none;
+            }
+
+            .bodyPipeline {
+                .rowPipeline {
+                    flex-direction: column;
+
+                    &.compounds {}
+
+                    .compoundPipeline {
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        font-family: $font-family-oswald;
+                        font-weight: $font-regular;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .resultsIndication {
+            .headerPipeline {
+                display: none;
+            }
+
+            .bodyPipeline {
+                .rowPipeline {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

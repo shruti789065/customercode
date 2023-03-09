@@ -4686,6 +4686,505 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
             order: 4;
   }
 }
+.table .table_header_row {
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.table .table_header_row .col {
+  text-align: left;
+  font-family: georgia;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #143F59;
+  font-style: italic;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 26px;
+  padding-right: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-width: 100%;
+  float: left;
+  width: 30%;
+}
+.table .table_row {
+  padding-top: 10px;
+  float: left;
+  width: 100%;
+  border-bottom: 3px solid #ECECEC;
+}
+.table .table_row .col {
+  float: left;
+  width: 30%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+  font-family: georgia;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #484542;
+  font-style: italic;
+  padding-left: 26px;
+  padding-right: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-width: 100%;
+}
+
+#pipeline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#pipeline .buttonPipeline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 20px 0px;
+}
+#pipeline .buttonPipeline button {
+  background-color: #ECECEC;
+  color: #ffffff;
+  padding: 7px 25px;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-transform: uppercase;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  border: 0px;
+  cursor: pointer;
+}
+#pipeline .buttonPipeline button.active {
+  background-color: #D3ECF2;
+  color: #216DAE;
+}
+#pipeline .buttonPipeline .compound-btn {
+  margin-right: 30px;
+}
+#pipeline .resultsCompound,
+#pipeline .resultsIndication {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: none;
+  opacity: 0;
+  -webkit-transition: 2.5s;
+  transition: 2.5s;
+}
+#pipeline .resultsCompound.show,
+#pipeline .resultsIndication.show {
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#pipeline .resultsCompound .compoundPipeline,
+#pipeline .resultsIndication .compoundPipeline {
+  width: 12.5%;
+}
+#pipeline .resultsCompound .mechanismOfActionPipeline,
+#pipeline .resultsIndication .mechanismOfActionPipeline {
+  width: 20%;
+}
+#pipeline .resultsCompound .indicationPipeline,
+#pipeline .resultsIndication .indicationPipeline {
+  width: 20%;
+}
+#pipeline .resultsCompound .developmentStagePipeline,
+#pipeline .resultsIndication .developmentStagePipeline {
+  width: 22.5%;
+  padding-left: 0.25%;
+  padding-right: 0.25%;
+}
+#pipeline .resultsCompound .clinicalTrialsPipeline,
+#pipeline .resultsIndication .clinicalTrialsPipeline {
+  width: 10%;
+}
+#pipeline .resultsCompound .popUpPipeline,
+#pipeline .resultsIndication .popUpPipeline {
+  width: 10%;
+}
+#pipeline .resultsCompound .headerPipeline,
+#pipeline .resultsIndication .headerPipeline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 2px solid #949283;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 20px;
+  font-style: italic;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#pipeline .resultsCompound .headerPipeline .compoundPipeline,
+#pipeline .resultsIndication .headerPipeline .compoundPipeline {
+  padding-left: 20px;
+}
+#pipeline .resultsCompound .headerPipeline .mechanismOfActionPipeline,
+#pipeline .resultsIndication .headerPipeline .mechanismOfActionPipeline {
+  padding-left: 26px;
+}
+#pipeline .resultsCompound .bodyPipeline,
+#pipeline .resultsIndication .bodyPipeline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline.first .compoundPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline.first .compoundPipeline {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  opacity: 1;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline.last,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline.last {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(33%, #949283), color-stop(0%, #ffffff));
+  background-image: linear-gradient(to right, #949283 33%, #ffffff 0%);
+  background-position: bottom;
+  background-size: 15px 1px;
+  background-repeat: repeat-x;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .compoundPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .compoundPipeline {
+  opacity: 0;
+  padding: 20px 0px 20px 20px;
+  overflow: hidden;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .mechanismOfActionPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .mechanismOfActionPipeline {
+  font-size: 20px;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  padding: 20px 0px 20px 26px;
+  border-left: 1px solid #949283;
+  min-height: 100px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .indicationPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .indicationPipeline {
+  font-size: 20px;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  padding: 20px 0px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline {
+  padding: 20px 0.25% 20px 0.25%;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label {
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #143F59;
+  width: 16.66%;
+  height: 23px;
+  text-align: center;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label.Ia, #pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label.Ib,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label.Ia,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label.Ib {
+  width: 8.33%;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label.false,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsHeader .label.false {
+  color: #949283;
+  opacity: 0.5;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow {
+  width: 16.66%;
+  height: 23px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.Ia, #pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.Ib,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.Ia,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.Ib {
+  width: 8.33%;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.true,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.true {
+  border-right: 1px dashed #ffffff;
+  background-color: #BD6FE6;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.true.last,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline .developmentStageSteps .dsBody .flow.true.last {
+  border-right: 0px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .clinicalTrialsPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .clinicalTrialsPipeline {
+  padding: 20px 0px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .clinicalTrialsPipeline a,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .clinicalTrialsPipeline a {
+  color: #2020E0;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline {
+  padding: 20px 0px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline button,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline button {
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  border: 0px;
+  background-color: unset;
+  color: #143F59;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline .modal .modal-dialog .modal-content,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline .modal .modal-dialog .modal-content {
+  border-radius: 0px;
+  padding: 20px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline .modal .modal-dialog .modal-content .modal-header,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline .modal .modal-dialog .modal-content .modal-header {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  padding: 0px 0px 15px 0px;
+}
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline .modal .modal-dialog .modal-content .modal-body,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline .modal .modal-dialog .modal-content .modal-body {
+  padding: 15px 0px 0px 0px;
+}
+#pipeline .resultsCompound.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#pipeline .resultsIndication .headerPipeline .indicationPipeline {
+  padding: 0px 0px 0px 20px;
+}
+#pipeline .resultsIndication .headerPipeline .compoundPipeline {
+  padding: 0px 0px 0px 20px;
+}
+#pipeline .resultsIndication .bodyPipeline .rowPipeline.first .indicationPipeline {
+  opacity: 1;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+#pipeline .resultsIndication .bodyPipeline .rowPipeline.first .compoundPipeline {
+  text-transform: unset;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+}
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .indicationPipeline {
+  opacity: 0;
+  padding: 20px 0px 20px 20px;
+  font-size: 20px;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .compoundPipeline {
+  opacity: 1;
+  padding: 20px 0px 20px 20px;
+  border-left: 1px solid #949283;
+  min-height: 100px;
+  font-size: 20px;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 200;
+}
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .mechanismOfActionPipeline {
+  border-left: 0px;
+}
+@media screen and (max-width: 992px) {
+  #pipeline .resultsCompound,
+#pipeline .resultsIndication {
+    width: 100%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  #pipeline .resultsCompound .bodyPipeline,
+#pipeline .resultsIndication .bodyPipeline {
+    width: 100%;
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(33%, #949283), color-stop(0%, #ffffff));
+    background-image: linear-gradient(to right, #949283 33%, #ffffff 0%);
+    background-position: bottom;
+    background-size: 15px 1px;
+    background-repeat: repeat-x;
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline.last,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline.last {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #949283), color-stop(0%, #ffffff));
+    background-image: linear-gradient(to right, #949283 100%, #ffffff 0%);
+    background-size: 15px 2px;
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .compoundPipeline,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .mechanismOfActionPipeline,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .indicationPipeline,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .clinicalTrialsPipeline,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .compoundPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .mechanismOfActionPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .indicationPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .clinicalTrialsPipeline,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline {
+    width: 60%;
+    min-height: 100px;
+    margin-left: auto;
+    padding: 20px 20px 20px 20px;
+    position: relative;
+    border-left: 1px solid #949283;
+    opacity: 1;
+    overflow: visible;
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .compoundPipeline:before,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .mechanismOfActionPipeline:before,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .indicationPipeline:before,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline:before,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .clinicalTrialsPipeline:before,
+#pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .compoundPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .mechanismOfActionPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .indicationPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .clinicalTrialsPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline:before {
+    display: block;
+    margin-left: -70%;
+    margin-top: 0px;
+    position: absolute;
+    max-width: 90px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: italic;
+    text-transform: capitalize;
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .compoundPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .compoundPipeline:before {
+    content: "Compound";
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .mechanismOfActionPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .mechanismOfActionPipeline:before {
+    content: "Mechanism Of Action";
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .indicationPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .indicationPipeline:before {
+    content: "Indication";
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .developmentStagePipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .developmentStagePipeline:before {
+    content: "Development Stage";
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .clinicalTrialsPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .clinicalTrialsPipeline:before {
+    content: "Clinical Trials";
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .popUpPipeline:before,
+#pipeline .resultsIndication .bodyPipeline .rowPipeline .popUpPipeline:before {
+    content: " ";
+  }
+  #pipeline .resultsCompound .headerPipeline {
+    display: none;
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #pipeline .resultsCompound .bodyPipeline .rowPipeline .compoundPipeline {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    opacity: 1;
+  }
+  #pipeline .resultsIndication .headerPipeline {
+    display: none;
+  }
+  #pipeline .resultsIndication .bodyPipeline .rowPipeline {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .cmp-share .cmp-button {
   -webkit-filter: invert(25%) sepia(57%) saturate(4461%) hue-rotate(280deg) brightness(102%) contrast(90%);
           filter: invert(25%) sepia(57%) saturate(4461%) hue-rotate(280deg) brightness(102%) contrast(90%);

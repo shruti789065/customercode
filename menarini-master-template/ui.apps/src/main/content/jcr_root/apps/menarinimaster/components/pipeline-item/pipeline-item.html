@@ -1,0 +1,28 @@
+<sly data-sly-test.configured=${properties.compoundValue}></sly>
+<sly data-sly-test="${wcmmode.edit || wcmmode.preview}">
+    <div class="table">
+        <div class="table_header_row">
+            <div class="col first">
+                Compound
+            </div>
+            <div class="col second">
+                Mechanism Of Action
+            </div>
+            <div class="col third">
+                Indication
+            </div>
+        </div>
+        <div class="table_row first no_border">
+            <div class="col first">
+                <span class="title first">${properties.compoundValue}</span>
+            </div>
+            <div class="col second">
+                <span class="internal-title">${properties.mechanismOfAction}</span>
+            </div>
+            <div class="col third">
+                <span class="internal-title">${properties.indicationValue}</span>
+            </div>
+        </div>
+    </div>
+</sly>
+<div data-sly-test="${ !configured }" data-emptytext="Pipeline Item" class="cq-placeholder"></div>
