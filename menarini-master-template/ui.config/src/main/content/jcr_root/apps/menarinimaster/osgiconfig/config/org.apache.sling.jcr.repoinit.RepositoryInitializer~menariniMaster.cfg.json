@@ -1,5 +1,6 @@
 {
     "scripts": [
+        "create service user menarini-user",
         "create path (sling:OrderedFolder) /content/dam/menarinimaster",
         "create path (nt:unstructured) /content/dam/menarinimaster/jcr:content",
         "set properties on /content/dam/menarinimaster/jcr:content\n  set cq:conf{String} to /conf/menarinimaster\n  set jcr:title{String} to \"Menarini Master Template\"\nend"
