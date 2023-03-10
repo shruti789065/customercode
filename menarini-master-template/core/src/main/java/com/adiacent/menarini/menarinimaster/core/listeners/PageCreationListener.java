@@ -61,8 +61,8 @@ public class PageCreationListener implements EventHandler{
             Iterator<PageModification> pageInfo=PageEvent.fromEvent(event).getModifications();
             while (pageInfo.hasNext()){
                 PageModification pageModification=pageInfo.next();
-                LOGGER.info("\n Type :  {},  Page : {}",pageModification.getType(),pageModification.getPath());
-                pageModification.getEventProperties().forEach((k,v)->LOGGER.info("\n key : {}, Value : {} " , k , v));
+                //LOGGER.info("\n Type :  {},  Page : {}",pageModification.getType(),pageModification.getPath());
+                //pageModification.getEventProperties().forEach((k,v)->LOGGER.info("\n key : {}, Value : {} " , k , v));
 
                 //evento dedicato alla creazione di pagina( non alla sua modifica )
                 if (pageModification.getType() == PageModification.ModificationType.CREATED){
