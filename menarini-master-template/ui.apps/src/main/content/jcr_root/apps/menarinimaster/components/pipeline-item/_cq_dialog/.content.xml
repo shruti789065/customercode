@@ -33,90 +33,24 @@
 											               fieldDescription="Select Compound Value"
 											               fieldLabel="Compound"
 											               name="./compoundValue">
-												<items jcr:primaryType="nt:unstructured">
-													<compound1
-															jcr:primaryType="nt:unstructured"
-															text="TAGRAXOFUSP"
-															value="tagraxofusp" />
-													<compound2
-															jcr:primaryType="nt:unstructured"
-															text="ELACESTRANT"
-															value="elacestrant" />
-													<compound3
-															jcr:primaryType="nt:unstructured"
-															text="MEN1611"
-															value="men1611" />
-													<compound4
-															jcr:primaryType="nt:unstructured"
-															text="SL-701"
-															value="sl-701" />
-													<compound5
-															jcr:primaryType="nt:unstructured"
-															text="MEN1703"
-															value="men1703" />
-													<compound6
-															jcr:primaryType="nt:unstructured"
-															text="MEN1309"
-															value="men1309" />
-													<compound7
-															jcr:primaryType="nt:unstructured"
-															text="FELEZONEXOR"
-															value="felezonexor" />
-													<compound8
-															jcr:primaryType="nt:unstructured"
-															text="SL-901"
-															value="sl-901" />
-												</items>
+												<datasource
+														jcr:primaryType="nt:unstructured"
+														sling:resourceType="/bin/menariniStemline/compoundOption"/>
 											</compoundValue>
-											<mechanismOfAction
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-													fieldLabel="Mechanism of action"
-													name="./mechanismOfAction"/>
 											<indicationValue jcr:primaryType="nt:unstructured"
 											                 sling:resourceType="granite/ui/components/foundation/form/select"
 											                 fieldDescription="Select Indication value"
 											                 fieldLabel="Indication"
 											                 name="./indicationValue">
-												<items jcr:primaryType="nt:unstructured">
-													<indication1
-															jcr:primaryType="nt:unstructured"
-															text="Blastic plasmacytoid dendritic cell neoplasm"
-															value="blastic plasmacytoid dendritic cell neoplasm" />
-													<indication2
-															jcr:primaryType="nt:unstructured"
-															text="Acute myeloid leukemia"
-															value="acute myeloid leukemia" />
-													<indication3
-															jcr:primaryType="nt:unstructured"
-															text="Chronic myelomonocytic leukemia"
-															value="chronic myelomonocytic leukemia" />
-													<indication4
-															jcr:primaryType="nt:unstructured"
-															text="Breast cancer monotherapy"
-															value="breast cancer monotherapy" />
-													<indication5
-															jcr:primaryType="nt:unstructured"
-															text="Breast cancer combination"
-															value="breast cancer combination" />
-													<indication6
-															jcr:primaryType="nt:unstructured"
-															text="Multiple myeloma"
-															value="multiple myeloma" />
-													<indication7
-															jcr:primaryType="nt:unstructured"
-															text="Glioblastoma"
-															value="glioblastoma" />
-													<indication8
-															jcr:primaryType="nt:unstructured"
-															text="Colorectal cancer"
-															value="colorectal cancer" />
-													<indication9
-															jcr:primaryType="nt:unstructured"
-															text="Solid tumors"
-															value="solid tumors" />
-												</items>
+												<datasource
+														jcr:primaryType="nt:unstructured"
+														sling:resourceType="/bin/menariniStemline/indicationOption"/>
 											</indicationValue>
+											<mechanismOfAction
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+													fieldLabel="Mechanism of action"
+													name="./mechanismOfAction"/>
 										</items>
 									</column>
 								</items>
@@ -268,7 +202,7 @@
 											<readMore
 													jcr:primaryType="nt:unstructured"
 													sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-													fieldDescription="A description to display as the subheadline for the teaser."
+													fieldDescription="A description to display when read more module open."
 													fieldLabel="Description"
 													name="./readMore"
 													useFixedInlineToolbar="{Boolean}true">

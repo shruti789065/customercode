@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="f564e3c0-b428-4073-9871-0548d8cc66bd">
+    <jcr:content
+        cq:name="multiple-myeloma"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/indication-dropdown"
+        jcr:lastModified="{Date}2023-03-09T16:55:23.555+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Multiple myeloma"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T16:55:23.555+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="Multiple myeloma"
+                label_x0040_LastModified="{Date}2023-03-09T16:55:23.537+01:00"
+                value="multiple myeloma"
+                value_x0040_LastModified="{Date}2023-03-09T16:55:23.538+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="f1c6e71f-b4f7-4a38-b6b6-517fd3e4602c"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="Multiple myeloma"
+                string_x0040_value="multiple myeloma"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
