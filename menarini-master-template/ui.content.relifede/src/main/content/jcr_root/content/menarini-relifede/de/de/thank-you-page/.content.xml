@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-02-28T16:28:33.531+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/menarini-relifede/settings/wcm/templates/menarini---content-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Thank you page"
+        sling:resourceType="menarinimaster/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader
+                    jcr:lastModified="{Date}2022-05-27T16:15:23.398+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/internalheader"/>
+                <breadcrumb
+                    jcr:lastModified="{Date}2022-05-27T16:15:51.228+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/breadcrumb"/>
+                <container
+                    jcr:lastModified="{Date}2023-02-28T16:20:50.036+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/container"
+                    layout="responsiveGrid">
+                    <container
+                        cq:styleIds="[1677232233407]"
+                        jcr:lastModified="{Date}2023-02-28T16:28:33.527+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container">
+                        <title
+                            cq:styleIds="[1653552493699]"
+                            jcr:lastModified="{Date}2023-02-28T16:28:22.371+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h2"/>
+                    </container>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

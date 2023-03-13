@@ -24,12 +24,16 @@
      data-placeholder-text="${wcmmode.edit && 'Please drag Tab components here' @ i18n}">
 
 	<sly data-sly-test="${(wcmmode.edit || wcmmode.preview)}">
-		<div class="cmp-container__layout aem-Grid aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
-			<div class="image cmp-image--logo aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--6 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
-
-				<a  data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}" href="${btnLink.formattedLink}"><sly data-sly-resource="${megamenuTabs.image}"/></a>
+		<div class="cmp-container__layout aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
+			<div class="image cmp-image--logo">
+				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"
+				   href="${btnLink.formattedLink}">
+					<div class="cmp-image">
+						<img class="cmp-image__image">
+					</div>
+				</a>
 			</div>
-			<div class="menu-nav aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--6 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--tablet--8 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--1 aem-GridColumn--default--9">
+			<div class="menu-nav">
 				<ol data-sly-test="${megamenuTabs.items && megamenuTabs.items.size > 0}"
 				    data-sly-list.tab="${megamenuTabs.items}"
 				    role="tablist"
@@ -65,13 +69,18 @@
 	<sly data-sly-test="${(!wcmmode.edit && !wcmmode.preview)}">
 		<sly data-sly-use.rrh="${'com.adiacent.menarini.menarinimaster.core.models.ResourceResolverHelper' @item=item}"
 		     data-sly-test.toShow="${rrh.resourceType!='menarinimaster/components/link'}"/>
-		<div class="cmp-container__layout aem-Grid aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
+		<div class="cmp-container__layout aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
 
-			<div class="image cmp-image--logo aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--6 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
-
-				<a  data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}" href="${btnLink.formattedLink}"><sly data-sly-resource="${megamenuTabs.image}"/></a>
+			<div class="image cmp-image--logo">
+				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"
+				   href="${btnLink.formattedLink}">
+					<div class="cmp-image">
+						<img alt="site logo" class="cmp-image__image"/>
+					</div>
+				</a>
 			</div>
-			<div class="menu-nav aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--6 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--tablet--8 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--1 aem-GridColumn--default--9">
+
+			<div class="menu-nav">
 				<ol data-sly-test="${megamenuTabs.items && megamenuTabs.items.size > 0}"
 				    data-sly-list.tab="${megamenuTabs.items}"
 				    role="tablist"
@@ -115,13 +124,13 @@
 			/>
 
 			<div data-sly-resource="${item.name @ decorationTagName='div'}"
-					id="${item.id}-tabpanel"
-					role="tabpanel"
-					aria-labelledby="${item.id}-tab"
-					tabindex="0"
-					class="cmp-tabs__tabpanel${wcmmode.edit && itemList.first ? ' cmp-tabs__tabpanel--active' : ''} tabs-menu__container cmp-container__layout ${!toShow ? 'hidden' : ''}"
-					data-cmp-hook-tabs="tabpanel"
-					data-cmp-data-layer="${item.data.json}" data-cmp-panel-title="${item.data.title}">
+			     id="${item.id}-tabpanel"
+			     role="tabpanel"
+			     aria-labelledby="${item.id}-tab"
+			     tabindex="0"
+			     class="cmp-tabs__tabpanel${wcmmode.edit && itemList.first ? ' cmp-tabs__tabpanel--active' : ''} tabs-menu__container cmp-container__layout ${!toShow ? 'hidden' : ''}"
+			     data-cmp-hook-tabs="tabpanel"
+			     data-cmp-data-layer="${item.data.json}" data-cmp-panel-title="${item.data.title}">
 			</div>
 		</sly>
 	</sly>

@@ -8,6 +8,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const SOURCE_ROOT = __dirname + '/src/main/webpack';
+const SITE_masterTemplate='/mastertemplate';
+const SITE_menarinimaster='/menarinimaster';
+const SITE_stemline='/stemline';
+const SITE_relifede='/relifede';
 
 const resolve = {
     extensions: ['.js', '.ts'],
@@ -19,11 +23,13 @@ const resolve = {
 module.exports = {
     resolve: resolve,
     entry: {
-        site: SOURCE_ROOT + '/site/main.ts'
+        site: SOURCE_ROOT + SITE_menarinimaster +'/site/main.ts',
+        stemline: SOURCE_ROOT + SITE_stemline +'/site/main.ts',
+		relifede: SOURCE_ROOT + SITE_relifede +'/site/main.ts'
     },
     output: {
         filename: (chunkData) => {
-            return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-site/[name].js';
+            return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-[name]/[name].js';
         },
         path: path.resolve(__dirname, 'dist')
     },
@@ -87,7 +93,10 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/' }
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_masterTemplate  + '/resources/'), to: './clientlib-site'},
+				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_menarinimaster  + '/resources/'), to: './clientlib-site'},
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_stemline + '/resources/'), to: './clientlib-stemline'},
+                { from: path.resolve(__dirname, SOURCE_ROOT + SITE_relifede + '/resources/'), to: './clientlib-relifede'}
             ]
         })
     ],

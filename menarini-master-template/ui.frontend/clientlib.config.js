@@ -42,6 +42,7 @@ module.exports = {
   context: BUILD_DIR,
   clientLibRoot: CLIENTLIB_DIR,
   libs: [
+  // site menarinimaster
     {
       ...libsBaseConfig,
       name: 'clientlib-dependencies',
@@ -88,6 +89,106 @@ module.exports = {
           ignore: ['**/*.js', '**/*.css']
         }
       }
-    }
+    },
+
+    // site stemline
+
+    {
+      ...libsBaseConfig,
+      name: 'clientlib-dependencies-stemline',
+      categories: ['menarinistemline.dependencies'],
+      assets: {
+        // Copy entrypoint scripts and stylesheets into the respective ClientLib
+        // directories
+        js: {
+          cwd: 'clientlib-dependencies-stemline',
+          files: ['**/*.js'],
+          flatten: false
+        },
+        css: {
+          cwd: 'clientlib-dependencies-stemline',
+          files: ['**/*.css'],
+          flatten: false
+        }
+      }
+    },
+    {
+      ...libsBaseConfig,
+      name: 'clientlib-stemline',
+      categories: ['menarinistemline.site'],
+      dependencies: ['menarinistemline.dependencies'],
+      assets: {
+        // Copy entrypoint scripts and stylesheets into the respective ClientLib
+        // directories
+        js: {
+          cwd: 'clientlib-stemline',
+          files: ['**/*.js'],
+          flatten: false
+        },
+        css: {
+          cwd: 'clientlib-stemline',
+          files: ['**/*.css'],
+          flatten: false
+        },
+
+        // Copy all other files into the `resources` ClientLib directory
+        resources: {
+          cwd: 'clientlib-stemline',
+          files: ['**/*.*'],
+          flatten: false,
+          ignore: ['**/*.js', '**/*.css']
+        }
+      }
+    },
+
+	 // site Relife-DE
+
+	 {
+		...libsBaseConfig,
+		name: 'clientlib-dependencies-relifede',
+		categories: ['menarinirelifede.dependencies'],
+		assets: {
+		  // Copy entrypoint scripts and stylesheets into the respective ClientLib
+		  // directories
+		  js: {
+			cwd: 'clientlib-dependencies-relifede',
+			files: ['**/*.js'],
+			flatten: false
+		  },
+		  css: {
+			cwd: 'clientlib-dependencies-relifede',
+			files: ['**/*.css'],
+			flatten: false
+		  }
+		}
+	  },
+	  {
+		...libsBaseConfig,
+		name: 'clientlib-relifede',
+		categories: ['menarinirelifede.site'],
+		dependencies: ['menarinirelifede.dependencies'],
+		assets: {
+		  // Copy entrypoint scripts and stylesheets into the respective ClientLib
+		  // directories
+		  js: {
+			cwd: 'clientlib-relifede',
+			files: ['**/*.js'],
+			flatten: false
+		  },
+		  css: {
+			cwd: 'clientlib-relifede',
+			files: ['**/*.css'],
+			flatten: false
+		  },
+  
+		  // Copy all other files into the `resources` ClientLib directory
+		  resources: {
+			cwd: 'clientlib-relifede',
+			files: ['**/*.*'],
+			flatten: false,
+			ignore: ['**/*.js', '**/*.css']
+		  }
+		}
+	  }
   ]
 };
