@@ -5,6 +5,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     padding: 60px 0px;
+    overflow: hidden;
 
     .row {
         display: flex;
@@ -27,7 +28,7 @@
     }
 
     .title * {
-        color: #FFF;
+        color: $white;
         font-family: $font-family-oswald;
         font-weight: 200;
         font-style: normal;
@@ -47,10 +48,14 @@
     .icon {
         justify-content: center;
         padding-top: 30px;
+        img {
+            width: 100%;
+            max-width: 100px;
+        }
     }
 
     .text {
-        color: #FFF;
+        color: $white;
         justify-content: center;
         flex-direction: column;
         align-items: center;
@@ -75,11 +80,12 @@
 
         img {
             max-width: 300px;
+            width: 100%;
         }
     }
 
     .finalText {
-        color: #FFF;
+        color: $white;
         text-align: center;
         padding-top: 30px;
     }

@@ -145,13 +145,15 @@
 .teaser.cmp-teaser--background_secondary .cmp-teaser__content,
 .teaser.cmp-teaser--background_secondary .cmp-teaser__link {
 	&:hover {
-		background-color: rgba(7, 131, 255, 0.7);
+		background-color: $color-secondary;
+		opacity: .7;
 	}
 }
 .teaser.cmp-teaser--background_primary .cmp-teaser__content,
 .teaser.cmp-teaser--background_primary .cmp-teaser__link {
 	&:hover {
-		background-color: rgba(245, 51, 63, 0.7);
+		background-color: $color-primary;
+		opacity: .7;
 	}
 }
 
@@ -433,3 +435,64 @@
 	}
 }
 /* end news card*/
+
+/* start box leadership card*/
+.cmp-teaser--avatar-team{
+	.cmp-teaser{
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: flex-start;
+		margin: 30px 0;
+		.cmp-teaser__content{
+			order: 2;
+			padding: 10px 40px;
+			font-family: $font-family-oswald;
+			.cmp-teaser__title{
+				margin: auto;
+				padding-bottom: 10px;
+				font-weight: $font-light;
+				font-size: 30px;
+				color: $color-primary-hover;
+			}
+			.cmp-teaser__description{
+				font-size: 20px;
+				text-transform: uppercase;
+				color: $color-corporate;
+				p {
+					margin: auto;
+				}
+			}
+			.cmp-teaser__action-container{
+				.cmp-teaser__action-link{
+					color: $color-text;
+					text-transform: uppercase;
+					font-size: 14px
+				}
+	
+			}
+		}
+		.cmp-teaser__image{
+			order:1;
+			.cmp-image{
+				.cmp-image__image{
+					height: 200px;
+					border-radius: 50%;
+					width: 200px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.cmp-teaser--avatar-team{
+		.cmp-teaser{
+			flex-direction: column;
+			.cmp-teaser__content{
+				text-align: center;
+				padding: 10px;
+			}
+		}
+	}
+}
