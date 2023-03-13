@@ -25,5 +25,5 @@ public class Constants {
     public static final String JSON = "json";
 
     public static String SERVICE_NAME = "menarinimaster";
-    public static String INTERNAL_MENU_TEMPLATE_REGEXP = "/conf/[\\w]+/settings/wcm/templates/(menarini---details-news|menarini---details-page|menarini---details-product|menarini---product-category|menarini---product-list-pharmaceutical|menarini---product-list-healthcare)";
+    public static String INTERNAL_MENU_TEMPLATE_REGEXP = "/conf/[\\w-]+/settings/wcm/templates/(menarini---details-news|menarini---details-page|menarini---details-product|menarini---product-category|menarini---product-list-pharmaceutical|menarini---product-list-healthcare)";
 }
