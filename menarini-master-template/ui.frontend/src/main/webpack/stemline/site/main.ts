@@ -3,6 +3,7 @@
 import "./main.scss";
 
 /* Javascript or Typescript */
+import 'bootstrap';
 import "../../mastertemplate/**/*.js";
 import "./**/*.js";
 //import "./**/*.ts";
