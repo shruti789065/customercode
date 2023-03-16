@@ -59,23 +59,30 @@ jQuery(function () {
 		}
 
 	});
-});
 
-jQuery("button[type='submit']").on("click keypress", function () {
-	$('#new_form').on('submit', function (e) {
-		//controllo valori input
-		var inputsValid = validateInputs();
-		//controllo valori radio button
-		var radiosValid = validateRadios();
-		//controllo valori recaptcha
-		//var recaptchaValid=validateRecaptcha();
-		var valid = inputsValid && radiosValid;
-		//var valid=inputsValid && radiosValid && recaptchaValid;
-		if (!valid) {
-			e.preventDefault();
+	const submitButton = document.querySelector('button[type="submit"]');
+
+	submitButton.addEventListener('click','keyPress', (event) => {
+		// Preveniamo l'invio automatico del form
+		event.preventDefault();
+
+		// Otteniamo il riferimento al form
+		const form = submitButton.closest('form');
+
+		// Eseguiamo i controlli di validazione degli input
+		const inputsAreValid = validateInputs(form);
+		const radiosAreValid = validateRadios(form);
+
+		// Se tutti i controlli di validazione hanno successo, inviamo il form
+		if (inputsAreValid && radiosAreValid) {
+			form.submit();
 		}
 	});
+
 });
+
+/*jQuery("button[type='submit']").on("click keypress", function () {
+});*/
 //restituisce true se recaptcha validato, false altrimenti
 function validateRecaptcha() {
 	var tokenRecaptcha = document.getElementById('g-recaptcha-response').value;
