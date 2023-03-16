@@ -1,8 +1,17 @@
 /* eslint-disable max-len */
 const copyDataFromJsonCompound = () => {
   const domainName = window.location.hostname;
+  const port = window.location.port;
   const currentNodePipeline = document.querySelector('.currentNodePipeline').value;
-  const url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
+  let url;
+
+  if (domainName === 'localhost' && port === '4502') {
+    url = `http://${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
+  } else if (domainName === 'localhost') {
+    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/compound.json';
+  } else {
+    url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
+  }
 
   fetch(url)
     .then((response) => response.json())
@@ -11,10 +20,20 @@ const copyDataFromJsonCompound = () => {
     })
     .catch((error) => console.error(error));
 };
+
 const copyDataFromJsonIndication = () => {
   const domainName = window.location.hostname;
+  const port = window.location.port;
   const currentNodePipeline = document.querySelector('.currentNodePipeline').value;
-  const url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=indication`;
+  let url;
+
+  if (domainName === 'localhost' && port === '4502') {
+    url = `http://${domainName}:${port}${currentNodePipeline}.pipeline.json?type=indication`;
+  } else if (domainName === 'localhost') {
+    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/indication.json';
+  } else {
+    url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=indication`;
+  }
 
   fetch(url)
     .then((response) => response.json())
@@ -23,7 +42,6 @@ const copyDataFromJsonIndication = () => {
     })
     .catch((error) => console.error(error));
 };
-
 
 function displayDataCompound() {
   const compoundData = JSON.parse(localStorage.getItem("compoundData"));
