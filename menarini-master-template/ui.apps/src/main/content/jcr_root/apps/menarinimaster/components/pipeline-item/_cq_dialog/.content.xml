@@ -28,20 +28,39 @@
 											jcr:primaryType="nt:unstructured"
 											sling:resourceType="granite/ui/components/coral/foundation/container">
 										<items jcr:primaryType="nt:unstructured">
-											<compoundValue jcr:primaryType="nt:unstructured"
-											               sling:resourceType="granite/ui/components/foundation/form/select"
-											               fieldDescription="Select Compound Value"
-											               fieldLabel="Compound"
-											               name="./compoundValue">
+											<compoundValue
+													jcr:primaryType="nt:unstructured"
+									                sling:resourceType="granite/ui/components/foundation/form/select"
+									                fieldDescription="Select Compound Value"
+									                fieldLabel="Compound"
+									                name="./compoundValue">
 												<datasource
 														jcr:primaryType="nt:unstructured"
 														sling:resourceType="/bin/menariniStemline/compoundOption"/>
 											</compoundValue>
-											<indicationValue jcr:primaryType="nt:unstructured"
-											                 sling:resourceType="granite/ui/components/foundation/form/select"
-											                 fieldDescription="Select Indication value"
-											                 fieldLabel="Indication"
-											                 name="./indicationValue">
+											<statusType
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/select"
+													fieldDescription="Select Component Type"
+													fieldLabel="Status"
+													name="./statusType">
+												<items jcr:primaryType="nt:unstructured">
+													<open
+															jcr:primaryType="nt:unstructured"
+															text="Open"
+															value="open"/>
+													<close
+															jcr:primaryType="nt:unstructured"
+															text="Close"
+															value="close"/>
+												</items>
+											</statusType>
+											<indicationValue
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/foundation/form/select"
+									                fieldDescription="Select Indication value"
+									                fieldLabel="Indication"
+									                name="./indicationValue">
 												<datasource
 														jcr:primaryType="nt:unstructured"
 														sling:resourceType="/bin/menariniStemline/indicationOption"/>

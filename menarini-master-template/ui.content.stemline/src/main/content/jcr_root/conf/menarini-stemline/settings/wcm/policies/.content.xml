@@ -544,12 +544,12 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_13297555366500>
                 <policy_18390849275000
-                    jcr:lastModified="{Date}2023-02-28T17:01:10.482+01:00"
+                    jcr:lastModified="{Date}2023-03-14T10:41:18.469+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content,group:Menarini MT - Form]"
+                    components="[group:Menarini MT - Content,group:Menarini MT - Form,/apps/menarinimaster/components/pipeline-container]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -1112,13 +1112,14 @@
             </accordion>
             <pipeline-container jcr:primaryType="nt:unstructured">
                 <policy_1678200814581
-                    jcr:lastModified="{Date}2023-03-09T10:26:49.203+01:00"
+                    jcr:lastModified="{Date}2023-03-10T16:08:47.015+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Pipeline container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="/apps/menarinimaster/components/pipeline-item"
-                    layoutDisabled="false">
+                    layout="responsiveGrid"
+                    layoutDisabled="true">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1678200814581>
             </pipeline-container>

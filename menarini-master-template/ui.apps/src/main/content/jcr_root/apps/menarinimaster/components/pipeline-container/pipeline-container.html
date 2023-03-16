@@ -21,4 +21,4 @@
          data-sly-use.simpleTemplate="simple.html"
          data-sly-call="${simpleTemplate.simple @ container=container}"></sly>
 </sly>
-<input type="hidden" value="${currentNode.path}" class="currentNodePipeline"/>
+<input type="hidden" value="${currentNode.path}" class="${properties.componentType == 'componentClinicalTrials' ? 'currentNodeClinicalTrials' : 'currentNodePipeline'}"/>

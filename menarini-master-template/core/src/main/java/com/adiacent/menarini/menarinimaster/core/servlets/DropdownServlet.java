@@ -54,9 +54,14 @@ public class DropdownServlet extends SlingSafeMethodsServlet {
                 while(compoundOptions.hasNext()){
                     Resource dropDownOption = (Resource)compoundOptions.next();
                     if(!dropDownOption.getPath().contains("/jcr:content")){
+                        String value;
                         ContentFragment cf =  dropDownOption.adaptTo(ContentFragment.class);
                         String label = cf.getElement("label").getContent();
-                        String value = cf.getElement("value").getContent();
+                        if(rootkey.equals("compoundOption")){
+                            value = dropDownOption.getPath();
+                        }else {
+                            value = cf.getElement("value").getContent();
+                        }
                         dropDownList.add(new KeyValue() {
                             @Override
                             public Object getKey() {

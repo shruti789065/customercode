@@ -1,9 +1,11 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
+import com.adobe.cq.dam.cfm.ContentFragment;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,8 +38,9 @@ public class PipelineServlet extends SlingSafeMethodsServlet {
         try{
             Resource currentResource = request.getResource();
             Node currentNode = currentResource.adaptTo(Node.class);
+            ResourceResolver resourceResolver = request.getResourceResolver();
             if(currentNode != null){
-                JSONArray jsonArray = getResult(request, currentNode);
+                JSONArray jsonArray = getResult(request, currentNode ,resourceResolver);
                 response.setContentType(Constants.APPLICATION_JSON);
                 response.getWriter().print(jsonArray);
             }
@@ -46,7 +49,7 @@ public class PipelineServlet extends SlingSafeMethodsServlet {
         }
     }
 
-    protected JSONArray getResult(SlingHttpServletRequest request, Node currentNode) throws RepositoryException, JSONException {
+    protected JSONArray getResult(SlingHttpServletRequest request, Node currentNode , ResourceResolver resourceResolver) throws RepositoryException, JSONException {
         List <JSONObject> resultsList = new ArrayList<>();
         JSONArray results = new JSONArray();
         if(request.getParameter("type") != null){
@@ -54,7 +57,12 @@ public class PipelineServlet extends SlingSafeMethodsServlet {
             while(containerNode.hasNext()) {
                 JSONObject result = new JSONObject();
                 Node itemNode = containerNode.nextNode();
-                result.put("compound", itemNode.getProperty("compoundValue").getString());
+                String compoundCfPath = itemNode.getProperty("compoundValue").getString();
+                Resource compoundCfRes = resourceResolver.getResource(compoundCfPath);
+                ContentFragment cf =  compoundCfRes.adaptTo(ContentFragment.class);
+                String compoundValue = cf.getElement("value").getContent();
+                String compoundDescription = cf.getElement("description").getContent();
+                result.put("compound", compoundValue);
                 result.put("mechanismofaction", itemNode.hasProperty("mechanismOfAction") ? itemNode.getProperty("mechanismOfAction").getString() : "");
                 result.put("indication", itemNode.getProperty("indicationValue").getString());
                 result.put("enablestage1", itemNode.hasProperty("enableStage1") ? itemNode.getProperty("enableStage1").getBoolean() : "");
@@ -66,8 +74,10 @@ public class PipelineServlet extends SlingSafeMethodsServlet {
                 result.put("enablestage7", itemNode.hasProperty("enableStage7") ? itemNode.getProperty("enableStage7").getBoolean() : "");
                 result.put("labelclinicaltrials", itemNode.hasProperty("labeClinicalTrials") ? itemNode.getProperty("labeClinicalTrials").getString() : "");
                 result.put("targetclinicaltrials", itemNode.hasProperty("target") ? itemNode.getProperty("target").getString() : "");
-                result.put("clinicaltrails", itemNode.hasProperty("clinicalTrials") ? itemNode.getProperty("clinicalTrials").getString() : "#");
+                result.put("clinicaltrials", itemNode.hasProperty("clinicalTrials") ? itemNode.getProperty("clinicalTrials").getString() : "#");
                 result.put("readmore", itemNode.hasProperty("readMore") ? itemNode.getProperty("readMore").getString() : "");
+                result.put("status", itemNode.getProperty("statusType").getString());
+                result.put("description", compoundDescription);
                 resultsList.add(result);
             }
             HashMap<String, JSONArray> resultMap = new LinkedHashMap<>();

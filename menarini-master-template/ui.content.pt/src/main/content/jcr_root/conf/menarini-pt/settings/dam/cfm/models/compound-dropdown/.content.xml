@@ -4,7 +4,7 @@
     allowedPaths="[/content/entities(/.*)?]"
     ranking="{Long}100">
     <jcr:content
-        cq:lastModified="{Date}2023-03-10T10:03:18.966+01:00"
+        cq:lastModified="{Date}2023-03-14T10:29:46.364+01:00"
         cq:lastModifiedBy="admin"
         cq:scaffolding="/conf/menarini-pt/settings/dam/cfm/models/compound-dropdown/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
@@ -24,13 +24,13 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}2023-03-10T09:41:57.569+01:00"
+                    jcr:lastModified="{Date}2023-03-14T10:29:46.364+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                     <items
                         jcr:primaryType="nt:unstructured"
-                        maxGeneratedOrder="20">
+                        maxGeneratedOrder="21">
                         <_x0031_678360966343
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -60,6 +60,19 @@
                             valueType="string">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_678360955074>
+                        <_x0031_678786178973
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Description"
+                            listOrder="21"
+                            maxlength="255"
+                            metaType="text-single"
+                            name="description"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_678786178973>
                     </items>
                 </content>
             </cq:dialog>
