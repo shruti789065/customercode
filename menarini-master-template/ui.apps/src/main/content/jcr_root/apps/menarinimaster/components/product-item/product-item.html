@@ -1,0 +1,9 @@
+<sly data-sly-test.configured=${properties.productName}></sly>
+<sly data-sly-test="${wcmmode.edit || wcmmode.preview}">
+    <div class="product" data-country="${properties.country}" style="display: block;">
+        <img class="imageProduct" src="${properties.fileReference}">
+        <div class="nameProduct">${properties.productName}</div>
+        <a class="websiteProduct" href="${properties.link}" target="${properties.target}">${properties.label}</a>
+    </div>
+</sly>
+<div data-sly-test="${ !configured }" data-emptytext="Single Product" class="cq-placeholder"></div>

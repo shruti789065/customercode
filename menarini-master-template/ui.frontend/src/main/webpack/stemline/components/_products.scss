@@ -184,3 +184,47 @@
         }
     }
 }
+.product-item.cq-Editable-dom{
+    .product {
+        background-color: $white;
+        border: 1px solid $color-third;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin-top: 6%;
+        text-align: center;
+        overflow: hidden;            
+
+        .imageProduct {
+            max-width: 350px;
+            height: 200px;
+            margin: 0px auto;
+        }
+
+        .nameProduct {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: $font-family-oswald;
+            font-weight: $font-regular;
+            color: $color-text;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .websiteProduct {
+            display: flex;
+            width: fit-content;
+            background-color: $color-primary;
+            color: $color-stem-third;
+            font-size: $font-size;
+            text-transform: uppercase;
+            font-family: $font-family-oswald;
+            font-weight: $font-regular;
+            padding: 5px 15px;
+            text-align: left;
+            margin-top: 10px;
+            text-decoration: unset;
+        }
+    }
+}
