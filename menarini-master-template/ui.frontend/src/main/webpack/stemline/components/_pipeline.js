@@ -1,23 +1,46 @@
 /* eslint-disable max-len */
 const copyDataFromJsonCompound = () => {
-  fetch(
-          "https://raw.githubusercontent.com/davide-mariotti/pipeline/main/compound.json"
-      )
-      .then((response) => response.json())
-      .then((data) => {
-          localStorage.setItem("compoundData", JSON.stringify(data));
-      })
-      .catch((error) => console.error(error));
+  const domainName = window.location.hostname;
+  const port = window.location.port;
+  const currentNodePipeline = document.querySelector('.currentNodePipeline').value;
+  let url;
+
+  if (domainName === 'localhost' && port === '4502') {
+    url = `http://${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
+  } else if (domainName === 'localhost') {
+    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/compound.json';
+  } else {
+    url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
+  }
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.setItem('compoundData', JSON.stringify(data));
+    })
+    .catch((error) => console.error(error));
 };
+
 const copyDataFromJsonIndication = () => {
-  fetch(
-          "https://raw.githubusercontent.com/davide-mariotti/pipeline/main/indication.json"
-      )
-      .then((response) => response.json())
-      .then((data) => {
-          localStorage.setItem("indicationData", JSON.stringify(data));
-      })
-      .catch((error) => console.error(error));
+  const domainName = window.location.hostname;
+  const port = window.location.port;
+  const currentNodePipeline = document.querySelector('.currentNodePipeline').value;
+  let url;
+
+  if (domainName === 'localhost' && port === '4502') {
+    url = `http://${domainName}:${port}${currentNodePipeline}.pipeline.json?type=indication`;
+  } else if (domainName === 'localhost') {
+    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/indication.json';
+  } else {
+    url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=indication`;
+  }
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.setItem('indicationData', JSON.stringify(data));
+    })
+    .catch((error) => console.error(error));
 };
 
 function displayDataCompound() {
@@ -269,24 +292,49 @@ function toggleResults() {
 }
 
 const init = () => {
-  toggleResults();
+    toggleResults();
+    copyDataFromJsonCompound();
+    copyDataFromJsonIndication();
+  
+    const dataCompound = JSON.parse(localStorage.getItem("compoundData"));
+    if (dataCompound && dataCompound.length > 0) {
+      displayDataCompound();
+      addFirstLastClassesCompound();
+    } else {
+      const intervalIdCompound = setInterval(() => {
+        const dataCompound = JSON.parse(localStorage.getItem("compoundData"));
+        if (dataCompound && dataCompound.length > 0) {
+          clearInterval(intervalIdCompound);
+          displayDataCompound();
+          addFirstLastClassesCompound();
+        }
+      }, 500);
+    }  
+    
+    const dataIndication = JSON.parse(localStorage.getItem("indicationData"));
+    if (dataIndication && dataIndication.length > 0) {
+      displayDataIndication();
+      addFirstLastClassesIndication();
+    } else {
+      const intervalIdIndication = setInterval(() => {
+        const dataIndication = JSON.parse(localStorage.getItem("indicationData"));
+        if (dataIndication && dataIndication.length > 0) {
+          clearInterval(intervalIdIndication);
+          displayDataIndication();
+          addFirstLastClassesIndication();
+        }
+      }, 500);
+    }
+  
+    addLastClassToLastTrue();
+  };
+  
 
-  copyDataFromJsonCompound();
-  displayDataCompound();
-  addFirstLastClassesCompound();
-
-  copyDataFromJsonIndication();
-  displayDataIndication();
-  addFirstLastClassesIndication();
-
-  addLastClassToLastTrue();
-};
-
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
   const pipeline = document.getElementById("pipeline");
   if (pipeline) {
       init();
   } else {
       console.log("noPipeline");
   }
-};
+});

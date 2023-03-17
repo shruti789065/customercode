@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-console.log('search 2');
 function copyDataFromJson(query) {
   const lang = document.documentElement.lang;
   const domainName = window.location.hostname;
@@ -60,6 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
       displaySearchResults(searchResults);
     });
   } else {
-    console.log('No search filter found.');
+    console.log('NoSearchGlobal.');
   }
 });

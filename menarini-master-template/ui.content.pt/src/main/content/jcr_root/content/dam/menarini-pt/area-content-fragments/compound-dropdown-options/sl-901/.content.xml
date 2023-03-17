@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="f135f556-3c06-4cf7-94ab-3e0ae750c511">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-10T10:05:14.544+01:00"
+        cq:lastModifiedBy="admin"
+        cq:name="sl-901"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/compound-dropdown"
+        jcr:lastModified="{Date}2023-03-09T17:34:40.009+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="SL-901"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T17:34:40.009+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/compound-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="SL-901"
+                label_x0040_LastModified="{Date}2023-03-09T17:34:39.997+01:00"
+                value="sl-901"
+                value_x0040_LastModified="{Date}2023-03-09T17:34:39.997+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="63c5d397-9409-4812-9cc5-52b265ad9942"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/compound-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="SL-901"
+                string_x0040_value="sl-901"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
