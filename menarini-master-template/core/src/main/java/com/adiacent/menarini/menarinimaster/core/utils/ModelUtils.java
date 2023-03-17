@@ -7,11 +7,15 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.settings.SlingSettingsService;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ModelUtils {
 
@@ -109,4 +113,34 @@ public class ModelUtils {
 	}
 
 
+    public static void initializeInternalMenuComponent(Page page, ResourceResolver resourceResolver, boolean isPublishModeEnabled) throws RepositoryException {
+
+		//si controlla se la pagina ha uno dei template per i quali occorre eseguire la logica dell'evento
+		if(page != null) {
+			ValueMap properties = page.getProperties();
+			String template = properties.get("cq:template", String.class);
+
+			Pattern p = Pattern.compile(Constants.INTERNAL_MENU_TEMPLATE_REGEXP); // Create a regex
+			Matcher m = p.matcher(template);  // Our string for matching
+			if (m.matches()) {
+				Page homepage = ModelUtils.getHomePage(resourceResolver, page.getPath());
+				properties = homepage.getProperties();
+				template = properties.containsKey("cq:template") ? properties.get("cq:template", String.class) : "";
+
+				Page parentPage = ModelUtils.findPageByParentTemplate(page, template);
+				Page navigationRoot = parentPage;
+				//recupero internalmenu component se non siamo in publish mode
+				if (!isPublishModeEnabled) {
+					Resource internalMenu = ModelUtils.findChildComponentByResourceType(page.getContentResource(), "menarinimaster/components/internalmenu");
+					if (internalMenu != null) {
+						Node node = internalMenu.adaptTo(Node.class);
+						node.setProperty("navigationRoot", navigationRoot.getPath());
+						node.setProperty("structureStart", 0);
+						node.getSession().save();
+					}
+				}
+			}
+		}
+
+    }
 }
