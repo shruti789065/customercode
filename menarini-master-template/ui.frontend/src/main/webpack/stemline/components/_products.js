@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* ---Scommentare quando vogliamo rendere dinamico l'url del json---
+/* ---Scommentare quando vogliamo rendere dinamico l'url del json--- */
 const copyDataFromJson = () => {
     const domainName = window.location.hostname;
     const currentNodeProducts = document.querySelector('.currentNodeProducts').value;
@@ -19,9 +19,9 @@ const copyDataFromJson = () => {
         console.error("Error copying data to local storage:", error);
         loadingSpinner.remove();
       });
-  };*/
+  };
 
-function copyDataFromJson() {
+/* function copyDataFromJson() {
   const url = `https://raw.githubusercontent.com/davide-mariotti/productsStemline/main/productsStemline.json`;
 
   const loadingSpinner = document.createElement("div");
@@ -38,7 +38,7 @@ function copyDataFromJson() {
       console.error("Error copying data to local storage:", error);
       loadingSpinner.remove();
     });
-}
+} */
 
 function displayDataproductsStemline() {
   const productsStemlineSelect = document.getElementById(
