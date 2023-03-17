@@ -2,6 +2,7 @@
 const copyDataFromJsonCompound = () => {
   const domainName = window.location.hostname;
   const port = window.location.port;
+  const protocol = window.location.protocol;
   const currentNodePipeline = document.querySelector(
     ".currentNodePipeline"
   ).value;
@@ -12,12 +13,12 @@ const copyDataFromJsonCompound = () => {
   document.body.appendChild(loadingSpinner);
 
   if (domainName === "localhost" && port === "4502") {
-    url = `http://${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
+    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
   } else if (domainName === "localhost") {
     url =
       "https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/compound.json";
   } else {
-    url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
+    url = `${protocol}//${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
   }
 
   fetch(url)
@@ -33,6 +34,7 @@ const copyDataFromJsonCompound = () => {
 
 const copyDataFromJsonIndication = () => {
   const domainName = window.location.hostname;
+  const protocol = window.location.protocol;
   const port = window.location.port;
   const currentNodePipeline = document.querySelector(
     ".currentNodePipeline"
@@ -44,12 +46,12 @@ const copyDataFromJsonIndication = () => {
   document.body.appendChild(loadingSpinner);
 
   if (domainName === "localhost" && port === "4502") {
-    url = `http://${domainName}:${port}${currentNodePipeline}.pipeline.json?type=indication`;
+    url = `${protocol}${domainName}:${port}${currentNodePipeline}.pipeline.json?type=indication`;
   } else if (domainName === "localhost") {
     url =
       "https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/indication.json";
   } else {
-    url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=indication`;
+    url = `${protocol}${domainName}${currentNodePipeline}.pipeline.json?type=indication`;
   }
 
   fetch(url)
