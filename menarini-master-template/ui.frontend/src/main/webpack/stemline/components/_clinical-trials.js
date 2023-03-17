@@ -2,6 +2,7 @@
 const copyDataFromJsonCompound = () => {
   const domainName = window.location.hostname;
   const port = window.location.port;
+  const protocol = window.location.protocol;
   const currentNodePipeline = document.querySelector('.currentNodeClinicalTrials').value;
   let url;
 
@@ -10,11 +11,11 @@ const copyDataFromJsonCompound = () => {
   document.body.appendChild(loadingSpinner);
 
   if (domainName === 'localhost' && port === '4502') {
-    url = `http://${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
+    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
   } else if (domainName === 'localhost') {
     url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/clinicaltrialST/clinicaltrials.json';
   } else {
-    url = `http://${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
+    url = `${protocol}//${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
   }
 
   fetch(url)

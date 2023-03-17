@@ -2,18 +2,19 @@
 const copyDataFromJson = () => {
   const domainName = window.location.hostname;
   const port = window.location.port;
+  const protocol = window.location.protocol;
   const currentNodePipeline = document.querySelector(
     ".currentNodeProducts"
   ).value;
   let url;
 
   if (domainName === "localhost" && port === "4502") {
-    url = `http://${domainName}:${port}${currentNodePipeline}.products.json`;
+    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.products.json`;
   } else if (domainName === "localhost") {
     url =
       "https://raw.githubusercontent.com/davide-mariotti/JSON/main/productsST/productsStemline.json";
   } else {
-    url = `http://${domainName}${currentNodePipeline}.products.json`;
+    url = `${protocol}//${domainName}${currentNodePipeline}.products.json`;
   }
 
   fetch(url)
@@ -54,7 +55,7 @@ function displayDataproductsStemline() {
   countries.forEach((country) => {
     const option = document.createElement("div");
     option.classList.add("option");
-    option.classList.add(country);
+    option.classList.add(country.replace(/[^a-zA-Z0-9-_]/g, '').replace(/\s+/g, "-"));
     option.textContent = country;
     option.addEventListener("click", () => {
       selectLabel.textContent = country;
