@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+console.log('pippo');
 import _ from "lodash";
 const copyDataFromJson = () => {
   fetch("https://davide-mariotti.github.io/lodash/data.json")
