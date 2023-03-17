@@ -1131,7 +1131,8 @@
                     jcr:title="Product Container Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="/apps/menarinimaster/components/product-item"
-                    layoutDisabled="false">
+                    layout="responsiveGrid"
+                    layoutDisabled="true">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1678791972964>
             </product-container>
