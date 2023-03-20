@@ -86,6 +86,12 @@
                         </embedded>-->
                         <embedded>
                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                            <artifactId>menarinimaster.biotech.ui.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/menarinimaster-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adiacent.menarini.menarinimaster</groupId>
                             <artifactId>menarinimaster.ui.config</artifactId>
                             <type>zip</type>
                             <target>/apps/menarinimaster-packages/application/install</target>
@@ -209,12 +215,18 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>-->
-        <!--<<dependency>
+        <!--<dependency>
             <groupId>com.adiacent.menarini.menarinimaster</groupId>
             <artifactId>menarinimaster.relifede.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>-->
+        <dependency>
+            <groupId>com.adiacent.menarini.menarinimaster</groupId>
+            <artifactId>menarinimaster.biotech.ui.content</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
         <dependency>
             <groupId>com.adiacent.menarini.menarinimaster</groupId>
             <artifactId>menarinimaster.ui.config</artifactId>
