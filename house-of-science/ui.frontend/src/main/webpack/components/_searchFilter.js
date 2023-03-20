@@ -1,19 +1,42 @@
 /* eslint-disable max-len */
-console.log('pippo');
 import _ from "lodash";
+
 const copyDataFromJson = () => {
-  fetch("https://davide-mariotti.github.io/lodash/data.json")
+  const domainName = window.location.hostname;
+  const port = window.location.port;
+  const protocol = window.location.protocol;
+  const currentNodePipeline = document.querySelector('.currentNodeSearchFilter').value;
+  let url;
+
+  const loadingSpinner = document.createElement("div");
+  loadingSpinner.classList.add("loading-spinner");
+  document.body.appendChild(loadingSpinner);
+
+  if (domainName === 'localhost' && port === '4502') {
+    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json`;
+  } else if (domainName === 'localhost') {
+    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/searchFilter.json';
+  } else {
+    url = `${protocol}//${domainName}${currentNodePipeline}.searchFilter.json`;
+  }
+
+  fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      localStorage.setItem("myData", JSON.stringify(data));
+      localStorage.setItem('searchFilter', JSON.stringify(data));
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.error("Error copying data to local storage:", error);
+      loadingSpinner.remove();
+    });
 };
+
 // La funzione 'getData' recupera i dati precedentemente salvati nella memoria locale dell'utente tramite 'localStorage'
 // e li restituisce come oggetto JSON, utilizzando 'JSON.parse' per parsare il valore salvato.
 const getData = () => {
-  return JSON.parse(localStorage.getItem("myData"));
+  return JSON.parse(localStorage.getItem("searchFilter"));
 };
+
 //La funzione changeTypologyColor cambia il colore di sfondo e di testo degli elementi HTML
 //che hanno la classe "typology", a seconda del loro contenuto testuale.
 const changeTypologyColor = () => {
@@ -57,6 +80,7 @@ const changeTypologyColor = () => {
     }
   }
 };
+
 //Questa funzione controlla se ci sono filtri vuoti e rimuove gli elementi del DOM corrispondenti.
 //Viene creato un array di classi di elementi del DOM che si desidera controllare
 //Per ogni classe, viene selezionato un array di elementi e per ogni elemento viene controllato se
@@ -90,6 +114,7 @@ const checkFilterEmpty = () => {
     }
   }
 };
+
 //Questa è una funzione che filtra un array di oggetti data in base ad un set di filtri passato come parametro filters.
 //Utilizza la libreria Lodash che fornisce diverse funzionalità per la manipolazione di array e oggetti.
 //La funzione restituisce un nuovo array di oggetti che soddisfano tutti i filtri specificati.
@@ -109,6 +134,7 @@ const filterData = (data, filters) => {
     );
   });
 };
+
 //La funzione displayData si occupa di visualizzare i dati che sono stati filtrati tramite la funzione filterData.
 //In particolare, la funzione prende in input un array di oggetti e genera l'HTML che rappresenta le card che mostrano le informazioni di ogni oggetto.
 //Nella prima parte della funzione viene creato un'HTML vuoto che verrà popolato nel ciclo forEach con un blocco di codice HTML per ogni oggetto.
@@ -173,6 +199,7 @@ const displayData = (filteredData) => {
   changeTypologyColor();
   checkFilterEmpty();
 };
+
 //Questa funzione si occupa di recuperare i filtri selezionati dall'utente nell'interfaccia grafica.
 //In particolare, inizializza l'oggetto filters con tutte le chiavi necessarie e tutti i valori vuoti
 //in modo che possano essere popolati in seguito con i filtri selezionati.
@@ -224,6 +251,7 @@ const getFilters = () => {
   ].map((x) => x.value);
   return filters;
 };
+
 //La funzione richiama le funzioni filterData(), getData(), getFilters(), displayData(), changeTypologyColor() e checkFilterEmpty()
 //in sequenza per filtrare i dati e visualizzarli nella pagina web.
 //In particolare, la funzione getData() recupera tutti i dati dai tag <script> presenti nella pagina web
@@ -239,17 +267,9 @@ function searchFilt() {
   changeTypologyColor();
   checkFilterEmpty();
 }
-//La funzione init inizializza la pagina e popola le checkbox per la selezione dei filtri.
-//1 Richiama la funzione copyDataFromJson per copiare i dati dal file JSON in una variabile locale.
-//2 Ottiene i dati filtrati dalla funzione getData.
-//3 Usa la libreria Lodash per trovare tutti i valori unici per ogni attributo, come "topic", "author", "source", ecc.
-//4 Per ogni valore unico trovato, crea una checkbox corrispondente con un label che mostra il valore e un attributo value che contiene il valore stesso.
-//5 Aggiunge un evento onchange alla checkbox che richiama la funzione searchFilt.
-//6 Aggiunge le checkbox create per ogni attributo nei rispettivi div nella pagina HTML.
-//7 Richiama la funzione displayData per visualizzare tutti i dati non filtrati inizialmente.
-//In generale, la funzione init serve a preparare la pagina per l'utilizzo dei filtri e del sistema di visualizzazione dei dati.
-const init = () => {
-  copyDataFromJson();
+
+function displayDataHOS() {
+/********************************************************/
   let data = getData();
   const uniqueTopics = _.uniqBy(data, "topic");
   let options = "";
@@ -306,17 +326,49 @@ const init = () => {
   });
   document.getElementById("tag-filter").innerHTML = options;
   displayData(data);
+  /**************************************************/
+}
+
+//La funzione init inizializza la pagina e popola le checkbox per la selezione dei filtri.
+//1 Richiama la funzione copyDataFromJson per copiare i dati dal file JSON in una variabile locale.
+//2 Ottiene i dati filtrati dalla funzione getData.
+//3 Usa la libreria Lodash per trovare tutti i valori unici per ogni attributo, come "topic", "author", "source", ecc.
+//4 Per ogni valore unico trovato, crea una checkbox corrispondente con un label che mostra il valore e un attributo value che contiene il valore stesso.
+//5 Aggiunge un evento onchange alla checkbox che richiama la funzione searchFilt.
+//6 Aggiunge le checkbox create per ogni attributo nei rispettivi div nella pagina HTML.
+//7 Richiama la funzione displayData per visualizzare tutti i dati non filtrati inizialmente.
+//In generale, la funzione init serve a preparare la pagina per l'utilizzo dei filtri e del sistema di visualizzazione dei dati.
+const init = () => {
+  copyDataFromJson();
+
+  const dataSearchFilter = JSON.parse(localStorage.getItem("searchFilter"));
+  if (dataSearchFilter && dataSearchFilter.length > 0) {
+    
+    displayDataHOS();
+
+  } else {
+    const intervalIdSearchFilter = setInterval(() => {
+      const dataSearchFilter = JSON.parse(localStorage.getItem("searchFilter"));
+      if (dataSearchFilter && dataSearchFilter.length > 0) {
+        clearInterval(intervalIdSearchFilter);
+        
+        displayDataHOS();
+
+      }
+    }, 500);
+  }
 };
-//Questa parte del codice esporta le funzioni searchFilt e init in modo che siano accessibili all'interno del contesto globale della finestra.
+
+//Esporta le funzioni searchFilt e init in modo che siano accessibili all'interno del contesto globale della finestra.
 //In questo modo, possono essere chiamate da qualsiasi parte del codice.
-//Inoltre, il codice si occupa di chiamare la funzione init quando la pagina web viene caricata completamente (window.onload).
+//Il codice si occupa di chiamare la funzione init quando la pagina web viene caricata completamente.
 //Se esiste un elemento con l'id results, allora viene chiamata la funzione init. Altrimenti, viene stampato un messaggio di errore in console.
 window.searchFilt = searchFilt;
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
   const results = document.getElementById("results");
   if (results) {
     init();
   } else {
     console.log("noSearchFilter");
   }
-};
+});
