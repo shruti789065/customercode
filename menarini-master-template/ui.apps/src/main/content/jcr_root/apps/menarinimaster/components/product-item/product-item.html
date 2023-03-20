@@ -1,5 +1,5 @@
-<sly data-sly-test.configured=${properties.productName}></sly>
-<sly data-sly-test="${wcmmode.edit || wcmmode.preview}">
+<sly data-sly-test.configured=${properties.fileReference}></sly>
+<sly data-sly-test="${(wcmmode.edit || wcmmode.preview) && properties.fileReference}">
     <div class="product" data-country="${properties.country}" style="display: block;">
         <img class="imageProduct" src="${properties.fileReference}">
         <div class="nameProduct">${properties.productName}</div>

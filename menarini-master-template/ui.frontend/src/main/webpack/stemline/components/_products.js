@@ -1,44 +1,31 @@
 /* eslint-disable max-len */
-/* ---Scommentare quando vogliamo rendere dinamico l'url del json--- */
 const copyDataFromJson = () => {
-    const domainName = window.location.hostname;
-    const currentNodeProducts = document.querySelector('.currentNodeProducts').value;
-    const url = `http://${domainName}${currentNodeProducts}.products.json`;
+  const domainName = window.location.hostname;
+  const port = window.location.port;
+  const protocol = window.location.protocol;
+  const currentNodePipeline = document.querySelector(
+    ".currentNodeProducts"
+  ).value;
+  let url;
 
-    const loadingSpinner = document.createElement("div");
-    loadingSpinner.classList.add("loading-spinner");
-    document.body.appendChild(loadingSpinner);
-  
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        localStorage.setItem('productsStemline', JSON.stringify(data));
-        loadingSpinner.remove();
-      })
-      .catch((error) => {
-        console.error("Error copying data to local storage:", error);
-        loadingSpinner.remove();
-      });
-  };
-
-/* function copyDataFromJson() {
-  const url = `https://raw.githubusercontent.com/davide-mariotti/productsStemline/main/productsStemline.json`;
-
-  const loadingSpinner = document.createElement("div");
-  loadingSpinner.classList.add("loading-spinner");
-  document.body.appendChild(loadingSpinner);
+  if (domainName === "localhost" && port === "4502") {
+    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.products.json`;
+  } else if (domainName === "localhost") {
+    url =
+      "https://raw.githubusercontent.com/davide-mariotti/JSON/main/productsST/productsStemline.json";
+  } else {
+    url = `${protocol}//${domainName}${currentNodePipeline}.products.json`;
+  }
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem("productsStemline", JSON.stringify(data));
-      loadingSpinner.remove();
     })
     .catch((error) => {
       console.error("Error copying data to local storage:", error);
-      loadingSpinner.remove();
     });
-} */
+};
 
 function displayDataproductsStemline() {
   const productsStemlineSelect = document.getElementById(
@@ -63,16 +50,16 @@ function displayDataproductsStemline() {
 
   const optionsContainer = document.createElement("div");
   optionsContainer.classList.add("options-container");
-  optionsContainer.style.display = "none";
+  //optionsContainer.style.display = "none";
 
   countries.forEach((country) => {
     const option = document.createElement("div");
     option.classList.add("option");
-    option.classList.add(country);
+    option.classList.add(country.replace(/[^a-zA-Z0-9-_]/g, '').replace(/\s+/g, "-"));
     option.textContent = country;
     option.addEventListener("click", () => {
       selectLabel.textContent = country;
-      optionsContainer.style.display = "none";
+      //optionsContainer.style.display = "none";
       if (country) {
         // show only products from selected country
         productElements.forEach((element) => {
@@ -96,14 +83,13 @@ function displayDataproductsStemline() {
   selectContainer.appendChild(selectArrow);
   selectContainer.appendChild(optionsContainer);
   selectContainer.addEventListener("click", () => {
-    optionsContainer.style.display =
-      optionsContainer.style.display === "none" ? "block" : "none";
+    optionsContainer.classList.toggle("show");
   });
 
   // add event listener to window object to hide options-container when clicking outside of select-container
   window.addEventListener("click", (event) => {
     if (!selectContainer.contains(event.target)) {
-      optionsContainer.style.display = "none";
+      optionsContainer.classList.remove("show");
     }
   });
 

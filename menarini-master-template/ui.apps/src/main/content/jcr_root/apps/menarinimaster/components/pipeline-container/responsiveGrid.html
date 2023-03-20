@@ -20,14 +20,22 @@
          role="${container.roleAttribute}"
          style="${container.backgroundStyle @ context='styleString'}">
 
-        <div class="buttonPipeline">
-            <button class="compound-btn active">Focus on Compound</button>
-            <button class="indication-btn">Focus on Indication</button>
-        </div>
-        <sly data-sly-test="${!wcmmode.edit && !wcmmode.preview}">
-            <div class="resultsCompound show"></div>
-            <div class="resultsIndication"></div>
+
+        <sly data-sly-test="${properties.componentType != 'componentClinicalTrials'}">
+            <div class="buttonPipeline">
+                <button class="compound-btn active">Focus on Compound</button>
+                <button class="indication-btn">Focus on Indication</button>
+            </div>
+            <sly data-sly-test="${!wcmmode.edit && !wcmmode.preview}">
+                <div class="resultsCompound show"></div>
+                <div class="resultsIndication"></div>
+            </sly>
         </sly>
+
+        <sly data-sly-test="${properties.componentType != 'componentPipeline'}">
+            <div data-sly-test="${!wcmmode.edit && !wcmmode.preview}" class="resultsclinicalTrials"></div>
+        </sly>
+
 
         <sly data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}"></sly>
     </div>
