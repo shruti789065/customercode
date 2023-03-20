@@ -1,6 +1,7 @@
 * {
 	box-sizing: border-box;
 }
+
 html,
 body {
 	margin: 0;
@@ -15,6 +16,74 @@ a {
 	color: $color-link;
 }
 
+h1 {
+
+	&.cmp-title__text,
+	.cmp-title__link {
+		font-family: $font-family-oswald;
+		font-weight: $font-regular;
+		font-size: 50px;
+		line-height: 55px;
+	}
+}
+
+h2 {
+
+	&.cmp-title__text,
+	.cmp-title__link {
+		font-family: $font-family-oswald;
+		font-weight: $font-extra-light;
+		font-size: 40px;
+		line-height: 50px;
+	}
+}
+
+h3 {
+
+	&.cmp-title__text,
+	.cmp-title__link {
+		font-family: $font-family-oswald;
+		font-weight: $font-regular;
+		font-size: 40px;
+		line-height: 55px;
+		text-transform: uppercase;
+	}
+}
+
+h4 {
+
+	&.cmp-title__text,
+	.cmp-title__link {
+		font-family: $font-family-oswald;
+		font-weight: $font-light;
+		font-size: 30px;
+		line-height: 45px;
+	}
+}
+
+h5 {
+
+	&.cmp-title__text,
+	.cmp-title__link {
+		font-family: $font-family-oswald;
+		font-weight: $font-regular;
+		font-size: 20px;
+		line-height: 50px;
+		text-transform: uppercase;
+	}
+}	
+
+h6 {
+
+	&.cmp-title__text,
+	.cmp-title__link {
+		font-family: $font-family-oswald;
+		font-weight: $font-light;
+		font-size: 20px;
+		line-height: 30px;
+	}
+}
+
 button,
 input,
 optgroup,
@@ -22,33 +91,40 @@ select,
 textarea {
 	font: inherit;
 }
+
 .h-overflow {
 	overflow-y: hidden;
 }
-.hidden{
+
+.hidden {
 	display: none !important;
 }
-.xf-web-container{
-	background-color:lightgray;
+
+.xf-web-container {
+	background-color: lightgray;
 }
+
 #loading {
-    width: 4rem;
-    height: 4rem;
-    border: 4px solid $color-six;
-    border-top: 4px solid $color-corporate;
+	width: 4rem;
+	height: 4rem;
+	border: 4px solid $color-six;
+	border-top: 4px solid $color-corporate;
 	border-radius: 100%;
-    margin: auto;
-    visibility: hidden;
-    animation: spin 1s infinite linear;
+	margin: auto;
+	visibility: hidden;
+	animation: spin 1s infinite linear;
 }
+
 #loading.display {
-    visibility: visible;
+	visibility: visible;
 }
+
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }

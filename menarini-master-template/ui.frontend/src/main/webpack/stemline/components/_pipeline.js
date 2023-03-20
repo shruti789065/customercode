@@ -1,23 +1,68 @@
 /* eslint-disable max-len */
 const copyDataFromJsonCompound = () => {
-  fetch(
-          "https://raw.githubusercontent.com/davide-mariotti/pipeline/main/compound.json"
-      )
-      .then((response) => response.json())
-      .then((data) => {
-          localStorage.setItem("compoundData", JSON.stringify(data));
-      })
-      .catch((error) => console.error(error));
+  const domainName = window.location.hostname;
+  const port = window.location.port;
+  const protocol = window.location.protocol;
+  const currentNodePipeline = document.querySelector(
+    ".currentNodePipeline"
+  ).value;
+  let url;
+
+  const loadingSpinner = document.createElement("div");
+  loadingSpinner.classList.add("loading-spinner");
+  document.body.appendChild(loadingSpinner);
+
+  if (domainName === "localhost" && port === "4502") {
+    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
+  } else if (domainName === "localhost") {
+    url =
+      "https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/compound.json";
+  } else {
+    url = `${protocol}//${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
+  }
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.setItem("compoundData", JSON.stringify(data));
+    })
+    .catch((error) => {
+      console.error("Error copying data to local storage:", error);
+      loadingSpinner.remove();
+    });
 };
+
 const copyDataFromJsonIndication = () => {
-  fetch(
-          "https://raw.githubusercontent.com/davide-mariotti/pipeline/main/indication.json"
-      )
-      .then((response) => response.json())
-      .then((data) => {
-          localStorage.setItem("indicationData", JSON.stringify(data));
-      })
-      .catch((error) => console.error(error));
+  const domainName = window.location.hostname;
+  const port = window.location.port;
+  const protocol = window.location.protocol;
+  const currentNodePipeline = document.querySelector(
+    ".currentNodePipeline"
+  ).value;
+  let url;
+
+  const loadingSpinner = document.createElement("div");
+  loadingSpinner.classList.add("loading-spinner");
+  document.body.appendChild(loadingSpinner);
+
+  if (domainName === "localhost" && port === "4502") {
+    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.pipeline.json?type=indication`;
+  } else if (domainName === "localhost") {
+    url =
+      "https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/indication.json";
+  } else {
+    url = `${protocol}//${domainName}${currentNodePipeline}.pipeline.json?type=indication`;
+  }
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.setItem("indicationData", JSON.stringify(data));
+    })
+    .catch((error) => {
+      console.error("Error copying data to local storage:", error);
+      loadingSpinner.remove();
+    });
 };
 
 function displayDataCompound() {
@@ -26,8 +71,8 @@ function displayDataCompound() {
   resultsCompound.innerHTML = "";
 
   if (compoundData.length === 0) {
-      resultsCompound.innerHTML = "No results found.";
-      return;
+    resultsCompound.innerHTML = "No results found.";
+    return;
   }
 
   const template = `
@@ -77,8 +122,20 @@ function displayDataCompound() {
           }">${compound.labelclinicaltrials}</a>
           </div>
           <div class="popUpPipeline">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${compound.compound.replace(/[^a-zA-Z0-9]/g, "")}${compound.indication.replace(/[^a-zA-Z0-9]/g, "")}">Read More</button>
-              <div class="modal fade" id="${compound.compound.replace(/[^a-zA-Z0-9]/g, "")}${compound.indication.replace(/[^a-zA-Z0-9]/g, "")}" tabindex="-1" aria-hidden="true">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${compound.compound.replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+              )}${compound.indication.replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+          )}">Read More</button>
+              <div class="modal fade" id="${compound.compound.replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+              )}${compound.indication.replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+          )}" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                           <div class="modal-header">${compound.compound}
@@ -106,8 +163,8 @@ function displayDataIndication() {
   resultsIndication.innerHTML = "";
 
   if (indicationData.length === 0) {
-      resultsIndication.innerHTML = "No results found.";
-      return;
+    resultsIndication.innerHTML = "No results found.";
+    return;
   }
 
   const template = `
@@ -152,11 +209,25 @@ function displayDataIndication() {
               </div>
           </div>
           <div class="clinicalTrialsPipeline">
-              <a href="${indication.clinicaltrials}" target="${indication.targetclinicaltrials}">${indication.labelclinicaltrials}</a>
+              <a href="${indication.clinicaltrials}" target="${
+            indication.targetclinicaltrials
+          }">${indication.labelclinicaltrials}</a>
           </div>
           <div class="popUpPipeline">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${indication.indication.replace(/[^a-zA-Z0-9]/g, "")}${indication.compound.replace(/[^a-zA-Z0-9]/g, "")}">Read More</button>
-              <div class="modal fade" id="${indication.indication.replace(/[^a-zA-Z0-9]/g, "")}${indication.compound.replace(/[^a-zA-Z0-9]/g, "")}" tabindex="-1" aria-hidden="true">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${indication.indication.replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+              )}${indication.compound.replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+          )}">Read More</button>
+              <div class="modal fade" id="${indication.indication.replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+              )}${indication.compound.replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+          )}" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                           <div class="modal-header">${indication.indication}
@@ -182,28 +253,25 @@ function addFirstLastClassesCompound() {
   const rows = document.querySelectorAll(".rowPipeline.compounds");
   const compounds = {};
   rows.forEach((row, i) => {
-      const compound = row.querySelector(".compoundPipeline").textContent.trim();
+    const compound = row.querySelector(".compoundPipeline").textContent.trim();
 
-      if (!compounds[compound]) {
-          compounds[compound] = {
-              first: i,
-              last: i
-          };
-      } else {
-          compounds[compound].last = i;
-      }
+    if (!compounds[compound]) {
+      compounds[compound] = {
+        first: i,
+        last: i,
+      };
+    } else {
+      compounds[compound].last = i;
+    }
   });
   for (const compound in compounds) {
-      const {
-          first,
-          last
-      } = compounds[compound];
-      if (first === last) {
-          rows[first].classList.add("first", "last");
-      } else {
-          rows[first].classList.add("first");
-          rows[last].classList.add("last");
-      }
+    const { first, last } = compounds[compound];
+    if (first === last) {
+      rows[first].classList.add("first", "last");
+    } else {
+      rows[first].classList.add("first");
+      rows[last].classList.add("last");
+    }
   }
 }
 
@@ -211,39 +279,36 @@ function addFirstLastClassesIndication() {
   const rows = document.querySelectorAll(".rowPipeline.indications");
   const indications = {};
   rows.forEach((row, i) => {
-      const indication = row
-          .querySelector(".indicationPipeline")
-          .textContent.trim();
+    const indication = row
+      .querySelector(".indicationPipeline")
+      .textContent.trim();
 
-      if (!indications[indication]) {
-          indications[indication] = {
-              first: i,
-              last: i
-          };
-      } else {
-          indications[indication].last = i;
-      }
+    if (!indications[indication]) {
+      indications[indication] = {
+        first: i,
+        last: i,
+      };
+    } else {
+      indications[indication].last = i;
+    }
   });
   for (const indication in indications) {
-      const {
-          first,
-          last
-      } = indications[indication];
-      if (first === last) {
-          rows[first].classList.add("first", "last");
-      } else {
-          rows[first].classList.add("first");
-          rows[last].classList.add("last");
-      }
+    const { first, last } = indications[indication];
+    if (first === last) {
+      rows[first].classList.add("first", "last");
+    } else {
+      rows[first].classList.add("first");
+      rows[last].classList.add("last");
+    }
   }
 }
 
 function addLastClassToLastTrue() {
   const dsBodies = document.querySelectorAll(".dsBody");
   dsBodies.forEach((dsBody) => {
-      const trueDivs = dsBody.querySelectorAll(".true");
-      const lastTrueDiv = trueDivs[trueDivs.length - 1];
-      lastTrueDiv.classList.add("last");
+    const trueDivs = dsBody.querySelectorAll(".true");
+    const lastTrueDiv = trueDivs[trueDivs.length - 1];
+    lastTrueDiv.classList.add("last");
   });
 }
 
@@ -254,39 +319,63 @@ function toggleResults() {
   const indicationResults = document.querySelector(".resultsIndication");
 
   compoundBtn.addEventListener("click", () => {
-      compoundResults.classList.add("show");
-      indicationResults.classList.remove("show");
-      compoundBtn.classList.add("active");
-      indicationBtn.classList.remove("active");
+    compoundResults.classList.add("show");
+    indicationResults.classList.remove("show");
+    compoundBtn.classList.add("active");
+    indicationBtn.classList.remove("active");
   });
 
   indicationBtn.addEventListener("click", () => {
-      compoundResults.classList.remove("show");
-      indicationResults.classList.add("show");
-      compoundBtn.classList.remove("active");
-      indicationBtn.classList.add("active");
+    compoundResults.classList.remove("show");
+    indicationResults.classList.add("show");
+    compoundBtn.classList.remove("active");
+    indicationBtn.classList.add("active");
   });
 }
 
 const init = () => {
   toggleResults();
-
   copyDataFromJsonCompound();
-  displayDataCompound();
-  addFirstLastClassesCompound();
-
   copyDataFromJsonIndication();
-  displayDataIndication();
-  addFirstLastClassesIndication();
+
+  const dataCompound = JSON.parse(localStorage.getItem("compoundData"));
+  if (dataCompound && dataCompound.length > 0) {
+    displayDataCompound();
+    addFirstLastClassesCompound();
+  } else {
+    const intervalIdCompound = setInterval(() => {
+      const dataCompound = JSON.parse(localStorage.getItem("compoundData"));
+      if (dataCompound && dataCompound.length > 0) {
+        clearInterval(intervalIdCompound);
+        displayDataCompound();
+        addFirstLastClassesCompound();
+      }
+    }, 500);
+  }
+
+  const dataIndication = JSON.parse(localStorage.getItem("indicationData"));
+  if (dataIndication && dataIndication.length > 0) {
+    displayDataIndication();
+    addFirstLastClassesIndication();
+  } else {
+    const intervalIdIndication = setInterval(() => {
+      const dataIndication = JSON.parse(localStorage.getItem("indicationData"));
+      if (dataIndication && dataIndication.length > 0) {
+        clearInterval(intervalIdIndication);
+        displayDataIndication();
+        addFirstLastClassesIndication();
+      }
+    }, 500);
+  }
 
   addLastClassToLastTrue();
 };
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function () {
   const pipeline = document.getElementById("pipeline");
   if (pipeline) {
-      init();
+    init();
   } else {
-      console.log("noPipeline");
+    console.log("noPipeline");
   }
-};
+});

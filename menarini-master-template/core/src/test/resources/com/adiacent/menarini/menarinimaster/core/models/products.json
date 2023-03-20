@@ -1,0 +1,156 @@
+{
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Tue Mar 14 2023 09:52:55 GMT+0100",
+    "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:createdBy": "admin",
+        "jcr:title": "product",
+        "cq:template": "/conf/menarini-stemline/settings/wcm/templates/menarini---content-page",
+        "jcr:created": "Tue Mar 14 2023 09:52:55 GMT+0100",
+        "cq:lastModified": "Thu Mar 16 2023 09:49:08 GMT+0100",
+        "sling:resourceType": "menarinimaster/components/page",
+        "cq:lastModifiedBy": "admin",
+        "root": {
+            "jcr:primaryType": "nt:unstructured",
+            "layout": "responsiveGrid",
+            "sling:resourceType": "menarinimaster/components/container",
+            "container": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "menarinimaster/components/container",
+                "internalheader": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "admin",
+                    "jcr:lastModified": "Fri May 27 2022 16:15:23 GMT+0200",
+                    "sling:resourceType": "menarinimaster/components/internalheader"
+                },
+                "breadcrumb": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "admin",
+                    "jcr:lastModified": "Fri May 27 2022 16:15:51 GMT+0200",
+                    "sling:resourceType": "menarinimaster/components/breadcrumb"
+                },
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "admin",
+                    "layout": "responsiveGrid",
+                    "jcr:lastModified": "Mon May 30 2022 15:20:11 GMT+0200",
+                    "sling:resourceType": "menarinimaster/components/container",
+                    "cq:styleIds": [
+                        "1655202404538"
+                    ],
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Tue Feb 28 2023 17:11:12 GMT+0100",
+                        "sling:resourceType": "menarinimaster/components/container",
+                        "cq:styleIds": [
+                            "1677232233407"
+                        ],
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "type": "h2",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Wed Jul 27 2022 15:16:55 GMT+0200",
+                            "sling:resourceType": "menarinimaster/components/title",
+                            "cq:styleIds": [
+                                "1653552493699"
+                            ]
+                        }
+                    },
+                    "container_1517294438": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "admin",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:created": "Tue Mar 14 2023 11:01:58 GMT+0100",
+                        "jcr:lastModified": "Tue Mar 14 2023 11:01:58 GMT+0100",
+                        "sling:resourceType": "menarinimaster/components/container",
+                        "cq:styleIds": [
+                            "1677232233407"
+                        ],
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:title": "PRODUCTS INFORMATION",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue Mar 14 2023 11:02:24 GMT+0100",
+                            "type": "h1",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Wed Mar 15 2023 14:32:05 GMT+0100",
+                            "sling:resourceType": "menarinimaster/components/title",
+                            "cq:styleIds": [
+                                "1653552512402"
+                            ]
+                        },
+                        "text": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue Mar 14 2023 11:48:05 GMT+0100",
+                            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\r\n<p> Vivamus vel risus accumsan, congue lacus eget, dapibus tortor. Ut ut quam commodo, pretium nibh a, euismod lectus.&nbsp;</p>\r\n",
+                            "jcr:lastModified": "Tue Mar 14 2023 11:48:39 GMT+0100",
+                            "sling:resourceType": "menarinimaster/components/text",
+                            "textIsRich": "true"
+                        },
+                        "product_container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "responsiveGrid",
+                            "jcr:created": "Tue Mar 14 2023 11:50:06 GMT+0100",
+                            "jcr:lastModified": "Tue Mar 14 2023 14:51:28 GMT+0100",
+                            "sling:resourceType": "menarinimaster/components/product-container",
+                            "product_item": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "countrySelect": "europe",
+                                "fileReference": "/content/dam/menarini-pt/assets/therapeuticArea_default.jpg",
+                                "productName": "Prodotto Europe 1",
+                                "jcr:lastModifiedBy": "admin",
+                                "target": "_self",
+                                "jcr:created": "Tue Mar 14 2023 12:51:48 GMT+0100",
+                                "link": "https://www.google.com",
+                                "label": "Prodotto Europe 1  link",
+                                "country": "europe",
+                                "jcr:lastModified": "Thu Mar 16 2023 09:48:52 GMT+0100",
+                                "sling:resourceType": "menarinimaster/components/product-item"
+                            },
+                            "product_item_1823852302": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "countrySelect": "turkey",
+                                "fileReference": "/content/dam/menarini-pt/assets/banner_gruppo_duomo.jpg",
+                                "productName": "Prodotto Turkey 1",
+                                "jcr:lastModifiedBy": "admin",
+                                "target": "_blank",
+                                "jcr:created": "Tue Mar 14 2023 15:14:18 GMT+0100",
+                                "link": "https://www.google.com",
+                                "label": "Prodotto Turkey 1 link",
+                                "country": "europe",
+                                "jcr:lastModified": "Thu Mar 16 2023 09:49:03 GMT+0100",
+                                "sling:resourceType": "menarinimaster/components/product-item"
+                            },
+                            "product_item_1823852": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "countrySelect": "europe",
+                                "fileReference": "/content/dam/menarini-pt/assets/carosello_allergology.jpg",
+                                "productName": "Prodotto Europe  2",
+                                "jcr:lastModifiedBy": "admin",
+                                "target": "_blank",
+                                "jcr:created": "Tue Mar 14 2023 15:14:18 GMT+0100",
+                                "link": "https://www.google.com",
+                                "label": "Prodotto Europe 2 link",
+                                "country": "europe",
+                                "jcr:lastModified": "Thu Mar 16 2023 09:49:08 GMT+0100",
+                                "sling:resourceType": "menarinimaster/components/product-item"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

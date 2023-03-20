@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="78118e72-683b-4f8d-b78c-4886b1a1c860">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-10T10:05:14.680+01:00"
+        cq:lastModifiedBy="admin"
+        cq:name="elacestrant"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/compound-dropdown"
+        jcr:lastModified="{Date}2023-03-09T17:31:07.975+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="ELACESTRANT"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T17:31:07.975+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/compound-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="ELACESTRANT"
+                label_x0040_LastModified="{Date}2023-03-09T17:31:07.963+01:00"
+                value="elacestrant"
+                value_x0040_LastModified="{Date}2023-03-09T17:31:07.964+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="b5d07979-a98f-46c9-854d-aeb3de70d4e9"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/compound-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="ELACESTRANT"
+                string_x0040_value="elacestrant"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

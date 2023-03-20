@@ -8,7 +8,7 @@
 .cmp-container__layout {
 	width: 100%;
 	padding: 0 4%;
-	position: relative;
+
 }
 .cmp-container {
 	display: grid;
@@ -28,6 +28,7 @@
 @media (max-width: 1200px){
 	.cmp-container__layout {
 		margin: 1rem auto;
+		/* position: relative; */
 	}
 	header{
 		.cmp-container__layout {

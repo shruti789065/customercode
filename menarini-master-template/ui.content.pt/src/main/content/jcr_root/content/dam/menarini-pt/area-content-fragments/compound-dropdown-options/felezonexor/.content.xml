@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="4a47027e-befd-4f74-b20e-19e8336213af">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-10T10:05:14.647+01:00"
+        cq:lastModifiedBy="admin"
+        cq:name="felezonexor"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/compound-dropdown"
+        jcr:lastModified="{Date}2023-03-09T17:34:11.553+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="FELEZONEXOR"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T17:34:11.553+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/compound-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="FELEZONEXOR"
+                label_x0040_LastModified="{Date}2023-03-09T17:34:11.540+01:00"
+                value="felezonexor"
+                value_x0040_LastModified="{Date}2023-03-09T17:34:11.540+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="ba5873bd-5951-4574-8a98-83ce8f6a89d5"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/compound-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="FELEZONEXOR"
+                string_x0040_value="felezonexor"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
