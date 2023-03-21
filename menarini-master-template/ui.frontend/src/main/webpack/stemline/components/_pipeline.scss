@@ -116,6 +116,7 @@
                         font-family: $font-family-oswald;
                         font-weight: $font-regular;
                         opacity: 1;
+                        color: $color-corporate;
                     }
                 }
 
@@ -139,6 +140,7 @@
                     padding: 20px 0px 20px 26px;
                     border-left: 1px solid $color-third;
                     min-height: 100px;
+                    color: $color-corporate;
                 }
 
                 .indicationPipeline {
@@ -146,6 +148,7 @@
                     font-family: $font-family-oswald;
                     font-weight: $font-light;
                     padding: 20px 0px;
+                    color: $color-corporate;
                 }
 
                 .developmentStagePipeline {
@@ -154,6 +157,7 @@
                     .developmentStageSteps {
                         display: flex;
                         flex-direction: column;
+                        color: $color-corporate;
 
                         .dsHeader {
                             display: flex;
@@ -219,6 +223,7 @@
 
                 .popUpPipeline {
                     padding: 20px 0px;
+                    color: $color-corporate;
 
                     button {
                         font-family: $font-family-oswald;
