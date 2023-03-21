@@ -25,6 +25,8 @@ const copyDataFromJsonCompound = () => {
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem("compoundData", JSON.stringify(data));
+       // Hide loading spinner
+       loadingSpinner.remove();
     })
     .catch((error) => {
       console.error("Error copying data to local storage:", error);
@@ -58,6 +60,8 @@ const copyDataFromJsonIndication = () => {
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem("indicationData", JSON.stringify(data));
+       // Hide loading spinner
+       loadingSpinner.remove();
     })
     .catch((error) => {
       console.error("Error copying data to local storage:", error);
