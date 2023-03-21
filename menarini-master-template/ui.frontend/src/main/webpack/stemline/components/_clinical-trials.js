@@ -22,6 +22,8 @@ const copyDataFromJsonCompound = () => {
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem('clinicalTrials', JSON.stringify(data));
+       // Hide loading spinner
+       loadingSpinner.remove();
     })
     .catch((error) => {
       console.error("Error copying data to local storage:", error);

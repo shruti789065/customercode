@@ -1,0 +1,54 @@
+/* CARD HOVER */
+.teaser.cmp-teaser--background_secondary .cmp-teaser__content,
+.teaser.cmp-teaser--background_secondary .cmp-teaser__link {
+	&:hover {
+		background-color: $color-secondary-hover;
+	}
+}
+.teaser.cmp-teaser--background_primary .cmp-teaser__content,
+.teaser.cmp-teaser--background_primary .cmp-teaser__link {
+	&:hover {
+		background-color: $color-primary-hover;
+	}
+}
+
+/* start teaser card*/
+.teaser .cmp-card {
+	.cmp-teaser__action-container {
+		a {
+			color: $color-stem-third;
+		}
+		background-color: $color-stem-fifth;
+	}
+}
+/* end teaser card*/
+
+/* start teaser banner*/
+.teaser.cmp-banner--secondary {
+	.cmp-teaser__action-container {
+		background-color: $color-secondary;
+		&:hover {
+			background-color: $color-secondary-hover;
+		}
+	}
+}
+.teaser.cmp-banner--primary {
+	.cmp-teaser__action-container {
+		background-color: $color-stem-fifth;
+		&:hover {
+			background-color: $color-primary-hover;
+		}
+	}
+}
+.teaser.cmp-banner .cmp-teaser {
+	
+	.cmp-teaser__content,
+	.cmp-teaser__link {
+		.cmp-teaser__action-container {
+			a {
+				color: $color-stem-third;
+			}
+		}
+	}
+}
+/* end teaser banner*/
