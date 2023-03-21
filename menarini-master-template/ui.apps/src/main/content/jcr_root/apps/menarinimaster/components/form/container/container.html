@@ -16,7 +16,7 @@
 <form data-sly-use.container="com.adobe.cq.wcm.core.components.models.form.Container"
       data-sly-use.grid="com.day.cq.wcm.foundation.model.responsivegrid.ResponsiveGrid"
       method="${container.method}" action="${container.action @ addSelectors='customMail'}" id="${container.id}" name="${container.name}"
-      enctype="${container.enctype}"
+      enctype="${container.enctype}" novalidate
       class="cmp-form ${grid.cssClass}">
     <div data-sly-test="${container.errorMessages}"
          data-sly-list.item="${container.errorMessages}"
@@ -33,21 +33,4 @@
 </form>
 
 
-<script type='text/javascript'>
-var formId ='${container.id @ context='text'}';
-var form = document.getElementById(formId)
-form.addEventListener("submit", processForm);
 
-function processForm(e) {
-    if (e.preventDefault) e.preventDefault();
-    // alert('recaptcha response' + document.getElementById('g-recaptcha-response').value)
-
-    var tokenRecaptcha = document.getElementById('g-recaptcha-response').value;
-    if( tokenRecaptcha === null || tokenRecaptcha === "" ){
-        alert('Please, fill the recaptcha')
-        // You must return false to prevent the default form behavior
-        return false;
-    }
-      form.submit()
-}
-</script

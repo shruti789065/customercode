@@ -24,20 +24,20 @@
 			jcr:primaryType="nt:unstructured"
 			sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
 		<items jcr:primaryType="nt:unstructured">
-		<column
-				jcr:primaryType="nt:unstructured"
-				sling:resourceType="granite/ui/components/coral/foundation/container">
-		<items jcr:primaryType="nt:unstructured">
-			<publicKey
+			<column
 					jcr:primaryType="nt:unstructured"
-					sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-					fieldDescription="Recaptcha Public Key"
-					fieldLabel="Recaptcha Public Key"
-					name="./publicKey"
-					value="6Ld395kkAAAAALQnrEPfRp8KERjTW6aeJgHRaxLX"
-					required="{Boolean}true"/>
-		</items>
-		</column>
+					sling:resourceType="granite/ui/components/coral/foundation/container">
+				<items jcr:primaryType="nt:unstructured">
+					<publicKey
+							jcr:primaryType="nt:unstructured"
+							sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+							fieldDescription="Recaptcha Public Key"
+							fieldLabel="Recaptcha Public Key"
+							name="./publicKey"
+							value="6Ld395kkAAAAALQnrEPfRp8KERjTW6aeJgHRaxLX"
+							required="{Boolean}true"/>
+				</items>
+			</column>
 		</items>
 	</content>
 </jcr:root>

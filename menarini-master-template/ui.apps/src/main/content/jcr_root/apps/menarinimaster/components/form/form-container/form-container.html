@@ -16,7 +16,7 @@
 <form data-sly-use.container="com.adobe.cq.wcm.core.components.models.form.Container"
       data-sly-use.grid="com.day.cq.wcm.foundation.model.responsivegrid.ResponsiveGrid"
       method="${container.method}" action="${container.action @ selectors='customMail'}" id="${container.id}" name="${container.name}"
-      enctype="${container.enctype}"
+      enctype="${container.enctype}" novalidate
       class="cmp-form ${grid.cssClass}">
     <div data-sly-test="${container.errorMessages}"
          data-sly-list.item="${container.errorMessages}"

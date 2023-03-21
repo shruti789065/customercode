@@ -13,22 +13,25 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<div data-sly-test="${ wcmmode.edit || wcmmode.preview }" data-emptytext="${component.properties.jcr:title}" class="cq-placeholder"></div>
+
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <script type="text/javascript">
-  var onloadCallback = function() {
-    //alert("grecaptcha is ready!");
-    var publicKey = '${properties.publicKey @ context='scriptString'}'
+var onloadCallback = function () {
+	//alert("grecaptcha is ready!");
+	var publicKey = '${properties.publicKey @ context='scriptString'}'
 	grecaptcha.render("g-recaptcha", { sitekey: publicKey });
-  };
-var onSuccess = function(response) {
-    //alert("grecaptcha is verified !" + response);
-    $('#g-recaptcha-response').val(response);
-   };
-
+};
+var onSuccess = function (response) {
+	//alert("grecaptcha is verified !" + response);
+	$('#g-recaptcha-response').val(response);
+};
 </script>
 
 <div id="g-recaptcha" data-callback="onSuccess"></div>
-<input type="hidden" id="g-recaptcha-response" value=""></input>
+<input type="hidden" id="g-recaptcha-response" value=""/>
 <div id="recaptcha-error-message" class="error-captcha"></div>
+
+
 
 
