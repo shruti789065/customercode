@@ -9,44 +9,57 @@ $(() => {
 	const $submitBtn = $('#new_form').closest('form').find(':submit');
 	const $fileInput = $('#myfile');
 	const $filesContainer = $('#myFiles');
+	const fileExtensionsAllowed = ['pdf', 'doc', 'docx'];
+	const $fileInputParent = $fileInput.parent();
 
 
 
 	$('#new_form *').each((i, el) => {
 		const { type, name, dataset: { cmpHookFormText } } = el;
-		if (type === 'text' || type === 'checkbox' || cmpHookFormText === 'input' || name === 'info' || type === 'radio' || type === 'submit') {
+		if (type === 'text' || type === 'checkbox' || cmpHookFormText === 'input' || 
+			name === 'info' || type === 'radio' || type === 'submit') {
 			if (type !== 'file') {
-				$(el).attr('tabindex', tabIndex++);
+				$(el).prop('tabindex', tabIndex++);
 			}
 		}
 	});
 
-	// assign tabindex to submit button after loop
-	//$form.attr('novalidate', 'novalidate');
-	$submitBtn.attr('tabindex', tabIndex);
-
-	// introduce file validation event
-
-	$fileInput.change(() => {
-		const file = $fileInput[0].files[0];
-		const fileNameExt = file.name.substring(file.name.indexOf('.') + 1);
-		const fileExtensionsAllowed = ['pdf', 'doc', 'docx'];
-		// Limit: 3 MB (this size is in bytes)
-		$filesContainer.text(file.name);
-		if (file && file.size < 3 * 1048576) {
-			$fileInput.parent().find('.label_file_too_big').remove();
-		} else {
-			$fileInput.parent().find('.label_file_too_big').remove();
-			$fileInput.parent().append('<p class="label_file_too_big">File too big: Limit is 3MB</p>');
+	$form.querySelectorAll("[required]").forEach((item) => {
+		if (item.type === 'radio') {
+			item.closest('label').setAttribute('for', item.id);
 		}
-		// check extension
-		if (fileExtensionsAllowed.includes(fileNameExt)) {
-			$fileInput.parent().find('.label_file_extension_not_allowed').remove();
-		} else {
-			$fileInput.parent().find('.label_file_extension_not_allowed').remove();
-			$fileInput.parent().append('<p class="label_file_extension_not_allowed">File extension not allowed</p>');
+		if (item.id !== '') {
+			document.querySelector('label[for=' + item.id + ']').classList.add('required-field');
 		}
 	});
+
+	$submitBtn.attr('tabindex', tabIndex);
+
+	$fileInput.on('change', function () {
+		const file = this.files[0];
+		// Verifica che l'utente abbia selezionato un file
+		if (!file) {
+			return;
+		}
+		const fileNameExt = file.name.substring(file.name.lastIndexOf('.') + 1).toLowerCase();
+
+		// Verifica che la dimensione del file sia inferiore a 3MB
+		if (file.size > 3 * 1024 * 1024) {
+			$fileInputParent.find('.label_file_too_big').remove();
+			$fileInputParent.append('<p class="label_file_too_big">File too big: Limit is 3MB</p>');
+		} else {
+			$fileInputParent.find('.label_file_too_big').remove();
+		}
+		// Verifica che l'estensione del file sia consentita
+		if (!fileExtensionsAllowed.includes(fileNameExt)) {
+			$fileInputParent.find('.label_file_extension_not_allowed').remove();
+			$fileInputParent.append('<p class="label_file_extension_not_allowed">File extension not allowed</p>');
+		} else {
+			$fileInputParent.find('.label_file_extension_not_allowed').remove();
+		}
+		$filesContainer.text(file.name);
+	});
+
 
 	$form.addEventListener("submit", function (event) {
 		event.preventDefault();
@@ -76,7 +89,7 @@ function validateRecaptcha() {
 	const recaptchaElement = document.getElementById('g-recaptcha-response');
 	const tokenRecaptcha = recaptchaElement.value.trim();
 	if (!tokenRecaptcha) {
-		alert('Please fill in the reCAPTCHA field');
+		//alert('Please fill in the reCAPTCHA field');
 		return false;
 	}
 	return true;
@@ -233,53 +246,42 @@ function validateInputs() {
 }
 //restituisce true se radio validati, false altrimenti
 function validateRadios() {
-	var radiosValid = true;
-	var isRequired = 0;
-	$('#new_form *').filter(':radio').each(function () {
-		//il messaggio di errore viene se c'è un checked sul no e il campo è required; si presuppone
-		//che il sì sia sempre primo, allora valorizzo una variabile isRequired
-		//siamo sul valore si
-		if ($(this).attr('value') == "si" | $(this).attr('value') == "yes" | $(this).attr('value') == "1" | $(this).attr('value') == "si") {
-			//valore si e obbligatorio
-			if ($(this).attr('required')) {
-				isRequired = 1;
-				//valore si, obbligatorio e checked
+	const $radios = $('#new_form *').filter(':radio');
+	let radiosValid = true;
+	let isRequired = 0;
+	$radios.each(function () {
+		switch ($(this).val()) {
+			case 'si':
+			case 'yes':
+			case '1':
+				if ($(this).data('required')) {
+					isRequired = 1;
+					if ($(this).is(':checked')) {
+						$(this).siblings('.label_required').remove();
+					}
+				} else {
+					isRequired = 0;
+				}
+				break;
+			case 'no':
+			case '0':
+			case 'false':
 				if ($(this).is(':checked')) {
-					if ($(this).parent().siblings('.label_required').length) {
-						$(this).parent().siblings('.label_required').remove();
+					if (isRequired == 1) {
+						radiosValid = false;
+						if ($(this).siblings('.label_required').length == 0) {
+							$(this).after('<p class="label_required">This field is required</p>');
+						}
+					} else {
+						$(this).siblings('.label_required').remove();
 					}
 				}
-				//valore si, obbligatorio e non checked
-				else {
-				}
-			}
-			//valore no, non obbligatorio
-			else {
-				isRequired = 0;
-			}
-		}
-		//siamo sul valore no
-		if ($(this).attr('value') == "no" | $(this).attr('value') == "0" | $(this).attr('value') == "false") {
-			//valore no e checked
-			if ($(this).is(':checked')) {
-				//obbligatorio e checked no
-				if (isRequired == 1) {
-					radiosValid = false;
-					if ($(this).parent().siblings('.label_required').length == 0) {
-						$(this).parent().after('<p class="label_required">This field is required</p>');
-					}
-				}
-				//non obbligatorio e checked no
-				else {
-					if ($(this).parent().siblings('.label_required').length) {
-						$(this).parent().siblings('.label_required').remove();
-					}
-				}
-			}
+				break;
 		}
 	});
 	return radiosValid;
 }
+
 //restituisce true se formato email valido, false altrimenti
 function validateEmail(email) {
 	var re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
@@ -287,4 +289,11 @@ function validateEmail(email) {
 	return emailFormat;
 }
 
+function _appendErrorMessage(el, str) {
+	var span = document.createElement('span');
+	span.innerHTML = str;
+	span.classList.add('text-danger');
+	span.setAttribute("role", "alert");
+	el.append(span);
+}
 
