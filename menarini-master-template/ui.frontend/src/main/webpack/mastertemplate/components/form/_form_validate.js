@@ -47,13 +47,13 @@ $(() => {
 			$fileInput.parent().append('<p class="label_file_extension_not_allowed">File extension not allowed</p>');
 		}
 	});
-	
-	$form.addEventListener("submit", function(event) {
+
+	$form.addEventListener("submit", function (event) {
 		event.preventDefault();
 		if (allValidation()) {
 			$form.submit();
 		}
-	  });
+	});
 
 });
 
@@ -286,3 +286,5 @@ function validateEmail(email) {
 	var emailFormat = re.test(email);
 	return emailFormat;
 }
+
+
