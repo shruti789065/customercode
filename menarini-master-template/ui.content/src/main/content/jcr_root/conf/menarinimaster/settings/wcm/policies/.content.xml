@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
@@ -212,7 +212,7 @@
                         jcr:primaryType="nt:unstructured"/>
                 </policy_641528232375303>
                 <policy_692740220817900
-                    jcr:lastModified="{Date}2022-07-20T17:54:21.382+02:00"
+                    jcr:lastModified="{Date}2023-03-10T16:51:18.943+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Menarini MT title policy"
@@ -223,7 +223,7 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
-                            cq:styleGroupLabel="colors"
+                            cq:styleGroupLabel="Color"
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
@@ -232,14 +232,19 @@
                                     cq:styleLabel="primary"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="cmp-title--default"
-                                    cq:styleId="1653552512402"
-                                    cq:styleLabel="default"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
                                     cq:styleClasses="cmp-title--secondary"
                                     cq:styleId="1653552520338"
                                     cq:styleLabel="secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-title--corporate"
+                                    cq:styleId="1678463398786"
+                                    cq:styleLabel="corporate"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-title--default"
+                                    cq:styleId="1653552512402"
+                                    cq:styleLabel="default"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -508,7 +513,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/cardlistitem,/apps/menarinimaster/components/carousel,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/download,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/list,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/tabs,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/link]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/cardlistitem,/apps/menarinimaster/components/carousel,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/download,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/list,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/tabs,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -1063,19 +1068,6 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1661156880509>
             </productTitleAndIcon>
-            <accordion jcr:primaryType="nt:unstructured">
-                <policy_1677581474992
-                    cq:styleDefaultClasses="cmp-accordion--custom-style"
-                    jcr:lastModified="{Date}2023-03-01T09:57:42.378+01:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="MT Accordion Policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedHeadingElements="[h2,h3,h4,h5,h6]"
-                    headingElement="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_1677581474992>
-            </accordion>
         </components>
     </menarinimaster>
 </jcr:root>

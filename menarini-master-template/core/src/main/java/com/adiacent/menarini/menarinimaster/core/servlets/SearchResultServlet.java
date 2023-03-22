@@ -58,17 +58,18 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                 currentPage = pageManager.getContainingPage(currentResource.getPath());
             }
             if(currentPage != null){
-                JSONArray jsonArray = getResult(request, resourceResolver);
+                JSONObject jsonObject = getResult(request, resourceResolver);
                 response.setContentType(Constants.APPLICATION_JSON);
-                response.getWriter().print(jsonArray);
+                response.getWriter().print(jsonObject);
             }
         }catch (Exception e){
             LOG.error("Error in search results Get call: ", e);
         }
     }
 
-    protected JSONArray getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver) throws RepositoryException, JSONException {
+    protected JSONObject getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver) throws RepositoryException, JSONException {
         JSONArray results = new JSONArray();
+        JSONObject response = new JSONObject();
         if(request.getParameter("fulltext") != null){
             keyword = request.getParameter("fulltext");
             StringBuilder myXpathQuery = new StringBuilder();
@@ -91,11 +92,12 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                 result.put("description", resultPage.getDescription());
                 results.put(result);
             }
+            response.put("results", results);
         }else{
-            results.put("Missing parameters!, required fulltext");
+            response.put("errorMsg", "Missing parameters!, required fulltext");
         }
 
-        return results;
+        return response;
     }
 
     protected Page getHomePage() {

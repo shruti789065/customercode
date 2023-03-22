@@ -1,3 +1,30 @@
+.cmp-container__general-megamenu {
+	background-color: transparent;
+	transition: background-color 0.8s ease;
+	display: flex;
+	min-height: 100px;
+}
+
+.scrolled-page,
+.aem-AuthorLayer-Edit {
+	.cmp-container__general-megamenu {
+		background-color: $white;
+	}
+
+	.tabs-menu {
+		.cmp-tabs {
+			.cmp-tabs__tablist {
+
+				.cmp-tabs__tab,
+				.cmp-link--text {
+					color: $color-corporate!important;
+				}
+			}
+		}
+	}
+}
+
+
 .tabs-menu {
 	.menu-nav {
 		display: flex;
@@ -130,7 +157,7 @@
 				&__item-link {
 					display: block;
 					color: $color-corporate;
-					font-weight: $font-bold;
+					font-weight: $font-medium;
 					text-transform: uppercase;
 					font-size: 14px;
 					font-family: $font-family-oswald;
@@ -151,7 +178,7 @@
 			.cmp-tabs__tab {
 				position: relative;
 				color: $white;
-				font-weight: $font-bold;
+				font-weight: $font-medium;
 				font-family: $font-family-oswald;
 				font-size: 15px;
 				line-height: 16px;
@@ -164,7 +191,7 @@
 
 					.cmp-link--text {
 						color: $white;
-						font-weight: $font-bold;
+						font-weight: $font-medium;
 						font-size: 15px;
 						line-height: 16px;
 					}
@@ -320,7 +347,6 @@
 			width: 100%;
 			height: 100vh;
 			transition: left 0.8s ease-in;
-			z-index: 99;
 			padding: 30px 0;
 			display: block;
 			overflow-y: auto;
