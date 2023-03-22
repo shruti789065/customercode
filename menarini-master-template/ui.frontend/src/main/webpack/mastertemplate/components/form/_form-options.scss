@@ -20,7 +20,7 @@
 }
 .cmp-form-options__field {
 	&:focus {
-		border-color: $color-form-border;
+		border-color: #66afe9;
 		outline: 0;
 	}
 }
@@ -36,19 +36,19 @@
 .cmp-form-options__field--drop-down {
 	display: block;
 	background-position: right 30px center;
-	background-image: url($resources-path + "/images/icons/arrow_down_grey.png");
+	background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow_down_grey.png");
 	background-repeat: no-repeat;
 	font-family: $font-family-oswald;
 	font-size: 20px;
 	font-weight: 300;
-	color: $color-text;
+	color: #484542;
 	border: 0px;
 	box-shadow: none;
 	width: 100%;
 	height: 65px;
 	padding-left: 20px;
 	border-radius: 0px;
-	border: 1px solid $color-text;
+	border: 1px solid #3c3a37;
 	padding: 6px 12px;
 	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	line-height: 1.42857143;
@@ -72,6 +72,11 @@
 	color: $color-text;
 	margin-bottom: 18px;
 	display: block;
+	/* &:after {
+		content: " *";
+		color: #f94e52;
+		font-weight: $font-bolder;
+	} */
 }
 .cmp-options {
 	padding: 0 15px;

@@ -738,194 +738,6 @@ textarea {
     height: auto;
   }
 }
-.cmp-form-button {
-  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  background: #000000;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: 0px;
-  text-transform: uppercase;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border-radius: 0px;
-  color: white;
-  text-align: center;
-  margin-top: 18px;
-  margin-bottom: 27px;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
-}
-
-.cq-Editable-dom .cmp-form-button {
-  visibility: visible;
-}
-
-.cmp-form-options {
-  border: none;
-}
-
-.cmp-form-options--drop-down {
-  margin-bottom: 27px;
-  padding: 0 15px;
-}
-
-.cmp-form-options__field-label {
-  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  color: #484542;
-  min-height: 20px;
-  padding-left: 20px;
-  margin-bottom: 0;
-  font-weight: 400;
-  cursor: pointer;
-}
-
-.cmp-form-options__field:focus {
-  border-color: #66afe9;
-  outline: 0;
-}
-
-.cmp-form-options__field--drop-down {
-  display: block;
-  background-position: right 30px center;
-  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow_down_grey.png");
-  background-repeat: no-repeat;
-  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  color: #484542;
-  border: 0px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  width: 100%;
-  height: 65px;
-  padding-left: 20px;
-  border-radius: 0px;
-  border: 1px solid #484542;
-  padding: 6px 12px;
-  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  line-height: 1.42857143;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding: 0 15px;
-}
-
-.form-group {
-  padding: 0 15px;
-}
-
-.cmp-form-options__label {
-  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-  color: #484542;
-  margin-bottom: 18px;
-  display: block;
-}
-
-.cmp-options {
-  padding: 0 15px;
-}
-.cmp-options fieldset {
-  border: none;
-  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  color: #484542;
-  float: left;
-  width: 100%;
-}
-.cmp-options legend {
-  margin-bottom: 27px;
-}
-.cmp-options .radio-item {
-  display: inline-block;
-}
-
-.cmp-form-text {
-  display: block;
-  padding: 0 15px;
-  margin-bottom: 27px;
-}
-.cmp-form-text label {
-  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-  color: #484542;
-  margin-bottom: 18px;
-  display: block;
-}
-
-.cmp-form-text__textarea {
-  max-height: 180px;
-  width: 100%;
-}
-.cmp-form-text__textarea:focus {
-  border-color: #66afe9;
-  outline: 0;
-}
-
-.cmp-form-text__text {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #484542;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid #F7F6F4;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  color: #484542;
-  border: 0px;
-  background: #ffffff;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  width: 100%;
-  height: 65px;
-  padding-left: 20px;
-  border-radius: 0px;
-  border: 1px solid #484542;
-}
-
-.cmp-form {
-  margin: 0 auto;
-}
-.cmp-form .required-field:after {
-  content: " *";
-  color: #000000;
-  font-weight: 600;
-}
-.cmp-form input:focus {
-  border-color: #66afe9;
-  outline: 0;
-}
-.cmp-form span.text-danger {
-  font-size: 16px;
-  color: #000000;
-  display: block;
-}
-
 .cmp-helloworld__item-label {
   margin-bottom: 0;
 }
@@ -2438,6 +2250,264 @@ textarea {
   min-width: 70px;
   display: block;
   min-height: 70px;
+}
+
+.cmp-form {
+  background-color: #FFF;
+  padding: 60px 0;
+  margin: 0 auto;
+}
+
+.cmp-form p.label_required, .cmp-form p.label_email_not_valid, .cmp-form p.label_file_too_big, .cmp-form p.label_file_extension_not_allowed {
+  margin-top: 4px;
+  color: #a94442;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.cmp-form .button .cmp-form-button:hover {
+  -webkit-transform: none;
+  transform: none;
+}
+
+.cmp-form #myFiles {
+  width: 100%;
+  padding: 1%;
+  margin: 0px;
+  display: inline-block;
+}
+
+.cmp-form #myFiles:not(:empty) {
+  background: #F7F6F4;
+  margin-bottom: 1%;
+}
+
+.cmp-form-button {
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  background: #F5333F;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 0px;
+  text-transform: uppercase;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0px;
+  color: white;
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 27px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.cq-Editable-dom .cmp-form-button {
+  visibility: visible;
+}
+
+.cmp-form-options {
+  border: none;
+}
+
+.cmp-form-options--drop-down {
+  margin-bottom: 27px;
+  padding: 0 15px;
+}
+
+.cmp-form-options__field-label {
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #484542;
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.cmp-form-options__field:focus {
+  border-color: #66afe9;
+  outline: 0;
+}
+
+.cmp-form-options__field--drop-down {
+  display: block;
+  background-position: right 30px center;
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow_down_grey.png");
+  background-repeat: no-repeat;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #484542;
+  border: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 100%;
+  height: 65px;
+  padding-left: 20px;
+  border-radius: 0px;
+  border: 1px solid #3c3a37;
+  padding: 6px 12px;
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  line-height: 1.42857143;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0 15px;
+}
+
+.form-group {
+  padding: 0 15px;
+}
+
+.cmp-form-options__label {
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #484542;
+  margin-bottom: 18px;
+  display: block;
+  /* &:after {
+  	content: " *";
+  	color: #f94e52;
+  	font-weight: $font-bolder;
+  } */
+}
+
+.cmp-options {
+  padding: 0 15px;
+}
+.cmp-options fieldset {
+  border: none;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #484542;
+  float: left;
+  width: 100%;
+}
+.cmp-options legend {
+  margin-bottom: 27px;
+}
+.cmp-options .radio-item {
+  display: inline-block;
+}
+
+.cmp-form-text {
+  display: block;
+  padding: 0 15px;
+  margin-bottom: 27px;
+}
+.cmp-form-text label {
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #484542;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.cmp-form-text__textarea {
+  max-height: 180px;
+  width: 100%;
+}
+.cmp-form-text__textarea:focus {
+  border-color: #66afe9;
+  outline: 0;
+}
+
+.cmp-form-text__text {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #484542;
+  border: 0px;
+  background: #FFFFFF;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 100%;
+  height: 65px;
+  padding-left: 20px;
+  border-radius: 0px;
+  border: 1px solid #3C3A37;
+}
+
+.upload-file .cmp-form-text .uploadLabel {
+  background-color: #143F59;
+  color: #fff;
+  cursor: pointer;
+  font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 6px 12px 6px 29px;
+  text-align: center;
+  display: inline-block;
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/plus-icon-white.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-position-x: 10px;
+  background-size: 13px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  line-height: 20px;
+}
+.upload-file .cmp-form-text #myfile {
+  display: none;
+}
+.upload-file .cmp-form-text .uploadLabel:after {
+  content: none;
+}
+
+.cmp-form {
+  margin: 0 auto;
+}
+.cmp-form .required-field:after {
+  content: " *";
+  color: #000000;
+  font-weight: 600;
+}
+.cmp-form input:focus {
+  border-color: #66afe9;
+  outline: 0;
+}
+.cmp-form span.text-danger {
+  font-size: 16px;
+  color: #000000;
+  display: block;
+}
+
+.message-viewer .cmp-text {
+  color: #484542;
+  font-family: Arimo, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  padding-right: 30px;
 }
 
 .cq-Editable-dom .internalmenu .cmp-internalmenu__button {
