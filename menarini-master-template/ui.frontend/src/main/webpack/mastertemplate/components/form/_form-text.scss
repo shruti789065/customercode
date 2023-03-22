@@ -17,7 +17,7 @@
 	max-height: 180px;
 	width: 100%;
 		&:focus {
-			border-color: #66afe9;
+			border-color: $color-form-border;
 			outline: 0;
 		}
 	
@@ -29,10 +29,10 @@
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
+    color: $color-text;
+    background-color: $white;
     background-image: none;
-    border: 1px solid #ccc;
+    border: 1px solid $color-background;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
@@ -44,11 +44,11 @@
     font-weight: 300;
     color: $color-text;
     border: 0px;
-    background: #FFFFFF;
+    background: $white;
     box-shadow: none;
     width: 100%;
     height: 65px;
     padding-left: 20px;
     border-radius: 0px;
-    border: 1px solid #3C3A37;
+    border: 1px solid $color-text;
 }

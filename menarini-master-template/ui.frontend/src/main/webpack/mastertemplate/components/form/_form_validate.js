@@ -16,7 +16,7 @@ $(() => {
 
 	$('#new_form *').each((i, el) => {
 		const { type, name, dataset: { cmpHookFormText } } = el;
-		if (type === 'text' || type === 'checkbox' || cmpHookFormText === 'input' || 
+		if (type === 'text' || type === 'checkbox' || cmpHookFormText === 'input' ||
 			name === 'info' || type === 'radio' || type === 'submit') {
 			if (type !== 'file') {
 				$(el).prop('tabindex', tabIndex++);
@@ -46,18 +46,34 @@ $(() => {
 		// Verifica che la dimensione del file sia inferiore a 3MB
 		if (file.size > 3 * 1024 * 1024) {
 			$fileInputParent.find('.label_file_too_big').remove();
-			$fileInputParent.append('<p class="label_file_too_big">File too big: Limit is 3MB</p>');
+			$fileInputParent.append('<p class="label-error label_file_too_big">File too big: Limit is 3MB</p>');
 		} else {
 			$fileInputParent.find('.label_file_too_big').remove();
 		}
 		// Verifica che l'estensione del file sia consentita
 		if (!fileExtensionsAllowed.includes(fileNameExt)) {
 			$fileInputParent.find('.label_file_extension_not_allowed').remove();
-			$fileInputParent.append('<p class="label_file_extension_not_allowed">File extension not allowed</p>');
+			$fileInputParent.append('<p class="label-error label_file_extension_not_allowed">File extension not allowed</p>');
 		} else {
 			$fileInputParent.find('.label_file_extension_not_allowed').remove();
 		}
 		$filesContainer.text(file.name);
+
+		$filesContainer.append('<i class="cmp-close__icon"></i>');
+
+
+	});
+
+	$filesContainer.on('click', '.cmp-close__icon', function () {
+		console.log("CLICKKKK");
+		// Rimuovi il file selezionato
+		$fileInput.val('');
+		// Rimuovi il testo del nome del file
+		$filesContainer.text('');
+		// Rimuovi l'icona X
+		$(this).remove();
+
+		document.querySelector('.label-error').remove();
 	});
 
 
@@ -89,7 +105,7 @@ function validateRecaptcha() {
 	const recaptchaElement = document.getElementById('g-recaptcha-response');
 	const tokenRecaptcha = recaptchaElement.value.trim();
 	if (!tokenRecaptcha) {
-		//alert('Please fill in the reCAPTCHA field');
+		_appendErrorMessage(recaptchaElement, 'Please fill in the reCAPTCHA field');
 		return false;
 	}
 	return true;
@@ -112,7 +128,7 @@ function validateInputs() {
 					if (valueSelected === undefined) {
 						$(this).css("border", "3px solid #a94442");
 						if ($(this).parent().find('.label_required').length == 0) {
-							$(this).parent().append("<p class='label_required'>This field is required</p>");
+							$(this).parent().append("<p class='label-error label_required'>This field is required</p>");
 						}
 						inputsValid = false;
 					}
@@ -132,7 +148,7 @@ function validateInputs() {
 						if (($(this).val().length == 0)) {
 							//se non è file si può dare il border
 							if ($(this).parent().find('.label_required').length == 0) {
-								$(this).parent().append("<p class='label_required'>This field is required</p>");
+								$(this).parent().append("<p class='label-error label_required'>This field is required</p>");
 							}
 							inputsValid = false;
 						}
@@ -162,7 +178,7 @@ function validateInputs() {
 									$(this).parent().find('.label_file_too_big').remove();
 								}
 								if ($(this).parent().find('.label_file_too_big').length == 0) {
-									$(this).parent().append("<p class='label_file_too_big'>File too big: Limit is 3MB</p>");
+									$(this).parent().append("<p class='label-error label_file_too_big'>File too big: Limit is 3MB</p>");
 								}
 								inputsValid = false;
 							}
@@ -178,7 +194,7 @@ function validateInputs() {
 									$(this).parent().find('.label_file_extension_not_allowed').remove();
 								}
 								if ($(this).parent().find('.label_file_extension_not_allowed').length == 0) {
-									$(this).parent().append("<p class='label_file_extension_not_allowed'>File extension not allowed</p>");
+									$(this).parent().append("<p class='label-error label_file_extension_not_allowed'>File extension not allowed</p>");
 								}
 								inputsValid = false;
 							}
@@ -190,7 +206,7 @@ function validateInputs() {
 						if (($(this).val().length == 0)) {
 							$(this).css("border", "3px solid #a94442");
 							if ($(this).parent().find('.label_required').length == 0) {
-								$(this).parent().append("<p class='label_required'>This field is required</p>");
+								$(this).parent().append("<p class='label-error label_required'>This field is required</p>");
 							}
 							inputsValid = false;
 						}
@@ -224,7 +240,7 @@ function validateInputs() {
 							$(this).css("border", "3px solid #a94442");
 							if ($(this).parent().find('.label_email_not_valid').length == 0 & $(this).parent().find('.label_required').length == 0) {
 								$(this).parent()
-									.append("<p class='label_email_not_valid'>Please enter a valid email address</p>");
+									.append("<p class='label-error label_email_not_valid'>Please enter a valid email address</p>");
 								if ($(this).parent().find('.label_required').length) {
 									$(this).parent().find('.label_required').remove();
 								}
@@ -270,7 +286,7 @@ function validateRadios() {
 					if (isRequired == 1) {
 						radiosValid = false;
 						if ($(this).siblings('.label_required').length == 0) {
-							$(this).after('<p class="label_required">This field is required</p>');
+							$(this).after('<p class="label-error label_required">This field is required</p>');
 						}
 					} else {
 						$(this).siblings('.label_required').remove();

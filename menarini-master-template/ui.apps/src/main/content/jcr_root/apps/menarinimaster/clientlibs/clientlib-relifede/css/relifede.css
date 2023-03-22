@@ -1372,7 +1372,7 @@ textarea {
 }
 
 .loading-spinner {
-  border: 6px solid #f3f3f3;
+  border: 6px solid #F7F6F4;
   border-top: 6px solid #000000;
   border-radius: 50%;
   width: 40px;
@@ -2253,14 +2253,14 @@ textarea {
 }
 
 .cmp-form {
-  background-color: #FFF;
+  background-color: #ffffff;
   padding: 60px 0;
   margin: 0 auto;
 }
 
 .cmp-form p.label_required, .cmp-form p.label_email_not_valid, .cmp-form p.label_file_too_big, .cmp-form p.label_file_extension_not_allowed {
   margin-top: 4px;
-  color: #a94442;
+  color: #143F59;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
@@ -2286,7 +2286,7 @@ textarea {
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 500;
-  background: #F5333F;
+  background: #000000;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 10px;
@@ -2351,7 +2351,7 @@ textarea {
   height: 65px;
   padding-left: 20px;
   border-radius: 0px;
-  border: 1px solid #3c3a37;
+  border: 1px solid #484542;
   padding: 6px 12px;
   -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
@@ -2374,11 +2374,6 @@ textarea {
   color: #484542;
   margin-bottom: 18px;
   display: block;
-  /* &:after {
-  	content: " *";
-  	color: #f94e52;
-  	font-weight: $font-bolder;
-  } */
 }
 
 .cmp-options {
@@ -2430,10 +2425,10 @@ textarea {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
+  color: #484542;
+  background-color: #ffffff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid #ECECEC;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
@@ -2447,19 +2442,19 @@ textarea {
   font-weight: 300;
   color: #484542;
   border: 0px;
-  background: #FFFFFF;
+  background: #ffffff;
   -webkit-box-shadow: none;
           box-shadow: none;
   width: 100%;
   height: 65px;
   padding-left: 20px;
   border-radius: 0px;
-  border: 1px solid #3C3A37;
+  border: 1px solid #484542;
 }
 
 .upload-file .cmp-form-text .uploadLabel {
   background-color: #143F59;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -2478,6 +2473,30 @@ textarea {
 }
 .upload-file .cmp-form-text #myfile {
   display: none;
+}
+.upload-file .cmp-form-text #myFiles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.upload-file .cmp-form-text #myFiles .cmp-close__icon {
+  margin-right: 15px;
+  /* width: 42px;
+  height: 36px;
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_side_menu_close.svg");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat; */
+}
+.upload-file .cmp-form-text #myFiles .cmp-close__icon::after {
+  content: "X";
+  font-size: 18px;
+  font-weight: 700;
+  color: #143F59;
+  cursor: pointer;
 }
 .upload-file .cmp-form-text .uploadLabel:after {
   content: none;
