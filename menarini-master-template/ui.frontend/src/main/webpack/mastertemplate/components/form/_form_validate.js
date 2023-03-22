@@ -65,7 +65,6 @@ $(() => {
 	});
 
 	$filesContainer.on('click', '.cmp-close__icon', function () {
-		console.log("CLICKKKK");
 		// Rimuovi il file selezionato
 		$fileInput.val('');
 		// Rimuovi il testo del nome del file
