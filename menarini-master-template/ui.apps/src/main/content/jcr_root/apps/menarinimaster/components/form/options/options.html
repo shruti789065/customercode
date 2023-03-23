@@ -41,15 +41,32 @@
 		</sly>
 		<sly data-sly-test="${options.type.value == 'drop-down' || options.type.value == 'multi-drop-down'}">
 			<label class="cmp-form-options__label" for="${options.id}">${options.title}</label>
-			<select class="cmp-form-options__field cmp-form-options__field--${options.type.value}"
-			        name="${options.name}" id="${options.id}"
-			        data-sly-list.optionItem="${options.items}"
-			        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}" required="${properties.requiredSelect}">
-				<option value="${optionItem.value}" selected="${optionItem.selected}" disabled="${optionItem.disabled}"
-				        data-sly-attribute.aria-describedby="${options.helpMessage ? [options.id, 'helpMessage'] : '' @ join = '-'}">
-					${optionItem.text}
-				</option>
-			</select>
+
+			<sly data-sly-test.required="${properties.requiredSelect}">
+				<select class="cmp-form-options__field cmp-form-options__field--${options.type.value}"
+				        name="${options.name}" id="${options.id}" required
+				        data-sly-list.optionItem="${options.items}"
+				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+					<option value="${optionItem.value}" selected="${optionItem.selected}" disabled="${optionItem.disabled}"
+					        data-sly-attribute.aria-describedby="${options.helpMessage ? [options.id, 'helpMessage'] : '' @ join = '-'}">
+						${optionItem.text}
+					</option>
+				</select>
+			</sly>
+			<sly data-sly-test="${!required}">
+				<select class="cmp-form-options__field cmp-form-options__field--${options.type.value}"
+				        name="${options.name}" id="${options.id}"
+				        data-sly-list.optionItem="${options.items}"
+				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+					<option value="${optionItem.value}" selected="${optionItem.selected}" disabled="${optionItem.disabled}"
+					        data-sly-attribute.aria-describedby="${options.helpMessage ? [options.id, 'helpMessage'] : '' @ join = '-'}">
+						${optionItem.text}
+					</option>
+				</select>
+			</sly>
+
+
+
 		</sly>
 		<p id="${options.id}-helpMessage" class="cmp-form-options__help-message" data-sly-test="${options.helpMessage}">
 			${options.helpMessage}</p>

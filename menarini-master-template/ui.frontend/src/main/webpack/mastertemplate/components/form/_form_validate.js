@@ -262,42 +262,53 @@ function validateInputs() {
 }
 //restituisce true se radio validati, false altrimenti
 function validateRadios() {
-	const $radios = $('#new_form *').filter(':radio');
-	let radiosValid = true;
-	let isRequired = 0;
-	$radios.each(function () {
-		switch ($(this).val()) {
-			case 'si':
-			case 'yes':
-			case '1':
-				if ($(this).data('required')) {
-					isRequired = 1;
-					if ($(this).is(':checked')) {
-						$(this).siblings('.label_required').remove();
-					}
-				} else {
-					isRequired = 0;
-				}
-				break;
-			case 'no':
-			case '0':
-			case 'false':
+	var radiosValid = true;
+	var isRequired = 0;
+	$('#new_form *').filter(':radio').each(function () {
+		//il messaggio di errore viene se c'è un checked sul no e il campo è required; si presuppone
+		//che il sì sia sempre primo, allora valorizzo una variabile isRequired
+		//siamo sul valore si
+		if ($(this).attr('value') == "si" | $(this).attr('value') == "yes" | $(this).attr('value') == "1" | $(this).attr('value') == "si") {
+			//valore si e obbligatorio
+			if ($(this).attr('required')) {
+				isRequired = 1;
+				//valore si, obbligatorio e checked
 				if ($(this).is(':checked')) {
-					if (isRequired == 1) {
-						radiosValid = false;
-						if ($(this).siblings('.label_required').length == 0) {
-							$(this).after('<p class="label-error label_required">This field is required</p>');
-						}
-					} else {
-						$(this).siblings('.label_required').remove();
+					if ($(this).parent().siblings('.label_required').length) {
+						$(this).parent().siblings('.label_required').remove();
 					}
 				}
-				break;
+				//valore si, obbligatorio e non checked
+				else {
+				}
+			}
+			//valore no, non obbligatorio
+			else {
+				isRequired = 0;
+			}
+		}
+		//siamo sul valore no
+		if ($(this).attr('value') == "no" | $(this).attr('value') == "0" | $(this).attr('value') == "false") {
+			//valore no e checked
+			if ($(this).is(':checked')) {
+				//obbligatorio e checked no
+				if (isRequired == 1) {
+					radiosValid = false;
+					if ($(this).parent().siblings('.label_required').length == 0) {
+						$(this).parent().after('<p class="label_required">This field is required</p>');
+					}
+				}
+				//non obbligatorio e checked no
+				else {
+					if ($(this).parent().siblings('.label_required').length) {
+						$(this).parent().siblings('.label_required').remove();
+					}
+				}
+			}
 		}
 	});
 	return radiosValid;
 }
-
 //restituisce true se formato email valido, false altrimenti
 function validateEmail(email) {
 	var re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
