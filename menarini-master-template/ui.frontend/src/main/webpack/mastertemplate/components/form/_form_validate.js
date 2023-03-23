@@ -72,7 +72,9 @@ $(() => {
 		// Rimuovi l'icona X
 		$(this).remove();
 
-		document.querySelector('.label-error').remove();
+		if(document.querySelector('.cmp-form-text .label_file_extension_not_allowed') !== null){
+			document.querySelector('.cmp-form-text .label_file_extension_not_allowed').remove();
+		}
 	});
 
 
