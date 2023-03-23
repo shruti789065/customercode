@@ -12,79 +12,78 @@ $(() => {
 	const fileExtensionsAllowed = ['pdf', 'doc', 'docx'];
 	const $fileInputParent = $fileInput.parent();
 
-
-
-	$('#new_form *').each((i, el) => {
-		const { type, name, dataset: { cmpHookFormText } } = el;
-		if (type === 'text' || type === 'checkbox' || cmpHookFormText === 'input' ||
-			name === 'info' || type === 'radio' || type === 'submit') {
-			if (type !== 'file') {
-				$(el).prop('tabindex', tabIndex++);
+	if($form !== null){
+	    $('#new_form *').each((i, el) => {
+			const { type, name, dataset: { cmpHookFormText } } = el;
+			if (type === 'text' || type === 'checkbox' || cmpHookFormText === 'input' ||
+				name === 'info' || type === 'radio' || type === 'submit') {
+				if (type !== 'file') {
+					$(el).prop('tabindex', tabIndex++);
+				}
 			}
-		}
-	});
+		});
 
-	$form.querySelectorAll("[required]").forEach((item) => {
-		if (item.type === 'radio') {
-			item.closest('label').setAttribute('for', item.id);
-		}
-		if (item.id !== '') {
-			document.querySelector('label[for=' + item.id + ']').classList.add('required-field');
-		}
-	});
+		$form.querySelectorAll("[required]").forEach((item) => {
+			if (item.type === 'radio') {
+				item.closest('label').setAttribute('for', item.id);
+			}
+			if (item.id !== '') {
+				document.querySelector('label[for=' + item.id + ']').classList.add('required-field');
+			}
+		});
 
-	$submitBtn.attr('tabindex', tabIndex);
+		$submitBtn.attr('tabindex', tabIndex);
 
-	$fileInput.on('change', function () {
-		const file = this.files[0];
-		// Verifica che l'utente abbia selezionato un file
-		if (!file) {
-			return;
-		}
-		const fileNameExt = file.name.substring(file.name.lastIndexOf('.') + 1).toLowerCase();
+		$fileInput.on('change', function () {
+			const file = this.files[0];
+			// Verifica che l'utente abbia selezionato un file
+			if (!file) {
+				return;
+			}
+			const fileNameExt = file.name.substring(file.name.lastIndexOf('.') + 1).toLowerCase();
 
-		// Verifica che la dimensione del file sia inferiore a 3MB
-		if (file.size > 3 * 1024 * 1024) {
-			$fileInputParent.find('.label_file_too_big').remove();
-			$fileInputParent.append('<p class="label-error label_file_too_big">File too big: Limit is 3MB</p>');
-		} else {
-			$fileInputParent.find('.label_file_too_big').remove();
-		}
-		// Verifica che l'estensione del file sia consentita
-		if (!fileExtensionsAllowed.includes(fileNameExt)) {
-			$fileInputParent.find('.label_file_extension_not_allowed').remove();
-			$fileInputParent.append('<p class="label-error label_file_extension_not_allowed">File extension not allowed</p>');
-		} else {
-			$fileInputParent.find('.label_file_extension_not_allowed').remove();
-		}
-		$filesContainer.text(file.name);
+			// Verifica che la dimensione del file sia inferiore a 3MB
+			if (file.size > 3 * 1024 * 1024) {
+				$fileInputParent.find('.label_file_too_big').remove();
+				$fileInputParent.append('<p class="label-error label_file_too_big">File too big: Limit is 3MB</p>');
+			} else {
+				$fileInputParent.find('.label_file_too_big').remove();
+			}
+			// Verifica che l'estensione del file sia consentita
+			if (!fileExtensionsAllowed.includes(fileNameExt)) {
+				$fileInputParent.find('.label_file_extension_not_allowed').remove();
+				$fileInputParent.append('<p class="label-error label_file_extension_not_allowed">File extension not allowed</p>');
+			} else {
+				$fileInputParent.find('.label_file_extension_not_allowed').remove();
+			}
+			$filesContainer.text(file.name);
 
-		$filesContainer.append('<i class="cmp-close__icon"></i>');
-
-
-	});
-
-	$filesContainer.on('click', '.cmp-close__icon', function () {
-		// Rimuovi il file selezionato
-		$fileInput.val('');
-		// Rimuovi il testo del nome del file
-		$filesContainer.text('');
-		// Rimuovi l'icona X
-		$(this).remove();
-
-		if(document.querySelector('.cmp-form-text .label_file_extension_not_allowed') !== null){
-			document.querySelector('.cmp-form-text .label_file_extension_not_allowed').remove();
-		}
-	});
+			$filesContainer.append('<i class="cmp-close__icon"></i>');
 
 
-	$form.addEventListener("submit", function (event) {
-		event.preventDefault();
-		if (allValidation()) {
-			$form.submit();
-		}
-	});
+		});
 
+		$filesContainer.on('click', '.cmp-close__icon', function () {
+			// Rimuovi il file selezionato
+			$fileInput.val('');
+			// Rimuovi il testo del nome del file
+			$filesContainer.text('');
+			// Rimuovi l'icona X
+			$(this).remove();
+
+			if(document.querySelector('.cmp-form-text .label_file_extension_not_allowed') !== null){
+				document.querySelector('.cmp-form-text .label_file_extension_not_allowed').remove();
+			}
+		});
+
+
+		$form.addEventListener("submit", function (event) {
+			event.preventDefault();
+			if (allValidation()) {
+				$form.submit();
+			}
+		});
+	}
 });
 
 function allValidation() {
