@@ -4159,6 +4159,9 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   height: 40px;
   background-size: contain;
 }
+.cmp-layoutcontainer--footer .cmp-button__icon--linkedin::before {
+  background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-linkedin.svg") no-repeat center;
+}
 .cmp-layoutcontainer--footer .cmp-button__icon--facebook::before {
   background: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/social-icon-facebook.svg") no-repeat center;
 }
@@ -4668,7 +4671,29 @@ img.cq-LinkChecker.cq-LinkChecker--invalid {
   color: #878F96;
 }
 
+.cmp-share {
+  display: none;
+}
 .cmp-share .cmp-button {
   -webkit-filter: invert(100%) sepia(98%) saturate(9%) hue-rotate(172deg) brightness(104%) contrast(102%);
           filter: invert(100%) sepia(98%) saturate(9%) hue-rotate(172deg) brightness(104%) contrast(102%);
+}
+
+.cmp-button--mobile {
+  display: none !important;
+}
+
+.title.cmp-title--corporate-second h1.cmp-title__text,
+.title.cmp-title--corporate-second h1 .cmp-title__link,
+.title.cmp-title--corporate-second h2.cmp-title__text,
+.title.cmp-title--corporate-second h2 .cmp-title__link,
+.title.cmp-title--corporate-second h3.cmp-title__text,
+.title.cmp-title--corporate-second h3 .cmp-title__link,
+.title.cmp-title--corporate-second h4.cmp-title__text,
+.title.cmp-title--corporate-second h4 .cmp-title__link,
+.title.cmp-title--corporate-second h5.cmp-title__text,
+.title.cmp-title--corporate-second h5 .cmp-title__link,
+.title.cmp-title--corporate-second h6.cmp-title__text,
+.title.cmp-title--corporate-second h6 .cmp-title__link {
+  color: #F5333F;
 }

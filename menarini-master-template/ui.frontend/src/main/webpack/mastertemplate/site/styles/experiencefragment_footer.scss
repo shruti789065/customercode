@@ -118,6 +118,12 @@
 				height: 40px;
 				background-size: contain;
 			}
+			&--linkedin {
+				&::before {
+					background: url($resources-path + '/images/icons/social-icon-linkedin.svg')
+						no-repeat center;
+				}
+			}
 			&--facebook {
 				&::before {
 					background: url($resources-path + '/images/icons/social-icon-facebook.svg')
