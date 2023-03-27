@@ -40,6 +40,6 @@ public class MessageViewerModel {
     }
 
     public List<String> getMessageList() {
-        return messageList;
+        return this.messageList ;
     }
 }
