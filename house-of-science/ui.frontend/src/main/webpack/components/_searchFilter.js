@@ -13,7 +13,8 @@ const copyDataFromJson = () => {
   document.body.appendChild(loadingSpinner);
 
   if (domainName === 'localhost' && port === '4502') {
-    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json`;
+    //url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json`;
+	url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
   } else if (domainName === 'localhost') {
     url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
   } else {
