@@ -207,6 +207,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
                 ValueMap property = optItemResource.adaptTo(ValueMap.class);
                 optMailTo = property.get("optMailTo", String.class);
             }
+            session.logout();
         }
 
 
@@ -272,9 +273,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         if(errors == null || errors.size() == 0) {
 
             //email per cliente
-           status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle);
+            status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle);
             //email per admin
-           sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, emailValue, ccRecs, bccRecs, subject, namesList, resBundle);
+            sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, emailValue, ccRecs, bccRecs, subject, namesList, resBundle);
         }
 
 
