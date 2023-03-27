@@ -114,8 +114,6 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
     @Reference
     private QueryBuilder qBuilder;
 
-
-    private Session session;
     /**
      * @see org.apache.sling.api.servlets.OptingServlet#accepts(org.apache.sling.api.SlingHttpServletRequest)
      */
@@ -164,7 +162,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         /**
          * Adapting the resource resolver to the session object
          */
-        session = resourceResolver.adaptTo(Session.class);
+        Session session = resourceResolver.adaptTo(Session.class);
         /**
          * Configuring the Map for the predicate
          */
@@ -206,6 +204,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
                 Resource optItemResource =  ModelUtils.findResourceByPredicate(qBuilder, predicate, session, resourceResolver);
                 ValueMap property = optItemResource.adaptTo(ValueMap.class);
                 optMailTo = property.get("optMailTo", String.class);
+            }
+            if(session!= null){
+                session.logout();
             }
         }
 
@@ -272,9 +273,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         if(errors == null || errors.size() == 0) {
 
             //email per cliente
-           status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle);
+            status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle);
             //email per admin
-           sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, emailValue, ccRecs, bccRecs, subject, namesList, resBundle);
+            sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, emailValue, ccRecs, bccRecs, subject, namesList, resBundle);
         }
 
 

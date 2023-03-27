@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -40,6 +41,8 @@ public class MessageViewerModel {
     }
 
     public List<String> getMessageList() {
-        return messageList;
+        if(messageList != null) {
+            return new ArrayList<>(messageList);
+        }else return null;
     }
 }

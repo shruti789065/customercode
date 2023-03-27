@@ -41,17 +41,19 @@ public class ProductsServlet extends SlingSafeMethodsServlet {
             if(currentNode != null){
                 JSONArray results = new JSONArray();
                 NodeIterator containerNode = currentNode != null && currentNode.hasNodes() ? currentNode.getNodes() : null;
-                while(containerNode.hasNext()) {
-                    JSONObject result = new JSONObject();
-                    Node itemNode = containerNode.nextNode();
-                    if(itemNode.getProperty("sling:resourceType").getString().equals("menarinimaster/components/product-item")){
-                        result.put("country",itemNode.getProperty("country").getString());
-                        result.put("image", itemNode.hasProperty("fileReference") ? itemNode.getProperty("fileReference").getString() : "");
-                        result.put("name", itemNode.hasProperty("productName") ? itemNode.getProperty("productName").getString() : "");
-                        result.put("website", itemNode.hasProperty("link") ? itemNode.getProperty("link").getString() : "");
-                        result.put("targetwebsite", itemNode.getProperty("target").getString());
-                        result.put("labelwebsite", itemNode.hasProperty("label") ? itemNode.getProperty("label").getString() : "");
-                        results.put(result);
+                if(containerNode != null) {
+                    while (containerNode.hasNext()) {
+                        JSONObject result = new JSONObject();
+                        Node itemNode = containerNode.nextNode();
+                        if (itemNode.getProperty("sling:resourceType").getString().equals("menarinimaster/components/product-item")) {
+                            result.put("country", itemNode.getProperty("country").getString());
+                            result.put("image", itemNode.hasProperty("fileReference") ? itemNode.getProperty("fileReference").getString() : "");
+                            result.put("name", itemNode.hasProperty("productName") ? itemNode.getProperty("productName").getString() : "");
+                            result.put("website", itemNode.hasProperty("link") ? itemNode.getProperty("link").getString() : "");
+                            result.put("targetwebsite", itemNode.getProperty("target").getString());
+                            result.put("labelwebsite", itemNode.hasProperty("label") ? itemNode.getProperty("label").getString() : "");
+                            results.put(result);
+                        }
                     }
                 }
                 response.setContentType(Constants.APPLICATION_JSON);

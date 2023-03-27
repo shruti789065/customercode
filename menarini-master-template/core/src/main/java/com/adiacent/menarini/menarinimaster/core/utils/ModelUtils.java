@@ -131,19 +131,23 @@ public class ModelUtils {
 			Matcher m = p.matcher(template);  // Our string for matching
 			if (m.matches()) {
 				Page homepage = ModelUtils.getHomePage(resourceResolver, page.getPath());
-				properties = homepage.getProperties();
-				template = properties.containsKey("cq:template") ? properties.get("cq:template", String.class) : "";
+				if(homepage!=null) {
+					properties = homepage.getProperties();
+					template = properties.containsKey("cq:template") ? properties.get("cq:template", String.class) : "";
 
-				Page parentPage = ModelUtils.findPageByParentTemplate(page, template);
-				Page navigationRoot = parentPage;
-				//recupero internalmenu component se non siamo in publish mode
-				if (!isPublishModeEnabled) {
-					Resource internalMenu = ModelUtils.findChildComponentByResourceType(page.getContentResource(), "menarinimaster/components/internalmenu");
-					if (internalMenu != null) {
-						Node node = internalMenu.adaptTo(Node.class);
-						node.setProperty("navigationRoot", navigationRoot.getPath());
-						node.setProperty("structureStart", 0);
-						node.getSession().save();
+					Page parentPage = ModelUtils.findPageByParentTemplate(page, template);
+					Page navigationRoot = parentPage;
+					//recupero internalmenu component se non siamo in publish mode
+					if (!isPublishModeEnabled) {
+						Resource internalMenu = ModelUtils.findChildComponentByResourceType(page.getContentResource(), "menarinimaster/components/internalmenu");
+						if (internalMenu != null) {
+							Node node = internalMenu.adaptTo(Node.class);
+							if(navigationRoot!=null) {
+								node.setProperty("navigationRoot", navigationRoot.getPath());
+								node.setProperty("structureStart", 0);
+								node.getSession().save();
+							}
+						}
 					}
 				}
 			}
