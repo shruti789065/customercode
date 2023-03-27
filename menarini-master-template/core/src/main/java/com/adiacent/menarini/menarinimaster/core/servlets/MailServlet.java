@@ -114,8 +114,6 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
     @Reference
     private QueryBuilder qBuilder;
 
-
-    private Session session;
     /**
      * @see org.apache.sling.api.servlets.OptingServlet#accepts(org.apache.sling.api.SlingHttpServletRequest)
      */
@@ -164,7 +162,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         /**
          * Adapting the resource resolver to the session object
          */
-        session = resourceResolver.adaptTo(Session.class);
+        Session session = resourceResolver.adaptTo(Session.class);
         /**
          * Configuring the Map for the predicate
          */
@@ -207,7 +205,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
                 ValueMap property = optItemResource.adaptTo(ValueMap.class);
                 optMailTo = property.get("optMailTo", String.class);
             }
-            session.logout();
+            if(session!= null){
+                session.logout();
+            }
         }
 
 
