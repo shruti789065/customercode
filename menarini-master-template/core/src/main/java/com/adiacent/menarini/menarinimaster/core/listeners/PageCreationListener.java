@@ -66,7 +66,7 @@ public class PageCreationListener implements EventHandler{
 
                 //evento dedicato alla creazione di pagina( non alla sua modifica )
                 if (pageModification.getType() == PageModification.ModificationType.CREATED){
-                    if((String)pageModification.getEventProperties().entrySet().stream().filter(p->p.getKey().equals("path")).map(n -> n.getValue()).findFirst().get() != "") {
+                    if(StringUtils.isNotBlank((String)pageModification.getEventProperties().entrySet().stream().filter(p->p.getKey().equals("path")).map(n -> n.getValue()).findFirst().get())) {
                         String path = (String) pageModification.getEventProperties().entrySet().stream().filter(p -> p.getKey().equals("path")).map(n -> n.getValue()).findFirst().get();
                         if (StringUtils.isNotBlank(path)) {
                             if (resourceResolver != null) {

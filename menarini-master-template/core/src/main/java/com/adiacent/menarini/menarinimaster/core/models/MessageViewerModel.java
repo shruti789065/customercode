@@ -40,6 +40,9 @@ public class MessageViewerModel {
     }
 
     public List<String> getMessageList() {
-        return this.messageList ;
+        if(messageList!=null){
+            return this.messageList;
+        }
+        return null;
     }
 }
