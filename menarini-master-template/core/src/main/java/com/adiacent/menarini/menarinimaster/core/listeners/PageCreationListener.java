@@ -68,8 +68,9 @@ public class PageCreationListener implements EventHandler{
                 if (pageModification.getType() == PageModification.ModificationType.CREATED){
                     String path = (String)pageModification.getEventProperties().entrySet().stream().filter(p->p.getKey().equals("path")).map(n -> n.getValue()).findFirst().get();
                     if(StringUtils.isNotBlank(path)){
-                        resource = resourceResolver.getResource(path);
-
+                        if(resourceResolver != null) {
+                            resource = resourceResolver.getResource(path);
+                        }
                         if( resource != null) {
                             Page currentPage = resource.adaptTo(Page.class);
                             ModelUtils.initializeInternalMenuComponent(currentPage, resourceResolver, isPublishMode());
