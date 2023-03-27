@@ -66,8 +66,7 @@ public class PageCreationListener implements EventHandler{
 
                 //evento dedicato alla creazione di pagina( non alla sua modifica )
                 if (pageModification.getType() == PageModification.ModificationType.CREATED){
-                    if(StringUtils.isNotBlank((String)pageModification.getEventProperties().entrySet().stream().filter(p->p.getKey().equals("path")).map(n -> n.getValue()).findFirst().get())) {
-                        String path = (String) pageModification.getEventProperties().entrySet().stream().filter(p -> p.getKey().equals("path")).map(n -> n.getValue()).findFirst().get();
+                        String path = (String) pageModification.getEventProperties().entrySet().stream().filter(p -> p.getKey().equals("path")).map(n -> n.getValue()).findFirst().orElseGet(()->"");
                         if (StringUtils.isNotBlank(path)) {
                             if (resourceResolver != null) {
                                 resource = resourceResolver.getResource(path);
@@ -78,8 +77,6 @@ public class PageCreationListener implements EventHandler{
                             }
 
                         }
-                    }
-
                 }
             }
 
