@@ -1,0 +1,17 @@
+<sly data-sly-test.configured=${properties.fileReference}></sly>
+<div class="cmp-card-avatar-container" data-sly-test="${properties.fileReference}">
+    <div class="cmp-card-avatar-image">
+        <img src="${properties.fileReference}" class="card-avatar__image" alt="">
+    </div>
+    <div class="cmp-card-avatar__content">
+        <h2 class="cmp-card-avatar__name"> ${properties.name} </h2>
+        <h5 class="cmp-card-avatar__position">${properties.position}</h5>
+        <button class="cmp-card-avatar__button">
+            ${!properties.buttonLabel ? 'Read Biography' : properties.buttonLabel}
+        </button>
+        <div class="cmp-card-avatar__description_hide">
+            ${properties.description @context='html'}
+        </div>
+    </div>
+</div>
+<div data-sly-test="${ !configured }" data-emptytext="Card Team Member Avatar" class="cq-placeholder"></div>

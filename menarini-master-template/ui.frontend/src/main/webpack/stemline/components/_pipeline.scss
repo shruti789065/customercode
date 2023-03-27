@@ -20,7 +20,7 @@
             cursor: pointer;
 
             &.active {
-                background-color: $color-primary;
+                background-color: $color-stem-fifth;
                 color: $color-stem-third;
             }
         }
@@ -116,6 +116,7 @@
                         font-family: $font-family-oswald;
                         font-weight: $font-regular;
                         opacity: 1;
+                        color: $color-corporate;
                     }
                 }
 
@@ -139,6 +140,7 @@
                     padding: 20px 0px 20px 26px;
                     border-left: 1px solid $color-third;
                     min-height: 100px;
+                    color: $color-corporate;
                 }
 
                 .indicationPipeline {
@@ -146,6 +148,7 @@
                     font-family: $font-family-oswald;
                     font-weight: $font-light;
                     padding: 20px 0px;
+                    color: $color-corporate;
                 }
 
                 .developmentStagePipeline {
@@ -154,6 +157,7 @@
                     .developmentStageSteps {
                         display: flex;
                         flex-direction: column;
+                        color: $color-corporate;
 
                         .dsHeader {
                             display: flex;
@@ -213,12 +217,13 @@
                     padding: 20px 0px;
 
                     a {
-                        color: $color-link;
+                        color: $color-primary;
                     }
                 }
 
                 .popUpPipeline {
                     padding: 20px 0px;
+                    color: $color-corporate;
 
                     button {
                         font-family: $font-family-oswald;
@@ -228,6 +233,10 @@
                         text-transform: uppercase;
                         font-weight: $font-regular;
                         font-size: 14px;
+                        background-image: url($resources-path + '/images/arrow-right-big.svg');
+                        background-repeat: no-repeat;
+                        background-position: center right;
+                        padding-right: 50px;
                     }
 
                     .modal {
