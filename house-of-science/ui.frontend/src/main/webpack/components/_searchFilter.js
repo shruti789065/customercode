@@ -15,7 +15,7 @@ const copyDataFromJson = () => {
   if (domainName === 'localhost' && port === '4502') {
     url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json`;
   } else if (domainName === 'localhost') {
-    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/searchFilter.json';
+    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
   } else {
     url = `${protocol}//${domainName}${currentNodePipeline}.searchFilter.json`;
   }
@@ -123,14 +123,15 @@ const checkFilterEmpty = () => {
 //Se un filtro non è specificato (cioè è vuoto), viene considerato come soddisfatto.
 const filterData = (data, filters) => {
   return _.filter(data, (item) => {
+    console.log('paperino filters', filters);
     return (
-      (_.isEmpty(filters.topic) || _.includes(filters.topic, item.topic)) &&
-      (_.isEmpty(filters.author) || _.includes(filters.author, item.author)) &&
-      (_.isEmpty(filters.source) || _.includes(filters.source, item.source)) &&
+      //(_.isEmpty(filters.topic) || _.includes(filters.topic, item.topic)) &&
+      (_.isEmpty(filters.topic) || _.difference(filters.topic, item.topic).length==0) &&
+      (_.isEmpty(filters.author) || _.difference(filters.author, item.author).length==0) &&
+      (_.isEmpty(filters.source) || _.difference(filters.source, item.source).length==0) &&
       (_.isEmpty(filters.year) || _.includes(filters.year, item.year)) &&
-      (_.isEmpty(filters.typology) ||
-        _.includes(filters.typology, item.typology)) &&
-      (_.isEmpty(filters.Tag) || _.includes(filters.Tag, item.Tag))
+      (_.isEmpty(filters.typology) || _.includes(filters.typology, item.typology)) &&
+      (_.isEmpty(filters.Tag) || _.difference(filters.Tag, item.Tag).length==0)
     );
   });
 };
@@ -144,36 +145,21 @@ const filterData = (data, filters) => {
 //per impostare i colori delle card e rimuovere eventuali elementi vuoti.
 const displayData = (filteredData) => {
   let html = "";
+  let count = 1; // Initialize a count variable
+
   filteredData.forEach((item) => {
-    html += `
-    
-	<div class="cardSFR">
-		<div class="card-header" id="heading-${item.typology.replace(
-      /\s+/g,
-      ""
-    )}-${item.date.replace(/\//g, "-")}">
-			<button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${item.typology.replace(
-        /\s+/g,
-        ""
-      )}-${item.date.replace(
-      /\//g,
-      "-"
-    )}" aria-expanded="true" aria-controls="collapse-${item.typology.replace(
-      /\s+/g,
-      ""
-    )}-${item.date.replace(/\//g, "-")}">
-				<span class="typology">${item.typology}</span>
-				<span class="description">${item.description}</span>
-			</button>
-			<span class="date">${item.date}</span>
-		</div>
-		<div id="collapse-${item.typology.replace(/\s+/g, "")}-${item.date.replace(
-      /\//g,
-      "-"
-    )}" class="collapse" aria-labelledby="heading-${item.typology.replace(
-      /\s+/g,
-      ""
-    )}-${item.date.replace(/\//g, "-")}" data-bs-parent="#results">
+    const headingId = `heading-${count}`; // Create a unique ID for the accordion heading
+    const collapseId = `collapse-${count}`; // Create a unique ID for the accordion collapse target
+
+    html += `<div class="cardSFR">
+              <div class="card-header" id="${headingId}">
+			          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="true" aria-controls="${collapseId}">
+				          <span class="typology">${item.typology}</span>
+				          <span class="description">${item.description}</span>
+			          </button>
+			          <span class="date">${item.date}</span>
+		          </div>
+		<div id="${collapseId}" class="collapse" aria-labelledby="${headingId}" data-bs-parent="#results">
 			<div class="card-body">
 				<div class="meta-data">
 					<div class="meta-data-item Topic">TOPIC: ${item.topic}</div>
@@ -188,12 +174,13 @@ const displayData = (filteredData) => {
           
 					</div>
 					<div class="containerLink">
-						<a class="Link" href="${item.link}" target="_blank">Read more</a>
+						<a class="Link" href="${item.urlLink}" target="${item.targetLink}">${item.labelLink}</a>
 					</div>
 				</div>
 			</div>
 		</div>
   `;
+  count++; // Increment the count variable for the next iteration
   });
   document.getElementById("results").innerHTML = html;
   changeTypologyColor();
@@ -269,35 +256,42 @@ function searchFilt() {
 }
 
 function displayDataHOS() {
-/********************************************************/
   let data = getData();
-  const uniqueTopics = _.uniqBy(data, "topic");
+  //const uniqueTopics = _.uniqBy(data, "topic");
+  //console.log('');
+  //const flatMap = _.flatMap(data, 'topic');
+  //console.log('pippo flatmap', flatMap);
+  const uniqueTopics = _.uniqBy(_.flatMap(data, "topic")); 
+  //console.log('pippo uniqueTopics', uniqueTopics);
   let options = "";
   uniqueTopics.forEach((topic) => {
     options += `
 		<label>
-			<input type="checkbox" value="${topic.topic}" onchange="searchFilt()">${topic.topic}
+			<input type="checkbox" value="${topic}" onchange="searchFilt()">${topic}
 			</label>`;
   });
   document.getElementById("topic-filter").innerHTML = options;
-  const uniqueAuthors = _.uniqBy(data, "author");
+
+  const uniqueAuthors = _.uniqBy(_.flatMap(data, "author"));
   options = "";
   uniqueAuthors.forEach((author) => {
     options += `
 			<label>
-				<input type="checkbox" value="${author.author}" onchange="searchFilt()">${author.author}
+				<input type="checkbox" value="${author}" onchange="searchFilt()">${author}
 				</label>`;
   });
   document.getElementById("author-filter").innerHTML = options;
-  const uniqueSources = _.uniqBy(data, "source");
+
+  const uniqueSources = _.uniqBy(_.flatMap(data, "source"));
   options = "";
   uniqueSources.forEach((source) => {
     options += `
 				<label>
-					<input type="checkbox" value="${source.source}" onchange="searchFilt()">${source.source}
+					<input type="checkbox" value="${source}" onchange="searchFilt()">${source}
 					</label>`;
   });
   document.getElementById("source-filter").innerHTML = options;
+
   const uniqueYears = _.uniqBy(data, "year");
   options = "";
   uniqueYears.forEach((year) => {
@@ -307,6 +301,7 @@ function displayDataHOS() {
 						</label>`;
   });
   document.getElementById("year-filter").innerHTML = options;
+
   const uniqueTypologys = _.uniqBy(data, "typology");
   options = "";
   uniqueTypologys.forEach((typology) => {
@@ -316,17 +311,17 @@ function displayDataHOS() {
 							</label>`;
   });
   document.getElementById("typology-filter").innerHTML = options;
-  const uniqueTags = _.uniqBy(data, "tag");
+
+  const uniqueTags = _.uniqBy(_.flatMap(data, "tag"));
   options = "";
   uniqueTags.forEach((tag) => {
     options += `
 							<label>
-								<input type="checkbox" value="${tag.tag}" onchange="searchFilt()">${tag.tag}
+								<input type="checkbox" value="${tag}" onchange="searchFilt()">${tag}
 								</label>`;
   });
   document.getElementById("tag-filter").innerHTML = options;
   displayData(data);
-  /**************************************************/
 }
 
 //La funzione init inizializza la pagina e popola le checkbox per la selezione dei filtri.
