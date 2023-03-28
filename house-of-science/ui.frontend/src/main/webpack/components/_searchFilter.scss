@@ -16,12 +16,12 @@
                 &:has(button[aria-expanded="false"]):before {
                     display: flex;
                     content: " ";
-                    background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/arrow-up.svg');
+                    background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/arrow-up-v2.svg');
                     background-repeat: no-repeat;
                     width: 24px;
                     height: 24px;
                     position: absolute;
-                    right: 0px;
+                    right: 10px;
                     top: 10px;
                 }
                 &:has(button[aria-expanded="true"]):before {
@@ -193,28 +193,27 @@
                 }
                 .description {
                     text-align: left;
-                    color: black;
+                    color: $black;
                     font-size: 24px;
                     display: -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    font-weight: 300;
+                    font-weight: $regular;
                 }
             }
             .date {
                 display: flex;
-                color: grey;
+                color: $color-other;
                 font-size: 16px;
                 margin-top: 10px;
-                font-weight: 600;
             }
         }
         .card-body {
             display: flex;
             flex-direction: column;
-            font-weight: $light;
+            font-weight: $regular;
             padding: 0px 15px;
             * {
                 display: flex;
@@ -230,6 +229,17 @@
                     }
                     &.Tag {
                         margin-top: 30px;
+						display: flex;
+						gap: 20px;
+						.cmp-tag--item{
+							background-color: $color-other;
+							color: $white;
+							text-align: center;
+							font-size: $font-size;
+							padding: 10px 20px;
+							text-transform: uppercase;
+							font-weight: $extra-light;
+						}
                     }
                 }
             }

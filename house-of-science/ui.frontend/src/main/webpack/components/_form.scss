@@ -3,11 +3,14 @@
 	padding: 60px 0;
 	margin: 0 auto;
 }
-p.label_required, p.label_email_not_valid{
-	margin-top:4px;
-	color:#a94442;
+
+p.label_required,
+p.label_email_not_valid {
+	margin-top: 4px;
+	color: $primary-color-three;
 }
+
 .cmp-form .button .cmp-form-button:hover {
 	-webkit-transform: none;
-			transform: none;
-  }
+	transform: none;
+}
