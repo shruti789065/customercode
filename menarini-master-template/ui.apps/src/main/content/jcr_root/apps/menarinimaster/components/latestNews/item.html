@@ -22,5 +22,5 @@
         <h3 class="cmp-list__item-title">${item.title}</h3>
     </a>
     <span data-sly-test="${list.showDescription}" class="cmp-list__item-description">${item.description}</span>
-    <div class="btn_read_more"><a href="${item.path @ extension='html'}">Read more</a></div>
+    <div class="btn_read_more"><a href="${item.path @ extension='html'}">${'read more' @ i18n}</a></div>
 </template>
