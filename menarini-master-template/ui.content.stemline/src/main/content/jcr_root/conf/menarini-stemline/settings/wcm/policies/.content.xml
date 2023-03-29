@@ -231,14 +231,19 @@
                                     cq:styleLabel="primary"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="cmp-title--de"
-                                    cq:styleId="1653552512402"
-                                    cq:styleLabel="default"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
                                     cq:styleClasses="cmp-title--secondary"
                                     cq:styleId="1653552520338"
                                     cq:styleLabel="secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-title--corporate"
+                                    cq:styleId="1678463398786"
+                                    cq:styleLabel="corporate"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-title--default"
+                                    cq:styleId="1653552512402"
+                                    cq:styleLabel="default"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -382,7 +387,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content,group:Menarini MT - Form,/apps/menarinimaster/components/pipeline-container,/apps/menarinimaster/components/product-container]"
+                    components="[group:Menarini MT - Content,group:Menarini MT - Form,/apps/menarinimaster/components/pipeline-container]"
                     layoutDisabled="false">
                     <jcr:content
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -507,7 +512,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/cardlistitem,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/pipeline-container]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/cardlistitem,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/pipeline-container]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -544,14 +549,15 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_13297555366500>
                 <policy_18390849275000
-                    jcr:lastModified="{Date}2023-03-14T10:41:18.469+01:00"
+                    jcr:lastModified="{Date}2023-02-28T17:01:10.482+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedColorSwatches="#f5f5f5"
                     backgroundColorEnabled="true"
-                    components="[group:Menarini MT - Content,group:Menarini MT - Form,/apps/menarinimaster/components/pipeline-container,/apps/menarinimaster/components/product-container]"
+                    backgroundImageEnabled="true"
+                    components="[group:Menarini MT - Content,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -620,7 +626,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="category product policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/cardlistitem,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/productcategoryarea,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/header/share,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/pipeline-container]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/cardlistitem,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/productcategoryarea,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/header/share,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/pipeline-container]"
                     layout="responsiveGrid"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
@@ -695,6 +701,8 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="main container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -723,7 +731,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="product area policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content,/apps/menarinimaster/components/pipeline-container,/apps/menarinimaster/components/product-container]"
+                    components="[group:Menarini MT - Content,/apps/menarinimaster/components/pipeline-container]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1656579161845>
@@ -747,6 +755,30 @@
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1575031387650>
+                <policy_95533074908300
+                    jcr:lastModified="{Date}2023-03-02T11:42:59.468+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="MT teaser policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Layout"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-teaser--avatar-team"
+                                    cq:styleId="1677753739720"
+                                    cq:styleLabel="Card Avatar Team Member"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_95533074908300>
             </teaser>
             <download jcr:primaryType="nt:unstructured">
                 <policy_1575032193319
@@ -1090,7 +1122,7 @@
             </accordion>
             <pipeline-container jcr:primaryType="nt:unstructured">
                 <policy_1678200814581
-                    jcr:lastModified="{Date}2023-03-10T16:08:47.015+01:00"
+                    jcr:lastModified="{Date}2023-03-09T10:26:49.203+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Pipeline container policy"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
@@ -232,14 +232,19 @@
                                     cq:styleLabel="primary"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="cmp-title--de"
-                                    cq:styleId="1653552512402"
-                                    cq:styleLabel="default"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
                                     cq:styleClasses="cmp-title--secondary"
                                     cq:styleId="1653552520338"
                                     cq:styleLabel="secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-title--corporate"
+                                    cq:styleId="1678463398786"
+                                    cq:styleLabel="corporate"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-title--default"
+                                    cq:styleId="1653552512402"
+                                    cq:styleLabel="default"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -668,11 +673,13 @@
                     </cq:authoring>
                 </policy_15581283876800>
                 <policy_1307698943930800
-                    jcr:lastModified="{Date}2023-02-17T14:53:50.862+01:00"
+                    jcr:lastModified="{Date}2023-03-14T11:41:52.460+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="main container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -725,6 +732,30 @@
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1575031387650>
+                <policy_95533074908300
+                    jcr:lastModified="{Date}2023-03-02T11:42:59.468+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="MT teaser policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Layout"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-teaser--avatar-team"
+                                    cq:styleId="1677753739720"
+                                    cq:styleLabel="Card Avatar Team Member"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_95533074908300>
             </teaser>
             <download jcr:primaryType="nt:unstructured">
                 <policy_1575032193319
@@ -1052,14 +1083,14 @@
             </productTitleAndIcon>
             <accordion jcr:primaryType="nt:unstructured">
                 <policy_1677581474992
-                        cq:styleDefaultClasses="cmp-accordion--custom-style"
-                        jcr:lastModified="{Date}2023-03-01T09:57:42.378+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="MT Accordion Policy"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        allowedHeadingElements="[h2,h3,h4,h5,h6]"
-                        headingElement="h3">
+                    cq:styleDefaultClasses="cmp-accordion--custom-style"
+                    jcr:lastModified="{Date}2023-03-01T09:57:42.378+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="MT Accordion Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h2,h3,h4,h5,h6]"
+                    headingElement="h3">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1677581474992>
             </accordion>
