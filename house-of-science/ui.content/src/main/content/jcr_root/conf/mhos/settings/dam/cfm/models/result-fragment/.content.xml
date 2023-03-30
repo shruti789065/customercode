@@ -44,7 +44,7 @@
                             multiple="true"
                             name="author"
                             renderReadOnly="false"
-                            rootPath="/content/cq:tags/house-of-science/cardiology/author"
+                            rootPath="/content/cq:tags/house-of-science/author"
                             showEmptyInReadOnly="true"
                             valueType="string/tags[]"/>
                         <_x0031_675423406971
@@ -60,7 +60,7 @@
                             multiple="true"
                             name="tags"
                             renderReadOnly="false"
-                            rootPath="/content/cq:tags/house-of-science/cardiology/generic-tags"
+                            rootPath="/content/cq:tags/house-of-science/generic-tags"
                             showEmptyInReadOnly="true"
                             valueType="string/tags[]"/>
                         <_x0031_675333774806
@@ -117,7 +117,7 @@
                             forceSelection="false"
                             listOrder="7"
                             metaType="tags"
-                            multiple="true"
+                            multiple="false"
                             name="typology"
                             renderReadOnly="false"
                             rootPath="/content/cq:tags"
@@ -127,16 +127,56 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             emptyText="link button"
-                            fieldLabel="link button"
+                            fieldLabel="Link button"
                             listOrder="1"
                             maxlength="255"
                             metaType="text-single"
-                            name="linkl"
+                            name="link"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_675423655406>
+                        <_x0031_680161783173
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Link Label"
+                            listOrder="1"
+                            maxlength="255"
+                            metaType="text-single"
+                            name="linkLabel"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_680161783173>
+                        <_x0031_680161713875
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            emptyOption="{Boolean}true"
+                            fieldLabel="Link target"
+                            listOrder="6"
+                            metaType="enumeration"
+                            name="linkTarget"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <optionsmultifield jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Open in new page"
+                                    fieldValue="_blank"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Open in same page"
+                                    fieldValue="_self"/>
+                            </optionsmultifield>
+                            <datasource
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dam/cfm/admin/components/datasources/optionrendererenumeration"
+                                variant="default"/>
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_680161713875>
                         <_x0031_675673937024
                             cq:showOnCreate="true"
                             jcr:primaryType="nt:unstructured"
