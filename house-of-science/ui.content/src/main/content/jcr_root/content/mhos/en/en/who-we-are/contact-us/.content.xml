@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-01-09T16:49:58.607+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/mhos/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Contact Us"
+        jcr:uuid="523b30f1-43da-4db5-bb8b-406dcc0b397b"
+        sling:resourceType="mhos/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="mhos/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mhos/components/container"
+                layout="responsiveGrid">
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mhos/components/container"
+                    layout="responsiveGrid">
+                    <internal_header
+                        jcr:lastModified="{Date}2023-01-09T15:49:10.295+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/internal-header">
+                        <internal_header_back
+                            jcr:lastModified="{Date}2023-01-09T15:49:29.216+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/internal-header-background-image"
+                            backgroundImageReference="/content/dam/mhos/background-placeholder-2.jpg">
+                            <text
+                                jcr:lastModified="{Date}2023-01-09T15:49:56.668+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/text"
+                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lacus rutrum, lobortis neque et, feugiat libero. Nullam tempor vehicula nisl, at euismod lorem aliquam sed. Etiam consectetur eros vitae risus finibus, ac luctus arcu.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
+                            <image
+                                jcr:lastModified="{Date}2023-01-09T15:52:01.648+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/image"
+                                displayPopupTitle="true"
+                                fileReference="/content/dam/mhos/img-contatti.png"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                titleValueFromDAM="true"/>
+                        </internal_header_back>
+                    </internal_header>
+                    <container
+                        jcr:lastModified="{Date}2023-01-09T15:54:09.353+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/container"
+                        backgroundColor="rgb(255,255,255)">
+                        <container_598836489
+                            cq:styleIds="[1670947509108]"
+                            jcr:lastModified="{Date}2023-01-09T16:49:11.220+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/container">
+                            <container
+                                jcr:lastModified="{Date}2023-01-09T15:56:07.429+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="core/wcm/components/form/container/v2/container"
+                                action="/content/usergenerated/mhos/it/it/who-we-are/contact-us/cq-gen1673276098270/"
+                                actionType="foundation/components/form/actions/mail"
+                                from="a.messori@adiacent.com"
+                                mailto="a.messori@adiacent.com"
+                                subject="subject test">
+                                <cq:responsive jcr:primaryType="nt:unstructured"/>
+                                <text
+                                    jcr:lastModified="{Date}2023-01-09T15:58:59.629+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Name"
+                                    sling:resourceType="core/wcm/components/form/text/v2/text"
+                                    name="name"
+                                    required="true"
+                                    requiredMessage="this field is required"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                    </cq:responsive>
+                                </text>
+                                <text_2092415684
+                                    jcr:lastModified="{Date}2023-01-09T15:59:05.961+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Surname"
+                                    sling:resourceType="core/wcm/components/form/text/v2/text"
+                                    name="surname"
+                                    required="true"
+                                    requiredMessage="this field is required"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                    </cq:responsive>
+                                </text_2092415684>
+                                <text_1546415521
+                                    jcr:lastModified="{Date}2023-01-09T15:59:18.497+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="email"
+                                    sling:resourceType="core/wcm/components/form/text/v2/text"
+                                    name="email"
+                                    required="true"
+                                    requiredMessage="this field is required"
+                                    rows="2"
+                                    type="email">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                    </cq:responsive>
+                                </text_1546415521>
+                                <text_1029793356
+                                    jcr:lastModified="{Date}2023-01-09T15:58:50.889+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Subject"
+                                    sling:resourceType="core/wcm/components/form/text/v2/text"
+                                    name="subject"
+                                    required="true"
+                                    requiredMessage="this field is required"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_1029793356>
+                                <text_2129695209
+                                    jcr:lastModified="{Date}2023-01-09T15:59:52.869+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Message"
+                                    sling:resourceType="core/wcm/components/form/text/v2/text"
+                                    name="message"
+                                    required="true"
+                                    requiredMessage="this field is required"
+                                    rows="2"
+                                    type="textarea">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_2129695209>
+                                <options
+                                    jcr:lastModified="{Date}2023-01-09T16:49:58.602+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="privacy"
+                                    sling:resourceType="core/wcm/components/form/options/v2/options"
+                                    name="privacy"
+                                    source="local"
+                                    type="checkbox">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="false"
+                                            text="Having read the privacy information notice I consent to the processing of personal data including sensitive personal data, for the purposes of managing my request pursuant to the GDPR *"
+                                            value="privacy"/>
+                                    </items>
+                                </options>
+                                <button
+                                    jcr:lastModified="{Date}2023-01-09T16:05:48.675+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Send Message"
+                                    sling:resourceType="core/wcm/components/form/button/v2/button"
+                                    name="send"
+                                    type="submit"
+                                    value="send"/>
+                            </container>
+                        </container_598836489>
+                    </container>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-30T16:24:52.705+02:00"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:template="/conf/mhos/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="dialogs"
+        jcr:uuid="4745c6ab-87dd-4333-8473-0b651f9fd874"
+        sling:resourceType="mhos/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="mhos/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mhos/components/container"
+                layout="responsiveGrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mhos/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mhos/components/container"
+                    layout="responsiveGrid">
+                    <internal_header
+                        jcr:lastModified="{Date}2023-01-09T14:25:36.414+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/internal-header">
+                        <internal_header_back
+                            jcr:lastModified="{Date}2023-01-05T11:23:22.847+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/internal-header-background-color"
+                            backgroundColor="#134686">
+                            <image
+                                jcr:lastModified="{Date}2023-01-05T11:22:54.869+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/image"
+                                displayPopupTitle="true"
+                                fileReference="/content/dam/mhos/image-dialog-header.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                titleValueFromDAM="true"/>
+                            <text
+                                jcr:lastModified="{Date}2023-01-05T11:23:08.452+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/text"
+                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis arcu eu orci ultrices sodales. Nulla in lacus efficitur, pharetra lorem ut, sollicitudin velit. Integer luctus, justo quis tempor ornare, metus ex malesuada nibh, a congue metus tellus ut justo.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
+                            <title
+                                jcr:lastModified="{Date}2023-01-05T11:38:14.884+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="DIALOGS"
+                                sling:resourceType="mhos/components/title"/>
+                        </internal_header_back>
+                    </internal_header>
+                    <container
+                        jcr:lastModified="{Date}2023-01-26T14:27:20.971+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="mhos/components/container">
+                        <container
+                            cq:styleIds="[1670947509108]"
+                            jcr:lastModified="{Date}2023-01-26T14:27:59.858+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/container">
+                            <text
+                                jcr:lastModified="{Date}2023-01-26T14:57:16.105+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/text"
+                                text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales. Cras finibus nulla id pharetra sollicitudin. Integer eget tellus mi. Duis eros mauris, pellentesque quis accumsan in, efficitur et diam. In eget bibendum velit, sit amet ultricies lacus. Donec posuere tellus et est elementum, sed accumsan dui imperdiet. Morbi suscipit, neque eu pulvinar mattis, justo diam laoreet dui, ut venenatis ipsum risus consequat lectus. Vivamus eleifend est placerat, pulvinar est et, eleifend sapien. Cras aliquet ligula quis neque cursus vehicula cursus vel neque. Donec convallis urna ac mollis mattis.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
+                            <dialog_card_containe
+                                jcr:lastModified="{Date}2023-01-26T14:28:16.587+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/dialog-card-container">
+                                <card
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/foundation/components/parsys">
+                                    <dialog_card
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_452965117
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_1071035638
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_1149525912
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_2088864719
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_394614479
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_136637953
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_2082019092
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                    <dialog_card_copy_481820073
+                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
+                                        fileReference="/content/dam/mhos/sample-obama.png"
+                                        link="/content/mhos/en/en/who-we-are"
+                                        linkCaption="Watch now"
+                                        name="Barack Obama"
+                                        nation="Usa"/>
+                                </card>
+                            </dialog_card_containe>
+                        </container>
+                    </container>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+    <alessandro-vespignani/>
+</jcr:root>
