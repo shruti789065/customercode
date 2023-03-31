@@ -1,0 +1,46 @@
+.cmp-product-leaflet {
+	padding: 0px !important;
+	margin-bottom: 25px;
+
+	.cmp-container {
+		border: solid 1px $color-fourth;
+		display: flex;
+		padding: 25px;
+
+		div {
+			flex-direction: column;
+			display: flex;
+			gap: 20px;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.button {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			.cmp-button__text{
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+
+@media (min-width: 768px) {
+	.productleafleft {
+		max-width: 768px;
+		.cmp-product-leaflet {
+			.cmp-container {
+				div {
+					flex-direction: row;
+					justify-content: center;
+					gap: 10px;
+					.cmp-button__text{
+						font-size: $font-size;
+					}
+				}
+			}
+		}
+	}
+}

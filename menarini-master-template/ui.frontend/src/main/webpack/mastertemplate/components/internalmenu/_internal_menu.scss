@@ -77,7 +77,7 @@
 			font-family: $font-family-arimo;
 			font-size: 16px;
 			line-height: 25px;
-			margin-bottom: 1rem;
+			margin-bottom: .5rem;
 
 			.cmp-navigation__item-link {
 				font-weight: 400;
@@ -106,7 +106,7 @@
 					margin-top: 24px;
 					padding-right: 1em;
 					.cmp-navigation__group {
-						padding: 15px 0 0;
+						padding: 0;
 					}
 					&:hover {
 						> .cmp-navigation__group {
@@ -123,7 +123,7 @@
 				&--level-3 {
 					padding-left: 46px;
 					.cmp-navigation__item-link {
-						color: $color-corporate;
+						color: $color-text;
 						text-transform: inherit;
 					}
 					&::before {

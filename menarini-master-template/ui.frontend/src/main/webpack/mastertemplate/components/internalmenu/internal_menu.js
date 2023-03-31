@@ -30,7 +30,7 @@ window.$ = jQuery;
 				document.querySelector('.cmp-internalmenu__button').classList.toggle('cmp-internalmenu__button-opened');
 				document.querySelector('.internalmenu .cmp-navigation').classList.toggle('cmp-navigation--opened');
 				document.querySelectorAll('.cmp-internalmenu__button-opened').length > 0 ? buttonText = 'close' : buttonText = 'menu';
-				$('.cmp-button__text').text(buttonText);
+				$('.internalmenu .cmp-button__text').text(buttonText);
 			});
 		}
 
