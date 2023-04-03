@@ -23,11 +23,7 @@
      data-cmp-data-layer="${megamenuTabs.data.json}"
      data-placeholder-text="${wcmmode.edit && 'Please drag Tab components here' @ i18n}">
 
-	 <sly data-sly-use.url="${'org.apache.sling.api.resource.ValueMap' @ 
-                  resourceType='granite/htl', 
-                  path=currentPage.path
-                }" />
-
+	<input type="hidden" id="logoFolder" value=${properties.logoFolder}>
 
 	<sly data-sly-test="${(wcmmode.edit || wcmmode.preview)}">
 		<div class="cmp-container__layout aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
@@ -35,7 +31,7 @@
 				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"
 				   href="${btnLink.formattedLink}">
 					<div class="cmp-image">
-						<img class="cmp-image__image">
+						<img class="cmp-image__image" src="${properties.logoFolder}/logo-pos.svg">
 					</div>
 				</a>
 			</div>
@@ -81,7 +77,7 @@
 				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"
 				   href="${btnLink.formattedLink}">
 					<div class="cmp-image">
-						<img alt="site logo" class="cmp-image__image" data-test=""/>
+						<img alt="site logo" class="cmp-image__image" src="${properties.logoFolder}/logo-neg.svg"/>
 					</div>
 				</a>
 			</div>
