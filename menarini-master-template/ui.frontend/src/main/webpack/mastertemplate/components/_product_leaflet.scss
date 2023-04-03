@@ -6,6 +6,15 @@
 		border: solid 1px $color-fourth;
 		display: flex;
 		padding: 25px;
+		.cmp-text{
+			font-weight: $font-regular;
+			font-family: $font-family-arimo;
+			font-size: 18px;
+			line-height: 25px;
+			color: $color-text;
+			padding-right: 30px;
+			text-align: center;
+		}
 
 		div {
 			flex-direction: column;
@@ -38,6 +47,10 @@
 					gap: 10px;
 					.cmp-button__text{
 						font-size: $font-size;
+					}
+					.image{
+						flex-direction: column;
+						align-items: flex-start;
 					}
 				}
 			}

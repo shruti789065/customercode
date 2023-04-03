@@ -23,6 +23,11 @@
                             fieldLabel="Link Text"
                             value="Patient Information Leaflet"
                             name="./linktext"/>
+                    <activeSubstance
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Active substance"
+                            name="./activeSubstance"/>
                     <pdflink
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
