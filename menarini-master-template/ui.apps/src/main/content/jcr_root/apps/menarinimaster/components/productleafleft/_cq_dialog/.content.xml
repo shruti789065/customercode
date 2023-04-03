@@ -34,6 +34,17 @@
                             fieldLabel="PDF Link"
                             name="./pdflink"
                             rootPath="/content"/>
+                    <target jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            fieldDescription="Target of the link" fieldLabel="Target"
+                            name="./target">
+                        <items jcr:primaryType="nt:unstructured">
+                            <internal jcr:primaryType="nt:unstructured"
+                                      text="Same window (tab)" value="_self" />
+                            <external jcr:primaryType="nt:unstructured"
+                                      text="New window (tab)" value="_blank" />
+                        </items>
+                    </target>
                 </items>
             </column>
         </items>
