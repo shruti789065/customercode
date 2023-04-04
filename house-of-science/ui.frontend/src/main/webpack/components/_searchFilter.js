@@ -6,6 +6,10 @@ const copyDataFromJson = () => {
 	const port = window.location.port;
 	const protocol = window.location.protocol;
 	const currentNodePipeline = document.querySelector('.currentNodeSearchFilter').value;
+	const currentContentFragmentpath = document.querySelector('.searchResultContentFragment').value;
+	let folders = currentContentFragmentpath.split('/');
+	let category = folders[folders.length - 1];
+	let language = folders[folders.length - 2];
 	let url;
 
 	const loadingSpinner = document.createElement("div");
@@ -13,12 +17,12 @@ const copyDataFromJson = () => {
 	document.body.appendChild(loadingSpinner);
 
 	if (domainName === 'localhost' && port === '4502') {
-		//url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json`;
-		url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
+		url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}`;
+		//url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
 	} else if (domainName === 'localhost') {
 		url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
 	} else {
-		url = `${protocol}//${domainName}${currentNodePipeline}.searchFilter.json`;
+		url = `${protocol}//${domainName}:${currentNodePipeline}.searchFilter.json?category=${category}`;
 	}
 
 	fetch(url)
