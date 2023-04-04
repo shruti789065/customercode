@@ -18,8 +18,41 @@ module.exports = env => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: path.resolve(__dirname, SOURCE_ROOT + '/static/index.html')
-            })
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/index.html'),
+                filename: 'menarinimaster.html',
+                chunks: ['site']
+            }),
+            new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/landing-research.html'),
+                filename: 'landing-research.html',
+                chunks: ['site', 'stemline']
+           }),
+           new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/pipeline.html'),
+                filename: 'pipeline.html',
+                chunks: ['site', 'stemline']
+           }),
+           new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/products.html'),
+                filename: 'products.html',
+                chunks: ['site', 'stemline']
+           }),
+           new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/clinical-trials.html'),
+                filename: 'clinical-trials.html',
+                chunks: ['site', 'stemline']
+           }),
+           new HtmlWebpackPlugin({
+                inject: true,
+                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/index.html'),
+                filename: 'stemline.html',
+                chunks: ['site', 'stemline']
+           })
         ],
         devServer: {
             proxy: [{
@@ -39,4 +72,4 @@ module.exports = env => {
             }
         }
     });
-}
+};

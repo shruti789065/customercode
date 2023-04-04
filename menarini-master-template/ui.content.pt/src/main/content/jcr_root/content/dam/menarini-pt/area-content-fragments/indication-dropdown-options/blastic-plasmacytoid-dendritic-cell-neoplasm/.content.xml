@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="aaf4d883-092e-40b8-bf43-e16ca1edf9dc">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-10T10:05:14.793+01:00"
+        cq:lastModifiedBy="admin"
+        cq:name="blastic-plasmacytoid-dendritic-cell-neoplasm"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/indication-dropdown"
+        jcr:lastModified="{Date}2023-03-09T16:53:18.401+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Blastic plasmacytoid dendritic cell neoplasm"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T16:53:18.401+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                dropdownField_x0040_LastModified="{Date}2023-03-09T16:51:17.683+01:00"
+                label="Blastic plasmacytoid dendritic cell neoplasm"
+                label_x0040_LastModified="{Date}2023-03-09T16:53:18.385+01:00"
+                value="blastic plasmacytoid dendritic cell neoplasm"
+                value_x0040_LastModified="{Date}2023-03-09T16:53:18.385+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="8a43e991-188e-4a9f-954a-33f68a19434f"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="Blastic plasmacytoid dendritic cell neoplasm"
+                string_x0040_value="blastic plasmacytoid dendritic cell neoplasm"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

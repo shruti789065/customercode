@@ -1,0 +1,22 @@
+.cmp-form {
+	//max-width: 66%;
+	margin: 0 auto;
+	.required-field {
+		&:after {
+			content: " *";
+			color: $color-primary;
+			font-weight: $font-semi-bold;
+		}
+	}
+	input {
+		&:focus {
+			border-color: $color-form-border;
+			outline: 0;
+		}
+	}
+	span.text-danger{
+		font-size: 16px;
+		color: $color-primary;
+		display: block;
+	}
+}

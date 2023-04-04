@@ -1,0 +1,122 @@
+/* Fullscreen background image */
+.bg-img {
+    background-image: url('/etc.clientlibs/menarinimaster/clientlibs/clientlib-stemline/resources/images/landing-research/BG-landing-research.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 60px 0px;
+    overflow: hidden;
+
+    .row {
+        display: flex;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        * { 
+            display: flex;
+        }
+
+        &.row-1,
+        &.row-3,
+        &.row-5{
+            flex-direction: column;
+            .image { order: 1; }
+            .text { order: 2; }
+            .icon { order: 3; }
+            .arrow { order: 4; }
+        }
+    }
+
+    .title * {
+        color: $white;
+        font-family: $font-family-oswald;
+        font-weight: 200;
+        font-style: normal;
+        font-size: $title-font-size;
+    }
+
+    .image {
+        justify-content: center;
+        padding-top: 30px;
+
+        img {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+
+    .icon {
+        justify-content: center;
+        padding-top: 30px;
+        img {
+            width: 100%;
+            max-width: 100px;
+        }
+    }
+
+    .text {
+        color: $white;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 18px;
+            font-family: $font-family-oswald;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: uppercase;
+        }
+        p {
+            text-align: center;
+        }
+    }
+
+    .arrow {
+        justify-content: center;
+        margin: 20px auto;
+
+        img {
+            max-width: 300px;
+            width: 100%;
+        }
+    }
+
+    .finalText {
+        color: $white;
+        text-align: center;
+        padding-top: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bg-img {
+        .text {
+            text-align: left;
+            align-items: flex-start;
+            p {
+                text-align: left;
+            }
+        }
+        .finalText {
+            text-align: right;
+            max-width: 60%;
+            margin-left: auto;
+            margin-right: 0px;
+        }
+        .row {            
+    
+            &.row-1,
+            &.row-3,
+            &.row-5{
+                flex-direction: row;
+                .icon { order: 1; }
+                .text { order: 2; }
+                .image { order: 3; }
+                .arrow { order: 4; }
+            }
+        }
+    }
+  }

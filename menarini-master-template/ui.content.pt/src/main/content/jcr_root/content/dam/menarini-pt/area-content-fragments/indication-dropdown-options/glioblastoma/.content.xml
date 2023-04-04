@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="fdaea98c-f087-47e7-9621-f6699904ad52">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-10T10:05:14.663+01:00"
+        cq:lastModifiedBy="admin"
+        cq:name="glioblastoma"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/indication-dropdown"
+        jcr:lastModified="{Date}2023-03-09T16:55:43.096+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Glioblastoma"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T16:55:43.096+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="Glioblastoma"
+                label_x0040_LastModified="{Date}2023-03-09T16:55:43.074+01:00"
+                value="glioblastoma"
+                value_x0040_LastModified="{Date}2023-03-09T16:55:43.075+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="fe2a4711-de18-40d2-b952-e68e5b7e63c0"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="Glioblastoma"
+                string_x0040_value="glioblastoma"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

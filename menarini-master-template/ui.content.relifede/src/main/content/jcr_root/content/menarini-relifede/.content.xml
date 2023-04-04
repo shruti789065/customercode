@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <en/>
+    <jcr:content
+        cq:allowedTemplates="[/conf/menarini-relifede/settings/wcm/templates/(?!xf-).*]"
+        cq:conf="/conf/menarini-relifede"
+        cq:redirectTarget="/content/menarini-relifede/de/de"
+        cq:template="/conf/menarini-relifede/settings/wcm/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Menarini Relife DE"
+        sling:configRef="/conf/menarini-relifede"
+        sling:redirect="{Boolean}true"
+        sling:redirectStatus="{Long}302"
+        sling:resourceType="menarinimaster/components/page">
+        <image jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+    </jcr:content>
+</jcr:root>

@@ -47,10 +47,17 @@ public class InternalMenuModel extends GenericBaseModel implements InternalMenuI
 			if (pageManager != null) {
 				currentPage = pageManager.getContainingPage(currentResource);
 
+				ModelUtils.initializeInternalMenuComponent(currentPage, resourceResolver, isPublishMode());
+
+				//La logica seguente è stata centralizzata nel file ModelUtils a seguito della necessità di
+				//avere un listener in fase di creazione della pagina che si occupi lui stesso dell'inizializzazione
+				//del componente ( vedi PageCreationListener.java )
+				/*
+				currentPage = pageManager.getContainingPage(currentResource);
 				Page homepage = ModelUtils.getHomePage(resourceResolver, currentPage.getPath());
 				ValueMap properties = homepage.getProperties();
-				/*String siteName = properties.containsKey("siteName") ? properties.get("siteName", String.class) : "";
-				String PARENT_TEMPLATE_NAME = "/conf/"+siteName+"/settings/wcm/templates/menarini---homepage";*/
+				/ *String siteName = properties.containsKey("siteName") ? properties.get("siteName", String.class) : "";
+				String PARENT_TEMPLATE_NAME = "/conf/"+siteName+"/settings/wcm/templates/menarini---homepage";* /
 				String template = properties.containsKey("cq:template") ? properties.get("cq:template", String.class) : "";
 
 				Page parentPage = ModelUtils.findPageByParentTemplate(currentPage, template);
@@ -61,7 +68,12 @@ public class InternalMenuModel extends GenericBaseModel implements InternalMenuI
 					node.setProperty("structureStart",0);
 					node.getSession().save();
 				}
+			*/
+
 			}
+
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

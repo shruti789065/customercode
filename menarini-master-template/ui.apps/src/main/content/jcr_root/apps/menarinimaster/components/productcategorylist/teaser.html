@@ -17,6 +17,6 @@
     <sly  data-sly-resource="${item.teaserResource @ wcmmode='disabled'}"></sly>
     <a id="" class="cmp-button cmp-title--primary cmp-button--small"
        data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=item.path}" href="${btnLink.formattedLink}">
-        <span class="cmp-button__text">Read More</span>
+        <span class="cmp-button__text">${'read more' @ i18n}</span>
     </a>
 </template>
