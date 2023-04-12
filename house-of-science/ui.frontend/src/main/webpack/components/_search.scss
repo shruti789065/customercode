@@ -11,3 +11,40 @@
 .cmp-search__item--is-focused {}
 .cmp-search__item-mark {}
 .cmp-search__item-title {}
+
+// search by filter
+.search_container{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    margin: 30px 0;
+    .cmp-search{
+        &__searchInput{
+            height: 60px;
+            font-size: 20px;
+            float: left;
+            width: 100%;
+            border: 1px solid $color-foreground-two;
+            padding-left: 15px;
+            &:focus {
+                outline: none;
+            }
+        }
+        &__button{
+            height: 60px;
+            width: 15%;
+            float: left;
+            border: 1px solid $primary-color-three;
+            background-color: $white;
+            color: $primary-color-three;
+            font-family: $font-family;
+            font-size: 23px;
+            font-weight: $bold;
+            display: flex;
+            align-items: center;
+            &:hover{
+                transform: scale(1.02);
+            }
+        }
+    }
+}

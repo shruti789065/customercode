@@ -748,6 +748,29 @@
 					</policy_1675165479996>
 				</slideshow-container>
 			</Slideshow>
+            <filter-library jcr:primaryType="nt:unstructured">
+                <policy_1680775975226
+                        jcr:lastModified="{Date}2023-04-06T12:15:22.082+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Filter Library policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Function"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="cmp-filter-library__without-category"
+                                        cq:styleId="1680776019660"
+                                        cq:styleLabel="Search without category"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1680775975226>
+            </filter-library>
 		</components>
 	</mhos>
 </jcr:root>
