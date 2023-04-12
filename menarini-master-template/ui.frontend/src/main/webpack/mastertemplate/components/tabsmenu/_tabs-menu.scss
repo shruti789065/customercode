@@ -17,7 +17,7 @@
 
 				.cmp-tabs__tab,
 				.cmp-link--text {
-					color: $color-text!important;
+					color: $color-text !important;
 				}
 			}
 		}
@@ -92,15 +92,15 @@
 						display: flex;
 						flex-direction: column;
 						justify-content: flex-end;
-						/* font-size: 0.875rem;
-								padding: 1.875rem; */
+						width: 100%;
+
+
 
 						&:not(:only-child) {
 							position: absolute;
 							z-index: 1;
 							top: 0;
 							bottom: 0;
-							left: 0;
 							right: 0;
 							min-height: auto;
 							min-width: auto;
@@ -127,6 +127,7 @@
 							font-family: $font-family-oswald;
 							text-transform: capitalize;
 							line-height: 0.5;
+
 						}
 					}
 
@@ -162,7 +163,7 @@
 					font-size: 14px;
 					font-family: $font-family-oswald;
 					text-decoration: none;
-					padding: 0 25px;
+					padding: 0 10px;
 
 					&:hover {
 						background-color: transparent;
@@ -284,7 +285,7 @@
 				}
 
 				.cmp-teaser__title {
-					text-align: left;
+					/* text-align: left; */
 					padding: 0 15px;
 				}
 

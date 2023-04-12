@@ -88,7 +88,7 @@
                     &.filter-selected {
                         border: 2px solid $primary-color-three;
                         background-color: rgb(182 38 35 / 80%);
-                        color: #FFFFFF;
+                        color: $white;
                     }
                     input[type="checkbox"] {
                         display: none;
@@ -155,7 +155,7 @@
 }
 #results .cardSFR .card-header button .typology {
     /*background-color: $primary-color-three;*/
-    color: #FFFFFF;
+    color: $white;
     text-transform: uppercase;
     padding: 5px 15px;
     margin: 0px;
@@ -204,7 +204,7 @@
 }
 #results .cardSFR .card-body .Link {
     background-color: $primary-color-three;
-    color: #FFFFFF;
+    color: $white;
     font-weight: bold;
     padding: 15px 30px;
     margin-top: 30px;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
@@ -13,7 +13,15 @@
                         jcr:title="Content Form"
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="[/apps/mhos/components/form/button,/apps/mhos/components/form/hidden,/apps/mhos/components/form/options,/apps/mhos/components/form/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                            cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                            cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                            cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                            cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
                     </form-container>
                 </container>
             </form>
@@ -30,8 +38,10 @@
             <image jcr:primaryType="nt:unstructured">
                 <policy_651483963895698
                     jcr:description="- Enable lazy loading for faster page loading.&#xd;&#xa;- Define allowed image widths for automatic loading of the image in the most optimal resolution, given the size at which each image is displayed on the page, and the visitor's pixel density.&#xd;&#xa;- Disallow direct asset upload, to force authors to first upload the images to Assets."
+                    jcr:lastModified="{Date}2023-04-12T09:25:53.498+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Image"
+                    jcr:title="Content Image policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
                     allowUpload="false"
@@ -43,7 +53,15 @@
                     jpegQuality="{Long}85"
                     titleValueFromDAM="true"
                     uuidDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <plugins jcr:primaryType="nt:unstructured">
                         <crop
                             jcr:primaryType="nt:unstructured"
@@ -74,6 +92,23 @@
                             jcr:primaryType="nt:unstructured"
                             features="-"/>
                     </plugins>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Margins"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-margin--end me-3"
+                                    cq:styleLabel="margin end"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="ms-3"
+                                    cq:styleLabel="margin start"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_651483963895698>
             </image>
             <text jcr:primaryType="nt:unstructured">
@@ -83,7 +118,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <rtePlugins jcr:primaryType="nt:unstructured">
                         <paraformat
                             jcr:primaryType="nt:unstructured"
@@ -189,7 +232,15 @@
                     allowedTypes="h1"
                     linkDisabled="true"
                     type="h1">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
@@ -201,7 +252,15 @@
                     allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="true"
                     type="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Color"
@@ -245,7 +304,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Header"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_header>
                 <policy_footer
                     cq:styleDefaultElement="footer"
@@ -253,7 +320,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Footer"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_footer>
                 <policy_365746587536400
                     cq:styleDefaultElement="header"
@@ -262,7 +337,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="MHOS Header"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0 jcr:primaryType="nt:unstructured"/>
                     </cq:styleGroups>
@@ -274,7 +357,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="MHOS Footer"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_366021431398400>
             </experiencefragment>
             <container jcr:primaryType="nt:unstructured">
@@ -284,7 +375,15 @@
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="[group:Menarini House Of Science - Content,/apps/mhos/components/form/container,group:Menarini House Of Science - Structure]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                             <mapping_1575024218483
@@ -310,14 +409,22 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2023-02-10T15:32:13.668+01:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-03-31T14:10:58.550Z"
+                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/libs/core/wcm/components/form/container/v2/container,group:Core Form,/apps/mhos/components/accordion,/apps/mhos/components/breadcrumb,/apps/mhos/components/button,/apps/mhos/components/card-hover-container,/apps/mhos/components/carousel,/apps/mhos/components/container,/apps/mhos/components/dialog-card-container,/apps/mhos/components/download,/apps/mhos/components/embed,/apps/mhos/components/experiencefragment,/apps/mhos/components/image,/apps/mhos/components/internal-header,/apps/mhos/components/list,/apps/mhos/components/scientific-list,/apps/mhos/components/pdfviewer,/apps/mhos/components/progressbar,/apps/mhos/components/separator,/apps/mhos/components/Slideshow/slideshow-container,/apps/mhos/components/tabs,/apps/mhos/components/teaser,/apps/mhos/components/text,/apps/mhos/components/title,/apps/mhos/components/video]"
+                    components="[/libs/core/wcm/components/form/container/v2/container,group:Core Form,/apps/mhos/components/accordion,/apps/mhos/components/breadcrumb,/apps/mhos/components/button,/apps/mhos/components/card-hover-container,/apps/mhos/components/carousel,/apps/mhos/components/container,/apps/mhos/components/dialog-card-container,/apps/mhos/components/download,/apps/mhos/components/embed,/apps/mhos/components/experiencefragment,/apps/mhos/components/image,/apps/mhos/components/internal-header,/apps/mhos/components/list,/apps/mhos/components/pdfviewer,/apps/mhos/components/progressbar,/apps/mhos/components/scientific-list,/apps/mhos/components/separator,/apps/mhos/components/Slideshow/slideshow-container,/apps/mhos/components/spacer,/apps/mhos/components/tabs,/apps/mhos/components/teaser,/apps/mhos/components/text,/apps/mhos/components/title,/apps/mhos/components/video]"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-31T14:13:37.855Z"
+                        cq:lastReplicated_publish="{Date}2023-03-31T14:13:37.855Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                             <mapping_1575030255082
@@ -347,7 +454,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Main"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_649128221558427>
                 <policy_1575040440977
                     jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
@@ -361,7 +476,15 @@
                     components="[/libs/cq/experience-fragments/editor/components/buildingblock,group:Menarini House Of Science - Content,/apps/mhos/components/form/container,/apps/mhos/components/languagenavigation,/apps/mhos/components/navigation]"
                     layout="responsiveGrid"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                             <mapping_1575024218483
@@ -396,7 +519,15 @@
                     backgroundImageEnabled="true"
                     layout="responsiveGrid"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Width"
@@ -421,7 +552,15 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="[/libs/core/wcm/components/contentfragment/v1/contentfragment,/libs/core/wcm/components/contentfragmentlist/v2/contentfragmentlist,/libs/core/wcm/components/form/container/v2/container,group:Core Form,/apps/mhos/components/detail-breadcrumb,/apps/mhos/components/accordion,/apps/mhos/components/breadcrumb,/apps/mhos/components/button,/apps/mhos/components/carousel,/apps/mhos/components/container,/apps/mhos/components/carousel-dialog-container,/apps/mhos/components/download,/apps/mhos/components/embed,/apps/mhos/components/experiencefragment,/apps/mhos/components/filter-library,/apps/mhos/components/detail-container,/apps/mhos/components/image,/apps/mhos/components/internal-header,/apps/mhos/components/list,/apps/mhos/components/pdfviewer,/apps/mhos/components/progressbar,/apps/mhos/components/separator,/apps/mhos/components/tabs,/apps/mhos/components/teaser,/apps/mhos/components/text,/apps/mhos/components/title,/apps/mhos/components/video]"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicated_publish="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1674652114074>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
@@ -431,7 +570,15 @@
                     jcr:title="Content Teaser"
                     sling:resourceType="wcm/core/components/policy/policy"
                     titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Card Layout"
@@ -475,7 +622,15 @@
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
                     titleType="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicated_publish="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Type of Card"
@@ -524,7 +679,15 @@
                     displayFormat="true"
                     displaySize="true"
                     titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1575032193319>
             </download>
             <page jcr:primaryType="nt:unstructured">
@@ -538,7 +701,15 @@
                     clientlibs="[mhos.dependencies,mhos.site]"
                     clientlibsAsync="false"
                     clientlibsJsHead="mhos.dependencies">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Page Type"
@@ -566,7 +737,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Button Policies"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Layout"
@@ -615,7 +794,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Separator Policy"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Border"
@@ -642,7 +829,15 @@
                     backgroundColorSwatchesOnly="true"
                     components="[/apps/mhos/components/internal-header-background-color,/apps/mhos/components/internal-header-background-image]"
                     layoutDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1672755181602>
             </internal-header>
             <internal-header-background-image jcr:primaryType="nt:unstructured">
@@ -655,7 +850,15 @@
                     backgroundImageEnabled="true"
                     layout="responsiveGrid"
                     layoutDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1672842905920>
             </internal-header-background-image>
             <internal-header-background-color jcr:primaryType="nt:unstructured">
@@ -670,7 +873,15 @@
                     backgroundColorSwatchesOnly="true"
                     layout="responsiveGrid"
                     layoutDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1672842943485>
             </internal-header-background-color>
             <dialog-card-container jcr:primaryType="nt:unstructured">
@@ -679,7 +890,15 @@
                     jcr:title="dialog card container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="/apps/mhos/components/dialog-card">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:16.422Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1673448926406>
             </dialog-card-container>
             <carousel-dialog-container jcr:primaryType="nt:unstructured">
@@ -691,7 +910,15 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="/apps/mhos/components/teaser"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicated_publish="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1674227260298>
             </carousel-dialog-container>
             <card-hover-container jcr:primaryType="nt:unstructured">
@@ -702,7 +929,15 @@
                     jcr:title="card hover policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="/apps/mhos/components/teaser">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicated_publish="{Date}2023-03-30T07:42:05.591Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1674552948816>
             </card-hover-container>
             <detail-container jcr:primaryType="nt:unstructured">
@@ -713,7 +948,15 @@
                     jcr:title="header detail policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicated_publish="{Date}2023-03-31T13:03:13.637Z"
+                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Width"

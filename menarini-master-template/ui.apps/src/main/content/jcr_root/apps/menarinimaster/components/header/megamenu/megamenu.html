@@ -122,8 +122,7 @@
 		<sly data-sly-list.item="${megamenuTabs.items}">
 
 			<sly data-sly-use.rrh="${'com.adiacent.menarini.menarinimaster.core.models.ResourceResolverHelper' @item=item}"
-			     data-sly-test.toShow="${rrh.resourceType!='menarinimaster/components/link'}"
-			/>
+			     data-sly-test.toShow="${rrh.resourceType!='menarinimaster/components/link'}"/>
 
 			<div data-sly-resource="${item.name @ decorationTagName='div'}"
 			     id="${item.id}-tabpanel"
