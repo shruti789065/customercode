@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:allowedTemplates="[/conf/mhos/settings/wcm/templates/(?!xf-).*]"
         cq:conf="/conf/mhos"
-        cq:redirectTarget="/content/mhos/it/it"
+        cq:lastModified="{Date}2023-03-30T16:24:52.702+02:00"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:redirectTarget="/content/mhos/en/en"
         cq:template="/conf/mhos/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="Menarini House Of Science"
@@ -16,5 +18,5 @@
             <file/>
         </image>
     </jcr:content>
-    <it/>
+    <en/>
 </jcr:root>
