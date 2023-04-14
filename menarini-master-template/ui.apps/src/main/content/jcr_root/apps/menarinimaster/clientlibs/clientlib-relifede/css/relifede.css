@@ -1219,6 +1219,7 @@ textarea {
   color: #484542;
   padding-right: 30px;
   text-align: center;
+  margin: 0;
 }
 .cmp-product-leaflet .cmp-container div {
   -webkit-box-orient: vertical;
@@ -1277,10 +1278,8 @@ textarea {
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  .productleafleft .cmp-product-leaflet .cmp-container .button.addMargin {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    margin-bottom: 72px;
+  .productleafleft .cmp-product-leaflet .cmp-container div .image .addPadding-top {
+    padding-top: 25px;
   }
 }
 .cmp-separator {
@@ -3217,15 +3216,13 @@ textarea {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  /* font-size: 0.875rem;
-  		padding: 1.875rem; */
+  width: 100%;
 }
 .tabs-menu .cmp-tabs .cmp-tabs__tabpanel .cmp-teaser__link .cmp-teaser__content:not(:only-child) {
   position: absolute;
   z-index: 1;
   top: 0;
   bottom: 0;
-  left: 0;
   right: 0;
   min-height: auto;
   min-width: auto;
@@ -3278,7 +3275,7 @@ textarea {
   font-size: 14px;
   font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
   text-decoration: none;
-  padding: 0 25px;
+  padding: 0 10px;
 }
 .tabs-menu .cmp-tabs .cmp-tabs__tabpanel .cmp-list__item-link:hover {
   background-color: transparent;
@@ -3365,7 +3362,7 @@ textarea {
     text-align: initial;
   }
   .tabs-menu .menu-nav .cmp-tabs .cmp-teaser__title {
-    text-align: left;
+    /* text-align: left; */
     padding: 0 15px;
   }
   .tabs-menu .menu-nav .cmp-tabs__tablist .cmp-tabs__tab {

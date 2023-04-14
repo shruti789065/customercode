@@ -28,7 +28,7 @@
                 width: 205px;
                 background-color: $color-background;
                 font-size: 20px;
-                font-family: "Montserrat", sans-serif;
+                font-family: $font-family;
                 font-weight: 700;
                 text-transform: uppercase;
                 display: flex;
@@ -39,8 +39,8 @@
                 top: -20px;
             }
             .cmp-teaser__title{
-                font-family: "Libre Baskerville";
-                font-size: 28px;
+                font-family: $font-family-Libre;
+                font-size: 36px;
                 font-weight: 700;
                 color: $primary-color-three;
                 text-transform: uppercase;
@@ -48,6 +48,7 @@
                 align-items: center;
                 text-align: center;
                 margin-top: 50px;
+				padding-top: 10px;
             }
             .cmp-teaser__description{
                 font-size: 21px;
