@@ -405,38 +405,41 @@ const searchWitoutCategory = () =>{
 	let category = folders[folders.length - 1];
 	let url;
 
-	button.addEventListener('click', function() {
-		const searchedValue = document.querySelector('.cmp-search__searchInput').value;
-		console.log("button clicked");
-		if(searchedValue != ''){
-			console.log("Searched Value", searchedValue);
-            if(currentContentFragmentpath != ""){
-                url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}&fulltext=${searchedValue}`;
-            }
-			if(filterLibraryComp != null){
-				url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?fulltext=${searchedValue}`;
-				filterLibraryComp.style.display = "block";
+	if(button != null){
+		button.addEventListener('click', function() {
+			const searchedValue = document.querySelector('.cmp-search__searchInput').value;
+			console.log("button clicked");
+			if(searchedValue != ''){
+				console.log("Searched Value", searchedValue);
+				if(currentContentFragmentpath != ""){
+					url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}&fulltext=${searchedValue}`;
+				}
+				if(filterLibraryComp != null){
+					url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?fulltext=${searchedValue}`;
+					filterLibraryComp.style.display = "block";
+				}
+	
+				if(scientificList != null){
+					scientificList.style.display = "none";
+				}
+	
+				console.log("url for search", url);
+				fetch(url)
+				.then((response) => response.json())
+				.then((data) => {
+					localStorage.setItem('searchFilter', JSON.stringify(data));
+					displayDataHOS();
+					console.log(data);
+				})
+				.catch((error) => {
+					console.error("Error copying data to local storage:", error);
+					loadingSpinner.remove();
+				});	
 			}
-
-			if(scientificList != null){
-				scientificList.style.display = "none";
-			}
-
-			console.log("url for search", url);
-            fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                localStorage.setItem('searchFilter', JSON.stringify(data));
-				displayDataHOS();
-                console.log(data);
-            })
-            .catch((error) => {
-                console.error("Error copying data to local storage:", error);
-                loadingSpinner.remove();
-            });	
-		}
-		
-	});
+			
+		});
+	}
+	
 }
 
 const filterlibrarycomponent = document.querySelector('.cmp-filter-library__without-category');
