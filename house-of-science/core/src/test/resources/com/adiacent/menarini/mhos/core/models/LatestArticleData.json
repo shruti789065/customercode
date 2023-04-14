@@ -1,0 +1,1335 @@
+{
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Thu Mar 30 2023 16:51:10 GMT+0200",
+    "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:mixinTypes": [
+            "mix:versionable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:title": "scientific library",
+        "jcr:versionHistory": "464ede15-fde2-47d4-80bd-07f97103d668",
+        "cq:template": "/conf/mhos/settings/wcm/templates/page-content",
+        "jcr:predecessors": [
+            "814d07ea-acd7-4ce3-8765-abe44706b37d"
+        ],
+        "jcr:created": "Thu Mar 30 2023 16:51:10 GMT+0200",
+        "cq:lastModified": "Thu Apr 13 2023 17:28:02 GMT+0200",
+        "jcr:baseVersion": "814d07ea-acd7-4ce3-8765-abe44706b37d",
+        "jcr:isCheckedOut": true,
+        "jcr:uuid": "0b0a4984-f690-4bef-918c-631ae0711c7c",
+        "sling:resourceType": "mhos/components/page",
+        "cq:lastModifiedBy": "admin",
+        "root": {
+            "jcr:primaryType": "nt:unstructured",
+            "layout": "responsiveGrid",
+            "sling:resourceType": "mhos/components/container",
+            "container": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "title": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "sling:resourceType": "mhos/components/title"
+                },
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "internal_header": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 09 2023 11:50:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/internal-header",
+                        "internal_header_back": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Mon Jan 09 2023 11:50:40 GMT+0100",
+                            "sling:resourceType": "mhos/components/internal-header-background-color",
+                            "backgroundColor": "#B62623",
+                            "text": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis arcu eu orci ultrices sodales. Nulla in lacus efficitur, pharetra lorem ut, sollicitudin velit. Integer luctus, justo quis tempor ornare, metus ex malesuada nibh, a congue metus tellus ut justo.</p>\r\n",
+                                "jcr:lastModified": "Mon Jan 09 2023 11:50:47 GMT+0100",
+                                "sling:resourceType": "mhos/components/text",
+                                "textIsRich": "true"
+                            },
+                            "title": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:title": "SCIENTIFIC LIBRARY",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:lastModified": "Mon Jan 09 2023 11:50:57 GMT+0100",
+                                "sling:resourceType": "mhos/components/title"
+                            },
+                            "image": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/mhos/image-scientific-header.jpg",
+                                "jcr:lastModifiedBy": "admin",
+                                "displayPopupTitle": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jan 09 2023 11:51:10 GMT+0100",
+                                "titleValueFromDAM": "true",
+                                "sling:resourceType": "mhos/components/image",
+                                "isDecorative": "true"
+                            }
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "mhos/components/internal-header",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:lastModified": "Fri Feb 10 2023 15:34:26 GMT+0100",
+                                "sling:resourceType": "mhos/components/container"
+                            }
+                        }
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "simple",
+                        "jcr:lastModified": "Fri Feb 10 2023 15:34:20 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Feb 10 2023 15:34:26 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "latest_article_card": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "fileReference": "/content/dam/menarinimaster/assets/products-area/category-product-placeholder.jpg",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Thu Apr 13 2023 14:16:00 GMT+0200",
+                                "jcr:lastModified": "Thu Apr 13 2023 17:28:02 GMT+0200",
+                                "sling:resourceType": "mhos/components/latest-article-card"
+                            },
+                            "custom_search": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Wed Apr 05 2023 12:07:18 GMT+0200",
+                                "jcr:lastModified": "Wed Apr 05 2023 12:07:18 GMT+0200",
+                                "sling:resourceType": "mhos/components/custom-search"
+                            },
+                            "filter_library": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Wed Apr 05 2023 12:06:25 GMT+0200",
+                                "jcr:lastModified": "Wed Apr 05 2023 12:06:25 GMT+0200",
+                                "sling:resourceType": "mhos/components/filter-library",
+                                "cq:styleIds": [
+                                    "1680776019660"
+                                ]
+                            },
+                            "scientific_list": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "showModificationDate": "false",
+                                "tagsMatch": "any",
+                                "linkItems": "true",
+                                "jcr:lastModifiedBy": "admin",
+                                "parentPage": "/content/mhos/en/en/scientific-library",
+                                "sortOrder": "asc",
+                                "displayItemAsTeaser": "true",
+                                "showDescription": "false",
+                                "jcr:lastModified": "Fri Feb 10 2023 15:36:07 GMT+0100",
+                                "sling:resourceType": "mhos/components/scientific-list",
+                                "childDepth": "1",
+                                "listFrom": "children"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "cardiology": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:10 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Cardiology",
+            "jcr:versionHistory": "fc479a83-0828-44eb-91ee-e9bad5f7d5f5",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "8a09e1aa-82e2-4733-b3d9-e718adf55905"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:10 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Wed Apr 12 2023 15:38:58 GMT+0200",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "8a09e1aa-82e2-4733-b3d9-e718adf55905",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "29bb395c-a951-400e-b749-69f32564f77a",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "cardiology.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 10:55:54 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:10 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:10 GMT+0200",
+                        ":jcr:data": 315055,
+                        "jcr:uuid": "65cd3d15-a3de-4a3b-bc3f-83cbd07d7310"
+                    }
+                }
+            }
+        }
+    },
+    "coronavirus": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:10 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Coronavirus",
+            "jcr:versionHistory": "50a32bf1-9d04-454e-bc4a-f39e38b19fbd",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "8c09c4e8-bfa0-4500-955a-e7d622e9fd40"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:10 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Thu Mar 30 2023 17:32:37 GMT+0200",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "8c09c4e8-bfa0-4500-955a-e7d622e9fd40",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "868f1f24-a824-496d-91cd-fbe2055a81c5",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "corona.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:23:36 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 177241,
+                        "jcr:uuid": "0247d98b-ce89-4e07-a9c6-e1143e5afd19"
+                    }
+                }
+            }
+        }
+    },
+    "gastroenterology": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Gastroenterology",
+            "jcr:versionHistory": "b60ee10f-6c0c-45d2-83d8-0f4363031224",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "1ffb71d4-1b5e-4d03-8e5f-4a023a96c544"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Mon Feb 13 2023 11:26:16 GMT+0100",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "1ffb71d4-1b5e-4d03-8e5f-4a023a96c544",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "9437520e-f6bc-4d6f-87ae-f12302a736b7",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "gastroenterology.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:26:16 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 425141,
+                        "jcr:uuid": "8dc1abe1-8be8-4465-bc1d-6e0f5d552e3d"
+                    }
+                }
+            }
+        }
+    },
+    "Infectious-desease": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Infectious Diseases",
+            "jcr:versionHistory": "7fae5158-602e-46db-9fe5-23622ba0770e",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "390ef5b5-c481-4241-9015-a4c4aa5de86e"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Mon Feb 13 2023 11:27:23 GMT+0100",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "390ef5b5-c481-4241-9015-a4c4aa5de86e",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "ee98f5ce-0209-4d1c-a863-6229d0ec579e",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "infectious.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:27:23 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 380440,
+                        "jcr:uuid": "662750ff-2d07-487e-9a72-ced52e2b93f3"
+                    }
+                }
+            }
+        }
+    },
+    "internal-medicine": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Internal medicine",
+            "jcr:versionHistory": "fa9e0701-a674-44f1-9111-ce750b2ce239",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "c94ac49e-afbe-4715-bd1e-b977de00b1c3"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Mon Feb 13 2023 11:28:04 GMT+0100",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "c94ac49e-afbe-4715-bd1e-b977de00b1c3",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "f2920499-a0e2-4ba1-961f-3d5c3c2f500c",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "internal-medicine.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:28:03 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 2088531,
+                        "jcr:uuid": "263ba55d-535f-4ae5-b168-9b408bcc2fc5"
+                    }
+                }
+            }
+        }
+    },
+    "neurology-and-pain-medicine": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Neurology & pain medicine",
+            "jcr:versionHistory": "ee3ffb94-0947-4745-8d60-c617f6830133",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "04bfb3f8-fc72-4043-bd2d-665b814941fd"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Mon Feb 13 2023 11:29:56 GMT+0100",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "04bfb3f8-fc72-4043-bd2d-665b814941fd",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "b9dccec6-4cd7-410d-8709-9d67837bf3ae",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "neurology.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:29:56 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 163237,
+                        "jcr:uuid": "622299e4-321e-4eee-abc3-ba3c4150a86a"
+                    }
+                }
+            }
+        }
+    },
+    "oncology-and-hematology": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Oncology & hematology",
+            "jcr:versionHistory": "bc971ec6-88ec-4c6b-9eef-f57ca98475d4",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "5b3b3aed-9bbd-4b4e-8532-0155a3565bed"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Mon Feb 13 2023 11:29:32 GMT+0100",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "5b3b3aed-9bbd-4b4e-8532-0155a3565bed",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "e2b39438-6fe5-4f38-a0dd-eaa60813d660",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "oncology.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:29:32 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 177100,
+                        "jcr:uuid": "505d9638-9006-4d71-af1c-74e5dae79bdf"
+                    }
+                }
+            }
+        }
+    },
+    "pneumology-and-respiratory": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Pneumology & respiratotry",
+            "jcr:versionHistory": "e550a42c-1e58-4935-887c-d4b28b4108c5",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "5636ac9f-2803-48d0-9699-767e37356b29"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Mon Feb 13 2023 11:30:33 GMT+0100",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "5636ac9f-2803-48d0-9699-767e37356b29",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "b452f8e9-3dab-45fa-b047-4ca3ce5d4641",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "pneumology.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:30:33 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 509750,
+                        "jcr:uuid": "1871e1fa-087a-48d8-81e3-74dcdb74447b"
+                    }
+                }
+            }
+        }
+    },
+    "psichiatry": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Psichiatry",
+            "jcr:versionHistory": "5c3beed8-e727-4d2d-b142-ea787e0371b9",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/mhos/settings/wcm/templates/content-detail",
+            "jcr:predecessors": [
+                "a94959c9-a927-46c7-8c86-758d0de7f643"
+            ],
+            "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastModified": "Mon Feb 13 2023 11:31:01 GMT+0100",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "a94959c9-a927-46c7-8c86-758d0de7f643",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "20e223b0-cb36-4cba-a0b7-c1a069ec3853",
+            "sling:resourceType": "mhos/components/page",
+            "cq:lastModifiedBy": "admin",
+            "cq:styleIds": [
+                "1675942894190"
+            ],
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "mhos/components/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "mhos/components/container",
+                    "container_287690123": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "layout": "responsiveGrid",
+                        "jcr:lastModified": "Fri Jan 20 2023 14:49:12 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:lastModified": "Fri Jan 20 2023 14:55:31 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "cq:styleIds": [
+                                "1670947509108"
+                            ],
+                            "detail_breadcrumb": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "startLevel": "4",
+                                "jcr:lastModifiedBy": "admin",
+                                "disableShadowing": "false",
+                                "showHidden": "false",
+                                "jcr:lastModified": "Tue Jan 17 2023 12:14:25 GMT+0100",
+                                "hideCurrent": "true",
+                                "sling:resourceType": "mhos/components/detail-breadcrumb"
+                            }
+                        }
+                    },
+                    "container_1752986714": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:lastModified": "Mon Jan 23 2023 12:17:21 GMT+0100",
+                        "sling:resourceType": "mhos/components/container",
+                        "backgroundColor": "rgb(255,255,255)",
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Mon Jan 23 2023 12:08:05 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "#A42220",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:02:51 GMT+0100",
+                                "sling:resourceType": "mhos/components/detail-container",
+                                "cq:styleIds": [
+                                    "1674660708874"
+                                ]
+                            }
+                        },
+                        "container_265537445": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:lastModifiedBy": "admin",
+                            "layout": "simple",
+                            "jcr:lastModified": "Wed Feb 08 2023 16:57:10 GMT+0100",
+                            "sling:resourceType": "mhos/components/container",
+                            "backgroundColor": "rgb(255,255,255)",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:lastModified": "Wed Feb 08 2023 17:17:54 GMT+0100",
+                                "sling:resourceType": "mhos/components/container",
+                                "cq:styleIds": [
+                                    "1670947509108"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "fileName": "psychiatry.svg",
+                "jcr:lastModified": "Mon Feb 13 2023 11:31:01 GMT+0100",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "file": {
+                    "jcr:primaryType": "nt:file",
+                    "jcr:createdBy": "admin",
+                    "jcr:created": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                    "jcr:content": {
+                        "jcr:primaryType": "nt:resource",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:mimeType": "image/svg+xml",
+                        "jcr:lastModified": "Thu Mar 30 2023 16:51:11 GMT+0200",
+                        ":jcr:data": 381211,
+                        "jcr:uuid": "ea571ab4-275b-46a1-b690-4c2d12b82de2"
+                    }
+                }
+            }
+        }
+    }
+}
