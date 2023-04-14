@@ -18,7 +18,6 @@ const copyDataFromJson = () => {
 
 	if (domainName === 'localhost' && port === '4502') {
 		url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}`;
-		//url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
 	} else if (domainName === 'localhost') {
 		url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchHOS/lodashSearchFilters.json';
 	} else {
@@ -35,6 +34,7 @@ const copyDataFromJson = () => {
 			loadingSpinner.remove();
 		});
 };
+
 
 // La funzione 'getData' recupera i dati precedentemente salvati nella memoria locale dell'utente tramite 'localStorage'
 // e li restituisce come oggetto JSON, utilizzando 'JSON.parse' per parsare il valore salvato.
@@ -372,6 +372,7 @@ function displayDataHOS() {
 //In generale, la funzione init serve a preparare la pagina per l'utilizzo dei filtri e del sistema di visualizzazione dei dati.
 const init = () => {
 	copyDataFromJson();
+	searchWitoutCategory();
 
 	const dataSearchFilter = JSON.parse(localStorage.getItem("searchFilter"));
 	if (dataSearchFilter && dataSearchFilter.length > 0) {
@@ -390,6 +391,64 @@ const init = () => {
 		}, 500);
 	}
 };
+
+const searchWitoutCategory = () =>{
+	const domainName = window.location.hostname;
+	const port = window.location.port;
+	const protocol = window.location.protocol;
+	const currentNodePipeline = document.querySelector('.currentNodeSearchFilter').value;
+	const button = document.querySelector('.cmp-search__button');
+	const scientificList = document.querySelector('.cmp-scientific-list');
+	const filterLibraryComp = document.querySelector('.cmp-filter-library__without-category');
+	const currentContentFragmentpath = document.querySelector('.searchResultContentFragment').value;
+	let folders = currentContentFragmentpath.split('/');
+	let category = folders[folders.length - 1];
+	let url;
+
+	if(button != null){
+		button.addEventListener('click', function() {
+			const searchedValue = document.querySelector('.cmp-search__searchInput').value;
+			console.log("button clicked");
+			if(searchedValue != ''){
+				console.log("Searched Value", searchedValue);
+				if(currentContentFragmentpath != ""){
+					url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}&fulltext=${searchedValue}`;
+				}
+				if(filterLibraryComp != null){
+					url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?fulltext=${searchedValue}`;
+					filterLibraryComp.style.display = "block";
+				}
+	
+				if(scientificList != null){
+					scientificList.style.display = "none";
+				}
+	
+				console.log("url for search", url);
+				fetch(url)
+				.then((response) => response.json())
+				.then((data) => {
+					localStorage.setItem('searchFilter', JSON.stringify(data));
+					displayDataHOS();
+					console.log(data);
+				})
+				.catch((error) => {
+					console.error("Error copying data to local storage:", error);
+					loadingSpinner.remove();
+				});	
+			}
+			
+		});
+	}
+	
+}
+
+const filterlibrarycomponent = document.querySelector('.cmp-filter-library__without-category');
+if(filterlibrarycomponent != null){
+	filterlibrarycomponent.style.display = "none";
+	if(filterlibrarycomponent.querySelector('[data-wcm-mode="EDIT"]') != null){
+		filterlibrarycomponent.style.display = "block";
+	}
+}
 
 //Esporta le funzioni searchFilt e init in modo che siano accessibili all'interno del contesto globale della finestra.
 //In questo modo, possono essere chiamate da qualsiasi parte del codice.
