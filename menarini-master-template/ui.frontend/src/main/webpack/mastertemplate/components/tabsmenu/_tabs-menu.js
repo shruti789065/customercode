@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import $ from 'jquery';
-import jQuery from 'jquery';
-window.$ = jQuery;
+import { _isDesktop, _prependHtml } from '../../site/_util.js';
 
 (function () {
 
@@ -157,21 +156,6 @@ window.$ = jQuery;
 			}
 		}
 
-		function _isDesktop() {
-			if (window.innerWidth < 1200) {
-				return false;
-			} else {
-				return true;
-			}
-		}
-
-		function _prependHtml(el, str) {
-			var div = document.createElement('div');
-			div.innerHTML = str;
-			while (div.children.length > 0) {
-				el.prepend(div.children[0]);
-			}
-		}
 
 		function _toggleMenu() {
 			if (document.querySelectorAll('.cmp-tabs__tablist_toggler').length > 0) {
