@@ -1,0 +1,24 @@
+<sly data-sly-test.configured=${properties.fileReference}></sly>
+<sly data-sly-use.cardData="com.adiacent.menarini.mhos.core.models.LatestArticleCardModel"></sly>
+<div class="cmp-latest-article-card">
+    <div class="cmp-latest-article__image">
+        <div class="cmp-image">
+            <img class="cmp-image__image" src="${properties.fileReference}">
+        </div>
+    </div>
+    <div class="content">
+        <div class="container-typology">
+            <p data-sly-test="${cardData.typology}" class="cmp-latest-article-type typology"> ${cardData.typology} </p>
+            <p class="cmp-latest-article-type category"> ${cardData.category} </p>
+        </div>
+        <h3 class="cmp-latest-article__title"> ${cardData.title} </h3>
+        <p class="date">${cardData.date}</p>
+        <div class="cmp-latest-article__description">
+            ${cardData.description @ context='html'}
+        </div>
+        <div class="cmp-latest-article__action-container">
+            <a class="cmp-latest-article__action-link" href="${cardData.link}" target="${cardData.target}">${cardData.linkLabel}</a>
+        </div>
+    </div>
+</div>
+<div data-sly-test="${ !configured }" data-emptytext="Latest Article Card" class="cq-placeholder"></div>

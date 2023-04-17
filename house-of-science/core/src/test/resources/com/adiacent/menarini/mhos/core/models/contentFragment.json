@@ -1,0 +1,185 @@
+{
+    "jcr:primaryType": "sling:Folder",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Thu Mar 30 2023 16:51:12 GMT+0200",
+    "podcast-1": {
+        "jcr:primaryType": "dam:Asset",
+        "jcr:mixinTypes": [
+            "mix:referenceable",
+            "mix:versionable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:versionHistory": "d6169911-fd10-411b-b960-0404d56f5e9f",
+        "jcr:predecessors": [
+            "247ce4f0-f641-4a27-a2b6-5a317f118351"
+        ],
+        "jcr:created": "Thu Mar 30 2023 16:51:12 GMT+0200",
+        "jcr:baseVersion": "247ce4f0-f641-4a27-a2b6-5a317f118351",
+        "jcr:isCheckedOut": true,
+        "jcr:uuid": "8a1140c3-c40d-4ee7-9e84-e071194c31cd",
+        "jcr:content": {
+            "jcr:primaryType": "dam:AssetContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus"
+            ],
+            "jcr:title": "Podcast 1",
+            "cq:lastReplicatedBy_publish": "admin",
+            "cq:lastReplicationAction": "Activate",
+            "cq:lastReplicatedBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "cq:lastReplicationAction_publish": "Activate",
+            "cq:lastReplicated": "Thu Apr 13 2023 15:54:38 GMT+0200",
+            "contentFragment": true,
+            "cq:name": "podcast-1",
+            "jcr:lastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+            "lastFragmentSave": "Thu Mar 30 2023 14:35:21 GMT+0200",
+            "cq:parentPath": "/content/dam/mhos/content-fragments/en/cardiology",
+            "cq:lastReplicated_publish": "Thu Apr 13 2023 15:54:38 GMT+0200",
+            "related": {
+                "jcr:primaryType": "nt:unstructured"
+            },
+            "metadata": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:mixinTypes": [
+                    "cq:Taggable"
+                ]
+            },
+            "data": {
+                "jcr:primaryType": "nt:unstructured",
+                "cq:model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+                "master": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:mixinTypes": [
+                        "cq:Taggable",
+                        "dam:cfVariationNode"
+                    ],
+                    "linkLabel@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+                    "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n",
+                    "linkLabel": "read more",
+                    "author@LastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+                    "author": [
+                        "house-of-science:author/attanasio"
+                    ],
+                    "link@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+                    "description@LastModified": "Mon Feb 06 2023 12:36:19 GMT+0100",
+                    "tags@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+                    "source": [
+                        "house-of-science:source/accademia-dei-lincei"
+                    ],
+                    "typology": [
+                        "house-of-science:typology/podcasts"
+                    ],
+                    "source@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+                    "link": "https://www.msn.com/it-it/notizie/mondo/tesla-model-3-finisce-dentro-una-piscina-la-causa-%C3%A8-davvero-delle-pi%C3%B9-banali/ss-AA177P7N?ocid=entnewsntp&amp;cvid=0a8b50b6cc6b4c0396bfe967e2fea20f",
+                    "tags": [
+                        "house-of-science:generic-tags/blood"
+                    ],
+                    "topic": [
+                        "house-of-science:topic/public-health"
+                    ],
+                    "topic@LastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+                    "articleDate": "Tue Dec 13 2022 00:00:00 GMT+0000",
+                    "linkTarget": "_blank",
+                    "cq:tags": [
+                        "house-of-science:typology/podcasts",
+                        "house-of-science:generic-tags/blood",
+                        "house-of-science:topic/public-health",
+                        "house-of-science:author/attanasio",
+                        "house-of-science:source/accademia-dei-lincei"
+                    ],
+                    "linkTarget@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+                    "typology@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+                    "articleDate@LastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+                    "description@ContentType": "text/html"
+                }
+            }
+        }
+    },
+    "jcr:content": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:title": "Cardiology",
+        "sourcing": "false"
+    },
+    "article-1": {
+        "jcr:primaryType": "sling:Folder",
+        "jcr:mixinTypes": [
+            "mix:referenceable",
+            "mix:versionable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:versionHistory": "0a42c657-a9d2-4968-b283-3f40aaca3ad0",
+        "jcr:predecessors": [
+            "1163d889-0892-4db6-a660-ab12c9c29067"
+        ],
+        "jcr:created": "Thu Mar 30 2023 16:51:12 GMT+0200",
+        "jcr:baseVersion": "1163d889-0892-4db6-a660-ab12c9c29067",
+        "jcr:isCheckedOut": true,
+        "jcr:uuid": "5acfae0d-257e-48a2-946f-0aa1c10e2525",
+        "jcr:content": {
+            "jcr:primaryType": "dam:AssetContent",
+            "jcr:title": "Article 1",
+            "jcr:lastModifiedBy": "admin",
+            "contentFragment": true,
+            "cq:name": "article-1",
+            "jcr:lastModified": "Thu Apr 13 2023 17:41:02 GMT+0200",
+            "lastFragmentSave": "Thu Apr 13 2023 17:41:02 GMT+0200",
+            "cq:parentPath": "/content/dam/mhos/content-fragments/en/cardiology",
+            "related": {
+                "jcr:primaryType": "nt:unstructured"
+            },
+            "metadata": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:mixinTypes": [
+                    "cq:Taggable"
+                ]
+            },
+            "data": {
+                "jcr:primaryType": "nt:unstructured",
+                "cq:model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+                "master": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:mixinTypes": [
+                        "cq:Taggable",
+                        "dam:cfVariationNode"
+                    ],
+                    "linkLabel@LastModified": "Thu Apr 13 2023 16:45:28 GMT+0200",
+                    "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n",
+                    "linkLabel": "read  more ",
+                    "author@LastModified": "Tue Apr 04 2023 18:02:22 GMT+0200",
+                    "link@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+                    "description@LastModified": "Mon Feb 06 2023 12:28:30 GMT+0100",
+                    "tags@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+                    "source": [
+                        "house-of-science:source/accademia-dei-lincei"
+                    ],
+                    "typology": [
+                        "house-of-science:typology/articles"
+                    ],
+                    "source@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+                    "link": "https://www.msn.com/it-it/lifestyle/notizie/maine-coon-il-gatto-dalle-dimensioni-record/ss-AA177OXF?ocid=entnewsntp&amp;cvid=0a8b50b6cc6b4c0396bfe967e2fea20f",
+                    "tags": [
+                        "house-of-science:generic-tags/blood"
+                    ],
+                    "topic": [
+                        "house-of-science:topic/insulin",
+                        "house-of-science:topic/public-health"
+                    ],
+                    "topic@LastModified": "Wed Apr 05 2023 12:33:53 GMT+0200",
+                    "articleDate": "Tue Feb 07 2023 00:00:00 GMT+0000",
+                    "linkTarget": "_blank",
+                    "cq:tags": [
+                        "house-of-science:typology/articles",
+                        "house-of-science:topic/insulin",
+                        "house-of-science:generic-tags/blood",
+                        "house-of-science:topic/public-health",
+                        "house-of-science:source/accademia-dei-lincei"
+                    ],
+                    "linkTarget@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+                    "typology@LastModified": "Thu Apr 13 2023 17:41:02 GMT+0200",
+                    "articleDate@LastModified": "Thu Apr 13 2023 17:41:02 GMT+0200",
+                    "description@ContentType": "text/html"
+                }
+            }
+        }
+    }
+}
