@@ -48,20 +48,21 @@
   // X-Large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) {
     .internal-header-background-color {
-      height: 500px;
+      height: 550px;
       .cmp-container {
         height: 100%;
         .container {
           .cmp-image {
-            height: 500px;
+            height: 550px;
             .cmp-image__image {
               height: 100%;
               object-fit: fill;
             }
           }
           .wrapper {
-            max-width: 570px;
-            padding: 20px 20px 0;
+            //max-width: 650px;
+            padding: 20px 0;
+			margin-left: 16.66666667%;
             text-align: left;
 			justify-content: center;
           }
@@ -75,7 +76,7 @@
     .internal-header-background-color {
       .container {
         .wrapper {
-          max-width: 660px;
+          //max-width: 660px;
           padding: 20px 100px 0 20px;
         }
       }
@@ -99,8 +100,7 @@
             }
           }
           .wrapper {
-            max-width: 860px;
-            padding: 20px 20px 0;
+            padding: 20px 0;
             text-align: left;
 			justify-content: center;
           }

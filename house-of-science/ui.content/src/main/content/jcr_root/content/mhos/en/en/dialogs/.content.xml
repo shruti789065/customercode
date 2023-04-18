@@ -2,14 +2,21 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-03-30T16:24:52.705+02:00"
-        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastModified="{Date}2023-04-17T17:09:04.757+02:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2023-04-11T08:50:17.285Z"
+        cq:lastReplicated_publish="{Date}2023-04-11T08:50:17.285Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:styleIds="[1675942843464]"
         cq:template="/conf/mhos/settings/wcm/templates/page-content"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="dialogs"
-        jcr:uuid="4745c6ab-87dd-4333-8473-0b651f9fd874"
+        jcr:uuid="c66ee2ab-88cb-4710-9e10-d639799c4e4a"
         sling:resourceType="mhos/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -32,10 +39,11 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="mhos/components/internal-header">
                         <internal_header_back
-                            jcr:lastModified="{Date}2023-01-05T11:23:22.847+01:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:lastModified="{Date}2023-04-11T10:11:22.706Z"
+                            jcr:lastModifiedBy="a.messori@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="mhos/components/internal-header-background-color"
+                            accessibilityLabel="aaa"
                             backgroundColor="#134686">
                             <image
                                 jcr:lastModified="{Date}2023-01-05T11:22:54.869+01:00"
@@ -49,163 +57,419 @@
                                 linkTarget="_self"
                                 titleValueFromDAM="true"/>
                             <text
-                                jcr:lastModified="{Date}2023-01-05T11:23:08.452+01:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-04-04T15:41:10.721Z"
+                                jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="mhos/components/text"
-                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis arcu eu orci ultrices sodales. Nulla in lacus efficitur, pharetra lorem ut, sollicitudin velit. Integer luctus, justo quis tempor ornare, metus ex malesuada nibh, a congue metus tellus ut justo.&lt;/p>&#xd;&#xa;"
+                                text="&lt;p>Fondazione Menarini firmly believes that in order to identify innovative solutions, it is necessary to promote dialog and collaboration between experts and doctors at the international level.&lt;/p>&#xd;&#xa;&lt;p>It is for this reason that we have created Dialogs Beyond Borders!&lt;/p>&#xd;&#xa;"
                                 textIsRich="true"/>
                             <title
-                                jcr:lastModified="{Date}2023-01-05T11:38:14.884+01:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-04-04T15:41:02.711Z"
+                                jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                jcr:title="DIALOGS"
+                                jcr:title="DIALOGS&#xa;BEYOND BORDERS"
                                 sling:resourceType="mhos/components/title"/>
                         </internal_header_back>
                     </internal_header>
                     <container
-                        jcr:lastModified="{Date}2023-01-26T14:27:20.971+01:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2023-04-11T12:54:46.595Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="mhos/components/container">
+                        sling:resourceType="mhos/components/container"
+                        backgroundColor="rgb(255,255,255)">
                         <container
                             cq:styleIds="[1670947509108]"
-                            jcr:lastModified="{Date}2023-01-26T14:27:59.858+01:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:lastModified="{Date}2023-04-04T15:39:52.593Z"
+                            jcr:lastModifiedBy="l.giuntini@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="mhos/components/container">
+                            sling:resourceType="mhos/components/container"
+                            layout="simple">
+                            <spacer
+                                jcr:lastModified="{Date}2023-02-09T14:59:14.950Z"
+                                jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/spacer"
+                                spacer="50"/>
                             <text
-                                jcr:lastModified="{Date}2023-01-26T14:57:16.105+01:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-04-04T15:41:19.634Z"
+                                jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="mhos/components/text"
-                                text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin nisi in justo tempor, a congue nisi sodales. Cras finibus nulla id pharetra sollicitudin. Integer eget tellus mi. Duis eros mauris, pellentesque quis accumsan in, efficitur et diam. In eget bibendum velit, sit amet ultricies lacus. Donec posuere tellus et est elementum, sed accumsan dui imperdiet. Morbi suscipit, neque eu pulvinar mattis, justo diam laoreet dui, ut venenatis ipsum risus consequat lectus. Vivamus eleifend est placerat, pulvinar est et, eleifend sapien. Cras aliquet ligula quis neque cursus vehicula cursus vel neque. Donec convallis urna ac mollis mattis.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                text="&lt;p>Dialogs Beyond Borders is a collection of online interviews with major scientific opinion leaders and Nobel Prize laureates.&lt;/p>&#xd;&#xa;&lt;p>The interviews are informal conversations in which the interviewees reveal the challenges they overcame to achieve the professional milestones that earned them recognition in their chosen medical and scientific fields.&lt;/p>&#xd;&#xa;&lt;p>The project promotes scientific debate on health issues, and above all aims to inspire those who have chosen to pursue a career in science.&lt;/p>&#xd;&#xa;&lt;p>Listen to the experiences of the interviewees and be inspired!&lt;/p>&#xd;&#xa;"
                                 textIsRich="true"/>
                             <dialog_card_containe
                                 jcr:lastModified="{Date}2023-01-26T14:28:16.587+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="mhos/components/dialog-card-container">
+                                <dialog_card_copy_481_908766682
+                                    jcr:lastModified="{Date}2023-02-09T09:59:39.124Z"
+                                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/dialog-card"
+                                    description="Born in Barcelona in a family of doctors, Professor Fuster is an internationally renowned cardiologist. His discoveries have changed cardiology in the last decade. In this interview, he talks about his past as an established tennis player, his education by the Jesuits, his role as a personal physician to Pope John Paul II, and the relationship between faith and science. But his paramount interest is in young people: enjoy the story of when he became a character on the Muppets Show, called Valentìn Ruster, to promote prevention and healthy lifestyles!"
+                                    fileReference="/content/dam/mhos/coverpagedialogs/fuster.png"
+                                    link="/content/mhos/en/en/dialogs/valentin-fuster"
+                                    linkCaption="Watch now"
+                                    name="Prof. Valentin Fuster"
+                                    nation="X"/>
                                 <card
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/foundation/components/parsys">
                                     <dialog_card
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-02-09T09:42:30.155Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="Professor of Molecular Neuroscience The Edmond and Lily Safra Center for Brain Sciences Department of Biological Chemistry The Alexander Silberman Institute of Life Sciences The Hebrew University of Jerusalem The Edmond J. Safra Campus, Givat Ram Jerusalem, Israel"
+                                        link="/content/mhos/en/en/dialogs/hermona-soreq"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Hermona Soreq"
+                                        nation="Various"/>
                                     <dialog_card_copy
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-04-05T10:26:02.554Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="Professor Emeritus Obstetrics and Gynecology and Head of Gender and Sex Conscious Medicine Faculty of Medicine, Tel Aviv University, Israel"
+                                        fileReference="/content/dam/mhos/FM_cover video dialogs-glezerman.png"
+                                        link="/content/mhos/en/en/dialogs/marek-glezerman"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Marek Glezerman"
+                                        nation="Tel Aviv University, Israel"/>
                                     <dialog_card_copy_452965117
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-02-09T10:32:13.525Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="President, The Israeli Society of Psychosomatic Obstetrics &amp; Gynecology (ISRAPOG) Secretary of the Israel Society for Gender Medicine (ISRAGEM) Vice President and Treasurer of the International Society for Gender Medicine (IGM) Tel Aviv University School of Medicine, Israel  "
+                                        link="/content/mhos/en/en/dialogs/dov-feldberg"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Dov Feldberg"
+                                        nation="X"/>
                                     <dialog_card_copy_1071035638
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-04-05T10:25:48.538Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="Distinguished University Professor Technion-Israel Institute of Technology Laureate, the 2004 Nobel Prize in Chemistry Member (Foreign), USA National Academies of Sciences (NAS) and Medicine (NAM), Israel"
+                                        fileReference="/content/dam/mhos/FM_cover video dialogs-ciechanover.png"
+                                        link="/content/mhos/en/en/dialogs/aaron-ciechanover"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Aaron Ciechanover"
+                                        nation="Technion-Israel Institute of Technology "/>
                                     <dialog_card_copy_1149525912
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-04-05T10:24:26.843Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="University Professor Department of Ecology and Evolutionary Biology, University of Toronto Canadian Institute for Advanced Research (CIFAR), Canada"
+                                        fileReference="/content/dam/mhos/FM_cover video dialogs-sokolowsky.png"
+                                        link="/content/mhos/en/en/dialogs/marla-sokolowski"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Marla Sokolowski"
+                                        nation="University of Toronto Canadian Institute for Advanced Research (CIFAR), Canada"/>
                                     <dialog_card_copy_2088864719
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-02-09T09:43:32.462Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="Director of the Network Science Institute and Sternberg Family Distinguished Professor"
+                                        fileReference="/content/dam/mhos/coverpagedialogs/alessandro.png"
+                                        link="/content/mhos/en/en/dialogs/alessandro-vespignani"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Alessandro Vespignani"
+                                        nation="Northeastern University, Boston USA"/>
                                     <dialog_card_copy_394614479
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-02-09T09:45:21.300Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="As a Nobel laureate and a member of the International Physicians for the Prevention of Nuclear War, Professor Chivian highlights the implications of nuclear conflicts for global health in this interview. Underlining the &quot;One Health&quot; approach, he talks about preserving biodiversity and the relationship between the climate crisis and health problems. Are we under the threat of a future pandemic caused by the intensive exploitation of environmental resources by the human species? And what the relationship between science and politics should be?"
+                                        fileReference="/content/dam/mhos/coverpagedialogs/eric.png"
+                                        link="/content/mhos/en/en/dialogs/eric-chivian"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Eric Chivian"
+                                        nation="Member of the International Physicians for the Prevention of Nuclear War"/>
                                     <dialog_card_copy_136637953
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-02-09T09:47:31.132Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="Nobel Prize in Physiology or Medicine in 2005 for discovering the role of the bacterium Helicobacter pylori in peptic ulcers, Marshall talks about his early years, his passion for electronics, his family, and the path that led him to success in science. But he also leaves space for the many hurdles he had to overcome, starting with the skepticism of the scientific community when he decided to play “guinea pig” and experiment on himself the results of his studies. Now that microbiota is in the spotlight, many other discoveries will certainly come from gastroenterology."
+                                        fileReference="/content/dam/mhos/coverpagedialogs/marshall.png"
+                                        link="/content/mhos/en/en/dialogs/barry-marshall"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Barry Marshall."
+                                        nation="X"/>
                                     <dialog_card_copy_2082019092
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-02-09T09:56:21.858Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="Physician and immunologist, he was awarded the Nobel Prize in 2018. Immunotherapy based on his discovery has revolutionized the paradigm of oncological treatment. In this interview, Professor Honjo recalls his childhood in Japan, his first passion for astronomy, the years in the USA, and then his intuition to exploit the properties of the immune system against cancer. This paved the way for personalized medicine. But what is the role of serendipity in the discovery process? And what are the limits that science should never cross?"
+                                        fileReference="/content/dam/mhos/coverpagedialogs/honjo.png"
+                                        link="/content/mhos/en/en/dialogs/tasuku-honjo"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Tasuko Honjo"
+                                        nation="X"/>
                                     <dialog_card_copy_481820073
-                                        jcr:lastModified="{Date}2023-01-26T14:37:23.324+01:00"
-                                        jcr:lastModifiedBy="admin"
+                                        jcr:lastModified="{Date}2023-02-09T09:59:39.124Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="mhos/components/dialog-card"
-                                        description="E' un politico e avvocato statunitense, 44º presidente degli Stati Uniti d'America dal 2009 al 2017, prima persona di origini afroamericane a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista keniota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991)."
-                                        fileReference="/content/dam/mhos/sample-obama.png"
-                                        link="/content/mhos/en/en/who-we-are"
+                                        description="Born in Barcelona in a family of doctors, Professor Fuster is an internationally renowned cardiologist. His discoveries have changed cardiology in the last decade. In this interview, he talks about his past as an established tennis player, his education by the Jesuits, his role as a personal physician to Pope John Paul II, and the relationship between faith and science. But his paramount interest is in young people: enjoy the story of when he became a character on the Muppets Show, called Valentìn Ruster, to promote prevention and healthy lifestyles!"
+                                        fileReference="/content/dam/mhos/coverpagedialogs/fuster.png"
+                                        link="/content/mhos/en/en/dialogs/valentin-fuster"
                                         linkCaption="Watch now"
-                                        name="Barack Obama"
-                                        nation="Usa"/>
+                                        name="Prof. Valentin Fuster"
+                                        nation="X"/>
+                                    <dialog_card_1402628967
+                                        jcr:lastModified="{Date}2023-02-09T10:23:03.783Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="Alzheimer's Disease and other dementias seem to be on the rise: almost everyone has a loved one or a close friend with a diagnosis of dementia. Professor Fox, neurologist, describes the choice that led to the foundation of the Dementia Research Centre to help patients and their caregivers. Fox also emphasizes the importance of early diagnosis, and examines the therapies available today and their effectiveness. But to fight dementia it is important to know how to cross borders: we need a multidisciplinary approach and a strong collaboration between scientists from different countries."
+                                        fileReference="/content/dam/mhos/coverpagedialogs/fox.png"
+                                        link="/content/mhos/en/en/dialogs/nick-fox"
+                                        linkCaption="Watch now"
+                                        name="Prof. Nick Fox"
+                                        nation="X"/>
+                                    <dialog_card_264092286
+                                        jcr:lastModified="{Date}2023-02-09T10:32:33.914Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="When she was little she played with building blocks. Then in 2018 she won the Nobel Prize in Physics (the only woman after Marie Curie and Maria Goeppert-Mayer) in the field of pulsed lasers. In this interview she talks about the intuition and scientific path that led her to the discovery and its applications that today are used, for example, to cure presbyopia. But lasers are versatile and powerful tools, and many other applications are possible or on the way, not only in the medical field. So professor Strickland wonders what could happen if a discovery is used with malicious intentions."
+                                        fileReference="/content/dam/mhos/coverpagedialogs/strickland.png"
+                                        link="/content/mhos/en/en/dialogs/donna-strickland"
+                                        linkCaption="Watch now"
+                                        name="Prof. Donna Strickland"
+                                        nation="X"/>
+                                    <dialog_card_1092354692
+                                        jcr:lastModified="{Date}2023-02-09T10:32:01.541Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="A &quot;fake&quot; drug with the same effects as a real one: this is thanks to the so-called placebo effect, of which Professor Benedetti, a neuroscientist, is one of the leading experts. Here he explains how words and rituals can influence our health and what happens in the brain when we believe in therapies or, conversely, when we don't trust doctors. Perhaps the placebo effect is also the mechanism behind phenomena that have no scientific evidence, such as homeopathy or other complementary &quot;medicines&quot;. But this means that the border between pharmacology and psychology is still to be explored."
+                                        fileReference="/content/dam/mhos/coverpagedialogs/benedetti.png"
+                                        link="/content/mhos/en/en/dialogs/fabrizio-benedetti"
+                                        linkCaption="Watch now"
+                                        name="Prof. Fabrizio Benedetti"
+                                        nation="X"/>
+                                    <dialog_card_1926012248
+                                        jcr:lastModified="{Date}2023-02-09T10:29:41.531Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="Cardiologist and world expert on sex-specific aspects of male and female health, Professor Legato brings to our attention the idea that so-called &quot;gender medicine&quot; must take into account the differences in both male and female physiology. Throughout her working life she has struggled to include women in clinical trials and to analyse data from a gender perspective. For this she points to the latest example of a male-centred approach: during the pandemic, Covid-19 drugs and vaccines have not been adequately tested on women."
+                                        fileReference="/content/dam/mhos/coverpagedialogs/legato.png"
+                                        link="/content/mhos/en/en/dialogs/marianne-j-legato"
+                                        linkCaption="Watch now"
+                                        name="Prof. Marianne J. Legato"
+                                        nation="X"/>
+                                    <dialog_card_2016788971
+                                        jcr:lastModified="{Date}2023-02-09T10:31:48.738Z"
+                                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="mhos/components/dialog-card"
+                                        description="Nobel laureate in 1998 in Medicine or Physiology and Scientific supervisor of the project Dialogs Beyond Borders, Professor Ignarro has Italian origins which he proudly claims. In his life he has courageously crossed several borders, always guided by a strong interest in science. In this interview he recalls his childhood, his passion for explosives and racing cars, and the intuition that led him to be nicknamed &quot;the father of the blue pill&quot;, i.e. the discovery of the properties of Nitric Oxide, which opened the leads to several important applications in medicine."
+                                        fileReference="/content/dam/mhos/coverpagedialogs/ignarro.png"
+                                        link="/content/mhos/en/en/dialogs/louis-j-ignarro"
+                                        linkCaption="Watch now"
+                                        name="Prof. Louis J. Ignarro"
+                                        nation="X"/>
                                 </card>
+                                <dialog_card_copy_481
+                                    jcr:lastModified="{Date}2023-02-09T09:59:39.124Z"
+                                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/dialog-card"
+                                    description="Born in Barcelona in a family of doctors, Professor Fuster is an internationally renowned cardiologist. His discoveries have changed cardiology in the last decade. In this interview, he talks about his past as an established tennis player, his education by the Jesuits, his role as a personal physician to Pope John Paul II, and the relationship between faith and science. But his paramount interest is in young people: enjoy the story of when he became a character on the Muppets Show, called Valentìn Ruster, to promote prevention and healthy lifestyles!"
+                                    fileReference="/content/dam/mhos/coverpagedialogs/fuster.png"
+                                    link="/content/mhos/en/en/dialogs/valentin-fuster"
+                                    linkCaption="Watch now"
+                                    name="Prof. Valentin Fuster"
+                                    nation="X"/>
                             </dialog_card_containe>
+                            <spacer_1151345508
+                                jcr:lastModified="{Date}2023-04-17T17:05:45.766+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/spacer"
+                                spacer="50"/>
                         </container>
+                        <container_copy
+                            jcr:lastModified="{Date}2023-04-17T15:27:19.869+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/container"
+                            backgroundColor="#E7EEF4"
+                            layout="responsiveGrid">
+                            <container_1810622774
+                                jcr:lastModified="{Date}2023-04-17T15:49:05.826+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/container"
+                                layout="responsiveGrid">
+                                <spacer
+                                    jcr:lastModified="{Date}2023-04-17T17:07:37.617+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/spacer"
+                                    spacer="50"/>
+                                <title
+                                    jcr:lastModified="{Date}2023-04-05T13:05:21.848Z"
+                                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="PRESIDENT VIDEO"
+                                    sling:resourceType="mhos/components/title"
+                                    type="h3">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="1"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </title>
+                                <separator
+                                    cq:styleIds="[1672664491569]"
+                                    jcr:lastModified="{Date}2023-01-24T16:35:34.898+01:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/separator">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="2"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="3"
+                                            width="4"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="3"
+                                            width="4"/>
+                                    </cq:responsive>
+                                </separator>
+                                <text
+                                    jcr:lastModified="{Date}2023-04-04T15:47:27.038Z"
+                                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/text"
+                                    text="&lt;p>Lorenzo Melani, president of the Menarini Foundation, welcomes you to the Casa delle Scienze in Fiesole, set in the beautiful hills on the outskirts of Florence. In the new Auditorium specially designed for the sharing of scientific experiences, the Dialogs Beyond Borders project kicks off: the project is a virtual space hosting interviews with world renowned figures in the field of science with a view to inspiring future scientists.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="6"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text>
+                                <button
+                                    cq:styleIds="[1671640617559]"
+                                    jcr:lastModified="{Date}2023-04-04T15:48:04.429Z"
+                                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Watch now"
+                                    sling:resourceType="mhos/components/button"
+                                    icon="play"
+                                    linkTarget="_self"
+                                    linkURL="#">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="2"
+                                            width="5"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="3"
+                                            width="4"/>
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                    </cq:responsive>
+                                </button>
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="10"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="10"/>
+                                </cq:responsive>
+                                <spacer_1584895287
+                                    jcr:lastModified="{Date}2023-04-17T17:07:48.379+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="mhos/components/spacer"
+                                    spacer="50"/>
+                            </container_1810622774>
+                            <image
+                                jcr:lastModified="{Date}2023-04-17T15:31:08.126+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/image"
+                                fileReference="/content/dam/mhos/img-presidente.png"
+                                imageFromPageImage="false">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="7"/>
+                                    <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                </cq:responsive>
+                            </image>
+                        </container_copy>
                     </container>
                 </container>
             </container>
         </root>
     </jcr:content>
+    <hermona-soreq/>
+    <marek-glezerman/>
+    <dov-feldberg/>
+    <aaron-ciechanover/>
+    <marla-sokolowski/>
     <alessandro-vespignani/>
+    <eric-chivian/>
+    <barry-marshall/>
+    <tasuku-honjo/>
+    <valentin-fuster/>
+    <nick-fox/>
+    <donna-strickland/>
+    <fabrizio-benedetti/>
+    <marianne-j-legato/>
+    <louis-j-ignarro/>
 </jcr:root>
