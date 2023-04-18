@@ -1041,7 +1041,6 @@ textarea {
   height: 10px;
 }
 
-/* Navbar */
 .cmp-navbar {
   background-color: #143F59;
   max-height: 40px;
@@ -1118,17 +1117,11 @@ textarea {
 .cmp-navbar--text-mobile {
   display: none;
 }
-.cmp-navbar--text-mobile .text {
-  width: 100% !important;
-}
 
-/* Responsive */
 @media (max-width: 1200px) {
   .cmp-navbar .buildingblock .cmp-text {
     visibility: hidden;
-    height: 1px;
   }
-
   .cmp-navbar--text-mobile {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1142,7 +1135,8 @@ textarea {
             justify-content: center;
     width: 100%;
     background-color: #F7F6F4;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-top: 50px;
   }
   .cmp-navbar--text-mobile .cmp-text {
@@ -3339,7 +3333,7 @@ textarea {
   border-color: transparent;
   text-decoration: underline;
 }
-.tabs-menu .cmp-tabs .cmp-tabs__tablist .cmp-tabs__tab.cmp-tabs__tab--active:after {
+.tabs-menu .cmp-tabs .cmp-tabs__tablist .cmp-tabs__tab.cmp-tabs__tab--active:not(:has(.link)):after {
   content: "x";
   color: #484542;
   right: 5px;
@@ -3997,13 +3991,6 @@ textarea {
     margin: 0;
   }
 }
-html,
-body {
-  color: #202020;
-  background: #ffffff;
-  height: 100%;
-}
-
 .maximum-heigth {
   height: 100%;
 }
