@@ -2,6 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2023-04-18T15:43:42.032+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/mhos/settings/wcm/templates/page-content"
         jcr:isCheckedOut="{Boolean}true"
@@ -130,96 +131,109 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="mhos/components/container"
                         backgroundImageReference="/content/dam/mhos/background-placeholder-2.jpg">
-                        <container
-                            cq:styleIds="[1670947509108]"
-                            jcr:lastModified="{Date}2023-01-24T16:34:29.297+01:00"
+                        <container_1561651583
+                            jcr:lastModified="{Date}2023-01-24T16:34:20.339+01:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="mhos/components/container"
-                            layout="responsiveGrid">
-                            <container
-                                jcr:lastModified="{Date}2023-01-24T16:34:20.339+01:00"
+                            sling:resourceType="mhos/components/container">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="4"/>
+                                <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="10"/>
+                                <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="10"/>
+                            </cq:responsive>
+                            <spacer
+                                jcr:lastModified="{Date}2023-04-18T15:33:17.210+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/container">
+                                sling:resourceType="mhos/components/spacer"
+                                spacer="50"/>
+                            <title
+                                jcr:lastModified="{Date}2023-04-18T15:33:48.675+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="WHO WE ARE"
+                                sling:resourceType="mhos/components/title"
+                                type="h1"/>
+                            <separator
+                                cq:styleIds="[1672664491569]"
+                                jcr:lastModified="{Date}2023-01-24T16:35:34.898+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/separator">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="6"/>
-                                    <phone
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="12"/>
-                                </cq:responsive>
-                                <title
-                                    jcr:lastModified="{Date}2023-01-24T16:35:10.554+01:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="mhos/components/title"/>
-                                <separator
-                                    cq:styleIds="[1672664491569]"
-                                    jcr:lastModified="{Date}2023-01-24T16:35:34.898+01:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="mhos/components/separator">
-                                    <cq:responsive jcr:primaryType="nt:unstructured">
-                                        <default
                                             jcr:primaryType="nt:unstructured"
                                             offset="0"
                                             width="2"/>
-                                        <phone
+                                    <phone
                                             jcr:primaryType="nt:unstructured"
                                             offset="3"
-                                            width="5"/>
-                                    </cq:responsive>
-                                </separator>
-                                <text
-                                    jcr:lastModified="{Date}2023-01-24T16:35:28.225+01:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="mhos/components/text"
-                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lacus rutrum, lobortis neque et, feugiat libero. Nullam tempor vehicula nisl, at euismod lorem aliquam sed. Etiam consectetur eros vitae risus finibus, ac luctus arcu.&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <button
-                                    cq:styleIds="[1671640617559]"
-                                    jcr:lastModified="{Date}2023-01-24T16:36:16.545+01:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="Find out now"
-                                    sling:resourceType="mhos/components/button"
-                                    icon="play"
-                                    linkTarget="_self"/>
-                            </container>
-                            <container_1581399314
-                                jcr:lastModified="{Date}2023-01-24T16:34:55.567+01:00"
+                                            width="4"/>
+                                    <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="3"
+                                            width="4"/>
+                                </cq:responsive>
+                            </separator>
+                            <text
+                                jcr:lastModified="{Date}2023-01-24T16:35:28.225+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="mhos/components/container">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
-                                    <default
+                                sling:resourceType="mhos/components/text"
+                                text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lacus rutrum, lobortis neque et, feugiat libero. Nullam tempor vehicula nisl, at euismod lorem aliquam sed. Etiam consectetur eros vitae risus finibus, ac luctus arcu.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
+                            <button
+                                cq:styleIds="[1671640617559]"
+                                jcr:lastModified="{Date}2023-01-24T16:36:16.545+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Find out now"
+                                sling:resourceType="mhos/components/button"
+                                icon="play"
+                                linkTarget="_self"/>
+                            <spacer_1698151394
+                                jcr:lastModified="{Date}2023-04-18T15:39:15.115+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="mhos/components/spacer"
+                                spacer="50"/>
+                        </container_1561651583>
+                        <image
+                            jcr:lastModified="{Date}2023-04-18T15:29:08.696+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="mhos/components/image"
+                            disableLazyLoading="false"
+                            displayPopupTitle="true"
+                            fileReference="/content/dam/mhos/illustrazione-fondazione-ridotta .png"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_self"
+                            titleValueFromDAM="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
-                                        width="6"/>
-                                    <phone
+                                        width="7"/>
+                                <phone
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
                                         width="12"/>
-                                </cq:responsive>
-                                <image
-                                    jcr:lastModified="{Date}2023-01-25T11:09:01.405+01:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="mhos/components/image"
-                                    disableLazyLoading="false"
-                                    displayPopupTitle="true"
-                                    fileReference="/content/dam/mhos/illustrazione fondazione.png"
-                                    imageFromPageImage="false"
-                                    isDecorative="true"
-                                    linkTarget="_self"
-                                    titleValueFromDAM="false"/>
-                            </container_1581399314>
-                        </container>
+                                <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                            </cq:responsive>
+                        </image>
                     </container_158631957>
                 </container>
             </container>

@@ -10,7 +10,7 @@ header.experiencefragment {
 	}
   .cmp-experiencefragment--header {
     > .cmp-container {
-      height: 115px;
+      height: $top-height;
     }
   }
 
@@ -69,7 +69,7 @@ header.experiencefragment {
   @media (min-width: 375px) {
 	.cmp-experiencefragment--header {
 		  > .cmp-container {
-			  height: 115px;
+			  height: $top-height;
 			}
 		}
   }

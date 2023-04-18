@@ -393,20 +393,6 @@
                                     icon="play"
                                     linkTarget="_self"
                                     linkURL="#">
-                                    <cq:responsive jcr:primaryType="nt:unstructured">
-                                        <phone
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="2"
-                                            width="5"/>
-                                        <tablet
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="3"
-                                            width="4"/>
-                                        <default
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="3"/>
-                                    </cq:responsive>
                                 </button>
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -438,14 +424,14 @@
                                 imageFromPageImage="false">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="7"/>
-                                    <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="7"/>
+                                    <phone
                                             jcr:primaryType="nt:unstructured"
                                             offset="0"
                                             width="12"/>
-                                    <phone
+                                    <tablet
                                             jcr:primaryType="nt:unstructured"
                                             offset="0"
                                             width="12"/>

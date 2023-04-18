@@ -2,10 +2,9 @@
 	.cmp-button {
 		display: flex;
 		justify-content: space-between;
-		width: 100%!important;
+		width: 325px;
 		align-items: center;
 		flex-direction: row;
-		width: fit-content;
 		text-decoration: unset;
 		position: relative;
 		height: 75px;
@@ -111,10 +110,9 @@
 		}
 	}
 
-	@media (min-width: 768px) {
-		.cmp-button {
-			//max-width: 325px;
-			width: 100%;
-		}
+}
+@media (max-width: 1199px) {
+	.button {
+		margin: 0 auto;
 	}
 }
