@@ -203,13 +203,14 @@
 				&.cmp-tabs__tab--active {
 					border-color: transparent;
 					text-decoration: underline;
-
-					&:after {
-						content: "x";
-						color: $color-text;
-						right: 5px;
-						top: 8px;
-						position: absolute;
+					&:not(:has(.link)) {
+						&:after {
+							content: "x";
+							color: $color-text;
+							right: 5px;
+							top: 8px;
+							position: absolute;
+						}
 					}
 				}
 
