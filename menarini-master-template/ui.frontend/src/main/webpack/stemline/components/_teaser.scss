@@ -15,6 +15,14 @@
 /* start teaser card*/
 .card.teaser{
 	border: unset;
+	background-color: unset;
+	.cmp-card{
+		.cmp-teaser__content{
+			.cmp-teaser__title{
+				font-size: 30px;
+			}
+		}
+	}
 }
 .teaser .cmp-card {
 	.cmp-teaser__action-container {
