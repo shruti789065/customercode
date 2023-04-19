@@ -105,8 +105,8 @@ public class ModelUtils {
 
 	public static String getModifiedLink(String link) {
 		if (StringUtils.isNotEmpty(link) && !link.equals("#") && !(link.startsWith("/") && link.contains(".pdf")) && !link.contains("@")) {
-			link = link.startsWith("/") ? link + ".html" : link.contains("https://") ?
-					link : link.contains("http://") ? link : "http://" + link;
+			link = link.startsWith("/") && link.contains(".html") ? link : link.startsWith("/") && !link.contains(".html") ? link + ".html" : link.contains("https://") ?
+					link : link.contains("http://") ? link :  "http://" + link;
 		}
 		return link;
 	}
