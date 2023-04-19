@@ -13,3 +13,16 @@ export function _prependHtml(el, str) {
 		el.prepend(div.children[0]);
 	}
 }
+
+export function _findSiblingsWithClass(element, className) {
+	const siblings = [];
+	let sibling = element.parentNode.firstChild;
+	while (sibling) {
+	  if (sibling.nodeType === 1 && sibling !== element && sibling.classList.contains(className)) {
+		siblings.push(sibling);
+	  }
+	  sibling = sibling.nextSibling;
+	}
+	return siblings;
+  }
+  
