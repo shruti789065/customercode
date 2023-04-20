@@ -7,4 +7,5 @@ jQuery(function ($) {
         if($(".teaser.card").parent().hasClass("aem-Grid")){
             $(".teaser.card").parent().addClass("cmp-container_card-padding");
         } 
-})
+});
+

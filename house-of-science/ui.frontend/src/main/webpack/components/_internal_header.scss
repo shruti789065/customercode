@@ -101,8 +101,10 @@
 	@media (min-width: 1400px) {
 		.internal-header-background-color {
 			height: 550px;
+
 			.cmp-container {
 				height: 100%;
+
 				.container {
 					.cmp-image {
 						height: 550px;
@@ -125,16 +127,20 @@
 	@media (min-width: 1920px) {
 		.internal-header-background-color {
 			height: 700px;
+
 			.cmp-container {
 				height: 100%;
+
 				.container {
 					.cmp-image {
 						height: 700px;
+
 						.cmp-image__image {
 							height: 100%;
 							object-fit: fill;
 						}
 					}
+
 					.wrapper {
 						padding: 20px 0;
 						text-align: left;
@@ -152,20 +158,13 @@
 			.cmp-container-internal-header__background {
 				padding: 35px 0;
 
-				/*&::after {
-			content: "";
-			width: 76.75px;
-			height: 100px;
-			background-image: url("/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/logo-house-of-science_bottom.png");
-			background-repeat: no-repeat;
-			background-size: contain;
-			top: 0;
-			left: 22px;
-			position: absolute;
-		  }*/
 				.cmp-image {
-					max-width: 350px;
+					max-width: 450px;
 					margin: 0 auto;
+
+					img {
+						max-height: 400px;
+					}
 				}
 
 				.container-text {
@@ -266,7 +265,7 @@
 			}
 		}
 
-		@media (min-width: 1400px) {
+		@media (min-width: 1440px) {
 			.cmp-container {
 				.cmp-container-internal-header__background {
 					&::after {
