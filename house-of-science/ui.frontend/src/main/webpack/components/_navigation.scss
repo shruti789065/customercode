@@ -26,6 +26,7 @@
   &:focus {
     border-bottom: 8px solid $primary-color-three;
     color: $primary-color-three;
+	font-weight: $bold;
   }
 }
 .cmp-navigation__item-link {
@@ -38,12 +39,13 @@
   text-transform: uppercase;
   padding: 8px;
   bottom: 15px;
-  font-weight: bold;
+  font-weight: $medium;
+  
 }
 .cmp-navigation__item--active {
   border-bottom: 8px solid $primary-color-three;
 }
 .cmp-navigation__item--active > .cmp-navigation__item-link {
   color: $primary-color-three;
-  font-weight: bold;
+  font-weight: $bold;
 }
