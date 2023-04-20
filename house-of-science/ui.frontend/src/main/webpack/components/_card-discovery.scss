@@ -140,8 +140,6 @@
     }
 
     &.minuti {
-        
-
         .cmp-teaser__action-container {
             a {
                 &::after {
@@ -150,14 +148,20 @@
             }
         }
     }
-
     &.fondazione {
-        
-
         .cmp-teaser__action-container {
             a {
                 &::after {
                     background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-cast.svg');
+                }
+            }
+        }
+    }
+    &.play {
+        .cmp-teaser__action-container {
+            a {
+                &::after {
+                    background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/icon-play.svg');
                 }
             }
         }
