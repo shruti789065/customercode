@@ -127,9 +127,13 @@
                 }
             }
 
-            @media (max-width: 500px) {
+            @media (max-width: 425px) {
                 .cmp-teaser__action-container {
                     min-width: unset;
+					max-width: 290px;
+					a{
+						font-size: 20px;
+					}
                 }
             }
         }

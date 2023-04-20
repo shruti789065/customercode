@@ -90,8 +90,9 @@
                 }
             }
         }
-        @media (max-width: 500px) {.cmp-teaser__content{zoom: 70%;}}
-        @media (max-width: 300px) {.cmp-teaser__content{zoom: 50%;}}
+        @media (max-width: 576px) {.cmp-teaser__content{zoom: 70%;}}
+        @media (max-width: 375px) {.cmp-teaser__content{zoom: 60%;}}
+		@media (max-width: 320px) {.cmp-teaser__content{zoom: 50%;}}
 
         .cmp-teaser__image {
             position: relative;
@@ -207,6 +208,19 @@
         justify-content: space-between;
         height: 550px;
         .cardHover {
+			&.cmp-card__reduced{
+				.cmp-teaser {
+					.cmp-teaser__content {
+						transform: scale(.8);
+						.cmp-teaser__title{
+							font-size: 25px;
+						}
+						.cmp-teaser__description{
+							font-size: 18px;
+						}
+					}
+				}
+			}
             .cmp-teaser {
                 .cmp-teaser__content {
                     .cmp-teaser__action-container {
