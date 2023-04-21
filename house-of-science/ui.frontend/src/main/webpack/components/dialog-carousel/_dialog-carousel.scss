@@ -11,6 +11,7 @@
 		align-items: center;
 		height: 100%;
 		gap: 25px;
+		padding: 20px;
 
 		.dialogCarousel__item {
 			width: fit-content;
@@ -41,7 +42,7 @@
 							text-transform: uppercase;
 							font-family: $font-family-Libre;
 							color: $white;
-							font-size: 30px;
+							font-size: 20px;
 							display: flex;
 							text-align: center;
 							transition: font-size 0.3s linear;
@@ -51,7 +52,7 @@
 							color: $white;
 							text-transform: uppercase;
 							font-family: $font-family;
-							font-size: 20px;
+							font-size: 15px;
 							transition: font-size 0.3s linear;
 						}
 
@@ -84,11 +85,11 @@
 							opacity: 0;
 					
 							.cmp-teaser__title {
-								font-size: 15px;
+								font-size: 30px;
 							}
 					
 							.cmp-teaser__description {
-								font-size: 10px;
+								font-size: 20px;
 							}
 						}
 					

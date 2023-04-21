@@ -2,7 +2,7 @@
 	.cmp-button {
 		display: flex;
 		justify-content: space-between;
-		width: 325px;
+		width: 265px;
 		align-items: center;
 		flex-direction: row;
 		text-decoration: unset;
@@ -110,6 +110,13 @@
 		}
 	}
 
+}
+@media (min-width: 425px) {
+	.button {
+		.cmp-button {
+			width: 325px;
+		}
+	}
 }
 @media (max-width: 1199px) {
 	.button {
