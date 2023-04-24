@@ -197,7 +197,7 @@ function addDisclaimer(language) {
     }
   };
 
-  const links = document.getElementsByTagName('a');
+  const links = document.querySelectorAll('a.websiteProduct');
 
   const disclaimerHTML = `
     <div id="disclaimer" style="display:none;">
