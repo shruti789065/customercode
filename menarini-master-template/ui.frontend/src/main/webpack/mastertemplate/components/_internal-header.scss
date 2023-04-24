@@ -1,6 +1,10 @@
 /* start teaser internal-header */
 .cmp-internal-header {
 	position: relative;
+	height: 300px;
+	.cmp-teaser{
+		height: 100%;
+	}
 
 	.cmp-teaser__content {
 		position: absolute;
@@ -32,16 +36,18 @@
 	}
 	.cmp-teaser__title {
 		color: $white;
-		font-size: 3.6vw;
+		font-size: 40px;
 		font-family: $font-family-oswald;
-		font-weight: $font-light;
-		margin: 0px;
+		font-weight: $font-extra-light;
+		margin: 50px 0 0;
 	}
 	.cmp-teaser__image{
+		height: 100%;
 		div{
 			display: flex;
 		}
 		.cmp-image{
+			height: 100%;
 			&__image{
 				object-fit: cover;
 			}

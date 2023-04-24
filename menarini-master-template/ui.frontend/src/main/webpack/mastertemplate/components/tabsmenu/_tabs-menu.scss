@@ -101,6 +101,7 @@
 
 						&:not(:only-child) {
 							position: absolute;
+							padding: 10px 0;
 							z-index: 1;
 							top: 0;
 							bottom: 0;
@@ -110,7 +111,7 @@
 						}
 
 						.cmp-teaser__title {
-							font-weight: 200;
+							font-weight: $font-extra-light;
 							display: table;
 							padding: 0 0.5rem;
 							font-size: 30px;
@@ -128,7 +129,7 @@
 						}
 
 						.cmp-teaser__description {
-							font-weight: 200;
+							font-weight: $font-extra-light;
 							display: table;
 							padding: 0 0.5rem;
 							font-size: 20px;
@@ -459,7 +460,7 @@
 				&__item-link {
 					font-size: 16px;
 					padding: 0.5rem 15px;
-					font-weight: 400;
+					font-weight: $font-regular;
 					text-align: left;
 				}
 			}
@@ -470,7 +471,7 @@
 				h3 {
 					font-size: 24px;
 					font-family: $font-family-oswald;
-					font-weight: 200;
+					font-weight: $font-extra-light;
 					text-transform: uppercase;
 					text-align: center;
 					line-height: 1.6;
