@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-04-19T14:18:39.237Z"
+        cq:lastModifiedBy="m.papini@adiacent.com"
+        cq:lastReplicated="{Date}2023-04-19T14:19:45.882Z"
+        cq:lastReplicated_publish="{Date}2023-04-19T14:19:45.882Z"
+        cq:lastReplicatedBy="m.papini@adiacent.com"
+        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/menarini-stemline/settings/wcm/templates/menarini---details-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Leadership"
+        jcr:uuid="365d7c81-244c-49eb-985b-239566858cd1"
+        sling:alias="leadership"
+        sling:resourceType="menarinimaster/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader
+                    jcr:lastModified="{Date}2023-04-19T14:15:19.491Z"
+                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="About us"
+                    sling:resourceType="menarinimaster/components/internalheader"
+                    disableLazyLoading="false"
+                    fileReference="/content/dam/menarini-stemline/assets/header_about_us.jpg"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    textIsRich="true"
+                    titleFromPage="false"/>
+                <breadcrumb
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/breadcrumb"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/container"
+                    layout="responsiveGrid">
+                    <internalmenu
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/internalmenu"
+                        navigationRoot="/content/menarini-stemline/en/en/about-us"
+                        structureStart="{Long}0">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="12"/>
+                        </cq:responsive>
+                    </internalmenu>
+                    <container
+                        cq:styleIds="[1655202404538]"
+                        jcr:lastModified="{Date}2023-03-02T10:41:25.515Z"
+                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container"
+                        layout="responsiveGrid">
+                        <title
+                            cq:styleIds="[1653552493699]"
+                            jcr:lastModified="{Date}2023-03-02T13:34:18.609Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Our Leadership Team"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h2">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="5"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </title>
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="8"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="8"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="12"/>
+                        </cq:responsive>
+                        <container_789424790__995964485
+                            jcr:lastModified="{Date}2023-03-08T16:06:13.280Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <card_avatar_team_mem
+                                jcr:lastModified="{Date}2023-04-19T14:15:37.387Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/card-avatar-team-member"
+                                description="&lt;p>Dr. Bergstein is Chief Executive Officer and Founder of Stemline Therapeutics. Dr. Bergstein has managed the company’s evolution from early-stage research and development to the FDA approval of its lead product, ELZONRIS® (tagraxofusp).&lt;/p>&#xd;&#xa;&lt;p> &lt;/p>&#xd;&#xa;&lt;p>Prior to founding Stemline, Dr. Bergstein was Medical Director of Access Oncology, Inc., a clinical-stage oncology-focused biotechnology company. He was a key member of a small team responsible for the acquisition and development of the company’s clinical-stage assets and ultimately the sale of the company to Keryx Biopharmaceuticals, Inc. (Nasdaq: KERX).&lt;/p>&#xd;&#xa;&lt;p> &lt;/p>&#xd;&#xa;&lt;p>He received a BA in mathematics from the University of Pennsylvania, was elected to the Pi Mu Epsilon National Mathematics Honor Society, and was captain of the varsity wrestling team. He then received an MD from the Mount Sinai School of Medicine where he was elected to the Alpha Omega Alpha Honor Medical Society, received the Merck Award for Clinical Excellence, and subsequently completed an internship in general surgery. He became the Jerome A. Urban Post-Doctoral Research Fellow at the Cornell University Medical College where he studied and published work relating to Wnt genes in human breast cancer. He completed an internal medicine residency and hematology-oncology fellowship at the New York Presbyterian Hospital—Weill Medical College of Cornell University, where he studied and published work on gene therapy manipulations of the sonic hedgehog pathway.&lt;/p>&#xd;&#xa;"
+                                fileReference="/content/dam/menarini-stemline/assets/Ivan_Bergestein.png"
+                                name="Ivan Bergestein, MD"
+                                position="CHIEF EXECUTIVE OFFICER AND PRESIDENT"
+                                textIsRich="true"/>
+                            <card_avatar_team_mem_1112482330
+                                jcr:lastModified="{Date}2023-04-19T14:15:48.351Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/card-avatar-team-member"
+                                description="&lt;p>Mr. Hoberman has served as the Chief Operating Officer of Stemline Therapeutics since 2013. He has extensive experience in finance, accounting, investor relations, corporate governance, and business development including mergers and acquisitions, strategic alliances, and partnerships, both domestic and international. His operational expertise includes regulatory oversight, human resources, manufacturing, and clinical development.&lt;/p>&#xd;&#xa;&lt;p>Prior to his current role, Mr. Hoberman was Vice President of Corporate and Business Development of Keryx Biopharmaceuticals, Inc., where he was instrumental in the success of the company. He helped secure multiple sources of capital, including over $200 million in equity investments through public and private offerings. He also initiated and executed a $100 million strategic alliance and originated, negotiated, and closed dozens of licensing and operational contracts, helping to grow the company’s market capitalization to over $1 billion.&lt;/p>&#xd;&#xa;&lt;p>Mr. Hoberman also led the team that originated, in-licensed, and developed Auryxia™ (ferric citrate), which was approved by the US Food and Drug Administration. He is on the Board of Directors of TG Therapeutics (Nasdaq: TGTX). He received a BSBA in Finance from Boston University and completed post-baccalaureate studies at Columbia University.&lt;/p>&#xd;&#xa;"
+                                fileReference="/content/dam/menarini-stemline/assets/Ken_Hoberman.png"
+                                name="Ken Hoberman"
+                                position="CHIEF OPERATING OFFICIER"
+                                textIsRich="true"/>
+                            <card_avatar_team_mem_1721202817
+                                jcr:lastModified="{Date}2023-04-19T14:15:59.621Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/card-avatar-team-member"
+                                description="&lt;p>Mr. Gionco is the Senior Vice President of Finance and Chief Accounting Officer at Stemline Therapeutics. Mr. Gionco was previously Vice President, Chief Financial Officer, and Chief Accounting Officer at Savient Pharmaceuticals, Inc., where he oversaw the financial function of the organization and was instrumental in helping to grow the company, raising over $350 million.&lt;/p>&#xd;&#xa;&lt;p>Prior to this, Mr. Gionco held audit, corporate accounting, financial planning, finance, and controller roles at companies including Merck &amp;amp; Co., Inc. and, previously, Medco Health Solutions, Inc., which was acquired by Merck during his tenure. At Merck, Mr. Gionco held various financial and accounting positions of increasing responsibility. Mr. Gionco also held senior financial positions at Progenics Pharmaceuticals, Inc. and Odyssey Pharmaceuticals, Inc. (a subsidiary of Pliva, Inc., now Teva Pharmaceutical Industries Ltd.).&lt;/p>&#xd;&#xa;&lt;p>Mr. Gionco previously spent 7 years in financial auditing with a major public accounting firm. Mr. Gionco holds a BS in accounting from Fairleigh Dickinson University and an MBA in finance from Rutgers University. Mr. Gionco is a Certified Public Accountant in the state of New York.&lt;/p>&#xd;&#xa;"
+                                fileReference="/content/dam/menarini-stemline/assets/David_Gionco.png"
+                                name="David Gionco"
+                                position="SENIOR VICE PRESIDENT OF FINANCE AND CHIEF ACCOUNTING OFFICER"
+                                textIsRich="true"/>
+                            <card_avatar_team_mem_1162051749
+                                jcr:lastModified="{Date}2023-04-19T14:16:35.566Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/card-avatar-team-member"
+                                description="&lt;p>Nassir Habboubi, MD, started his journey in pharma oncology more than 30 years ago. His experience in drug development and medical affairs has been within big companies like Farmitalia, Sanofi-Aventis, and Novartis, and also in biotech with U.S. Bioscience and Cellularity.&lt;/p>&#xd;&#xa;&lt;p>Dr. Habboubi’s contribution to drug development over past 3 decades was mainly in new anthracyclines, &lt;/p>&#xd;&#xa;&lt;p>TAXOTERE® (docetaxel), oxaliplatin, tissues and organ protection, small molecules, and target and cell therapy; while his experience in applying new therapies came while working within leukemia/lymphomas and a variety of solid tumors. With over 50 publications in the world of cancer, his findings have assisted other healthcare professionals from around the world.&lt;/p>&#xd;&#xa;&lt;p>He obtained his medical degree and fellowship in hematology-oncology from the American University of Beirut and MD Anderson Cancer Hospital.&lt;/p>&#xd;&#xa;&lt;p>He joined Menarini Stemline in 2021 as CMO and became the Global Head of R&amp;amp;D and Chairman of Menarini Research in January 2022.&lt;/p>&#xd;&#xa;"
+                                fileReference="/content/dam/menarini-stemline/assets/nassir_habboubi.png"
+                                name="Nassir Habboubi, MD"
+                                position="CHIEF MEDICAL OFFICER AND GLOBAL HEAD OF R&amp;D"
+                                textIsRich="true"/>
+                            <card_avatar_team_mem_1212419048
+                                jcr:lastModified="{Date}2023-04-19T14:16:45.126Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/card-avatar-team-member"
+                                description="&lt;p>Ahmed is the Chief Commercial Officer for Stemline Therapeutics. He joined Stemline in September 2021 and has more than 25 years of international biotechnology and pharmaceutical experience.&lt;/p>&#xd;&#xa;&lt;p>Prior to Stemline, he served as the Global Commercial Vice President for the Hematology Franchise at Janssen Pharmaceuticals where he led the Global Hematology Franchise across all hematologic tumor types and stages of development. During his time at Janssen, Ahmed built a best-in-class cell therapy Commercial capability for Janssen’s first CART launch in multiple myeloma. He also led the development and execution of the global commercial strategy and launches of IMBRUVICA and DARZALEX, with over 12 launches since 2016 leading up to the two best hematology launches ever.&lt;/p>&#xd;&#xa;&lt;p>Prior to joining Janssen, Ahmed spent 14 years at Novartis in positions of increasing responsibility spanning between Global, Regional, and US roles in Marketing and Senior Sales Leadership functions. Ahmed began his career as a Dentist and transitioned to the pharmaceutical industry developing expertise in specialty therapeutic areas with main focus on Oncology.&lt;/p>&#xd;&#xa;&lt;p>He received his Dental degree from Cairo University and a Master of Business Administration from Duke University.&lt;/p>&#xd;&#xa;"
+                                fileReference="/content/dam/menarini-stemline/assets/Ahmed_Rabie.png"
+                                name="Ahmed Rabie"
+                                position="CHIEF COMMERCIAL OFFICER"
+                                textIsRich="true"/>
+                            <card_avatar_team_mem_1005803079
+                                jcr:lastModified="{Date}2023-04-19T14:17:02.113Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/card-avatar-team-member"
+                                description="&lt;p>Mr. Levitt is the General Counsel and Chief Compliance Officer at Stemline Therapeutics. In this role since 2018, Mr. Levitt is responsible for overseeing all aspects of legal, governance and compliance. He has led the company through two pharmaceutical product launches, public equity offerings, build-out of its global operations in the United States and Europe, and acquisition of Stemline by the Menarini Group in 2020.&lt;/p>&#xd;&#xa;&lt;p>Mr. Levitt was instrumental in Stemline’s transition from a clinical to commercial stage biotech company, including developing the Company’s legal and compliance functions. Prior to joining Stemline, Mr. Levitt was at Alexion Pharmaceuticals for five years, where he served as lead global product counsel responsible for supporting the regulatory approval and commercial launches for two highly innovative ultra-rare disease enzyme replacement therapies.&lt;/p>&#xd;&#xa;&lt;p>Prior to joining Alexion, Mr. Levitt worked at two leading law firms, where he specialized in pharmaceutical patent litigation, trade secret litigation, and compliance programs. Earlier in his career, Mr. Levitt worked as an engineer at an environmental engineering firm specializing in municipal water treatment projects.&lt;/p>&#xd;&#xa;&lt;p>Mr. Levitt earned a B.A. from Binghamton University, a M.S. from Rensselaer Polytechnic Institute, and a J.D. from Fordham University School of Law.&lt;/p>&#xd;&#xa;"
+                                fileReference="/content/dam/menarini-stemline/assets/jeffrey_levitt.png"
+                                name="Jeffrey Levitt"
+                                position="GENERAL COUNSEL AND CHIEF COMPLIANCE OFFICER"
+                                textIsRich="true"/>
+                        </container_789424790__995964485>
+                    </container>
+                    <container_2027933829
+                        cq:styleIds="[1655202404538]"
+                        jcr:lastModified="{Date}2023-03-02T12:57:29.684Z"
+                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container">
+                        <container
+                            jcr:lastModified="{Date}2023-03-02T12:57:51.963Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <card
+                                jcr:description="&lt;p>We promote an ethical work by ensuring that…&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2023-04-19T14:17:46.446Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Business Ethics &amp; Compliance"
+                                sling:resourceType="menarinimaster/components/card"
+                                descriptionFromPage="false"
+                                disableLazyLoading="false"
+                                fileReference="/content/dam/menarini-stemline/assets/business_ethics.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                linkURL="/content/menarini-stemline/en/en/about-us/business-ethics-compliance"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="11"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        link="/content/menarini-stemline/en/en/about-us/business-ethics-compliance"
+                                        linkTarget="_self"
+                                        text="EXPLORE BUSINESS ETHICS &amp; COMPLIANCE"/>
+                                </actions>
+                            </card>
+                            <card_copy
+                                jcr:description="&lt;p>Areas where you could work and open job positions in each country&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2023-04-19T14:18:09.872Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Our Careers"
+                                sling:resourceType="menarinimaster/components/card"
+                                descriptionFromPage="false"
+                                disableLazyLoading="false"
+                                fileReference="/content/dam/menarini-stemline/assets/careers.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_blank"
+                                linkURL="https://www.menarini.com/en-us/careers/careers-in-oncology"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="11"/>
+                                </cq:responsive>
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        link="https://www.menarini.com/en-us/careers/careers-in-oncology"
+                                        linkTarget="_self"
+                                        text="SEE AVAILABLE POSITIONS"/>
+                                </actions>
+                            </card_copy>
+                            <spacer
+                                jcr:lastModified="{Date}2023-03-28T08:27:22.653Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/spacer"
+                                spacer="50"/>
+                        </container>
+                        <container_copy
+                            jcr:lastModified="{Date}2023-03-07T16:25:00.149Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <banner_copy
+                                cq:styleIds="[1655107229265]"
+                                jcr:description="&lt;p>From research to manufacturing and from distribution to scientific information, the executive team at Menarini helps ensure we achieve our goal of excellence.&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2023-04-19T14:18:39.227Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="MENARINI GROUP EXECUTIVE TEAM"
+                                sling:resourceType="menarinimaster/components/banner"
+                                descriptionFromPage="false"
+                                disableLazyLoading="false"
+                                fileReference="/content/dam/menarini-stemline/assets/megabox_Executive_Team.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_blank"
+                                linkURL="https://www.menarini.com/en-us/about-us/executive-team"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        link="https://www.menarini.com/en-us/about-us/executive-team"
+                                        linkTarget="_self"
+                                        text="LEARN MORE ABOUT MENARINI LEADERSHIP"/>
+                                </actions>
+                            </banner_copy>
+                        </container_copy>
+                    </container_2027933829>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

@@ -1,14 +1,4 @@
-@media (max-width: 768px) {
-	.teaser.cmp-teaser--background_primary,
-	.teaser.cmp-teaser--background_secondary {
-		margin-bottom: 35px;
-		.cmp-teaser__image {
-			.cmp-image__image {
-				object-fit: cover;
-			}
-		}
-	}
-}
+
 .teaser.cmp-teaser--background_primary,
 .teaser.cmp-teaser--background_secondary {
 	z-index: 0;
@@ -46,9 +36,6 @@
 
 	a {
 		text-decoration: unset;
-	}
-
-	.cmp-teaser {
 	}
 
 	.cmp-teaser__image {
@@ -101,9 +88,6 @@
 		}
 	}
 
-	.cmp-teaser__pretitle {
-	}
-
 	.cmp-teaser__title {
 		font-size: $title-font-size;
 		font-weight: $font-regular;
@@ -113,9 +97,6 @@
 		margin-bottom: 0px;
 		color: $white;
 		text-align: center;
-	}
-
-	.cmp-teaser__title-link {
 	}
 
 	.cmp-teaser__description {
@@ -136,11 +117,6 @@
 		margin: 16px 0px;
 	}
 
-	.cmp-teaser__action-container {
-	}
-
-	.cmp-teaser__action-link {
-	}
 }
 .teaser.cmp-teaser--background_secondary .cmp-teaser__content,
 .teaser.cmp-teaser--background_secondary .cmp-teaser__link {
@@ -161,12 +137,14 @@
 .teaser .cmp-card {
 	width: fit-content;
 	position: relative;
-	margin: 25px;
+	height: 350px;
+	margin: 30px;
+	
 
 	.cmp-teaser__content,
 	.cmp-teaser__link {
 		position: absolute;
-		padding: 30px;
+		padding: 20px;
 		width: 100%;
 		height: 100%;
 		color: $white;
@@ -208,7 +186,9 @@
 		}
 	}
 	.cmp-teaser__image {
+		height: 100%;
 		div {
+			height: 100%;
 			display: flex;
 		}
 	}
@@ -219,7 +199,7 @@
 		padding: 7px 25px;
 		text-transform: uppercase;
 		font-family: $font-family-oswald;
-		font-weight: $font-semi-bold;
+		font-weight: $font-medium;
 		transition: 0.5s;
 		a {
 			color: $white;
@@ -327,6 +307,7 @@
 			}
 			a {
 				color: $white;
+				font-weight: $font-medium;
 				text-decoration: none;
 			}
 		}
@@ -435,3 +416,32 @@
 	}
 }
 /* end news card*/
+@media (min-width: 576px){
+	.teaser {
+		.cmp-card{
+			margin: 25px;
+			.cmp-teaser__content{
+				padding: 30px;
+			}
+		}
+	}
+}
+@media (min-width: 1200px){
+	.teaser {
+		.cmp-card{
+			margin: 25px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.teaser.cmp-teaser--background_primary,
+	.teaser.cmp-teaser--background_secondary {
+		margin-bottom: 35px;
+		.cmp-teaser__image {
+			.cmp-image__image {
+				object-fit: cover;
+			}
+		}
+	}
+}

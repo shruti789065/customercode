@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-04-20T13:34:31.686Z"
+        cq:lastModifiedBy="m.papini@adiacent.com"
+        cq:lastReplicated="{Date}2023-04-20T13:34:35.022Z"
+        cq:lastReplicated_publish="{Date}2023-04-20T13:34:35.022Z"
+        cq:lastReplicatedBy="m.papini@adiacent.com"
+        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:redirectPermanent="true"
+        cq:template="/conf/menarini-stemline/settings/wcm/templates/menarini---details-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="History"
+        jcr:uuid="664451b7-3327-4785-8756-5aaa2d4c7e46"
+        sling:alias="our-history"
+        sling:resourceType="menarinimaster/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader
+                    jcr:lastModified="{Date}2023-04-19T14:07:21.249Z"
+                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="About us"
+                    sling:resourceType="menarinimaster/components/internalheader"
+                    disableLazyLoading="false"
+                    fileReference="/content/dam/menarini-stemline/assets/header_about_us.jpg"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    textIsRich="true"
+                    titleFromPage="false"/>
+                <breadcrumb
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/breadcrumb"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/container"
+                    layout="responsiveGrid">
+                    <internalmenu
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/internalmenu"
+                        navigationRoot="/content/menarini-stemline/en/en/about-us"
+                        structureStart="{Long}0">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="12"/>
+                        </cq:responsive>
+                    </internalmenu>
+                    <container
+                        cq:styleIds="[1655202404538]"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container"
+                        layout="responsiveGrid">
+                        <title
+                            cq:styleIds="[1653552493699]"
+                            jcr:lastModified="{Date}2022-07-26T17:40:44.634+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h2">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="5"/>
+                            </cq:responsive>
+                        </title>
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="8"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="8"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="12"/>
+                        </cq:responsive>
+                        <accordion
+                            jcr:lastModified="{Date}2023-04-19T12:42:14.997Z"
+                            jcr:lastModifiedBy="j.kaur@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/accordion"
+                            expandedItems="[item_1]"
+                            headingElement="h3"
+                            singleExpansion="false">
+                            <item_1
+                                cq:panelTitle="January 2023"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Item 1"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-17T10:19:16.559Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>&lt;b>ORSERDU™ (elacestrant) &lt;/b>approved by the U.S. FDA as the First and Only Treatment Specifically Indicated for Patients with ESR1 Mutations in ER+, HER2- Advanced or Metastatic Breast Cancer with disease progression following at least one line of endocrine therapy.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1>
+                            <item_2
+                                cq:panelTitle="August 2022"
+                                jcr:lastModified="{Date}2023-03-17T10:20:23.638Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Item 2"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-16T08:42:44.640Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>Elacestrant, the first oral SERD for HR+/HER2- advanced or metastatic breast cancer with positive Phase 3 data, granted priority review by the U.S. FDA&lt;/p>&#xd;&#xa;&lt;p>Elacestrant marketing authorization application accepted for review by the EMA for the treatment of HR+/HER2– advanced or metastatic breast cancer&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="8"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text>
+                            </item_2>
+                            <item_1678203925125
+                                cq:panelTitle="July 2022"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T13:02:55.823Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>The European Commission granted marketing authorization for NEXPOVIO in combination with once-weekly bortezomib and low-dose dexamethasone in multiple myeloma.&lt;/p>&#xd;&#xa;&lt;p>The Menarini Group obtained global licensing rights from Radius Health, Inc, for elacestrant—a selective estrogen receptor degrader (SERD) for patients with hormone receptor–positive (HR+)/human epidermal growth factor receptor 2–negative (HER2–) advanced or metastatic breast cancer&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678203925125>
+                            <item_1678203953349
+                                cq:panelTitle="December 2021"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T13:01:53.598Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>Karyopharm and Menarini entered into an exclusive licensing agreement whereby Menarini is responsible for commercializing all current and future indications of NEXPOVIO® (selinexor) in the European Economic Area, United Kingdom, Switzerland, CIS countries, Turkey, and Latin America. Stemline Therapeutics B.V., a wholly owned subsidiary of Menarini, is leading all commercialization activities in Europe&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678203953349>
+                            <item_1678203967261
+                                cq:panelTitle="January 2021"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T13:01:15.932Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>ELZONRIS approved by the EMA as monotherapy for the first-line treatment of adult patients with BPDCN&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678203967261>
+                            <item_1678203976268
+                                cq:panelTitle="January 2020"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T13:00:43.213Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>Stemline acquired by the Menarini Group&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678203976268>
+                            <item_1678203993380
+                                cq:panelTitle="December 2018"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T13:00:08.100Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>ELZONRIS monotherapy became the first U.S. FDA-approved and commercially available treatment for adult and pediatric patients, 2 years or older, with BPDCN&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678203993380>
+                            <item_1678204039864
+                                cq:panelTitle="November 2018"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T12:59:31.124Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>ELZONRIS granted accelerated assessment for the Marketing Authorization Application (MAA) by the European Medicines Agency (EMA).&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678204039864>
+                            <item_1678204054488
+                                cq:panelTitle="August 2016"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T12:58:54.824Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>ELZONRIS granted breakthrough therapy designation by the U.S. Food and Drug Administration (FDA) &lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678204054488>
+                            <item_1678204066124
+                                cq:panelTitle="November 2015"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T12:58:19.723Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>ELZONRIS granted ODD for the treatment of BPDCN in Europe&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678204066124>
+                            <item_1678204078704
+                                cq:panelTitle="June 2013"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T12:57:41.337Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>ELZONRIS®&amp;nbsp;(tagraxofusp), a therapy targeting CD123, granted orphan drug designation (ODD) for the treatment of blastic plasmacytoid dendritic cell neoplasm (BPDCN) in the U.S.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678204078704>
+                            <item_1678204090792
+                                cq:panelTitle="August 2003"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <text
+                                    jcr:lastModified="{Date}2023-03-09T12:57:04.738Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>Stemline founded in New York City with the mission of identifying and developing novel therapeutics for difficult-to-treat cancers&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </item_1678204090792>
+                        </accordion>
+                        <spacer
+                            jcr:lastModified="{Date}2023-03-28T08:25:06.350Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/spacer"
+                            spacer="30"/>
+                    </container>
+                    <spacer_copy
+                        jcr:lastModified="{Date}2023-04-20T13:34:31.680Z"
+                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/spacer"
+                        spacer="40"/>
+                    <container_197822381
+                        cq:styleIds="[1655202404538]"
+                        jcr:lastModified="{Date}2023-04-14T07:51:33.392Z"
+                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container">
+                        <container_copy_copy
+                            jcr:lastModified="{Date}2023-04-14T07:51:59.318Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <card_copy_copy
+                                jcr:description="&lt;p>Our executive team helps ensure that quality always comes first.&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2023-04-20T13:19:46.314Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Our Leadership"
+                                sling:resourceType="menarinimaster/components/card"
+                                descriptionFromPage="false"
+                                disableLazyLoading="false"
+                                fileReference="/content/dam/menarini-stemline/assets/history-int.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                linkURL="/content/menarini-stemline/en/en/about-us/leadership"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        link="/content/menarini-stemline/en/en/about-us/leadership"
+                                        linkTarget="_self"
+                                        text="SEE OUR LEADERS"/>
+                                </actions>
+                            </card_copy_copy>
+                            <card_copy
+                                jcr:description="&lt;p>Recent news, the news archive, projects, events, and more&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2023-04-20T13:12:39.990Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Latest News"
+                                sling:resourceType="menarinimaster/components/card"
+                                descriptionFromPage="false"
+                                disableLazyLoading="false"
+                                fileReference="/content/dam/menarini-stemline/assets/box_home_news_int.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_blank"
+                                linkURL="https://www.menarini.com/en-us/news"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        link="https://www.menarini.com/en-us/news"
+                                        linkTarget="_self"
+                                        text="EXPLORE THE NEWS"/>
+                                </actions>
+                            </card_copy>
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                            <container_copy_copy_
+                                jcr:lastModified="{Date}2023-04-14T07:51:59.318Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <spacer_copy
+                                    jcr:lastModified="{Date}2023-04-14T07:46:43.695Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/spacer"
+                                    spacer="50"/>
+                                <banner_copy_copy_cop
+                                    cq:styleIds="[1655107229265]"
+                                    jcr:description="&lt;p>The origins of Menarini Group date back to 1886 when Archimede Menarini opened the Farmacia Internazionale in Naples. Today, Menarini Group is present in 140 countries worldwide, a guarantee of internationally recognized quality.&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2023-04-14T07:52:43.358Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="THE MENARINI GROUP STORY"
+                                    sling:resourceType="menarinimaster/components/banner"
+                                    descriptionFromPage="false"
+                                    disableLazyLoading="false"
+                                    fileReference="/content/dam/menarini-stemline/assets/placeholders/sample-1920-740.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_blank"
+                                    linkURL="https://www.menarini.com/en-us/about-us"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <actions jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            link="https://www.menarini.com/en-us/about-us"
+                                            linkTarget="_self"
+                                            text="LEARN MORE ABOUT MENARINI GROUP'S HISTORY"/>
+                                    </actions>
+                                </banner_copy_copy_cop>
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </container_copy_copy_>
+                        </container_copy_copy>
+                    </container_197822381>
+                </container>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-03-10T09:02:55.862Z"
+            jcr:lastModifiedBy="m.papini@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="true"/>
+    </jcr:content>
+</jcr:root>
