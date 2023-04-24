@@ -2,8 +2,8 @@
 	&:after {
 		content: "";
 		position: absolute;
-		top: 0;
-		height: 100%;
+		top: 40;
+		height: calc(100% - 40px);
 		width: 100%;
 		z-index: 3;
 		background-image: -moz-linear-gradient(
@@ -168,7 +168,7 @@
 	.cmp-carousel__item {
 		.cmp-teaser__content {
 			position: absolute;
-			width: auto;
+			width: 70%;
 			left: 50%;
 			top: 50%;
 			-webkit-transform: translate(-50%, -50%);

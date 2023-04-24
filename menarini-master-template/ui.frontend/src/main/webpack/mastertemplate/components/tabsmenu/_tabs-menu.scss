@@ -32,6 +32,9 @@
 		padding: 0.5rem 0;
 		margin-left: auto;
 		margin-right: 1em;
+		.cmp-tabs__tablist{
+			margin-bottom: 0px;
+		}
 
 		.cmp-tabs__tablist_mobile {
 			display: none;
@@ -116,6 +119,13 @@
 							margin: 0;
 							font-family: $font-family-oswald;
 							text-transform: capitalize;
+							background: linear-gradient(-90deg, $color-corporate, #143f594d);
+							height: 100%;
+							display: flex;
+							padding-bottom: 15px;
+							padding-left: 35px;
+							width: 100%;
+							align-items: flex-end;
 						}
 
 						.cmp-teaser__description {
