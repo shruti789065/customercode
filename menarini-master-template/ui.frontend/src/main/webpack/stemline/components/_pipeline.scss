@@ -64,6 +64,12 @@
 
         .clinicalTrialsPipeline {
             width: 10%;
+            text-align: center;
+        }
+        @media screen and (max-width: 992px) {
+            .clinicalTrialsPipeline {
+                text-align: left;
+            }
         }
 
         .popUpPipeline {
@@ -216,9 +222,15 @@
 
                 .clinicalTrialsPipeline {
                     padding: 20px 0px;
+                    text-align: center;
 
                     a {
                         color: $color-primary;
+                    }
+                }
+                @media screen and (max-width: 992px) {
+                    .clinicalTrialsPipeline {
+                        text-align: left;
                     }
                 }
 
