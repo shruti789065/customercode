@@ -36,6 +36,7 @@
             }
 
             .cmp-teaser__description {
+                display: none;
                 text-transform: uppercase;
                 font-family: $font-family;
                 font-weight: 400;
@@ -43,6 +44,17 @@
                 font-size: 22px;
 				text-align: center;
 				padding: 0 5%;
+                &:hover {
+                    display: flex;
+                }
+            }
+            @media (max-width: 768px) {
+                .cmp-teaser__description {
+                    display: none;
+                    &:hover {
+                        display: none;
+                    }
+                }
             }
 
             .cmp-teaser__action-container {

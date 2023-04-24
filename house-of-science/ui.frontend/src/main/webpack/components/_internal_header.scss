@@ -1,42 +1,63 @@
 .internal-header {
 	.internal-header-background-color {
-		.container {
-			.cmp-image__image {
-				object-fit: cover;
-			}
+		.cmp-container {
+			display: flex;
+			align-items: center;
 
-			&.container-text {
-				height: 100%;
-				display: flex;
-				justify-content: center;
-			}
-
-			.wrapper {
-				display: flex;
-				flex-direction: column;
-				align-self: center;
-				margin-left: auto;
-				padding: 20px;
-				text-align: center;
+			.container {
 				height: 100%;
 
-				.cmp-text,
-				.cmp-title__text {
-					color: $white;
+				&:last-child {
+					background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/background-placeholder-2.jpg');
+					background-size: cover;
+					background-repeat: no-repeat;
+					height: 100%;
 				}
 
-				.cmp-title {
-					margin-bottom: 20px;
+				.cmp-image {
+					display: flex;
+					align-items: end;
+					height: 100%;
 
-					.cmp-title__text {
-						font-size: 36px;
-						margin-top: 0;
+					img {
+						height: fit-content;
 					}
 				}
 
-				.cmp-text {
-					p {
-						font-weight: 300;
+				&.container-text {
+					height: 100%;
+					display: flex;
+					justify-content: center;
+				}
+
+				.wrapper {
+					display: flex;
+					flex-direction: column;
+					align-self: center;
+					margin-left: auto;
+					padding: 20px;
+					text-align: center;
+					height: 100%;
+					overflow: hidden;
+
+					.cmp-text,
+					.cmp-title__text {
+						color: $white;
+					}
+
+					.cmp-title {
+						margin-bottom: 20px;
+
+						.cmp-title__text {
+							font-size: 36px;
+							margin-top: 0;
+						}
+					}
+
+					.cmp-text {
+						p {
+							font-weight: 300;
+						}
 					}
 				}
 			}
@@ -63,11 +84,8 @@
 
 				.container {
 					.cmp-image {
-						height: 450px;
-
 						.cmp-image__image {
-							height: 100%;
-							object-fit: fill;
+							height: fit-content;
 						}
 					}
 
@@ -87,14 +105,6 @@
 	@media (min-width: 1360px) {
 		.internal-header-background-color {
 			height: 500px;
-
-			.cmp-container {
-				.container {
-					.cmp-image {
-						height: 500px;
-					}
-				}
-			}
 		}
 	}
 
@@ -102,16 +112,6 @@
 	@media (min-width: 1400px) {
 		.internal-header-background-color {
 			height: 550px;
-
-			.cmp-container {
-				height: 100%;
-
-				.container {
-					.cmp-image {
-						height: 550px;
-					}
-				}
-			}
 
 			.container {
 				.wrapper {
@@ -133,15 +133,6 @@
 				height: 100%;
 
 				.container {
-					.cmp-image {
-						height: 700px;
-
-						.cmp-image__image {
-							height: 100%;
-							object-fit: fill;
-						}
-					}
-
 					.wrapper {
 						padding: 20px 0;
 						text-align: left;
