@@ -53,6 +53,7 @@ import { _isDesktop, _prependHtml } from '../../site/_util.js';
 				}
 			});
 
+			
 			$('.cmp-tabs__tab').on('click', () => {
 				_addWhiteMenu();
 			});
