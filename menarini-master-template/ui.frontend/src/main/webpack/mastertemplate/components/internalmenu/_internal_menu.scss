@@ -149,6 +149,14 @@
 		}
 	}
 }
+/*Menu visibile solo se attivo*/
+.internalmenu .cmp-navigation__item--level-1 .cmp-navigation__group {
+	display: none;
+}
+.internalmenu .cmp-navigation__item--level-1.cmp-navigation__item--active .cmp-navigation__group {
+	display: block;
+}
+/**/
 @media (max-width: 1200px) {
 	.internalmenu {
 		margin-bottom: 80px;
