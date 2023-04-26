@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
             if(mySiblings.length == 0){
                 cardTeaser[i].classList.add('teaser-font-bold');
             }
-            console.log(mySiblings);
+            //console.log(mySiblings);
         } else {
-          console.log("no card teaser found");
+          //console.log("no card teaser found");
         }
     }
 

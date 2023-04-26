@@ -180,7 +180,7 @@ function showDisclaimer(link, translations) {
 }
 
 function addDisclaimer(language) {
-  console.log('check link page');
+  //console.log('check link page');
 
   const translations = {
     'en': {
@@ -237,6 +237,6 @@ window.onload = function () {
     init();
     onLoad();
   } else {
-    console.log("noProductsStemline");
+    //console.log("noProductsStemline");
   }
 };
