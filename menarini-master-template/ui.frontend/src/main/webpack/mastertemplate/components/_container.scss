@@ -63,9 +63,6 @@
 
 }
 
-
-
-
 @media (max-width: 768px) {
 	.containerTestComponent {
 		padding: 0.3rem !important;
@@ -77,41 +74,24 @@
 	}
 }
 
-
-@media (min-width: 375px) {
-}
-
-@media (min-width: 576px) {
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-	/* .container.cmp-container--standard_width {
-		max-width: 684px;
-	} */
-}
-
-// X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-	/* .container.cmp-container--standard_width {
-		max-width: 828pt;
-	} */
-}
-
-// XX-Large devices (larger desktops, 1400px and up)
 @media (min-width: 1440px) {
 	.container.cmp-container--standard_width {
-		max-width: 864pt;
+		max-width: 864pt;//1152px
+	}
+}
+@media (min-width: 1600px) {
+	.container.cmp-container--standard_width {
+		max-width: 966pt;//1288px
+	}
+}
+@media (min-width: 1800px) {
+	.container.cmp-container--standard_width {
+		max-width: 1080pt;//1440px
 	}
 }
 
 @media (min-width: 1920px) {
 	.container.cmp-container--standard_width {
-		max-width: 1200pt;
+		max-width: 1200pt;//1600px
 	}
 }
