@@ -1,0 +1,20 @@
+
+.cq-Editable-dom{
+	&.placeholder.aem-AllowedComponent--component{
+		display: none;
+	}
+	.internalmenu{
+		.cmp-internalmenu__button{
+			&.cmp-internalmenu__button-opened{
+				left: 0;
+			}
+		}
+	} 
+
+	.cmp-internal-header{
+		.cmp-teaser__content{
+			top: 0;
+		}
+	} 
+}
+
