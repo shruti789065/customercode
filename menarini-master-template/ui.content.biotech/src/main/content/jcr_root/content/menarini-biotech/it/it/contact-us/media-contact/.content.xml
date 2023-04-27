@@ -36,7 +36,9 @@
                     layout="responsiveGrid">
                     <internalmenu
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="menarinimaster/components/internalmenu">
+                        sling:resourceType="menarinimaster/components/internalmenu"
+                        navigationRoot="/content/menarini-biotech/it/it/contact-us"
+                        structureStart="{Long}0">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
