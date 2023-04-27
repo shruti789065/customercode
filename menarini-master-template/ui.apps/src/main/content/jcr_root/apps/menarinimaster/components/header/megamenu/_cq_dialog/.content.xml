@@ -40,6 +40,13 @@
                                                 fieldDescription="Logo linked to Homepage"
                                                 name="./logoUrl"
                                                 rootPath="/content"/>
+                                            <logoFolder
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldLabel="DAM Logo Folder"
+                                                    fieldDescription="Dam Logo folder"
+                                                    name="./logoFolder"
+                                                    rootPath="/content/dam"/>
                                             <activeItem
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"

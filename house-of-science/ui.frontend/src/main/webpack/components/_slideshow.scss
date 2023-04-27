@@ -1,6 +1,7 @@
 #slideshowCarousel {
 	position: relative;
-	height: 100vh;
+	margin-top: $top-height;
+	height: calc(100vh - #{$top-height});
 
 	.carousel-indicators {
 		top: inherit;
@@ -42,7 +43,7 @@
 		font-size: 10px;
 		line-height: 14px;
 		font-weight: $bold;
-		color: #FFF;
+		color: $white;
 		margin-top: 8px;
 		margin-top: 8px;
 	}
@@ -52,7 +53,7 @@
 		font-size: 10px;
 		line-height: 14px;
 		font-weight: 400;
-		color: #FFF;
+		color: $white;
 	}
 
 	.carousel-control-prev,
@@ -69,9 +70,15 @@
 	}
 
 	.carousel-inner .carousel-item .testo {
+		height: 300px;
+		width: 100%;
+		max-width: 100%;
+		z-index: 80;
 		position: absolute;
-		left: 28px;
-		bottom: 15%;
+		bottom: 50px;
+		left: 0px;
+		padding: 30px;
+		background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 	}
 
 	.carousel-inner .carousel-item .testo .titolo {
@@ -79,7 +86,7 @@
 		font-size: 16px;
 		line-height: 20px;
 		font-weight: $bold;
-		color: #FFF;
+		color: $white;
 	}
 
 	.carousel-inner .carousel-item .testo .sottotitolo {
@@ -87,7 +94,7 @@
 		font-size: 16px;
 		line-height: 20px;
 		font-weight: 300;
-		color: #FFF;
+		color: $white;
 		margin-bottom: 10px;
 	}
 
@@ -101,12 +108,12 @@
 				font-size: 20px;
 				line-height: 30px;
 				height: 60px;
-				border: 2px solid #FFFFFF;
+				border: 2px solid $white;
 				background-color: unset;
 				position: relative;
 				font-family: "Montserrat", sans-serif;
 				font-weight: 700;
-				color: #FFFFFF;
+				color: $white;
 				cursor: pointer;
 				text-align: left;
 				padding: 12px 90px 12px 10px;
@@ -123,7 +130,7 @@
 					-webkit-transform: translate(0%, -50%);
 					height: 35px;
 					width: 35px;
-					background-color: #FFFFFF;
+					background-color: $white;
 					border-radius: 50%;
 					background-repeat: no-repeat;
 					background-size: 40px;
@@ -189,7 +196,7 @@
 	// Small devices (landscape phones, 576px and up)
 	@media (min-width: 576px) {
 		
-
+		
 		.carousel-indicators .button_container div.title {
 			font-size: 10px;
 			line-height: 14px;
@@ -199,7 +206,6 @@
 			font-size: 10px;
 			line-height: 14px;
 		}
-
 
 		.carousel-inner .carousel-item .testo .titolo {
 			font-size: 18px;
@@ -224,11 +230,13 @@
 	@media (min-width: 768px) {
 		.carousel-indicators {
 			bottom: inherit;
-			top: 15%;
-			margin: 0 20px;
+			top: 0;
+			margin: 0 8%;
+			padding: 0px;
 			gap: 20px;
 			background-color: unset;
     		height: unset;
+			z-index: 200;
 		}
 
 		.carousel-indicators .button_container {
@@ -238,7 +246,7 @@
 		.button_container.slidebutton{
 			display: block;
 		}
-
+		
 		.carousel-indicators .button_container div.title {
 			font-size: 12px;
 			line-height: 16px;
@@ -259,7 +267,13 @@
 		}
 
 		.carousel-inner .carousel-item .testo {
-			bottom: 5%;
+			padding: 30px 8%;
+			bottom: 0px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			height: 100%;
+			background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.7) 100%);
 		}
 
 		.carousel-inner .carousel-item .testo .titolo {
@@ -279,7 +293,7 @@
 					min-width: 280px;
 					margin-left: 20px;
 					padding: 12px 90px 12px 20px;
-					display: inline-block;
+					display: inline-block;					
 					&:hover{
 						transform: scale(1.1);
 					}

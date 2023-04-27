@@ -1,6 +1,10 @@
 /*cardFilters*/
 .cardFilters {
     .cardSF {
+        border: 1px solid $color-foreground-two;
+        padding: 0px 10px;
+        margin-bottom: 10px;
+
         .card-header {
             padding-top: 20px;
             padding-bottom: 20px;
@@ -12,12 +16,12 @@
                 &:has(button[aria-expanded="false"]):before {
                     display: flex;
                     content: " ";
-                    background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/arrow-up.svg');
+                    background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/arrow-up-v2.svg');
                     background-repeat: no-repeat;
                     width: 24px;
                     height: 24px;
                     position: absolute;
-                    right: 0px;
+                    right: 10px;
                     top: 10px;
                 }
                 &:has(button[aria-expanded="true"]):before {
@@ -37,10 +41,10 @@
                         display: flex;
                         justify-content: flex-start;
                         color: $primary-color-three;
-                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                        font-weight: bold;
+                        font-family: $font-family;
+                        font-weight: $bold;
                         font-size: 16px;
-                        cursor: pointer;
+                        cursor: pointer;                        
                     }
                 }
             }
@@ -53,50 +57,62 @@
             overflow-x: hidden;
             
             &::-webkit-scrollbar {
-                width: 15px;
-                background-color: #F5F5F5;
+                width: 8px;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
             }
             &::-ms-thumb {
-                width: 12px;
-                background-color: #F5F5F5;
+                width: 8px;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
             }
             &::-ms-track {
-                width: 12px;
-                background-color: #F5F5F5;
+                width: 8px;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
             }
             &::-webkit-scrollbar-thumb {
                 background: $primary-color-three;
-                border-radius: 6px;
+                border-radius: 8px;
                 border: 1px solid $primary-color-three;
             }
             scrollbar {
                 width: 12px;
-                background-color: #F5F5F5;
+                background-color: $color-foreground-two;
                 thumb {
-                    background-color: #F5F5F5;
+                    background-color: $color-foreground-two;
                 }
             }
             [id*='-filter'] {
                 label {
+                    position: relative;
                     cursor: pointer;
                     padding: 5px 10px;
                     margin: 0px;
                     width: 100%;
-                    border-bottom: 1px solid rgb(128 128 128 / 50%);
+                    border-bottom: 1px solid $color-foreground-two;
                     padding: 15px;
                     font-size: 14px;
+                    font-weight: $light;
                     &.filter-selected {
-                        border: 2px solid $primary-color-three;
-                        background-color: rgb(182 38 35 / 80%);
-                        color: #FFFFFF;
+                        border: 1px solid $primary-color;
+                        background-color: $primary-color-opacity;
+                        color: $white;
                     }
                     input[type="checkbox"] {
-                        display: none;
+                        position: absolute;
+                        right: 20px;
+                        accent-color: $primary-color;
+                        width: 25px;
+                        height: 25px;
+                        border: 1px solid $primary-color;
+                        border-radius: 3px;
+                        &:hover{
+                            accent-color: $primary-color;
+                        }
+
                         &:checked+label {
-                            &:before {
-                                background-color: #337ab7;
-                                border-color: #337ab7;
-                            }
+                            
                             &:after {
                                 content: "";
                                 position: absolute;
@@ -104,7 +120,7 @@
                                 height: 5px;
                                 top: 5px;
                                 left: 5px;
-                                border: solid #fff;
+                                border: solid $white;
                                 border-width: 0 2px 2px 0;
                                 transform: rotate(45deg);
                             }
@@ -121,9 +137,32 @@
                             height: 20px;
                             left: 0;
                             top: 0;
-                            background-color: #fff;
-                            border: 1px solid #ccc;
+                            background-color: $white;
+                            border: 1px solid $color-foreground-two;
                         }
+                    }
+                }
+            }
+            #typology-filter {
+
+            } 
+            #tag-filter {
+                display: block;
+                label {
+                    background-color: $color-foreground-two;
+                    color: $black;
+                    width: fit-content;
+                    border-bottom: 0px;
+                    margin-bottom: 5px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    &.filter-selected {
+                        border: 1px solid $primary-color;
+                        background-color: $primary-color-opacity;
+                        color: $white;
+                    }
+                    input[type=checkbox]{
+                        display: none;
                     }
                 }
             }
@@ -132,82 +171,108 @@
 } 
 
 
-#results {}
-#results .cardSFR {
-    border: 0px;
-    background-color: unset;
-    border-bottom: 1px solid rgb(128 128 128 / 50%);
-    border-radius: 0px;
+#results {
+    .cardSFR {
+        border: 0px;
+        background-color: unset;
+        border-bottom: 1px solid $color-foreground-two;
+        border-radius: 0px;
+        .card-header {
+            border-bottom: unset;
+            padding: 15px;
+            button {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-decoration: unset;
+                padding: 0px;
+                &:focus {
+                    box-shadow: unset;
+                }
+                .typology {
+                    color: $white;
+                    text-transform: uppercase;
+                    padding: 5px 15px;
+                    margin: 0px;
+                    font-weight: $extra-light;
+                }
+                .description{
+                    text-align: left;
+                    color: $black;
+                    font-size: 24px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-weight: $light;
+                    p{
+                        font-weight: $light;
+                        margin-bottom: 0;  
+                        line-height: 29px;
+                    }
+                }
+            }
+            .date {
+                display: flex;
+                color: $color-other;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            font-weight: $regular;
+            padding: 0px 15px;
+            * {
+                display: flex;
+            }
+            .meta-data {
+                flex-direction: column;
+                .meta-data-item{
+                    &.Author {    
+                        margin-top: 30px;
+                    }
+                    &.Source {
+                        margin-top: 30px;
+                    }
+                    &.Tag {
+                        margin-top: 30px;
+						display: flex;
+						gap: 20px;
+						.cmp-tag--item{
+							background-color: $color-other;
+							color: $white;
+							text-align: center;
+							font-size: $font-size;
+							padding: 10px 20px;
+							text-transform: uppercase;
+							font-weight: $extra-light;
+						}
+                    }
+                }
+            }
+            .description {    
+                margin-top: 30px;
+                display: block;
+                p{
+                    font-weight: 400;
+                }
+            }
+            .containerLink{
+                margin-bottom: 20px;
+                .Link {
+                    background-color: $primary-color-three;
+                    color: $white;
+                    font-weight: $bold;
+                    padding: 15px 30px;
+                    margin-top: 30px;
+                    text-decoration: unset;
+                }
+            }
+            
+        }
+    }
 }
-#results .cardSFR .card-header {
-    border-bottom: unset;
-    padding: 15px;
-}
-#results .cardSFR .card-header button {
-    display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-    text-decoration: unset;
-    padding: 0px;
-}
-#results .cardSFR .card-header button:focus {
-    box-shadow: unset;
-}
-#results .cardSFR .card-header button .typology {
-    /*background-color: $primary-color-three;*/
-    color: #FFFFFF;
-    text-transform: uppercase;
-    padding: 5px 15px;
-    margin: 0px;
-}
-#results .cardSFR .card-header button .description {
-    text-align: left;
-    color: black;
-    font-size: 24px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-#results .cardSFR .card-header .date {
-    display: flex;
-    color: grey;
-    font-size: 16px;
-    margin-top: 10px;
-}
-#results .cardSFR [id*='collapse-']{}
-#results .cardSFR .card-body {
-    display: flex;
-    flex-direction: column;
-}
-#results .cardSFR .card-body * {
-    display: flex;
-}
-#results .cardSFR .card-body .meta-data {
-    flex-direction: column;
-}
-#results .cardSFR .card-body .meta-data .meta-data-item{}
-#results .cardSFR .card-body .meta-data .meta-data-item.Topic {}
-#results .cardSFR .card-body .meta-data .meta-data-item.Author {    
-    margin-top: 30px;
-}
-#results .cardSFR .card-body .meta-data .meta-data-item.Source {
-    margin-top: 30px;
-}
-#results .cardSFR .card-body .meta-data .meta-data-item.Year {}
-#results .cardSFR .card-body .meta-data .meta-data-item.Tag {
-    margin-top: 30px;
-}
-#results .cardSFR .card-body .description {    
-    margin-top: 30px;
-}
-#results .cardSFR .card-body .Link {
-    background-color: $primary-color-three;
-    color: #FFFFFF;
-    font-weight: bold;
-    padding: 15px 30px;
-    margin-top: 30px;
-}
-
 

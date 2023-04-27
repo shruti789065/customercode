@@ -2,8 +2,8 @@
 	&:after {
 		content: "";
 		position: absolute;
-		top: 0;
-		height: 100%;
+		top: 40px;
+		height: calc(100% - 40px);
 		width: 100%;
 		z-index: 3;
 		background-image: -moz-linear-gradient(
@@ -65,7 +65,7 @@
 		font-family: $font-family-oswald;
 		font-weight: $font-semi-bold;
 		font-style: normal;
-		font-size: $font-size;
+		font-size: 16px;
 
 		a {
 			color: $white;
@@ -76,7 +76,7 @@
 			transition: 0.5s;
 			text-transform: uppercase;
 			font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-			font-weight: 600;
+			font-weight: $font-medium;
 			@media (max-width: 480px) {
 				display: contents;
 			}
@@ -168,7 +168,7 @@
 	.cmp-carousel__item {
 		.cmp-teaser__content {
 			position: absolute;
-			width: auto;
+			width: 70%;
 			left: 50%;
 			top: 50%;
 			-webkit-transform: translate(-50%, -50%);

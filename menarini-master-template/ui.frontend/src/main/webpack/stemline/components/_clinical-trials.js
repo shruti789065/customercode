@@ -140,6 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (clinicalTrials) {
     init();
   } else {
-    console.log("noclinicalTrials");
+    //console.log("noclinicalTrials");
   }
 });

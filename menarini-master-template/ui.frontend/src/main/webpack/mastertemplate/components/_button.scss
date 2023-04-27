@@ -25,6 +25,7 @@
 .cmp-button--small {
 	.cmp-button {
 		padding: 7px 25px;
+		font-size: 15px;
 	}
 }
 
@@ -34,11 +35,12 @@
 	text-decoration: none;
 	transition: 0.5s;
 	display: flex;
+	font-size: 16px;
 
 	.cmp-button__text {
 		text-transform: uppercase;
 		font-family: $font-family-oswald;
-		font-weight: $font-semi-bold;
+		font-weight: $font-medium;
 	}
 
 	.cmp-button__icon {

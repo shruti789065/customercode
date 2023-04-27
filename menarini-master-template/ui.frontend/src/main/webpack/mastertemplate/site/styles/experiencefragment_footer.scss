@@ -31,14 +31,14 @@
 	}
 	.cmp-text {
 		font-family: $font-family-arimo;
-		font-weight: 400;
+		font-weight: $font-regular;
 		font-size: 15px;
 		line-height: 25px;
 		color: $color-text;
 		p {
 			margin-bottom: 0px;
 			margin-top: 0px;
-			font-weight: 400;
+			font-weight: $font-regular;
 			font-family: $font-family-arimo;
 			font-size: 12px;
 			line-height: 25px;
@@ -91,7 +91,7 @@
 				no-repeat right;
 			text-decoration: none;
 			display: flex;
-			font-weight: 200;
+			font-weight: $font-extra-light;
 		}
 	}
 	.buildingblock {

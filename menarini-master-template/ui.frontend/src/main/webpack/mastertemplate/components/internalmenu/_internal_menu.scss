@@ -37,7 +37,7 @@
 
 			.cmp-button__text {
 				font-family: $font-family-oswald;
-				font-weight: 500;
+				font-weight: $font-medium;
 				font-size: 14px;
 				text-transform: uppercase;
 				text-align: center;
@@ -77,10 +77,11 @@
 			font-family: $font-family-arimo;
 			font-size: 16px;
 			line-height: 25px;
-			margin-bottom: 1rem;
+			margin-bottom: .5rem;
+			text-transform: uppercase;
 
 			.cmp-navigation__item-link {
-				font-weight: 400;
+				font-weight: $font-regular;
 				font-family: $font-family-oswald;
 				text-transform: uppercase;
 				font-size: 16px;
@@ -99,14 +100,14 @@
 						font-size: 20px;
 						font-style: normal;
 						color: $color-primary;
-						text-transform: inherit;
+						//text-transform: inherit;
 					}
 					width: 100%;
 					float: left;
 					margin-top: 24px;
 					padding-right: 1em;
 					.cmp-navigation__group {
-						padding: 15px 0 0;
+						padding: 0;
 					}
 					&:hover {
 						> .cmp-navigation__group {
@@ -123,8 +124,10 @@
 				&--level-3 {
 					padding-left: 46px;
 					.cmp-navigation__item-link {
-						color: $color-corporate;
-						text-transform: inherit;
+						color: $color-text;
+						//text-transform: inherit;
+						font-size: 16px;
+						font-weight: $font-light;
 					}
 					&::before {
 						content: "";
@@ -140,13 +143,21 @@
 				&--active {
 					> .cmp-navigation__item-link {
 						color: $color-primary;
-						text-transform: inherit;
+						//text-transform: inherit;
 					}
 				}
 			}
 		}
 	}
 }
+/*Menu visibile solo se attivo*/
+.internalmenu .cmp-navigation__item--level-1 .cmp-navigation__group {
+	display: none;
+}
+.internalmenu .cmp-navigation__item--level-1.cmp-navigation__item--active .cmp-navigation__group {
+	display: block;
+}
+/**/
 @media (max-width: 1200px) {
 	.internalmenu {
 		margin-bottom: 80px;
@@ -173,5 +184,14 @@
 				left: 60%;
 			}
 		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1364px) {
+	.breadcrumb {
+		margin-bottom: 60px;
+	}
+	.internalmenu {
+		top: -100px;
 	}
 }

@@ -23,13 +23,15 @@
      data-cmp-data-layer="${megamenuTabs.data.json}"
      data-placeholder-text="${wcmmode.edit && 'Please drag Tab components here' @ i18n}">
 
+	<input type="hidden" id="logoFolder" value=${properties.logoFolder}>
+
 	<sly data-sly-test="${(wcmmode.edit || wcmmode.preview)}">
 		<div class="cmp-container__layout aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu">
 			<div class="image cmp-image--logo">
 				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"
 				   href="${btnLink.formattedLink}">
 					<div class="cmp-image">
-						<img class="cmp-image__image">
+						<img class="cmp-image__image" src="${properties.logoFolder}/logo-pos.svg">
 					</div>
 				</a>
 			</div>
@@ -75,7 +77,7 @@
 				<a data-sly-use.btnLink="${'com.adiacent.menarini.menarinimaster.core.models.LinkFormatter' @authoredLink=properties.logoUrl}"
 				   href="${btnLink.formattedLink}">
 					<div class="cmp-image">
-						<img alt="site logo" class="cmp-image__image"/>
+						<img alt="site logo" class="cmp-image__image" src="${properties.logoFolder}/logo-neg.svg"/>
 					</div>
 				</a>
 			</div>
@@ -120,8 +122,7 @@
 		<sly data-sly-list.item="${megamenuTabs.items}">
 
 			<sly data-sly-use.rrh="${'com.adiacent.menarini.menarinimaster.core.models.ResourceResolverHelper' @item=item}"
-			     data-sly-test.toShow="${rrh.resourceType!='menarinimaster/components/link'}"
-			/>
+			     data-sly-test.toShow="${rrh.resourceType!='menarinimaster/components/link'}"/>
 
 			<div data-sly-resource="${item.name @ decorationTagName='div'}"
 			     id="${item.id}-tabpanel"

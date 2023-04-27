@@ -27,15 +27,16 @@
     <div id="container-85b2c5bb95" class="cmp-container">
         <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
 
-            <div class="image aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--6">
-                <div data-asset-id=""   class="cmp-image" itemscope="" itemtype="http://schema.org/ImageObject">
+            <div class="image">
+                <div data-asset-id=""   class="cmp-image ${properties.activeSubstance ? ' addPadding-top' : ''}" itemscope="" itemtype="http://schema.org/ImageObject">
                     <img srcset="" src="${properties.image}" loading="lazy" class="cmp-image__image" itemprop="contentUrl" alt="" title="">
                     <meta itemprop="caption" content="">
                 </div>
+                <p class="cmp-text">${properties.activeSubstance}</p>
             </div>
 
-            <div class="button cmp-title--primary cmp-button--small aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--default--0">
-                <a class="cmp-button"   href="${properties.pdflink}">
+            <div class="button cmp-title--primary cmp-button--small">
+                <a class="cmp-button"   href="${properties.pdflink}" target="${properties.target}">
                     <span class="cmp-button__text">${properties.linktext}</span>
                 </a>
             </div>

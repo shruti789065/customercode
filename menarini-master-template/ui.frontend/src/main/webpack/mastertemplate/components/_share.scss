@@ -30,7 +30,7 @@
 		position: absolute;
 		right: -2em;
 		width: max-content;
-		top: 3em;
+		top: 4.2em;
 		border-radius: 0 0 30px 30px;
 		padding: 15px 40px;
 		background-color: $color-six;
@@ -38,7 +38,7 @@
 	}
 	&-menu_title {
 		display: block;
-		font-weight: 300;
+		font-weight: $font-light;
 		font-family: $font-family-oswald;
 		font-size: 15px;
 		text-transform: uppercase;
@@ -50,7 +50,7 @@
 		i {
 			a {
 				font-size: 14px;
-				font-weight: 400 !important;
+				font-weight: $font-regular !important;
 				font-family: $font-family-oswald;
 				text-transform: uppercase;
 				line-height: 2;
@@ -140,13 +140,13 @@
 					margin: 0;
 					font-family: $font-family-oswald;
 					font-size: 18px;
-					font-weight: 300;
+					font-weight: $font-light;
 					text-transform: uppercase;
 					align-self: center;
 					a {
 						font-family: $font-family-oswald;
 						font-size: 16px;
-						font-weight: 300 !important;
+						font-weight: $font-light !important;
 						color: $color-text;
 						text-transform: capitalize;
 						word-wrap: break-word;

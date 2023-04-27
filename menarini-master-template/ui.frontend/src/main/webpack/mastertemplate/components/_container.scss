@@ -16,7 +16,7 @@
 
 	.cmp-title__text {
 		font-size: 30px;
-		font-weight: 200 !important;
+		font-weight: $font-extra-light !important;
 		color: $color-corporate;
 		line-height: 1.2;
 		margin: 0 0 20px;
@@ -63,42 +63,7 @@
 
 }
 
-.cmp-product-leaflet {
-	padding: 0px !important;
-	margin-bottom: 25px;
 
-	.cmp-container {
-		border: solid 1px $color-fourth;
-		display: flex;
-		flex-direction: row;
-		padding: 25px;
-
-		div {
-			display: flex;
-		}
-
-		.image {
-			height: 160px;
-			overflow: hidden;
-			position: relative;
-
-			.cmp-image {
-				position: absolute;
-				width: 100%;
-				left: 50%;
-				top: 50%;
-				-webkit-transform: translate(-50%, -50%);
-				transform: translate(-50%, -50%);
-			}
-		}
-
-		.button {
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-		}
-	}
-}
 
 
 @media (max-width: 768px) {
@@ -109,10 +74,6 @@
 			padding: 0.3rem !important;
 			;
 		}
-	}
-	.cmp-product-leaflet .cmp-container {
-		flex-direction: column;
-		justify-content: center;
 	}
 }
 
@@ -130,20 +91,20 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-	.container.cmp-container--standard_width {
+	/* .container.cmp-container--standard_width {
 		max-width: 684px;
-	}
+	} */
 }
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-	.container.cmp-container--standard_width {
+	/* .container.cmp-container--standard_width {
 		max-width: 828pt;
-	}
+	} */
 }
 
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
 	.container.cmp-container--standard_width {
 		max-width: 864pt;
 	}

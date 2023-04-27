@@ -1,6 +1,6 @@
 .cmp-navbar {
 	background-color: $color-corporate;
-	max-height: 40px;
+	height: 40px;
 	&.cq-Editable-dom {
 		max-height: 100%;
 		.text {
@@ -54,6 +54,9 @@
 		top: 5px;
 		p {
 			margin: 0;
+			font-size: 13px;
+			font-weight: $font-regular;
+
 			a {
 				display: block;
 				margin: 0;
@@ -62,6 +65,7 @@
 				color: $white;
 				font-style: normal;
 				text-decoration: none;
+				margin-right: 2rem;
 				&:hover {
 					background-color: transparent;
 					color: $white;

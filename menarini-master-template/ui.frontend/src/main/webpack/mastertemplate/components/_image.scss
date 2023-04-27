@@ -1,14 +1,4 @@
-.aem-AuthorLayer-Edit{
-	.cmp-image--logo {
-		a{
-			.cmp-image{
-				.cmp-image__image{
-					content: url($logo-path + '/logo-pos.svg');
-				}
-			}
-		}
-	}
-}
+
 .cmp-image {}
 
 .cmp-image__link {}
@@ -20,28 +10,3 @@
 
 .cmp-image__title {}
 
-.cmp-image--logo {
-	display: flex !important;
-	padding: 1.5rem 0;
-	
-	a {
-		align-self: center;
-		.cmp-image {
-			display: flex;
-			.cmp-image__image{
-				content: url($logo-path + '/logo-neg.svg');
-			}
-		}
-	}
-}
-.scrolled-page{
-	.cmp-image--logo {
-		a{
-			.cmp-image{
-				.cmp-image__image{
-					content: url($logo-path + '/logo-pos.svg');
-				}
-			}
-		}
-	}
-}

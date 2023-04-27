@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-$nav-item-mobile-top-level-color: #fff;
+$nav-item-mobile-top-level-color: $white;
 $nav-item-mobile-hover-color: $primary-color-two;
 $nav-item-mobile-text-color: #888;
 $nav-item-mobile-border: solid 1px rgba(255, 255, 255, 0.05);
@@ -80,7 +80,7 @@ $nav-item-mobile-border: solid 1px rgba(255, 255, 255, 0.05);
 
 .cmp-navigation--mobile {
   -webkit-margin-before: 0;
-  background-color: #fff;
+  background-color: $white;
   display: block;
   height: 100vh;
   left: 100%;
@@ -92,7 +92,7 @@ $nav-item-mobile-border: solid 1px rgba(255, 255, 255, 0.05);
   -webkit-transition: left 0.8s ease-in;
   transition: left 0.8s ease-in;
   width: 100%;
-  z-index: 9;
+  z-index: 999;
   &__open {
     left: 0;
   }
@@ -132,6 +132,6 @@ $nav-item-mobile-border: solid 1px rgba(255, 255, 255, 0.05);
 
 @media (min-width: 576px) {
 	.cmp-navigation--mobile {
-	  top: 115px;
+	  top: $top-height;
 	}
 }
