@@ -7,69 +7,75 @@ const SOURCE_ROOT = __dirname + '/src/main/webpack';
 
 module.exports = env => {
 
-    const writeToDisk = env && Boolean(env.writeToDisk);
+	const writeToDisk = env && Boolean(env.writeToDisk);
 
-    return merge(common, {
-        mode: 'development',
-        performance: {
-            hints: 'warning',
-            maxAssetSize: 1048576,
-            maxEntrypointSize: 1048576
-        },
-        plugins: [
-            new HtmlWebpackPlugin({
-                inject: true,
-                template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/index.html'),
-                filename: 'menarinimaster.html',
-                chunks: ['site']
-            }),
-            new HtmlWebpackPlugin({
-                inject: true,
-                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/landing-research.html'),
-                filename: 'landing-research.html',
-                chunks: ['site', 'stemline']
-           }),
-           new HtmlWebpackPlugin({
-                inject: true,
-                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/pipeline.html'),
-                filename: 'pipeline.html',
-                chunks: ['site', 'stemline']
-           }),
-           new HtmlWebpackPlugin({
-                inject: true,
-                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/products.html'),
-                filename: 'products.html',
-                chunks: ['site', 'stemline']
-           }),
-           new HtmlWebpackPlugin({
-                inject: true,
-                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/clinical-trials.html'),
-                filename: 'clinical-trials.html',
-                chunks: ['site', 'stemline']
-           }),
-           new HtmlWebpackPlugin({
-                inject: true,
-                template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/index.html'),
-                filename: 'stemline.html',
-                chunks: ['site', 'stemline']
-           })
-        ],
-        devServer: {
-            proxy: [{
-                context: ['/content', '/etc.clientlibs'],
-                target: 'http://localhost:4502',
-            }],
-            client: {
-                overlay: {
-                    errors: true,
-                    warnings: false,
-                },
-            },
-            watchFiles: ['src/**/*'],
-            hot: false,
-            devMiddleware: {
-                writeToDisk: writeToDisk
-            }
-        }
-    });
+	return merge(common, {
+		mode: 'development',
+		performance: {
+			hints: 'warning',
+			maxAssetSize: 1048576,
+			maxEntrypointSize: 1048576
+		},
+		plugins: [
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/index.html'),
+				filename: 'menarinimaster.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/landing-research.html'),
+				filename: 'landing-research.html',
+				chunks: ['site', 'stemline']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/pipeline.html'),
+				filename: 'pipeline.html',
+				chunks: ['site', 'stemline']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/products.html'),
+				filename: 'products.html',
+				chunks: ['site', 'stemline']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/clinical-trials.html'),
+				filename: 'clinical-trials.html',
+				chunks: ['site', 'stemline']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/index.html'),
+				filename: 'stemline.html',
+				chunks: ['site', 'stemline']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/biotech/static/index.html'),
+				filename: 'biotech.html',
+				chunks: ['site', 'biotech']
+			})
+		],
+		devServer: {
+			proxy: [{
+				context: ['/content', '/etc.clientlibs'],
+				target: 'http://localhost:4502',
+			}],
+			client: {
+				overlay: {
+					errors: true,
+					warnings: false,
+				},
+			},
+			watchFiles: ['src/**/*'],
+			hot: false,
+			devMiddleware: {
+				writeToDisk: writeToDisk
+			}
+		}
+	});
 };
