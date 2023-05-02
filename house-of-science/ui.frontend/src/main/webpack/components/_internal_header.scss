@@ -3,6 +3,7 @@
 		.cmp-container {
 			display: flex;
 			align-items: center;
+			flex-direction: column;
 
 			.container {
 				height: 100%;
@@ -21,6 +22,8 @@
 
 					img {
 						height: fit-content;
+						max-width: 450px;
+						margin: 50px auto;
 					}
 				}
 
@@ -81,11 +84,14 @@
 
 			.cmp-container {
 				height: 100%;
+				flex-direction: row;
 
 				.container {
 					.cmp-image {
-						.cmp-image__image {
+						img {
 							height: fit-content;
+							max-width: unset;
+							margin: unset;
 						}
 					}
 
