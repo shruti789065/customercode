@@ -149,11 +149,94 @@ const init = () => {
   }
 };
 
+
+
+
+
+
+
+function showDisclaimer(link, translations) {
+  $('#disclaimer h2').text(translations.title);
+  $('#disclaimer p').text(translations.message);
+  $('#disclaimer').show();
+
+  $('#confirm-btn').off('click');
+
+  $('#confirm-btn').click(function() {
+    window.open(link.href, '_blank');
+
+    $('#disclaimer').hide();
+
+    return false;
+  });
+
+  $('#cancel-btn').off('click');
+
+  $('#cancel-btn').click(function() {
+    $('#disclaimer').hide();
+
+    return false;
+  });
+}
+
+function addDisclaimer(language) {
+  //console.log('check link page');
+
+  const translations = {
+    'en': {
+      title: 'YOU ARE NOW LEAVING THIS MENARINI STEMLINE WEBSITE',
+      message: 'You are about to leave this website for another external website. \nMenarini Stemline has no responsibility for the content of such other sites and is not liable for any damages or injury arising from that content. Any links to other sites are provided merely as a convenience to the users of this website.',
+      confirmText: 'Confirm',
+      cancelText: 'Cancel'
+    },
+    'de': {
+      title: 'Disclaimer',
+      message: 'Germania',
+      confirmText: 'Bestätigen',
+      cancelText: 'Abbrechen'
+    }
+  };
+
+  const links = document.querySelectorAll('a.websiteProduct');
+
+  const disclaimerHTML = `
+    <div id="disclaimer" style="display:none;">
+      <div class="popupDisclaimer">
+        <h2>${translations[language].title}</h2>
+        <p>${translations[language].message}</p>
+        <button id="confirm-btn" class="primary">${translations[language].confirmText}</button>
+        <button id="cancel-btn" class="secondary">${translations[language].cancelText}</button>
+        </div>        
+    </div>
+  `;
+
+  $('body').prepend(disclaimerHTML);
+
+  for (let i = 0; i < links.length; i++) {
+    const link = links[i];
+
+    if (link.hostname !== window.location.hostname /*&& !$(link).closest('.side_menu').length && !$(link).closest('.ot-sdk-show-settings').length*/) {
+      $(link).click(function(e) {
+        e.preventDefault();
+
+        showDisclaimer(link, translations[language]);
+      });
+    }
+  }
+}
+
+function onLoad() {
+  const language = document.documentElement.lang;
+
+  addDisclaimer(language);
+}
+
 window.onload = function () {
   const productsStemline = document.getElementById("productsStemline");
   if (productsStemline) {
     init();
+    onLoad();
   } else {
-    console.log("noProductsStemline");
+    //console.log("noProductsStemline");
   }
 };

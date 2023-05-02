@@ -248,7 +248,7 @@
 							tabs[i].classList.add(selectors.active.tab);
 							tabs[i].setAttribute("aria-selected", true);
 							tabs[i].setAttribute("tabindex", "0");
-							if (tabs[i].id.indexOf('megamenu') == 0 && document.querySelectorAll(".aem-AuthorLayer-Edit").length < 1) {
+							if (tabs[i].id.indexOf('megamenu') == 0 && document.querySelectorAll(".aem-AuthorLayer-Edit").length < 1 && tabs[i].childElementCount <= 0) {
 								$('.cmp-navbar-overlayer').show();
 							}
 						} else {

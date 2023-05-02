@@ -79,6 +79,13 @@
 		}
 	}
 
+	h3{
+		&.cmp-title__text,
+			.cmp-title__link {
+				font-weight: $font-medium;
+			}
+	}
+
 	.productComposition {
 		display: flex;
 

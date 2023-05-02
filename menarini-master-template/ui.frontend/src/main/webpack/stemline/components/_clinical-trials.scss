@@ -29,7 +29,7 @@
         .headerPipeline {
             display: flex;
             flex-direction: row;
-            border-bottom: 2px solid $color-third;
+            border-bottom: 2px solid $color-fourth;
             font-family: $font-family-georgia;
             font-weight: $font-regular;
             font-size: 20px;
@@ -72,7 +72,7 @@
                         font-family: $font-family-oswald;
                         font-weight: $font-regular;
                         opacity: 1;
-                        border-right: 1px solid $color-third;
+                        border-right: 1px solid $color-fourth;
 
                         .popUpPipeline {
                             padding: 0px;
@@ -82,13 +82,12 @@
                                 font-family: $font-family-arimo;
                                 border: 0px;
                                 background-color: unset;
-                                color: $color-corporate;
+                                color: $color-primary;
                                 text-transform: capitalize;
                                 font-weight: $font-regular;
-                                font-size: 16px;
+                                font-size: 14px;
                                 padding: 0px;
                                 margin: 0px;
-                                color: $color-link;
                                 text-decoration: underline;
                             }
 
@@ -104,14 +103,17 @@
                                             font-family: $font-family-oswald;
                                             font-weight: $font-regular;
                                             padding: 0px 0px 15px 0px;
+                                            color: $color-corporate;
+                                            letter-spacing: 0.5px;
                                         }
 
                                         .modal-body {
                                             padding: 15px 0px 0px 0px;
-                                            font-family: $font-family;
+                                            font-family: $font-family-arimo;
                                             text-transform: capitalize;
                                             font-size: 16px;
-                                            font-weight: 400;
+                                            font-weight: $font-regular;
+                                            color: $color-corporate;
                                         }
                                     }
                                 }
@@ -121,7 +123,7 @@
                 }
 
                 &.last {
-                    background-image: linear-gradient(to right, $color-third 33%, $white 0%);
+                    background-image: linear-gradient(to right, $color-fourth 33%, $white 0%);
                     background-position: bottom;
                     background-size: 15px 1px;
                     background-repeat: repeat-x;
@@ -136,6 +138,8 @@
                     font-size: 20px;
                     overflow: hidden;
                     box-sizing: border-box;
+                    color: $color-corporate;
+                    letter-spacing: 0.5px;
 
                     .popUpPipeline {
                         display: none;
@@ -148,24 +152,29 @@
                     font-weight: $font-light;
                     padding: 20px 0px 20px 20px;
                     min-height: 100px;
-                    border-left: 1px solid $color-third;
+                    border-left: 1px solid $color-fourth;
                     box-sizing: border-box;
                     margin-left: -1px;
+                    color: $color-corporate;
+                    letter-spacing: 0.5px;
                 }
 
                 .statusPipeline {
                     padding: 20px 0px 20px 1%;
-                    font-size: 20px;
+                    font-size: 19px;
                     font-family: $font-family-oswald;
                     font-weight: $font-light;
                     text-transform: capitalize;
+                    color: $color-corporate;
+                    letter-spacing: 0.47px;
                 }
 
                 .detailPipeline {
                     padding: 20px 0px;
 
                     a {
-                        color: $color-link;
+                        color: $color-primary;
+                        font-size: 14px;
                     }
                 }
             }
@@ -182,13 +191,13 @@
                 width: 100%;
 
                 .rowPipeline {
-                    background-image: linear-gradient(to right, $color-third 33%, $white 0%);
+                    background-image: linear-gradient(to right, $color-fourth 33%, $white 0%);
                     background-position: bottom;
                     background-size: 15px 1px;
                     background-repeat: repeat-x;
 
                     &.last {
-                        background-image: linear-gradient(to right, $color-third 100%, $white 0%);
+                        background-image: linear-gradient(to right, $color-fourth 100%, $white 0%);
                         background-size: 15px 2px;
                     }
 
@@ -201,7 +210,7 @@
                         margin-left: auto;
                         padding: 20px 20px 20px 20px;
                         position: relative;
-                        border-left: 1px solid $color-third !important;
+                        border-left: 1px solid $color-fourth !important;
                         border-right: 0px !important;
                         opacity: 1;
                         overflow: visible;

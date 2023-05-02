@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastReplicated="{Date}2023-03-01T10:40:43.603Z"
+        cq:lastReplicated_publish="{Date}2023-03-01T10:40:43.603Z"
+        cq:lastReplicatedBy="m.papini@adiacent.com"
+        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-stemline/settings/wcm/templates/menarini---details-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
+        jcr:uuid="0f4b484b-146e-4305-8697-e8940ce21d42"
         sling:resourceType="menarinimaster/components/page">
         <root
             jcr:primaryType="nt:unstructured"

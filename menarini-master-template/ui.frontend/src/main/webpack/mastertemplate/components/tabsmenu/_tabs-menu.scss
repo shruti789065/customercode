@@ -32,6 +32,10 @@
 		padding: 0.5rem 0;
 		margin-left: auto;
 		margin-right: 1em;
+		.cmp-tabs__tablist{
+			margin-bottom: 0px;
+			margin-top: 0px;
+		}
 
 		.cmp-tabs__tablist_mobile {
 			display: none;
@@ -98,6 +102,7 @@
 
 						&:not(:only-child) {
 							position: absolute;
+							padding: 0px;
 							z-index: 1;
 							top: 0;
 							bottom: 0;
@@ -107,7 +112,7 @@
 						}
 
 						.cmp-teaser__title {
-							font-weight: 200;
+							font-weight: $font-extra-light;
 							display: table;
 							padding: 0 0.5rem;
 							font-size: 30px;
@@ -115,10 +120,17 @@
 							margin: 0;
 							font-family: $font-family-oswald;
 							text-transform: capitalize;
+							background: linear-gradient(-90deg, $color-corporate, #143f594d);
+							height: 100%;
+							display: flex;
+							padding-bottom: 15px;
+							padding-left: 35px;
+							width: 100%;
+							align-items: flex-end;
 						}
 
 						.cmp-teaser__description {
-							font-weight: 200;
+							font-weight: $font-extra-light;
 							display: table;
 							padding: 0 0.5rem;
 							font-size: 20px;
@@ -203,13 +215,14 @@
 				&.cmp-tabs__tab--active {
 					border-color: transparent;
 					text-decoration: underline;
-
-					&:after {
-						content: "x";
-						color: $color-text;
-						right: 5px;
-						top: 8px;
-						position: absolute;
+					&:not(:has(.link)) {
+						&:after {
+							content: "x";
+							color: $color-text;
+							right: 5px;
+							top: 8px;
+							position: absolute;
+						}
 					}
 				}
 
@@ -448,7 +461,7 @@
 				&__item-link {
 					font-size: 16px;
 					padding: 0.5rem 15px;
-					font-weight: 400;
+					font-weight: $font-regular;
 					text-align: left;
 				}
 			}
@@ -459,7 +472,7 @@
 				h3 {
 					font-size: 24px;
 					font-family: $font-family-oswald;
-					font-weight: 200;
+					font-weight: $font-extra-light;
 					text-transform: uppercase;
 					text-align: center;
 					line-height: 1.6;

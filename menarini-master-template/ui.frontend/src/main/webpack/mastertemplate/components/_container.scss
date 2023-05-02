@@ -16,7 +16,7 @@
 
 	.cmp-title__text {
 		font-size: 30px;
-		font-weight: 200 !important;
+		font-weight: $font-extra-light !important;
 		color: $color-corporate;
 		line-height: 1.2;
 		margin: 0 0 20px;
@@ -63,9 +63,6 @@
 
 }
 
-
-
-
 @media (max-width: 768px) {
 	.containerTestComponent {
 		padding: 0.3rem !important;
@@ -77,41 +74,24 @@
 	}
 }
 
-
-@media (min-width: 375px) {
-}
-
-@media (min-width: 576px) {
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@media (min-width: 1440px) {
 	.container.cmp-container--standard_width {
-		max-width: 684px;
+		max-width: 864pt;//1152px
 	}
 }
-
-// X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
+@media (min-width: 1600px) {
 	.container.cmp-container--standard_width {
-		max-width: 828pt;
+		max-width: 966pt;//1288px
 	}
 }
-
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
+@media (min-width: 1800px) {
 	.container.cmp-container--standard_width {
-		max-width: 864pt;
+		max-width: 1080pt;//1440px
 	}
 }
 
 @media (min-width: 1920px) {
 	.container.cmp-container--standard_width {
-		max-width: 1200pt;
+		max-width: 1200pt;//1600px
 	}
 }

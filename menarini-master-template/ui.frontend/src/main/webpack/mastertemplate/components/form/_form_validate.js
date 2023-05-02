@@ -128,7 +128,7 @@ function validateInputs() {
 					if (valueSelected === undefined) {
 						$(this).css("border", "3px solid #a94442");
 						if ($(this).parent().find('.label_required').length == 0) {
-							$(this).parent().append("<p class='label-error label_required'>This field is required</p>");
+							$(this).parent().append(_getConstrainMessage(this));
 						}
 						inputsValid = false;
 					}
@@ -148,7 +148,7 @@ function validateInputs() {
 						if (($(this).val().length == 0)) {
 							//se non è file si può dare il border
 							if ($(this).parent().find('.label_required').length == 0) {
-								$(this).parent().append("<p class='label-error label_required'>This field is required</p>");
+								$(this).parent().append(_getConstrainMessage(this));
 							}
 							inputsValid = false;
 						}
@@ -206,7 +206,7 @@ function validateInputs() {
 						if (($(this).val().length == 0)) {
 							$(this).css("border", "3px solid #a94442");
 							if ($(this).parent().find('.label_required').length == 0) {
-								$(this).parent().append("<p class='label-error label_required'>This field is required</p>");
+								$(this).parent().append(_getConstrainMessage(this));
 							}
 							inputsValid = false;
 						}
@@ -295,7 +295,8 @@ function validateRadios() {
 				if (isRequired == 1) {
 					radiosValid = false;
 					if ($(this).parent().siblings('.label_required').length == 0) {
-						$(this).parent().after('<p class="label_required">This field is required</p>');
+						$(this).parent().after(`<p class='label-error label_required'>${$(this)
+							.closest('fieldset').attr('data-cmp-required-message')}</p>`);
 					}
 				}
 				//non obbligatorio e checked no
@@ -322,5 +323,9 @@ function _appendErrorMessage(el, str) {
 	span.classList.add('text-danger');
 	span.setAttribute("role", "alert");
 	el.append(span);
+}
+
+function _getConstrainMessage(el){
+	return `<span class='label-error label_required'>${el.parentElement.getAttribute('data-cmp-required-message')}</span>`;
 }
 

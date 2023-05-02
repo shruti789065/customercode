@@ -58,26 +58,29 @@
             
             &::-webkit-scrollbar {
                 width: 8px;
-                background-color: $color-background;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
             }
             &::-ms-thumb {
                 width: 8px;
-                background-color: $color-background;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
             }
             &::-ms-track {
                 width: 8px;
-                background-color: $color-background;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
             }
             &::-webkit-scrollbar-thumb {
-                background: $primary-color;
+                background: $primary-color-three;
                 border-radius: 8px;
-                border: 1px solid $primary-color;
+                border: 1px solid $primary-color-three;
             }
             scrollbar {
                 width: 12px;
-                background-color: $color-background;
+                background-color: $color-foreground-two;
                 thumb {
-                    background-color: $color-background;
+                    background-color: $color-foreground-two;
                 }
             }
             [id*='-filter'] {
@@ -93,8 +96,6 @@
                     font-weight: $light;
                     &.filter-selected {
                         border: 1px solid $primary-color;
-                        background-color: $primary-color-opacity;
-                        color: $white;
                     }
                     input[type="checkbox"] {
                         position: absolute;
@@ -151,10 +152,10 @@
                     width: fit-content;
                     border-bottom: 0px;
                     margin-bottom: 5px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                     &.filter-selected {
                         border: 1px solid $primary-color;
-                        background-color: $primary-color-opacity;
-                        color: $white;
                     }
                     input[type=checkbox]{
                         display: none;
@@ -191,7 +192,7 @@
                     margin: 0px;
                     font-weight: $extra-light;
                 }
-                .description {
+                .description{
                     text-align: left;
                     color: $black;
                     font-size: 24px;
@@ -200,7 +201,12 @@
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    font-weight: $regular;
+                    font-weight: $light;
+                    p{
+                        font-weight: $light;
+                        margin-bottom: 0;  
+                        line-height: 29px;
+                    }
                 }
             }
             .date {
@@ -245,6 +251,10 @@
             }
             .description {    
                 margin-top: 30px;
+                display: block;
+                p{
+                    font-weight: 400;
+                }
             }
             .containerLink{
                 margin-bottom: 20px;

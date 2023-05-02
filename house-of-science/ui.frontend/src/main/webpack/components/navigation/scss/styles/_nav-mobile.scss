@@ -88,11 +88,11 @@ $nav-item-mobile-border: solid 1px rgba(255, 255, 255, 0.05);
   overflow-y: auto;
   position: fixed;
   text-align: center;
-  top: 80px;
+  top: $top-height;
   -webkit-transition: left 0.8s ease-in;
   transition: left 0.8s ease-in;
   width: 100%;
-  z-index: 9;
+  z-index: 999;
   &__open {
     left: 0;
   }
@@ -114,6 +114,9 @@ $nav-item-mobile-border: solid 1px rgba(255, 255, 255, 0.05);
     align-items: center;
     margin-left: 0;
     font-weight: bold;
+    &:hover {
+      border-bottom: 0px;
+    }
   }
   .cmp-navigation__item-link {
     color: $black;
@@ -132,6 +135,6 @@ $nav-item-mobile-border: solid 1px rgba(255, 255, 255, 0.05);
 
 @media (min-width: 576px) {
 	.cmp-navigation--mobile {
-	  top: 115px;
+	  top: $top-height;
 	}
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[granite:AuthenticationRequired,rep:CugMixin]"
+    jcr:primaryType="cq:Page">
+    <it/>
+    <en/>
+    <jcr:content
+        cq:lastModified="{Date}2023-04-14T14:52:41.223Z"
+        cq:lastModifiedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicated="{Date}2023-04-14T14:52:49.969Z"
+        cq:lastReplicated_publish="{Date}2023-04-14T14:52:49.969Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:redirectTarget="/content/menarini-biotech/it/it"
+        cq:template="/conf/menarini-biotech/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Biotech"
+        jcr:uuid="2c505aaa-09fe-4d54-bce2-3200280f1c89"
+        sling:resourceType="menarinimaster/components/page"
+        hideInNav="true"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-04-14T14:52:41.213Z"
+            jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+</jcr:root>

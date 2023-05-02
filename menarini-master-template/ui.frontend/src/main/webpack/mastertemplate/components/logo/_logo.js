@@ -19,7 +19,7 @@ import $ from 'jquery';
 			const contentIndex = urlArray.indexOf("content"); // Trova l'indice dell'array contenente la parola "content"
 			if (contentIndex !== -1 && contentIndex < urlArray.length - 1) { // Controlla se l'indice esiste e c'è un elemento successivo
 				$siteIdentier = urlArray[contentIndex + 1]; // Prendi l'elemento successivo come il pezzo desiderato
-				console.log($siteIdentier);
+				//console.log($siteIdentier);
 			}
 
 			$menuLogo = document.querySelector('.cmp-image--logo .cmp-image__image');

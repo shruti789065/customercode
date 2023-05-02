@@ -10,12 +10,12 @@
 .cmp-form-options__field-label {
 	font-family: $font-family-oswald;
 	font-size: 18px;
-	font-weight: 300;
+	font-weight: $font-light;
 	color: $color-text;
 	min-height: 20px;
     padding-left: 20px;
     margin-bottom: 0;
-    font-weight: 400;
+    font-weight: $font-regular;
     cursor: pointer;
 }
 .cmp-form-options__field {
@@ -40,7 +40,7 @@
 	background-repeat: no-repeat;
 	font-family: $font-family-oswald;
 	font-size: 20px;
-	font-weight: 300;
+	font-weight: $font-light;
 	color: $color-text;
 	border: 0px;
 	box-shadow: none;
@@ -68,7 +68,7 @@
 .cmp-form-options__label {
 	font-family: $font-family-oswald;
 	font-size: 30px;
-	font-weight: 300;
+	font-weight: $font-light;
 	color: $color-text;
 	margin-bottom: 18px;
 	display: block;
@@ -79,7 +79,7 @@
 		border: none;
 		font-family: $font-family-oswald;
 		font-size: 18px;
-		font-weight: 300;
+		font-weight: $font-light;
 		color: $color-text;
 		float: left;
 		width: 100%;

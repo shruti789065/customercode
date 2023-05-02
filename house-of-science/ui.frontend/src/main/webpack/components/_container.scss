@@ -1,5 +1,5 @@
 main.container {
-	padding-top: 85px;
+	padding-top: 115px;
 }
 
 .container {
@@ -8,13 +8,10 @@ main.container {
 }
 
 .cmp-container--standard_width {
-	margin: 0 auto;
+	margin: 0 8.33%;
+	max-width: 84%;
 	float: inherit !important;
-	padding: 0 20px;
-
 }
-
-
 
 .containerTestComponent {
 	margin-top: 1rem !important;
@@ -46,27 +43,15 @@ main.container {
 
 @media (min-width: 375px) {
 	main.container {
-		padding-top: 80px;
+		padding-top: $top-height;
 	}
 }
 
-@media (min-width: 576px) {
-	main.container {
-		padding-top: 115px;
-	}
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-	main.container {
-		padding-top: 115px;
-	}
-}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
 	.container.cmp-container--standard_width {
-		max-width: 960px;
+		//max-width: 960px;
 	}
 }
 
@@ -74,23 +59,19 @@ main.container {
 @media (min-width: 1200px) {
 
 	.container.cmp-container--standard_width {
-		max-width: 990pt;
+		//max-width: 990pt;
+		margin: 0 auto;
 	}
 
 	.cmp-container_card-padding {
 		flex-wrap: nowrap;
 	}
 }
-
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
+
 	.container.cmp-container--standard_width {
-		max-width: 990pt;
+		//max-width: 990pt;
 	}
 }
 
-@media (min-width: 1920px) {
-	.container.cmp-container--standard_width {
-		max-width: 990pt;
-	}
-}

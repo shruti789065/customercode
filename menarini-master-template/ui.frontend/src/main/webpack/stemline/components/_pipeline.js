@@ -380,6 +380,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (pipeline) {
     init();
   } else {
-    console.log("noPipeline");
+    //console.log("noPipeline");
   }
 });

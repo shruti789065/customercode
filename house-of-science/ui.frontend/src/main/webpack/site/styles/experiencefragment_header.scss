@@ -2,7 +2,7 @@
 
 header.experiencefragment {
 	position: fixed;
-	z-index: 99;
+	z-index: 999;
 	&.cq-Editable-dom{
 		position:relative;
 		margin-bottom: 50px;
@@ -10,7 +10,7 @@ header.experiencefragment {
 	}
   .cmp-experiencefragment--header {
     > .cmp-container {
-      height: 85px;
+      height: $top-height;
     }
   }
 
@@ -27,7 +27,7 @@ header.experiencefragment {
 	margin: auto;
   }
   .cmp-container--standard_width {
-    padding: 20px 20px 0;
+    padding: 5px 0;
   }
   .image {
     position: relative;
@@ -35,7 +35,8 @@ header.experiencefragment {
     top: 0px;
   }
   .cmp-image {
-    text-align: center;
+    text-align: left;
+	padding: 0 5px;
   }
   .cmp-image__image {
     height: auto;
@@ -68,16 +69,8 @@ header.experiencefragment {
   @media (min-width: 375px) {
 	.cmp-experiencefragment--header {
 		  > .cmp-container {
-			  height: 80px;
+			  height: $top-height;
 			}
 		}
   }
-
-  @media (min-width: 576px) {
-	  .cmp-experiencefragment--header {
-		  > .cmp-container {
-			  height: 115px;
-			}
-		}
-	}
 }

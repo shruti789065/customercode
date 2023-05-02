@@ -75,6 +75,7 @@
             position: absolute;
             display:none;
             color: $white;
+            bottom: 55px;
             .cmp-teaser__title{
                 font-size: 24px;
             }
@@ -83,7 +84,8 @@
             .content{
                 opacity: 1;
                 display: flex;
-                background: rgba(0,0,0,.3);
+                background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 100%);
+                //background: rgba(0,0,0,.3);
             }
             .video{
                 opacity: 0.3;

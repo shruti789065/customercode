@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="875e2906-808e-470b-b8f8-123a23d45642">
+    <jcr:content
+        cq:name="men1309"
+        cq:parentPath="/content/dam/menarini-biotech/area-content-fragments/compound-dropdown"
+        jcr:lastModified="{Date}2023-03-09T17:33:40.865+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="MEN1309"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T17:33:40.865+01:00">
+        <data
+            cq:model="/conf/menarini-biotech/settings/dam/cfm/models/compound-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="MEN1309"
+                label_x0040_LastModified="{Date}2023-03-09T17:33:40.847+01:00"
+                value="men1309"
+                value_x0040_LastModified="{Date}2023-03-09T17:33:40.848+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="b2a76055-947d-4168-97cf-e01754f9d8ed"
+                _x0040_string_x0040_model="/conf/menarini-biotech/settings/dam/cfm/models/compound-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="MEN1309"
+                string_x0040_value="men1309"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

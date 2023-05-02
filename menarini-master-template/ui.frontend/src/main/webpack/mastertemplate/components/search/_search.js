@@ -59,6 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
       displaySearchResults(searchResults);
     });
   } else {
-    console.log('NoSearchGlobal.');
+    //console.log('NoSearchGlobal.');
   }
 });
