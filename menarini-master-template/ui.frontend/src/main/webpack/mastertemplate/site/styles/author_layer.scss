@@ -20,10 +20,18 @@
 	.cmp-carousel {
 		height: 700px !important;
 
-		.cmp-teaser,
-		.cmp-teaser__image,
-		img {
-			height: 700px !important;
+		.cmp-carousel__item {
+
+			.cmp-teaser{
+				video{
+					height: 100%;
+				}
+			}
+			.cmp-teaser,
+			.cmp-teaser__image,
+			img {
+				height: 700px !important;
+			}
 		}
 	}
 }
