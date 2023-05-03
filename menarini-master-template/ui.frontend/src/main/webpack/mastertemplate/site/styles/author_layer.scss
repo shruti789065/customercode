@@ -1,20 +1,29 @@
-
-.cq-Editable-dom{
-	&.placeholder.aem-AllowedComponent--component{
+.cq-Editable-dom {
+	&.placeholder.aem-AllowedComponent--component {
 		display: none;
 	}
-	.internalmenu{
-		.cmp-internalmenu__button{
-			&.cmp-internalmenu__button-opened{
+
+	.internalmenu {
+		.cmp-internalmenu__button {
+			&.cmp-internalmenu__button-opened {
 				left: 0;
 			}
 		}
-	} 
+	}
 
-	.cmp-internal-header{
-		.cmp-teaser__content{
+	.cmp-internal-header {
+		.cmp-teaser__content {
 			top: 0;
 		}
-	} 
-}
+	}
 
+	.cmp-carousel {
+		height: 700px !important;
+
+		.cmp-teaser,
+		.cmp-teaser__image,
+		img {
+			height: 700px !important;
+		}
+	}
+}
