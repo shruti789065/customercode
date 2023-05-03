@@ -310,6 +310,7 @@ function displayDataHOS() {
 	document.getElementById("topic-filter").innerHTML = options;
 
 	const uniqueAuthors = _.uniqBy(_.flatMap(data, "author"));
+	uniqueAuthors.sort();
 	options = "";
 	uniqueAuthors.forEach((author) => {
 		options += `
