@@ -115,7 +115,7 @@
         function init(config) {
             that._config = config;
 
-			console.log("VAI SIAMO DENTRO");
+			console.log("VAI DI CAROUSEL");
             // prevents multiple initialization
             config.element.removeAttribute("data-" + NS + "-is");
 
