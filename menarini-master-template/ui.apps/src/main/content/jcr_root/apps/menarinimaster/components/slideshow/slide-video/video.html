@@ -15,7 +15,7 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <sly data-sly-template.video="${@ teaser, imageResource, videoResource}">
     <sly data-sly-test="${videoResource}" >
-        <video  autoplay="true" loop="true" playsinline="true" muted="true" preload="none" width="100%" poster="${imageResource}">
+        <video  class="cmp-slide_video--item" autoplay="true" loop="true" playsinline="true" muted="true" preload="none" width="100%" poster="${imageResource}">
             <source src="${videoResource}" type="${teaser.videoFormat}">
             Your browser does not support the video tag.
         </video>
