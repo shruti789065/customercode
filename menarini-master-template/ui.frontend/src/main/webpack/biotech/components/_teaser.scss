@@ -1,0 +1,13 @@
+/* CARD HOVER */
+.teaser.cmp-teaser--background_secondary .cmp-teaser__content,
+.teaser.cmp-teaser--background_secondary .cmp-teaser__link {
+	&:hover {
+		background-color: $color-secondary-hover;
+	}
+}
+.teaser.cmp-teaser--background_primary .cmp-teaser__content,
+.teaser.cmp-teaser--background_primary .cmp-teaser__link {
+	&:hover {
+		background-color: $color-primary-hover;
+	}
+}
