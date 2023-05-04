@@ -5,8 +5,8 @@ import "./main.scss";
 /* Javascript or Typescript */
 import 'bootstrap';
 import "../../mastertemplate/**/*.js";
-import "./**/*";
+import "./**/*.js";
 //import "./**/*.ts";
 
 import '../../mastertemplate/components/**/*.js';
-import '../components/**/*';
+import '../components/**/*.js';

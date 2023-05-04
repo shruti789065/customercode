@@ -149,7 +149,7 @@ public class SearchFilterServlet extends SlingSafeMethodsServlet {
                 cfResults.put("date", "");
                 cfResults.put("year", "");
             }
-
+            cfResults.put("title", cf.getTitle());
             cfResults.put("description", cf.getElement("description").getContent());
             cfResults.put("urlLink", cf.getElement("link").getContent());
             cfResults.put("targetLink", cf.getElement("linkTarget").getContent());
