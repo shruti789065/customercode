@@ -1,7 +1,7 @@
 /* start teaser internal-header */
 .cmp-internal-header {
 	position: relative;
-	height: 300px;
+	height: 400px;
 	.cmp-teaser{
 		height: 100%;
 	}
@@ -36,7 +36,7 @@
 	}
 	.cmp-teaser__title {
 		color: $white;
-		font-size: 40px;
+		font-size: $title-big-font-size;
 		font-family: $font-family-oswald;
 		font-weight: $font-extra-light;
 		margin: 50px 0 0;
@@ -63,10 +63,11 @@
 
 @media (max-width: 768px) {
 	.cmp-internal-header{
+		height: 270px;
 		.cmp-teaser__content{
 			align-items: flex-end;
 			.cmp-teaser__title {
-				font-size: 9vw;
+				font-size: $title-font-size;
 				margin-bottom: 15px;
 			}
 		}
