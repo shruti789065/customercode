@@ -14,12 +14,18 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <sly data-sly-template.video="${@ teaser, imageResource, videoResource}">
-    <sly data-sly-test="${videoResource}" >
-        <video  class="cmp-slide_video--item" autoplay="true" loop="true" playsinline="true" muted="true" preload="none" width="100%" poster="${imageResource}">
+    <sly data-sly-test="${videoResource && imageResource}" >
+        <video  class="cmp-slide_video--item cmp-slide_video--item--desktop" autoplay="true" loop="true" playsinline="true" muted="true" preload="none" width="100%" poster="${imageResource}">
             <source src="${videoResource}" type="${teaser.videoFormat}">
             Your browser does not support the video tag.
         </video>
         <div class="cmp-teaser-video__image" data-sly-test.imageResource="${teaser.imageResource}" data-sly-resource="${teaser.imageResource @ wcmmode=disabled}"></div>
+    </sly>
+    <sly data-sly-test="${videoResource}">
+        <video  class="cmp-slide_video--item" autoplay="true" loop="true" playsinline="true" muted="true" preload="none" width="100%" poster="${imageResource}">
+            <source src="${videoResource}" type="${teaser.videoFormat}">
+            Your browser does not support the video tag.
+        </video>
     </sly>
 </sly>
 

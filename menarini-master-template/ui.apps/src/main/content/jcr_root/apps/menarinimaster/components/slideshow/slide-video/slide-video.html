@@ -37,18 +37,21 @@
 			<sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
 		</div>
 
-		<sly data-sly-test="${teaser.videoFilePath}">
+		<!--<sly data-sly-test="${teaser.videoFilePath}">
 			<sly data-sly-call="${videoTemplate.video @ teaser=teaser}"></sly>
-		</sly>
+		</sly>-->
 
-		<sly data-sly-test="${teaser.videoFilePath && teaser.imageResource}">
+		<!--<sly data-sly-test="${teaser.videoFilePath && teaser.imageResource}">
+			<sly data-sly-call="${videoTemplate.video @ teaser=teaser, imageResource=teaser.imageResource, videoResource=teaser.videoFilePath}"></sly>
+		</sly>-->
+
+		<sly data-sly-test="${teaser.videoFilePath}">
 			<sly data-sly-call="${videoTemplate.video @ teaser=teaser, imageResource=teaser.imageResource, videoResource=teaser.videoFilePath}"></sly>
 		</sly>
 
 		<sly data-sly-test="${!teaser.videoFilePath && teaser.imageResource}">
 			<sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
 		</sly>
-
 
 	</a>
 </div>

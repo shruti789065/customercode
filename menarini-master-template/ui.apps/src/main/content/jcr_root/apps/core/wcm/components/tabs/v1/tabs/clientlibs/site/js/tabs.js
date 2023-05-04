@@ -77,7 +77,6 @@
 		 */
 		function init(config) {
 			that._config = config;
-			console.log("VAI DI TABS");
 			// prevents multiple initialization
 			config.element.removeAttribute("data-" + NS + "-is");
 
