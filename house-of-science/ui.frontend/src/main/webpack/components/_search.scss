@@ -38,13 +38,23 @@
             background-color: $white;
             color: $primary-color-three;
             font-family: $font-family;
-            font-size: 23px;
+            font-size: 20px;
             font-weight: $bold;
             display: flex;
+            justify-content: center;
             align-items: center;
             &:hover{
                 transform: scale(1.02);
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .search_container{
+        .cmp-search{
+            &__searchInput{}
+            &__button{width: 25%;}
         }
     }
 }
