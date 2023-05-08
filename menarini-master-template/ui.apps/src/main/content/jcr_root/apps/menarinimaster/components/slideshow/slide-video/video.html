@@ -19,7 +19,7 @@
             <source src="${videoResource}" type="${teaser.videoFormat}">
             Your browser does not support the video tag.
         </video>
-        <div class="cmp-teaser-video__image" data-sly-test.imageResource="${teaser.imageResource}" data-sly-resource="${teaser.imageResource @ wcmmode=disabled}"></div>
+        <div class="cmp-teaser__image" data-small-screen-only="false" data-sly-test.imageResource="${teaser.imageResource}" data-sly-resource="${teaser.imageResource @ wcmmode=disabled}"></div>
     </sly>
     <sly data-sly-test="${videoResource && !imageResource}">
         <video  class="cmp-slide_video--item" autoplay="true" duration="${teaser.duration}" loop="true" playsinline="true" muted="true" width="100%" poster="${imageResource}">

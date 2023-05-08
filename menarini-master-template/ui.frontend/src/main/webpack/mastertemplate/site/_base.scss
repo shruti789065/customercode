@@ -122,6 +122,12 @@ textarea {
 	visibility: visible;
 }
 
+@media (min-width: 768px) {
+	[data-small-screen-only=true] {
+	  display: none;
+	}
+}
+
 @keyframes spin {
 	from {
 		transform: rotate(0deg);

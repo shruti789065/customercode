@@ -26,12 +26,12 @@ import java.util.Iterator;
 @Model(
 		adaptables = {Resource.class, SlingHttpServletRequest.class},
 		adapters = TeaserI.class, // Adapts to the CC model interface
-		resourceType = SlideModel.RESOURCE_TYPE, // Maps to OUR component, not the CC component
+		//resourceType = SlideModel.RESOURCE_TYPE, // Maps to OUR component, not the CC component
 		defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL // No properties? No problem!
 )
 public class SlideModel extends GenericBaseModel implements TeaserI {
 
-	public static final String RESOURCE_TYPE = "menarinimaster/components/internalheader";
+	//public static final String RESOURCE_TYPE = "menarinimaster/components/internalheader";
 	//private static final String PARENT_TEMPLATE_NAME = "/conf/menarinimaster/settings/wcm/templates/menarini---homepage";//"Menarini MT - Homepage";
 
 
@@ -49,71 +49,49 @@ public class SlideModel extends GenericBaseModel implements TeaserI {
 	@Via("resource")
 	private String videoFilePath;
 	private String videoFormat;
-	private String description;
 
-	private String parentTitle;
-	private Resource parentImage;
-	private String parentVideoFormat;
-	private String parentVideoFilePath;
 	private String duration;
-	private Page currentPage;
-	/*self : parentPage == currentPage : la pagina corrente è una pagina di primo livello, quindi parenPage coincide con currentPage */
-	private boolean self = false;
-
 
 	@PostConstruct
 	protected void init() {
-		PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-		if (pageManager != null) {
+		//video setting
+		if (StringUtils.isNotBlank(videoFilePath)) {
 
-			currentPage = pageManager.getContainingPage(currentResource);
-
-			Page homepage = ModelUtils.getHomePage(resourceResolver, currentPage.getPath());
-			ValueMap properties = homepage.getProperties();
-			String siteName = properties.containsKey("siteName") ? properties.get("siteName", String.class) : "";
-
-			//video setting
-			if (StringUtils.isNotBlank(videoFilePath)) {
-
-				Resource resource = request.getResourceResolver().getResource(videoFilePath);
-				if (resource != null) {
-					Resource durationVideoResource = resource.getChild("jcr:content/metadata/xmpDM:duration");
-					if (durationVideoResource != null) {
-						duration = durationVideoResource.getValueMap().get("xmpDM:value", String.class);
-					}
+			Resource resource = request.getResourceResolver().getResource(videoFilePath);
+			if (resource != null) {
+				Resource durationVideoResource = resource.getChild("jcr:content/metadata/xmpDM:duration");
+				if (durationVideoResource != null) {
+					duration = durationVideoResource.getValueMap().get("xmpDM:value", String.class);
 				}
+			}
 
-
-				String extention = StringUtils.substringAfterLast(videoFilePath, Constants.EXTENTION_SEPARATOR);
-				switch (extention) {
-					case Constants.MP4_FILE_EXT: {
-						videoFormat = "video/mp4";
-						break;
-					}
-					case Constants.OGG_FILE_EXT: {
-						videoFormat = "video/ogg";
-						break;
-					}
-					default:
-						videoFormat = null;
+			String extention = StringUtils.substringAfterLast(videoFilePath, Constants.EXTENTION_SEPARATOR);
+			switch (extention) {
+				case Constants.MP4_FILE_EXT: {
+					videoFormat = "video/mp4";
+					break;
 				}
+				case Constants.OGG_FILE_EXT: {
+					videoFormat = "video/ogg";
+					break;
+				}
+				default:
+					videoFormat = null;
 			}
 		}
 	}
 
 	public String getVideoFilePath() {
-		if (StringUtils.isNotBlank(this.videoFilePath))
+		if (StringUtils.isNotBlank(this.videoFilePath)) {
 			return this.videoFilePath;
-		if (parentVideoFilePath != null)
-			return parentVideoFilePath;
+		}
 		return null;
 	}
 
 	public String getVideoFormat() {
-		if (StringUtils.isNotBlank(this.videoFormat))
+		if (StringUtils.isNotBlank(this.videoFormat)) {
 			return this.videoFormat;
-		if (parentVideoFormat != null)
-			return parentVideoFormat;
+		}
 		return null;
 	}
 
@@ -126,11 +104,6 @@ public class SlideModel extends GenericBaseModel implements TeaserI {
 
 	private interface DelegationExclusion { // Here we define the methods we want to override
 	/*	String getTitle();
-
-		String getDescription();
-
 		Resource getImageResource()*/;// Override the method which determines the source of the asset
-
 	}
-
 }
