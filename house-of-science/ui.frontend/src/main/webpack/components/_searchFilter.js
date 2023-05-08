@@ -142,15 +142,14 @@ const checkFilterEmpty = () => {
 //Se un filtro non è specificato (cioè è vuoto), viene considerato come soddisfatto.
 const filterData = (data, filters) => {
 	return _.filter(data, (item) => {
-		console.log('paperino filters', filters);
+		//console.log('01 filters', filters);
 		return (
-			//(_.isEmpty(filters.topic) || _.includes(filters.topic, item.topic)) &&
 			(_.isEmpty(filters.topic) || _.difference(filters.topic, item.topic).length == 0) &&
 			(_.isEmpty(filters.author) || _.difference(filters.author, item.author).length == 0) &&
 			(_.isEmpty(filters.source) || _.difference(filters.source, item.source).length == 0) &&
 			(_.isEmpty(filters.year) || _.includes(filters.year, item.year)) &&
 			(_.isEmpty(filters.typology) || _.includes(filters.typology, item.typology)) &&
-			(_.isEmpty(filters.Tag) || _.difference(filters.Tag, item.Tag).length == 0)
+			(_.isEmpty(filters.tag) || _.difference(filters.tag, item.tag).length == 0)			
 		);
 	});
 };
@@ -174,7 +173,7 @@ const displayData = (filteredData) => {
               <div class="card-header" id="${headingId}">
 			          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="true" aria-controls="${collapseId}">
 				          <span class="typology">${item.typology}</span>
-				          <span class="description">${item.description}</span>
+				          <span class="title">${item.title}</span>
 			          </button>
 			          <span class="date">${formatDate(item.date)}</span>
 		          </div>
