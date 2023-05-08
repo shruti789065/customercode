@@ -144,13 +144,12 @@ const filterData = (data, filters) => {
 	return _.filter(data, (item) => {
 		//console.log('01 filters', filters);
 		return (
-			//(_.isEmpty(filters.topic) || _.includes(filters.topic, item.topic)) &&
 			(_.isEmpty(filters.topic) || _.difference(filters.topic, item.topic).length == 0) &&
 			(_.isEmpty(filters.author) || _.difference(filters.author, item.author).length == 0) &&
 			(_.isEmpty(filters.source) || _.difference(filters.source, item.source).length == 0) &&
 			(_.isEmpty(filters.year) || _.includes(filters.year, item.year)) &&
 			(_.isEmpty(filters.typology) || _.includes(filters.typology, item.typology)) &&
-			(_.isEmpty(filters.Tag) || _.difference(filters.Tag, item.Tag).length == 0)
+			(_.isEmpty(filters.tag) || _.difference(filters.tag, item.tag).length == 0)			
 		);
 	});
 };
