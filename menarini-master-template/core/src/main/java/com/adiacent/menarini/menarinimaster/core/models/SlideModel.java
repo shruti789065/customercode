@@ -1,15 +1,9 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
-import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
-import com.adobe.cq.wcm.core.components.models.Teaser;
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
-import lombok.experimental.Delegate;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
@@ -21,21 +15,18 @@ import org.apache.sling.models.factory.ModelFactory;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.util.Iterator;
 
 @Model(
 		adaptables = {Resource.class, SlingHttpServletRequest.class},
-		adapters = TeaserI.class, // Adapts to the CC model interface
+		adapters = SlideModelI.class, // Adapts to the CC model interface
 		//resourceType = SlideModel.RESOURCE_TYPE, // Maps to OUR component, not the CC component
 		defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL // No properties? No problem!
 )
-public class SlideModel extends GenericBaseModel implements TeaserI {
+public class SlideModel extends GenericBaseModel implements SlideModelI {
 
 	@Self // Indicates that we are resolving the current resource
 	@Via(type = ResourceSuperType.class) // Resolve not as this model, but as the model of our supertype (ie: CC Teaser)
-	@Delegate(excludes = DelegationExclusion.class)
-	// Delegate all our methods to the CC Image except those defined below
-	private Teaser delegate;
+
 
 	@OSGiService
 	private ModelFactory modelFactory;
@@ -110,8 +101,4 @@ public class SlideModel extends GenericBaseModel implements TeaserI {
 		this.videoFormat = videoFormat;
 	}
 
-	private interface DelegationExclusion { // Here we define the methods we want to override
-	/*	String getTitle();
-		Resource getImageResource()*/;// Override the method which determines the source of the asset
-	}
 }
