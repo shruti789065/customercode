@@ -102,6 +102,18 @@ public class SlideModel extends GenericBaseModel implements TeaserI {
 		return null;
 	}
 
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public void setVideoFilePath(String videoFilePath) {
+		this.videoFilePath = videoFilePath;
+	}
+
+	public void setVideoFormat(String videoFormat) {
+		this.videoFormat = videoFormat;
+	}
+
 	private interface DelegationExclusion { // Here we define the methods we want to override
 	/*	String getTitle();
 		Resource getImageResource()*/;// Override the method which determines the source of the asset
