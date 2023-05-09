@@ -31,10 +31,6 @@ import java.util.Iterator;
 )
 public class SlideModel extends GenericBaseModel implements TeaserI {
 
-	//public static final String RESOURCE_TYPE = "menarinimaster/components/internalheader";
-	//private static final String PARENT_TEMPLATE_NAME = "/conf/menarinimaster/settings/wcm/templates/menarini---homepage";//"Menarini MT - Homepage";
-
-
 	@Self // Indicates that we are resolving the current resource
 	@Via(type = ResourceSuperType.class) // Resolve not as this model, but as the model of our supertype (ie: CC Teaser)
 	@Delegate(excludes = DelegationExclusion.class)
