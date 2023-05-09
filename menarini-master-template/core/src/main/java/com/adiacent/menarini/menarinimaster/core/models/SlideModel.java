@@ -1,6 +1,8 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
+import com.adobe.cq.wcm.core.components.models.Teaser;
+import lombok.experimental.Delegate;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -25,9 +27,12 @@ import javax.inject.Inject;
 public class SlideModel extends GenericBaseModel implements SlideModelI {
 
 	public static final String RESOURCE_TYPE = "menarinimaster/components/slideshow/slide-video";
+
+
 	@Self // Indicates that we are resolving the current resource
 	@Via(type = ResourceSuperType.class) // Resolve not as this model, but as the model of our supertype (ie: CC Teaser)
-
+	@Delegate(excludes = DelegationExclusion.class)  // Delegate all our methods to the CC Image except those defined below
+	private Teaser delegate;
 
 	@OSGiService
 	private ModelFactory modelFactory;
@@ -102,4 +107,9 @@ public class SlideModel extends GenericBaseModel implements SlideModelI {
 		this.videoFormat = videoFormat;
 	}
 
+	private interface DelegationExclusion { // Here we define the methods we want to override
+		String getTitle(); // Override the method which determines the source of the asset
+		Resource getImageResource();
+
+	}
 }
