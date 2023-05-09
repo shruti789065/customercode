@@ -19,11 +19,12 @@ import javax.inject.Inject;
 @Model(
 		adaptables = {Resource.class, SlingHttpServletRequest.class},
 		adapters = SlideModelI.class, // Adapts to the CC model interface
-		//resourceType = SlideModel.RESOURCE_TYPE, // Maps to OUR component, not the CC component
+		resourceType = SlideModel.RESOURCE_TYPE, // Maps to OUR component, not the CC component
 		defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL // No properties? No problem!
 )
 public class SlideModel extends GenericBaseModel implements SlideModelI {
 
+	public static final String RESOURCE_TYPE = "menarinimaster/components/slideshow/slide-video";
 	@Self // Indicates that we are resolving the current resource
 	@Via(type = ResourceSuperType.class) // Resolve not as this model, but as the model of our supertype (ie: CC Teaser)
 
