@@ -14,8 +14,8 @@ footer.experiencefragment {
 	
 	
 	.cmp-image {
-		max-width: 140px;
-		margin: 0 auto 30px;
+		max-width: 130px;
+		margin: 30px auto 30px;
 	}
 	.title{
 		.cmp-title{
@@ -23,7 +23,7 @@ footer.experiencefragment {
 				margin-top: 0;
 			}
 		}
-	} 
+	}
 	.cmp-image__image {
 		height: auto;
 		//min-height: 50px;
@@ -44,6 +44,14 @@ footer.experiencefragment {
 			font-size: 22px;
 			font-weight: 300;
 			margin-bottom: 30px;
+			a:hover{
+				color: unset;
+				text-decoration: unset;
+			}
+			a{
+				color: unset;
+				text-decoration: unset;
+			}
 		}
 	}
 	.cmp-list {
@@ -55,7 +63,7 @@ footer.experiencefragment {
 		font-weight: 300;
 		font-size: 22px;
 		padding-left: 0;
-		margin-bottom: unset;
+		margin-bottom: 30px;
 		.cmp-list__item {
 			color: $white;
 			list-style: none;
@@ -64,10 +72,12 @@ footer.experiencefragment {
 			text-align: center;
 			border: 2px solid transparent;
 			cursor: pointer;
-			&:hover,
-			&:focus{
+			&:first-child{
 				border: 2px solid $white;
 				font-weight: bold;
+				margin: 20px 0;
+				padding-right: 40px;
+    			padding-left: 40px;
 			}
 			.cmp-list__item-link{
 				color: $white;
@@ -75,7 +85,7 @@ footer.experiencefragment {
 			}
 		}
 	}
-	
+
 	#footer-links {
 		&.cmp-container {
 			padding-top: 0;
@@ -143,6 +153,7 @@ footer.experiencefragment {
 		#footer-links{
 			.cmp-list {
 				flex-direction: row;
+				margin-bottom: unset;
 			}
 			#flex-container{
 				> div{
@@ -152,7 +163,7 @@ footer.experiencefragment {
 			.xf-master-building-block {
 				flex-direction: row;
 				align-items: center;
-				.text {					
+				.text {
 					display: flex;
 					justify-content: flex-end;
 					align-items: center;
@@ -167,6 +178,13 @@ footer.experiencefragment {
 				}
 				.button{
 					margin-left: 0;
+				}
+			}
+		}
+		.cmp-list {
+			.cmp-list__item {
+				&:first-child{
+					margin: unset;
 				}
 			}
 		}

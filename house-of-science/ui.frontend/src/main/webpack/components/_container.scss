@@ -18,6 +18,11 @@ main.container {
 	padding: 3rem !important;
 }
 
+#backgroundImageLampada{
+	background-position: top center;
+	background-size: 150px !important;
+}
+
 @media (max-width: 768px) {
 	.containerTestComponent {
 		padding: 0.3rem !important;
@@ -65,6 +70,11 @@ main.container {
 
 	.cmp-container_card-padding {
 		flex-wrap: nowrap;
+	}
+
+	#backgroundImageLampada{
+		background-position: top right;
+		background-size: 370px !important;
 	}
 }
 // XX-Large devices (larger desktops, 1400px and up)
