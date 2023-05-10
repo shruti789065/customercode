@@ -7,3 +7,48 @@
         }
     }
 }
+.latestNews.cmp-latest-news--vertical {
+    background-color: unset;
+    padding: 0px;
+    .title,
+    .button {
+        display: none;
+    }
+    .latestNewsList {
+        .cmp-list__item {
+            display: flex;
+	        flex-direction: column;
+            flex-basis: 100%;
+            padding-right: 0px;
+            .cmp-list__item-link {
+                min-height: 30px;
+                -webkit-line-clamp: 1;
+                -webkit-box-ordinal-group:1;
+                display: flex;
+                order: 1;
+                .cmp-list__item-title {
+                    font-family: $font-family-georgia;
+                    font-size: $title-extra-small-font-size;
+                    color: $color-corporate;
+                    font-style: italic;
+                }
+            }
+            .cmp-list__item-date {
+                display: flex;
+                order: 2;
+            }
+            .cmp-list__item-description {
+                min-height: unset;
+                height: unset;
+                display: flex;
+                order: 3;
+                position: relative;
+            }
+            .btn_read_more {
+                border-bottom: 4px solid $color-secondary-hover;
+                display: flex;
+                order: 4;
+            }
+        }
+    }
+}
