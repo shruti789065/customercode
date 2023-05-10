@@ -108,8 +108,8 @@ public class SlideModel extends GenericBaseModel implements SlideModelI {
 	}
 
 	private interface DelegationExclusion { // Here we define the methods we want to override
-		String getTitle(); // Override the method which determines the source of the asset
-		Resource getImageResource();
+		//String getTitle(); // Override the method which determines the source of the asset
+		//Resource getImageResource();
 
 	}
 }
