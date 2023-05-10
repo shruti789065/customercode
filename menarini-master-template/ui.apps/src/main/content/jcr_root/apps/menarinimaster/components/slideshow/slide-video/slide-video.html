@@ -13,7 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<div data-sly-use.teaser="com.adiacent.menarini.menarinimaster.core.models.TeaserModel"
+<div data-sly-use.teaser="com.adiacent.menarini.menarinimaster.core.models.SlideModel"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      data-sly-use.imageTemplate="image.html"
      data-sly-use.pretitleTemplate="pretitle.html"
@@ -37,18 +37,14 @@
 			<sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
 		</div>
 
-		<sly data-sly-test="${teaser.videoFilePath}">
-			<sly data-sly-call="${videoTemplate.video @ teaser=teaser}"></sly>
-		</sly>
 
-		<sly data-sly-test="${teaser.videoFilePath && teaser.imageResource}">
+		<sly data-sly-test="${teaser.videoFilePath}">
 			<sly data-sly-call="${videoTemplate.video @ teaser=teaser, imageResource=teaser.imageResource, videoResource=teaser.videoFilePath}"></sly>
 		</sly>
 
 		<sly data-sly-test="${!teaser.videoFilePath && teaser.imageResource}">
 			<sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
 		</sly>
-
 
 	</a>
 </div>

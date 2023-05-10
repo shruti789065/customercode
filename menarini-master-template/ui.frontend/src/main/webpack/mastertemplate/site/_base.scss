@@ -11,6 +11,7 @@ body {
 	line-height: $font-height;
 	color: $color-text;
 	background: $white;
+	overflow-x: hidden;
 }
 
 a {
@@ -119,6 +120,12 @@ textarea {
 
 #loading.display {
 	visibility: visible;
+}
+
+@media (min-width: 769px) {
+	[data-small-screen-only] {
+	  display: none;
+	}
 }
 
 @keyframes spin {

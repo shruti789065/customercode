@@ -77,7 +77,6 @@
 		 */
 		function init(config) {
 			that._config = config;
-
 			// prevents multiple initialization
 			config.element.removeAttribute("data-" + NS + "-is");
 
