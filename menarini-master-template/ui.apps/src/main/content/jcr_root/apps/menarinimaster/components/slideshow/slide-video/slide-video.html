@@ -21,7 +21,7 @@
      data-sly-use.descriptionTemplate="description.html"
      data-sly-use.actionsTemplate="actions.html"
      data-sly-use.videoTemplate="video.html"
-     data-sly-test.hasContent="${teaser.title}"
+     data-sly-test.hasContent="${teaser.title || teaser.description || teaser.actions}"
      id="${teaser.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} ${teaser.imageResource || teaser.videoFilePath? '' : ' cmp-teaser__image-placeholder'}"
      data-cmp-data-layer="${teaser.data.json}">
