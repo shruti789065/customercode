@@ -406,13 +406,24 @@ const searchWitoutCategory = () =>{
 	let url;
 
 	if(button != null){
+		
+		document.querySelector('.cmp-search__searchInput').addEventListener('keyup', function(event) {
+			event.preventDefault();
+			if (event.keyCode === 13) {
+				button.click();
+			}
+		});
+		
 		button.addEventListener('click', function() {
 			const searchedValue = document.querySelector('.cmp-search__searchInput').value;
 			console.log("button clicked");
-			if(searchedValue != ''){
 				console.log("Searched Value", searchedValue);
 				if(currentContentFragmentpath != ""){
-					url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}&fulltext=${searchedValue}`;
+					if(searchedValue != ''){
+						url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}&fulltext=${searchedValue}`;
+					} else {
+						url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?category=${category}`;
+					}
 				}
 				if(filterLibraryComp != null){
 					url = `${protocol}//${domainName}:${port}${currentNodePipeline}.searchFilter.json?fulltext=${searchedValue}`;
@@ -435,7 +446,6 @@ const searchWitoutCategory = () =>{
 					console.error("Error copying data to local storage:", error);
 					loadingSpinner.remove();
 				});	
-			}
 			
 		});
 	}
@@ -455,6 +465,7 @@ if(filterlibrarycomponent != null){
 //Il codice si occupa di chiamare la funzione init quando la pagina web viene caricata completamente.
 //Se esiste un elemento con l'id results, allora viene chiamata la funzione init. Altrimenti, viene stampato un messaggio di errore in console.
 window.searchFilt = searchFilt;
+window.onload = window.localStorage.clear();
 document.addEventListener("DOMContentLoaded", function () {
 	const results = document.getElementById("results");
 	if (results) {
