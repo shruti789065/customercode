@@ -191,6 +191,16 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .cardHover {
+        margin: 0;
+        .cmp-image__image{
+            height: 500px;
+        }
+    }     
+}
+
 @media (min-width: 992px) {
     .cardHover {
         width: 50%;
