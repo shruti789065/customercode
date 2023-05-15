@@ -5,9 +5,9 @@
 		padding: 0.5em 1em;
 	}
 }
-.cmp-container__layout {
+.cmp-container--internal {
 	width: 100%;
-	padding: 0 4%;
+	padding: 0;
 
 }
 .cmp-container {
@@ -21,17 +21,17 @@
 }
 
 @media (min-width: 1366px){
-	.cmp-container__layout {
+	.cmp-container--internal {
 		padding: 0 10%;
 	}
 }
 @media (max-width: 1200px){
-	.cmp-container__layout {
+	.cmp-container--internal {
 		margin: 1rem auto;
 		/* position: relative; */
 	}
 	header{
-		.cmp-container__layout {
+		.cmp-container--internal {
 			margin: 0;
 		}	
 	}

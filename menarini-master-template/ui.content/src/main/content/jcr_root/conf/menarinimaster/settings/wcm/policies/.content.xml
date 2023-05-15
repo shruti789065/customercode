@@ -424,7 +424,7 @@
                     </cq:authoring>
                 </policy_1575040440977>
                 <policy_777922468291300
-                    jcr:lastModified="{Date}2022-06-13T12:31:54.839+02:00"
+                    jcr:lastModified="{Date}2023-05-11T14:42:51.480+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="MMT experience fragment"
@@ -440,16 +440,21 @@
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
+                                    cq:styleClasses="container.cmp-container--standard_width"
+                                    cq:styleId="1683799289317"
+                                    cq:styleLabel="Standard"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
                                     cq:styleClasses="cmp-container__layout cmp-layoutcontainer--header"
                                     cq:styleId="1653644898118"
                                     cq:styleLabel="layout"
                                     jcr:primaryType="nt:unstructured"/>
-                                <item1
+                                <item2
                                     cq:styleClasses="cmp-navbar"
                                     cq:styleId="1653644909760"
                                     cq:styleLabel="style"
                                     jcr:primaryType="nt:unstructured"/>
-                                <item2
+                                <item3
                                     cq:styleClasses="cmp-layoutcontainer--no-padding"
                                     cq:styleId="1655199864922"
                                     cq:styleLabel="no-padding"
@@ -500,6 +505,27 @@
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
+                        <item3
+                            cq:styleGroupLabel="Element"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-navbar"
+                                    cq:styleId="1683799914808"
+                                    cq:styleLabel="Navbar"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-layout-container--fixed cmp-layoutcontainer--footer"
+                                    cq:styleId="1683799979833"
+                                    cq:styleLabel="Footer"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="tabs-menu"
+                                    cq:styleId="1683800035815"
+                                    cq:styleLabel="Menù"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item3>
                     </cq:styleGroups>
                 </policy_777922468291300>
                 <policy_11097788065800
@@ -668,7 +694,7 @@
                     </cq:authoring>
                 </policy_15581283876800>
                 <policy_1307698943930800
-                    jcr:lastModified="{Date}2023-02-17T12:52:00.247+01:00"
+                    jcr:lastModified="{Date}2023-05-12T14:46:09.710+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="main container policy"
@@ -676,25 +702,34 @@
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0 jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Type"
+                            jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleClasses="cmp-container__layout"
-                                    cq:styleId="1655202404538"
-                                    cq:styleLabel="layout"
+                                    cq:styleClasses="cmp-container--standard_width"
+                                    cq:styleId="1683894752510"
+                                    cq:styleLabel="Standard"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="cmp-container--text-image"
                                     cq:styleId="1656586523714"
                                     cq:styleLabel="text &amp; Image"
                                     jcr:primaryType="nt:unstructured"/>
-                                <item2
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Styles"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
                                     cq:styleClasses="cmp-container--border"
-                                    cq:styleId="1676633024428"
+                                    cq:styleId="1683894737210"
                                     cq:styleLabel="border box"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
-                        </item0>
+                        </item1>
                     </cq:styleGroups>
                 </policy_1307698943930800>
                 <policy_1656579161845
@@ -1052,6 +1087,35 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1677581474992>
             </accordion>
+            <xfpage jcr:primaryType="nt:unstructured">
+                <policy_1683811218288
+                    jcr:lastModified="{Date}2023-05-11T15:27:23.142+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="XF Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[menarinimaster.dependencies,menarinimaster.site]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Page Type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-experiencefragment--header"
+                                    cq:styleId="1683811238969"
+                                    cq:styleLabel="Header"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-experiencefragment--footer"
+                                    cq:styleId="1683811243676"
+                                    cq:styleLabel="Footer"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1683811218288>
+            </xfpage>
         </components>
     </menarinimaster>
 </jcr:root>
