@@ -12,6 +12,7 @@
 
     * {
         display: flex;
+        justify-content: center;
         //transition: 0.5s;
     }
 
@@ -103,9 +104,19 @@
                 }
             }
         }
-        @media (max-width: 576px) {.cmp-teaser__content{zoom: 70%;}}
-        @media (max-width: 375px) {.cmp-teaser__content{zoom: 60%;}}
-		@media (max-width: 320px) {.cmp-teaser__content{zoom: 50%;}}
+        @media (max-width: 768px) {
+            .cmp-teaser__content{
+                width: 100%;
+                .cmp-teaser__action-container {
+                    width: 100%;
+                    min-width: unset;
+                    max-width: 84%;
+                    margin-top: 20px;
+                    margin-bottom: unset;
+                }
+            }
+
+        }
 
         .cmp-teaser__image {
             position: relative;
@@ -195,9 +206,14 @@
 @media (max-width: 768px) {
     .cardHover {
         margin: 0;
-        .cmp-image__image{
-            height: 500px;
+        .cmp-image{
+            display: flex;
+            .cmp-image__image{
+                height: 500px;
+                width: auto;
+            }
         }
+        
     }     
 }
 
