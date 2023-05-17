@@ -23,7 +23,7 @@
 					img {
 						height: fit-content;
 						max-width: 450px;
-						margin: 50px auto;
+						margin: 50px auto 0px auto;
 					}
 				}
 
@@ -38,7 +38,7 @@
 					flex-direction: column;
 					align-self: center;
 					margin-left: auto;
-					padding: 20px;
+					padding: 50px 20px;
 					text-align: center;
 					height: 100%;
 					overflow: hidden;
@@ -80,7 +80,7 @@
 	// X-Large devices (large desktops, 1200px and up)
 	@media (min-width: 1200px) {
 		.internal-header-background-color {
-			height: 450px;
+			height: 400px;
 
 			.cmp-container {
 				height: 100%;
@@ -90,8 +90,10 @@
 					.cmp-image {
 						img {
 							height: fit-content;
+							max-height: 100%;
+							width: auto;
 							max-width: unset;
-							margin: unset;
+							margin: 0px auto;
 						}
 					}
 
@@ -108,16 +110,10 @@
 		}
 	}
 
-	@media (min-width: 1360px) {
-		.internal-header-background-color {
-			height: 500px;
-		}
-	}
-
 	// XX-Large devices (larger desktops, 1400px and up)
 	@media (min-width: 1400px) {
 		.internal-header-background-color {
-			height: 550px;
+			height: 450px;
 
 			.container {
 				.wrapper {
@@ -133,7 +129,7 @@
 
 	@media (min-width: 1920px) {
 		.internal-header-background-color {
-			height: 700px;
+			height: 450px;
 
 			.cmp-container {
 				height: 100%;
