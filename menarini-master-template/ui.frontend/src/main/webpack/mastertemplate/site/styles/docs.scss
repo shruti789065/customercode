@@ -10,7 +10,11 @@ img.cq-LinkChecker.cq-LinkChecker--invalid{
 }
 .maindocs {
 	header.cmp-experiencefragment--header {
-		padding: 0.5em 1em;
+		
+		position: relative;
+		.cmp-navbar{
+			padding: 0 1em;
+		}
 	}
 	height: inherit;
 	.maindocs-container {
