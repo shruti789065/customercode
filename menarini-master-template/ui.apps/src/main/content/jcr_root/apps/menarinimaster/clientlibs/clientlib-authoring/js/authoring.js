@@ -31,7 +31,9 @@
             $videoGroup = $dialogContent.find(".cmp-video__editor-duration-group");
             $manualDurationValue = $dialogContent.find(".cmp-video__editor-duration-value");
         }
-		$videoGroup.hide();
+		if($videoGroup){
+			 $videoGroup.hide();
+		}
 		//TODO  Aggiustare questa function
 		//toggleAutomaticDurationFields(isAutomaticDuration);
     });
