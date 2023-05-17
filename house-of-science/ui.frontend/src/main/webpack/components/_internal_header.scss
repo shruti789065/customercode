@@ -80,7 +80,7 @@
 	// X-Large devices (large desktops, 1200px and up)
 	@media (min-width: 1200px) {
 		.internal-header-background-color {
-			height: 350px;
+			height: 400px;
 
 			.cmp-container {
 				height: 100%;
@@ -90,8 +90,10 @@
 					.cmp-image {
 						img {
 							height: fit-content;
+							max-height: 100%;
+							width: auto;
 							max-width: unset;
-							margin: unset;
+							margin: 0px auto;
 						}
 					}
 
