@@ -26,7 +26,7 @@
   &:focus {
     border-bottom: 8px solid $primary-color-three;
     color: $primary-color-three;
-	font-weight: $bold;
+	  font-weight: $bold;
   }
 }
 .cmp-navigation__item-link {
@@ -43,9 +43,15 @@
   
 }
 .cmp-navigation__item--active {
-  border-bottom: 8px solid $primary-color-three;
+  border-bottom: 8px solid transparent;
 }
 .cmp-navigation__item--active > .cmp-navigation__item-link {
   color: $primary-color-three;
   font-weight: $bold;
+}
+
+@media (min-width: 1200px) {
+  .cmp-navigation__item--active {
+    border-bottom: 8px solid $primary-color-three;
+  }
 }
