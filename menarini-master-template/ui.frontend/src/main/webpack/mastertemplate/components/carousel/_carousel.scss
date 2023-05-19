@@ -47,7 +47,7 @@
 .cmp-slideshow-secondary-button {
 	.cmp-teaser .cmp-teaser__content .cmp-teaser__action-container {
 		transition: 0.5s;
-		margin-top: 15%;
+		margin-top: 5%;
 		padding: 18px 35px;
 		text-transform: uppercase;
 		font-family: $font-family-oswald;
@@ -99,12 +99,13 @@
 				.cmp-teaser__pretitle {
 					color: $white;
 					font-size: $font-size;
-					-webkit-line-clamp: 1;
+					-webkit-line-clamp: 1; 
 				}
 
 				.cmp-teaser__title {
 					color: $white;
-					font-size: $title-font-size;
+					font-size: $title-small-font-size;
+					line-height: 35px;
 					font-family: $font-family-oswald;
 					font-weight: $font-regular;
 					text-transform: none;
@@ -125,7 +126,8 @@
 
 				.cmp-teaser__description {
 					color: $white;
-					font-size: $title-big-font-size;
+					font-size: 50px;
+					line-height: 55px;
 					font-family: $font-family-oswald;
 					font-weight: $font-regular;
 					font-style: normal;
