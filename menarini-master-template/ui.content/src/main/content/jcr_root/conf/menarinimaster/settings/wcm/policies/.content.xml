@@ -342,7 +342,7 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2022-06-24T16:40:02.437+02:00"
+                    jcr:lastModified="{Date}2023-05-18T12:54:01.519+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="homepage policies"
@@ -378,12 +378,12 @@
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
                     jcr:description="Sets a &lt;main> element on the page content area."
-                    jcr:lastModified="{Date}2022-07-11T17:23:59.311+02:00"
+                    jcr:lastModified="{Date}2023-05-18T15:17:56.572+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Form,group:Menarini MT - Content]"
+                    components="[group:Menarini MT - Content,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1089,7 +1089,7 @@
             </accordion>
             <xfpage jcr:primaryType="nt:unstructured">
                 <policy_1683811218288
-                    jcr:lastModified="{Date}2023-05-11T15:27:23.142+02:00"
+                    jcr:lastModified="{Date}2023-05-18T15:53:09.229+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Page Policy"
@@ -1116,6 +1116,159 @@
                     </cq:styleGroups>
                 </policy_1683811218288>
             </xfpage>
+            <section jcr:primaryType="nt:unstructured">
+                <policy_1684399752056
+                    cq:styleDefaultClasses="cmp-container--full-width"
+                    jcr:lastModified="{Date}2023-05-18T15:34:43.051+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="section container"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="/apps/menarinimaster/components/wrapper"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1684399752056>
+                <policy_2251475832470300
+                    jcr:lastModified="{Date}2023-05-18T12:49:24.835+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="container sect"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    layout="responsiveGrid"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_2251475832470300>
+                <policy_1684422966098
+                    cq:styleDefaultClasses="cmp-container--full-width"
+                    jcr:lastModified="{Date}2023-05-18T17:16:56.422+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Fragment section container"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="/apps/menarinimaster/components/wrapper"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-navbar"
+                                    cq:styleId="1684422990038"
+                                    cq:styleLabel="Navbar"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="tabs-menu"
+                                    cq:styleId="1684422999016"
+                                    cq:styleLabel="Menù"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1684422966098>
+            </section>
+            <section-standard jcr:primaryType="nt:unstructured">
+                <policy_1684402909095
+                    jcr:lastModified="{Date}2023-05-18T12:43:33.949+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="section standard"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    layout="responsiveGrid"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1684402909095>
+                <policy_2251609565602600
+                    jcr:lastModified="{Date}2023-05-18T12:49:51.191+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="stand sect"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    layout="responsiveGrid"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_2251609565602600>
+            </section-standard>
+            <wrapper jcr:primaryType="nt:unstructured">
+                <policy_1684407330319
+                    cq:styleDefaultClasses="cmp-container--standard_width"
+                    jcr:lastModified="{Date}2023-05-18T17:15:30.434+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="wrapper"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="[/libs/core/wcm/components/list/v3/list,group:Menarini MT - Content,group:Menarini MT - Structure]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-navbar"
+                                    cq:styleId="1684420827725"
+                                    cq:styleLabel="Navbar"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1684407330319>
+                <policy_1684420982120
+                    jcr:lastModified="{Date}2023-05-18T17:55:31.952+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Fragment Wrapper "
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedColorSwatches="[#FFF,#143F59]"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="[group:Menarini MT - Content,group:Menarini MT - Form,group:Menarini MT - Structure]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Default"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-container--standard_width"
+                                    cq:styleId="1684421545319"
+                                    cq:styleLabel="Wrapper"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1684420982120>
+            </wrapper>
+            <wrapper-standard jcr:primaryType="nt:unstructured">
+                <policy_1684407369649
+                    cq:styleDefaultClasses="cmp-container--standard_width"
+                    jcr:lastModified="{Date}2023-05-18T12:58:55.499+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="wrapper standard"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="[group:Menarini Home Page,group:Menarini MT - Content]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1684407369649>
+            </wrapper-standard>
         </components>
     </menarinimaster>
 </jcr:root>

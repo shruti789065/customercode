@@ -10,6 +10,9 @@
 			}
 		}
 	}
+	.cmp-navbar{
+		height: auto;
+	}
 
 	.cmp-internal-header {
 		.cmp-teaser__content {
@@ -36,6 +39,21 @@
 			@media (min-width: 769px) {
 				[data-small-screen-only] {
 					display: none;
+				}
+			}
+		}
+	}
+}
+.editor-panel-content {
+	div{
+		&[title="Section"]{
+			&.is-active,
+			&.is-hover,
+			&.is-selected,
+			&:focus{
+				border: 1px solid black!important;
+				.cq-Overlay--component-name{
+					background-color: black!important;
 				}
 			}
 		}
