@@ -53,6 +53,22 @@ import { _isDesktop, _prependHtml } from '../../site/_util.js';
 				}
 			});
 
+			$(document).ready(function() {
+				// Controllo iniziale al caricamento della pagina
+				if ($(window).height() < 600) {
+					_addWhiteMenu();
+				}
+			});
+			
+			$(window).on('resize', function() {
+				// Controllo al ridimensionamento della finestra
+				if ($(window).height() < 600) {
+					_addWhiteMenu();
+				} else {
+					_removeWhiteMenu();
+				}
+			});
+
 			
 			$('.cmp-tabs__tab').on('click', () => {
 				_addWhiteMenu();
