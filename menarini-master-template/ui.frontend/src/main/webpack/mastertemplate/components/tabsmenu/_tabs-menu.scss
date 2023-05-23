@@ -1,29 +1,18 @@
 .cmp-container__general-megamenu {
+  background-color: transparent;
+  transition: background-color 0.8s ease;
   display: flex;
-  min-height: 100px;
-}
-.wrapper {
-  #wrapper-menu {
-    background-color: transparent;
-    transition: background-color 0.8s ease;
-  }
+  min-height: 80px;
 }
 
 .scrolled-page,
 .aem-AuthorLayer-Edit {
   .cmp-container__general-megamenu {
-  }
-  .wrapper {
-    #wrapper-menu {
-      background-color: $white;
-    }
+    background-color: $white;
   }
 
   .tabs-menu {
     .cmp-tabs {
-      .cmp-megamenu {
-        background-color: $color-six;
-      }
       .cmp-tabs__tablist {
         .cmp-tabs__tab,
         .cmp-link--text {
@@ -326,7 +315,7 @@
             display: block;
             position: fixed;
             left: 100%;
-            top: 135px;
+            top: 115px;
             margin-block-start: 0;
             width: 100%;
             height: 100vh;
@@ -361,7 +350,7 @@
     &__container {
       position: fixed;
       left: 100%;
-      top: 135px;
+      top: 115px;
       margin-block-start: 0;
       width: 100%;
       height: 100vh;
