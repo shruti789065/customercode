@@ -107,6 +107,34 @@ textarea {
 	background-color: lightgray;
 }
 
+.cmp-overlay{
+	&::after{
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: -moz-linear-gradient(
+			top,
+			rgba(20, 63, 89, 1) 0%,
+			rgba(20, 63, 89, 0.5) 50%,
+			rgba(255, 255, 255, 0) 100%
+		); /* FF3.6-15 */
+		background: -webkit-linear-gradient(
+			top,
+			rgba(20, 63, 89, 1) 0%,
+			rgba(20, 63, 89, 0.5) 50%,
+			rgba(255, 255, 255, 0) 100%
+		); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(
+			to bottom,
+			rgba(20, 63, 89, 1) 0%,
+			rgba(20, 63, 89, 0.5) 50%,
+			rgba(255, 255, 255, 0) 100%
+		); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-corporate', endColorstr='#0000fff5',GradientType=0 ); /* IE6-9 */
+	}
+}
+
 #loading {
 	width: 4rem;
 	height: 4rem;
