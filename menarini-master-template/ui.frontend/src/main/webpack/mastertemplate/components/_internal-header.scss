@@ -4,14 +4,19 @@
 	height: 400px;
 	.cmp-teaser{
 		height: 100%;
+		overflow: hidden;
+	}
+	video{
+		object-fit: cover;
+		height: 100%;
 	}
 
 	.cmp-teaser__content {
 		position: absolute;
 		display: flex;
 		align-items: center;
-		top: 40px;
-		height: calc(100% - 40px);
+		//top: 40px;
+		height: 100%;
 		width: 100%;
 		margin-left: 8.33333333%
 		
