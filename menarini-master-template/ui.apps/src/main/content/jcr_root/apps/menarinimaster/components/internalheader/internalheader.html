@@ -30,7 +30,7 @@
 	   data-sly-unwrap="${!teaser.link.valid || !teaser.actions.empty}"
 	   data-cmp-clickable="${teaser.data ? true : false}">
 		<div class="container responsivegrid cmp-overlay aem-GridColumn aem-GridColumn--default--12">
-			<div class="cmp-teaser__content">
+			<div class="cmp-teaser__content cmp-container--standard_width">
 				<sly data-sly-call="${pretitleTemplate.pretitle @ teaser=teaser}"></sly>
 				<sly data-sly-call="${titleTemplate.title @ teaser=teaser}"></sly>
 			</div>
