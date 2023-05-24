@@ -15,18 +15,19 @@
 		position: absolute;
 		display: flex;
 		align-items: center;
-		//top: 40px;
+		left: 0;
+		right: 0;
 		height: 100%;
 		width: 100%;
-		margin-left: 8.33333333%
-		
+		margin: 0 auto;
+		align-items: end;
 	}
 	.cmp-teaser__title {
 		color: $white;
 		font-size: $title-big-font-size;
 		font-family: $font-family-oswald;
 		font-weight: $font-extra-light;
-		margin: 50px 0 0;
+		margin-bottom: 50px;
 	}
 	.cmp-teaser__image{
 		height: 100%;
