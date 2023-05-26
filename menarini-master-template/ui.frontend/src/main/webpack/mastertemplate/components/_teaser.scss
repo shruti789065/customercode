@@ -183,6 +183,10 @@
 		@media (max-width: 320px) {
 			padding-top: 0;
 		}
+		@media (max-width: 1400px) {
+			padding: 6% 20px 30px 20px;
+			width: 80%;
+		}
 		
 		h2,
 		.cmp-teaser__title-link{
@@ -202,6 +206,7 @@
 			@media (max-width: 1400px) {
 				margin-bottom: 1%;
 				-webkit-line-clamp: 1;
+				font-size: $title-extra-small-font-size;
 			}
 		}
 		.cmp-teaser__description {
@@ -216,7 +221,7 @@
 			-webkit-box-orient: vertical;
 			overflow: hidden;
 			@media screen and (max-width: 700px) {
-				display: none;
+				font-size: 15px;
 			}
 			@media screen and (max-width: 992px) {
 				-webkit-line-clamp: 2;

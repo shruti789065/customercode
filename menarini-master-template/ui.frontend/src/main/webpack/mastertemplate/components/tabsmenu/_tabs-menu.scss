@@ -23,6 +23,16 @@
 	  .cmp-tabs {
 		.cmp-megamenu {
 		  background-color: $color-six;
+		  @media (max-width: 1200px) {
+			.ps-3,
+			.ms-3 {
+				padding-left: 0px!important;
+			}
+		  	.pe-3,
+			.me-3 {
+				padding-right: 0px!important;
+			}
+		  }
 		}
 		.cmp-tabs__tablist {
 		  .cmp-tabs__tab,
