@@ -69,8 +69,7 @@ import { _isDesktop, _prependHtml } from '../../site/_util.js';
 				}
 			});
 
-			/********************************************************************************/
-			// Funzione per gestire l'aggiunta della classe "h-overflow" al body
+			/*******************************************************************************
 			function handleHeaderScroll() {
 				var body = document.body;
 				var header = document.querySelector('header');
@@ -81,11 +80,9 @@ import { _isDesktop, _prependHtml } from '../../site/_util.js';
 				body.classList.remove('h-overflow');
 				}
 			}
-			// Aggiungi l'evento di caricamento della pagina per controllare lo stato iniziale dell'header
 			window.addEventListener('load', handleHeaderScroll);
-			// Aggiungi l'evento di cambio classe all'header per controllare ogni volta che l'header cambia
 			var observer = new MutationObserver(handleHeaderScroll);
-			observer.observe(document.querySelector('header'), { attributes: true, attributeFilter: ['class'] });
+			observer.observe(document.querySelector('header'), { attributes: true, attributeFilter: ['class'] });*/
 			/********************************************************************************/
 
 			

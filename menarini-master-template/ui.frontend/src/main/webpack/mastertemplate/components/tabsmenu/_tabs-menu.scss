@@ -25,11 +25,15 @@
 		  background-color: $color-six;
 		  @media (max-width: 1200px) {
 			.ps-3,
-			.ms-3 {
+			.ms-3,
+			.ps-5,
+			.ms-5 {
 				padding-left: 0px!important;
 			}
-		  	.pe-3,
-			.me-3 {
+			.pe-3,
+			.me-3,
+			.pe-5,
+			.me-5 {
 				padding-right: 0px!important;
 			}
 		  }
@@ -192,7 +196,8 @@
 			font-size: 14px;
 			font-family: $font-family-oswald;
 			text-decoration: none;
-			padding: 0 10px;
+			line-height: 16px;
+			padding: 0px 10px 10px 10px;
   
 			&:hover {
 			  background-color: transparent;

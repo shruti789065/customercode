@@ -7,7 +7,7 @@
 	display: none;
 	width: 50px;
 	max-width: 50px;
-	max-height: 84px;
+	height: auto;
 	right: -10px;
 	background-color: $white;
 	border: 1px solid $color-fourth;
@@ -19,6 +19,7 @@
 	&--header {
 		position: relative;
 		text-align: right;
+		height: 40px;
 	}
 	&--langnavtoggle {
 		position: relative;
@@ -45,9 +46,9 @@
 				content: "";
 				display: inline-block;
 				height: 0.35em;
-				left: 1em;
-				position: relative;
-				top: 1em;
+				right: 0px;
+				position: absolute;
+				top: 15px;
 				-webkit-transform: rotate(135deg);
 				transform: rotate(135deg);
 				vertical-align: top;
