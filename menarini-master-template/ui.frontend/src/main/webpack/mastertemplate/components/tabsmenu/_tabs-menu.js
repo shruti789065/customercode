@@ -65,9 +65,25 @@ import { _isDesktop, _prependHtml } from '../../site/_util.js';
 				if ($(window).height() < 600) {
 					_addWhiteMenu();
 				} else {
-					_removeWhiteMenu();
+					console.log('Height > 600');
 				}
 			});
+
+			/*******************************************************************************
+			function handleHeaderScroll() {
+				var body = document.body;
+				var header = document.querySelector('header');
+
+				if (header.classList.contains('scrolled-page')) {
+				body.classList.add('h-overflow');
+				} else {
+				body.classList.remove('h-overflow');
+				}
+			}
+			window.addEventListener('load', handleHeaderScroll);
+			var observer = new MutationObserver(handleHeaderScroll);
+			observer.observe(document.querySelector('header'), { attributes: true, attributeFilter: ['class'] });*/
+			/********************************************************************************/
 
 			
 			$('.cmp-tabs__tab').on('click', () => {

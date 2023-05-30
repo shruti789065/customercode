@@ -5,9 +5,9 @@
 	text-decoration: none;
 	margin-left: 0px;
 	display: none;
-	width: 100%;
-	max-width: 52px;
-	max-height: 84px;
+	width: 50px;
+	max-width: 50px;
+	height: auto;
 	right: -10px;
 	background-color: $white;
 	border: 1px solid $color-fourth;
@@ -19,13 +19,14 @@
 	&--header {
 		position: relative;
 		text-align: right;
+		height: 40px;
 	}
 	&--langnavtoggle {
 		position: relative;
 		a {
 			color: $white;
 			display: block;
-			margin: 4px 10px 0 0;
+			margin: 1px 10px 0 0;
 			font-size: 13px;
 			text-transform: uppercase;
 			font-family: $font-family-oswald;
@@ -45,9 +46,9 @@
 				content: "";
 				display: inline-block;
 				height: 0.35em;
-				left: 1em;
-				position: relative;
-				top: 1em;
+				right: 0px;
+				position: absolute;
+				top: 15px;
 				-webkit-transform: rotate(135deg);
 				transform: rotate(135deg);
 				vertical-align: top;

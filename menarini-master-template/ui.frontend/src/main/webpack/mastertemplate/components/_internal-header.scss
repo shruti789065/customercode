@@ -4,41 +4,30 @@
 	height: 400px;
 	.cmp-teaser{
 		height: 100%;
+		overflow: hidden;
+	}
+	video{
+		object-fit: cover;
+		height: 100%;
 	}
 
 	.cmp-teaser__content {
 		position: absolute;
 		display: flex;
 		align-items: center;
-		top: 40px;
-		height: calc(100% - 40px);
+		left: 0;
+		right: 0;
+		height: 100%;
 		width: 100%;
-		background: -moz-linear-gradient(
-			top,
-			rgba(20, 63, 89, 1) 0%,
-			rgba(20, 63, 89, 0.5) 50%,
-			rgba(255, 255, 255, 0) 100%
-		); /* FF3.6-15 */
-		background: -webkit-linear-gradient(
-			top,
-			rgba(20, 63, 89, 1) 0%,
-			rgba(20, 63, 89, 0.5) 50%,
-			rgba(255, 255, 255, 0) 100%
-		); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(
-			to bottom,
-			rgba(20, 63, 89, 1) 0%,
-			rgba(20, 63, 89, 0.5) 50%,
-			rgba(255, 255, 255, 0) 100%
-		); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-corporate', endColorstr='#0000fff5',GradientType=0 ); /* IE6-9 */
+		margin: 0 auto;
+		align-items: end;
 	}
 	.cmp-teaser__title {
 		color: $white;
 		font-size: $title-big-font-size;
 		font-family: $font-family-oswald;
 		font-weight: $font-extra-light;
-		margin: 50px 0 0;
+		margin-bottom: 50px;
 	}
 	.cmp-teaser__image{
 		height: 100%;

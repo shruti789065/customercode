@@ -8,7 +8,43 @@
 		}
 	}
 	.text{
-		margin: 5px 0 10px;
+		margin: 0px;
+	}
+	.cmp-text {
+		font-family: $font-family-georgia;
+		font-style: italic;
+		font-weight: normal;
+		color: $white;
+		position: relative;
+		top: 5px;
+		p {
+			margin: 4px 0px;
+			font-size: 16px;
+			font-weight: $font-regular;
+
+			a {
+				display: block;
+				margin: 0;
+				font-family: $font-family-oswald;
+				font-weight: $font-regular;
+				color: $white;
+				font-style: normal;
+				text-decoration: none;
+				&:hover {
+					background-color: transparent;
+					color: $white;
+					text-decoration: underline;
+				}
+			}
+		}
+		&#qualitycomesfirst {
+			p {
+				a {
+					font-family: $font-family-georgia;
+					font-style: italic;
+				}
+			}
+		}
 	}
 	&.buildingblock {
 		&-mobile {
@@ -31,6 +67,19 @@
 			}
 		}
 	}
+	.languagenavigation{
+		width: fit-content !important;
+	}
+	.buildingblock {
+		margin-left: auto !important;
+		margin-right: 2rem !important;
+		.cmp-text {
+			p {
+				font-size: 13px;
+				margin: 6px 0px;
+			}
+		}
+	}
 	&-overlayer {
 		position: fixed;
 		display: none;
@@ -43,47 +92,14 @@
 		background-color: rgba(0, 0, 0, 0.5);
 		z-index: 88;
 		cursor: pointer;
-	}
+	}	
 	
-	.cmp-text {
-		font-family: $font-family-georgia;
-		font-style: italic;
-		font-weight: normal;
-		color: $white;
-		position: relative;
-		top: 5px;
-		p {
-			margin: 0;
-			font-size: 16px;
-			font-weight: $font-regular;
-
-			a {
-				display: block;
-				margin: 0;
-				font-family: $font-family-oswald;
-				font-weight: $font-regular;
-				color: $white;
-				font-style: normal;
-				text-decoration: none;
-				margin-right: 2rem;
-				&:hover {
-					background-color: transparent;
-					color: $white;
-					text-decoration: underline;
-				}
-			}
-		}
-		&#qualitycomesfirst {
-			p {
-				a {
-					font-family: $font-family-georgia;
-					font-style: italic;
-				}
-			}
-		}
-	}
 	&--text-mobile {
 		display: none;
+	}
+	.aem-Grid.aem-Grid--12.aem-Grid--tablet--12.aem-Grid--default--12.aem-Grid--phone--12,
+	.aem-Grid.aem-Grid--12.aem-Grid--tablet--12.aem-Grid--default--12.aem-Grid--phone--12  {
+		display: flex;
 	}
 }
 
