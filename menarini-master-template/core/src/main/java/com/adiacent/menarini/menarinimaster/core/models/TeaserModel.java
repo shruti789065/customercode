@@ -62,65 +62,68 @@ public class TeaserModel extends GenericBaseModel implements TeaserI {
 
     @PostConstruct
     protected void init() {
-        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        if(pageManager!=null){
+        try {
+            PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
+            if (pageManager != null) {
 
-            currentPage = pageManager.getContainingPage(currentResource);
+                currentPage = pageManager.getContainingPage(currentResource);
 
-            Page homepage = ModelUtils.getHomePage(resourceResolver, currentPage.getPath());
-            ValueMap properties = homepage.getProperties();
-            String siteName = properties.containsKey("siteName") ? properties.get("siteName", String.class) : "";
-            String PARENT_TEMPLATE_NAME = "/conf/"+siteName+"/settings/wcm/templates/menarini---homepage";
+                Page homepage = ModelUtils.getHomePage(resourceResolver, currentPage.getPath());
+                ValueMap properties = homepage.getProperties();
+                String siteName = properties.containsKey("siteName") ? properties.get("siteName", String.class) : "";
+                String PARENT_TEMPLATE_NAME = "/conf/" + siteName + "/settings/wcm/templates/menarini---homepage";
 
-            Page parentPage = ModelUtils.findPageByParentTemplate(currentPage, PARENT_TEMPLATE_NAME);
-            if(parentPage != null && parentPage.getName().equals(currentPage.getName()))
-               self = true;
+                Page parentPage = ModelUtils.findPageByParentTemplate(currentPage, PARENT_TEMPLATE_NAME);
+                if (parentPage != null && parentPage.getName().equals(currentPage.getName()))
+                    self = true;
 
-            if(parentPage!= null && !self){
-                //nella pagina parent di primo livello si cerca il componente   con "respourceType == menarinimaster/components/internalheader" a partire dal nodo
-                Resource parentInternalHeader = ModelUtils.findChildComponentByResourceType(parentPage.getContentResource(),"menarinimaster/components/internalheader");
+                if (parentPage != null && !self) {
+                    //nella pagina parent di primo livello si cerca il componente   con "respourceType == menarinimaster/components/internalheader" a partire dal nodo
+                    Resource parentInternalHeader = ModelUtils.findChildComponentByResourceType(parentPage.getContentResource(), "menarinimaster/components/internalheader");
 
-                if(parentInternalHeader != null ) {
-                    TeaserModel m = modelFactory.getModelFromWrappedRequest(request, parentInternalHeader, TeaserModel.class);
-                    parentTitle = m.getTitle();
-                    parentImage = m.getImageResource();
-                    parentVideoFilePath = m.getVideoFilePath();
-                    parentVideoFormat = m.getVideoFormat();
-                    if(parentImage == null){
-                        //ResourceUtil.getValueMap(parentInternalHeader).put("imageFromPageImage",true); //forzatura flag ereditarietà immagine da proprietò di pagina
-                        Iterator<Resource> res = parentPage.getContentResource().listChildren();
-                        while(res.hasNext()){
-                            Resource r = (Resource)res.next();
-                            if(r.getName().equals(Constants.FEATURE_IMAGE_NODE_NAME)) {
-                                parentImage = r;
-                                break;
+                    if (parentInternalHeader != null) {
+                        TeaserModel m = modelFactory.getModelFromWrappedRequest(request, parentInternalHeader, TeaserModel.class);
+                        parentTitle = m.getTitle();
+                        parentImage = m.getImageResource();
+                        parentVideoFilePath = m.getVideoFilePath();
+                        parentVideoFormat = m.getVideoFormat();
+                        if (parentImage == null) {
+                            //ResourceUtil.getValueMap(parentInternalHeader).put("imageFromPageImage",true); //forzatura flag ereditarietà immagine da proprietò di pagina
+                            Iterator<Resource> res = parentPage.getContentResource().listChildren();
+                            while (res.hasNext()) {
+                                Resource r = (Resource) res.next();
+                                if (r.getName().equals(Constants.FEATURE_IMAGE_NODE_NAME)) {
+                                    parentImage = r;
+                                    break;
+                                }
                             }
+
+
                         }
 
-
                     }
-
                 }
-            }
-            //video setting
-            if(StringUtils.isNotBlank(videoFilePath)){
-                String extention = StringUtils.substringAfterLast(videoFilePath,Constants.EXTENTION_SEPARATOR);
-                switch(extention){
-                    case Constants.MP4_FILE_EXT:{
-                        videoFormat= "video/mp4";
-                        break;
+                //video setting
+                if (StringUtils.isNotBlank(videoFilePath)) {
+                    String extention = StringUtils.substringAfterLast(videoFilePath, Constants.EXTENTION_SEPARATOR);
+                    switch (extention) {
+                        case Constants.MP4_FILE_EXT: {
+                            videoFormat = "video/mp4";
+                            break;
+                        }
+                        case Constants.OGG_FILE_EXT: {
+                            videoFormat = "video/ogg";
+                            break;
+                        }
+                        default:
+                            videoFormat = null;
                     }
-                    case  Constants.OGG_FILE_EXT:{
-                        videoFormat= "video/ogg";
-                        break;
-                    }
-                    default:
-                        videoFormat=null;
                 }
+
             }
-
-        }
-
+        }catch (Exception e){
+            return;
+        };
 
     }
 

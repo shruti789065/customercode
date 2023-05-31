@@ -115,7 +115,13 @@ public class ModelUtils {
 		PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
 		if(pageManager == null)
 			return null;
-		Page homepage = pageManager.getPage(currentPage).getAbsoluteParent(3);
+		pageManager.getPage(currentPage).getDepth();
+		int pathIndex = 3;
+		String cqTemplate = pageManager.getPage(currentPage).getAbsoluteParent(pathIndex).getProperties().get("cq:template",String.class);
+		if(!cqTemplate.toLowerCase().contains("homepage")){
+			pathIndex = 2;
+		}
+		Page homepage = pageManager.getPage(currentPage).getAbsoluteParent(pathIndex);
 		return homepage;
 	}
 
