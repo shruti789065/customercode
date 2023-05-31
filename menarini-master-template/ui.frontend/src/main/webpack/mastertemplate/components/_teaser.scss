@@ -2,11 +2,9 @@
 .teaser.cmp-teaser--background_primary,
 .teaser.cmp-teaser--background_secondary {
 	z-index: 0;
-	&.cmp-teaser--position-left {
-		padding-left: 20px;
-		margin-bottom: 40px;
+	&.ps-3 {
 		& .cmp-teaser__image {
-			padding-left: 20px;
+			padding-left: 1rem;
 			@media only screen and (max-width: 768px) {
 				padding-left: 0px;
 			}
@@ -15,10 +13,31 @@
 			padding-left: 0px;
 		}
 	}
-	&.cmp-teaser--position-right {
-		padding-right: 20px;
+	&.pe-3 {
 		& .cmp-teaser__image {
-			padding-right: 20px;
+			padding-right: 1rem;
+			@media only screen and (max-width: 768px) {
+				padding-right: 0px;
+			}
+		}
+		@media only screen and (max-width: 768px) {
+			padding-right: 0px;
+		}
+	}
+	&.ps-5 {
+		& .cmp-teaser__image {
+			padding-left: 3rem;
+			@media only screen and (max-width: 768px) {
+				padding-left: 0px;
+			}
+		}
+		@media only screen and (max-width: 768px) {
+			padding-left: 0px;
+		}
+	}
+	&.pe-5 {
+		& .cmp-teaser__image {
+			padding-right: 3rem;
 			@media only screen and (max-width: 768px) {
 				padding-right: 0px;
 			}
