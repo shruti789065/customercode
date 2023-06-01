@@ -2,18 +2,16 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:isCheckedOut="{Boolean}false"
     jcr:primaryType="cq:WorkflowModel"
-    jcr:uuid="070213a2-af68-4511-9fe9-2295e08579c0"
+    jcr:uuid="ecdb0d3c-3c9f-422e-a531-245a4233c154"
     sling:resourceType="cq/workflow/components/model"
-    description="This is the default request for activation workflow"
-    title="Request for Activation1">
+    description="No Description"
+    title="Publish approval for Menarini Stemline">
     <metaData
-        cq:generatingPage="/conf/global/settings/workflow/models/request_for_activation_menarini_pt/jcr:content"
-        cq:lastModified="{Long}1685545279139"
+        cq:generatingPage="/conf/global/settings/workflow/models/publish-approval-for-menarini-stemline/jcr:content"
+        cq:lastModified="{Long}1685631151540"
         cq:lastModifiedBy="admin"
         jcr:primaryType="nt:unstructured"
-        lastSynced="{Date}2023-05-31T14:44:41.943+02:00"
-        multiResourceSupport="true"
-        tags="system"/>
+        lastSynced="{Date}2023-06-01T16:52:31.536+02:00"/>
     <nodes jcr:primaryType="nt:unstructured">
         <node0
             jcr:primaryType="cq:WorkflowNode"
@@ -29,7 +27,7 @@
             <metaData
                 jcr:primaryType="nt:unstructured"
                 DO_NOTIFY="true"
-                PARTICIPANT="administrators"/>
+                PARTICIPANT="approver-menarini-pt"/>
         </node1>
         <node2
             jcr:primaryType="cq:WorkflowNode"
@@ -43,17 +41,6 @@
         </node2>
         <node3
             jcr:primaryType="cq:WorkflowNode"
-            description="Waiting for activation until the scheduled time is reached"
-            title="Waiting for activation"
-            type="PARTICIPANT">
-            <metaData
-                jcr:primaryType="nt:unstructured"
-                PARTICIPANT="administrators"
-                timeoutHandler="com.day.cq.workflow.timeout.autoadvance.AbsoluteTimeAutoAdvancer"
-                timeoutMillis="0"/>
-        </node3>
-        <node4
-            jcr:primaryType="cq:WorkflowNode"
             description="Activates the page."
             title="Activate Page"
             type="PROCESS">
@@ -61,13 +48,13 @@
                 jcr:primaryType="nt:unstructured"
                 PROCESS="com.day.cq.wcm.workflow.process.ActivatePageProcess"
                 PROCESS_AUTO_ADVANCE="true"/>
-        </node4>
-        <node5
+        </node3>
+        <node4
             jcr:primaryType="cq:WorkflowNode"
             title="End"
             type="END">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node5>
+        </node4>
     </nodes>
     <transitions jcr:primaryType="nt:unstructured">
         <node0_x0023_node1
@@ -94,15 +81,8 @@
         <node3_x0023_node4
             jcr:primaryType="cq:WorkflowTransition"
             from="node3"
-            rule="\0"
             to="node4">
             <metaData jcr:primaryType="nt:unstructured"/>
         </node3_x0023_node4>
-        <node4_x0023_node5
-            jcr:primaryType="cq:WorkflowTransition"
-            from="node4"
-            to="node5">
-            <metaData jcr:primaryType="nt:unstructured"/>
-        </node4_x0023_node5>
     </transitions>
 </jcr:root>
