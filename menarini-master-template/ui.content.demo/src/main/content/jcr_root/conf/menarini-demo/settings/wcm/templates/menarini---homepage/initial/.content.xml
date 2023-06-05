@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-05-23T14:55:45.306Z"
+        cq:lastModifiedBy="a.messori@adiacent.com"
+        cq:template="/conf/menarini-demo/settings/wcm/templates/menarini---homepage"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="menarinimaster/components/page"
+        siteName="menarinimaster">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <slideshow
+                    jcr:lastModified="{Date}2022-05-27T14:12:31.456+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/slideshow"
+                    autopauseDisabled="false"
+                    autoplay="false"
+                    delay="5000">
+                    <item_1653653527361
+                        cq:panelTitle="Elem1"
+                        jcr:description="&lt;p>Teaser Description&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2023-05-23T14:52:52.370Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="First Teaser title"
+                        sling:resourceType="menarinimaster/components/teaser"
+                        alt="ski"
+                        altValueFromDAM="false"
+                        descriptionFromPage="false"
+                        fileReference="/content/dam/wknd/en/magazine/skitouring/Skitouring5Sjoeberg.JPG"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        linkTarget="_self"
+                        textIsRich="true"
+                        title="First Teaser Title"
+                        titleFromPage="false"/>
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-demo/gb/en/about-us"
+                            linkTarget="_self"
+                            text="Read More"/>
+                    </actions>
+                    <item_1653653543341
+                        cq:panelTitle="Elem2"
+                        jcr:description="&lt;p>Teaser Description&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2022-05-27T15:15:56.999+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Second Teaser Title"
+                        sling:resourceType="menarinimaster/components/teaser"
+                        alt="beach"
+                        altValueFromDAM="false"
+                        descriptionFromPage="false"
+                        fileReference="/content/dam/wknd/en/magazine/la-skateparks/AdobeStock_243954373.JPG"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        linkTarget="_self"
+                        textIsRich="true"
+                        title="Second Teaser Title"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="/content/menarini-demo/gb/en/about-us"
+                                linkTarget="_self"
+                                text="Read More"/>
+                        </actions>
+                    </item_1653653543341>
+                </slideshow>
+                <section
+                    jcr:lastModified="{Date}2023-05-23T14:53:09.546Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:lastModified="{Date}2023-05-23T14:55:45.302Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper"/>
+                </section>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>
