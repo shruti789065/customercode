@@ -31,3 +31,26 @@
 		}	
 	}
 }
+
+@media (max-width: 768px){
+	.cmp-container--internal.cmp-container__layout {
+		padding-left: 25px !important;
+		padding-right: 25px !important;
+	}
+	.container.ps-3,
+	.container.ps-5 {
+		padding-left: 0px !important;
+	}
+	.container.pe-3,
+	.container.pe-5 {
+		padding-right: 0px !important;
+	}
+	.container.ms-3,
+	.container.ms-5 {
+		margin-left: 0px !important;
+	}
+	.container.me-3,
+	.container.me-5 {
+		margin-right: 0px !important;
+	}
+}
