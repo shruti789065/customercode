@@ -2,7 +2,6 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
-    <rep:policy/>
     <menarinimaster jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
             <form jcr:primaryType="nt:unstructured">
@@ -41,65 +40,11 @@
                 </policy_xfm>
             </languagenavigation>
             <image jcr:primaryType="nt:unstructured">
-                <policy_651483963895698
-                    jcr:description="- Enable lazy loading for faster page loading.&#xd;&#xa;- Define allowed image widths for automatic loading of the image in the most optimal resolution, given the size at which each image is displayed on the page, and the visitor's pixel density.&#xd;&#xa;- Disallow direct asset upload, to force authors to first upload the images to Assets."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Image"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
-                    allowUpload="false"
-                    altValueFromDAM="true"
-                    disableLazyLoading="false"
-                    displayPopupTitle="true"
-                    isDecorative="false"
-                    jpegQuality="{Long}85"
-                    titleValueFromDAM="true"
-                    uuidDisabled="true">
-                    <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                    <plugins jcr:primaryType="nt:unstructured">
-                        <crop
-                            jcr:primaryType="nt:unstructured"
-                            features="*">
-                            <aspectRatios jcr:primaryType="nt:unstructured">
-                                <item0
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Wide Landscape"
-                                    ratio="0.6180"/>
-                                <item1
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Landscape"
-                                    ratio="0.8284"/>
-                                <item2
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Square"
-                                    ratio="1"/>
-                                <item3
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Portrait"
-                                    ratio="1.6180"/>
-                            </aspectRatios>
-                        </crop>
-                        <rotate
-                            jcr:primaryType="nt:unstructured"
-                            features="right"/>
-                        <flip
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                    </plugins>
-                </policy_651483963895698>
                 <policy_4689979585600
-                    jcr:lastModified="{Date}2023-05-22T10:35:21.109Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T09:54:49.651+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="image policy"
+                    jcr:title="Menarini MT image policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedRenditionWidths="[100,200,300,400,500,600,700,800,900,1000,1100,1200,1600]"
                     altValueFromDAM="true"
@@ -257,48 +202,11 @@
                 </policy_641562756958017>
             </text>
             <title jcr:primaryType="nt:unstructured">
-                <policy_641475696923109
-                    jcr:description="Allows only H1 and disallows links for the main page title."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Title"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="h1"
-                    linkDisabled="true"
-                    type="h1">
-                    <jcr:content
-                        cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                </policy_641475696923109>
-                <policy_641528232375303
-                    jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Title"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="[h2,h3,h4,h5,h6]"
-                    linkDisabled="false"
-                    type="h2">
-                    <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                </policy_641528232375303>
                 <policy_692740220817900
                     jcr:lastModified="{Date}2023-05-22T08:16:01.726Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Menarini PT title policy"
+                    jcr:title="Menarini Demo title policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="false"
@@ -397,38 +305,6 @@
                         </item3>
                     </cq:styleGroups>
                 </policy_692740220817900>
-                <policy_696913814400400
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini content policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="[h1,h2,h3,h4,h5,h6]"
-                    linkDisabled="false"
-                    type="h1">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Color"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-title--primary"
-                                    cq:styleId="1653556675787"
-                                    cq:styleLabel="primary"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="cmp-title--default"
-                                    cq:styleId="1653556692050"
-                                    cq:styleLabel="default"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                    cq:styleClasses="cmp-title--secondary"
-                                    cq:styleId="1653556705121"
-                                    cq:styleLabel="secondary"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                    </cq:styleGroups>
-                </policy_696913814400400>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
                 <policy_1653640385338
@@ -551,12 +427,12 @@
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
                     jcr:description="Sets a &lt;main> element on the page content area."
-                    jcr:lastModified="{Date}2022-07-11T17:23:59.311+02:00"
+                    jcr:lastModified="{Date}2023-06-08T17:32:45.568+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Form,group:Menarini MT - Content]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/header/share,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -774,20 +650,20 @@
                         jcr:primaryType="nt:unstructured"/>
                 </policy_13297555366500>
                 <policy_18390849275000
-                    jcr:lastModified="{Date}2023-05-23T14:55:17.344Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T10:05:33.506+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="container policy"
+                    jcr:title="Menarini MT container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     backgroundColorEnabled="true"
                     backgroundImageEnabled="true"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-07T15:01:34.337Z"
+                        cq:lastReplicated_publish="{Date}2023-06-07T15:01:34.337Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -798,11 +674,6 @@
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleClasses="cmp-container--standard_width"
-                                    cq:styleId="1653912867306"
-                                    cq:styleLabel="Standard"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
                                     cq:styleClasses="cmp-container--internal cmp-container__layout"
                                     cq:styleId="1684742346871"
                                     cq:styleLabel="Internal"
@@ -828,12 +699,22 @@
                                 <item0
                                     cq:styleClasses="ms-3"
                                     cq:styleId="1684742396961"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
                                     cq:styleId="1684742436957"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686145016395"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686145017391"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -845,12 +726,22 @@
                                 <item0
                                     cq:styleClasses="ps-3"
                                     cq:styleId="1684742467497"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
                                     cq:styleId="1684742471142"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686145014319"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686145015361"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item3>
@@ -1214,8 +1105,8 @@
             </latest_news>
             <button jcr:primaryType="nt:unstructured">
                 <policy_1653579622480
-                    jcr:lastModified="{Date}2023-05-24T10:37:06.898Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-07T15:46:48.773Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Button Policy"
                     sling:resourceType="wcm/core/components/policy/policy">
@@ -1248,12 +1139,18 @@
                         </item0>
                         <item1
                             cq:styleGroupLabel="Size"
+                            cq:styleGroupMultiple="true"
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="cmp-button--small"
                                     cq:styleId="1653579730618"
                                     cq:styleLabel="small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-text-center"
+                                    cq:styleId="1686152412447"
+                                    cq:styleLabel="text center"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1265,12 +1162,22 @@
                                 <item0
                                     cq:styleClasses="ms-3"
                                     cq:styleId="1684752238108"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
                                     cq:styleId="1684752245168"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686152359913"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686152360906"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1282,12 +1189,22 @@
                                 <item0
                                     cq:styleClasses="ps-3"
                                     cq:styleId="1684752263762"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
                                     cq:styleId="1684752271013"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686152363000"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686152364009"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item3>
@@ -1335,10 +1252,10 @@
             </slideshow>
             <cardHover jcr:primaryType="nt:unstructured">
                 <policy_1654606932416
-                    jcr:lastModified="{Date}2023-05-31T15:54:47.610Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T10:08:51.733+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="card hover policy"
+                    jcr:title="Menarini MT card hover policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     actionsDisabled="true"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
@@ -1793,10 +1710,10 @@
                 </megamenu>
                 <share jcr:primaryType="nt:unstructured">
                     <policy_1684743550562
-                        jcr:lastModified="{Date}2023-05-22T08:23:10.145Z"
-                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:lastModified="{Date}2023-06-08T17:08:40.303+02:00"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="menarini PT share policy"
+                        jcr:title="Menarini MT share policy"
                         sling:resourceType="wcm/core/components/policy/policy">
                         <jcr:content
                             cq:isDelivered="{Boolean}true"
@@ -1949,7 +1866,7 @@
                     jcr:lastModified="{Date}2023-05-24T10:54:42.011Z"
                     jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Fragment Wrapper "
+                    jcr:title="Menarini MT Fragment Wrapper "
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedColorSwatches="[#FFF,#143F59]"
                     backgroundColorEnabled="true"
@@ -1983,7 +1900,7 @@
                     jcr:lastModified="{Date}2023-05-23T15:02:17.307Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="wrapper "
+                    jcr:title="Menarini MT wrapper policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     backgroundColorEnabled="true"
                     backgroundImageEnabled="true"
@@ -2007,7 +1924,7 @@
                     jcr:lastModified="{Date}2023-05-22T07:51:08.327Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Fragment section container"
+                    jcr:title="Menarini MT fragment section container"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedColorSwatches="[#FFF,#143F59]"
                     backgroundColorEnabled="true"
@@ -2048,7 +1965,7 @@
                     jcr:lastModified="{Date}2023-05-23T15:11:41.702Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="section container "
+                    jcr:title="Menarini MT section container "
                     sling:resourceType="wcm/core/components/policy/policy"
                     backgroundColorEnabled="true"
                     backgroundImageEnabled="true"
@@ -2068,14 +1985,14 @@
             </section>
             <sitemap jcr:primaryType="nt:unstructured">
                 <policy_1684743439978
-                    jcr:lastModified="{Date}2023-05-22T08:19:01.392Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-08T17:04:36.990+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT sitemap policy"
+                    jcr:title="Menarini MT sitemap policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     collectAllPages="true"
                     disableShadowing="false"
-                    navigationRoot="/content/menarini-demo/gb"
+                    navigationRoot="/content/"
                     structureStart="1">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2130,7 +2047,7 @@
                     jcr:lastModified="{Date}2023-05-22T08:22:50.769Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT product list item policy"
+                    jcr:title="Menarini Demo product list item policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
@@ -2188,7 +2105,7 @@
                     jcr:lastModified="{Date}2023-05-22T08:46:22.862Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT product leafleft policy"
+                    jcr:title="Menarini Demo product leafleft policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2243,7 +2160,7 @@
                     jcr:lastModified="{Date}2023-05-22T08:48:50.989Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT product category list policy"
+                    jcr:title="Menarini Demo product category list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     disableChildren="false"
                     disableSearch="false"
@@ -2305,7 +2222,7 @@
                     jcr:lastModified="{Date}2023-05-22T08:57:37.111Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT news date policy"
+                    jcr:title="Menarini Demo news date policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2479,10 +2396,10 @@
             </list>
             <link jcr:primaryType="nt:unstructured">
                 <policy_1684751495775
-                    jcr:lastModified="{Date}2023-05-22T10:32:38.009Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T09:48:54.635+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT link policy"
+                    jcr:title="Menarini MT link policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2501,6 +2418,7 @@
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
+                                    cq:styleClasses="ms-3"
                                     cq:styleId="1684751529088"
                                     cq:styleLabel="left"
                                     jcr:primaryType="nt:unstructured"/>
@@ -2536,7 +2454,7 @@
                     jcr:lastModified="{Date}2023-05-22T10:34:28.565Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT latest news policy"
+                    jcr:title="Menarini Demo latest news policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     disableChildren="false"
                     disableSearch="false"
@@ -2599,7 +2517,7 @@
                     jcr:lastModified="{Date}2023-05-22T10:37:02.343Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT cookie list policy"
+                    jcr:title="Menarini Demo cookie list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     embeddablesDisabled="false"
                     htmlDisabled="false"
@@ -2667,7 +2585,7 @@
                     jcr:lastModified="{Date}2023-05-22T10:37:50.200Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT content fragment list"
+                    jcr:title="Menarini Demo content fragment list"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2722,7 +2640,7 @@
                     jcr:lastModified="{Date}2023-05-22T10:38:43.289Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT content fragment policy"
+                    jcr:title="Menarini Demo content fragment policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2777,7 +2695,7 @@
                     jcr:lastModified="{Date}2023-05-22T10:39:33.047Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT card list policy"
+                    jcr:title="Menarini Demo card list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
@@ -2832,10 +2750,10 @@
             </cardlistitem>
             <card-avatar-team-member jcr:primaryType="nt:unstructured">
                 <policy_1684751987201
-                    jcr:lastModified="{Date}2023-05-22T10:40:40.390Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T10:07:13.423+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT card team member avatar policy"
+                    jcr:title="Menarini MT card team member avatar policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2887,10 +2805,10 @@
             </card-avatar-team-member>
             <card jcr:primaryType="nt:unstructured">
                 <policy_1684752139804
-                    jcr:lastModified="{Date}2023-05-31T08:53:54.570Z"
-                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T10:09:37.846+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="card policy"
+                    jcr:title="Menarini MT card policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"

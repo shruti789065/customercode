@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="sling:OrderedFolder">
-    <placeholders/>
+    <documents/>
+    <menu/>
     <jcr:content
+        cq:lastModified="{Date}2023-06-07T08:32:39.075Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
         jcr:primaryType="nt:unstructured"
         jcr:title="Assets"
         sourcing="false">
         <folderThumbnail/>
     </jcr:content>
-    <products-area/>
-    <robots.txt/>
+    <rep:policy/>
+    <slideshow/>
+    <about-us/>
     <therapeutic-area/>
-
+    <careers/>
+    <contact-us/>
+    <terms-and-conditions/>
+    <data-privacy/>
+    <placeholders/>
+    <home/>
+    <icons/>
+    <robots.txt/>
 </jcr:root>

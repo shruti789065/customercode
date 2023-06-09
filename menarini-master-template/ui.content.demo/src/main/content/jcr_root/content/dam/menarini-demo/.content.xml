@@ -2,15 +2,20 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="sling:OrderedFolder">
-    <rep:policy/>
     <robots.txt/>
     <area-content-fragments/>
     <jcr:content
         cq:conf="/conf/menarini-demo"
+        cq:lastReplicated="{Date}2023-06-07T08:19:55.446Z"
+        cq:lastReplicated_publish="{Date}2023-06-07T08:19:55.446Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
         jcr:primaryType="nt:unstructured"
         jcr:title="Menarini Demo">
         <folderThumbnail/>
     </jcr:content>
     <assets/>
-    <icons/>
 </jcr:root>
