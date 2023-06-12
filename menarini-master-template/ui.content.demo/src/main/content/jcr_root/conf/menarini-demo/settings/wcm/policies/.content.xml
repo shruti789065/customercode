@@ -72,13 +72,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751699829"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751702724"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -89,13 +99,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751709858"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751713755"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -104,10 +124,10 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2023-05-31T13:45:20.053Z"
-                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T11:47:30.890+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Text"
+                    jcr:title="Menarini MT text policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-06-01T13:12:02.175Z"
@@ -141,7 +161,7 @@
                         </paraformat>
                         <misctools
                             jcr:primaryType="nt:unstructured"
-                            features="-">
+                            features="sourceedit">
                             <specialCharsConfig jcr:primaryType="nt:unstructured">
                                 <chars
                                     jcr:primaryType="nt:unstructured"
@@ -167,19 +187,19 @@
                         </misctools>
                         <edit
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="paste-plaintext,paste-wordhtml"/>
                         <findreplace
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <undo
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <spellcheck
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <image
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <table
                             jcr:primaryType="nt:unstructured"
                             features="*"/>
@@ -197,16 +217,72 @@
                             features="modifylink,unlink,anchor"/>
                         <subsuperscript
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                     </rtePlugins>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Margins"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Paddings"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1686561131012"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1686561136649"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686561137809"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686561138942"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
                 </policy_641562756958017>
             </text>
             <title jcr:primaryType="nt:unstructured">
                 <policy_692740220817900
-                    jcr:lastModified="{Date}2023-05-22T08:16:01.726Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T11:43:32.978+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Menarini Demo title policy"
+                    jcr:title="Menarini MT title policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="false"
@@ -276,13 +352,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743300833"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743304550"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -293,13 +379,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743322697"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743328364"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item3>
@@ -748,10 +844,12 @@
                     </cq:styleGroups>
                 </policy_18390849275000>
                 <policy_4452714892300
+                    jcr:lastModified="{Date}2023-06-12T11:01:43.771+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details news policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/latestNews,/apps/menarinimaster/components/link,/apps/menarinimaster/components/news_card,/apps/menarinimaster/components/news_data,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/header/share,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-03-31T14:37:44.136Z"
@@ -951,51 +1049,11 @@
                 </policy_1657727659177>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
-                <policy_1575031387650
-                    jcr:description="Sets the title size to H3."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Teaser"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    titleType="h3">
-                    <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                </policy_1575031387650>
-                <policy_95533074908300
-                    jcr:lastModified="{Date}2023-03-02T11:42:59.468+01:00"
+                <policy_189396264340098
+                    jcr:lastModified="{Date}2023-06-12T11:50:06.098+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="MT teaser policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
-                    showTitleType="false"
-                    titleType="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Layout"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-teaser--avatar-team"
-                                    cq:styleId="1677753739720"
-                                    cq:styleLabel="Card Avatar Team Member"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                    </cq:styleGroups>
-                </policy_95533074908300>
-                <policy_189396264340098
-                    jcr:lastModified="{Date}2023-05-22T08:17:14.785Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="MT teaser policy"
+                    jcr:title="Menarini MT teaser policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
@@ -1019,28 +1077,49 @@
                                 <item0
                                     cq:styleClasses="ms-3"
                                     cq:styleId="1684743393022"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
                                     cq:styleId="1684743399758"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561409528"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561410811"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
                         <item1
                             cq:styleGroupLabel="padding"
+                            cq:styleGroupMultiple="true"
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
                                     cq:styleId="1684743416285"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
                                     cq:styleId="1684743423819"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686561412729"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686561413772"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1105,10 +1184,10 @@
             </latest_news>
             <button jcr:primaryType="nt:unstructured">
                 <policy_1653579622480
-                    jcr:lastModified="{Date}2023-06-07T15:46:48.773Z"
-                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T10:13:04.412+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Button Policy"
+                    jcr:title="Menarini MT button policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -1296,13 +1375,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684752096858"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="pe-3"
-                                    cq:styleId="1684752101427"
-                                    cq:styleLabel="right"
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1313,13 +1402,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684752109907"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684752113465"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1352,10 +1451,10 @@
             <banner jcr:primaryType="nt:unstructured">
                 <policy_1655106936933
                     cq:styleDefaultClasses="cmp-banner"
-                    jcr:lastModified="{Date}2023-05-22T10:45:29.464Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T10:15:38.250+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="banner policy"
+                    jcr:title="Menarini MT banner policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     pretitleHidden="true"
@@ -1395,13 +1494,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684752308182"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684752313118"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1412,13 +1521,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684752320979"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684752324914"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1470,13 +1589,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745886770"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745889318"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -1487,13 +1616,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745891567"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745894007"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1578,13 +1717,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743841093"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743844678"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1595,13 +1744,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743848703"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743854266"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1631,10 +1790,10 @@
             <customTeaser jcr:primaryType="nt:unstructured">
                 <policy_1657527731660
                     cq:styleDefaultClasses="cmp-custom-teaser"
-                    jcr:lastModified="{Date}2023-05-22T10:36:05.939Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T11:52:39.151+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="custom teaser policy"
+                    jcr:title="Menarini MT custom teaser policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     pretitleHidden="true"
@@ -1658,13 +1817,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751745366"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751747997"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -1675,13 +1844,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751754051"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751757460"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1710,7 +1889,7 @@
                 </megamenu>
                 <share jcr:primaryType="nt:unstructured">
                     <policy_1684743550562
-                        jcr:lastModified="{Date}2023-06-08T17:08:40.303+02:00"
+                        jcr:lastModified="{Date}2023-06-12T10:33:16.648+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Menarini MT share policy"
@@ -1733,13 +1912,23 @@
                                 <cq:styles jcr:primaryType="nt:unstructured">
                                     <item0
                                         cq:styleClasses="ms-3"
-                                        cq:styleId="1684743580939"
-                                        cq:styleLabel="left"
+                                        cq:styleId="1686561084291"
+                                        cq:styleLabel="left small"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
                                         cq:styleClasses="me-3"
-                                        cq:styleId="1684743588922"
-                                        cq:styleLabel="right"
+                                        cq:styleId="1686561090496"
+                                        cq:styleLabel="right small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="ms-5"
+                                        cq:styleId="1686561103196"
+                                        cq:styleLabel="left big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="me-5"
+                                        cq:styleId="1686561113230"
+                                        cq:styleLabel="right big"
                                         jcr:primaryType="nt:unstructured"/>
                                 </cq:styles>
                             </item0>
@@ -1750,13 +1939,23 @@
                                 <cq:styles jcr:primaryType="nt:unstructured">
                                     <item0
                                         cq:styleClasses="ps-3"
-                                        cq:styleId="1684743597704"
-                                        cq:styleLabel="left"
+                                        cq:styleId="1684752172948"
+                                        cq:styleLabel="left small"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
                                         cq:styleClasses="pe-3"
-                                        cq:styleId="1684743604922"
-                                        cq:styleLabel="right"
+                                        cq:styleId="1684752176188"
+                                        cq:styleLabel="right small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="ps-5"
+                                        cq:styleId="1685523077002"
+                                        cq:styleLabel="left big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="pe-5"
+                                        cq:styleId="1685523078366"
+                                        cq:styleLabel="right big"
                                         jcr:primaryType="nt:unstructured"/>
                                 </cq:styles>
                             </item1>
@@ -1797,13 +1996,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745386829"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745391621"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -1814,13 +2023,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745400088"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745404533"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1897,8 +2116,8 @@
                 </policy_1684741545832>
                 <policy_61500681532547
                     cq:styleDefaultClasses="cmp-container--standard_width"
-                    jcr:lastModified="{Date}2023-05-23T15:02:17.307Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T10:33:37.875+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Menarini MT wrapper policy"
                     sling:resourceType="wcm/core/components/policy/policy"
@@ -2012,13 +2231,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743499773"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743506812"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2029,13 +2258,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743519435"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743524488"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2070,13 +2309,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743728143"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743738955"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2087,13 +2336,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743753604"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743761175"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2125,13 +2384,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745138794"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745145590"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2142,13 +2411,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745159229"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745164893"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2187,13 +2466,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745234366"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745240335"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2204,13 +2493,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745246721"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745244475"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2242,13 +2541,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745683884"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745688535"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2259,13 +2568,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745701654"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745707954"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2304,13 +2623,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684746085217"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684746086794"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2321,13 +2650,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684746084497"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684746091252"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2364,13 +2703,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751588499"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751591728"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2381,13 +2730,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751599139"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751604170"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2419,13 +2778,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751529088"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751531363"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2436,13 +2805,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751542163"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751547067"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2481,13 +2860,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751637648"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751640448"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2498,13 +2887,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751645858"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751654160"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2550,13 +2949,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751802695"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751805246"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2567,13 +2976,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751811016"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751817924"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2605,13 +3024,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751853683"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751856123"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2622,13 +3051,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751861407"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751865026"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2660,13 +3099,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751903450"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751906299"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2677,13 +3126,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751912192"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751916564"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2718,13 +3177,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751954966"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751957501"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2735,13 +3204,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751964394"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751967580"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2773,13 +3252,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684752016031"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684752019041"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2790,13 +3279,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684752031018"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684752034656"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2881,6 +3380,72 @@
                     </cq:styleGroups>
                 </policy_1684752139804>
             </card>
+            <separator jcr:primaryType="nt:unstructured">
+                <policy_1686562797028
+                    jcr:lastModified="{Date}2023-06-12T11:50:23.487+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Menarini MT separator policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="margin"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1686562815569"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686562822826"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686562830550"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686562833889"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="padding"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1686562840153"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1686562846716"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686562852345"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686562855602"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
+                </policy_1686562797028>
+            </separator>
         </components>
     </menarinimaster>
 </jcr:root>
