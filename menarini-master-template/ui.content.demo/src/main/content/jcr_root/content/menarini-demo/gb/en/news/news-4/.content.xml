@@ -2,12 +2,13 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-06-07T15:14:25.101Z"
+        cq:lastModified="{Date}2023-06-09T07:36:56.197Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
         cq:template="/conf/menarini-demo/settings/wcm/templates/menarini---details-news"
         jcr:primaryType="cq:PageContent"
-        jcr:title="News 1"
+        jcr:title="News 4"
         sling:resourceType="menarinimaster/components/page"
+        hideInNav="true"
         pwaCachestrategy="staleWhileRevalidate"
         pwaDisplay="standalone"
         pwaOrientation="any">
@@ -125,7 +126,7 @@
             </container>
         </root>
         <cq:featuredimage
-            jcr:lastModified="{Date}2023-06-07T15:13:50.936Z"
+            jcr:lastModified="{Date}2023-06-09T07:36:56.179Z"
             jcr:lastModifiedBy="d.mariotti@adiacent.com"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="core/wcm/components/image/v3/image"

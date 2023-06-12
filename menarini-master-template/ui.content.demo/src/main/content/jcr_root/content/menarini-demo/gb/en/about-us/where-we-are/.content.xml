@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-06-07T10:38:26.071Z"
+        cq:lastModified="{Date}2023-06-09T07:23:36.794Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
         cq:template="/conf/menarini-demo/settings/wcm/templates/menarini---details-page"
         jcr:primaryType="cq:PageContent"
@@ -76,6 +76,10 @@
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
                                     width="5"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
                             </cq:responsive>
                         </title>
                         <cq:responsive jcr:primaryType="nt:unstructured">

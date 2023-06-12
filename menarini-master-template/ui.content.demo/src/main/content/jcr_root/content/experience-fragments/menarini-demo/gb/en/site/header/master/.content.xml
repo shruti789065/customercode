@@ -3,14 +3,14 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-07T15:11:18.523Z"
-        cq:lastModifiedBy="reference-adjustment-service"
-        cq:lastReplicated="{Date}2023-06-07T15:11:19.590Z"
+        cq:lastModified="{Date}2023-06-12T16:51:32.640+02:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2023-06-09T12:20:21.330Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-07T15:11:19.590Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated_publish="{Date}2023-06-09T12:20:21.330Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_preview="Activate"
         cq:lastReplicationAction_publish="Activate"
@@ -28,7 +28,7 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="menarinimaster/components/container"
             layout="responsiveGrid">
-            <section_1812760392
+            <section_navbar
                 cq:styleIds="[1684741843688]"
                 jcr:lastModified="{Date}2023-05-24T10:29:42.477Z"
                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -41,7 +41,7 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
-                    <text
+                    <text_quality
                         jcr:lastModified="{Date}2023-06-06T11:00:03.192Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
@@ -61,17 +61,17 @@
                             <phone
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
-                                width="7"/>
+                                width="9"/>
                         </cq:responsive>
-                    </text>
-                    <text_2127893122
+                    </text_quality>
+                    <text_block
                         cq:masterBuildingBlock="{Boolean}true"
                         jcr:lastModified="{Date}2023-05-24T11:01:17.976Z"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="GLOBAL"
                         sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
-                        <item2279952165042
+                        <text_discover
                             jcr:lastModified="{Date}2023-05-31T13:47:04.376Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
@@ -84,8 +84,8 @@
                                     offset="0"
                                     width="2"/>
                             </cq:responsive>
-                        </item2279952165042>
-                        <text_21278931222279949867211
+                        </text_discover>
+                        <text_globalwebsite
                             jcr:lastModified="{Date}2023-05-26T12:36:02.520Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
@@ -100,14 +100,14 @@
                                 <tablet
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="12"/>
+                                    width="2"/>
                                 <phone
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
                                     width="12"/>
                             </cq:responsive>
-                        </text_21278931222279949867211>
-                        <item2279954539274
+                        </text_globalwebsite>
+                        <text_country
                             jcr:lastModified="{Date}2023-05-26T12:36:49.014Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
@@ -122,29 +122,29 @@
                                 <tablet
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="12"/>
+                                    width="2"/>
                                 <phone
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="12"/>
+                                    width="2"/>
                             </cq:responsive>
-                        </item2279954539274>
+                        </text_country>
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
                                 offset="2"
                                 width="4"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="2"/>
                             <phone
                                 jcr:primaryType="nt:unstructured"
                                 behavior="hide"
                                 offset="&#xa;0"
-                                width="12"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="12"/>
+                                width="2"/>
                         </cq:responsive>
-                    </text_2127893122>
+                    </text_block>
                     <languagenavigation
                         jcr:lastModified="{Date}2022-06-07T15:26:05.751+02:00"
                         jcr:lastModifiedBy="admin"
@@ -159,17 +159,17 @@
                                 width="1"/>
                             <tablet
                                 jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="2"/>
+                                offset="8"
+                                width="3"/>
                             <phone
                                 jcr:primaryType="nt:unstructured"
-                                offset="1"
-                                width="4"/>
+                                offset="2"
+                                width="3"/>
                         </cq:responsive>
                     </languagenavigation>
                 </wrapper>
-            </section_1812760392>
-            <section
+            </section_navbar>
+            <section_megamenu
                 cq:styleIds="[1684741856631]"
                 jcr:lastModified="{Date}2023-05-24T07:46:25.029Z"
                 jcr:lastModifiedBy="a.messori@adiacent.com"
@@ -182,8 +182,8 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     id="wrapper-menu">
                     <megamenu
-                        jcr:lastModified="{Date}2023-05-31T12:42:14.456Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:lastModified="{Date}2023-06-09T13:33:47.340Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/header/megamenu"
                         alt="menarini logo"
@@ -196,7 +196,7 @@
                         logoFolder="/content/dam/logo/menarini-demo"
                         logoUrl="/content/menarini-demo/gb/en">
                         <share jcr:primaryType="nt:unstructured"/>
-                        <item_1654693185355
+                        <item_aboutus
                             cq:panelTitle="About Us"
                             cq:styleIds="[1655115764732]"
                             jcr:lastModified="{Date}2022-06-10T14:07:13.740+02:00"
@@ -373,10 +373,11 @@
                                     sling:resourceType="menarinimaster/components/container"
                                     layout="responsiveGrid">
                                     <container_1393164775
-                                        jcr:lastModified="{Date}2023-05-26T13:01:23.413Z"
+                                        jcr:lastModified="{Date}2023-06-09T07:16:49.144Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="menarinimaster/components/container">
+                                        sling:resourceType="menarinimaster/components/container"
+                                        layout="responsiveGrid">
                                         <image
                                             jcr:lastModified="{Date}2023-06-06T09:48:24.164Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -388,7 +389,14 @@
                                             imageFromPageImage="false"
                                             isDecorative="true"
                                             linkTarget="_self"
-                                            titleValueFromDAM="true"/>
+                                            titleValueFromDAM="true">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    offset="2"
+                                                    width="8"/>
+                                            </cq:responsive>
+                                        </image>
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
                                                 jcr:primaryType="nt:unstructured"
@@ -420,14 +428,26 @@
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/spacer"
-                                            spacer="20"/>
+                                            spacer="20">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    behavior="hide"/>
+                                            </cq:responsive>
+                                        </spacer>
                                         <text
                                             jcr:lastModified="{Date}2023-05-26T13:03:22.348Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/text"
                                             text="&lt;p>High quality therapeutics and diagnostics solutions for patients.&lt;/p>&#xd;&#xa;"
-                                            textIsRich="true"/>
+                                            textIsRich="true">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    behavior="hide"/>
+                                            </cq:responsive>
+                                        </text>
                                         <button
                                             cq:styleIds="[1653579684271,1653579730618]"
                                             jcr:lastModified="{Date}2023-05-26T13:04:15.603Z"
@@ -450,8 +470,8 @@
                                     </container_1594684410>
                                 </container_1230078590>
                             </container_781062112>
-                        </item_1654693185355>
-                        <item_1654787773435
+                        </item_aboutus>
+                        <item_therapeuticAreas
                             cq:panelTitle="Therapeutic Area"
                             jcr:lastModified="{Date}2022-06-09T17:16:49.659+02:00"
                             jcr:lastModifiedBy="admin"
@@ -706,8 +726,8 @@
                                     sortOrder="asc"
                                     tagsMatch="any"/>
                             </container_781062112_>
-                        </item_1654787773435>
-                        <item_1685536909724
+                        </item_therapeuticAreas>
+                        <item_linkcareers
                             cq:panelTitle="Careers"
                             jcr:lastModified="{Date}2023-05-31T12:43:06.834Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -717,29 +737,29 @@
                             link="/content/menarini-demo/gb/en/careers"
                             linkType="standard"
                             target="_self"/>
-                        <link_1383470917
+                        <link_linknews
                             cq:panelTitle="News"
-                            jcr:lastModified="{Date}2023-06-01T13:29:11.043Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:lastModified="{Date}2023-06-12T16:51:09.165+02:00"
+                            jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
                             label="News"
-                            link="/content/menarini-demo/gb/en/news222"
+                            link="/content/menarini-demo/gb/en/news"
                             linkType="standard"
                             target="_self"/>
-                        <item_1677144146087
+                        <item_linkcontactus
                             cq:panelTitle="Contacts"
-                            jcr:lastModified="{Date}2023-02-23T09:25:09.061Z"
-                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:lastModified="{Date}2023-06-12T16:51:32.564+02:00"
+                            jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
                             label="Contacts"
-                            link="/content/menarini-demo/gb/en/contactos"
+                            link="/content/menarini-demo/gb/en/contact-us"
                             linkType="standard"
                             target="_self"/>
                     </megamenu>
                 </wrapper>
-            </section>
+            </section_megamenu>
             <logo/>
         </root>
         <cq:metadata jcr:primaryType="nt:unstructured"/>
