@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-06-09T07:56:43.437Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:template="/conf/menarini-minisite/settings/wcm/templates/menarini---content-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Contact Us"
+        sling:resourceType="menarinimaster/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader
+                    jcr:lastModified="{Date}2022-05-27T16:15:23.398+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/internalheader"/>
+                <section
+                    jcr:lastModified="{Date}2023-05-23T15:04:29.514Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:lastModified="{Date}2023-05-23T15:05:56.279Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper">
+                        <breadcrumb
+                            jcr:lastModified="{Date}2022-05-27T16:15:51.228+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/breadcrumb"/>
+                    </wrapper>
+                </section>
+                <section_1473771530
+                    jcr:lastModified="{Date}2023-05-23T15:06:16.651Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:lastModified="{Date}2023-05-23T15:06:21.971Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper">
+                        <title
+                            cq:styleIds="[1653552493699]"
+                            jcr:lastModified="{Date}2023-06-06T16:04:41.988Z"
+                            jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h2"/>
+                        <text_copy_copy
+                            jcr:lastModified="{Date}2023-06-07T14:21:00.633Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p>lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </wrapper>
+                </section_1473771530>
+                <section_166248287_co
+                    jcr:lastModified="{Date}2023-06-07T14:32:18.347Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:lastModified="{Date}2023-06-07T14:32:23.410Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper">
+                        <container_copy
+                            jcr:lastModified="{Date}2023-06-09T07:52:48.929Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/form/container"
+                            action="/content/usergeneratedmenarini-ptcontacts/cq-gen1659013867975/"
+                            actionType="foundation/components/form/actions/mail"
+                            from="webmaster@menarini.com"
+                            mailAdminText="Email from Menarini"
+                            mailClientText="Email from Menarini"
+                            mailto="loremIpsum@menarini.com"
+                            redirect="/content/menarini-minisite/gb/en/thank-you-page"
+                            subject="Contact from Menarini">
+                            <text
+                                jcr:lastModified="{Date}2023-05-23T13:53:30.084Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="First Name"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Name"
+                                name="name"
+                                required="true"
+                                requiredMessage="First name required"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text>
+                            <text_copy_copy_1424348856
+                                jcr:lastModified="{Date}2023-05-23T13:54:28.591Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Surname"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Surname"
+                                name="surname"
+                                required="true"
+                                requiredMessage="Surname required"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_1424348856>
+                            <text_copy_copy
+                                jcr:lastModified="{Date}2023-05-23T13:54:56.143Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Job Title"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Job Title"
+                                name="jobtitle"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy>
+                            <text_copy_copy_920838233
+                                jcr:lastModified="{Date}2023-05-23T13:55:16.406Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Address"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Address"
+                                name="address"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_920838233>
+                            <text_copy_copy_92083
+                                jcr:lastModified="{Date}2023-05-23T13:56:43.920Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Post Code"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Post Code"
+                                name="post-code"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083>
+                            <text_copy_copy_92083_292625700
+                                jcr:lastModified="{Date}2023-05-23T13:57:05.885Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="City"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="City"
+                                name="city"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_292625700>
+                            <text_copy_copy_92083_1133078703
+                                jcr:lastModified="{Date}2023-05-23T13:57:29.454Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Country"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                constraintMessage="Email mandatory"
+                                helpMessage="Country"
+                                name="country"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_1133078703>
+                            <text_copy_copy_92083_690136893
+                                jcr:lastModified="{Date}2023-05-23T13:58:00.220Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Telephone"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Telephone"
+                                name="telephone"
+                                rows="2"
+                                type="tel"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_690136893>
+                            <text_copy_copy_92083_1159773737
+                                jcr:lastModified="{Date}2023-05-23T13:58:32.211Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Email"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                constraintMessage="Email mandatory"
+                                helpMessage="Email"
+                                name="email"
+                                required="true"
+                                requiredMessage="Email required"
+                                rows="2"
+                                type="email"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_1159773737>
+                            <options
+                                jcr:lastModified="{Date}2023-06-07T14:34:25.429Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Reason fot contacting us"
+                                sling:resourceType="menarinimaster/components/form/options"
+                                name="reason-contacting"
+                                requiredMessage="required"
+                                requiredMultiSelect="false"
+                                requiredRadio="false"
+                                requiredSelect="true"
+                                source="local"
+                                type="drop-down">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="General Enquiries"
+                                        value="General Enquiries"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="Lorem Ipsum 1"
+                                        value="Lorem Ipsum 1"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="Lorem Ipsum 2"
+                                        value="Lorem Ipsum 2"/>
+                                </items>
+                            </options>
+                            <text_1015623835
+                                jcr:lastModified="{Date}2023-05-23T14:01:37.378Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Please leave your message here"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Please leave your message here"
+                                name="message"
+                                required="true"
+                                requiredMessage="Message required"
+                                rows="6"
+                                type="textarea"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_1015623835>
+                            <text_657280565
+                                jcr:lastModified="{Date}2023-06-09T07:56:43.431Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/text"
+                                text="&lt;p>Having read the&amp;nbsp;&lt;a>&lt;/a>&lt;a href=&quot;/content/menarini-minisite/gb/en/data-privacy/privacy-policy.html&quot; target=&quot;_self&quot;>privacy information&lt;/a>&amp;nbsp;notice I consent to the processing of personal data including sensitive personal data, for the purposes of managing my request pursuant to the GDPR,&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="8"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_657280565>
+                            <options_1810179993
+                                jcr:lastModified="{Date}2023-05-23T14:02:45.978Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title=" "
+                                sling:resourceType="menarinimaster/components/form/options"
+                                name="privacy"
+                                requiredMessage="This field is mandatory"
+                                requiredMultiSelect="false"
+                                requiredRadio="true"
+                                requiredSelect="false"
+                                source="local"
+                                type="radio">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="Yes"
+                                        value="1"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="true"
+                                        text="No"
+                                        value="0"/>
+                                </items>
+                            </options_1810179993>
+                            <recaptcha
+                                jcr:lastModified="{Date}2023-06-07T14:45:37.372Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/form/recaptcha"
+                                publicKey="LOREMIPSUM"/>
+                            <button
+                                jcr:lastModified="{Date}2023-05-23T14:02:54.243Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Submit"
+                                sling:resourceType="menarinimaster/components/form/button"
+                                type="submit"/>
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="8"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </container_copy>
+                    </wrapper>
+                </section_166248287_co>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

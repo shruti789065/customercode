@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-06-05T12:47:18.076+02:00"
-        cq:lastModifiedBy="admin"
+        cq:lastModified="{Date}2023-06-09T13:48:53.689Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-06-09T12:21:09.067Z"
+        cq:lastReplicated_publish="{Date}2023-06-09T12:21:09.067Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-minisite/settings/wcm/templates/menarini---homepage"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Menarini Minisite Homepage"
+        jcr:title="Minisite"
+        jcr:uuid="c975e240-472d-455f-9220-92578c90f333"
         sling:resourceType="menarinimaster/components/page"
-        siteName="menarini-minisite">
+        faviconFolder="/content/dam/menarini-minisite/assets/icons/favicon"
+        oneTrustId="###LOREMIPSUM###"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="menarinimaster/components/container"
@@ -17,78 +30,120 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="menarinimaster/components/container"
                 layout="responsiveGrid">
-                <slideshow
-                    jcr:lastModified="{Date}2022-05-27T14:12:31.456+02:00"
+                <internalheader_copy
+                    jcr:lastModified="{Date}2022-05-27T16:15:23.398+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="menarinimaster/components/slideshow"
-                    autopauseDisabled="false"
-                    autoplay="false"
-                    delay="5000">
-                    <item_1653653527361
-                        cq:panelTitle="Elem1"
-                        jcr:description="&lt;p>Teaser Description&lt;/p>&#xd;&#xa;"
-                        jcr:lastModified="{Date}2023-05-23T14:52:52.370Z"
+                    sling:resourceType="menarinimaster/components/internalheader"/>
+                <section_1473771530_c
+                    jcr:lastModified="{Date}2023-05-23T15:06:16.651Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:lastModified="{Date}2023-05-23T15:06:21.971Z"
                         jcr:lastModifiedBy="a.messori@adiacent.com"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="First Teaser title"
-                        sling:resourceType="menarinimaster/components/teaser"
-                        alt="ski"
-                        altValueFromDAM="false"
-                        descriptionFromPage="false"
-                        fileReference="/content/dam/wknd/en/magazine/skitouring/Skitouring5Sjoeberg.JPG"
-                        imageFromPageImage="false"
-                        isDecorative="false"
-                        linkTarget="_self"
-                        textIsRich="true"
-                        title="First Teaser Title"
-                        titleFromPage="false"/>
-                    <actions jcr:primaryType="nt:unstructured">
-                        <item0
+                        sling:resourceType="menarinimaster/components/wrapper">
+                        <title_copy
+                            cq:styleIds="[1678463398786]"
+                            jcr:lastModified="{Date}2023-06-09T07:59:28.990Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            link="/content/menarini-minisite/gb/en/about-us"
+                            jcr:title="LOREM IPSUM"
+                            sling:resourceType="menarinimaster/components/title"
                             linkTarget="_self"
-                            text="Read More"/>
-                    </actions>
-                    <item_1653653543341
-                        cq:panelTitle="Elem2"
-                        jcr:description="&lt;p>Teaser Description&lt;/p>&#xd;&#xa;"
-                        jcr:lastModified="{Date}2022-05-27T15:15:56.999+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Second Teaser Title"
-                        sling:resourceType="menarinimaster/components/teaser"
-                        alt="beach"
-                        altValueFromDAM="false"
-                        descriptionFromPage="false"
-                        fileReference="/content/dam/wknd/en/magazine/la-skateparks/AdobeStock_243954373.JPG"
-                        imageFromPageImage="false"
-                        isDecorative="false"
-                        linkTarget="_self"
-                        textIsRich="true"
-                        title="Second Teaser Title"
-                        titleFromPage="false">
-                        <actions jcr:primaryType="nt:unstructured">
-                            <item0
-                                jcr:primaryType="nt:unstructured"
-                                link="/content/menarini-minisite/gb/en/about-us"
-                                linkTarget="_self"
-                                text="Read More"/>
-                        </actions>
-                    </item_1653653543341>
-                </slideshow>
-                <section
+                            type="h3"/>
+                    </wrapper>
+                </section_1473771530_c>
+                <section_copy_copy
                     jcr:lastModified="{Date}2023-05-23T14:53:09.546Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/section">
                     <wrapper
-                        jcr:lastModified="{Date}2023-05-23T14:55:45.302Z"
-                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:lastModified="{Date}2023-06-06T10:26:43.971Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="menarinimaster/components/wrapper"/>
-                </section>
+                        sling:resourceType="menarinimaster/components/wrapper"
+                        layout="responsiveGrid">
+                        <cardhover_copy
+                            cq:styleIds="[1654760974554,1684752113465]"
+                            jcr:description="&lt;p>lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;lorem ipsum&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-06-09T08:15:24.813Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="lorem ipsum"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-demo/assets/home/cardhover_pharmaceutical.jpg"
+                            icon="/content/dam/menarini-minisite/assets/icons/consumerhelthcare.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_blank"
+                            linkURL="/content/dam/menarini-minisite/assets/documents/sample.pdf"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover_copy>
+                        <cardhover_319877496_
+                            cq:styleIds="[1654760980212,1684752109907]"
+                            jcr:description="&lt;p>lorem ipsum&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-06-09T08:20:58.408Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="lorem ipsum"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-demo/assets/home/cardhover_consumerhelthcare.jpg"
+                            icon="/content/dam/menarini-minisite/assets/icons/consumerhelthcare.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_blank"
+                            linkURL="/content/dam/menarini-minisite/assets/documents/sample.pdf"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover_319877496_>
+                        <spacer_copy_copy
+                            jcr:lastModified="{Date}2023-06-06T10:25:17.956Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/spacer"
+                            spacer="40"/>
+                    </wrapper>
+                </section_copy_copy>
             </container>
         </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-06-09T13:48:53.657Z"
+            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
+    <terms-and-conditions/>
+    <data-privacy/>
+    <contact-us/>
+    <thank-you-page/>
 </jcr:root>

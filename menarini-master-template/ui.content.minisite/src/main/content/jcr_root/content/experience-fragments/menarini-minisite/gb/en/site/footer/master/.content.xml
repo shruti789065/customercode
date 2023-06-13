@@ -3,11 +3,11 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-01T13:17:08.270Z"
-        cq:lastModifiedBy="L.ambrosini@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-01T13:17:53.514Z"
+        cq:lastModified="{Date}2023-06-09T08:28:16.980Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-06-09T12:21:09.067Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-01T13:17:53.514Z"
+        cq:lastReplicated_publish="{Date}2023-06-09T12:21:09.067Z"
         cq:lastReplicatedBy="L.ambrosini@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
         cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
@@ -21,7 +21,7 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Footer"
-        jcr:uuid="dfc10507-5a47-4c48-bfec-086820622e2b"
+        jcr:uuid="1f9ded5e-50f1-477e-a4df-39f13e6ea19a"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
@@ -41,15 +41,15 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <list
-                        jcr:lastModified="{Date}2023-06-01T13:17:01.667Z"
-                        jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                        jcr:lastModified="{Date}2023-06-09T08:28:11.982Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/list"
                         childDepth="1"
                         displayItemAsTeaser="false"
                         linkItems="true"
                         listFrom="static"
-                        pages="[/content/menarini-minisite/gb/en/careers,/content/menarini-minisite/gb/en/data-privacy/privacy-policy,/content/menarini-minisite/gb/en/sobre-nos,/content/menarini-minisite/gb/en/termos-e-condicoes-gerais,/content/menarini-minisite/gb/en/data-privacy/cookie-policy,/content/menarini-minisite/gb/en/etica-nos-negocios-e-conformidade]"
+                        pages="[/content/menarini-minisite/gb/en/terms-and-conditions,/content/menarini-minisite/gb/en/data-privacy,/content/menarini-minisite/gb/en/contact-us]"
                         parentPage="/content/menarini-minisite/gb/en"
                         showDescription="false"
                         showModificationDate="false"
@@ -186,29 +186,28 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
-                    <text_1904139055
-                        jcr:lastModified="{Date}2022-06-23T12:01:31.149+02:00"
-                        jcr:lastModifiedBy="admin"
+                    <text_copy
+                        jcr:lastModified="{Date}2023-06-07T14:48:49.166Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
-                        text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>© 2022 The Menarini Group - All rights reserved&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>&lt;b>A.Menarini ##### ##### #####&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>VAT number and registration number in the Company House: #####&lt;br>&#xd;&#xa;Office of the Companies House: #####&lt;br>&#xd;&#xa;Share Capital: #####&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
-                                behavior="newline"
                                 offset="0"
                                 width="6"/>
                             <tablet
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
-                                width="6"/>
+                                width="7"/>
                             <phone
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
                                 width="12"/>
                         </cq:responsive>
-                    </text_1904139055>
+                    </text_copy>
                     <image
                         jcr:lastModified="{Date}2023-05-31T16:04:20.126Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -237,26 +236,29 @@
                                 width="6"/>
                         </cq:responsive>
                     </image>
-                    <text
+                    <text_1904139055
+                        jcr:lastModified="{Date}2023-06-09T08:10:51.843Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
-                        text="&lt;p>&lt;b>A.Menarini Industrie Farmaceutiche Riunite S.r.l.&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>VAT number and registration number in the Company House: 00395270481&lt;/p>&#xd;&#xa;&lt;p>Office of the Companies House: Florence&lt;/p>&#xd;&#xa;&lt;p>Share Capital: € 150.000.0000 I.V.&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>© 2023 The Menarini Group - All rights reserved&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
+                                behavior="newline"
                                 offset="0"
                                 width="6"/>
                             <tablet
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
-                                width="7"/>
+                                width="6"/>
                             <phone
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
                                 width="12"/>
                         </cq:responsive>
-                    </text>
+                    </text_1904139055>
                 </wrapper>
             </section>
         </root>
