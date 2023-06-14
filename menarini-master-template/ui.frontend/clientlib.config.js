@@ -239,6 +239,26 @@ module.exports = {
 				}
 			}
 		},
+		// site berlin
+        {
+            ...libsBaseConfig,
+            name: 'clientlib-dependencies-berlin',
+            categories: ['menariniberlin.dependencies'],
+            assets: {
+                // Copy entrypoint scripts and stylesheets into the respective ClientLib
+                // directories
+                js: {
+                    cwd: 'clientlib-dependencies-berlin',
+                    files: ['**/*.js'],
+                    flatten: false
+                },
+                css: {
+                    cwd: 'clientlib-dependencies-berlin',
+                    files: ['**/*.css'],
+                    flatten: false
+                }
+            }
+        },
 		{
 			...libsBaseConfig,
 			name: 'clientlib-berlin',
