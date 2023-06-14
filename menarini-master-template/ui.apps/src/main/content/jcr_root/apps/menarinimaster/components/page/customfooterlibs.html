@@ -16,6 +16,9 @@
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
     <sly data-sly-call="${clientlib.js @ categories='menarinimaster.base'}"/>
 </sly>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.js @ categories='menarinimaster.oneTrust'}"/>
+</sly>
 
 <sly data-sly-test="${wcmmode.edit || wcmmode.preview}">
     <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">

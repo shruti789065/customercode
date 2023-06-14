@@ -58,6 +58,12 @@ module.exports = env => {
 				template: path.resolve(__dirname, SOURCE_ROOT + '/biotech/static/index.html'),
 				filename: 'biotech.html',
 				chunks: ['site', 'biotech']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/berlin/static/index.html'),
+				filename: 'berlin.html',
+				chunks: ['site', 'biotech']
 			})
 		],
 		devServer: {
