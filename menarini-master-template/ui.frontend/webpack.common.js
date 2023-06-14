@@ -29,7 +29,7 @@ module.exports = {
 		stemline: SOURCE_ROOT + SITE_stemline + '/site/main.ts',
 		relifede: SOURCE_ROOT + SITE_relifede + '/site/main.ts',
 		biotech: SOURCE_ROOT + SITE_biotech + '/site/main.ts',
-		BERLIN: SOURCE_ROOT + SITE_berlin + '/site/main.ts'
+		berlin: SOURCE_ROOT + SITE_berlin + '/site/main.ts'
 	},
 	output: {
 		filename: (chunkData) => {
