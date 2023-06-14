@@ -242,8 +242,8 @@ module.exports = {
 		{
 			...libsBaseConfig,
 			name: 'clientlib-berlin',
-			categories: ['berlin.site'],
-			dependencies: ['berlin.dependencies'],
+			categories: ['menariniberlin.site'],
+			dependencies: ['menariniberlin.dependencies'],
 			assets: {
 				// Copy entrypoint scripts and stylesheets into the respective ClientLib
 				// directories
