@@ -1,5 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
+import com.adiacent.menarini.menarinimaster.core.utils.Constants;
+import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.wcm.core.components.models.List;
 import com.adobe.cq.wcm.core.components.models.ListItem;
@@ -33,6 +35,8 @@ import java.util.stream.Collectors;
 )
 public class NewsListModel extends GenericBaseModel implements NewsListI{
     public static final String RESOURCE_TYPE = "menarinimaster/components/news_list";
+    public static final String NEWSDATA_RESOURCE_TYPE = "menarinimaster/components/news_data";
+    private static final String NEWSDATA_DATE_PROPERTY_NAME = "newsDate";
 
 
     @Self // Indicates that we are resolving the current resource
@@ -40,52 +44,68 @@ public class NewsListModel extends GenericBaseModel implements NewsListI{
     @Delegate(excludes = NewsListModel.DelegationExclusion.class) // Delegate all our methods to the CC List except those defined below
     private List delegate;
 
-    public Collection<ListItem> getListItems(){
-
-        if(delegate.getListItems() == null || delegate.getListItems().size() ==0 )
-            return delegate.getListItems();
-
-        //si controlla che sia un elenco di pagine ( non ho accesso alleproprietà PN_XXX di https://github.com/adobe/aem-core-wcm-components/blob/main/bundles/core/src/main/java/com/adobe/cq/wcm/core/components/models/List.java)
-        ArrayList tmp = new ArrayList(delegate.getListItems());
-        Optional opt = tmp.stream().findFirst();
-        if(!opt.isPresent() || opt.get() == null)
-            return delegate.getListItems();
-
-        ListItem item = (ListItem)opt.get();
-        Resource resource = resourceResolver.getResource(item.getPath());
-        if(!resource.getResourceType().equals("cq:Page"))
-            return delegate.getListItems();
+    private ArrayList tmp;
+    @PostConstruct
+    protected void init(){
+        if(delegate.getListItems() != null && delegate.getListItems().size()  > 0 ) {
+            //si controlla che sia un elenco di pagine ( non ho accesso alleproprietà PN_XXX di https://github.com/adobe/aem-core-wcm-components/blob/main/bundles/core/src/main/java/com/adobe/cq/wcm/core/components/models/List.java)
+            tmp = new ArrayList(delegate.getListItems());
+            Optional opt = tmp.stream().findFirst();
+            if(opt.isPresent() && opt.get() != null){
+                Collections.sort(tmp, new Comparator<ListItem>() {
+                    @Override
+                    public int compare(ListItem o1, ListItem o2) {
+                        Calendar date1 = null;
+                        Calendar date2 = null;
 
 
+                        date1 = getNewsDateValue(o1.getPath());
+                        date2 = getNewsDateValue(o2.getPath());
 
-        Collections.sort(tmp, new Comparator<ListItem>() {
-            @Override
-            public int compare(ListItem o1, ListItem o2) {
-                Resource resource1 = resourceResolver.getResource(o1.getPath());
-                Resource resource2 = resourceResolver.getResource(o2.getPath());
-                if(resource1 == null  && resource2 == null)
-                    return 0;
-                if(resource1 == null  && resource2 != null)
-                    return 1;
-                if(resource1 != null  && resource2 == null)
-                    return -1;
-                if(resource1.getResourceType().equals(resource2.getResourceType())){
-                    Page page1 = resource1.adaptTo(Page.class);
-                    Page page2 = resource2.adaptTo(Page.class);
-                    ValueMap properties1 = page1.getProperties();
-                    ValueMap properties2 = page2.getProperties();
-                    Calendar created1 = (Calendar)properties1.get("jcr:created");
-                    Calendar created2 = (Calendar)properties2.get("jcr:created");
-                    return created1.compareTo(created2);
-                }
-                return 0;
+                        if(date1 == null  && date2 == null)
+                            return 0;
+                        if(date1 == null  && date2 != null)
+                            return 1;
+                        if(date1 != null  && date2 == null)
+                            return -1;
+                        return date1.compareTo(date2);
+
+                    }
+                });
             }
 
+        }
 
-        });
-
-        return tmp;
     }
+
+    private Calendar getNewsDateValue(String path) {
+
+        Resource resource = resourceResolver.getResource(path);
+        if(resource == null)
+            return null;
+
+        if(!resource.getResourceType().equals(Constants.PAGE_PROPERTY_NAME))
+            return null;
+
+        Page page = resource.adaptTo(Page.class);
+        if(page == null)
+            return null;
+
+        Resource newsDataCmp = ModelUtils.findChildComponentByResourceType(page.getContentResource(), NEWSDATA_RESOURCE_TYPE);
+        if(newsDataCmp == null)
+            return null;
+        ValueMap properties = newsDataCmp.getValueMap();
+        return properties == null || properties.get(NEWSDATA_DATE_PROPERTY_NAME) == null ? null :(Calendar)properties.get(NEWSDATA_DATE_PROPERTY_NAME);
+
+        }
+
+    public Collection<ListItem> getListItems(){
+        if(delegate.getListItems() == null || delegate.getListItems().size() ==0 )
+            return delegate.getListItems();
+        return this.tmp;
+    }
+
+
 
     private interface DelegationExclusion { // Here we define the methods we want to override
         default Collection<ListItem> getListItems() {
