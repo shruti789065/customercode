@@ -1,7 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
-import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.adobe.cq.wcm.core.components.models.List;
 import com.adobe.cq.wcm.core.components.models.ListItem;
 import com.day.cq.wcm.api.Page;
@@ -9,7 +8,6 @@ import lombok.experimental.Delegate;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
