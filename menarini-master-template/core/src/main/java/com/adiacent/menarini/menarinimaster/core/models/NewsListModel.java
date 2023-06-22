@@ -21,6 +21,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
+import org.apache.xmlbeans.impl.xb.xsdschema.impl.ListDocumentImpl;
 
 import javax.annotation.PostConstruct;
 import javax.jcr.Node;
@@ -47,6 +48,7 @@ public class NewsListModel extends GenericBaseModel implements NewsListI{
     private ArrayList tmp;
     @PostConstruct
     protected void init(){
+
         if(delegate.getListItems() != null && delegate.getListItems().size()  > 0 ) {
             //si controlla che sia un elenco di pagine ( non ho accesso alleproprietà PN_XXX di https://github.com/adobe/aem-core-wcm-components/blob/main/bundles/core/src/main/java/com/adobe/cq/wcm/core/components/models/List.java)
             tmp = new ArrayList(delegate.getListItems());
