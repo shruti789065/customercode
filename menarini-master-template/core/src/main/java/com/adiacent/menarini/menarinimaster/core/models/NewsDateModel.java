@@ -49,6 +49,7 @@ public class NewsDateModel {
                }
                currentNode.setProperty("newsDate", date);
                currentNode.getSession().save();
+               date = currentNode.getProperty("newsDate").getDate();
            }
 
        }
