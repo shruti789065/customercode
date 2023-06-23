@@ -87,11 +87,9 @@ public class NewsListModel extends GenericBaseModel implements NewsListI{
                         if(date1 != null  && date2 == null)
                             return -1;
                         return date1.compareTo(date2) * (ASC_SORT_ORDER.equals(sortOrderProperty) ? 1 : -1);
-
                     }
                 });
             }
-
         }
     }
 

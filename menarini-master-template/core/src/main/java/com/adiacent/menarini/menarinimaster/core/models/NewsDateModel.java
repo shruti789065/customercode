@@ -43,6 +43,12 @@ public class NewsDateModel {
                date = properties.containsKey(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED) ? properties.get(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED, Calendar.class) : null;
            }else {
                date = properties.containsKey(JcrConstants.JCR_CREATED) ? properties.get(JcrConstants.JCR_CREATED, Calendar.class) : null;
+               if (date == null) {
+                   // Se la data di creazione non è disponibile, imposta la data corrente come data di creazione
+                   date = Calendar.getInstance();
+               }
+               currentNode.setProperty("newsDate", date);
+               currentNode.getSession().save();
            }
 
        }
