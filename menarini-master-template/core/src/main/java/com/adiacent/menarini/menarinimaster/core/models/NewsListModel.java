@@ -6,6 +6,7 @@ import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.wcm.core.components.models.List;
 import com.adobe.cq.wcm.core.components.models.ListItem;
 import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.replication.ReplicationStatus;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.foundation.Image;
@@ -25,6 +26,8 @@ import org.apache.xmlbeans.impl.xb.xsdschema.impl.ListDocumentImpl;
 
 import javax.annotation.PostConstruct;
 import javax.jcr.Node;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -110,11 +113,14 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 			return null;
 
 		Resource newsDataCmp = ModelUtils.findChildComponentByResourceType(page.getContentResource(), NEWSDATA_RESOURCE_TYPE);
-		if (newsDataCmp == null)
-			return page.getProperties().get(JcrConstants.JCR_CREATED) != null ? page.getProperties().get(JcrConstants.JCR_CREATED, Calendar.class) : null;
-		ValueMap properties = newsDataCmp.getValueMap();
-
-		return properties == null || properties.get(NEWSDATA_DATE_PROPERTY_NAME) == null ? null : (Calendar) properties.get(NEWSDATA_DATE_PROPERTY_NAME);
+		if (newsDataCmp == null || !newsDataCmp.getValueMap().containsKey("newsDate")){
+			return page.getProperties().containsKey(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED) ?
+					page.getProperties().get(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED, Calendar.class) : page.getProperties().get(JcrConstants.JCR_CREATED, Calendar.class);
+		}
+		else{
+			ValueMap properties = newsDataCmp.getValueMap();
+			return (Calendar) properties.get(NEWSDATA_DATE_PROPERTY_NAME);
+		}
 	}
 
 	public Collection<ListItem> getListItems() {
