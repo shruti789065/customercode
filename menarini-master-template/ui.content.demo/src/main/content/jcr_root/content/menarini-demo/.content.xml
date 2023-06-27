@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <rep:policy/>
+    <jcr:content
+        cq:allowedTemplates="/conf/menarini-demo/settings/wcm/templates/(?!xf-).*"
+        cq:conf="/conf/menarini-demo"
+        cq:lastModified="{Date}2023-04-03T08:26:01.893Z"
+        cq:lastModifiedBy="a.messori@adiacent.com"
+        cq:redirectTarget="/content/menarini-demo/gb/en"
+        cq:template="/conf/menarini-demo/settings/wcm/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Menarini Demo"
+        sling:configRef="/conf/menarini-demo"
+        sling:redirect="true"
+        sling:redirectStatus="{Long}302"
+        sling:ResourceType="menarinimaster/components/page"
+        sling:resourceType="menarinimaster/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any"
+        siteName="menarini demo">
+        <image jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-04-03T08:26:01.845Z"
+            jcr:lastModifiedBy="a.messori@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+    <gb/>
+</jcr:root>

@@ -37,6 +37,18 @@
                                             fieldLabel="Site Name"
                                             cq:showOnCreate="true"
                                             name="./siteName"/>
+                                    <oneTrustId
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="OneTrust ID"
+                                            cq:showOnCreate="true"
+                                            name="./oneTrustId"/>
+                                    <faviconFolder
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Favicon folder"
+                                            rootPath="/content/dam"
+                                            name="./faviconFolder"/>
                                     <branding
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="Branding"
