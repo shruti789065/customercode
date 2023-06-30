@@ -67,8 +67,18 @@ function displaySearchResults(dataResults) {
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector("#search-input");
   const searchButton = document.querySelector("#search-button");
+  searchButton.disabled = true;
 
   if (searchButton) {
+    input.addEventListener("keyup", function (event) {
+      let val = event.target.value;
+      if (val === "") {
+        searchButton.disabled = true;
+      } else {
+        searchButton.disabled = false;
+      }
+    });
+
     // Gestore dell'evento "click"
     searchButton.addEventListener("click", () => {
       performSearch();
