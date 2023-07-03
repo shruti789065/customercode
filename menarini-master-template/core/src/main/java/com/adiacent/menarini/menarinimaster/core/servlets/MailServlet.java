@@ -111,10 +111,10 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     /** @scr.reference policy="dynamic" cardinality="0..1" */
     @Reference
-    protected MailService mailService;
+    private transient MailService mailService;
 
     @Reference
-    private QueryBuilder qBuilder;
+    private transient QueryBuilder qBuilder;
 
     /**
      * @see org.apache.sling.api.servlets.OptingServlet#accepts(org.apache.sling.api.SlingHttpServletRequest)
