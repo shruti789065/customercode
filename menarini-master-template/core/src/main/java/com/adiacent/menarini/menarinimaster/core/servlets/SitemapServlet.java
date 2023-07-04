@@ -38,7 +38,7 @@ public class SitemapServlet extends SlingSafeMethodsServlet {
     private static final String HIDE_IN_NAV_PROPERTY = "hideInNav";
 
     @Reference
-    private Externalizer externalizer;
+    private transient Externalizer externalizer;
 
     @Override
     protected void doGet(SlingHttpServletRequest slingRequest, SlingHttpServletResponse slingResponse)
