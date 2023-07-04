@@ -50,7 +50,7 @@ public class SearchFilterServlet extends SlingSafeMethodsServlet {
 
     private String keyword ;
     private String cfCategory;
-    Page currentPage = null;
+    private transient Page currentPage = null;
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
         try{
