@@ -48,7 +48,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2022.11.9850.20221116T162329Z-220900</aem.sdk.api>
+        <aem.sdk.api>2023.7.12549.20230704T084019Z-230601</aem.sdk.api>
         <aemanalyser.version>1.5.8</aemanalyser.version>
         <componentGroupName>Menarini Adobe Cloud</componentGroupName>
     </properties>
@@ -316,6 +316,28 @@ Bundle-DocURL:
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
+                <!-- Maven Toolchain Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-toolchains-plugin</artifactId>
+                    <version>1.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>toolchain</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <toolchains>
+                            <jdk>
+                                <version>11</version>
+                                <vendor>oracle</vendor>
+                            </jdk>
+                        </toolchains>
+                    </configuration>
+                </plugin>
+
                 <!-- Build Helper Maven Plugin -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
