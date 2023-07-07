@@ -73,7 +73,9 @@ import com.day.cq.wcm.foundation.forms.FormsHelper;
         selectors={MailServlet.SELECTOR})
 public class MailServlet extends SlingAllMethodsServlet implements OptingServlet {
 
-    protected final Logger logger = LoggerFactory.getLogger(getClass());
+    private static final long serialVersionUID = 1L;
+    private static final transient Logger logger = LoggerFactory.getLogger(DropdownServlet.class);
+
 
     protected static final String EXTENSION = "html";
 
@@ -109,10 +111,10 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     /** @scr.reference policy="dynamic" cardinality="0..1" */
     @Reference
-    protected MailService mailService;
+    private transient MailService mailService;
 
     @Reference
-    private QueryBuilder qBuilder;
+    private transient QueryBuilder qBuilder;
 
     /**
      * @see org.apache.sling.api.servlets.OptingServlet#accepts(org.apache.sling.api.SlingHttpServletRequest)

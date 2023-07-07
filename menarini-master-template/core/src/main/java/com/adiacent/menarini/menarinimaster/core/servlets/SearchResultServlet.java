@@ -45,7 +45,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
     public static final String DEFAULT_SELECTOR = "searchresult";
 
     private String keyword ;
-    Page currentPage = null;
+    private transient Page currentPage = null;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){

@@ -32,7 +32,8 @@ import java.util.List;
 @SlingServletPaths(value = {"/bin/menariniStemline/compoundOption", "/bin/menariniStemline/indicationOption"})
 public class DropdownServlet extends SlingSafeMethodsServlet {
 
-    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private static final long serialVersionUID = 1L;
+    private static final transient Logger LOG = LoggerFactory.getLogger(DropdownServlet.class);
 
     @Override
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response)  {
