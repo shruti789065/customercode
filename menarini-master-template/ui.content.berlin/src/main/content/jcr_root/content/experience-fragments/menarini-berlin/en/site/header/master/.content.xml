@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-06-13T13:08:14.328+02:00"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
+        cq:lastReplicated_publish="{Date}2023-06-09T12:20:05.105Z"
+        cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction_preview="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/menarini-berlin/settings/wcm/templates/xf-web-variation"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Header"
+        jcr:uuid="c46555e2-7b71-4c8e-995b-92bdc07c67dd"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:lastModified="{Date}2022-06-08T11:59:04.155+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <section_navbar
+                cq:styleIds="[1684741843688]"
+                jcr:lastModified="{Date}2023-05-24T10:29:42.477Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/section">
+                <wrapper
+                    cq:styleIds="[1684741727110]"
+                    jcr:lastModified="{Date}2023-05-24T10:27:33.908Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/wrapper"
+                    layout="responsiveGrid">
+                    <text_quality
+                        jcr:lastModified="{Date}2023-05-26T12:39:32.512Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/text"
+                        id="qualitycomesfirst"
+                        text="&lt;p>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.it/en-us/quality-comes-first&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>&lt;i>Quality Comes First&lt;/i>&lt;/a>&lt;/p>&#xd;&#xa;"
+                        textIsRich="true">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="5"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="9"/>
+                        </cq:responsive>
+                    </text_quality>
+                    <text_block
+                        cq:masterBuildingBlock="{Boolean}true"
+                        jcr:lastModified="{Date}2023-05-24T11:01:17.976Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="GLOBAL"
+                        sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
+                        <text_discover
+                            jcr:lastModified="{Date}2023-05-31T13:47:04.376Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;i>Discover Our Group:&lt;/i>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                            </cq:responsive>
+                        </text_discover>
+                        <text_globalwebsite
+                            jcr:lastModified="{Date}2023-05-26T12:36:02.520Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.com&quot; target=&quot;_blank&quot;>MENARINI.COM&lt;/a>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="1"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </text_globalwebsite>
+                        <text_country
+                            jcr:lastModified="{Date}2023-05-26T12:36:49.014Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a href=&quot;https://www.menarini.com/en-us/country&quot; target=&quot;_blank&quot; title=&quot;www.menarini.com&quot;>COUNTRY&lt;/a>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="1"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                            </cq:responsive>
+                        </text_country>
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="2"
+                                width="4"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                behavior="hide"
+                                offset="0"
+                                width="2"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                behavior="hide"
+                                offset="&#xa;0"
+                                width="2"/>
+                        </cq:responsive>
+                    </text_block>
+                    <languagenavigation
+                        jcr:lastModified="{Date}2022-06-07T15:26:05.751+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/languagenavigation"
+                        navigationRoot="/content/menarini-berlin/gb"
+                        structureDepth="1">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="1"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="8"
+                                width="3"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="2"
+                                width="3"/>
+                        </cq:responsive>
+                    </languagenavigation>
+                </wrapper>
+            </section_navbar>
+            <section_megamenu
+                cq:styleIds="[1684741856631]"
+                jcr:lastModified="{Date}2023-05-24T07:46:25.029Z"
+                jcr:lastModifiedBy="a.messori@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/section">
+                <wrapper
+                    jcr:lastModified="{Date}2023-05-24T07:47:39.454Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/wrapper"
+                    id="wrapper-menu">
+                    <megamenu
+                        jcr:lastModified="{Date}2023-06-09T08:09:05.086Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/header/megamenu"
+                        alt="menarini logo"
+                        altValueFromDAM="false"
+                        altValueFromPageImage="false"
+                        disableLazyLoading="false"
+                        fileReference="/content/dam/menarini-berlin/assets/placeholders/logo_menarini_group.svg"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        logoFolder="/content/dam/logo/menarini-berlin/"
+                        logoUrl="/content/menarini-berlin/en/">
+                        <share jcr:primaryType="nt:unstructured"/>
+                        <link_1383470917
+                            cq:panelTitle="Terms and Conditions"
+                            jcr:lastModified="{Date}2023-06-09T08:06:09.351Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Terms and Conditions"
+                            link="/content/menarini-berlin/en/terms-and-conditions"
+                            linkType="standard"
+                            target="_self"/>
+                        <item_1685536909724
+                            cq:panelTitle="Data Privacy"
+                            jcr:lastModified="{Date}2023-06-09T08:06:35.352Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Data Privacy"
+                            link="/content/menarini-berlin/en/data-privacy"
+                            linkType="standard"
+                            target="_self"/>
+                        <item_1677144146087
+                            cq:panelTitle="Contact Us"
+                            jcr:lastModified="{Date}2023-06-09T08:07:02.739Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Contact Us"
+                            link="/content/menarini-berlin/en/contact-us"
+                            linkType="standard"
+                            target="_self"/>
+                    </megamenu>
+                </wrapper>
+            </section_megamenu>
+            <logo/>
+        </root>
+        <cq:metadata jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
