@@ -12,7 +12,7 @@ import javax.jcr.RepositoryException;
 @Model(adaptables = { SlingHttpServletRequest.class, Resource.class })
 public class PipelineItemModel {
     @Inject
-    private Node currentNode;
+    Node currentNode;
 
     private String compoundValue;
 

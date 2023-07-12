@@ -2,7 +2,6 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
-    <rep:policy/>
     <menarinimaster jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
             <form jcr:primaryType="nt:unstructured">
@@ -41,65 +40,11 @@
                 </policy_xfm>
             </languagenavigation>
             <image jcr:primaryType="nt:unstructured">
-                <policy_651483963895698
-                    jcr:description="- Enable lazy loading for faster page loading.&#xd;&#xa;- Define allowed image widths for automatic loading of the image in the most optimal resolution, given the size at which each image is displayed on the page, and the visitor's pixel density.&#xd;&#xa;- Disallow direct asset upload, to force authors to first upload the images to Assets."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Image"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
-                    allowUpload="false"
-                    altValueFromDAM="true"
-                    disableLazyLoading="false"
-                    displayPopupTitle="true"
-                    isDecorative="false"
-                    jpegQuality="{Long}85"
-                    titleValueFromDAM="true"
-                    uuidDisabled="true">
-                    <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                    <plugins jcr:primaryType="nt:unstructured">
-                        <crop
-                            jcr:primaryType="nt:unstructured"
-                            features="*">
-                            <aspectRatios jcr:primaryType="nt:unstructured">
-                                <item0
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Wide Landscape"
-                                    ratio="0.6180"/>
-                                <item1
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Landscape"
-                                    ratio="0.8284"/>
-                                <item2
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Square"
-                                    ratio="1"/>
-                                <item3
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Portrait"
-                                    ratio="1.6180"/>
-                            </aspectRatios>
-                        </crop>
-                        <rotate
-                            jcr:primaryType="nt:unstructured"
-                            features="right"/>
-                        <flip
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                    </plugins>
-                </policy_651483963895698>
                 <policy_4689979585600
-                    jcr:lastModified="{Date}2023-05-22T10:35:21.109Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T09:54:49.651+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="image policy"
+                    jcr:title="Menarini MT image policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedRenditionWidths="[100,200,300,400,500,600,700,800,900,1000,1100,1200,1600]"
                     altValueFromDAM="true"
@@ -111,10 +56,10 @@
                     titleValueFromDAM="true">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicated_publish="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicatedBy="test-approver-menarini-demo"
-                        cq:lastReplicatedBy_publish="test-approver-menarini-demo"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -127,13 +72,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751699829"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751702724"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -144,13 +99,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751709858"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751713755"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -159,16 +124,16 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2023-05-31T13:45:20.053Z"
-                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T15:59:23.810+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Text"
+                    jcr:title="Menarini MT text policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
-                        cq:lastReplicated="{Date}2023-06-01T13:12:02.175Z"
-                        cq:lastReplicated_publish="{Date}2023-06-01T13:12:02.175Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -196,7 +161,7 @@
                         </paraformat>
                         <misctools
                             jcr:primaryType="nt:unstructured"
-                            features="-">
+                            features="sourceedit">
                             <specialCharsConfig jcr:primaryType="nt:unstructured">
                                 <chars
                                     jcr:primaryType="nt:unstructured"
@@ -222,19 +187,19 @@
                         </misctools>
                         <edit
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="paste-plaintext,paste-wordhtml"/>
                         <findreplace
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <undo
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <spellcheck
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <image
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <table
                             jcr:primaryType="nt:unstructured"
                             features="*"/>
@@ -252,63 +217,82 @@
                             features="modifylink,unlink,anchor"/>
                         <subsuperscript
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                     </rtePlugins>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Margins"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Paddings"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1686561131012"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1686561136649"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686561137809"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686561138942"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
                 </policy_641562756958017>
             </text>
             <title jcr:primaryType="nt:unstructured">
-                <policy_641475696923109
-                    jcr:description="Allows only H1 and disallows links for the main page title."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Title"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="h1"
-                    linkDisabled="true"
-                    type="h1">
-                    <jcr:content
-                        cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                </policy_641475696923109>
-                <policy_641528232375303
-                    jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Title"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="[h2,h3,h4,h5,h6]"
-                    linkDisabled="false"
-                    type="h2">
-                    <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                </policy_641528232375303>
                 <policy_692740220817900
-                    jcr:lastModified="{Date}2023-05-22T08:16:01.726Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T11:43:32.978+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Menarini PT title policy"
+                    jcr:title="Menarini MT title policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="false"
                     type="h1">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicated_publish="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicatedBy="test-approver-menarini-demo"
-                        cq:lastReplicatedBy_publish="test-approver-menarini-demo"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -368,13 +352,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743300833"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743304550"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -385,64 +379,42 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743322697"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743328364"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item3>
                     </cq:styleGroups>
                 </policy_692740220817900>
-                <policy_696913814400400
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini content policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="[h1,h2,h3,h4,h5,h6]"
-                    linkDisabled="false"
-                    type="h1">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Color"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-title--primary"
-                                    cq:styleId="1653556675787"
-                                    cq:styleLabel="primary"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="cmp-title--default"
-                                    cq:styleId="1653556692050"
-                                    cq:styleLabel="default"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                    cq:styleClasses="cmp-title--secondary"
-                                    cq:styleId="1653556705121"
-                                    cq:styleLabel="secondary"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                    </cq:styleGroups>
-                </policy_696913814400400>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
                 <policy_1653640385338
                     cq:styleDefaultElement="div"
-                    jcr:lastModified="{Date}2022-06-24T16:41:13.981+02:00"
+                    jcr:lastModified="{Date}2023-06-12T16:00:40.311+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="menarini MT xf policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:34:55.114Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:34:55.114Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -508,19 +480,19 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2022-06-24T16:40:02.437+02:00"
+                    jcr:lastModified="{Date}2023-06-12T14:29:44.164+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="homepage policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini Home Page,group:Menarini MT - Content]"
+                    components="[group:Menarini Home Page,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-15T10:48:23.298Z"
-                        cq:lastReplicated_publish="{Date}2023-05-15T10:48:23.298Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -551,19 +523,19 @@
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
                     jcr:description="Sets a &lt;main> element on the page content area."
-                    jcr:lastModified="{Date}2022-07-11T17:23:59.311+02:00"
+                    jcr:lastModified="{Date}2023-06-12T11:56:07.253+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Form,group:Menarini MT - Content]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicated_publish="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicatedBy="test-approver-menarini-demo"
-                        cq:lastReplicatedBy_publish="test-approver-menarini-demo"
+                        cq:lastReplicated="{Date}2023-06-13T11:20:16.768Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:20:16.768Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -714,19 +686,19 @@
                     </cq:styleGroups>
                 </policy_777922468291300>
                 <policy_11097788065800
-                    jcr:lastModified="{Date}2023-05-23T15:01:48.244Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T14:16:08.797+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content,group:Menarini MT - Form,group:Menarini MT - Structure]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:05:28.182Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:05:28.182Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:23:01.764Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:23:01.764Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -755,39 +727,39 @@
                     </cq:authoring>
                 </policy_11097788065800>
                 <policy_13297555366500
-                    jcr:lastModified="{Date}2022-05-30T17:22:16.117+02:00"
+                    jcr:lastModified="{Date}2023-06-12T12:36:13.565+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content news policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="group:Menarini MT - Content"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/latestNews,/apps/menarinimaster/components/link,/apps/menarinimaster/components/news_list,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:28:04.701Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:28:04.701Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_13297555366500>
                 <policy_18390849275000
-                    jcr:lastModified="{Date}2023-05-23T14:55:17.344Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-09T10:05:33.506+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="container policy"
+                    jcr:title="Menarini MT container policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     backgroundColorEnabled="true"
                     backgroundImageEnabled="true"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -798,11 +770,6 @@
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleClasses="cmp-container--standard_width"
-                                    cq:styleId="1653912867306"
-                                    cq:styleLabel="Standard"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
                                     cq:styleClasses="cmp-container--internal cmp-container__layout"
                                     cq:styleId="1684742346871"
                                     cq:styleLabel="Internal"
@@ -828,12 +795,22 @@
                                 <item0
                                     cq:styleClasses="ms-3"
                                     cq:styleId="1684742396961"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
                                     cq:styleId="1684742436957"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686145016395"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686145017391"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -845,28 +822,40 @@
                                 <item0
                                     cq:styleClasses="ps-3"
                                     cq:styleId="1684742467497"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
                                     cq:styleId="1684742471142"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686145014319"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686145015361"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item3>
                     </cq:styleGroups>
                 </policy_18390849275000>
                 <policy_4452714892300
+                    jcr:lastModified="{Date}2023-06-13T07:57:55.537Z"
+                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details news policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/latestNews,/apps/menarinimaster/components/link,/apps/menarinimaster/components/news_data,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:37:44.136Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:37:44.136Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -895,34 +884,42 @@
                     </cq:authoring>
                 </policy_4452714892300>
                 <policy_6386712489300
-                    jcr:lastModified="{Date}2023-05-23T14:44:39.824Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T15:34:42.517+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="category product policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productcategoryarea,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layout="responsiveGrid"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:25:00.874Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:25:00.874Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_6386712489300>
                 <policy_12088385090100
-                    jcr:lastModified="{Date}2022-05-31T13:28:23.293+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-06-13T08:35:55.387Z"
+                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="content product category policies"
+                    jcr:title="healtcare product list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="group:Menarini MT - Content"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productlist,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-06-13T11:25:31.814Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:25:31.814Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                             <mapping_1653996357337
@@ -947,18 +944,18 @@
                     </cq:authoring>
                 </policy_12088385090100>
                 <policy_15581283876800
-                    jcr:lastModified="{Date}2022-05-31T14:00:00.807+02:00"
+                    jcr:lastModified="{Date}2023-06-12T14:27:07.300+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details product page"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content,/apps/menarinimaster/components/productTitleAndIcon]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:37:44.136Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:37:44.136Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:23:33.443Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:23:33.443Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1027,32 +1024,36 @@
                     </cq:styleGroups>
                 </policy_1307698943930800>
                 <policy_1656579161845
+                    jcr:lastModified="{Date}2023-06-12T15:27:29.073+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="product area policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="group:Menarini MT - Content"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productcategorylist,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:34:55.114Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:34:55.114Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:24:28.193Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:24:28.193Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1656579161845>
                 <policy_1657727659177
+                    jcr:lastModified="{Date}2023-06-12T15:59:02.111+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="pharmaceutical template policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content,/apps/menarinimaster/components/productleafleftcontainer]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productleafleft,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:37:44.136Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:37:44.136Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:26:20.213Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:26:20.213Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1060,61 +1061,21 @@
                 </policy_1657727659177>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
-                <policy_1575031387650
-                    jcr:description="Sets the title size to H3."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Teaser"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    titleType="h3">
-                    <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                </policy_1575031387650>
-                <policy_95533074908300
-                    jcr:lastModified="{Date}2023-03-02T11:42:59.468+01:00"
+                <policy_189396264340098
+                    jcr:lastModified="{Date}2023-06-12T15:49:37.483+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="MT teaser policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
-                    showTitleType="false"
-                    titleType="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Layout"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-teaser--avatar-team"
-                                    cq:styleId="1677753739720"
-                                    cq:styleLabel="Card Avatar Team Member"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                    </cq:styleGroups>
-                </policy_95533074908300>
-                <policy_189396264340098
-                    jcr:lastModified="{Date}2023-05-22T08:17:14.785Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="MT teaser policy"
+                    jcr:title="Menarini MT teaser policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
                     titleType="h2">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1128,28 +1089,49 @@
                                 <item0
                                     cq:styleClasses="ms-3"
                                     cq:styleId="1684743393022"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
                                     cq:styleId="1684743399758"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561409528"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561410811"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
                         <item1
                             cq:styleGroupLabel="padding"
+                            cq:styleGroupMultiple="true"
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
                                     cq:styleId="1684743416285"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
                                     cq:styleId="1684743423819"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686561412729"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686561413772"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1214,17 +1196,17 @@
             </latest_news>
             <button jcr:primaryType="nt:unstructured">
                 <policy_1653579622480
-                    jcr:lastModified="{Date}2023-05-24T10:37:06.898Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:01:16.125+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Button Policy"
+                    jcr:title="Menarini MT button policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1248,12 +1230,18 @@
                         </item0>
                         <item1
                             cq:styleGroupLabel="Size"
+                            cq:styleGroupMultiple="true"
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="cmp-button--small"
                                     cq:styleId="1653579730618"
                                     cq:styleLabel="small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-text-center"
+                                    cq:styleId="1686152412447"
+                                    cq:styleLabel="text center"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1265,12 +1253,22 @@
                                 <item0
                                     cq:styleClasses="ms-3"
                                     cq:styleId="1684752238108"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
                                     cq:styleId="1684752245168"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686152359913"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686152360906"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1282,12 +1280,22 @@
                                 <item0
                                     cq:styleClasses="ps-3"
                                     cq:styleId="1684752263762"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
                                     cq:styleId="1684752271013"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686152363000"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686152364009"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item3>
@@ -1296,8 +1304,10 @@
             </button>
             <slideshow jcr:primaryType="nt:unstructured">
                 <policy_1654598443911
+                    jcr:lastModified="{Date}2023-06-12T14:33:43.436+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="slideshow policy"
+                    jcr:title="Menarini MT slideshow policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     autopauseDisabled="false"
                     autoplay="false"
@@ -1305,10 +1315,10 @@
                     delay="5000">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-15T10:48:23.298Z"
-                        cq:lastReplicated_publish="{Date}2023-05-15T10:48:23.298Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1335,10 +1345,10 @@
             </slideshow>
             <cardHover jcr:primaryType="nt:unstructured">
                 <policy_1654606932416
-                    jcr:lastModified="{Date}2023-05-31T15:54:47.610Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:01:05.367+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="card hover policy"
+                    jcr:title="Menarini MT card hover policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     actionsDisabled="true"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
@@ -1347,10 +1357,10 @@
                     titleType="h2">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-06-01T13:12:02.175Z"
-                        cq:lastReplicated_publish="{Date}2023-06-01T13:12:02.175Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1379,13 +1389,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684752096858"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="pe-3"
-                                    cq:styleId="1684752101427"
-                                    cq:styleLabel="right"
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1396,13 +1416,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684752109907"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684752113465"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1435,10 +1465,10 @@
             <banner jcr:primaryType="nt:unstructured">
                 <policy_1655106936933
                     cq:styleDefaultClasses="cmp-banner"
-                    jcr:lastModified="{Date}2023-05-22T10:45:29.464Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:01:20.623+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="banner policy"
+                    jcr:title="Menarini MT banner policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     pretitleHidden="true"
@@ -1446,10 +1476,10 @@
                     titleType="h2">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicated_publish="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicatedBy="test-approver-menarini-demo"
-                        cq:lastReplicatedBy_publish="test-approver-menarini-demo"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1478,13 +1508,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684752308182"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684752313118"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1495,13 +1535,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684752320979"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684752324914"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1509,27 +1559,11 @@
                 </policy_1655106936933>
             </banner>
             <news_card jcr:primaryType="nt:unstructured">
-                <policy_1656583244594
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="news card policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    pretitleHidden="true"
-                    showTitleType="false">
-                    <jcr:content
-                        cq:lastReplicated="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicated_publish="{Date}2023-03-31T14:33:13.713Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                </policy_1656583244594>
                 <policy_191891582561025
-                    jcr:lastModified="{Date}2023-05-22T08:58:26.215Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T12:45:44.274+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="news card policy"
+                    jcr:title="Menarini MT news card policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     pretitleHidden="true"
@@ -1537,10 +1571,10 @@
                     titleType="h2">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1553,13 +1587,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745886770"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745889318"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -1570,13 +1614,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745891567"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745894007"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1622,10 +1676,10 @@
                     </cq:styleGroups>
                 </policy_1657117722738>
                 <policy_189824603425295
-                    jcr:lastModified="{Date}2023-05-22T08:24:42.964Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T15:51:30.223+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="product list policy"
+                    jcr:title="Menarini MT product list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     disableChildren="false"
                     disableSearch="false"
@@ -1636,10 +1690,10 @@
                     showModificationDate="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:25:31.814Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:25:31.814Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1661,13 +1715,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743841093"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743844678"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1678,13 +1742,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743848703"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743854266"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item2>
@@ -1714,10 +1788,10 @@
             <customTeaser jcr:primaryType="nt:unstructured">
                 <policy_1657527731660
                     cq:styleDefaultClasses="cmp-custom-teaser"
-                    jcr:lastModified="{Date}2023-05-22T10:36:05.939Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T11:54:17.965+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="custom teaser policy"
+                    jcr:title="Menarini MT custom teaser policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     pretitleHidden="true"
@@ -1725,10 +1799,10 @@
                     titleType="h2">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicated_publish="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicatedBy="test-approver-menarini-demo"
-                        cq:lastReplicatedBy_publish="test-approver-menarini-demo"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1741,13 +1815,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751745366"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751747997"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -1758,13 +1842,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751754051"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751757460"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -1793,17 +1887,17 @@
                 </megamenu>
                 <share jcr:primaryType="nt:unstructured">
                     <policy_1684743550562
-                        jcr:lastModified="{Date}2023-05-22T08:23:10.145Z"
-                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:lastModified="{Date}2023-06-12T14:02:37.202+02:00"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="menarini PT share policy"
+                        jcr:title="Menarini MT share policy"
                         sling:resourceType="wcm/core/components/policy/policy">
                         <jcr:content
                             cq:isDelivered="{Boolean}true"
-                            cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                            cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                            cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                            cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                            cq:lastReplicated="{Date}2023-06-13T11:20:16.768Z"
+                            cq:lastReplicated_publish="{Date}2023-06-13T11:20:16.768Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                             cq:lastReplicationAction="Activate"
                             cq:lastReplicationAction_publish="Activate"
                             jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1816,13 +1910,23 @@
                                 <cq:styles jcr:primaryType="nt:unstructured">
                                     <item0
                                         cq:styleClasses="ms-3"
-                                        cq:styleId="1684743580939"
-                                        cq:styleLabel="left"
+                                        cq:styleId="1686561084291"
+                                        cq:styleLabel="left small"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
                                         cq:styleClasses="me-3"
-                                        cq:styleId="1684743588922"
-                                        cq:styleLabel="right"
+                                        cq:styleId="1686561090496"
+                                        cq:styleLabel="right small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="ms-5"
+                                        cq:styleId="1686561103196"
+                                        cq:styleLabel="left big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="me-5"
+                                        cq:styleId="1686561113230"
+                                        cq:styleLabel="right big"
                                         jcr:primaryType="nt:unstructured"/>
                                 </cq:styles>
                             </item0>
@@ -1833,13 +1937,23 @@
                                 <cq:styles jcr:primaryType="nt:unstructured">
                                     <item0
                                         cq:styleClasses="ps-3"
-                                        cq:styleId="1684743597704"
-                                        cq:styleLabel="left"
+                                        cq:styleId="1684752172948"
+                                        cq:styleLabel="left small"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
                                         cq:styleClasses="pe-3"
-                                        cq:styleId="1684743604922"
-                                        cq:styleLabel="right"
+                                        cq:styleId="1684752176188"
+                                        cq:styleLabel="right small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="ps-5"
+                                        cq:styleId="1685523077002"
+                                        cq:styleLabel="left big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="pe-5"
+                                        cq:styleId="1685523078366"
+                                        cq:styleLabel="right big"
                                         jcr:primaryType="nt:unstructured"/>
                                 </cq:styles>
                             </item1>
@@ -1850,10 +1964,10 @@
             <news_list jcr:primaryType="nt:unstructured">
                 <policy_1658332444984
                     cq:styleDefaultClasses="cmp-news-list"
-                    jcr:lastModified="{Date}2023-05-22T08:50:37.997Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T14:13:17.966+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="news list policy"
+                    jcr:title="Menarini MT news list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     disableChildren="false"
                     disableSearch="false"
@@ -1864,10 +1978,10 @@
                     showModificationDate="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicated_publish="{Date}2023-05-23T14:42:28.727Z"
-                        cq:lastReplicatedBy="test-approver-menarini-demo"
-                        cq:lastReplicatedBy_publish="test-approver-menarini-demo"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -1880,13 +1994,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745386829"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745391621"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -1897,16 +2021,37 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745400088"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745404533"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
+                        <item2
+                            cq:styleGroupLabel="list alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-news-list cmp-news-list--vertical"
+                                    cq:styleId="1686571931777"
+                                    cq:styleLabel="vertical alignment"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
                     </cq:styleGroups>
                 </policy_1658332444984>
             </news_list>
@@ -1949,7 +2094,7 @@
                     jcr:lastModified="{Date}2023-05-24T10:54:42.011Z"
                     jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Fragment Wrapper "
+                    jcr:title="Menarini MT Fragment Wrapper "
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedColorSwatches="[#FFF,#143F59]"
                     backgroundColorEnabled="true"
@@ -1980,10 +2125,10 @@
                 </policy_1684741545832>
                 <policy_61500681532547
                     cq:styleDefaultClasses="cmp-container--standard_width"
-                    jcr:lastModified="{Date}2023-05-23T15:02:17.307Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T15:49:20.609+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="wrapper "
+                    jcr:title="Menarini MT wrapper policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     backgroundColorEnabled="true"
                     backgroundImageEnabled="true"
@@ -1991,10 +2136,10 @@
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2007,7 +2152,7 @@
                     jcr:lastModified="{Date}2023-05-22T07:51:08.327Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Fragment section container"
+                    jcr:title="Menarini MT fragment section container"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedColorSwatches="[#FFF,#143F59]"
                     backgroundColorEnabled="true"
@@ -2045,10 +2190,10 @@
                 </policy_1684741773809>
                 <policy_62112826052570
                     cq:styleDefaultClasses="cmp-container--full-width"
-                    jcr:lastModified="{Date}2023-05-23T15:11:41.702Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T15:49:56.936+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="section container "
+                    jcr:title="Menarini MT section container "
                     sling:resourceType="wcm/core/components/policy/policy"
                     backgroundColorEnabled="true"
                     backgroundImageEnabled="true"
@@ -2056,10 +2201,10 @@
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:04:21.460Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2068,21 +2213,21 @@
             </section>
             <sitemap jcr:primaryType="nt:unstructured">
                 <policy_1684743439978
-                    jcr:lastModified="{Date}2023-05-22T08:19:01.392Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T14:26:24.905+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT sitemap policy"
+                    jcr:title="Menarini MT sitemap policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     collectAllPages="true"
                     disableShadowing="false"
-                    navigationRoot="/content/menarini-demo/gb"
+                    navigationRoot="/content/"
                     structureStart="1">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:20:16.768Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:20:16.768Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2095,13 +2240,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743499773"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743506812"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2112,13 +2267,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743519435"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743524488"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2127,20 +2292,20 @@
             </sitemap>
             <productlistitem jcr:primaryType="nt:unstructured">
                 <policy_1684743664262
-                    jcr:lastModified="{Date}2023-05-22T08:22:50.769Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T15:50:50.113+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT product list item policy"
+                    jcr:title="Menarini MT product list item policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
                     titleType="h2">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:25:31.814Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:25:31.814Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2153,13 +2318,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684743728143"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684743738955"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2170,13 +2345,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684743753604"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684743761175"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2185,17 +2370,17 @@
             </productlistitem>
             <productleafleft jcr:primaryType="nt:unstructured">
                 <policy_1684745083530
-                    jcr:lastModified="{Date}2023-05-22T08:46:22.862Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:00:09.155+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT product leafleft policy"
+                    jcr:title="Menarini PT product leafleft policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:26:20.213Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:26:20.213Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2208,13 +2393,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745138794"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745145590"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2225,13 +2420,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745159229"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745164893"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2240,10 +2445,10 @@
             </productleafleft>
             <productcategorylist jcr:primaryType="nt:unstructured">
                 <policy_1684745198255
-                    jcr:lastModified="{Date}2023-05-22T08:48:50.989Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T14:41:17.029+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT product category list policy"
+                    jcr:title="Menarini MT product category list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     disableChildren="false"
                     disableSearch="false"
@@ -2254,10 +2459,10 @@
                     showModificationDate="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:24:28.193Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:24:28.193Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2270,13 +2475,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745234366"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745240335"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2287,13 +2502,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745246721"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745244475"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2302,17 +2527,17 @@
             </productcategorylist>
             <news_data jcr:primaryType="nt:unstructured">
                 <policy_1684745453335
-                    jcr:lastModified="{Date}2023-05-22T08:57:37.111Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T12:45:17.580+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT news date policy"
+                    jcr:title="Menarini MT news date policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2325,13 +2550,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684745683884"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684745688535"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2342,13 +2577,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684745701654"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684745707954"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2387,13 +2632,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684746085217"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684746086794"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2404,13 +2659,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684746084497"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684746091252"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2447,13 +2712,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751588499"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751591728"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2464,13 +2739,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751599139"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751604170"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2479,78 +2764,17 @@
             </list>
             <link jcr:primaryType="nt:unstructured">
                 <policy_1684751495775
-                    jcr:lastModified="{Date}2023-05-22T10:32:38.009Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:00:30.000+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT link policy"
+                    jcr:title="Menarini MT link policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
-                        cq:lastReplicationAction="Activate"
-                        cq:lastReplicationAction_publish="Activate"
-                        jcr:mixinTypes="[cq:ReplicationStatus]"
-                        jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="margin"
-                            cq:styleGroupMultiple="true"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleId="1684751529088"
-                                    cq:styleLabel="left"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="me-3"
-                                    cq:styleId="1684751531363"
-                                    cq:styleLabel="right"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                        <item1
-                            cq:styleGroupLabel="padding"
-                            cq:styleGroupMultiple="true"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="ps-3"
-                                    cq:styleId="1684751542163"
-                                    cq:styleLabel="left"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="pe-3"
-                                    cq:styleId="1684751547067"
-                                    cq:styleLabel="right"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item1>
-                    </cq:styleGroups>
-                </policy_1684751495775>
-            </link>
-            <latestNews jcr:primaryType="nt:unstructured">
-                <policy_1684751620509
-                    jcr:lastModified="{Date}2023-05-22T10:34:28.565Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT latest news policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    disableChildren="false"
-                    disableSearch="false"
-                    disableStatic="false"
-                    disableTags="false"
-                    linkItems="false"
-                    showDescription="false"
-                    showModificationDate="false">
-                    <jcr:content
-                        cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2563,13 +2787,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751637648"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751640448"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2580,26 +2814,128 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751645858"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751654160"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
-                        <item2 jcr:primaryType="nt:unstructured"/>
+                    </cq:styleGroups>
+                </policy_1684751495775>
+            </link>
+            <latestNews jcr:primaryType="nt:unstructured">
+                <policy_1684751620509
+                    jcr:lastModified="{Date}2023-06-12T14:14:52.675+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Menarini MT latest news policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    disableChildren="false"
+                    disableSearch="false"
+                    disableStatic="false"
+                    disableTags="false"
+                    linkItems="false"
+                    showDescription="false"
+                    showModificationDate="false">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}true"
+                        cq:lastReplicated="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:22:19.240Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="margin"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="padding"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                        <item2
+                            cq:styleGroupLabel="list alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-latest-news--vertical"
+                                    cq:styleId="1686572083053"
+                                    cq:styleLabel="vertical alignment"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
                     </cq:styleGroups>
                 </policy_1684751620509>
             </latestNews>
             <cookie-list jcr:primaryType="nt:unstructured">
                 <policy_1684751776958
-                    jcr:lastModified="{Date}2023-05-22T10:37:02.343Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T14:09:10.424+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT cookie list policy"
+                    jcr:title="Menarini MT cookie list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     embeddablesDisabled="false"
                     htmlDisabled="false"
@@ -2616,10 +2952,10 @@
                     youtubeRelatedVideosEnabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:23:01.764Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:23:01.764Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2632,13 +2968,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751802695"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751805246"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2649,13 +2995,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751811016"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751817924"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2664,17 +3020,17 @@
             </cookie-list>
             <contentfragmentlist jcr:primaryType="nt:unstructured">
                 <policy_1684751833849
-                    jcr:lastModified="{Date}2023-05-22T10:37:50.200Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:00:48.206+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT content fragment list"
+                    jcr:title="Menarini MT content fragment list"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2687,13 +3043,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751853683"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751856123"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2704,13 +3070,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751861407"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751865026"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2719,17 +3095,17 @@
             </contentfragmentlist>
             <contentfragment jcr:primaryType="nt:unstructured">
                 <policy_1684751883454
-                    jcr:lastModified="{Date}2023-05-22T10:38:43.289Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:00:53.349+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT content fragment policy"
+                    jcr:title="Menarini MT content fragment policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2742,13 +3118,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751903450"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751906299"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2759,13 +3145,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751912192"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751916564"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2777,7 +3173,7 @@
                     jcr:lastModified="{Date}2023-05-22T10:39:33.047Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT card list policy"
+                    jcr:title="Menarini Demo card list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
@@ -2800,13 +3196,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684751954966"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684751957501"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2817,13 +3223,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684751964394"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684751967580"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2832,17 +3248,17 @@
             </cardlistitem>
             <card-avatar-team-member jcr:primaryType="nt:unstructured">
                 <policy_1684751987201
-                    jcr:lastModified="{Date}2023-05-22T10:40:40.390Z"
-                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T14:35:25.266+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="menarini PT card team member avatar policy"
+                    jcr:title="Menarini MT card team member avatar policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicated_publish="{Date}2023-05-25T09:07:00.853Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2855,13 +3271,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ms-3"
-                                    cq:styleId="1684752016031"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1686561084291"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="me-3"
-                                    cq:styleId="1684752019041"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1686561090496"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686561103196"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686561113230"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -2872,13 +3298,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="ps-3"
-                                    cq:styleId="1684752031018"
-                                    cq:styleLabel="left"
+                                    cq:styleId="1684752172948"
+                                    cq:styleLabel="left small"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="pe-3"
-                                    cq:styleId="1684752034656"
-                                    cq:styleLabel="right"
+                                    cq:styleId="1684752176188"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1685523077002"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1685523078366"
+                                    cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -2887,20 +3323,20 @@
             </card-avatar-team-member>
             <card jcr:primaryType="nt:unstructured">
                 <policy_1684752139804
-                    jcr:lastModified="{Date}2023-05-31T08:53:54.570Z"
-                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2023-06-12T16:01:10.666+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="card policy"
+                    jcr:title="Menarini MT card policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
                     titleType="h2">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
-                        cq:lastReplicated="{Date}2023-06-01T13:12:02.175Z"
-                        cq:lastReplicated_publish="{Date}2023-06-01T13:12:02.175Z"
-                        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
-                        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
                         cq:lastReplicationAction="Activate"
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus]"
@@ -2963,6 +3399,154 @@
                     </cq:styleGroups>
                 </policy_1684752139804>
             </card>
+            <separator jcr:primaryType="nt:unstructured">
+                <policy_1686562797028
+                    jcr:lastModified="{Date}2023-06-12T15:59:34.695+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Menarini MT separator policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:18:58.149Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="margin"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1686562815569"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686562822826"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686562830550"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686562833889"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="padding"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1686562840153"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1686562846716"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686562852345"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686562855602"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
+                </policy_1686562797028>
+            </separator>
+            <productcategoryarea jcr:primaryType="nt:unstructured">
+                <policy_1686576922008
+                    jcr:lastModified="{Date}2023-06-12T15:37:52.811+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Menarini MT product cateogory area policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content
+                        cq:lastReplicated="{Date}2023-06-13T11:25:00.874Z"
+                        cq:lastReplicated_publish="{Date}2023-06-13T11:25:00.874Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="margin"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1686577015671"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1686577021371"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1686577034655"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1686577037340"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="padding"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1686577051047"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1686577060341"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1686577064754"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1686577068162"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
+                </policy_1686576922008>
+            </productcategoryarea>
         </components>
     </menarinimaster>
 </jcr:root>

@@ -15,43 +15,42 @@ import javax.jcr.RepositoryException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-@Model(adaptables = { SlingHttpServletRequest.class, Resource.class })
+@Model(adaptables = {SlingHttpServletRequest.class, Resource.class})
 public class NewsDateModel {
 
-    @Inject
-    private Page currentPage;
+	@Inject
+	private Page currentPage;
 
-    @Inject
-    private Node currentNode;
+	@Inject
+	private Node currentNode;
 
-    private String formattedValue = "";
+	private String formattedValue = "";
 
-    private Calendar date;
+	private Calendar date;
 
-    @Inject
+	@Inject
 
-    @PostConstruct
-    protected void init() throws RepositoryException {
+	@PostConstruct
+	protected void init() throws RepositoryException {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy - MM - dd");
-       if(currentNode.hasProperty("newsDate")){
-           date = currentNode.getProperty("newsDate").getDate();
-       }else {
-           ValueMap properties = currentPage.getProperties();
-           String lastReplicationAction = properties.containsKey(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATION_ACTION) ? properties.get(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATION_ACTION, String.class) : "";
-           if(lastReplicationAction != null && !lastReplicationAction.isEmpty() && lastReplicationAction.equals("Activate")){
-               date = properties.containsKey(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED) ? properties.get(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED, Calendar.class) : null;
-           }else {
-               date = properties.containsKey(JcrConstants.JCR_CREATED) ? properties.get(JcrConstants.JCR_CREATED, Calendar.class) : null;
-           }
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy - MM - dd");
+		if (currentNode.hasProperty("newsDate")) {
+			date = currentNode.getProperty("newsDate").getDate();
+		} else {
+			ValueMap properties = currentPage.getProperties();
+			String lastReplicationAction = properties.containsKey(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATION_ACTION) ? properties.get(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATION_ACTION, String.class) : "";
+			if (lastReplicationAction != null && !lastReplicationAction.isEmpty() && lastReplicationAction.equals("Activate")) {
+				date = properties.containsKey(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED) ? properties.get(ReplicationStatus.NODE_PROPERTY_LAST_REPLICATED, Calendar.class) : null;
+			} else {
+				date = properties.containsKey(JcrConstants.JCR_CREATED) ? properties.get(JcrConstants.JCR_CREATED, Calendar.class) : null;
+			}
+		}
+		if (date != null) {
+			formattedValue = formatter.format(date.getTime());
+		}
+	}
 
-       }
-       if(date != null){
-           formattedValue = formatter.format(date.getTime()) ;
-       }
-    }
-
-    public String getFormattedValue() {
-        return formattedValue;
-    }
+	public String getFormattedValue() {
+		return formattedValue;
+	}
 }

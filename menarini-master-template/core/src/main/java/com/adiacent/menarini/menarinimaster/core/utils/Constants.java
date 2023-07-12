@@ -8,6 +8,7 @@ public class Constants {
 
     public static final String FEATURE_IMAGE_NODE_NAME="cq:featuredimage";
 
+    public static final String PAGE_PROPERTY_NAME = "cq:Page";
     public static final String TEMPLATE_PROPERTY= NameConstants.NN_TEMPLATE;
 
     public static final String EXTENTION_SEPARATOR=".";
