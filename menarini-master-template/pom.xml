@@ -39,35 +39,37 @@
         <!--<module>ui.content.biotech</module>-->
         <!--<module>ui.content.demo</module>-->
         <!--<module>ui.content.minisite</module>-->
-        <module>it.tests</module>
-        <module>ui.tests</module>
-    </modules>
+        <!--<module>ui.content.berlin</module>-->
+        <!--<module>ui.content.procurement</module>-->
+       <module>it.tests</module>
+       <module>ui.tests</module>
+   </modules>
 
-    <properties>
-        <aem.host>localhost</aem.host>
-        <aem.port>4502</aem.port>
-        <aem.publish.host>localhost</aem.publish.host>
-        <aem.publish.port>4503</aem.publish.port>
-        <sling.user>admin</sling.user>
-        <sling.password>admin</sling.password>
-        <vault.user>admin</vault.user>
-        <vault.password>admin</vault.password>
-        <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
-        <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
-        <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
-        <core.wcm.components.version>2.19.0</core.wcm.components.version>
+   <properties>
+       <aem.host>localhost</aem.host>
+       <aem.port>4502</aem.port>
+       <aem.publish.host>localhost</aem.publish.host>
+       <aem.publish.port>4503</aem.publish.port>
+       <sling.user>admin</sling.user>
+       <sling.password>admin</sling.password>
+       <vault.user>admin</vault.user>
+       <vault.password>admin</vault.password>
+       <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
+       <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
+       <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
+       <core.wcm.components.version>2.19.0</core.wcm.components.version>
 
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2022.11.9850.20221116T162329Z-220900</aem.sdk.api>
-        <aemanalyser.version>1.4.2</aemanalyser.version>
+        <aem.sdk.api>2023.6.12255.20230608T053118Z-230601</aem.sdk.api>
+        <aemanalyser.version>1.5.8</aemanalyser.version>
         <componentGroupName>Menarini Master Template</componentGroupName>
     </properties>
 
-    <build>
-        <plugins>
-            <!-- Maven Release Plugin -->
+   <build>
+       <plugins>
+           <!-- Maven Release Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -102,8 +104,8 @@
                                     <version>[3.3.9,)</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
-                                    <message>Maven must be executed with a Java 8 JRE or higher.</message>
-                                    <version>1.8.0</version>
+                                    <message>Maven must be executed with a Java 11 JRE or higher.</message>
+                                    <version>1</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -115,8 +117,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>

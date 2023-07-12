@@ -12,10 +12,9 @@ import javax.inject.Inject;
 
 @Model(adaptables = SlingHttpServletRequest.class)
 public class LinkFormatter {
-
 	@Inject @Optional
 	private String authoredLink;
-	
+
     private String formattedLink;
 
 	/**
