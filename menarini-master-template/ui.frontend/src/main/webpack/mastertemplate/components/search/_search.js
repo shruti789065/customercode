@@ -19,7 +19,7 @@ function copyDataFromJson(query) {
     url =
       "https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchMT/search.json";
   } else {
-    url = `${protocol}//${domainName}/${lang}/${currentNodeSearch}.searchresult.json?fulltext=${query}`;
+    url = `${protocol}//${domainName}${currentNodeSearch}.searchresult.json?fulltext=${query}`;
   }
 
   fetch(url)
