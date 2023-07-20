@@ -26,10 +26,18 @@ import com.day.cq.wcm.foundation.forms.FormsHelper;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.poi.ss.formula.functions.T;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
@@ -96,7 +104,7 @@ class MailServletTest {
         params.put("address","");
         params.put("city","");
         params.put("family-name","");
-        params.put("g-recaptcha-response","");
+        params.put("g-recaptcha-response","SAMPLE_TOKEN");
         params.put("information","");
         params.put("job-title","");
         params.put("message","");
@@ -106,6 +114,7 @@ class MailServletTest {
         params.put("privacy","");
         params.put("zip","");
         params.put(":redirect","home.html");
+        params.put("resourcePath","/content/menarinimaster/language-masters/en/contacts/jcr:content/root/container/container/container");
         request.setParameterMap(params);
 
         lenient().when(qBuilder.createQuery(any(PredicateGroup.class), any(Session.class))).thenReturn(query);
@@ -139,8 +148,32 @@ class MailServletTest {
         servlet = spy(ctx.registerInjectActivateService(new MailServlet()));
         doReturn(params.keySet().iterator()).when(servlet).getRequestParamIterators(any(SlingHttpServletRequest.class));
         doReturn(new ArrayList<Resource>().iterator()).when(servlet).getResourceFormElements(any(SlingHttpServletRequest.class));
-        servlet.doPost(request, response);
 
+
+
+        lenient().doReturn(c).when(spy(request)).getResource();
+        lenient().doReturn(ctx.resourceResolver()).when(c).getResourceResolver();
+        Resource p = ctx.resourceResolver().getResource("/content/menarinimaster/language-masters/en/contacts.html/jcr:content/root/container/container/container");
+        doReturn(p).when(servlet).getParentResource(any(ResourceResolver.class), any(String.class));
+
+
+        //doReturn(true).when(servlet).checkRecaptcha(any(String.class), any(String.class));
+        //oppure:
+        CloseableHttpClient httpclient =  mock(CloseableHttpClient.class);
+        doReturn(httpclient).when(servlet).getHttpClient();
+        CloseableHttpResponse httpResponse = mock(CloseableHttpResponse.class);
+        doReturn(httpResponse).when(httpclient).execute(any(HttpUriRequest.class));
+        HttpEntity entity = mock(HttpEntity.class);
+        doReturn(entity).when(httpResponse).getEntity();
+        InputStream inputStream = mock(InputStream.class);
+        doReturn(inputStream).when(entity).getContent();
+        String inputString = "{\"success\": true}";
+        byte[] byteArrray = inputString.getBytes();
+        doReturn(byteArrray).when(inputStream).readAllBytes();
+
+
+
+        servlet.doPost(request, response);
         boolean res= response.getBufferSize() > 0;
         assertTrue(res);
 
