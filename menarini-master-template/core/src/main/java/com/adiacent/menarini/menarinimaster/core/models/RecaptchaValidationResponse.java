@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.joda.time.format.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -59,10 +60,22 @@ public class RecaptchaValidationResponse {
     }
 
     public List<String> getErrorCodes() {
-        return errorCodes;
+        //return errorCodes;
+        if(errorCodes == null)
+            return null;
+        String[] array = errorCodes.toArray(new String[errorCodes.size()]);
+        String[] clone = array.clone();
+        return Arrays.asList(clone);
     }
 
     public void setErrorCodes(List<String> errorCodes) {
-        this.errorCodes = errorCodes;
+        //this.errorCodes = errorCodes;
+        if(errorCodes == null)
+            this.errorCodes = null;
+        else {
+            String[] array = errorCodes.toArray(new String[errorCodes.size()]);
+            String[] clone = array.clone();
+            this.errorCodes = Arrays.asList(clone);
+        }
     }
 }
