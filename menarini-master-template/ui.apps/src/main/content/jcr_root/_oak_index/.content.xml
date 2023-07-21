@@ -7,14 +7,14 @@
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
           jcr:mixinTypes="[rep:AccessControllable]"
           jcr:primaryType="nt:unstructured">
-    <menariniMaster-fulltext-1-custom-2
+    <menariniMaster-fulltext-1-custom-3
             jcr:primaryType="oak:QueryIndexDefinition"
             async="[async,nrt]"
             compatVersion="{Long}2"
             evaluatePathRestrictions="{Boolean}true"
             excludedPaths="[/var,/etc/replication,/etc/workflow/instances,/jcr:system,/etc/packages]"
-            includedPaths="[/content/menarinimaster,/content/menarini-pt]"
-            queryPaths="[/content/menarinimaster,/content/menarini-pt]"
+            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech]"
+            queryPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech]"
             reindex="{Boolean}false"
             reindexCount="{Long}1"
             seed="{Long}-6146516853337668993"
@@ -104,5 +104,5 @@
                 </properties>
             </cq:Page>
         </indexRules>
-    </menariniMaster-fulltext-1-custom-2>
+    </menariniMaster-fulltext-1-custom-3>
 </jcr:root>

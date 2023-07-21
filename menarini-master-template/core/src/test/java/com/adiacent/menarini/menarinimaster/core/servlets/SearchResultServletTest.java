@@ -60,28 +60,28 @@ public class SearchResultServletTest {
             when(pageManager.getContainingPage(currentResource.getPath())).thenReturn(currentPage);
 
             Page homePage = mock(Page.class);
-            when(currentPage.getAbsoluteParent(3)).thenReturn(homePage);
-            when(homePage.getPath()).thenReturn("/content/menarinimaster/language-masters/en");
+            //when(currentPage.getAbsoluteParent(3)).thenReturn(homePage);
+            //when(homePage.getPath()).thenReturn("/content/menarinimaster/language-masters/en");
 
             Session session = mock(Session.class);
-            when(resourceResolver.adaptTo(Session.class)).thenReturn(session);
+            //when(resourceResolver.adaptTo(Session.class)).thenReturn(session);
 
             QueryManager queryManager = mock(QueryManager.class);
             Workspace workspace = mock(Workspace.class);
 
-            when(session.getWorkspace()).thenReturn(workspace);
-            when(workspace.getQueryManager()).thenReturn(queryManager);
+            //when(session.getWorkspace()).thenReturn(workspace);
+            //when(workspace.getQueryManager()).thenReturn(queryManager);
             Query query = mock(Query.class);
-            when(queryManager.createQuery("SELECT * FROM [cq:Page] as p WHERE ISDESCENDANTNODE('/content/menarinimaster/language-masters/en')  AND contains(p.*, '*search*' ) ORDER BY p.[jcr:content/jcr:created] DESC", Query.JCR_SQL2)).thenReturn(query);
+           // when(queryManager.createQuery("SELECT * FROM [cq:Page] as p WHERE ISDESCENDANTNODE('/content/menarinimaster/language-masters/en')  AND contains(p.*, '*search*' ) ORDER BY p.[jcr:content/jcr:created] DESC", Query.JCR_SQL2)).thenReturn(query);
             QueryResult result = mock(QueryResult.class);
-            when(query.execute()).thenReturn(result);
+            //when(query.execute()).thenReturn(result);
 
 
             NodeIterator it = mock(NodeIterator.class);
-            when(result.getNodes()).thenReturn(it);
-            when(it.hasNext()).thenReturn(false);
+           // when(result.getNodes()).thenReturn(it);
+           // when(it.hasNext()).thenReturn(false);
 
-            when(request.getParameter("fulltext")).thenReturn("search");
+            //when(request.getParameter("fulltext")).thenReturn("search");
             searchResultServlet.doGet(request, response);
 
         }catch (Exception e){

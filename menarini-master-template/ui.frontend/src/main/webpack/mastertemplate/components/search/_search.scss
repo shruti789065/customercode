@@ -52,6 +52,10 @@
         &:hover {
             background-color: $color-primary-hover;
         }
+		&:disabled{
+			background-color: lightgray;
+			cursor: not-allowed;
+		}
     }
 }
 

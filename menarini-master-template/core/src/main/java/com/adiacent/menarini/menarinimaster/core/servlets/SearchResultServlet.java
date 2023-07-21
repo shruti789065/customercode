@@ -1,6 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
+import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -46,6 +47,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
 
     private String keyword ;
     private transient Page currentPage = null;
+    private transient Page homepage = null;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -58,6 +60,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                 currentPage = pageManager.getContainingPage(currentResource.getPath());
             }
             if(currentPage != null){
+                homepage = ModelUtils.getHomePage(resourceResolver, currentPage.getPath());
                 JSONObject jsonObject = getResult(request, resourceResolver);
                 response.setContentType(Constants.APPLICATION_JSON);
                 response.getWriter().print(jsonObject);
@@ -74,7 +77,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
             keyword = request.getParameter("fulltext");
             StringBuilder myXpathQuery = new StringBuilder();
             myXpathQuery.append("SELECT * FROM [cq:Page] as p ");
-            myXpathQuery.append("WHERE ISDESCENDANTNODE('" + getHomePage().getPath() + "') ");
+            myXpathQuery.append("WHERE ISDESCENDANTNODE('" + homepage.getPath() + "') ");
             myXpathQuery.append(" AND contains(p.*, '*" + keyword + "*' ) ");
             myXpathQuery.append("ORDER BY p.[jcr:content/jcr:created] DESC");
             Session session = resourceResolver.adaptTo(Session.class);
@@ -99,9 +102,4 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
 
         return response;
     }
-
-    protected Page getHomePage() {
-        return currentPage.getAbsoluteParent(3);
-    }
-
 }
