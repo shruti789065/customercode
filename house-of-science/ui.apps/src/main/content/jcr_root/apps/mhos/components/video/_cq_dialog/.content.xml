@@ -27,6 +27,15 @@
                             fieldLabel="Video Link"
                             name="./mediaLink"
                             rootPath="/content/dam/mhos"/>
+                    <autoplay
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                            fieldDescription="When checked, video started on page load"
+                            name="./autoplay"
+                            text="Autoplay"
+                            uncheckedValue="{Boolean}false"
+                            checked="true"
+                            value="{Boolean}true"/>
                 </items>
             </column>
         </items>
