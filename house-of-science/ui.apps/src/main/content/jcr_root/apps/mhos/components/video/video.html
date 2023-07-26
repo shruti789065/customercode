@@ -1,6 +1,6 @@
 <!--/* Placeholder Content
    ============================================= */-->
-<img data-sly-test="${(wcmmode.edit || wcmmode.design) }" data-emptytext="Video" style="min-width: 450px" src="/libs/cq/ui/resources/0.gif" class="cq-placeholder" alt="video" />
+<img data-sly-test="${(wcmmode.edit || wcmmode.design) }" data-emptytext="Video" src="/libs/cq/ui/resources/0.gif" class="cq-placeholder" alt="video" />
 <div class="video--teaser" data-sly-test="${!wcmmode.edit && !wcmmode.preview}">
     <div class="video-container">
         <sly data-sly-set.autoplayVideo="${properties.autoplay}"></sly>
@@ -8,13 +8,13 @@
             <video class="video autoplay" autoplay loop muted controls>
                 <source src="${properties.mediaLink}" type="video/mp4">
             </video>
+            <div class="playpause"></div>
         </sly>
         <sly data-sly-test="${!autoplayVideo}">
             <video class="video" controls>
                 <source src="${properties.mediaLink}" type="video/mp4">
             </video>
         </sly>
-        <div class="playpause"></div>
     </div>
     <sly data-sly-test="${properties.title || properties.description}">
         <div class="content">
@@ -24,5 +24,4 @@
             </div>
         </div>
     </sly>
-
 </div>
