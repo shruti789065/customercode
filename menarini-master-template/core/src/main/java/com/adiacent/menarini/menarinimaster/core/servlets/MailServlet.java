@@ -12,6 +12,13 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -20,12 +27,16 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
 
+import com.adiacent.menarini.menarinimaster.core.models.RecaptchaValidationResponse;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 
 import com.day.cq.search.QueryBuilder;
 
 import com.day.cq.wcm.api.NameConstants;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.ByteArrayDataSource;
@@ -33,6 +44,13 @@ import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.request.RequestParameter;
@@ -116,6 +134,8 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
     @Reference
     private transient QueryBuilder qBuilder;
 
+
+
     /**
      * @see org.apache.sling.api.servlets.OptingServlet#accepts(org.apache.sling.api.SlingHttpServletRequest)
      */
@@ -165,6 +185,35 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
          * Adapting the resource resolver to the session object
          */
         Session session = resourceResolver.adaptTo(Session.class);
+
+
+        //recupero risorsa di provenienza contenente il componente recaptcha per il recupero della secret key
+        final String formStart = request.getParameter( "resourcePath");
+        if(StringUtils.isBlank(formStart)){
+            this.logger.debug("It is no possible to verify recaptcha");
+            errors.add("It is no possible to verify recaptcha");
+        }
+        else{
+            //recupero la risorsa recaptcha
+
+            Resource parent =  getParentResource(resourceResolver, formStart);
+            if(parent != null){
+                Resource recaptchaCmp = parent.getChild("recaptcha");
+                if(recaptchaCmp != null && recaptchaCmp.getValueMap().get("secretKey") != null){
+                    String secretKey = (String)recaptchaCmp.getValueMap().get("secretKey");
+                    //check recaptcha
+                    final String recaptchaToken = request.getParameter( "g-recaptcha-response");
+                    if(!checkRecaptcha(recaptchaToken, secretKey)){
+                        this.logger.debug("Recaptcha verification failed");
+                        errors.add("Recaptcha verification failed");
+                    }
+                }
+            }
+
+        }
+
+
+
         /**
          * Configuring the Map for the predicate
          */
@@ -298,6 +347,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
         response.setStatus(status);
     }
 
+    public Resource getParentResource(ResourceResolver resourceResolver, String formStart) {
+        return resourceResolver.getResource(formStart);
+    }
 
 
     private int sendEmail(SlingHttpServletRequest request, String mailText, String[] mailTo, String fromAddress, String[] ccRecs, String[] bccRecs, String subject, List<String> namesList, ResourceBundle resBundle ){
@@ -422,6 +474,53 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
     public Iterator<Resource> getResourceFormElements(SlingHttpServletRequest request) {
         return FormsHelper.getFormElements(request.getResource());
+    }
+
+    public CloseableHttpClient getHttpClient(){
+        return HttpClients.createDefault();
+    }
+    public boolean checkRecaptcha(String responseToken, String secretKey){
+        if(StringUtils.isBlank(responseToken) || StringUtils.isBlank(secretKey))
+            return false;
+        //CloseableHttpClient httpclient = HttpClients.createDefault();
+        CloseableHttpClient  httpclient = getHttpClient();
+        try {
+            URI uri = new URIBuilder()
+                    .setScheme("https")
+                    .setHost("www.google.com")
+                    .setPath("/recaptcha/api/siteverify")
+                    .setParameter("secret", secretKey)
+                    .setParameter("response", responseToken)
+
+                    .build();
+
+            HttpPost httpPost = new HttpPost(uri);
+            HttpResponse response = httpclient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null) {
+                try (InputStream instream = entity.getContent()) {
+                    String resp = new String(instream.readAllBytes(), StandardCharsets.UTF_8);
+                    //Gson gson =  new GsonBuilder().create();
+                    Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, (JsonDeserializer<LocalDateTime>) (json, type, jsonDeserializationContext) ->
+
+                            LocalDateTime.parse(json.getAsJsonPrimitive().getAsString(), DateTimeFormatter.ISO_DATE_TIME)
+                    ).create();
+                    RecaptchaValidationResponse result = gson.fromJson(resp, RecaptchaValidationResponse.class);
+                    return (result != null && result.isSuccess());
+
+                }
+            }
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        } catch (ClientProtocolException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //HttpPost httpPost = new HttpPost("https://www.google.com/recaptcha/api/siteverify");
+        return false;
     }
 
 }
