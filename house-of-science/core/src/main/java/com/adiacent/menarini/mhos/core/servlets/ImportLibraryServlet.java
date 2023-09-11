@@ -56,7 +56,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.apache.poi.ss.usermodel.CellType.STRING;
+
 
 //@Designate(ocd = ImportLibraryServlet.Config.class)
 @Component(service = { Servlet.class }, name = "Menarini House of Science - Import Library Servlet", immediate = true)
@@ -92,22 +92,15 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
     }*/
 
     //indice colonne del file excel dalle quali recuperare le informazioni
-    private static Integer TIPOLOGY_TAGS_COL_INDEX = 1;
+    private static Integer TYPOLOGY_TAGS_COL_INDEX = 1;
     private static Integer TOPIC_TAGS_COL_INDEX = 2;
     private static Integer SOURCE_TAGS_COL_INDEX = 2;
     private static Integer AUTHOR_COL_INDEX = 5;
     private static Integer GENERIC_TAGS_COL_INDEX = 6;
 
-    private static HashMap<String, List<String>> tagsMap = null;
 
-    static{
-        tagsMap = new HashMap<String, List<String>>();
-        tagsMap.put("author", new ArrayList());
-        tagsMap.put("generic-tags", new ArrayList());
-        tagsMap.put("topic", new ArrayList());
-        tagsMap.put("source", new ArrayList());
-        tagsMap.put("typology", new ArrayList());
-    }
+
+
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
         try{
@@ -126,7 +119,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
             InputStream inputStream = asset.getOriginal().adaptTo(InputStream.class);
 
             if(servletConfig.isImportTagEnabled()){
-                importTags(inputStream, session);
+                importTagsData(inputStream, session);
             }
 
 
@@ -148,80 +141,22 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
     }
 
 
-    private void importTags(InputStream inputStream, Session session) {
-        LOG.debug("Start import tags********************");
-        if(inputStream == null)
-            return;
-
-        XSSFWorkbook workbook = null;
-        try {
-            workbook = new XSSFWorkbook(inputStream);
-            XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
-
-            Iterator<Row> itr = sheet.iterator();    //iterating over excel file
-            int count = 0;
-            while (itr.hasNext()) {
-                Row row = itr.next();
-                //ignoro l'header se il file excel la prevede
-                if(servletConfig.isHeaderRowPresent() && count == 0);
-                else{
-
-                    //Iterator<Cell> cellIterator = row.cellIterator();   //iterating over each column
-                    Cell authorCell = row.getCell(AUTHOR_COL_INDEX);
-                    if(authorCell != null){
-                        String value = authorCell.getStringCellValue();
-                        LOG.info("author values in cell {} ", value);
-                        if(StringUtils.isNotBlank(value)){
-                            //si usa la virgola come separatore
-                            List<String> convertedAuthorsList = Stream.of(value.split(",", -1))
-                                    .map(a->{
-                                        String res= null;
-                                       res = a.toLowerCase().replaceAll("mr|md|phd|ms(\\w+[;]{0,1})", "");
-                                       res=StringUtils.trimToEmpty(res);
-                                       return res;
-                                    })
-                                    .filter(e-> StringUtils.isNotBlank(e))
-                                    .collect(Collectors.toList());
-                            if(convertedAuthorsList.size() > 0){
-                                tagsMap.get("author").addAll(convertedAuthorsList);
-                            }
-                        }
-
-                    }
-                    /*while (cellIterator.hasNext()) {
-                        Cell cell = cellIterator.next();
-                        switch (cell.getCellType()) {
-                            case STRING:    //field that represents string cell type
-                                System.out.print(cell.getStringCellValue() + "\t\t\t");
-                                break;
-                            case NUMERIC:    //field that represents number cell type
-                                System.out.print(cell.getNumericCellValue() + "\t\t\t");
-                                break;
-                            default:
-                        }
-                    }*/
-                }
-               count++;
-            }
-
-            //vedere se c'è da creare il nodo per il tag e i nodi dei valori per ogni key dell'hahsmap
-            storeTags2(session);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        LOG.debug("End import tags******************************");
-    }
-
-    private Node findDescendantNodeByName(String searchPath, String name){
-        if(StringUtils.isBlank(searchPath) || StringUtils.isBlank(name))
+    private Node getTagNode(String nodeName, String searchPath, boolean searchForDescendant){
+        if(StringUtils.isBlank(nodeName))
             return null;
+        if(StringUtils.isBlank(searchPath))
+            return null;
+
         try {
             StringBuilder myXpathQuery;
             myXpathQuery = new StringBuilder();
             myXpathQuery.append("SELECT * FROM [cq:Tag]  as p ");
+            if(searchForDescendant)
             myXpathQuery.append("WHERE ISDESCENDANTNODE('" + searchPath + "') ");
-            myXpathQuery.append(" AND NAME() = '"+ name+"'");
+            else
+                myXpathQuery.append(" WHERE ISCHILDNODE(p, '" + searchPath + "')");
+            myXpathQuery.append(" AND NAME() = '"+ nodeName+"'");
+
             Session session = resourceResolver.adaptTo(Session.class);
             QueryManager queryManager  = session.getWorkspace().getQueryManager();
 
@@ -238,42 +173,34 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
         }
         return null;
     }
-    private Node insertOrUpdateChildNode(String searchPath, String childTitle, HashMap properties ){
 
-        if(StringUtils.isBlank(searchPath) || StringUtils.isBlank(childTitle))
+    private Node insertOrUpdateTagNode(Node tag, String destinationPath, String name, String title, HashMap properties ){
+
+        if( StringUtils.isBlank(title))
             return null;
-
-        Resource root = resourceResolver.getResource(searchPath);
-        if(root == null)
-            return null;
-        Node rootNode = root.adaptTo(Node.class);
-
-        String childName = StringUtils.replace(childTitle," ", "-");
-        Node childNode = findDescendantNodeByName(searchPath, childName);
-        Node parentNode = (childNode == null) ? rootNode :  null;
-
-        try {
-            if(childNode == null) {
+        Node n = tag;
+        try{
+            if( n == null){
                 TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
-                Tag tagChild = tagManager.createTag(childName, childTitle, null,false);
-                childNode = tagChild.adaptTo(Node.class);
-                tagManager.moveTag(tagChild,parentNode.getPath()+"/"+childName );
-                //childNode =parentNode.addNode(childName);
+                Tag tagChild = tagManager.createTag(name, title, null,false);
+                tagManager.moveTag(tagChild,destinationPath+"/"+name );
+                n = tagChild.adaptTo(Node.class);
             }
             else{
                 Calendar lmCalendar = Calendar.getInstance();
                 lmCalendar.setTimeInMillis(System.currentTimeMillis());
-                childNode.setProperty(JcrConstants.JCR_LASTMODIFIED, lmCalendar);
+                n.setProperty(JcrConstants.JCR_LASTMODIFIED, lmCalendar);
             }
-            final Node child = childNode;
+            final Node node = n;
             if(properties != null){
                 properties.keySet().forEach(k -> {
                     try {
-                        child.setProperty((String)k, (String)properties.get(k));
+                        node.setProperty((String)k, (String)properties.get(k));
                     } catch (RepositoryException e) {
                         throw new RuntimeException(e);
                     }
                 });
+
             }
         } catch (RepositoryException e) {
             throw new RuntimeException(e);
@@ -282,129 +209,185 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
         } catch (TagException e) {
             throw new RuntimeException(e);
         }
-
-        return childNode;
+        return n;
     }
-
-    private void storeTags2(Session session) {
-        LOG.debug("Start store tags -  2  - ");
-        //Per ogni chiave dell'hashmap tagsMap si controlla che esista il nodo, altrimenti lo si crea
-
-        tagsMap.keySet().forEach(k -> {
-            LOG.debug( "Tag name " + k );
-
+    private void handleTag(String tagName, String tagTitle, List<String> values){
+        //check tag parent "tagName"
+        Node parentTagNode = getTagNode(tagName, servletConfig.getTagsRootPath(), false);
+        if(parentTagNode == null){
             HashMap properties = new HashMap();
-            //properties.put(JcrConstants.JCR_PRIMARYTYPE, "cq:Tag");
-            properties.put(JcrConstants.JCR_TITLE, k);
+            properties.put(JcrConstants.JCR_TITLE, tagTitle);
             properties.put(StringConstants.SLING_RESOURCE_TYPE, "cq/tagging/components/tag");
-            Node currentTagNode = insertOrUpdateChildNode(servletConfig.getTagsRootPath(), k.toLowerCase() ,properties);
+            parentTagNode = insertOrUpdateTagNode(null, servletConfig.getTagsRootPath(), tagName,tagTitle ,properties );
+        }
 
-            if(currentTagNode != null){
-                //si aggiungono i nodi valore del nodo tag SE non già presenti,altrimenti si aggiorna
-                List<String> valueList = tagsMap.get(k);
-                if( valueList != null &&  valueList.size() > 0){
-                    valueList.forEach(v-> {
-                        if (v != null) {
-
-                            HashMap propertiesV = new HashMap();
-                            //propertiesV.put(JcrConstants.JCR_PRIMARYTYPE, "cq:Tag");
-                            propertiesV.put(JcrConstants.JCR_TITLE, v);
-                            propertiesV.put(StringConstants.SLING_RESOURCE_TYPE, "cq/tagging/components/tag");
-                            try {
-                                Node currentTagValueNode = insertOrUpdateChildNode(currentTagNode.getPath(), v.toLowerCase() ,propertiesV);
-                            } catch (RepositoryException e) {
-                                throw new RuntimeException(e);
-                            }
-
-
-                        }
-                    });
-                }
-            }
-
-        } );
-
-        /*try {
-            session.save();
-        } catch (RepositoryException e) {
-            throw new RuntimeException(e);
-        }*/
-        LOG.debug("End store tags");
-    }
-
-    private void storeTags(Session session) {
-        LOG.debug("Start store tags");
-        //Per ogni chiave dell'hashmap tagsMap si controlla che esista il nodo, altrimenti lo si crea
-        Resource tagRoot = resourceResolver.getResource(servletConfig.getTagsRootPath());
-        if(tagRoot == null)
-            return;
-        Node tagRootNode = tagRoot.adaptTo(Node.class);
-
-        tagsMap.keySet().forEach(k -> {
-            LOG.debug( "Tag name " + k );
-            Resource currentTag = resourceResolver.getResource(servletConfig.getTagsRootPath()+"/"+k);
-            Node currentTagNode = null;
-            if(currentTag == null){
-
+        if(values != null && values.size() > 0 && parentTagNode != null){
+            Node parent = parentTagNode;
+            values.stream().forEach(v->{
+                String tgName = StringUtils.replace(v.toLowerCase().trim(), " ", "-");
+                Node childTagNode = null;
                 try {
-                    currentTagNode  = tagRootNode.addNode(k);
-                    Calendar lmCalendar = Calendar.getInstance();
-                    lmCalendar.setTimeInMillis(System.currentTimeMillis());
-                    currentTagNode.setProperty(JcrConstants.JCR_LASTMODIFIED, lmCalendar);
-                    currentTagNode.setProperty(JcrConstants.JCR_PRIMARYTYPE, "cq:Tag");
-                    currentTagNode.setProperty(JcrConstants.JCR_TITLE, k);
-                    currentTagNode.setProperty(StringConstants.SLING_RESOURCE_TYPE, "cq/tagging/components/tag");
+                    childTagNode = getTagNode(tgName,  parent.getPath(), true);
+
+                    if(childTagNode == null){
+                        HashMap properties = new HashMap();
+                        properties.put(JcrConstants.JCR_TITLE, v);
+                        properties.put(StringConstants.SLING_RESOURCE_TYPE, "cq/tagging/components/tag");
+                        childTagNode  = insertOrUpdateTagNode(childTagNode, parent.getPath(), tgName, v,properties );
+                    }
                 } catch (RepositoryException e) {
                     throw new RuntimeException(e);
                 }
-            }
-            else
-                currentTagNode = currentTag.adaptTo(Node.class);
 
-            //si aggiungono i nodi valore del nodo tag SE non già presenti,altrimenti si aggiorna
-            List<String> valueList = tagsMap.get(k);
-            try {
+            });
+        }
+    }
 
-                String currentTagNodeRootPath = currentTagNode.getPath();
-                final Node currentTagNodeRoot = currentTagNode;
-                if( valueList != null &&  valueList.size() > 0){
-                    valueList.forEach(v->{
-                        if(v != null){
-                            Resource currentTagValue = resourceResolver.getResource(currentTagNodeRootPath+"/"+v);
-                            Node currentTagValueNode = null;
-                            if(currentTagValue == null){
+    private void handleAuthorTag(String value){
 
-                                try {
-                                    currentTagValueNode  =  currentTagNodeRoot.addNode(k);
-                                    Calendar lmCalendar = Calendar.getInstance();
-                                    lmCalendar.setTimeInMillis(System.currentTimeMillis());
-                                    currentTagValueNode.setProperty(JcrConstants.JCR_CREATED, lmCalendar);
-                                    currentTagValueNode.setProperty(JcrConstants.JCR_PRIMARYTYPE, "cq:Tag");
-                                    currentTagValueNode.setProperty(JcrConstants.JCR_TITLE, v);
-                                    currentTagValueNode.setProperty(StringConstants.SLING_RESOURCE_TYPE, "cq/tagging/components/tag");
-                                } catch (RepositoryException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                            else
-                                currentTagValueNode = currentTagValue.adaptTo(Node.class);
-                        }
-                    });
+        if(StringUtils.isNotBlank(value)){
+            //si usa la virgola come separatore
+            List<String> convertedList = Stream.of(value.split(",", -1))
+                    .map(a->{
+                        String res= null;
+                        res = a.toLowerCase().replaceAll("mr|md|phd|ms(\\w+[;]{0,1})", "");
+                        res=StringUtils.trimToEmpty(res);
+                        return res;
+                    })
+                    .filter(e-> StringUtils.isNotBlank(e))
+                    .collect(Collectors.toList());
+            if(convertedList != null && convertedList.size() > 0)
+                handleTag("author", "author", convertedList);
+        }
 
-                }
-            } catch (RepositoryException e) {
-                throw new RuntimeException(e);
-            }
+    }
 
-        } );
 
+    private void handleTopicTag(String value){
+        if(StringUtils.isNotBlank(value)){
+            //si usa la virgola come separatore
+            List<String> convertedList = Stream.of(value.split(",", -1))
+                    .map(a->{
+                        String res= null;
+                        res = a.toLowerCase().trim();
+                        return res;
+                    })
+                    .filter(e-> StringUtils.isNotBlank(e))
+                    .collect(Collectors.toList());
+            if(convertedList != null && convertedList.size() > 0)
+                handleTag("topic", "topic", convertedList);
+        }
+    }
+
+    private void handleSourceTag(String value){
+        if(StringUtils.isNotBlank(value)){
+            //si usa la virgola come separatore
+            List<String> convertedList = Stream.of(value.split(",", -1))
+                    .map(a->{
+                        String res= null;
+                        res = a.toLowerCase().trim();
+                        return res;
+                    })
+                    .filter(e-> StringUtils.isNotBlank(e))
+                    .collect(Collectors.toList());
+            if(convertedList != null && convertedList.size() > 0)
+                handleTag("source", "source", convertedList);
+        }
+    }
+
+    private void handleGenericTags(String value){
+        if(StringUtils.isNotBlank(value)){
+            //si usa la virgola come separatore
+            List<String> convertedList = Stream.of(value.split(",", -1))
+                    .map(a->{
+                        String res= null;
+                        res = a.toLowerCase().trim();
+                        return res;
+                    })
+                    .filter(e-> StringUtils.isNotBlank(e))
+                    .collect(Collectors.toList());
+            if(convertedList != null && convertedList.size() > 0)
+                handleTag("generic-tags", "generic-tags", convertedList);
+        }
+    }
+
+    private void handleTypologyTag(String value){
+        if(StringUtils.isNotBlank(value)){
+            //si usa la virgola come separatore
+            List<String> convertedList = Stream.of(value.split(",", -1))
+                    .map(a->{
+                        String res= null;
+                        res = a.toLowerCase().trim();
+                        return res;
+                    })
+                    .filter(e-> StringUtils.isNotBlank(e))
+                    .collect(Collectors.toList());
+            if(convertedList != null && convertedList.size() > 0)
+                handleTag("typology", "typology", convertedList);
+        }
+    }
+
+    private void importTagsData(InputStream inputStream, Session session) {
+        LOG.debug("Start import tags data********************");
+        if(inputStream == null)
+            return;
+
+        XSSFWorkbook workbook = null;
         try {
-            session.save();
-        } catch (RepositoryException e) {
+            workbook = new XSSFWorkbook(inputStream);
+            XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
+
+            Iterator<Row> itr = sheet.iterator();    //iterating over excel file
+            int count = 0;
+            while (itr.hasNext()) {
+                Row row = itr.next();
+                //ignoro l'header se il file excel la prevede
+                if(servletConfig.isHeaderRowPresent() && count == 0);
+                else{
+
+                    Cell authorCell = row.getCell(AUTHOR_COL_INDEX);
+                    if(authorCell != null) {
+                        String value = authorCell.getStringCellValue();
+                        handleAuthorTag( value );
+                    }
+
+                    Cell topicCell = row.getCell(TOPIC_TAGS_COL_INDEX);
+                    if(topicCell != null) {
+                        String value = topicCell.getStringCellValue();
+                        handleTopicTag( value );
+                    }
+
+                    Cell sourceCell = row.getCell(SOURCE_TAGS_COL_INDEX);
+                    if(sourceCell != null) {
+                        String value = sourceCell.getStringCellValue();
+                        handleSourceTag( value );
+                    }
+
+                    Cell genericTagsCell = row.getCell(GENERIC_TAGS_COL_INDEX);
+                    if(genericTagsCell != null) {
+                        String value = genericTagsCell.getStringCellValue();
+                        handleGenericTags( value );
+                    }
+
+
+                    Cell typologyCell = row.getCell(TYPOLOGY_TAGS_COL_INDEX);
+                    if(typologyCell != null) {
+                        String value = typologyCell.getStringCellValue();
+                        handleTypologyTag( value );
+                    }
+                }
+                count++;
+            }
+
+
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        LOG.debug("End store tags");
+
+        LOG.debug("End import tags data******************************");
     }
+
+
 
     /*protected JSONArray getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver) throws RepositoryException, JSONException {
         JSONArray results = new JSONArray();
