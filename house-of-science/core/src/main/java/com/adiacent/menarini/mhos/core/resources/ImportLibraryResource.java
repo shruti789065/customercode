@@ -40,6 +40,12 @@ public class ImportLibraryResource {
         @AttributeDefinition(name = "Tag Root Path", description = "getTagsRootPath")
         String getTagsRootPath() default "";
 
+        @AttributeDefinition(name = "Username", description = "Username")
+        String getUsername() default "";
+
+        @AttributeDefinition(name = "Password", description = "Password")
+        String getPwd() default "";
+
 
     }
 

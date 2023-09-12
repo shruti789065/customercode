@@ -1,11 +1,15 @@
 package com.adiacent.menarini.mhos.core.servlets;
 
+import com.adiacent.menarini.mhos.core.business.ContentFragmentApi;
+import com.adiacent.menarini.mhos.core.models.ContentFragmentModel;
+import com.adiacent.menarini.mhos.core.models.ContentFragmentPropertiesModel;
 import com.adiacent.menarini.mhos.core.resources.ImportLibraryResource;
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.FragmentData;
 import com.adobe.dam.print.ids.StringConstants;
 import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
@@ -99,7 +103,9 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
     private static Integer GENERIC_TAGS_COL_INDEX = 6;
 
 
+    private static Integer TITLE_COL_INDEX = 3;
 
+    private static Integer DESCRIPTION_COL_INDEX = 4;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -122,6 +128,10 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
                 importTagsData(inputStream, session);
             }
 
+
+            if(servletConfig.isImportArticleEnabled()){
+                importArticlesData(inputStream, request.getServerName(), request.getServerPort(), session);
+            }
 
 
 
@@ -387,6 +397,80 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
         LOG.debug("End import tags data******************************");
     }
 
+
+    private void importArticlesData(InputStream inputStream, String serverName, int serverPort, Session session) {
+        LOG.debug("Start import Articles data********************");
+        if(inputStream == null)
+            return;
+
+        // Si crea la folder infettivology se non esiste
+
+
+//Create the Node
+
+        try {
+            Resource categoryFolder =  resourceResolver.getResource("/content/dam/mhos/content-fragments/en/plutology");
+            if(categoryFolder == null) {
+                JcrUtil.createPath("/content/dam/mhos/content-fragments/en/plutology", JcrConstants.NT_FOLDER, session);
+                session.save();
+            }
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
+
+        ContentFragmentApi cfApi = new ContentFragmentApi();
+        ContentFragmentModel cf = cfApi.getByPath(serverName, serverPort, "mhos/content-fragments/en/internal-medicine/obesity-and-weight-management-for-the-prevention-and-treatment-of-type-2-diabetes--standards-of-care-in-diabetes-2023.json");
+        XSSFWorkbook workbook = null;
+        try {
+            workbook = new XSSFWorkbook(inputStream);
+            XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
+
+            Iterator<Row> itr = sheet.iterator();    //iterating over excel file
+            int count = 0;
+            while (itr.hasNext()) {
+                Row row = itr.next();
+                //ignoro l'header se il file excel la prevede
+                if(servletConfig.isHeaderRowPresent() && count == 0);
+                else{
+                    cf  = generateContentFragmentFromRow(row);
+
+                }
+                count++;
+            }
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        LOG.debug("End import Articles data******************************");
+    }
+
+    private ContentFragmentModel generateContentFragmentFromRow(Row row) {
+        ContentFragmentModel res = new ContentFragmentModel();
+        res.setProperties(new ContentFragmentPropertiesModel());
+        ContentFragmentPropertiesModel.CQModel m = new ContentFragmentPropertiesModel.CQModel();
+        m.setPath("/conf/mhos/settings/dam/cfm/models/result-fragment");
+        res.getProperties().setCqModel(m);
+
+        Cell cell = row.getCell(TITLE_COL_INDEX);
+        if(cell != null) {
+            String value = cell.getStringCellValue().trim();
+            res.getProperties().setTitle(value);
+        }
+
+        cell = row.getCell(DESCRIPTION_COL_INDEX);
+        if(cell != null) {
+            String value = cell.getStringCellValue().trim();
+            res.getProperties().setDescription(value);
+        }
+
+        return res;
+    }
 
 
     /*protected JSONArray getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver) throws RepositoryException, JSONException {
