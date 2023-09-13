@@ -1,3 +1,4 @@
+import $ from "jquery";
 import { _isDesktop, _prependHtml } from "../../site/_util.js";
 
 const MenuTabs = (() => {
@@ -8,27 +9,23 @@ const MenuTabs = (() => {
     GENERIC_PANEL_CLASS: "cmp-tabs__tabpanel",
   };
 
-  let tabsMenu,
-    whiteMenu,
-    shareButton,
-    mobileTabsActive,
-    tablistMobile,
-    shareOpened = false;
+  let $tabsMenu,
+    $whiteMenu,
+    $shareButton,
+    $mobileTabsActive,
+    $tablistMobile,
+    shareOpened;
 
   function init() {
-    tabsMenu = document.querySelector(".tabs-menu");
-    if (!tabsMenu) return;
+    $tabsMenu = $(".tabs-menu");
+    if ($tabsMenu.length === 0) return;
 
-    whiteMenu = false;
-    shareButton = document.querySelector(".cmp-share-desktop .cmp-button");
+    $whiteMenu = false;
+    $shareButton = $(".cmp-share-desktop .cmp-button");
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-    const tabElements = document.querySelectorAll(".cmp-tabs__tab");
-    tabElements.forEach((tab) => {
-      tab.addEventListener("click", handleTabClick);
-    });
-
+    $(window).on("scroll", handleScroll);
+    $(window).on("resize", handleResize);
+    $(".cmp-tabs__tab").on("click", handleTabClick);
     window.addEventListener("resize", _isMobileWindowSize);
 
     if (!_isDesktop() || _isMobileWindowSize()) {
@@ -39,18 +36,14 @@ const MenuTabs = (() => {
   }
 
   function setupMobileMenu() {
-    const navbarText = document.querySelector(".cmp-navbar .buildingblock")
-      .innerHTML;
-    const navbarMobile = `<div class="cmp-navbar--text-mobile">${navbarText}</div>`;
-    const tablist = document.querySelector(".menu-nav .cmp-tabs__tablist");
-    const panelMenuTogglers = document.querySelectorAll(".panel-menu-toggler");
+    let navbarText = $(".cmp-navbar .buildingblock").html();
+    let navbarMobile = `<div class="cmp-navbar--text-mobile">${navbarText}</div>`;
+    $(".menu-nav .cmp-tabs__tablist").append(navbarMobile);
     const tabsMenuContainers = document.querySelectorAll(
       ".tabs-menu__container"
     );
-
-    tablist.insertAdjacentHTML("beforeend", navbarMobile);
     _toggleMenu();
-    tablistMobile = document.querySelectorAll(".cmp-tabs__tablist_mobile");
+    $tablistMobile = $(".cmp-tabs__tablist_mobile");
     tabsMenuContainers.forEach((mobItem) => {
       const dataPanelAttr = mobItem.getAttribute("data-cmp-panel-title");
       const panelClose =
@@ -59,21 +52,18 @@ const MenuTabs = (() => {
       _prependHtml(mobItem, html);
     });
 
-    $('.panel-menu-toggler').on('click', () => {
-		$('.tabs-menu__container').removeClass('cmp-tabs__tabpanel--active');
-	});
+    $(".panel-menu-toggler").on("click", () => {
+      $(".tabs-menu__container").removeClass("cmp-tabs__tabpanel--active");
+    });
 
-    const mobileToggler = document.querySelector(
-      ".cmp-button--mobile__toggler"
-    );
-    if (mobileToggler) {
-      mobileToggler.addEventListener("click", toggleMobileMenu);
-    }
+    $(".cmp-button--mobile__toggler").on("click", () => {
+      toggleMobileMenu();
+    });
   }
 
   function setupDesktopMenu() {
-    if (shareButton) {
-      shareButton.addEventListener("click", (e) => {
+    if ($shareButton.length > 0) {
+      $shareButton.on("click", (e) => {
         e.preventDefault();
         toggleShareMenu();
       });
@@ -82,23 +72,24 @@ const MenuTabs = (() => {
 
   function handleScroll() {
     if (
-      document.querySelector("header.cmp-experiencefragment--header") &&
-      !document
-        .querySelector(".cmp-button--mobile")
-        .classList.contains("cmp-button--mobile__toggler_close")
+      $("header.cmp-experiencefragment--header").length > 0 &&
+      !$(".cmp-button--mobile").hasClass("cmp-button--mobile__toggler_close")
     ) {
-      if (window.scrollY > 40) {
+      if ($(window).scrollTop() > 40) {
         _addWhiteMenu();
-      } else {
-        if (!document.querySelector("header .cmp-tabs__tabpanel--active")) {
-          _removeWhiteMenu();
-        }
+      } else if (
+        $("header .cmp-tabs__tabpanel--active").length < 1 &&
+        shareOpened
+      ) {
+        _addWhiteMenu();
+      } else if ($("header .cmp-tabs__tabpanel--active").length < 1) {
+        _removeWhiteMenu();
       }
     }
   }
 
   function handleResize() {
-    if (window.innerHeight < 600) {
+    if ($(window).height() < 600) {
       _addWhiteMenu();
     } else {
       console.log("Height > 600");
@@ -111,76 +102,53 @@ const MenuTabs = (() => {
 
   function _isMobileWindowSize() {
     const w = document.documentElement.clientWidth;
-    const tablist = document.querySelector(".cmp-tabs__tablist");
-    if (w < 1200) {
-      tablist.classList.add("cmp-tabs__tablist_mobile");
-      return true;
-    } else {
-      tablist.classList.remove("cmp-tabs__tablist_mobile");
-      return false;
-    }
+    const tablist = $(".cmp-tabs__tablist");
+    tablist.toggleClass("cmp-tabs__tablist_mobile", w < 1200);
+    return w < 1200;
   }
 
   function _addWhiteMenu() {
-    if (!whiteMenu) {
-      document
-        .querySelector("header.cmp-experiencefragment--header")
-        .classList.add("scrolled-page");
-      whiteMenu = true;
+    if (!$whiteMenu) {
+      $("header.cmp-experiencefragment--header").addClass("scrolled-page");
+      $whiteMenu = true;
     }
   }
 
   function _removeWhiteMenu() {
-    if (whiteMenu) {
-      document
-        .querySelector("header.cmp-experiencefragment--header")
-        .classList.remove("scrolled-page");
-      whiteMenu = false;
+    if ($whiteMenu) {
+      $("header.cmp-experiencefragment--header").removeClass("scrolled-page");
+      $whiteMenu = false;
     }
   }
 
   function _toggleMenu() {
-    const tablistToggler = document.querySelector(".cmp-tabs__tablist_toggler");
-    if (tablistToggler) {
-      tablistToggler.classList.toggle("cmp-tabs__tablist_mobile");
+    if ($(".cmp-tabs__tablist_toggler").length > 0) {
+      $(".cmp-tabs__tablist_toggler").toggleClass("cmp-tabs__tablist_mobile");
     }
-    const tabsMenuContainers = document.querySelectorAll(
-      ".tabs-menu__container"
-    );
-    tabsMenuContainers.forEach((container) => {
-      container.classList.toggle("cmp-container--menu_item-mobile");
-    });
+    if ($(".tabs-menu__container").length > 0) {
+      $(".tabs-menu__container").toggleClass("cmp-container--menu_item-mobile");
+    }
   }
 
   function toggleMobileMenu() {
-    const mobileButton = document.querySelector(".cmp-button--mobile");
-    if (!mobileButton.classList.contains("cmp-button--mobile__toggler_close")) {
-      mobileButton.classList.add("cmp-button--mobile__toggler_close");
-      document.body.classList.add("h-overflow");
+    if ($(".cmp-button--mobile__toggler_close").length < 1) {
+      $(".cmp-button--mobile").addClass("cmp-button--mobile__toggler_close");
+      $("body").addClass("h-overflow");
       console.log("menu aperto");
     } else {
-      tablistMobile.forEach((item) => {
-        item.classList.remove("cmp-tabs__tablist-opened");
-      });
-      const tabsMenuContainers = document.querySelectorAll(
-        ".tabs-menu__container"
-      );
-      tabsMenuContainers.forEach((container) => {
-        container.classList.remove("cmp-tabs__tabpanel--active");
-      });
-      mobileButton.classList.remove("cmp-button--mobile__toggler_close");
-      document.body.classList.remove("h-overflow");
-      document.querySelector(".cmp-navbar-overlayer").style.display = "none";
+      $tablistMobile.removeClass("cmp-tabs__tablist-opened");
+      $(".tabs-menu__container").removeClass("cmp-tabs__tabpanel--active");
+      $(".cmp-button--mobile").removeClass("cmp-button--mobile__toggler_close");
+      $("body").removeClass("h-overflow");
+      $(".cmp-navbar-overlayer").hide();
       console.log("menu chiuso");
     }
-    tablistMobile.forEach((item) => {
-      item.classList.toggle("cmp-tabs__tablist_mobile-active");
-    });
-    mobileTabsActive = document.querySelectorAll(
+    $tablistMobile.toggleClass("cmp-tabs__tablist_mobile-active");
+    $mobileTabsActive = document.querySelectorAll(
       ".cmp-tabs__tablist_mobile-active .cmp-tabs__tab"
     );
     _addWhiteMenu();
-    mobileTabsActive.forEach((mobItem) => {
+    $mobileTabsActive.forEach((mobItem) => {
       mobItem.addEventListener("click", () => {
         document
           .querySelector(".cmp-container--menu_item-mobile")
@@ -190,26 +158,37 @@ const MenuTabs = (() => {
   }
 
   function toggleShareMenu() {
-    const shareContainer = document.querySelector(
-      ".cmp-share-desktop .cmp-share__container"
+    shareOpened = false;
+
+    $(".cmp-share-desktop .cmp-share__container").toggleClass(
+      "cmp-share__active"
     );
-    shareContainer.classList.toggle("cmp-share__active");
+
     shareOpened = document.querySelectorAll(".cmp-share__active").length > 0;
 
     if (!shareOpened) {
-      document.querySelector(".cmp-navbar-overlayer").style.display = "none";
-      shareContainer.style.display = "none";
-      document.body.classList.remove("h-overflow");
+      $(".cmp-navbar-overlayer").hide();
+      $(".cmp-share__container").hide();
+      $("body").removeClass("h-overflow");
+      //shareOpened = false;
+      $whiteMenu = true;
+      _removeWhiteMenu();
     } else {
-      document.querySelector(".cmp-navbar-overlayer").style.display = "block";
-      shareContainer.style.display = "block";
-      document.body.classList.add("h-overflow");
-    }
-
-    if (window.scrollY == 0 && shareOpened) {
-      whiteMenu = false;
+      $(".cmp-navbar-overlayer").show();
+      $(".cmp-share__container").show();
+      $("body").addClass("h-overflow");
+      $whiteMenu = false;
       _addWhiteMenu();
     }
+
+	$(".cmp-navbar-overlayer").on('click',function(){
+		shareOpened = false;
+	});
+
+    /*if ($(window).scrollTop() > 0 && shareOpened) {
+      $whiteMenu = false;
+      _addWhiteMenu();
+    }*/
   }
 
   return {
@@ -217,6 +196,6 @@ const MenuTabs = (() => {
   };
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
+$(function () {
   MenuTabs.init();
 });
