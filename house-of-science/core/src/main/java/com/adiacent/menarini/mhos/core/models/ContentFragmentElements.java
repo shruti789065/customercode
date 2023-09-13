@@ -14,7 +14,7 @@ public class ContentFragmentElements {
     private ContentFragmentElementValue source;
     private ContentFragmentElementValue tags;
     private ContentFragmentElementSingleValue link;
-    private ContentFragmentElementSingleValue articleData;
+    private ContentFragmentElementSingleValue articleDate;
     private ContentFragmentElementSingleValue linkTarget;
 
 
@@ -77,12 +77,12 @@ public class ContentFragmentElements {
         this.description = description;
     }
 
-    public ContentFragmentElementSingleValue getArticleData() {
-        return articleData;
+    public ContentFragmentElementSingleValue getArticleDate() {
+        return articleDate;
     }
 
-    public void setArticleData(ContentFragmentElementSingleValue articleData) {
-        this.articleData = articleData;
+    public void setArticleDate(ContentFragmentElementSingleValue articleDate) {
+        this.articleDate = articleDate;
     }
 
     public ContentFragmentElementSingleValue getLinkLabel() {

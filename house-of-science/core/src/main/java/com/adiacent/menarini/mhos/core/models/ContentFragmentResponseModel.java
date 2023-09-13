@@ -2,16 +2,18 @@ package com.adiacent.menarini.mhos.core.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ContentFragmentResponseModel {
     @SerializedName("class")
-    private String className;
+    private List<String> className;
     private ContentFragmentResponsePropertiesModel properties;
 
-    public String getClassName() {
+    public List<String> getClassName() {
         return className;
     }
 
-    public void setClassName(String className) {
+    public void setClassName(List<String> className) {
         this.className = className;
     }
 

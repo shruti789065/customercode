@@ -12,7 +12,7 @@ public class ContentFragmentResponsePropertiesModel {
     @SerializedName("status.message")
     private String statusMessage;
     private String referer;
-    private Boolean isCreated;
+    private boolean isCreate;
     private String title;
 
     public String getPath() {
@@ -63,12 +63,12 @@ public class ContentFragmentResponsePropertiesModel {
         this.referer = referer;
     }
 
-    public Boolean getCreated() {
-        return isCreated;
+    public boolean isCreate() {
+        return isCreate;
     }
 
-    public void setCreated(Boolean created) {
-        isCreated = created;
+    public void setCreate(boolean create) {
+        isCreate = create;
     }
 
     public String getTitle() {

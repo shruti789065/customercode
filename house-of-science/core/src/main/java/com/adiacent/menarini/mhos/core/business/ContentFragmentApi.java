@@ -43,7 +43,7 @@ public class ContentFragmentApi {
     private static final String POST_TYPE = "POST";
     private static final String GET_TYPE = "GET";
     private static final String DELETE_TYPE = "DELETE";
-    private static final String PATCH_TYPE = "PATCH";
+    private static final String PUT_TYPE = "PUT";
     private static final String ENDPOINT_PREFIX = "api/assets/";
 
     protected boolean isLocalRunModeEnabled() {
@@ -73,7 +73,7 @@ public class ContentFragmentApi {
             request = new HttpGet(url);
         if(DELETE_TYPE.equals(methodType))
             request = new HttpDelete(url);
-        if(PATCH_TYPE.equals(methodType))
+        if(PUT_TYPE.equals(methodType))
             request = new HttpPatch(url);
 
         //authentication
@@ -110,8 +110,8 @@ public class ContentFragmentApi {
                 request.setHeader("Content-type", "application/json");
 
                 StringEntity body = new StringEntity(payload.toString(),"UTF-8");
-                if(PATCH_TYPE.equals(methodType))
-                    ((HttpPatch) request).setEntity(body);
+                if(PUT_TYPE.equals(methodType))
+                    ((HttpPut) request).setEntity(body);
                 else
                     ((HttpPost) request).setEntity(body);
             }
@@ -200,15 +200,20 @@ public class ContentFragmentApi {
     }
 
 
-    public boolean create(ContentFragmentModel obj, String path) {
+    public boolean create(String serverName, int serverPort, String pathFolder, ContentFragmentModel obj) {
+
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
 
         HashMap<String,String> headers = new HashMap<String,String>();
         headers.put("Content-Type", "application/json");
-        String res = performOperation(POST_TYPE, path, headers,  null, obj ,0, null);
+
+        String payload = new GsonBuilder().create().toJson(obj, ContentFragmentModel.class);
+
+        String res = performOperation(POST_TYPE, endpoint, headers,  null, payload ,0, null);
 
         ContentFragmentResponseModel response = new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
 
-        return response != null && response.getProperties()!= null && response.getProperties().getCreated();
+        return response != null && response.getProperties()!= null && response.getProperties().isCreate();
     }
 
 }

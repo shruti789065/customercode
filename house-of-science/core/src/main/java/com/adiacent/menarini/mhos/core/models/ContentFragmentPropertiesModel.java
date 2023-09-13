@@ -5,17 +5,17 @@ import com.google.gson.annotations.SerializedName;
 public class ContentFragmentPropertiesModel {
 
     @SerializedName("cq:model")
-    private CQModel cqModel;
+    private Object cqModel;
     private String title;
     private String description;
 
     private ContentFragmentElements elements;
 
-    public CQModel getCqModel() {
+    public Object getCqModel() {
         return cqModel;
     }
 
-    public void setCqModel(CQModel cqModel) {
+    public void setCqModel(Object cqModel) {
         this.cqModel = cqModel;
     }
 

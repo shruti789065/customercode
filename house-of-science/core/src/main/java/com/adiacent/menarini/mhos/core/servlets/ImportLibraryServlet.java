@@ -1,8 +1,7 @@
 package com.adiacent.menarini.mhos.core.servlets;
 
 import com.adiacent.menarini.mhos.core.business.ContentFragmentApi;
-import com.adiacent.menarini.mhos.core.models.ContentFragmentModel;
-import com.adiacent.menarini.mhos.core.models.ContentFragmentPropertiesModel;
+import com.adiacent.menarini.mhos.core.models.*;
 import com.adiacent.menarini.mhos.core.resources.ImportLibraryResource;
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
@@ -55,6 +54,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -104,8 +104,11 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
 
 
     private static Integer TITLE_COL_INDEX = 3;
+    private static Integer AUTHOREDATE_COL_INDEX = 0;
 
     private static Integer DESCRIPTION_COL_INDEX = 4;
+
+    private static Integer LINK_COL_INDEX = 7;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -389,7 +392,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
                 count++;
             }
 
-
+            inputStream.reset();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -438,6 +441,10 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
                 else{
                     cf  = generateContentFragmentFromRow(row);
 
+                    if(cf != null) {
+                        String folderPath= "mhos/content-fragments/en/plutology";
+                        cfApi.create(serverName, serverPort, folderPath, cf);
+                    }
                 }
                 count++;
             }
@@ -453,26 +460,274 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
     private ContentFragmentModel generateContentFragmentFromRow(Row row) {
         ContentFragmentModel res = new ContentFragmentModel();
         res.setProperties(new ContentFragmentPropertiesModel());
-        ContentFragmentPropertiesModel.CQModel m = new ContentFragmentPropertiesModel.CQModel();
+        /*ContentFragmentPropertiesModel.CQModel m = new ContentFragmentPropertiesModel.CQModel();
         m.setPath("/conf/mhos/settings/dam/cfm/models/result-fragment");
         res.getProperties().setCqModel(m);
+*/
+        res.getProperties().setCqModel("/conf/mhos/settings/dam/cfm/models/result-fragment");
+        res.getProperties().setElements(new ContentFragmentElements());
+
+
 
         Cell cell = row.getCell(TITLE_COL_INDEX);
         if(cell != null) {
-            String value = cell.getStringCellValue().trim();
+            String value = cell.getStringCellValue().replace("/"," ").trim();
             res.getProperties().setTitle(value);
         }
+
+
+
+        cell = row.getCell(AUTHOREDATE_COL_INDEX);
+        if(cell != null) {
+            double d = cell.getNumericCellValue();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN);
+
+                //Date date = sdf.parse(value);
+                Calendar cal = sdf.getCalendar();
+                cal.setTimeInMillis((long)d);
+
+                ContentFragmentElementSingleValue aDate = new ContentFragmentElementSingleValue();
+                aDate.setType("calendar");
+                aDate.setValue(cal.getTimeInMillis());
+                res.getProperties().getElements().setArticleDate( aDate );
+
+
+
+        }
+
 
         cell = row.getCell(DESCRIPTION_COL_INDEX);
         if(cell != null) {
             String value = cell.getStringCellValue().trim();
-            res.getProperties().setDescription(value);
+            ContentFragmentElementSingleValue desc = new ContentFragmentElementSingleValue();
+            desc.setType("text/html");
+            desc.setValue(value);
+            res.getProperties().getElements().setDescription(desc);
+        }
+
+
+        cell = row.getCell(LINK_COL_INDEX);
+        if(cell != null) {
+            String value = cell.getStringCellValue().trim();
+            if(StringUtils.isNotBlank(value)){
+                ContentFragmentElementSingleValue link = new ContentFragmentElementSingleValue();
+                link.setType("string");
+                link.setValue(value);
+                res.getProperties().getElements().setLink(link);
+
+                ContentFragmentElementSingleValue linkTarget = new ContentFragmentElementSingleValue();
+                linkTarget.setType("string");
+                linkTarget.setValue("_blank");
+                res.getProperties().getElements().setLinkTarget(linkTarget);
+
+                ContentFragmentElementSingleValue linkLabel = new ContentFragmentElementSingleValue();
+                linkLabel.setType("string");
+                linkLabel.setValue("read more");
+                res.getProperties().getElements().setLinkLabel(linkLabel);
+            }
+
+        }
+
+        cell = row.getCell(AUTHOR_COL_INDEX);
+        TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+        if(cell != null) {
+            String values = cell.getStringCellValue();
+            //pulisco i valori della cella
+            List<String> authorList = parseValues("author", values);
+            Node parentTagNode = getTagNode("author", servletConfig.getTagsRootPath(), false);
+            if(authorList != null && authorList.size() >0){
+                List tgs = authorList.stream().map(a->{
+                    //controllo se il valore i-esimo dell'authore esiste come valore possibile del tag AUTHOR
+                    try {
+                        String tagPath  = parentTagNode.getPath()+"/"+getNodeName(a);
+                        Resource tagResource = resourceResolver.getResource(tagPath);
+                        Tag t = tagResource != null ? tagResource.adaptTo(Tag.class): null;
+
+                        if(t == null) return null;// il tag con quel valore di author non esiste cosa si fa? si ferma tutto???
+                       else return t.getTagID();
+
+                    } catch (RepositoryException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).filter(e->e!=null).collect(Collectors.toList());
+                if(tgs!= null && tgs.size()>0){
+                    ContentFragmentElementValue author = new ContentFragmentElementValue();
+                    author.setType("string");
+                    author.setValue(tgs);
+                    res.getProperties().getElements().setAuthor(author);
+                }
+            }
+        }
+
+
+        cell = row.getCell(SOURCE_TAGS_COL_INDEX);
+        if(cell != null) {
+            String values = cell.getStringCellValue();
+            //pulisco i valori della cella
+            List<String> sourceList = parseValues("source", values);
+            Node parentTagNode = getTagNode("source", servletConfig.getTagsRootPath(), false);
+            if(sourceList != null && sourceList.size() >0){
+                List tgs = sourceList.stream().map(a->{
+                    //controllo se il valore i-esimo della source esiste come valore possibile del tag SOURCE
+                    try {
+                        String tagPath  = parentTagNode.getPath()+"/"+getNodeName(a);
+                        Resource tagResource = resourceResolver.getResource(tagPath);
+                        Tag t = tagResource != null ? tagResource.adaptTo(Tag.class): null;
+
+                        if(t == null) return null;// il tag con quel valore di author non esiste cosa si fa? si ferma tutto???
+                        else return t.getTagID();
+
+                    } catch (RepositoryException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).filter(e->e!=null).collect(Collectors.toList());
+                if(tgs!= null && tgs.size()>0){
+                    ContentFragmentElementValue src = new ContentFragmentElementValue();
+                    src.setType("string");
+                    src.setValue(tgs);
+                    res.getProperties().getElements().setSource(src);
+                }
+            }
+        }
+
+
+        cell = row.getCell(TOPIC_TAGS_COL_INDEX);
+        if(cell != null) {
+            String values = cell.getStringCellValue();
+            //pulisco i valori della cella
+            List<String> sourceList = parseValues("topic", values);
+            Node parentTagNode = getTagNode("topic", servletConfig.getTagsRootPath(), false);
+            if(sourceList != null && sourceList.size() >0){
+                List tgs = sourceList.stream().map(a->{
+                    //controllo se il valore i-esimo del topic esiste come valore possibile del tag TOPIC
+                    try {
+                        String tagPath  = parentTagNode.getPath()+"/"+getNodeName(a);
+                        Resource tagResource = resourceResolver.getResource(tagPath);
+                        Tag t = tagResource != null ? tagResource.adaptTo(Tag.class): null;
+
+                        if(t == null) return null;// il tag con quel valore di author non esiste cosa si fa? si ferma tutto???
+                        else return t.getTagID();
+
+                    } catch (RepositoryException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).filter(e->e!=null).collect(Collectors.toList());
+                if(tgs!= null && tgs.size()>0){
+                    ContentFragmentElementValue tpc = new ContentFragmentElementValue();
+                    tpc.setType("string");
+                    tpc.setValue(tgs);
+                    res.getProperties().getElements().setTopic(tpc);
+                }
+            }
+        }
+
+
+        cell = row.getCell(GENERIC_TAGS_COL_INDEX);
+        if(cell != null) {
+            String values = cell.getStringCellValue();
+            //pulisco i valori della cella
+            List<String> sourceList = parseValues("generic-tags", values);
+            Node parentTagNode = getTagNode("generic-tags", servletConfig.getTagsRootPath(), false);
+            if(sourceList != null && sourceList.size() >0){
+                List tgs = sourceList.stream().map(a->{
+                    //controllo se il valore i-esimo del generic-tags esiste come valore possibile del tag GENERIC-TAGS
+                    try {
+                        String tagPath  = parentTagNode.getPath()+"/"+getNodeName(a);
+                        Resource tagResource = resourceResolver.getResource(tagPath);
+                        Tag t = tagResource != null ? tagResource.adaptTo(Tag.class): null;
+
+                        if(t == null) return null;// il tag con quel valore di author non esiste cosa si fa? si ferma tutto???
+                        else return t.getTagID();
+
+                    } catch (RepositoryException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).filter(e->e!=null).collect(Collectors.toList());
+                if(tgs!= null && tgs.size()>0){
+                    ContentFragmentElementValue gtg = new ContentFragmentElementValue();
+                    gtg.setType("string");
+                    gtg.setValue(tgs);
+                    res.getProperties().getElements().setTags(gtg);
+                }
+            }
+        }
+
+
+        cell = row.getCell(TYPOLOGY_TAGS_COL_INDEX);
+        if(cell != null) {
+            String values = cell.getStringCellValue();
+            //pulisco i valori della cella
+            List<String> sourceList = parseValues("typology", values);
+            Node parentTagNode = getTagNode("typology", servletConfig.getTagsRootPath(), false);
+            if(sourceList != null && sourceList.size() >0){
+                List tgs = sourceList.stream().map(a->{
+                    //controllo se il valore i-esimo del typology esiste come valore possibile del tag TYPOLOGY
+                    try {
+                        String tagPath  = parentTagNode.getPath()+"/"+getNodeName(a);
+                        Resource tagResource = resourceResolver.getResource(tagPath);
+                        Tag t = tagResource != null ? tagResource.adaptTo(Tag.class): null;
+
+                        if(t == null) return null;// il tag con quel valore di author non esiste cosa si fa? si ferma tutto???
+                        else return t.getTagID();
+
+                    } catch (RepositoryException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).filter(e->e!=null).collect(Collectors.toList());
+                if(tgs!= null && tgs.size()>0){
+                    ContentFragmentElementValue ttg = new ContentFragmentElementValue();
+                    ttg.setType("string");
+                    ttg.setValue(tgs);
+                    res.getProperties().getElements().setTypology(ttg);
+                }
+            }
         }
 
         return res;
     }
 
 
+
+    private List<String> parseValues(String rootTag, String values){
+
+        if("author".equals(rootTag)) {
+            if (StringUtils.isNotBlank(values)) {
+                //si usa la virgola come separatore
+                List<String> convertedList = Stream.of(values.split(",", -1))
+                        .map(a -> {
+                            String res = null;
+                            res = a.toLowerCase().replaceAll("mr|md|phd|ms(\\w+[;]{0,1})", "");
+                            res = StringUtils.trimToEmpty(res);
+                            return res;
+                        })
+                        .filter(e -> StringUtils.isNotBlank(e))
+                        .collect(Collectors.toList());
+                return convertedList;
+            }
+        }
+
+        else { // same as topics, source, generic-tags, typology
+            if (StringUtils.isNotBlank(values)) {
+                //si usa la virgola come separatore
+                List<String> convertedList = Stream.of(values.split(",", -1))
+                        .map(a -> {
+                            String res = StringUtils.trimToEmpty(a).toLowerCase();
+                            return res;
+                        })
+                        .filter(e -> StringUtils.isNotBlank(e))
+                        .collect(Collectors.toList());
+                return convertedList;
+            }
+        }
+
+        return null;
+    }
+
+    private String getNodeName(String label){
+        if(StringUtils.isBlank(label))
+            return null;
+        return label.toLowerCase().replaceAll(" ","-").trim();
+}
     /*protected JSONArray getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver) throws RepositoryException, JSONException {
         JSONArray results = new JSONArray();
 
