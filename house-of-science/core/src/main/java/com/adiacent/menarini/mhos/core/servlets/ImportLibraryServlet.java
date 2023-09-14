@@ -1,5 +1,6 @@
 package com.adiacent.menarini.mhos.core.servlets;
 
+
 import com.adiacent.menarini.mhos.core.business.ContentFragmentApi;
 import com.adiacent.menarini.mhos.core.models.*;
 import com.adiacent.menarini.mhos.core.resources.ImportLibraryResource;
@@ -29,6 +30,8 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -154,7 +157,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
     }
 
 
-    private Node getTagNode(String nodeName, String searchPath, boolean searchForDescendant){
+    private Node getNode(String nodeType, String nodeName, String searchPath, boolean searchForDescendant){
         if(StringUtils.isBlank(nodeName))
             return null;
         if(StringUtils.isBlank(searchPath))
@@ -163,7 +166,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
         try {
             StringBuilder myXpathQuery;
             myXpathQuery = new StringBuilder();
-            myXpathQuery.append("SELECT * FROM [cq:Tag]  as p ");
+            myXpathQuery.append("SELECT * FROM " + nodeType +"  as p ");
             if(searchForDescendant)
             myXpathQuery.append("WHERE ISDESCENDANTNODE('" + searchPath + "') ");
             else
@@ -226,7 +229,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
     }
     private void handleTag(String tagName, String tagTitle, List<String> values){
         //check tag parent "tagName"
-        Node parentTagNode = getTagNode(tagName, servletConfig.getTagsRootPath(), false);
+        Node parentTagNode = getNode("[cq:Tag]",tagName, servletConfig.getTagsRootPath(), false);
         if(parentTagNode == null){
             HashMap properties = new HashMap();
             properties.put(JcrConstants.JCR_TITLE, tagTitle);
@@ -240,7 +243,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
                 String tgName = StringUtils.replace(v.toLowerCase().trim(), " ", "-");
                 Node childTagNode = null;
                 try {
-                    childTagNode = getTagNode(tgName,  parent.getPath(), true);
+                    childTagNode = getNode("[cq:Tag]",tgName,  parent.getPath(), true);
 
                     if(childTagNode == null){
                         HashMap properties = new HashMap();
@@ -443,7 +446,16 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
 
                     if(cf != null) {
                         String folderPath= "mhos/content-fragments/en/plutology";
-                        cfApi.create(serverName, serverPort, folderPath, cf);
+                        //si controlla l'esistenza del content fragment su crx
+
+
+                        Node n = getNode("[dam:Asset]",getNodeName(cf.getProperties().getTitle()), servletConfig.getDamRootPath()+"/"+folderPath ,true);
+                        if(n != null){
+                            cfApi.put(serverName, serverPort, folderPath, cf);
+                        }
+                        else
+                            cfApi.create(serverName, serverPort, folderPath, cf);
+
                     }
                 }
                 count++;
@@ -457,13 +469,15 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
         LOG.debug("End import Articles data******************************");
     }
 
+    private void storeContentFragment(String serverName, int serverPort, String folderPath, ContentFragmentModel cf) {
+
+
+    }
+
     private ContentFragmentModel generateContentFragmentFromRow(Row row) {
         ContentFragmentModel res = new ContentFragmentModel();
         res.setProperties(new ContentFragmentPropertiesModel());
-        /*ContentFragmentPropertiesModel.CQModel m = new ContentFragmentPropertiesModel.CQModel();
-        m.setPath("/conf/mhos/settings/dam/cfm/models/result-fragment");
-        res.getProperties().setCqModel(m);
-*/
+
         res.getProperties().setCqModel("/conf/mhos/settings/dam/cfm/models/result-fragment");
         res.getProperties().setElements(new ContentFragmentElements());
 
@@ -479,20 +493,14 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
 
         cell = row.getCell(AUTHOREDATE_COL_INDEX);
         if(cell != null) {
-            double d = cell.getNumericCellValue();
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN);
-
-                //Date date = sdf.parse(value);
-                Calendar cal = sdf.getCalendar();
-                cal.setTimeInMillis((long)d);
-
-                ContentFragmentElementSingleValue aDate = new ContentFragmentElementSingleValue();
-                aDate.setType("calendar");
-                aDate.setValue(cal.getTimeInMillis());
-                res.getProperties().getElements().setArticleDate( aDate );
-
-
-
+            Date d = cell.getDateCellValue();
+            SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T00:00:00.000Z'");
+            //isoFormat.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
+            String dateStr = isoFormat.format(d);
+            ContentFragmentElementSingleValue aDate = new ContentFragmentElementSingleValue();
+            aDate.setType("Date");
+            aDate.setValue(dateStr);
+            res.getProperties().getElements().setArticleDate( aDate );
         }
 
 
@@ -534,7 +542,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
             String values = cell.getStringCellValue();
             //pulisco i valori della cella
             List<String> authorList = parseValues("author", values);
-            Node parentTagNode = getTagNode("author", servletConfig.getTagsRootPath(), false);
+            Node parentTagNode = getNode("[cq:Tag]","author", servletConfig.getTagsRootPath(), false);
             if(authorList != null && authorList.size() >0){
                 List tgs = authorList.stream().map(a->{
                     //controllo se il valore i-esimo dell'authore esiste come valore possibile del tag AUTHOR
@@ -565,7 +573,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
             String values = cell.getStringCellValue();
             //pulisco i valori della cella
             List<String> sourceList = parseValues("source", values);
-            Node parentTagNode = getTagNode("source", servletConfig.getTagsRootPath(), false);
+            Node parentTagNode = getNode("[cq:Tag]","source", servletConfig.getTagsRootPath(), false);
             if(sourceList != null && sourceList.size() >0){
                 List tgs = sourceList.stream().map(a->{
                     //controllo se il valore i-esimo della source esiste come valore possibile del tag SOURCE
@@ -596,7 +604,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
             String values = cell.getStringCellValue();
             //pulisco i valori della cella
             List<String> sourceList = parseValues("topic", values);
-            Node parentTagNode = getTagNode("topic", servletConfig.getTagsRootPath(), false);
+            Node parentTagNode = getNode("[cq:Tag]","topic", servletConfig.getTagsRootPath(), false);
             if(sourceList != null && sourceList.size() >0){
                 List tgs = sourceList.stream().map(a->{
                     //controllo se il valore i-esimo del topic esiste come valore possibile del tag TOPIC
@@ -627,7 +635,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
             String values = cell.getStringCellValue();
             //pulisco i valori della cella
             List<String> sourceList = parseValues("generic-tags", values);
-            Node parentTagNode = getTagNode("generic-tags", servletConfig.getTagsRootPath(), false);
+            Node parentTagNode = getNode("[cq:Tag]","generic-tags", servletConfig.getTagsRootPath(), false);
             if(sourceList != null && sourceList.size() >0){
                 List tgs = sourceList.stream().map(a->{
                     //controllo se il valore i-esimo del generic-tags esiste come valore possibile del tag GENERIC-TAGS
@@ -658,7 +666,7 @@ public class ImportLibraryServlet extends SlingSafeMethodsServlet {
             String values = cell.getStringCellValue();
             //pulisco i valori della cella
             List<String> sourceList = parseValues("typology", values);
-            Node parentTagNode = getTagNode("typology", servletConfig.getTagsRootPath(), false);
+            Node parentTagNode = getNode("[cq:Tag]","typology", servletConfig.getTagsRootPath(), false);
             if(sourceList != null && sourceList.size() >0){
                 List tgs = sourceList.stream().map(a->{
                     //controllo se il valore i-esimo del typology esiste come valore possibile del tag TYPOLOGY

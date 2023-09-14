@@ -74,7 +74,7 @@ public class ContentFragmentApi {
         if(DELETE_TYPE.equals(methodType))
             request = new HttpDelete(url);
         if(PUT_TYPE.equals(methodType))
-            request = new HttpPatch(url);
+            request = new HttpPut(url);
 
         //authentication
         String name = ImportLibraryResource.get_instance().getConfig().getUsername();
@@ -216,4 +216,20 @@ public class ContentFragmentApi {
         return response != null && response.getProperties()!= null && response.getProperties().isCreate();
     }
 
+
+    public boolean put(String serverName, int serverPort, String pathFolder, ContentFragmentModel obj) {
+
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
+
+        HashMap<String,String> headers = new HashMap<String,String>();
+        headers.put("Content-Type", "application/json");
+
+        String payload = new GsonBuilder().create().toJson(obj, ContentFragmentModel.class);
+
+        String res = performOperation(PUT_TYPE, endpoint, headers,  null, payload ,0, null);
+
+        ContentFragmentResponseModel response = new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
+
+        return response != null && response.getProperties()!= null && response.getProperties().isCreate();
+    }
 }

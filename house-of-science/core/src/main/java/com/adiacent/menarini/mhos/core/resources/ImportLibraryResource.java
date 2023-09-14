@@ -47,6 +47,9 @@ public class ImportLibraryResource {
         String getPwd() default "";
 
 
+        @AttributeDefinition(name = "DAM Root Path", description = "getDamRootPath")
+        String getDamRootPath() default "";
+
     }
 
     @Activate
