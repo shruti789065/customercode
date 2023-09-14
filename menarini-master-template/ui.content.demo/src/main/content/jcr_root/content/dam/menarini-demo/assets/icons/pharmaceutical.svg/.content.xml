@@ -2,24 +2,25 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
     jcr:mixinTypes="[mix:referenceable]"
     jcr:primaryType="dam:Asset"
-    jcr:uuid="6fe06127-d57b-4b01-a164-c89a4081a57d">
+    jcr:uuid="4999c8d5-14ea-48c5-b48f-1716b5ba1e12">
     <jcr:content
-        cq:lastReplicated="{Date}2023-06-07T15:01:34.337Z"
-        cq:lastReplicated_publish="{Date}2023-06-07T15:01:34.337Z"
+        cq:isDelivered="{Boolean}true"
+        cq:lastReplicated="{Date}2023-09-14T14:33:06.852Z"
+        cq:lastReplicated_publish="{Date}2023-09-14T14:33:06.852Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         dam:assetState="processed"
-        dam:asyncJobId="2023/6/7/8/27/c3118e15-ce17-4b32-b352-7ce057d77a96_33"
-        dam:jobId="f664d8c8-b95f-4c4d-85f9-2b2d9bb2696b"
-        dam:processingId="c628fac6-4c64-4cd7-8f09-15ccabc18379"
-        dam:processingRenditions="[cq5dam.zoom.2048.2048.jpeg,cqdam.text.txt,cqdam.machine.metadata.colors.json,cq5dam.thumbnail.140.100.png,cq5dam.preview.pdf,cq5dam.thumbnail.48.48.png,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.tags.json,cqdam.machine.metadata.features.json,cq5dam.thumbnail.319.319.png,cqdam.metadata.xml]"
-        dam:processingRequestedDate="{Date}2023-06-07T08:27:59.141Z"
+        dam:jobId="436ce6d1-007f-4b3c-a26e-224c2f1fca78"
+        dam:processingId="30f50993-3da7-4988-805c-08a58273cd9c"
+        dam:processingRenditions="[cq5dam.zoom.2048.2048.jpeg,cq5dam.web.1280.1280.jpeg,cq5dam.thumbnail.140.100.png,cqdam.machine.metadata.tags.json,cqdam.text.txt,cq5dam.thumbnail.48.48.png,cqdam.machine.metadata.features.json,cq5dam.thumbnail.319.319.png,cqdam.machine.metadata.colors.json,cqdam.metadata.xml,cq5dam.preview.pdf]"
+        dam:processingRequestedDate="{Date}2023-09-14T14:26:35.430Z"
         dam:runDMProcess="{Boolean}true"
         dam:runPostProcess="{Boolean}true"
-        jcr:lastModified="{Date}2023-06-07T08:28:13.924Z"
+        jcr:lastModified="{Date}2023-09-14T14:26:48.576Z"
         jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
         jcr:primaryType="dam:AssetContent">
         <dam:failedRenditions jcr:primaryType="nt:unstructured">
             <cq5dam.preview.pdf
@@ -32,7 +33,7 @@
                 reason="RenditionFormatUnsupported"/>
         </dam:failedRenditions>
         <metadata
-            dam:extracted="{Date}2023-06-07T08:28:13.715Z"
+            dam:extracted="{Date}2023-09-14T14:26:48.367Z"
             dam:sha1="c12796d159cb609c257151de56ca10426a829236"
             dam:size="{Long}3110"
             dc:format="image/svg+xml"
