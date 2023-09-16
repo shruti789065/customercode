@@ -20,14 +20,12 @@ public class ImportLibraryResource {
     @ObjectClassDefinition(name = "Menarini Import Library Servlet Config", description = "Menarini Import Library Servlet Config")
     public static @interface Config {
 
-        @AttributeDefinition(name = "Excel file name", description = "Excel file name")
-        String getFileName() default "";
 
         @AttributeDefinition(name = "Header Row in excel file", description = "Header Row in excel file")
         boolean isHeaderRowPresent() default false;
 
-        @AttributeDefinition(name = "File Path", description = "File Path")
-        String getFileDAMFolder() default "";
+        @AttributeDefinition(name = "Excel File Path", description = "Path del file di import")
+        String getSourceFilePath() default "";
 
 
         @AttributeDefinition(name = "Tag Import Enabled", description = "Tag Import Enabled")
@@ -39,6 +37,10 @@ public class ImportLibraryResource {
 
         @AttributeDefinition(name = "Tag Root Path", description = "getTagsRootPath")
         String getTagsRootPath() default "";
+
+
+        @AttributeDefinition(name = "Category path", description = "Category Path")
+        String getCategoryPath() default "";
 
         @AttributeDefinition(name = "Username", description = "Username")
         String getUsername() default "";
@@ -59,7 +61,7 @@ public class ImportLibraryResource {
         ImportLibraryResource._instance = this;
         this.config = config;
 
-        LOG.debug("Config dam  path:{}", this.config.getFileDAMFolder());
+
         LOG.debug("Config article import enabled :{}", this.config.isImportArticleEnabled());
         LOG.debug("Config  tag import enabled{}", this.config.isImportTagEnabled());
 

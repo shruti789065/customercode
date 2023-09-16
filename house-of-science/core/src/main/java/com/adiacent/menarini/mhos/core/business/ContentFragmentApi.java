@@ -200,9 +200,10 @@ public class ContentFragmentApi {
     }
 
 
-    public boolean create(String serverName, int serverPort, String pathFolder, ContentFragmentModel obj) {
+    public boolean create(String serverName, int serverPort, String uri, ContentFragmentModel obj) {
 
-        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
+       // String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + uri ;
 
         HashMap<String,String> headers = new HashMap<String,String>();
         headers.put("Content-Type", "application/json");
@@ -217,9 +218,12 @@ public class ContentFragmentApi {
     }
 
 
-    public boolean put(String serverName, int serverPort, String pathFolder, ContentFragmentModel obj) {
+    public boolean put(String serverName, int serverPort, String uri, ContentFragmentModel obj) {
 
-        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
+        //String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
+
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + uri ;
+
 
         HashMap<String,String> headers = new HashMap<String,String>();
         headers.put("Content-Type", "application/json");
