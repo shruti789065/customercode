@@ -241,7 +241,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
     }
 
 
-    private Node getNode(String nodeType, String nodeName, String searchPath, boolean searchForDescendant) throws ImportLibraryException {
+    /*private Node getNode(String nodeType, String nodeName, String searchPath, boolean searchForDescendant) throws ImportLibraryException {
         if(StringUtils.isBlank(nodeName))
             return null;
         if(StringUtils.isBlank(searchPath))
@@ -273,7 +273,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         }
         return null;
     }
-
+*/
     private Node insertOrUpdateTagNode(Node tag, String destinationPath,  String title, HashMap properties){
 
         if( StringUtils.isBlank(title))
@@ -662,7 +662,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                         // String folderPath= "mhos/content-fragments/en/plutology";
                         //si controlla l'esistenza del content fragment su crx sotto la folder della categoria
                         String cfName = getNodeName(cf.getProperties().getTitle());
-                        Node n = getNode("[dam:Asset]", cfName, servletConfig.getCategoryPath(), true);
+                        //Node n = getNode("[dam:Asset]", cfName, servletConfig.getCategoryPath(), true);to check
+
 
                         //i cf si storicizzano sotto folder aventi come nome, l'anno di pubblicazione
                         String authorDateStr = (String) cf.getProperties().getElements().getArticleDate().getValue();
@@ -674,6 +675,15 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                         //si controlla l'esistenza del content fragment
                        // ***Resource rc = resourceResolver.getResource(cfPath);
                         //***Node n = rc != null ? rc.adaptTo(Node.class):null;
+
+                        String year ="" + date.getYear();
+                        String  cfResourcePath = servletConfig.getCategoryPath()+"/"+ year+"/"+cfName;
+                        Resource rCF = resourceResolver.getResource(cfResourcePath);
+                        Node n = null;
+                        if(rCF != null)
+                            n = rCF.adaptTo(Node.class);
+
+
 
                         if (n != null) {
                             String targetPath = StringUtils.replace(n.getPath(), servletConfig.getDamRootPath() + "/", "");
@@ -698,10 +708,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
         } catch (IOException | RepositoryException e) {
             throw new RuntimeException(e);
-        } catch (ImportLibraryException e) {
-            throw new RuntimeException(e);
         }
-
         LOG.debug("End import Articles data******************************");
     }
 
