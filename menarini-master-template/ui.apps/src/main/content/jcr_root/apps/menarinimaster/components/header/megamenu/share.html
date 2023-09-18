@@ -9,7 +9,7 @@
 		    x-placement="bottom-start" style="">
 			<li class="cmp-share-menu_title"><span id="dnn_ShareOnTop_lblText" class="Title">Share On</span></li>
 			<sly data-sly-test="${properties.facebookLink}">
-				<li class="cmp-share-menu_title"><i class="cmp-share-menu_icon-facebook" aria-hidden="true">
+				<li class="cmp-share-menu_title cmp-share-menu_social"><i class="cmp-share-menu_icon-facebook" aria-hidden="true">
 					<a target="_blank"
 					   href="${properties.facebookLink}"
 					   rel="nofollow">Facebook</a>
@@ -17,7 +17,7 @@
 				</li>
 			</sly>
 			<sly data-sly-test="${properties.linkedinLink}">
-				<li class="cmp-share-menu_title"><i class="cmp-share-menu_icon-linkedin" aria-hidden="true">
+				<li class="cmp-share-menu_title cmp-share-menu_social"><i class="cmp-share-menu_icon-linkedin" aria-hidden="true">
 					<a target="_blank"
 					   href="${properties.linkedinLink}"
 					   rel="nofollow">Linkedin</a>
@@ -25,7 +25,7 @@
 				</li>
 			</sly>
 			<sly data-sly-test="${properties.xLink}">
-				<li class="cmp-share-menu_title"><i class="cmp-share-menu_icon-x" aria-hidden="true">
+				<li class="cmp-share-menu_title cmp-share-menu_social"><i class="cmp-share-menu_icon-x" aria-hidden="true">
 					<a target="_blank"
 					   href="${properties.xLink}"
 					   rel="nofollow">Twitter</a>
@@ -43,7 +43,7 @@
 			<li class="aem-GridColumn--default--none aem-GridColumn--phone--2 aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--default--0 aem-GridColumn--default--2 cmp-share-menu_title"><span class="Title">Share On</span></li>
 
 			<sly data-sly-test="${properties.facebookLink}">
-				<li class="aem-GridColumn--default--none aem-GridColumn--phone--2 aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--default--0 aem-GridColumn--default--2 cmp-share-menu_title"><i class="cmp-share-menu_icon-facebook" aria-hidden="true">
+				<li class="aem-GridColumn--default--none aem-GridColumn--phone--2 aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--default--0 aem-GridColumn--default--2 cmp-share-menu_title cmp-share-menu_social"><i class="cmp-share-menu_icon-facebook" aria-hidden="true">
 					<a target="_blank"
 					   href="${properties.facebookLink}"
 					   rel="nofollow">Facebook</a>
@@ -51,7 +51,7 @@
 				</li>
 			</sly>
 			<sly data-sly-test="${properties.linkedinLink}">
-				<li class="aem-GridColumn--default--none aem-GridColumn--phone--2 aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--default--0 aem-GridColumn--default--2 cmp-share-menu_title"><i class="cmp-share-menu_icon-linkedin" aria-hidden="true">
+				<li class="aem-GridColumn--default--none aem-GridColumn--phone--2 aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--default--0 aem-GridColumn--default--2 cmp-share-menu_title cmp-share-menu_social"><i class="cmp-share-menu_icon-linkedin" aria-hidden="true">
 					<a target="_blank"
 					   href="${properties.linkedinLink}"
 					   rel="nofollow">Linkedin</a>
@@ -60,11 +60,12 @@
 			</sly>
 
 			<sly data-sly-test="${properties.xLink}">
-				<li class="aem-GridColumn--default--none aem-GridColumn--phone--2 aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--default--0 aem-GridColumn--default--2 cmp-share-menu_title"><i class="cmp-share-menu_icon-x" aria-hidden="true">
+				<li class="aem-GridColumn--default--none aem-GridColumn--phone--2 aem-GridColumn aem-GridColumn--tablet--2 aem-GridColumn--offset--default--0 aem-GridColumn--default--2 cmp-share-menu_title cmp-share-menu_social"><i class="cmp-share-menu_icon-x" aria-hidden="true">
 					<a target="_blank"
 					   href="${properties.xLink}"
 					   rel="nofollow">Twitter</a>
 				</i>
+				</li>
 				</li>
 			</sly>
 			<li class="aem-GridColumn--default--none aem-GridColumn--phone--6 aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--offset--default--0 aem-GridColumn--default--6 cmp-share-menu_title">

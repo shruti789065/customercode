@@ -22,6 +22,8 @@ const MenuTabs = (() => {
 
     $whiteMenu = false;
     $shareButton = $(".cmp-share-desktop .cmp-button");
+    const currentUrl = window.location.href;
+    var elementsWithClass = document.querySelectorAll(".cmp-share-menu_title");
 
     $(window).on("scroll", handleScroll);
     $(window).on("resize", handleResize);
@@ -33,6 +35,19 @@ const MenuTabs = (() => {
     } else {
       setupDesktopMenu();
     }
+    setShareHref(elementsWithClass,currentUrl);
+  }
+
+  function setShareHref(element,currentUrl) {
+    element.forEach(function (element) {
+      var link = element.querySelector("a");
+
+      if (link && link.hasAttribute("href")) {
+        var currentHref = link.getAttribute("href");
+
+        link.setAttribute("href", currentHref + currentUrl);
+      }
+    });
   }
 
   function setupMobileMenu() {
@@ -181,9 +196,9 @@ const MenuTabs = (() => {
       _addWhiteMenu();
     }
 
-	$(".cmp-navbar-overlayer").on('click',function(){
-		shareOpened = false;
-	});
+    $(".cmp-navbar-overlayer").on("click", function () {
+      shareOpened = false;
+    });
 
     /*if ($(window).scrollTop() > 0 && shareOpened) {
       $whiteMenu = false;
