@@ -127,7 +127,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             try{
                 Resource currentResource = request.getResource();
                 resourceResolver = currentResource.getResourceResolver();
-                session = resourceResolver.adaptTo(Session.class);
+                session = getCustomSession();//resourceResolver.adaptTo(Session.class);
                 tagManager = getTagManager();
                 servletConfig = getCustomConfig();
                 serverName = request.getServerName();
@@ -222,7 +222,12 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
     public ImportLibraryResource.Config getCustomConfig() {
         return ImportLibraryResource.get_instance().getConfig();
     }
+    public Session getCustomSession() {
+        if(resourceResolver != null)
+        return resourceResolver.adaptTo(Session.class);
+        return null;
 
+    }
 
     public List<String> getErrors() {
         if(errors == null)
@@ -258,8 +263,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             if( n == null){
                 String name = getNodeName(title);
                 //TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
-                Tag tagChild = tagManager.createTag(name, title, null,false);
-                tagChild = tagManager.moveTag(tagChild,destinationPath+"/" + name );
+                Tag tagChild = getTagManager().createTag(name, title, null,false);
+                tagChild = getTagManager().moveTag(tagChild,destinationPath+"/" + name );
                 //session.move(destinationPath, destinationPath+"/" + name);
 
                 n = tagChild.adaptTo(Node.class);
