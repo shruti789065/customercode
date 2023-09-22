@@ -13,6 +13,7 @@ import com.day.cq.commons.RangeIterator;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.dam.api.Asset;
+import com.day.cq.mailer.MailService;
 import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagException;
@@ -21,6 +22,8 @@ import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.HtmlEmail;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -37,9 +40,7 @@ import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Modified;
+import org.osgi.service.component.annotations.*;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
@@ -115,6 +116,10 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
     TagManager tagManager = null;
     private List<String> errors;
 
+    @Reference(policy = ReferencePolicy.DYNAMIC, cardinality = ReferenceCardinality.OPTIONAL)
+    protected volatile MailService mailService;
+
+
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
         if(running){
@@ -125,6 +130,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         else{
 
             try{
+                LOG.info("******************Import library servlet ************************");
+
                 Resource currentResource = request.getResource();
                 resourceResolver = currentResource.getResourceResolver();
                 session = getCustomSession();//resourceResolver.adaptTo(Session.class);
@@ -199,11 +206,14 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             running = false;
 
             resp.setResult(OK_RESULT);
-            sendResult(resp, response);
 
+            sendResult(resp, response);
+            LOG.info("******************FINE Import library servlet ************************");
         }
 
     }
+
+
 
     public InputStream getFileInputStream(Resource rs) {
         if(rs != null) {
@@ -1070,6 +1080,10 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         return JcrUtil.escapeIllegalJcrChars(label);
     }
 
+    @Override
+    protected MailService getMailService() {
+        return mailService;
+    }
 
 
     public class Response{
