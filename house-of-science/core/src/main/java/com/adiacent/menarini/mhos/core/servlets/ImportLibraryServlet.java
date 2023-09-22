@@ -24,6 +24,7 @@ import com.day.cq.wcm.api.PageManager;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
+import org.apache.jackrabbit.commons.JcrUtils;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -132,8 +133,6 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
                 Resource currentResource = request.getResource();
                 ResourceResolver resourceResolver = currentResource.getResourceResolver();
-                //Session session = getCustomSession(resourceResolver);//resourceResolver.adaptTo(Session.class);
-                //TagManager tagManager = getTagManager(resourceResolver);
                 servletConfig = getCustomConfig();
                 serverName = request.getServerName();
                 serverPort = request.getServerPort();
@@ -161,6 +160,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 }
 
                 InputStream inputStream = getFileInputStream(rs);
+
                 //Asset asset = rs.adaptTo(Asset.class);
                 //InputStream inputStream = asset.getOriginal().adaptTo(InputStream.class);
                 if(inputStream == null) {
@@ -180,6 +180,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                         return;
                     }
                 }
+
 
 
 
@@ -640,7 +641,9 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 count++;
             }
 
-            inputStream.reset();
+
+            resetInputStream(inputStream);
+
         } catch (IOException e) {
            addErrors(e.getMessage());
 
@@ -652,6 +655,19 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
     }
 
+    public void resetInputStream(InputStream inputStream) {
+        if(inputStream != null){
+            if(inputStream.markSupported()) {
+                //inputStream.mark(Integer.MAX_VALUE);
+                try {
+                    inputStream.reset();
+                } catch (IOException e) {
+                    addErrors(e.getMessage());
+                }
+            }
+        }
+    }
+
 
     private void importArticlesData(InputStream inputStream, String serverName, int serverPort,ResourceResolver resourceResolver) {
         LOG.debug("Start import Articles data********************");
@@ -660,11 +676,14 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         try {
             Resource categoryFolder =  resourceResolver.getResource(servletConfig.getCategoryPath());
             if(categoryFolder == null) {
-                Node n = JcrUtil.createPath(servletConfig.getCategoryPath(), "sling:Folder", getCustomSession(resourceResolver));
-                Node jcr = JcrUtil.createPath(servletConfig.getCategoryPath()+"/jcr:content", JcrConstants.NT_UNSTRUCTURED, getCustomSession(resourceResolver));
-                jcr.setProperty("title","infectivology");
-                jcr.setProperty("source","false");
-                getCustomSession(resourceResolver).save();
+
+                Node n = createNode(servletConfig.getCategoryPath(), "sling:Folder", getCustomSession(resourceResolver));
+                Node jcr = createNode(servletConfig.getCategoryPath()+"/jcr:content", JcrConstants.NT_UNSTRUCTURED, getCustomSession(resourceResolver));
+                if(jcr != null) {
+                    jcr.setProperty("title", "infectivology");
+                    jcr.setProperty("source", "false");
+                    getCustomSession(resourceResolver).save();
+                }
             }
         } catch (RepositoryException e) {
           addErrors("Error in creating category folder at "+ servletConfig.getCategoryPath());
@@ -704,17 +723,20 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
                         if (n != null) {
                             String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "");
-                            cfApi.put(serverName, serverPort, targetPath, cf);
+                            storeContentFragment(false, serverName, serverPort, targetPath, cf);
+
                         } else {
 
                             //se la folder esiste già non si crea, altrimenti sì
                             Resource folder = resourceResolver.getResource(folderPath);
                             if (folder == null) {
-                                JcrUtil.createPath(folderPath, "sling:Folder", getCustomSession(resourceResolver));
+                                //JcrUtil.createPath(folderPath, "sling:Folder", getCustomSession(resourceResolver));
+                                createNode(folderPath, "sling:Folder", getCustomSession(resourceResolver));
                                 getCustomSession(resourceResolver).save();
                             }
                             String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "") ;
-                            cfApi.create(serverName, serverPort, targetPath, cf);
+
+                            storeContentFragment(true, serverName, serverPort, targetPath, cf);
                         }
 
                     }
@@ -726,9 +748,34 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             addErrors(e.getMessage());
             return;
         }
+        try {
+            inputStream.close();
+        } catch (IOException e) {
+            addErrors(e.getMessage());
+        }
         LOG.debug("End import Articles data******************************");
     }
 
+    public void storeContentFragment(boolean isNew, String serverName, int serverPort, String targetPath, ContentFragmentModel cf) {
+        if(StringUtils.isNotBlank(serverName) &&
+                StringUtils.isNotBlank(targetPath) &&
+        cf != null)
+
+        if(isNew)
+            cfApi.create( serverName, serverPort, targetPath, cf);
+        else
+            cfApi.put( serverName, serverPort, targetPath, cf);
+    }
+
+    public Node createNode(String path, String type, Session session) {
+        try{
+            if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
+                return JcrUtil.createPath(path, type, session);
+        }catch(RepositoryException e){
+            addErrors(e.getMessage());
+        }
+        return null;
+    }
 
 
     private ContentFragmentModel generateContentFragmentFromRow(Row row,ResourceResolver resourceResolver) throws ImportLibraryException {

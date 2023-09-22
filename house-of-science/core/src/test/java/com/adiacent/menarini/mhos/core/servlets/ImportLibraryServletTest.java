@@ -1,5 +1,6 @@
 package com.adiacent.menarini.mhos.core.servlets;
 
+import com.adiacent.menarini.mhos.core.models.ContentFragmentModel;
 import com.adiacent.menarini.mhos.core.resources.ImportLibraryResource;
 import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
@@ -136,7 +137,7 @@ public class ImportLibraryServletTest {
         }
 
         Tag t = mock(Tag.class);
-        when(t.adaptTo(Node.class)).thenReturn(mock(Node.class));
+//        when(t.adaptTo(Node.class)).thenReturn(mock(Node.class));
         try {
             lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
                 @Override
@@ -160,7 +161,8 @@ public class ImportLibraryServletTest {
     }
 
 
-
+    @Test
+    @Order(2)
     public void importTags() throws ServletException, IOException {
 
         ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
@@ -218,6 +220,23 @@ public class ImportLibraryServletTest {
         }
 
 
+        Node node = mock(Node.class);
+//        when(servlet.createNode(any(String.class), any(String.class), any(Session.class) )).thenReturn(node);
+
+
+
+
+        doAnswer(i->{
+            if(i.getArgument(0)==InputStream.class){
+                InputStream is =(InputStream)i.getArgument(0);
+                if(is.markSupported()) {
+                    is.mark(Integer.MAX_VALUE);
+                    is.reset();
+                }
+            }
+            return null;
+        }).when(servlet).resetInputStream(any(InputStream.class));
+
 
 
         servlet.doGet(request, response);
@@ -226,4 +245,76 @@ public class ImportLibraryServletTest {
 
     }
 
+
+    @Test
+    @Order(3)
+    public void importArticles() throws ServletException, IOException {
+
+        ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
+        when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
+        when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
+        when(config.isHeaderRowPresent()).thenReturn(true);
+        when(config.isImportTagEnabled()).thenReturn(false);
+        when(config.isImportArticleEnabled()).thenReturn(true);
+        when(config.getCategoryPath()).thenReturn("/content/dam/mhos/content-fragments/en/infectivology");
+        when(config.getDamRootPath()).thenReturn("/content/dam");
+
+        when(servlet.getCustomConfig()).thenReturn(config);
+
+
+        Session sessione = mock(Session.class);
+        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(sessione);
+        try {
+            doNothing().when(sessione).save();
+            doNothing().when(sessione).move(any(String.class), any(String.class));
+
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        TagManager tagManager = mock(TagManager.class);
+        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
+        try {
+
+            lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
+                @Override
+                public Tag answer(InvocationOnMock invocation) throws Throwable {
+                    return mock(Tag.class);
+                }}
+            );
+
+        } catch (InvalidTagFormatException e) {
+            throw new RuntimeException(e);
+        }
+
+        Tag t = mock(Tag.class);
+        //when(t.adaptTo(Node.class)).thenReturn(mock(Node.class));
+        try {
+            lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
+                @Override
+                public Tag answer(InvocationOnMock invocation) throws Throwable {
+                    return t;
+                }}
+            );
+        } catch (InvalidTagFormatException e) {
+            throw new RuntimeException(e);
+        } catch (TagException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        Node node = mock(Node.class);
+        when(servlet.createNode(any(String.class), any(String.class), any(Session.class) )).thenReturn(node);
+
+
+
+        doNothing().when(servlet).storeContentFragment(anyBoolean(), anyString(), anyInt(), anyString(),any(ContentFragmentModel.class));
+
+        servlet.doGet(request, response);
+
+        assertEquals("{\"result\":\"OK\"}", response.getOutputAsString());
+
+    }
 }
