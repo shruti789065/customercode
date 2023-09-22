@@ -28,6 +28,7 @@ class ContentFragmentResponsePropertiesModelTest {
         assertNotNull(model.getParentLocation());
         assertNotNull(model.getPath());
         assertNotNull(model.getStatusMessage());
+        assertEquals(true, model.isCreate());
     }
 
 }
