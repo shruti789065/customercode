@@ -140,12 +140,13 @@ public class ContentFragmentApi {
             LOG.error(e.getMessage(), e);
 
         } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+            LOG.error(e.getMessage(), e);
         } finally {
             try {
                 client.close();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                LOG.error(e.getMessage(), e);
+                return null;
             }
         }
         return res;

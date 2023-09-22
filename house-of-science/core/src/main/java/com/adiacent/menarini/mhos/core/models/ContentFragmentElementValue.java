@@ -2,6 +2,7 @@ package com.adiacent.menarini.mhos.core.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ContentFragmentElementValue {
@@ -18,10 +19,19 @@ public class ContentFragmentElementValue {
     }
 
     public List<Object> getValue() {
-        return value;
+        if(value == null)
+            return null;
+        Object[] array = value.toArray(new Object[value.size()]);
+        Object[] clone = array.clone();
+        return Arrays.asList(clone);
     }
-
     public void setValue(List<Object> value) {
-        this.value = value;
+        if(value== null)
+            this.value = null;
+        else {
+            Object[] array =value.toArray(new Object[value.size()]);
+            Object[] clone = array.clone();
+            this.value = Arrays.asList(clone);
+        }
     }
 }

@@ -9,6 +9,7 @@ import io.wcm.testing.mock.aem.MockTagManager;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
@@ -108,7 +109,7 @@ public class ImportLibraryServletTest {
 
 
        Session sessione = mock(Session.class);
-        when(servlet.getCustomSession()).thenReturn(sessione);
+        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(sessione);
         try {
             doNothing().when(sessione).save();
             doNothing().when(sessione).move(any(String.class), any(String.class));
@@ -120,7 +121,7 @@ public class ImportLibraryServletTest {
 
 
         TagManager tagManager = mock(TagManager.class);
-        when(servlet.getTagManager()).thenReturn(tagManager);
+        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
         try {
 
             lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
@@ -158,5 +159,71 @@ public class ImportLibraryServletTest {
 
     }
 
+
+
+    public void importTags() throws ServletException, IOException {
+
+        ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
+        when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
+        when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
+        when(config.isHeaderRowPresent()).thenReturn(true);
+        when(config.isImportTagEnabled()).thenReturn(true);
+        when(config.isImportArticleEnabled()).thenReturn(false);
+//        when(config.getCategoryPath()).thenReturn("/content/dam/mhos/content-fragments/en/infectivology");
+//        when(config.getDamRootPath()).thenReturn("/content/dam");
+
+        when(servlet.getCustomConfig()).thenReturn(config);
+
+
+        Session sessione = mock(Session.class);
+        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(sessione);
+        try {
+            doNothing().when(sessione).save();
+            doNothing().when(sessione).move(any(String.class), any(String.class));
+
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        TagManager tagManager = mock(TagManager.class);
+        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
+        try {
+
+            lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
+                @Override
+                public Tag answer(InvocationOnMock invocation) throws Throwable {
+                    return mock(Tag.class);
+                }}
+            );
+
+        } catch (InvalidTagFormatException e) {
+            throw new RuntimeException(e);
+        }
+
+        Tag t = mock(Tag.class);
+        when(t.adaptTo(Node.class)).thenReturn(mock(Node.class));
+        try {
+            lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
+                @Override
+                public Tag answer(InvocationOnMock invocation) throws Throwable {
+                    return t;
+                }}
+            );
+        } catch (InvalidTagFormatException e) {
+            throw new RuntimeException(e);
+        } catch (TagException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
+        servlet.doGet(request, response);
+
+        assertEquals("{\"result\":\"OK\"}", response.getOutputAsString());
+
+    }
 
 }
