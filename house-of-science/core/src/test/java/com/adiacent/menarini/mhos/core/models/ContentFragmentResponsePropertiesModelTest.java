@@ -20,8 +20,12 @@ class ContentFragmentResponsePropertiesModelTest {
         model.setTitle("Title");
         model.setParentLocation("parent_location");
         model.setStatusMessage("message");
+        model.setLocation("location");
+        model.setReferer("referer");
+        model.setStatusCode(200);
 
     }
+
     @Test
     void testGetters() {
         assertNotNull(model.getTitle());
@@ -29,6 +33,9 @@ class ContentFragmentResponsePropertiesModelTest {
         assertNotNull(model.getPath());
         assertNotNull(model.getStatusMessage());
         assertEquals(true, model.isCreate());
+        assertEquals(0, model.getLocation().compareTo("location"));
+        assertEquals(0, model.getReferer().compareTo("referer"));
+        assertEquals(200, model.getStatusCode());
     }
 
 }

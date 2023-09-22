@@ -19,6 +19,6 @@ class ContentFragmentElementSingleValueTest {
     void testGetters() {
         assertNotNull(model.getValue());
         assertNotNull(model.getType());
-       
+
     }
 }

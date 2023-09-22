@@ -6,7 +6,8 @@ import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagException;
 import com.day.cq.tagging.TagManager;
-import io.wcm.testing.mock.aem.MockTagManager;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.apache.sling.api.resource.Resource;
@@ -31,9 +32,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
+//tutorial :  //https://www.youtube.com/watch?v=g5x6F8bUHj8
 @ExtendWith({AemContextExtension.class, MockitoExtension.class})
 public class ImportLibraryServletTest {
 
@@ -45,8 +46,9 @@ public class ImportLibraryServletTest {
 
     private MockSlingHttpServletResponse response;
 
+
     @Mock
-    private Session session;
+    TagManager tagManager;
 
     @BeforeEach
     void setUp() {
@@ -68,10 +70,9 @@ public class ImportLibraryServletTest {
         response = spy(aemContext.response());
         request = spy(aemContext.request());
 
-        session = spy( aemContext.resourceResolver().adaptTo(Session.class));
-        //https://www.youtube.com/watch?v=g5x6F8bUHj8
-        aemContext.registerInjectActivateService(new ImportLibraryResource());
 
+        //necessario per il caricamento della configurazione di test
+        aemContext.registerInjectActivateService(new ImportLibraryResource());
         /*ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
         when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
         when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
@@ -82,14 +83,51 @@ public class ImportLibraryServletTest {
         when(config.getDamRootPath()).thenReturn("/content/dam");
         */
 
-        aemContext.addModelsForClasses(ImportLibraryServlet.class);
+        //spy la servlet per poter fare l'override di alcuni metodi
         ImportLibraryServlet s = aemContext.registerService(new  ImportLibraryServlet());
-        InputStream is = getClass().getResourceAsStream("/com/adiacent/menarini/mhos/core/models/dnnImportLibraryDS.xlsx");
-        //spy la servlet per poter fare l'ovverride di alcuni metodi
         servlet = spy(s);
-        //when(servlet.getCustomConfig()).thenReturn(config);
+
+        InputStream is = getClass().getResourceAsStream("/com/adiacent/menarini/mhos/core/models/dnnImportLibraryDS.xlsx");
         when(servlet.getFileInputStream(any(Resource.class))).thenReturn(is);
 
+
+        //gestione sessione mocckata
+        Session session = mock(Session.class);
+        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(session);
+        try {
+            doNothing().when(session).save();
+            doNothing().when(session).move(any(String.class), any(String.class));
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
+        //gestione tagmanager mocckato
+        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
+        Tag mockedTag = mock(Tag.class);
+        try {
+
+            lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
+                @Override
+                public Tag answer(InvocationOnMock invocation) throws Throwable {
+                    return mockedTag;
+                }}
+            );
+
+            lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
+                @Override
+                public Tag answer(InvocationOnMock invocation) throws Throwable {
+                    return mockedTag;
+                }}
+            );
+
+        } catch (InvalidTagFormatException e) {
+            throw new RuntimeException(e);
+        } catch (TagException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        aemContext.addModelsForClasses(ImportLibraryServlet.class);
 
     }
 
@@ -100,63 +138,17 @@ public class ImportLibraryServletTest {
         ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
         when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
         when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
-//        when(config.isHeaderRowPresent()).thenReturn(true);
         when(config.isImportTagEnabled()).thenReturn(false);
         when(config.isImportArticleEnabled()).thenReturn(false);
-//        when(config.getCategoryPath()).thenReturn("/content/dam/mhos/content-fragments/en/infectivology");
-//        when(config.getDamRootPath()).thenReturn("/content/dam");
 
         when(servlet.getCustomConfig()).thenReturn(config);
-
-
-       Session sessione = mock(Session.class);
-        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(sessione);
-        try {
-            doNothing().when(sessione).save();
-            doNothing().when(sessione).move(any(String.class), any(String.class));
-
-        } catch (RepositoryException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
-        TagManager tagManager = mock(TagManager.class);
-        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
-        try {
-
-            lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return mock(Tag.class);
-                }}
-            );
-
-        } catch (InvalidTagFormatException e) {
-            throw new RuntimeException(e);
-        }
-
-        Tag t = mock(Tag.class);
-//        when(t.adaptTo(Node.class)).thenReturn(mock(Node.class));
-        try {
-            lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return t;
-                }}
-            );
-        } catch (InvalidTagFormatException e) {
-            throw new RuntimeException(e);
-        } catch (TagException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
-
         servlet.doGet(request, response);
 
-        assertEquals("{\"result\":\"OK\"}", response.getOutputAsString());
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        ImportLibraryServlet.Response res = gson.fromJson(response.getOutputAsString(),ImportLibraryServlet.Response.class);
+
+        assertEquals(AbstractJsonServlet.OK_RESULT, res.getResult());
 
     }
 
@@ -171,46 +163,18 @@ public class ImportLibraryServletTest {
         when(config.isHeaderRowPresent()).thenReturn(true);
         when(config.isImportTagEnabled()).thenReturn(true);
         when(config.isImportArticleEnabled()).thenReturn(false);
-//        when(config.getCategoryPath()).thenReturn("/content/dam/mhos/content-fragments/en/infectivology");
-//        when(config.getDamRootPath()).thenReturn("/content/dam");
 
         when(servlet.getCustomConfig()).thenReturn(config);
 
 
-        Session sessione = mock(Session.class);
-        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(sessione);
-        try {
-            doNothing().when(sessione).save();
-            doNothing().when(sessione).move(any(String.class), any(String.class));
-
-        } catch (RepositoryException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
-        TagManager tagManager = mock(TagManager.class);
-        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
-        try {
-
-            lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return mock(Tag.class);
-                }}
-            );
-
-        } catch (InvalidTagFormatException e) {
-            throw new RuntimeException(e);
-        }
-
-        Tag t = mock(Tag.class);
-        when(t.adaptTo(Node.class)).thenReturn(mock(Node.class));
+        Node mockedNode = mock(Node.class);
+        Tag mockedTag = mock(Tag.class);
+        when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);
         try {
             lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
                 @Override
                 public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return t;
+                    return mockedTag;
                 }}
             );
         } catch (InvalidTagFormatException e) {
@@ -218,12 +182,6 @@ public class ImportLibraryServletTest {
         } catch (TagException e) {
             throw new RuntimeException(e);
         }
-
-
-        Node node = mock(Node.class);
-//        when(servlet.createNode(any(String.class), any(String.class), any(Session.class) )).thenReturn(node);
-
-
 
 
         doAnswer(i->{
@@ -241,7 +199,11 @@ public class ImportLibraryServletTest {
 
         servlet.doGet(request, response);
 
-        assertEquals("{\"result\":\"OK\"}", response.getOutputAsString());
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        ImportLibraryServlet.Response res = gson.fromJson(response.getOutputAsString(),ImportLibraryServlet.Response.class);
+
+        assertEquals(AbstractJsonServlet.OK_RESULT, res.getResult());
 
     }
 
@@ -261,60 +223,18 @@ public class ImportLibraryServletTest {
 
         when(servlet.getCustomConfig()).thenReturn(config);
 
-
-        Session sessione = mock(Session.class);
-        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(sessione);
-        try {
-            doNothing().when(sessione).save();
-            doNothing().when(sessione).move(any(String.class), any(String.class));
-
-        } catch (RepositoryException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
-        TagManager tagManager = mock(TagManager.class);
-        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
-        try {
-
-            lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return mock(Tag.class);
-                }}
-            );
-
-        } catch (InvalidTagFormatException e) {
-            throw new RuntimeException(e);
-        }
-
-        Tag t = mock(Tag.class);
-        //when(t.adaptTo(Node.class)).thenReturn(mock(Node.class));
-        try {
-            lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return t;
-                }}
-            );
-        } catch (InvalidTagFormatException e) {
-            throw new RuntimeException(e);
-        } catch (TagException e) {
-            throw new RuntimeException(e);
-        }
-
-
         Node node = mock(Node.class);
         when(servlet.createNode(any(String.class), any(String.class), any(Session.class) )).thenReturn(node);
-
-
 
         doNothing().when(servlet).storeContentFragment(anyBoolean(), anyString(), anyInt(), anyString(),any(ContentFragmentModel.class));
 
         servlet.doGet(request, response);
 
-        assertEquals("{\"result\":\"OK\"}", response.getOutputAsString());
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        ImportLibraryServlet.Response res = gson.fromJson(response.getOutputAsString(),ImportLibraryServlet.Response.class);
+
+        assertEquals(AbstractJsonServlet.OK_RESULT, res.getResult());
 
     }
 }

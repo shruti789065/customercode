@@ -80,7 +80,6 @@ import java.util.stream.Stream;
         extensions= "json",
         selectors={ImportLibraryServlet.DEFAULT_SELECTOR})
 @ServiceDescription("Menarini House of Science - Import Library Servlet")
-
 public class ImportLibraryServlet extends AbstractJsonServlet {
 
     private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
@@ -105,9 +104,6 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
     boolean running = false; //TRUE: è in corso l'import
 
     private transient ImportLibraryServlet.Response resp = null;
-
-
-
     private transient ImportLibraryResource.Config servletConfig = null;
     private transient ContentFragmentApi cfApi = null;
 
@@ -152,20 +148,19 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
                 //recupero file excel dal dam
                 Resource rs = resourceResolver.getResource(servletConfig.getSourceFilePath());
-                if(rs == null) {
+                if(rs == null)
+                    addErrors("File not found at " + servletConfig.getSourceFilePath());
+                if(errors != null && errors.size() > 0){
                     resp.setResult(KO_RESULT);
-                    resp.addErrors("File not found at " + servletConfig.getSourceFilePath());
+                    resp.setErrors(errors);
                     sendResult(resp,response);
                     return;
                 }
 
                 InputStream inputStream = getFileInputStream(rs);
-
-                //Asset asset = rs.adaptTo(Asset.class);
-                //InputStream inputStream = asset.getOriginal().adaptTo(InputStream.class);
-                if(inputStream == null) {
+                if(errors != null && errors.size() > 0){
                     resp.setResult(KO_RESULT);
-                    resp.addErrors("File Input stream: reading error");
+                    resp.setErrors(errors);
                     sendResult(resp,response);
                     return;
                 }
@@ -207,17 +202,21 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             resp.setResult(OK_RESULT);
 
             sendResult(resp, response);
+
             LOG.info("******************FINE Import library servlet ************************");
         }
 
     }
 
-
-
+    //Metodi di utility per poi fare gli unit test
     public InputStream getFileInputStream(Resource rs) {
         if(rs != null) {
             Asset asset = rs.adaptTo(Asset.class);
-            return asset.getOriginal().adaptTo(InputStream.class);
+            InputStream is = asset.getOriginal().adaptTo(InputStream.class);
+            if( is == null)
+               addErrors("File Input stream: reading error");
+            else
+                return is;
         }
         return null;
     }
@@ -227,7 +226,6 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             return resourceResolver.adaptTo(TagManager.class);
         return null;
     }
-
     public ImportLibraryResource.Config getCustomConfig() {
         return ImportLibraryResource.get_instance().getConfig();
     }
@@ -237,30 +235,46 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         return null;
 
     }
-
-    public List<String> getErrors() {
-        if(errors == null)
-            return null;
-        String[] array = errors.toArray(new String[errors.size()]);
-        String[] clone = array.clone();
-        return Arrays.asList(clone);
+    public XSSFWorkbook createWorkBook(InputStream inputStream) throws IOException {
+        return new XSSFWorkbook(inputStream);
     }
-    public void setErrors(List<String> errors) {
-        if(errors== null)
-            this.errors = null;
-        else {
-            String[] array = errors.toArray(new String[errors.size()]);
-            String[] clone = array.clone();
-            this.errors = Arrays.asList(clone);
+    public void resetInputStream(InputStream inputStream) {
+        if(inputStream != null){
+            if(inputStream.markSupported()) {
+                //inputStream.mark(Integer.MAX_VALUE);
+                try {
+                    inputStream.reset();
+                } catch (IOException e) {
+                    addErrors(e.getMessage());
+                }
+            }
         }
     }
+    public void storeContentFragment(boolean isNew, String serverName, int serverPort, String targetPath, ContentFragmentModel cf) {
+        if(StringUtils.isNotBlank(serverName) &&
+                StringUtils.isNotBlank(targetPath) &&
+                cf != null)
 
-    public void addErrors(String txt){
-        if(StringUtils.isNotBlank(txt)) {
-            if (this.getErrors() == null)
-                this.errors = new ArrayList<String>();
-            this.errors.add(txt);
+            if(isNew)
+                cfApi.create( serverName, serverPort, targetPath, cf);
+            else
+                cfApi.put( serverName, serverPort, targetPath, cf);
+    }
+
+    public Node createNode(String path, String type, Session session) {
+        try{
+            if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
+                return JcrUtil.createPath(path, type, session);
+        }catch(RepositoryException e){
+            addErrors(e.getMessage());
         }
+        return null;
+    }
+    //Fine Metodi di utility per poi fare gli unit test
+
+    @Override
+    protected MailService getMailService() {
+        return mailService;
     }
 
     private Node insertOrUpdateTagNode(Node tag, String destinationPath,  String title, HashMap properties, ResourceResolver resourceResolver) throws ImportLibraryException {
@@ -271,7 +285,6 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         try{
             if( n == null){
                 String name = getNodeName(title);
-                //TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
                 Tag tagChild = getTagManager(resourceResolver).createTag(name, title, null,false);
                 tagChild = getTagManager(resourceResolver).moveTag(tagChild,destinationPath+"/" + name );
                 //session.move(destinationPath, destinationPath+"/" + name);
@@ -302,108 +315,6 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         return n;
     }
 
-
-    private void cleanAuthorValueTag(ResourceResolver resourceResolver){
-        //Si controlla la presenza di nodi sotto /content/cq:tag/author di tipo cq:tag con name .length >1 ( in questo caso si escludono i tagcontainer di nome A,B,C,D...)
-        String authorTagPath = servletConfig.getTagsRootPath()+"/author";
-        Resource resource = resourceResolver.getResource(authorTagPath);
-        Iterator<Resource> children = resource.listChildren();
-
-        String prevTagId = null; //memorizza il tagID, namespace, del nodo oggetto di analisi prima della migrazione sotto il tagContainer di competenza A,B,C,D...
-        String tagContainerName = "";
-        while (children.hasNext() ) {
-            Resource child = children.next();
-            String childName = child.getName();
-            if(childName.length() > 1){
-
-                //Si recupera il namespace corrente del tag da spostare
-                Tag tagChild = child.adaptTo(Tag.class);
-                prevTagId = tagChild.getTagID();
-
-
-                //Si sposta il nodo nel tagcontainer nuova destinazione
-                tagContainerName = childName.substring(0,1).toLowerCase(); //si recupera la prima iniziale dal nome del nodo da spostare
-                String destinationPath = authorTagPath+"/"+tagContainerName;
-                //NB: Francesca-> provando il metodo seguente per il recupero dell'eventuale tagcontainer, se già presente su CRX, alle volte
-                //non si ottiene un dato consistente, in quanto sembra che il crx non sia aggiornato con gli ultimi tagcontainer aggiunti durante
-                //l'elaborazione della servlet. Per tale motivo tale f() è commentata a favore del punto 2.
-                //Node containerTagNode  = getNode("[cq:Tag]",tagContainerName,  authorTagPath,false)
-                //2.
-                Resource rc = resourceResolver.getResource(destinationPath);
-                Node containerTagNode = rc != null ? rc.adaptTo(Node.class):null;
-
-                //Si deve creare il tag container A,B,C,....
-                if(containerTagNode == null) {
-                    HashMap properties = new HashMap();
-                    properties.put(JcrConstants.JCR_TITLE, tagContainerName);
-                    properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
-                    try{
-                        insertOrUpdateTagNode(null, authorTagPath, tagContainerName, properties, resourceResolver);
-                    }catch(ImportLibraryException e){
-                        addErrors(e.getMessage());
-                        break;
-                    }
-
-                }
-
-                try {
-                    //NB: Francesca -> la moveTag alle  volte si incarta, non la posso usare.
-                    //Per questo motivo si è preferito :
-                    // 1. calcolare il nuovo tagID ( namespace ) dopo lo spostamento del tag
-                    // 2. individuare tutti i ContentFragment che risultassero associati al tag autore corrente, oggetto di spostamento
-                    // 3. sostituire il vecchio namespace del tag autore con il nuovo nel content fragment
-                    // 4. procedere con lo spostamento del nodo tramite il metodo session.move(src ,dest)
-
-                    //tagChild = tagManager.moveTag(tagChild,destinationPath+"/" + childName );NON FUNZIONA SEMPRE
-
-                    //1.
-                    String newTagNamespace = StringUtils.substringBeforeLast(prevTagId, "/") + "/" + tagContainerName + "/" + childName;
-
-                    //2.
-                    RangeIterator<Resource> res = getTagManager(resourceResolver).find(prevTagId);
-                    if(res != null){
-                        while (res.hasNext()) {
-                            Resource r = res.next();
-                            String jsonPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
-                            jsonPath = jsonPath.replace("/jcr:content/data/master", "");
-                            jsonPath = jsonPath + ".json";
-                            ContentFragmentModel cf = cfApi.getByPath(serverName, serverPort, jsonPath);
-                            if (cf != null) {
-                                List<Object> authorList = cf.getProperties().getElements().getAuthor().getValue();
-                                final String otId = prevTagId;
-                                List<Object> newAuthorList = authorList.stream().map(obj -> {
-                                    String a = (String) obj;
-                                    if (a.equals(otId)) {
-                                        a = newTagNamespace;
-                                    }
-                                    return a;
-                                }).collect(Collectors.toList());
-                                cf.getProperties().getElements().getAuthor().setValue(newAuthorList);
-
-                                String targetPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
-                                targetPath = targetPath.replace("/jcr:content/data/master", "");
-
-                                cfApi.put(serverName, serverPort, targetPath, cf);
-                            }
-
-                        }
-                    }
-
-                    //4.
-                    getCustomSession(resourceResolver).move(tagChild.getPath(), destinationPath + "/" + childName);
-                    getCustomSession(resourceResolver).save();
-
-                } catch (RepositoryException e) {
-                   addErrors(e.getMessage());
-
-                }
-
-
-            }
-        }
-
-    }
-
     private void handleValueTag(String parentTagTitle, String values,ResourceResolver resourceResolver){
 
         List<String> convertedList = parseValues(parentTagTitle, values);
@@ -423,8 +334,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 try {
                     parentTagNode = insertOrUpdateTagNode(null, servletConfig.getTagsRootPath(), parentTagTitle ,properties, resourceResolver );
                 } catch (ImportLibraryException e) {
-                   addErrors( e.getMessage());
-                   return;
+                    addErrors( e.getMessage());
+                    return;
                 }
             }
 
@@ -474,309 +385,58 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
         }
-        /*
-        if(StringUtils.isNotBlank(values)){
-            //si usa la virgola come separatore
-            List<String> convertedList = Stream.of(values.split(TAG_VALUES_SEPARATOR, -1))
-                    .map(a->{
-                        String res = a.toLowerCase();
-                        if("author".equals(parentTagTitle)) {
-                            res = res.replaceAll("\\*|nes|st|nink|mr|md|phd|ms(\\w+[;]{0,1})", "");
-                            res = res.replaceAll("&amp;eacute;", "é");
-                            res = res.replaceAll("&amp;egrave;", "è");
-                            res = res.replaceAll("&amp;ouml;", "Ö");
-                            res = res.replaceAll("&amp;uuml;", "ü");
-                            res = res.replaceAll("&amp;aacute;", "á");
-                            res = res.replaceAll("&amp;iacute;", "í");
-                            res = res.replaceAll("&amp;uacute;", "ú");
-                            res = res.replaceAll("&amp;ccedil;", "ç");
-                            res = res.replaceAll("&amp;agrave;", "à");
-                            res = res.replaceAll("&amp;rsquo;", "’");
-                            res = res.replaceAll("<br />", "");
-                            res = res.replaceAll("&amp;amp", "");
-
-                        }
-                        res=StringUtils.trimToEmpty(res);
-                        return res;
-                    })
-                    .filter(e-> StringUtils.isNotBlank(e))
-                    .collect(Collectors.toList());
-
-            if(convertedList != null && convertedList.size() > 0){
-                String parentTagName = getNodeName(parentTagTitle);
-                //check tag parent with name "parentTagName"
-                //Node parentTagNode = getNode("[cq:Tag]", parentTagName, servletConfig.getTagsRootPath(), true);to check
-                Resource parentRc = resourceResolver.getResource(servletConfig.getTagsRootPath()+"/"+parentTagName);
-                Node parentTagNode = parentRc != null ? parentRc.adaptTo(Node.class):null;
-
-                //Eventuale creazione dei tag "parent" se non esistono su crx ( author, topic ,source ,generic-tags, typology,..)
-                if(parentTagNode == null){
-                    HashMap properties = new HashMap();
-                    properties.put(JcrConstants.JCR_TITLE, parentTagTitle);
-                    properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
-                    parentTagNode = insertOrUpdateTagNode(null, servletConfig.getTagsRootPath(), parentTagTitle ,properties );
-                }
-
-                if(parentTagNode != null){
-                    Node parent = parentTagNode;
-                    convertedList.stream().forEach(tagVal->{
-                        String tagName = StringUtils.replace(tagVal.toLowerCase().trim(), " ", "-");
-                        try {
-                            //Node valueNode = getNode("[cq:Tag]",tagName,  parent.getPath(), true);
-                            String rPath = parent.getPath()+("author".equals(parentTagTitle) ? "/"+tagName.substring(0,1) :"")+"/"+tagName;
-                            Resource rc = resourceResolver.getResource(rPath);
-                            Node valueNode = rc != null ? rc.adaptTo(Node.class):null;
-
-
-                            if(valueNode == null){
-
-                                String destinationPath = parent.getPath();
-                                if("author".equals(parentTagTitle)){
-                                    //i valori del tag author si storicizzano sotto folder aventi l'iniziale dell'autore
-                                    /*String folderName = v.substring(0,1);
-                                    destinationPath = parent.getPath()+"/"+folderName;
-                                    //se la folder esiste già non si crea, altrimenti si
-                                    Resource folder = resourceResolver.getResource(destinationPath );
-                                    if(folder == null){
-                                        Session session = resourceResolver.adaptTo(Session.class);
-                                        JcrUtil.createPath(destinationPath, "sling:Folder", session);
-                                        session.save();
-                                    }* /
-                                    String tagContainerName = tagVal.substring(0,1).toLowerCase();
-                                    destinationPath = parent.getPath()+"/"+tagContainerName;
-                                    //Node containerTagNode  = getNode("[cq:Tag]", tagContainerName,  parent.getPath(),false);
-                                    Resource rcTC = resourceResolver.getResource(destinationPath);
-                                    Node containerTagNode= rcTC != null ? rcTC.adaptTo(Node.class):null;
-
-                                    if(containerTagNode == null){
-                                        HashMap properties = new HashMap();
-                                        properties.put(JcrConstants.JCR_TITLE, tagContainerName);
-                                        properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
-                                        insertOrUpdateTagNode(null, parent.getPath(),  tagContainerName , properties);
-                                    }
-
-                                }
-
-                                HashMap properties = new HashMap();
-                                properties.put(JcrConstants.JCR_TITLE, tagVal);
-                                properties.put(StringConstants.SLING_RESOURCE_TYPE, "cq/tagging/components/tag");
-                                insertOrUpdateTagNode(valueNode, destinationPath,  tagVal, properties);
-                            }
-                        } catch (RepositoryException e) {
-                            addErrors(e.getMessage());
-
-                        }
-
-                    });
-                }
-
-
-            }
-
-        }*/
-
     }
+    private List<String> parseValues(String rootTag, String values){
 
-    public XSSFWorkbook createWorkBook(InputStream inputStream) throws IOException {
-        return new XSSFWorkbook(inputStream);
-    }
-    private void importTagsData(InputStream inputStream, ResourceResolver resourceResolver) {
-        LOG.debug("Start import tags data********************");
-        XSSFWorkbook workbook = null;
-        try {
-            workbook = new XSSFWorkbook(inputStream); //new XSSFWorkbook(inputStream);
-            XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
+        if("author".equals(rootTag)) {
+            if (StringUtils.isNotBlank(values)) {
+                //si usa la virgola come separatore
+                List<String> convertedList = Stream.of(values.split(TAG_VALUES_SEPARATOR, -1))
+                        .map(a -> {
 
-            if(sheet == null) {
-                addErrors("Missing sheet in file excel");
-                return;
-            }
-
-            //iterazione righe dell'excel
-            Iterator<Row> itr = sheet.iterator();
-            int count = 0;
-            while (itr.hasNext()) {
-                Row row = itr.next();
-                LOG.info("ROW " + row.getRowNum() + " **********");
-                //ignoro l'header se il file excel la prevede
-                if(servletConfig.isHeaderRowPresent() && count == 0);
-                else{
-
-                    Cell authorCell = row.getCell(AUTHOR_COL_INDEX);
-                    if(authorCell != null) {
-                        LOG.info("\t author **********");
-                        String value = authorCell.getStringCellValue();
-                        handleValueTag( "author", value,resourceResolver );
-                    }
-
-                    Cell topicCell = row.getCell(TOPIC_TAGS_COL_INDEX);
-                    if(topicCell != null) {
-                        LOG.info("\t topic  **********");
-                        String value = topicCell.getStringCellValue();
-                        handleValueTag("topic", value, resourceResolver );
-                    }
-
-                    Cell sourceCell = row.getCell(SOURCE_TAGS_COL_INDEX);
-                    if(sourceCell != null) {
-                        LOG.info("\t source **********");
-                        String value = sourceCell.getStringCellValue();
-                        handleValueTag("source", value, resourceResolver );
-                    }
-
-                    Cell genericTagsCell = row.getCell(GENERIC_TAGS_COL_INDEX);
-                    if(genericTagsCell != null) {
-                        LOG.info("\t generic tags**********");
-                        String value = genericTagsCell.getStringCellValue();
-                        handleValueTag("generic tags", value, resourceResolver );
-                    }
-
-
-                    Cell typologyCell = row.getCell(TYPOLOGY_TAGS_COL_INDEX);
-                    if(typologyCell != null) {
-                        LOG.info("\t typology **********");
-                        String value = typologyCell.getStringCellValue();
-                        handleValueTag("typology", value, resourceResolver );
-                    }
-                }
-                count++;
-            }
-
-
-            resetInputStream(inputStream);
-
-        } catch (IOException e) {
-           addErrors(e.getMessage());
-
-        }
-
-
-        LOG.debug("End import tags data******************************");
-
-
-    }
-
-    public void resetInputStream(InputStream inputStream) {
-        if(inputStream != null){
-            if(inputStream.markSupported()) {
-                //inputStream.mark(Integer.MAX_VALUE);
-                try {
-                    inputStream.reset();
-                } catch (IOException e) {
-                    addErrors(e.getMessage());
-                }
+                            String res = StringUtils.trimToEmpty(a);
+                            res = res.replaceAll("\\*", "");
+                            res = res.toLowerCase();
+                            res = res.replaceAll(";","");
+                            res = JcrUtil.escapeIllegalJcrChars(res);
+                            res = res.replaceAll("†|msc|nink|mr|md|phd|ms(\\w+[;]{0,1})", "");
+                            res = res.replaceAll("\\d+\\s*", "");
+                            res = StringUtils.trimToEmpty(res);
+                            res = JcrUtil.escapeIllegalJcrChars(res);
+                            return res;
+                        })
+                        .filter(a -> StringUtils.isNotBlank(a))
+                        .collect(Collectors.toList());
+                return convertedList;
             }
         }
-    }
 
-
-    private void importArticlesData(InputStream inputStream, String serverName, int serverPort,ResourceResolver resourceResolver) {
-        LOG.debug("Start import Articles data********************");
-
-        // Si crea la folder della categoria, se non esiste,  per la storicizzazione dei content fragment relativi agli articoli
-        try {
-            Resource categoryFolder =  resourceResolver.getResource(servletConfig.getCategoryPath());
-            if(categoryFolder == null) {
-
-                Node n = createNode(servletConfig.getCategoryPath(), "sling:Folder", getCustomSession(resourceResolver));
-                Node jcr = createNode(servletConfig.getCategoryPath()+"/jcr:content", JcrConstants.NT_UNSTRUCTURED, getCustomSession(resourceResolver));
-                if(jcr != null) {
-                    jcr.setProperty("title", "infectivology");
-                    jcr.setProperty("source", "false");
-                    getCustomSession(resourceResolver).save();
-                }
+        else { // same as topics, source, generic-tags, typology
+            if (StringUtils.isNotBlank(values)) {
+                //si usa la virgola come separatore
+                List<String> convertedList = Stream.of(values.split(TAG_VALUES_SEPARATOR, -1))
+                        .map(a -> {
+                            String res = StringUtils.trimToEmpty(a).toLowerCase();
+                            res = res.replaceAll(";", "");
+                            res = JcrUtil.escapeIllegalJcrChars(res);
+                            return res;
+                        })
+                        .filter(e -> StringUtils.isNotBlank(e))
+                        .collect(Collectors.toList());
+                return convertedList;
             }
-        } catch (RepositoryException e) {
-          addErrors("Error in creating category folder at "+ servletConfig.getCategoryPath());
-          return;
         }
 
-        XSSFWorkbook workbook = null;
-        try {
-            workbook = new XSSFWorkbook(inputStream);
-            XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
-
-            Iterator<Row> itr = sheet.iterator();    //iterating over excel file
-            int count = 0;
-            while (itr.hasNext()) {
-                Row row = itr.next();
-                //ignoro l'header se il file excel la prevede
-                if (servletConfig.isHeaderRowPresent() && count == 0) ;
-                else {
-                    ContentFragmentModel cf = generateContentFragmentFromRow(row, resourceResolver);
-
-                    if (cf != null) {
-                        //si controlla l'esistenza del content fragment su crx sotto la folder della categoria
-                        String cfName = getNodeName(cf.getProperties().getTitle());
-                        //Node n = getNode("[dam:Asset]", cfName, servletConfig.getCategoryPath(), true);unused
-
-                        //i cf si storicizzano sotto folder aventi come nome, l'anno di pubblicazione
-                        String authorDateStr = (String) cf.getProperties().getElements().getArticleDate().getValue();
-                        LocalDate date = LocalDate.parse(authorDateStr, DateTimeFormatter.ofPattern("yyyy-MM-dd'T00:00:00.000Z'"));
-
-
-                        String year ="" + date.getYear();
-                        String folderPath = servletConfig.getCategoryPath() + "/" + year;
-
-                        String  cfResourcePath = servletConfig.getCategoryPath()+"/"+ year+"/"+cfName;
-                        Resource rCF = resourceResolver.getResource(cfResourcePath);
-                        Node n = rCF != null ? rCF.adaptTo(Node.class) : null;
-
-                        if (n != null) {
-                            String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "");
-                            storeContentFragment(false, serverName, serverPort, targetPath, cf);
-
-                        } else {
-
-                            //se la folder esiste già non si crea, altrimenti sì
-                            Resource folder = resourceResolver.getResource(folderPath);
-                            if (folder == null) {
-                                //JcrUtil.createPath(folderPath, "sling:Folder", getCustomSession(resourceResolver));
-                                createNode(folderPath, "sling:Folder", getCustomSession(resourceResolver));
-                                getCustomSession(resourceResolver).save();
-                            }
-                            String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "") ;
-
-                            storeContentFragment(true, serverName, serverPort, targetPath, cf);
-                        }
-
-                    }
-                }
-                count++;
-            }
-
-        } catch (IOException | RepositoryException | ImportLibraryException e) {
-            addErrors(e.getMessage());
-            return;
-        }
-        try {
-            inputStream.close();
-        } catch (IOException e) {
-            addErrors(e.getMessage());
-        }
-        LOG.debug("End import Articles data******************************");
-    }
-
-    public void storeContentFragment(boolean isNew, String serverName, int serverPort, String targetPath, ContentFragmentModel cf) {
-        if(StringUtils.isNotBlank(serverName) &&
-                StringUtils.isNotBlank(targetPath) &&
-        cf != null)
-
-        if(isNew)
-            cfApi.create( serverName, serverPort, targetPath, cf);
-        else
-            cfApi.put( serverName, serverPort, targetPath, cf);
-    }
-
-    public Node createNode(String path, String type, Session session) {
-        try{
-            if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
-                return JcrUtil.createPath(path, type, session);
-        }catch(RepositoryException e){
-            addErrors(e.getMessage());
-        }
         return null;
     }
 
+    private String getNodeName(String label){
+        if(StringUtils.isBlank(label))
+            return null;
+        label = label.trim().toLowerCase().replaceAll("[\\(\\)\\[\\]\\']","");
+        label = label.replaceAll("[\\s:]","-");
+        return JcrUtil.escapeIllegalJcrChars(label);
+    }
 
     private ContentFragmentModel generateContentFragmentFromRow(Row row,ResourceResolver resourceResolver) throws ImportLibraryException {
         ContentFragmentModel res = new ContentFragmentModel();
@@ -846,15 +506,15 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 Node parentTagNode = rc != null ? rc.adaptTo(Node.class):null;
 
                 if (authorList != null && authorList.size() > 0) {
-                        List tgs = authorList.stream().map(a -> {
+                    List tgs = authorList.stream().map(a -> {
                         //controllo se il valore i-esimo dell'authore esiste come valore possibile del tag AUTHOR
 
                         String tagPath = null;
                         try {
                             tagPath = parentTagNode.getPath() + "/" + a.substring(0, 1).toLowerCase() + "/" + getNodeName(a);
                         } catch (RepositoryException e) {
-                           addErrors("Error in creating content fragment with title " + res.getProperties().getTitle() +" : access to crx wrong");
-                           return null;
+                            addErrors("Error in creating content fragment with title " + res.getProperties().getTitle() +" : access to crx wrong");
+                            return null;
                         }
                         Resource tagResource = resourceResolver.getResource(tagPath);
                         Tag t = tagResource != null ? tagResource.adaptTo(Tag.class) : null;
@@ -868,9 +528,9 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
                     }).filter(e -> e != null).collect(Collectors.toList());
-                        if(tgs == null || tgs.size() < authorList.size()) {
-                            throw new ImportLibraryException("Error in importing content fragment with title " + res.getProperties().getTitle());
-                        }
+                    if(tgs == null || tgs.size() < authorList.size()) {
+                        throw new ImportLibraryException("Error in importing content fragment with title " + res.getProperties().getTitle());
+                    }
 
                     if (tgs.size() > 0) {
                         ContentFragmentElementValue author = new ContentFragmentElementValue();
@@ -1044,90 +704,273 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
     }
 
 
+    private void cleanAuthorValueTag(ResourceResolver resourceResolver){
+        //Si controlla la presenza di nodi sotto /content/cq:tag/author di tipo cq:tag con name .length >1 ( in questo caso si escludono i tagcontainer di nome A,B,C,D...)
+        String authorTagPath = servletConfig.getTagsRootPath()+"/author";
+        Resource resource = resourceResolver.getResource(authorTagPath);
+        Iterator<Resource> children = resource.listChildren();
 
-    private List<String> parseValues(String rootTag, String values){
+        String prevTagId = null; //memorizza il tagID, namespace, del nodo oggetto di analisi prima della migrazione sotto il tagContainer di competenza A,B,C,D...
+        String tagContainerName = "";
+        while (children.hasNext() ) {
+            Resource child = children.next();
+            String childName = child.getName();
+            if(childName.length() > 1){
 
-        if("author".equals(rootTag)) {
-            if (StringUtils.isNotBlank(values)) {
-                //si usa la virgola come separatore
-                List<String> convertedList = Stream.of(values.split(TAG_VALUES_SEPARATOR, -1))
-                        .map(a -> {
+                //Si recupera il namespace corrente del tag da spostare
+                Tag tagChild = child.adaptTo(Tag.class);
+                prevTagId = tagChild.getTagID();
 
-                            String res = StringUtils.trimToEmpty(a);
-                            res = res.replaceAll("\\*", "");
-                            res = res.toLowerCase();
-                            res = res.replaceAll(";","");
-                            res = JcrUtil.escapeIllegalJcrChars(res);
-                            res = res.replaceAll("†|msc|nink|mr|md|phd|ms(\\w+[;]{0,1})", "");
-                            res = res.replaceAll("\\d+\\s*", "");
-                            /*res = res.replaceAll("&amp;eacute;", "é");
-                            res = res.replaceAll("&amp;egrave;", "è");
-                            res = res.replaceAll("&amp;ouml;", "Ö");
-                            res = res.replaceAll("&amp;uuml;", "ü");
-                            res = res.replaceAll("&amp;aacute;", "á");
-                            res = res.replaceAll("&amp;iacute;", "í");
-                            res = res.replaceAll("&amp;uacute;", "ú");
-                            res = res.replaceAll("&amp;ccedil;", "ç");
-                            res = res.replaceAll("&amp;agrave;", "à");
-                            res = res.replaceAll("&amp;rsquo;", "’");
-                            res = res.replaceAll("<br />", "");
-                            res = res.replaceAll("&amp;amp", "");
-                            res = res.replaceAll("/", "-");
-                            res = res.replaceAll("/?", "");
-                            res = res.replaceAll("\\(", "-");
-                            res = res.replaceAll("\\)", "-");
-                            res = res.replaceAll("\\”", "-");
-                            res = res.replaceAll("\\“", "-");
-                            res = res.replaceAll("’", "-");
-                            res = res.replaceAll("\\.", "-");*/
-                            res = StringUtils.trimToEmpty(res);
-                            res = JcrUtil.escapeIllegalJcrChars(res);
-                            return res;
-                        })
-                        .filter(a -> StringUtils.isNotBlank(a))
-                        .collect(Collectors.toList());
-                return convertedList;
+
+                //Si sposta il nodo nel tagcontainer nuova destinazione
+                tagContainerName = childName.substring(0,1).toLowerCase(); //si recupera la prima iniziale dal nome del nodo da spostare
+                String destinationPath = authorTagPath+"/"+tagContainerName;
+                //NB: Francesca-> provando il metodo seguente per il recupero dell'eventuale tagcontainer, se già presente su CRX, alle volte
+                //non si ottiene un dato consistente, in quanto sembra che il crx non sia aggiornato con gli ultimi tagcontainer aggiunti durante
+                //l'elaborazione della servlet. Per tale motivo tale f() è commentata a favore del punto 2.
+                //Node containerTagNode  = getNode("[cq:Tag]",tagContainerName,  authorTagPath,false)
+                //2.
+                Resource rc = resourceResolver.getResource(destinationPath);
+                Node containerTagNode = rc != null ? rc.adaptTo(Node.class):null;
+
+                //Si deve creare il tag container A,B,C,....
+                if(containerTagNode == null) {
+                    HashMap properties = new HashMap();
+                    properties.put(JcrConstants.JCR_TITLE, tagContainerName);
+                    properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
+                    try{
+                        insertOrUpdateTagNode(null, authorTagPath, tagContainerName, properties, resourceResolver);
+                    }catch(ImportLibraryException e){
+                        addErrors(e.getMessage());
+                        break;
+                    }
+
+                }
+
+                try {
+                    //NB: Francesca -> la moveTag alle  volte si incarta, non la posso usare.
+                    //Per questo motivo si è preferito :
+                    // 1. calcolare il nuovo tagID ( namespace ) dopo lo spostamento del tag
+                    // 2. individuare tutti i ContentFragment che risultassero associati al tag autore corrente, oggetto di spostamento
+                    // 3. sostituire il vecchio namespace del tag autore con il nuovo nel content fragment
+                    // 4. procedere con lo spostamento del nodo tramite il metodo session.move(src ,dest)
+
+                    //tagChild = tagManager.moveTag(tagChild,destinationPath+"/" + childName );NON FUNZIONA SEMPRE
+
+                    //1.
+                    String newTagNamespace = StringUtils.substringBeforeLast(prevTagId, "/") + "/" + tagContainerName + "/" + childName;
+
+                    //2.
+                    RangeIterator<Resource> res = getTagManager(resourceResolver).find(prevTagId);
+                    if(res != null){
+                        while (res.hasNext()) {
+                            Resource r = res.next();
+                            String jsonPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
+                            jsonPath = jsonPath.replace("/jcr:content/data/master", "");
+                            jsonPath = jsonPath + ".json";
+                            ContentFragmentModel cf = cfApi.getByPath(serverName, serverPort, jsonPath);
+                            if (cf != null) {
+                                List<Object> authorList = cf.getProperties().getElements().getAuthor().getValue();
+                                final String otId = prevTagId;
+                                List<Object> newAuthorList = authorList.stream().map(obj -> {
+                                    String a = (String) obj;
+                                    if (a.equals(otId)) {
+                                        a = newTagNamespace;
+                                    }
+                                    return a;
+                                }).collect(Collectors.toList());
+                                cf.getProperties().getElements().getAuthor().setValue(newAuthorList);
+
+                                String targetPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
+                                targetPath = targetPath.replace("/jcr:content/data/master", "");
+
+                                cfApi.put(serverName, serverPort, targetPath, cf);
+                            }
+
+                        }
+                    }
+
+                    //4.
+                    getCustomSession(resourceResolver).move(tagChild.getPath(), destinationPath + "/" + childName);
+                    getCustomSession(resourceResolver).save();
+
+                } catch (RepositoryException e) {
+                   addErrors(e.getMessage());
+
+                }
+
+
             }
         }
 
-        else { // same as topics, source, generic-tags, typology
-            if (StringUtils.isNotBlank(values)) {
-                //si usa la virgola come separatore
-                List<String> convertedList = Stream.of(values.split(TAG_VALUES_SEPARATOR, -1))
-                        .map(a -> {
-                            String res = StringUtils.trimToEmpty(a).toLowerCase();
-                            res = res.replaceAll(";", "");
-                            /* res = res.replaceAll("/", "-");
-                            res = res.replaceAll("/?", "");
-                            res = res.replaceAll("\\(", "-");
-                            res = res.replaceAll("\\)", "-");
-                            res = res.replaceAll("\\”", "-");
-                            res = res.replaceAll("\\“", "-");
-                            res = res.replaceAll("’", "-");
-                            res = res.replaceAll("\\.", "-");*/
-                            res = JcrUtil.escapeIllegalJcrChars(res);
-                            return res;
-                        })
-                        .filter(e -> StringUtils.isNotBlank(e))
-                        .collect(Collectors.toList());
-                return convertedList;
+    }
+
+
+
+
+    private void importTagsData(InputStream inputStream, ResourceResolver resourceResolver) {
+        LOG.debug("Start import tags data********************");
+        XSSFWorkbook workbook = null;
+        try {
+            workbook = new XSSFWorkbook(inputStream); //new XSSFWorkbook(inputStream);
+            XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
+
+            if(sheet == null) {
+                addErrors("Missing sheet in file excel");
+                return;
             }
+
+            //iterazione righe dell'excel
+            Iterator<Row> itr = sheet.iterator();
+            int count = 0;
+            while (itr.hasNext()) {
+                Row row = itr.next();
+                LOG.info("ROW " + row.getRowNum() + " **********");
+                //ignoro l'header se il file excel la prevede
+                if(servletConfig.isHeaderRowPresent() && count == 0);
+                else{
+
+                    Cell authorCell = row.getCell(AUTHOR_COL_INDEX);
+                    if(authorCell != null) {
+                        LOG.info("\t author **********");
+                        String value = authorCell.getStringCellValue();
+                        handleValueTag( "author", value,resourceResolver );
+                    }
+
+                    Cell topicCell = row.getCell(TOPIC_TAGS_COL_INDEX);
+                    if(topicCell != null) {
+                        LOG.info("\t topic  **********");
+                        String value = topicCell.getStringCellValue();
+                        handleValueTag("topic", value, resourceResolver );
+                    }
+
+                    Cell sourceCell = row.getCell(SOURCE_TAGS_COL_INDEX);
+                    if(sourceCell != null) {
+                        LOG.info("\t source **********");
+                        String value = sourceCell.getStringCellValue();
+                        handleValueTag("source", value, resourceResolver );
+                    }
+
+                    Cell genericTagsCell = row.getCell(GENERIC_TAGS_COL_INDEX);
+                    if(genericTagsCell != null) {
+                        LOG.info("\t generic tags**********");
+                        String value = genericTagsCell.getStringCellValue();
+                        handleValueTag("generic tags", value, resourceResolver );
+                    }
+
+
+                    Cell typologyCell = row.getCell(TYPOLOGY_TAGS_COL_INDEX);
+                    if(typologyCell != null) {
+                        LOG.info("\t typology **********");
+                        String value = typologyCell.getStringCellValue();
+                        handleValueTag("typology", value, resourceResolver );
+                    }
+                }
+                count++;
+            }
+
+
+            resetInputStream(inputStream);
+
+        } catch (IOException e) {
+           addErrors(e.getMessage());
+
         }
 
-        return null;
+
+        LOG.debug("End import tags data******************************");
+
+
     }
 
-    private String getNodeName(String label){
-        if(StringUtils.isBlank(label))
-            return null;
-        label = label.trim().toLowerCase().replaceAll("[\\(\\)\\[\\]\\']","");
-        label = label.replaceAll("[\\s:]","-");
-        return JcrUtil.escapeIllegalJcrChars(label);
-    }
 
-    @Override
-    protected MailService getMailService() {
-        return mailService;
+
+
+    private void importArticlesData(InputStream inputStream, String serverName, int serverPort,ResourceResolver resourceResolver) {
+        LOG.debug("Start import Articles data********************");
+
+        // Si crea la folder della categoria, se non esiste,  per la storicizzazione dei content fragment relativi agli articoli
+        try {
+            Resource categoryFolder =  resourceResolver.getResource(servletConfig.getCategoryPath());
+            if(categoryFolder == null) {
+
+                Node n = createNode(servletConfig.getCategoryPath(), "sling:Folder", getCustomSession(resourceResolver));
+                Node jcr = createNode(servletConfig.getCategoryPath()+"/jcr:content", JcrConstants.NT_UNSTRUCTURED, getCustomSession(resourceResolver));
+                if(jcr != null) {
+                    jcr.setProperty("title", "infectivology");
+                    jcr.setProperty("source", "false");
+                    getCustomSession(resourceResolver).save();
+                }
+            }
+        } catch (RepositoryException e) {
+          addErrors("Error in creating category folder at "+ servletConfig.getCategoryPath());
+          return;
+        }
+
+        XSSFWorkbook workbook = null;
+        try {
+            workbook = new XSSFWorkbook(inputStream);
+            XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
+
+            Iterator<Row> itr = sheet.iterator();    //iterating over excel file
+            int count = 0;
+            while (itr.hasNext()) {
+                Row row = itr.next();
+                //ignoro l'header se il file excel la prevede
+                if (servletConfig.isHeaderRowPresent() && count == 0) ;
+                else {
+                    ContentFragmentModel cf = generateContentFragmentFromRow(row, resourceResolver);
+
+                    if (cf != null) {
+                        //si controlla l'esistenza del content fragment su crx sotto la folder della categoria
+                        String cfName = getNodeName(cf.getProperties().getTitle());
+                        //Node n = getNode("[dam:Asset]", cfName, servletConfig.getCategoryPath(), true);unused
+
+                        //i cf si storicizzano sotto folder aventi come nome, l'anno di pubblicazione
+                        String authorDateStr = (String) cf.getProperties().getElements().getArticleDate().getValue();
+                        LocalDate date = LocalDate.parse(authorDateStr, DateTimeFormatter.ofPattern("yyyy-MM-dd'T00:00:00.000Z'"));
+
+
+                        String year ="" + date.getYear();
+                        String folderPath = servletConfig.getCategoryPath() + "/" + year;
+
+                        String  cfResourcePath = servletConfig.getCategoryPath()+"/"+ year+"/"+cfName;
+                        Resource rCF = resourceResolver.getResource(cfResourcePath);
+                        Node n = rCF != null ? rCF.adaptTo(Node.class) : null;
+
+                        if (n != null) {
+                            String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "");
+                            storeContentFragment(false, serverName, serverPort, targetPath, cf);
+
+                        } else {
+
+                            //se la folder esiste già non si crea, altrimenti sì
+                            Resource folder = resourceResolver.getResource(folderPath);
+                            if (folder == null) {
+                                //JcrUtil.createPath(folderPath, "sling:Folder", getCustomSession(resourceResolver));
+                                createNode(folderPath, "sling:Folder", getCustomSession(resourceResolver));
+                                getCustomSession(resourceResolver).save();
+                            }
+                            String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "") ;
+
+                            storeContentFragment(true, serverName, serverPort, targetPath, cf);
+                        }
+
+                    }
+                }
+                count++;
+            }
+
+        } catch (IOException | RepositoryException | ImportLibraryException e) {
+            addErrors(e.getMessage());
+            return;
+        }
+        try {
+            inputStream.close();
+        } catch (IOException e) {
+            addErrors(e.getMessage());
+        }
+        LOG.debug("End import Articles data******************************");
     }
 
 
@@ -1135,10 +978,6 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         private String result;
         private List<String> errors;
 
-        private List<String> tagsInErrors;
-        private List<String> tagsImported;
-        private List<String> articlesInErrors;
-        private List<String> articlesImported;
         public Response() {
         }
 
@@ -1167,86 +1006,31 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             }
         }
 
-        public void addErrors(String txt){
-            if(StringUtils.isNotBlank(txt)) {
-                if (this.getErrors() == null)
-                    this.errors = new ArrayList<String>();
-                this.errors.add(txt);
-            }
-        }
+    }
 
-        public List<String> getTagsInErrors() {
-            if(tagsInErrors == null)
-                return null;
-            String[] array = tagsInErrors.toArray(new String[tagsInErrors.size()]);
+    //metodi per gestione errori
+    public List<String> getErrors() {
+        if(errors == null)
+            return null;
+        String[] array = errors.toArray(new String[errors.size()]);
+        String[] clone = array.clone();
+        return Arrays.asList(clone);
+    }
+    public void setErrors(List<String> errors) {
+        if(errors== null)
+            this.errors = null;
+        else {
+            String[] array = errors.toArray(new String[errors.size()]);
             String[] clone = array.clone();
-            return Arrays.asList(clone);
+            this.errors = Arrays.asList(clone);
         }
+    }
 
-        public void setTagsInErrors(List<String> tagsInErrors) {
-            if(tagsInErrors == null)
-                this.tagsInErrors = null;
-            else {
-                String[] array = tagsInErrors.toArray(new String[tagsInErrors.size()]);
-                String[] clone = array.clone();
-                this.tagsInErrors = Arrays.asList(clone);
-            }
-        }
-
-        public List<String> getTagsImported() {
-
-            if(tagsImported == null)
-                return null;
-            String[] array = tagsImported.toArray(new String[tagsImported.size()]);
-            String[] clone = array.clone();
-            return Arrays.asList(clone);
-        }
-
-        public void setTagsImported(List<String> tagsImported) {
-            if(tagsImported == null)
-                this.tagsImported = null;
-            else {
-                String[] array = tagsImported.toArray(new String[tagsImported.size()]);
-                String[] clone = array.clone();
-                this.tagsImported = Arrays.asList(clone);
-            }
-        }
-
-
-        public List<String> getArticlesInErrors() {
-            if(articlesInErrors == null)
-                return null;
-            String[] array = articlesInErrors.toArray(new String[articlesInErrors.size()]);
-            String[] clone = array.clone();
-            return Arrays.asList(clone);
-        }
-
-        public void setArticlesInErrors(List<String> articlesInErrors) {
-            if(articlesInErrors == null)
-                this.articlesInErrors = null;
-            else {
-                String[] array = articlesInErrors.toArray(new String[articlesInErrors.size()]);
-                String[] clone = array.clone();
-                this.articlesInErrors = Arrays.asList(clone);
-            }
-        }
-
-        public List<String> getArticlesImported() {
-            if(articlesImported == null)
-                return null;
-            String[] array = articlesImported.toArray(new String[articlesImported.size()]);
-            String[] clone = array.clone();
-            return Arrays.asList(clone);
-        }
-
-        public void setArticlesImported(List<String> articlesImported) {
-            if(articlesImported == null)
-                this.articlesImported = null;
-            else {
-                String[] array = articlesImported.toArray(new String[articlesImported.size()]);
-                String[] clone = array.clone();
-                this.articlesImported = Arrays.asList(clone);
-            }
+    public void addErrors(String txt){
+        if(StringUtils.isNotBlank(txt)) {
+            if (this.getErrors() == null)
+                this.errors = new ArrayList<String>();
+            this.errors.add(txt);
         }
     }
 }
