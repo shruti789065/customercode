@@ -115,7 +115,7 @@ public class ContentFragmentApi {
                 else
                     ((HttpPost) request).setEntity(body);
             }
-
+            LOG.info("****** uri " + uri);
             HttpResponse response = client.execute(request);
             if(response != null){
 
