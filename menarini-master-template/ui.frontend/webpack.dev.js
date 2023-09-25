@@ -63,7 +63,13 @@ module.exports = env => {
 				inject: true,
 				template: path.resolve(__dirname, SOURCE_ROOT + '/berlin/static/index.html'),
 				filename: 'berlin.html',
-				chunks: ['site', 'biotech']
+				chunks: ['site', 'berlin']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/apac/static/index.html'),
+				filename: 'apac.html',
+				chunks: ['site', 'apac']
 			})
 		],
 		devServer: {
