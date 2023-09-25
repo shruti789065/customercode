@@ -290,6 +290,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 //session.move(destinationPath, destinationPath+"/" + name);
 
                 n = tagChild.adaptTo(Node.class);
+                getCustomSession(resourceResolver).refresh(true);
                 getCustomSession(resourceResolver).save();
             }
             else{
@@ -793,6 +794,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
                     //4.
                     getCustomSession(resourceResolver).move(tagChild.getPath(), destinationPath + "/" + childName);
+                    getCustomSession(resourceResolver).refresh(true);
                     getCustomSession(resourceResolver).save();
 
                 } catch (RepositoryException e) {
@@ -901,6 +903,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 if(jcr != null) {
                     jcr.setProperty("title", "infectivology");
                     jcr.setProperty("source", "false");
+                    getCustomSession(resourceResolver).refresh(true);
                     getCustomSession(resourceResolver).save();
                 }
             }
@@ -951,6 +954,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                             if (folder == null) {
                                 //JcrUtil.createPath(folderPath, "sling:Folder", getCustomSession(resourceResolver));
                                 createNode(folderPath, "sling:Folder", getCustomSession(resourceResolver));
+                                getCustomSession(resourceResolver).refresh(true);
                                 getCustomSession(resourceResolver).save();
                             }
                             String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "") ;
