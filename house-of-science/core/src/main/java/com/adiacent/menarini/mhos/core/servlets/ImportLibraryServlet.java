@@ -705,6 +705,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
     private void cleanAuthorValueTag(ResourceResolver resourceResolver){
+        LOG.info("Start cleanAuthorValueTag********************");
         //Si controlla la presenza di nodi sotto /content/cq:tag/author di tipo cq:tag con name .length >1 ( in questo caso si escludono i tagcontainer di nome A,B,C,D...)
         String authorTagPath = servletConfig.getTagsRootPath()+"/author";
         Resource resource = resourceResolver.getResource(authorTagPath);
@@ -803,13 +804,14 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             }
         }
 
+        LOG.info("Fine cleanAuthorValueTag********************");
     }
 
 
 
 
     private void importTagsData(InputStream inputStream, ResourceResolver resourceResolver) {
-        LOG.debug("Start import tags data********************");
+        LOG.info("Start import tags data********************");
         XSSFWorkbook workbook = null;
         try {
             workbook = new XSSFWorkbook(inputStream); //new XSSFWorkbook(inputStream);
@@ -878,7 +880,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         }
 
 
-        LOG.debug("End import tags data******************************");
+        LOG.info("End import tags data******************************");
 
 
     }
@@ -887,7 +889,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
     private void importArticlesData(InputStream inputStream, String serverName, int serverPort,ResourceResolver resourceResolver) {
-        LOG.debug("Start import Articles data********************");
+        LOG.info("Start import Articles data********************");
 
         // Si crea la folder della categoria, se non esiste,  per la storicizzazione dei content fragment relativi agli articoli
         try {
@@ -970,7 +972,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         } catch (IOException e) {
             addErrors(e.getMessage());
         }
-        LOG.debug("End import Articles data******************************");
+        LOG.info("End import Articles data******************************");
     }
 
 

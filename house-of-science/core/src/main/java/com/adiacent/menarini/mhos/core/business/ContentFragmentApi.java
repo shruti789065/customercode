@@ -130,7 +130,7 @@ public class ContentFragmentApi {
                         if(HttpStatus.SC_NOT_FOUND == response.getStatusLine().getStatusCode())
                             res = null;
                         else {
-                            LOG.info("******" + response.getStatusLine().getStatusCode());
+                            LOG.info("******" + response.getStatusLine().getStatusCode() + " for uri :" + uri );
                             LOG.info("******PAYLOAD " + payload) ;
                         }
             }
