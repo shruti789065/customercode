@@ -12,9 +12,11 @@ import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
+import org.apache.sling.testing.resourceresolver.MockResourceResolverFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -50,6 +52,7 @@ public class ImportLibraryServletTest {
     @Mock
     TagManager tagManager;
 
+
     @BeforeEach
     void setUp() {
 
@@ -70,6 +73,8 @@ public class ImportLibraryServletTest {
         response = spy(aemContext.response());
         request = spy(aemContext.request());
 
+
+        ResourceResolverFactory rff = aemContext.registerService(ResourceResolverFactory.class, new MockResourceResolverFactory());
 
         //necessario per il caricamento della configurazione di test
         aemContext.registerInjectActivateService(new ImportLibraryResource());
@@ -126,6 +131,8 @@ public class ImportLibraryServletTest {
             throw new RuntimeException(e);
         }
 
+        when(servlet.getRRF()).thenReturn(rff);
+        when(servlet.getCustomRR()).thenReturn(aemContext.resourceResolver());
 
         aemContext.addModelsForClasses(ImportLibraryServlet.class);
 
