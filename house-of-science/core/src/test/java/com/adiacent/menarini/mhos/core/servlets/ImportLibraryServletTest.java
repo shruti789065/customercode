@@ -131,8 +131,6 @@ public class ImportLibraryServletTest {
             throw new RuntimeException(e);
         }
 
-        when(servlet.getRRF()).thenReturn(rff);
-        when(servlet.getCustomRR()).thenReturn(aemContext.resourceResolver());
 
         aemContext.addModelsForClasses(ImportLibraryServlet.class);
 
@@ -169,14 +167,14 @@ public class ImportLibraryServletTest {
         when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
         when(config.isHeaderRowPresent()).thenReturn(true);
         when(config.isImportTagEnabled()).thenReturn(true);
-        when(config.isImportArticleEnabled()).thenReturn(false);
+        lenient().when(config.isImportArticleEnabled()).thenReturn(false);
 
         when(servlet.getCustomConfig()).thenReturn(config);
 
 
         Node mockedNode = mock(Node.class);
         Tag mockedTag = mock(Tag.class);
-        when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);
+        lenient().when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);
         try {
             lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
                 @Override
@@ -191,7 +189,7 @@ public class ImportLibraryServletTest {
         }
 
 
-        doAnswer(i->{
+        lenient().doAnswer(i->{
             if(i.getArgument(0)==InputStream.class){
                 InputStream is =(InputStream)i.getArgument(0);
                 if(is.markSupported()) {

@@ -117,8 +117,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
     protected  transient volatile  MailService mailService;
 
 
-    @Reference
-    ResourceResolverFactory rrf;
+
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -142,7 +141,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 errors = null;
                 //+bonifica valori tag author: se ci sono dei tag sotto /content/cq:tag/author che non siano container tag ( ovvero nodi diversi da A,B,C,...)
                 //vanno spostati sotto i relativi container tag
-                cleanAuthorValueTag();
+                cleanAuthorValueTag(resourceResolver);
                 if(errors != null && errors.size() > 0){
                     resp.setResult(KO_RESULT);
                     resp.setErrors(errors);
@@ -291,8 +290,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             if( n == null){
                 String name = getNodeName(title);
                 Tag tagChild = getTagManager(resourceResolver).createTag(name, title, null,false);
-                tagChild = getTagManager(resourceResolver).moveTag(tagChild,destinationPath+"/" + name );
-                //session.move(destinationPath, destinationPath+"/" + name);
+                //tagChild = getTagManager(resourceResolver).moveTag(tagChild,destinationPath+"/" + name );
+                getCustomSession(resourceResolver).move(tagChild.getPath(), destinationPath+"/" + name);
 
                 n = tagChild.adaptTo(Node.class);
                 getCustomSession(resourceResolver).refresh(true);
@@ -315,7 +314,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
             }
             //session.save();
-        } catch (RepositoryException | InvalidTagFormatException |  TagException e) {
+        } catch (RepositoryException | InvalidTagFormatException  e) {
             throw new ImportLibraryException(e.getMessage());
         }
         return n;
@@ -709,28 +708,11 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         return res;
     }
 
-    public ResourceResolver getCustomRR(){
-        ResourceResolver resourceResolver = null;
-        try {
-
-            Map<String, Object> auth = new HashMap<>();
-            auth.put(ResourceResolverFactory.SUBSERVICE, "mhos");
-            resourceResolver = getRRF().getServiceResourceResolver(auth);
-
-        } catch (LoginException e) {
-            throw new RuntimeException(e);
-        }
-        return resourceResolver;
-    }
-
-    public ResourceResolverFactory getRRF(){
-        return rrf;
-    }
 
 
-    private void cleanAuthorValueTag(){
+    private void cleanAuthorValueTag(ResourceResolver resourceResolver){
         LOG.info("Start cleanAuthorValueTag********************");
-        ResourceResolver resourceResolver = getCustomRR();
+
         //Si controlla la presenza di nodi sotto /content/cq:tag/author di tipo cq:tag con name .length >1 ( in questo caso si escludono i tagcontainer di nome A,B,C,D...)
         String authorTagPath = servletConfig.getTagsRootPath()+"/author";
         Resource resource = resourceResolver.getResource(authorTagPath);
@@ -758,7 +740,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 //l'elaborazione della servlet. Per tale motivo tale f() è commentata a favore del punto 2.
                 //Node containerTagNode  = getNode("[cq:Tag]",tagContainerName,  authorTagPath,false)
                 //2.
-                Resource rc = getCustomRR().getResource(destinationPath);
+                Resource rc = resourceResolver.getResource(destinationPath);
                 Node containerTagNode = rc != null ? rc.adaptTo(Node.class):null;
 
                 //Si deve creare il tag container A,B,C,....
