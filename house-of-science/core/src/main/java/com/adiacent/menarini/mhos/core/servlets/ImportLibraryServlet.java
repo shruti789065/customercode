@@ -121,6 +121,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
+
+
         if(running){
             resp.setResult("running");
             sendResult(resp, response);
@@ -132,16 +134,29 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 LOG.info("******************Import library servlet ************************");
 
                 Resource currentResource = request.getResource();
-                ResourceResolver resourceResolver = currentResource.getResourceResolver();
+               // ResourceResolver resourceResolver = currentResource.getResourceResolver();
                 servletConfig = getCustomConfig();
                 serverName = request.getServerName();
                 serverPort = request.getServerPort();
                 cfApi = new ContentFragmentApi();
                 resp = new Response();
                 errors = null;
+
+                if(!servletConfig.isProcedureEnabled()){
+                    addErrors("Procedure not enabled ");
+                    if(errors != null && errors.size() > 0){
+                        resp.setResult(KO_RESULT);
+                        resp.setErrors(errors);
+                        sendResult(resp,response);
+                        return;
+                    }
+                }
+
+
+
                 //+bonifica valori tag author: se ci sono dei tag sotto /content/cq:tag/author che non siano container tag ( ovvero nodi diversi da A,B,C,...)
                 //vanno spostati sotto i relativi container tag
-                cleanAuthorValueTag(resourceResolver);
+                cleanAuthorValueTag();
                 if(errors != null && errors.size() > 0){
                     resp.setResult(KO_RESULT);
                     resp.setErrors(errors);
@@ -151,7 +166,9 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 //-bonifica valori tag author
 
                 //recupero file excel dal dam
-                Resource rs = resourceResolver.getResource(servletConfig.getSourceFilePath());
+                ResourceResolver resolver = getResourceResolver();
+                Resource rs = resolver.getResource(servletConfig.getSourceFilePath());
+
                 if(rs == null)
                     addErrors("File not found at " + servletConfig.getSourceFilePath());
                 if(errors != null && errors.size() > 0){
@@ -161,6 +178,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                     return;
                 }
 
+
                 InputStream inputStream = getFileInputStream(rs);
                 if(errors != null && errors.size() > 0){
                     resp.setResult(KO_RESULT);
@@ -169,9 +187,12 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                     return;
                 }
 
+                if(resolver != null)
+                    resolver.close();
+
                 //Se abilitata da configurazione di importano i valori dei tag
                 if(servletConfig.isImportTagEnabled()){
-                    importTagsData(inputStream, resourceResolver);
+                    importTagsData(inputStream);
                     if(errors != null && errors.size() > 0){
                         resp.setResult(KO_RESULT);
                         resp.setErrors(errors);
@@ -183,8 +204,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
 
-                if(servletConfig.isImportArticleEnabled()){
-                     importArticlesData(inputStream, request.getServerName(), request.getServerPort(),resourceResolver);
+                if( servletConfig.isImportArticleEnabled()){
+                     importArticlesData(inputStream, request.getServerName(), request.getServerPort());
                     if(errors != null && errors.size() > 0){
                         resp.setResult(KO_RESULT);
                         resp.setErrors(errors);
@@ -281,7 +302,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         return mailService;
     }
 
-    private Node insertOrUpdateTagNode(Node tag, String destinationPath,  String title, HashMap properties, ResourceResolver resourceResolver) throws ImportLibraryException {
+    private Node insertOrUpdateTagNode(Node tag, String namespacePrefix, String destinationPath,  String title, HashMap properties, ResourceResolver resourceResolver, Session session, TagManager tagmanager) throws ImportLibraryException {
 
         if( StringUtils.isBlank(title))
             return null;
@@ -289,13 +310,13 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         try{
             if( n == null){
                 String name = getNodeName(title);
-                Tag tagChild = getTagManager(resourceResolver).createTag(name, title, null,false);
+                Tag tagChild = tagmanager.createTag(namespacePrefix + name, title, null,true);
                 //tagChild = getTagManager(resourceResolver).moveTag(tagChild,destinationPath+"/" + name );
-                getCustomSession(resourceResolver).move(tagChild.getPath(), destinationPath+"/" + name);
+                //session.move(tagChild.getPath(), destinationPath+"/" + name);
 
                 n = tagChild.adaptTo(Node.class);
-                getCustomSession(resourceResolver).refresh(true);
-                getCustomSession(resourceResolver).save();
+
+
             }
             else{
                 Calendar lmCalendar = Calendar.getInstance();
@@ -313,14 +334,14 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 });
 
             }
-            //session.save();
+            session.save();
         } catch (RepositoryException | InvalidTagFormatException  e) {
             throw new ImportLibraryException(e.getMessage());
         }
         return n;
     }
 
-    private void handleValueTag(String parentTagTitle, String values,ResourceResolver resourceResolver){
+    private void handleValueTag(String parentTagTitle, String values,ResourceResolver resourceResolver, Session session, TagManager tagmanager){
 
         List<String> convertedList = parseValues(parentTagTitle, values);
 
@@ -337,7 +358,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 properties.put(JcrConstants.JCR_TITLE, parentTagTitle);
                 properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
                 try {
-                    parentTagNode = insertOrUpdateTagNode(null, servletConfig.getTagsRootPath(), parentTagTitle ,properties, resourceResolver );
+                    parentTagNode = insertOrUpdateTagNode(null, "house-of-science:", servletConfig.getTagsRootPath(), parentTagTitle ,properties, resourceResolver, session, tagmanager );
                 } catch (ImportLibraryException e) {
                     addErrors( e.getMessage());
                     return;
@@ -356,11 +377,11 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
                         if(valueNode == null){
-
+                            String tagContainerName = null;
                             String destinationPath = parent.getPath();
                             if("author".equals(parentTagTitle)){
                                 //i valori del tag author si storicizzano sotto folder aventi l'iniziale dell'autore
-                                String tagContainerName = tagVal.substring(0,1).toLowerCase();
+                                tagContainerName = tagVal.substring(0,1).toLowerCase();
                                 destinationPath = parent.getPath()+"/"+tagContainerName;
                                 //Node containerTagNode  = getNode("[cq:Tag]", tagContainerName,  parent.getPath(),false); unused
                                 Resource rcTC = resourceResolver.getResource(destinationPath);
@@ -370,7 +391,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                                     HashMap properties = new HashMap();
                                     properties.put(JcrConstants.JCR_TITLE, tagContainerName);
                                     properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
-                                    insertOrUpdateTagNode(null, parent.getPath(),  tagContainerName , properties, resourceResolver);
+                                    insertOrUpdateTagNode(null, "house-of-science:author/", parent.getPath(),  tagContainerName , properties, resourceResolver, session, tagmanager);
                                 }
 
                             }
@@ -378,7 +399,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                             HashMap properties = new HashMap();
                             properties.put(JcrConstants.JCR_TITLE, tagVal);
                             properties.put(StringConstants.SLING_RESOURCE_TYPE, "cq/tagging/components/tag");
-                            insertOrUpdateTagNode(valueNode, destinationPath,  tagVal, properties, resourceResolver);
+                            insertOrUpdateTagNode(valueNode,"house-of-science:"+parentTagName+"/"+(StringUtils.isNotBlank(tagContainerName) ? tagContainerName+"/" :""),destinationPath,  tagVal, properties, resourceResolver, session, tagmanager);
                         }
                     } catch (RepositoryException | ImportLibraryException e) {
                         addErrors(e.getMessage());
@@ -708,123 +729,149 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         return res;
     }
 
+@Reference
+ResourceResolverFactory resolverFactory;
+    public ResourceResolver getResourceResolver() {
+        ResourceResolver resolver = null;
+        Map<String, Object> param = new HashMap<>();
+        param.put(ResourceResolverFactory.SUBSERVICE, "mhos");
+        try {
+            resolver = resolverFactory.getServiceResourceResolver(param);
+        } catch (Exception e) {
+            LOG.error("Error retrieving resolver with system user", e);
+
+        }
+        return resolver;
+    }
+
+    private void cleanAuthorValueTag(){
+        LOG.info("********** Start cleanAuthorValueTag********************");
+
+        ResourceResolver resolver = getResourceResolver();
+        Session session = resolver.adaptTo(Session.class);
+        TagManager tagmanager = resolver.adaptTo(TagManager.class);
+
+        try {
+            //Si controlla la presenza di nodi sotto /content/cq:tag/author di tipo cq:tag con name .length >1 ( in questo caso si escludono i tagcontainer di nome A,B,C,D...)
+            String authorTagPath = servletConfig.getTagsRootPath() + "/author";
+            Resource resource = resolver.getResource(authorTagPath);
+            Iterator<Resource> children = resource.listChildren();
+            String tagNamespacePrefix = "house-of-science:author/";
+
+            String prevTagId = null; //memorizza il tagID, namespace, del nodo oggetto di analisi prima della migrazione sotto il tagContainer di competenza A,B,C,D...
+            String tagContainerName = "";
+            while (children.hasNext()) {
+                Resource child = children.next();
+                String childName = child.getName();
+                if (childName.length() > 1) {
+
+                    //Si recupera il namespace corrente del tag da spostare
+                    Tag tagChild = child.adaptTo(Tag.class);
+                    prevTagId = tagChild.getTagID();
 
 
-    private void cleanAuthorValueTag(ResourceResolver resourceResolver){
-        LOG.info("Start cleanAuthorValueTag********************");
-
-        //Si controlla la presenza di nodi sotto /content/cq:tag/author di tipo cq:tag con name .length >1 ( in questo caso si escludono i tagcontainer di nome A,B,C,D...)
-        String authorTagPath = servletConfig.getTagsRootPath()+"/author";
-        Resource resource = resourceResolver.getResource(authorTagPath);
-        Iterator<Resource> children = resource.listChildren();
-
-
-
-        String prevTagId = null; //memorizza il tagID, namespace, del nodo oggetto di analisi prima della migrazione sotto il tagContainer di competenza A,B,C,D...
-        String tagContainerName = "";
-        while (children.hasNext() ) {
-            Resource child = children.next();
-            String childName = child.getName();
-            if(childName.length() > 1){
-
-                //Si recupera il namespace corrente del tag da spostare
-                Tag tagChild = child.adaptTo(Tag.class);
-                prevTagId = tagChild.getTagID();
-
-
-                //Si sposta il nodo nel tagcontainer nuova destinazione
-                tagContainerName = childName.substring(0,1).toLowerCase(); //si recupera la prima iniziale dal nome del nodo da spostare
-                String destinationPath = authorTagPath+"/"+tagContainerName;
-                //NB: Francesca-> provando il metodo seguente per il recupero dell'eventuale tagcontainer, se già presente su CRX, alle volte
-                //non si ottiene un dato consistente, in quanto sembra che il crx non sia aggiornato con gli ultimi tagcontainer aggiunti durante
-                //l'elaborazione della servlet. Per tale motivo tale f() è commentata a favore del punto 2.
-                //Node containerTagNode  = getNode("[cq:Tag]",tagContainerName,  authorTagPath,false)
-                //2.
-                Resource rc = resourceResolver.getResource(destinationPath);
-                Node containerTagNode = rc != null ? rc.adaptTo(Node.class):null;
-
-                //Si deve creare il tag container A,B,C,....
-                if(containerTagNode == null) {
-                    HashMap properties = new HashMap();
-                    properties.put(JcrConstants.JCR_TITLE, tagContainerName);
-                    properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
-                    try{
-                        insertOrUpdateTagNode(null, authorTagPath, tagContainerName, properties, resourceResolver);
-                    }catch(ImportLibraryException e){
-                        addErrors(e.getMessage());
-                        break;
-                    }
-
-                }
-
-                try {
-                    //NB: Francesca -> la moveTag alle  volte si incarta, non la posso usare.
-                    //Per questo motivo si è preferito :
-                    // 1. calcolare il nuovo tagID ( namespace ) dopo lo spostamento del tag
-                    // 2. individuare tutti i ContentFragment che risultassero associati al tag autore corrente, oggetto di spostamento
-                    // 3. sostituire il vecchio namespace del tag autore con il nuovo nel content fragment
-                    // 4. procedere con lo spostamento del nodo tramite il metodo session.move(src ,dest)
-
-                    //tagChild = tagManager.moveTag(tagChild,destinationPath+"/" + childName );NON FUNZIONA SEMPRE
-
-                    //1.
-                    String newTagNamespace = StringUtils.substringBeforeLast(prevTagId, "/") + "/" + tagContainerName + "/" + childName;
-
+                    //Si sposta il nodo nel tagcontainer nuova destinazione
+                    tagContainerName = childName.substring(0, 1).toLowerCase(); //si recupera la prima iniziale dal nome del nodo da spostare
+                    String destinationPath = authorTagPath + "/" + tagContainerName;
+                    //NB: Francesca-> provando il metodo seguente per il recupero dell'eventuale tagcontainer, se già presente su CRX, alle volte
+                    //non si ottiene un dato consistente, in quanto sembra che il crx non sia aggiornato con gli ultimi tagcontainer aggiunti durante
+                    //l'elaborazione della servlet. Per tale motivo tale f() è commentata a favore del punto 2.
+                    //Node containerTagNode  = getNode("[cq:Tag]",tagContainerName,  authorTagPath,false)
                     //2.
-                    RangeIterator<Resource> res = getTagManager(resourceResolver).find(prevTagId);
-                    if(res != null){
-                        while (res.hasNext()) {
-                            Resource r = res.next();
-                            String jsonPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
-                            jsonPath = jsonPath.replace("/jcr:content/data/master", "");
-                            jsonPath = jsonPath + ".json";
-                            ContentFragmentModel cf = cfApi.getByPath(serverName, serverPort, jsonPath);
-                            if (cf != null) {
-                                List<Object> authorList = cf.getProperties().getElements().getAuthor().getValue();
-                                final String otId = prevTagId;
-                                List<Object> newAuthorList = authorList.stream().map(obj -> {
-                                    String a = (String) obj;
-                                    if (a.equals(otId)) {
-                                        a = newTagNamespace;
-                                    }
-                                    return a;
-                                }).collect(Collectors.toList());
-                                cf.getProperties().getElements().getAuthor().setValue(newAuthorList);
+                    Resource rc = resolver.getResource(destinationPath);
+                    Node containerTagNode = rc != null ? rc.adaptTo(Node.class) : null;
 
-                                String targetPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
-                                targetPath = targetPath.replace("/jcr:content/data/master", "");
-
-                                cfApi.put(serverName, serverPort, targetPath, cf);
-                            }
-
+                    //Si deve creare il tag container A,B,C,....
+                    if (containerTagNode == null) {
+                        HashMap properties = new HashMap();
+                        properties.put(JcrConstants.JCR_TITLE, tagContainerName);
+                        properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
+                        try {
+                            insertOrUpdateTagNode(null, tagNamespacePrefix, authorTagPath, tagContainerName, properties, resolver, session, tagmanager);
+                        } catch (ImportLibraryException e) {
+                            addErrors(e.getMessage());
+                            break;
                         }
+
                     }
 
-                    //4.
-                    getCustomSession(resourceResolver).move(tagChild.getPath(), destinationPath + "/" + childName);
-                    getCustomSession(resourceResolver).refresh(true);
-                    getCustomSession(resourceResolver).save();
+                    try {
+                        //NB: Francesca -> la moveTag alle  volte si incarta, non la posso usare.
+                        //Per questo motivo si è preferito :
+                        // 1. calcolare il nuovo tagID ( namespace ) dopo lo spostamento del tag
+                        // 2. individuare tutti i ContentFragment che risultassero associati al tag autore corrente, oggetto di spostamento
+                        // 3. sostituire il vecchio namespace del tag autore con il nuovo nel content fragment
+                        // 4. procedere con lo spostamento del nodo tramite il metodo session.move(src ,dest)
 
-                } catch (RepositoryException e) {
-                   addErrors(e.getMessage());
+                        //tagChild = tagManager.moveTag(tagChild,destinationPath+"/" + childName );NON FUNZIONA SEMPRE
+
+                        //1.
+                        String newTagNamespace = StringUtils.substringBeforeLast(prevTagId, "/") + "/" + tagContainerName + "/" + childName;
+
+                        //2.
+                        RangeIterator<Resource> res = tagmanager.find(prevTagId);
+                        if (res != null) {
+                            while (res.hasNext()) {
+                                Resource r = res.next();
+                                String jsonPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
+                                jsonPath = jsonPath.replace("/jcr:content/data/master", "");
+                                jsonPath = jsonPath + ".json";
+                                ContentFragmentModel cf = cfApi.getByPath(serverName, serverPort, jsonPath);
+                                if (cf != null) {
+                                    List<Object> authorList = cf.getProperties().getElements().getAuthor().getValue();
+                                    final String otId = prevTagId;
+                                    List<Object> newAuthorList = authorList.stream().map(obj -> {
+                                        String a = (String) obj;
+                                        if (a.equals(otId)) {
+                                            a = newTagNamespace;
+                                        }
+                                        return a;
+                                    }).collect(Collectors.toList());
+                                    cf.getProperties().getElements().getAuthor().setValue(newAuthorList);
+
+                                    String targetPath = r.getPath().replace(servletConfig.getDamRootPath(), "");
+                                    targetPath = targetPath.replace("/jcr:content/data/master", "");
+
+                                    cfApi.put(serverName, serverPort, targetPath, cf);
+                                }
+
+                            }
+                        }
+
+                        //4.
+                        session.move(tagChild.getPath(), destinationPath + "/" + childName);
+                        session.refresh(true);
+                        session.save();
+
+                    } catch (RepositoryException e) {
+                        addErrors(e.getMessage());
+
+                    }
+
 
                 }
+            }
 
-
+        }finally {
+            if (resolver != null) {
+                resolver.close();
             }
         }
-
-
-        LOG.info("Fine cleanAuthorValueTag********************");
+        LOG.info("********** END cleanAuthorValueTag********************");
     }
 
 
 
 
-    private void importTagsData(InputStream inputStream, ResourceResolver resourceResolver) {
+    private void importTagsData(InputStream inputStream) {
         LOG.info("Start import tags data********************");
         XSSFWorkbook workbook = null;
+
+        ResourceResolver resolver = getResourceResolver();
+        Session session = resolver.adaptTo(Session.class);
+        TagManager tagmanager = resolver.adaptTo(TagManager.class);
         try {
+
             workbook = new XSSFWorkbook(inputStream); //new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheetAt(0);     //creating a Sheet object to retrieve object
 
@@ -832,6 +879,8 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 addErrors("Missing sheet in file excel");
                 return;
             }
+
+
 
             //iterazione righe dell'excel
             Iterator<Row> itr = sheet.iterator();
@@ -847,28 +896,28 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                     if(authorCell != null) {
                         LOG.info("\t author **********");
                         String value = authorCell.getStringCellValue();
-                        handleValueTag( "author", value,resourceResolver );
+                        handleValueTag( "author", value, resolver, session, tagmanager );
                     }
 
                     Cell topicCell = row.getCell(TOPIC_TAGS_COL_INDEX);
                     if(topicCell != null) {
                         LOG.info("\t topic  **********");
                         String value = topicCell.getStringCellValue();
-                        handleValueTag("topic", value, resourceResolver );
+                        handleValueTag("topic", value, resolver, session, tagmanager );
                     }
 
                     Cell sourceCell = row.getCell(SOURCE_TAGS_COL_INDEX);
                     if(sourceCell != null) {
                         LOG.info("\t source **********");
                         String value = sourceCell.getStringCellValue();
-                        handleValueTag("source", value, resourceResolver );
+                        handleValueTag("source", value, resolver, session, tagmanager );
                     }
 
                     Cell genericTagsCell = row.getCell(GENERIC_TAGS_COL_INDEX);
                     if(genericTagsCell != null) {
                         LOG.info("\t generic tags**********");
                         String value = genericTagsCell.getStringCellValue();
-                        handleValueTag("generic tags", value, resourceResolver );
+                        handleValueTag("generic tags", value, resolver, session, tagmanager );
                     }
 
 
@@ -876,7 +925,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                     if(typologyCell != null) {
                         LOG.info("\t typology **********");
                         String value = typologyCell.getStringCellValue();
-                        handleValueTag("typology", value, resourceResolver );
+                        handleValueTag("typology", value, resolver, session, tagmanager );
                     }
                 }
                 count++;
@@ -888,6 +937,10 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         } catch (IOException e) {
            addErrors(e.getMessage());
 
+        }finally{
+            if (resolver != null) {
+                resolver.close();
+            }
         }
 
 
@@ -899,21 +952,24 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
 
-    private void importArticlesData(InputStream inputStream, String serverName, int serverPort,ResourceResolver resourceResolver) {
+    private void importArticlesData(InputStream inputStream, String serverName, int serverPort) {
         LOG.info("Start import Articles data********************");
+
+        ResourceResolver resolver = getResourceResolver();
+        Session session = resolver.adaptTo(Session.class);
 
         // Si crea la folder della categoria, se non esiste,  per la storicizzazione dei content fragment relativi agli articoli
         try {
-            Resource categoryFolder =  resourceResolver.getResource(servletConfig.getCategoryPath());
+            Resource categoryFolder =  resolver.getResource(servletConfig.getCategoryPath());
             if(categoryFolder == null) {
 
-                Node n = createNode(servletConfig.getCategoryPath(), "sling:Folder", getCustomSession(resourceResolver));
-                Node jcr = createNode(servletConfig.getCategoryPath()+"/jcr:content", JcrConstants.NT_UNSTRUCTURED, getCustomSession(resourceResolver));
+                Node n = createNode(servletConfig.getCategoryPath(), "sling:Folder", session);
+                Node jcr = createNode(servletConfig.getCategoryPath()+"/jcr:content", JcrConstants.NT_UNSTRUCTURED, session);
                 if(jcr != null) {
                     jcr.setProperty("title", "infectivology");
                     jcr.setProperty("source", "false");
-                    getCustomSession(resourceResolver).refresh(true);
-                    getCustomSession(resourceResolver).save();
+                    session.refresh(true);
+                    session.save();
                 }
             }
         } catch (RepositoryException e) {
@@ -933,7 +989,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                 //ignoro l'header se il file excel la prevede
                 if (servletConfig.isHeaderRowPresent() && count == 0) ;
                 else {
-                    ContentFragmentModel cf = generateContentFragmentFromRow(row, resourceResolver);
+                    ContentFragmentModel cf = generateContentFragmentFromRow(row, resolver);
 
                     if (cf != null) {
                         //si controlla l'esistenza del content fragment su crx sotto la folder della categoria
@@ -949,7 +1005,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                         String folderPath = servletConfig.getCategoryPath() + "/" + year;
 
                         String  cfResourcePath = servletConfig.getCategoryPath()+"/"+ year+"/"+cfName;
-                        Resource rCF = resourceResolver.getResource(cfResourcePath);
+                        Resource rCF = resolver.getResource(cfResourcePath);
                         Node n = rCF != null ? rCF.adaptTo(Node.class) : null;
 
                         if (n != null) {
@@ -959,12 +1015,12 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                         } else {
 
                             //se la folder esiste già non si crea, altrimenti sì
-                            Resource folder = resourceResolver.getResource(folderPath);
+                            Resource folder = resolver.getResource(folderPath);
                             if (folder == null) {
                                 //JcrUtil.createPath(folderPath, "sling:Folder", getCustomSession(resourceResolver));
-                                createNode(folderPath, "sling:Folder", getCustomSession(resourceResolver));
-                                getCustomSession(resourceResolver).refresh(true);
-                                getCustomSession(resourceResolver).save();
+                                createNode(folderPath, "sling:Folder", session);
+                                session.refresh(true);
+                                session.save();
                             }
                             String targetPath = StringUtils.replace(cfResourcePath, servletConfig.getDamRootPath() + "/", "") ;
 
@@ -979,6 +1035,11 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         } catch (IOException | RepositoryException | ImportLibraryException e) {
             addErrors(e.getMessage());
             return;
+        }
+        finally{
+            if (resolver != null) {
+                resolver.close();
+            }
         }
         try {
             inputStream.close();

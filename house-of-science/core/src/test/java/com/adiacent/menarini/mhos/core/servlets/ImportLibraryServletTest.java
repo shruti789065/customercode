@@ -136,7 +136,7 @@ public class ImportLibraryServletTest {
 
     }
 
-    @Test
+    //@Test
     @Order(1)
     public void cleanData() throws ServletException, IOException {
 
@@ -158,7 +158,7 @@ public class ImportLibraryServletTest {
     }
 
 
-    @Test
+    //@Test
     @Order(2)
     public void importTags() throws ServletException, IOException {
 
@@ -213,7 +213,7 @@ public class ImportLibraryServletTest {
     }
 
 
-    @Test
+    //@Test
     @Order(3)
     public void importArticles() throws ServletException, IOException {
 

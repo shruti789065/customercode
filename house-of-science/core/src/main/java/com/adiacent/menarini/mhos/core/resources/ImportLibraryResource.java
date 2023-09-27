@@ -28,6 +28,9 @@ public class ImportLibraryResource {
         String getSourceFilePath() default "";
 
 
+        @AttributeDefinition(name = "Procedure Enabled", description = "Procedure Enabled")
+        boolean isProcedureEnabled() default false;
+
         @AttributeDefinition(name = "Tag Import Enabled", description = "Tag Import Enabled")
         boolean isImportTagEnabled() default false;
 
