@@ -246,20 +246,11 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
         return null;
     }
 
-    public TagManager getTagManager(ResourceResolver resourceResolver) {
-        if(resourceResolver != null)
-            return resourceResolver.adaptTo(TagManager.class);
-        return null;
-    }
+
     public ImportLibraryResource.Config getCustomConfig() {
         return ImportLibraryResource.get_instance().getConfig();
     }
-    public Session getCustomSession(ResourceResolver resourceResolver) {
-        if(resourceResolver != null)
-        return resourceResolver.adaptTo(Session.class);
-        return null;
 
-    }
     public XSSFWorkbook createWorkBook(InputStream inputStream) throws IOException {
         return new XSSFWorkbook(inputStream);
     }

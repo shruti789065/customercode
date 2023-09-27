@@ -74,7 +74,6 @@ public class ImportLibraryServletTest {
         request = spy(aemContext.request());
 
 
-        ResourceResolverFactory rff = aemContext.registerService(ResourceResolverFactory.class, new MockResourceResolverFactory());
 
         //necessario per il caricamento della configurazione di test
         aemContext.registerInjectActivateService(new ImportLibraryResource());
@@ -95,19 +94,7 @@ public class ImportLibraryServletTest {
         InputStream is = getClass().getResourceAsStream("/com/adiacent/menarini/mhos/core/models/dnnImportLibraryDS.xlsx");
         when(servlet.getFileInputStream(any(Resource.class))).thenReturn(is);
 
-
-        //gestione sessione mocckata
-        Session session = mock(Session.class);
-        when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(session);
-        try {
-            doNothing().when(session).save();
-            doNothing().when(session).move(any(String.class), any(String.class));
-        } catch (RepositoryException e) {
-            throw new RuntimeException(e);
-        }
-
         //gestione tagmanager mocckato
-        when(servlet.getTagManager(any(ResourceResolver.class))).thenReturn(tagManager);
         Tag mockedTag = mock(Tag.class);
         try {
 
@@ -132,11 +119,43 @@ public class ImportLibraryServletTest {
         }
 
 
+        //gestione sessione mocckata
+        Session session = mock(Session.class);
+        //when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(session);
+        try {
+            doNothing().when(session).save();
+            doNothing().when(session).move(any(String.class), any(String.class));
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        //gestione resource resolver
+        ResourceResolver resolver = spy(aemContext.resourceResolver());
+        when(resolver.adaptTo(Session.class)).thenReturn(session);
+        when(resolver.adaptTo(TagManager.class)).thenReturn(tagManager);
+        doNothing().when(resolver).close();
+        Resource mockedResource= mock(Resource.class);
+        lenient().when(resolver.getResource(eq("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx"))).thenReturn(mockedResource);
+       /* doAnswer(i->{
+            if(i.getArgument(0)==String.class){
+                String path =(String)i.getArgument(0);
+                if(path.compareTo("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx") == 0) {
+                   return mockedResource;
+                }
+                return resolver.getResource(i.getArgument(0));
+            }
+            return resolver.getResource(i.getArgument(0));
+        }).when(resolver).getResource(any(String.class));
+*/
+
+        when(servlet.getResourceResolver()).thenReturn(resolver);
+
         aemContext.addModelsForClasses(ImportLibraryServlet.class);
 
     }
 
-    //@Test
+    @Test
     @Order(1)
     public void cleanData() throws ServletException, IOException {
 
@@ -145,6 +164,7 @@ public class ImportLibraryServletTest {
         when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
         when(config.isImportTagEnabled()).thenReturn(false);
         when(config.isImportArticleEnabled()).thenReturn(false);
+        when(config.isProcedureEnabled()).thenReturn(true);
 
         when(servlet.getCustomConfig()).thenReturn(config);
         servlet.doGet(request, response);
@@ -158,7 +178,7 @@ public class ImportLibraryServletTest {
     }
 
 
-    //@Test
+    @Test
     @Order(2)
     public void importTags() throws ServletException, IOException {
 
@@ -167,12 +187,13 @@ public class ImportLibraryServletTest {
         when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
         when(config.isHeaderRowPresent()).thenReturn(true);
         when(config.isImportTagEnabled()).thenReturn(true);
+        when(config.isProcedureEnabled()).thenReturn(true);
         lenient().when(config.isImportArticleEnabled()).thenReturn(false);
 
         when(servlet.getCustomConfig()).thenReturn(config);
 
 
-        Node mockedNode = mock(Node.class);
+        /*Node mockedNode = mock(Node.class);
         Tag mockedTag = mock(Tag.class);
         lenient().when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);
         try {
@@ -187,7 +208,7 @@ public class ImportLibraryServletTest {
         } catch (TagException e) {
             throw new RuntimeException(e);
         }
-
+        */
 
         lenient().doAnswer(i->{
             if(i.getArgument(0)==InputStream.class){
@@ -213,7 +234,7 @@ public class ImportLibraryServletTest {
     }
 
 
-    //@Test
+    @Test
     @Order(3)
     public void importArticles() throws ServletException, IOException {
 
@@ -223,6 +244,7 @@ public class ImportLibraryServletTest {
         when(config.isHeaderRowPresent()).thenReturn(true);
         when(config.isImportTagEnabled()).thenReturn(false);
         when(config.isImportArticleEnabled()).thenReturn(true);
+        when(config.isProcedureEnabled()).thenReturn(true);
         when(config.getCategoryPath()).thenReturn("/content/dam/mhos/content-fragments/en/infectivology");
         when(config.getDamRootPath()).thenReturn("/content/dam");
 
