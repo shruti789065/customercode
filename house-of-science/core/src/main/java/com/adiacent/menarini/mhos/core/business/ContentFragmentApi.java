@@ -189,9 +189,11 @@ public class ContentFragmentApi {
 */
    public ContentFragmentModel getByPath(String hostname, String jsonPath) {
 
-        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+hostname) + ENDPOINT_PREFIX + jsonPath ;
+        //String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+hostname) + ENDPOINT_PREFIX + jsonPath ;
+       String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : hostname ) + ENDPOINT_PREFIX + jsonPath ;
 
-        String res = performOperation(GET_TYPE, endpoint, null,  null, null ,0, null);
+
+       String res = performOperation(GET_TYPE, endpoint, null,  null, null ,0, null);
 
         // ContentFragmentWrapper w = getGson().fromJson(res, ContentFragmentWrapper.class);
 
