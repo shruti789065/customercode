@@ -778,7 +778,7 @@ public class LibraryImporter implements Cloneable{
                                 String jsonPath = r.getPath().replace(importerConfig.getDamRootPath(), "");
                                 jsonPath = jsonPath.replace("/jcr:content/data/master", "");
                                 jsonPath = jsonPath + ".json";
-                                LOG.info("hostname " + hostname);
+
                                 ContentFragmentModel cf = cfApi.getByPath(hostname, jsonPath);
                                 if (cf != null) {
                                     List<Object> authorList = cf.getProperties().getElements().getAuthor().getValue();

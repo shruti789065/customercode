@@ -225,7 +225,7 @@ public class ContentFragmentApi {
 
         //String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
 
-        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+hostname ) + ENDPOINT_PREFIX + uri ;
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : hostname ) + ENDPOINT_PREFIX + uri ;
 
 
         HashMap<String,String> headers = new HashMap<String,String>();
