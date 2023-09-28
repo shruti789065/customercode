@@ -1,4 +1,4 @@
-/*start full width banner*/
+/*start full width banner modificato per test*/
 .full-width-banner.teaser {
 	background-color: $color-six;
 	display: flex;
@@ -25,6 +25,7 @@
 		position: relative;
 		justify-content: flex-end;
 		width: 100%;
+		margin: 0 auto;
 
 		.cmp-teaser__image {
 			position: relative;
@@ -148,23 +149,23 @@
 }
 
 @media (min-width: 1440px) {
-	.full-width-banner {
+	.full-width-banner .cmp-teaser {
 		max-width: 100%;
 	}
 }
 @media (min-width: 1600px) {
-	.full-width-banner {
+	.full-width-banner .cmp-teaser{
 		max-width: 1200pt;//1600px
 	}
 }
 @media (min-width: 1800px) {
-	.full-width-banner {
+	.full-width-banner .cmp-teaser{
 		max-width: 1200pt;//1600px
 	}
 }
 
 @media (min-width: 1920px) {
-	.full-width-banner {
+	.full-width-banner .cmp-teaser{
 		max-width: 1200pt;//1600px
 	}
 }
