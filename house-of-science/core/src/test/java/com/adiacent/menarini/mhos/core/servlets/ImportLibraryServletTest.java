@@ -1,267 +1,99 @@
 package com.adiacent.menarini.mhos.core.servlets;
 
-import com.adiacent.menarini.mhos.core.models.ContentFragmentModel;
-import com.adiacent.menarini.mhos.core.resources.ImportLibraryResource;
-import com.day.cq.tagging.InvalidTagFormatException;
-import com.day.cq.tagging.Tag;
-import com.day.cq.tagging.TagException;
-import com.day.cq.tagging.TagManager;
+import com.adiacent.menarini.mhos.core.services.LibraryImporter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
-import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
-import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
-import org.apache.sling.testing.resourceresolver.MockResourceResolverFactory;
+import org.apache.sling.testing.mock.sling.servlet.MockRequestPathInfo;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.Answer;
 
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import javax.servlet.ServletException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-//tutorial :  //https://www.youtube.com/watch?v=g5x6F8bUHj8
 @ExtendWith({AemContextExtension.class, MockitoExtension.class})
-public class ImportLibraryServletTest {
+class ImportLibraryServletTest {
 
-    private final AemContext aemContext = new AemContext(ResourceResolverType.JCR_MOCK);
-
-    @Mock
-    private ImportLibraryServlet servlet;
-    private MockSlingHttpServletRequest request;
-
-    private MockSlingHttpServletResponse response;
-
+    private final AemContext ctx = new AemContext(ResourceResolverType.JCR_MOCK);
 
     @Mock
-    TagManager tagManager;
-
+    private ImportLibraryServlet importLibraryServlet;
 
     @BeforeEach
     void setUp() {
-
-        //caricamento pagine sotto /content/mhos/en
-        aemContext.load().json("/com/adiacent/menarini/mhos/core/models/ImpLibraryContentData.json", "/content/mhos/en");
-        //caricamento content fragment
-        aemContext.load().json("/com/adiacent/menarini/mhos/core/models/ImpLibraryContentFragmentData.json", "/content/dam/mhos/content-fragments/en");
-        //caricamento tags sotto  /content/cq:tags
-        aemContext.load().json("/com/adiacent/menarini/mhos/core/models/ImpLibraryTagsData.json", "/content/cq:tags/house-of-science");
-
-        aemContext.load().binaryFile("/com/adiacent/menarini/mhos/core/models/dnnImportLibraryDS.xlsx", "/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx/jcr:content/renditions/original");
-        //aemContext.load().json("/com/adiacent/menarini/mhos/core/models/ImportLibraryXLSX.json", "/content/dam/mhos/importlibrary/");
-
-        //impostazione risorsa corrente per recupero resourceresolver
-        Resource currentResource = aemContext.resourceResolver().getResource("/content/mhos/en");
-        aemContext.currentResource(currentResource);
-
-        response = spy(aemContext.response());
-        request = spy(aemContext.request());
-
-
-
-        //necessario per il caricamento della configurazione di test
-        aemContext.registerInjectActivateService(new ImportLibraryResource());
-        /*ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
-        when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
-        when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
-        when(config.isHeaderRowPresent()).thenReturn(true);
-        when(config.isImportTagEnabled()).thenReturn(true);
-        when(config.isImportArticleEnabled()).thenReturn(true);
-        when(config.getCategoryPath()).thenReturn("/content/dam/mhos/content-fragments/en/infectivology");
-        when(config.getDamRootPath()).thenReturn("/content/dam");
-        */
-
-        //spy la servlet per poter fare l'override di alcuni metodi
-        ImportLibraryServlet s = aemContext.registerService(new  ImportLibraryServlet());
-        servlet = spy(s);
-
-        InputStream is = getClass().getResourceAsStream("/com/adiacent/menarini/mhos/core/models/dnnImportLibraryDS.xlsx");
-        when(servlet.getFileInputStream(any(Resource.class))).thenReturn(is);
-
-        //gestione tagmanager mocckato
-        Tag mockedTag = mock(Tag.class);
-        try {
-
-            lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(false))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return mockedTag;
-                }}
-            );
-
-            lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return mockedTag;
-                }}
-            );
-
-        } catch (InvalidTagFormatException e) {
-            throw new RuntimeException(e);
-        } catch (TagException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        //gestione sessione mocckata
-        Session session = mock(Session.class);
-        //when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(session);
-        try {
-            doNothing().when(session).save();
-            doNothing().when(session).move(any(String.class), any(String.class));
-        } catch (RepositoryException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        //gestione resource resolver
-        ResourceResolver resolver = spy(aemContext.resourceResolver());
-        when(resolver.adaptTo(Session.class)).thenReturn(session);
-        when(resolver.adaptTo(TagManager.class)).thenReturn(tagManager);
-        doNothing().when(resolver).close();
-        Resource mockedResource= mock(Resource.class);
-        lenient().when(resolver.getResource(eq("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx"))).thenReturn(mockedResource);
-       /* doAnswer(i->{
-            if(i.getArgument(0)==String.class){
-                String path =(String)i.getArgument(0);
-                if(path.compareTo("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx") == 0) {
-                   return mockedResource;
-                }
-                return resolver.getResource(i.getArgument(0));
-            }
-            return resolver.getResource(i.getArgument(0));
-        }).when(resolver).getResource(any(String.class));
-*/
-
-        when(servlet.getResourceResolver()).thenReturn(resolver);
-
-        aemContext.addModelsForClasses(ImportLibraryServlet.class);
-
+        //((MockRequestPathInfo)ctx.request().getRequestPathInfo()).setExtension("json");
+        ctx.addModelsForClasses(ImportLibraryServlet.class);
     }
 
     @Test
-    @Order(1)
-    public void cleanData() throws ServletException, IOException {
+    void busyServletTest() {
 
-        ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
-        when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
-        when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
-        when(config.isImportTagEnabled()).thenReturn(false);
-        when(config.isImportArticleEnabled()).thenReturn(false);
-        when(config.isProcedureEnabled()).thenReturn(true);
+        importLibraryServlet.running = true;
 
-        when(servlet.getCustomConfig()).thenReturn(config);
-        servlet.doGet(request, response);
+        ImportLibraryServlet.Response response = ctx.registerService(ImportLibraryServlet.Response.class, importLibraryServlet.new Response());
+        importLibraryServlet.ilr = response;
 
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        ImportLibraryServlet.Response res = gson.fromJson(response.getOutputAsString(),ImportLibraryServlet.Response.class);
+        importLibraryServlet.doGet(ctx.request(),ctx.response());
 
-        assertEquals(AbstractJsonServlet.OK_RESULT, res.getResult());
+        assertEquals(ctx.response().getStatus(), 200);
 
     }
 
 
     @Test
-    @Order(2)
-    public void importTags() throws ServletException, IOException {
+    void runServletWithErrors(){
 
-        ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
-        when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
-        when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
-        when(config.isHeaderRowPresent()).thenReturn(true);
-        when(config.isImportTagEnabled()).thenReturn(true);
-        when(config.isProcedureEnabled()).thenReturn(true);
-        lenient().when(config.isImportArticleEnabled()).thenReturn(false);
-
-        when(servlet.getCustomConfig()).thenReturn(config);
+        LibraryImporter importerinstance = ctx.registerService(LibraryImporter.class, new LibraryImporter());
+        LibraryImporter spyedImporterinstance = spy(importerinstance);
 
 
-        /*Node mockedNode = mock(Node.class);
-        Tag mockedTag = mock(Tag.class);
-        lenient().when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);
+        LibraryImporter clonedImporterInstance = mock(LibraryImporter.class);
+        doNothing().when(clonedImporterInstance).start();
+        when(clonedImporterInstance.getErrors()).thenReturn(Arrays.asList("Error1", "Error2"));
         try {
-            lenient().when(tagManager.moveTag(any(Tag.class), any(String.class))).thenAnswer(new Answer<Tag>() {
-                @Override
-                public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return mockedTag;
-                }}
-            );
-        } catch (InvalidTagFormatException e) {
-            throw new RuntimeException(e);
-        } catch (TagException e) {
+            when(spyedImporterinstance.clone()).thenReturn(clonedImporterInstance);
+        } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
-        */
+        importLibraryServlet= spy(ctx.registerService(ImportLibraryServlet.class));
+        importLibraryServlet.importerInstance = spyedImporterinstance;
+        importLibraryServlet.doGet(ctx.request(),ctx.response());
 
-        lenient().doAnswer(i->{
-            if(i.getArgument(0)==InputStream.class){
-                InputStream is =(InputStream)i.getArgument(0);
-                if(is.markSupported()) {
-                    is.mark(Integer.MAX_VALUE);
-                    is.reset();
-                }
-            }
-            return null;
-        }).when(servlet).resetInputStream(any(InputStream.class));
-
-
-
-        servlet.doGet(request, response);
-
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        ImportLibraryServlet.Response res = gson.fromJson(response.getOutputAsString(),ImportLibraryServlet.Response.class);
-
-        assertEquals(AbstractJsonServlet.OK_RESULT, res.getResult());
-
+        assertTrue(ctx.response().getOutputAsString().contains("Error1"));
     }
 
-
     @Test
-    @Order(3)
-    public void importArticles() throws ServletException, IOException {
+    void runServletWithoutErrors(){
 
-        ImportLibraryResource.Config config = mock(ImportLibraryResource.Config.class);
-        when(config.getTagsRootPath()).thenReturn("/content/cq:tags/house-of-science");
-        when(config.getSourceFilePath()).thenReturn("/content/dam/mhos/importlibrary/dnnImportLibraryDS.xlsx");
-        when(config.isHeaderRowPresent()).thenReturn(true);
-        when(config.isImportTagEnabled()).thenReturn(false);
-        when(config.isImportArticleEnabled()).thenReturn(true);
-        when(config.isProcedureEnabled()).thenReturn(true);
-        when(config.getCategoryPath()).thenReturn("/content/dam/mhos/content-fragments/en/infectivology");
-        when(config.getDamRootPath()).thenReturn("/content/dam");
+        LibraryImporter importerinstance = ctx.registerService(LibraryImporter.class, new LibraryImporter());
+        LibraryImporter spyedImporterinstance = spy(importerinstance);
 
-        when(servlet.getCustomConfig()).thenReturn(config);
 
-        Node node = mock(Node.class);
-        when(servlet.createNode(any(String.class), any(String.class), any(Session.class) )).thenReturn(node);
-
-        doNothing().when(servlet).storeContentFragment(anyBoolean(), anyString(), anyInt(), anyString(),any(ContentFragmentModel.class));
-
-        servlet.doGet(request, response);
+        LibraryImporter clonedImporterInstance = mock(LibraryImporter.class);
+        doNothing().when(clonedImporterInstance).start();
+        when(clonedImporterInstance.getErrors()).thenReturn(new ArrayList<String>());
+        try {
+            when(spyedImporterinstance.clone()).thenReturn(clonedImporterInstance);
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
+        importLibraryServlet= spy(ctx.registerService(ImportLibraryServlet.class));
+        importLibraryServlet.importerInstance = spyedImporterinstance;
+        importLibraryServlet.doGet(ctx.request(),ctx.response());
 
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        ImportLibraryServlet.Response res = gson.fromJson(response.getOutputAsString(),ImportLibraryServlet.Response.class);
+        ImportLibraryServlet.Response res = gson.fromJson(ctx.response().getOutputAsString(),ImportLibraryServlet.Response.class);
 
-        assertEquals(AbstractJsonServlet.OK_RESULT, res.getResult());
-
+        assertTrue(res.getErrors().size() == 0);
     }
 }

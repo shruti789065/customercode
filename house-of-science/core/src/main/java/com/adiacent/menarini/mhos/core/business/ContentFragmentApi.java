@@ -44,7 +44,7 @@ public class ContentFragmentApi {
     private static final String GET_TYPE = "GET";
     private static final String DELETE_TYPE = "DELETE";
     private static final String PUT_TYPE = "PUT";
-    private static final String ENDPOINT_PREFIX = "api/assets/";
+    private static final String ENDPOINT_PREFIX = "/api/assets/";
 
     protected boolean isLocalRunModeEnabled() {
         return SlingSettingsUtils.get_instance().checkLocalMode();
@@ -187,9 +187,9 @@ public class ContentFragmentApi {
         return customGson;
     }
 */
-   public ContentFragmentModel getByPath(String serverName, int serverPort, String jsonPath) {
+   public ContentFragmentModel getByPath(String hostname, String jsonPath) {
 
-        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + jsonPath ;
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+hostname) + ENDPOINT_PREFIX + jsonPath ;
 
         String res = performOperation(GET_TYPE, endpoint, null,  null, null ,0, null);
 
@@ -201,10 +201,10 @@ public class ContentFragmentApi {
     }
 
 
-    public boolean create(String serverName, int serverPort, String uri, ContentFragmentModel obj) {
+    public boolean create(String hostname, String uri, ContentFragmentModel obj) {
 
        // String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
-        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + uri ;
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : hostname ) + ENDPOINT_PREFIX + uri ;
 
         HashMap<String,String> headers = new HashMap<String,String>();
         headers.put("Content-Type", "application/json");
@@ -219,11 +219,11 @@ public class ContentFragmentApi {
     }
 
 
-    public boolean put(String serverName, int serverPort, String uri, ContentFragmentModel obj) {
+    public boolean put(String hostname, String uri, ContentFragmentModel obj) {
 
         //String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
 
-        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + uri ;
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+hostname ) + ENDPOINT_PREFIX + uri ;
 
 
         HashMap<String,String> headers = new HashMap<String,String>();

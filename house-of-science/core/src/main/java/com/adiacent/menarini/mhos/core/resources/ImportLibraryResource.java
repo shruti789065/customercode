@@ -55,6 +55,10 @@ public class ImportLibraryResource {
         @AttributeDefinition(name = "DAM Root Path", description = "getDamRootPath")
         String getDamRootPath() default "";
 
+        @AttributeDefinition(name = "Email Receiver of the result ", description = "getDamRootPath")
+        String getEmailTo() default "";
+
+
     }
 
     @Activate
