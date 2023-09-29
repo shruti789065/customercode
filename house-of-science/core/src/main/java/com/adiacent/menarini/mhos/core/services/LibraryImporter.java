@@ -13,6 +13,7 @@ import com.day.cq.dam.api.Asset;
 import com.day.cq.mailer.MailService;
 import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagException;
 import com.day.cq.tagging.TagManager;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.Email;
@@ -70,6 +71,8 @@ public class LibraryImporter implements Cloneable{
 
     private SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T00:00:00.000Z'");
     private static String TAG_RESOURCE_TYPE = "cq/tagging/components/tag";
+
+    private static String CQMOVETO_PROPERTY = "cq:movedTo";
 
     private static String TAG_VALUES_SEPARATOR = ",";
 
@@ -421,6 +424,7 @@ public class LibraryImporter implements Cloneable{
             return null;
         label = label.trim().toLowerCase().replaceAll("[\\(\\)\\[\\]\\']","");
         label = label.replaceAll("[\\s:]","-");
+        label = label.replaceAll("[\\?]","-");
         return JcrUtil.escapeIllegalJcrChars(label);
     }
 
@@ -725,9 +729,12 @@ public class LibraryImporter implements Cloneable{
             while (children.hasNext()) {
                 Resource child = children.next();
                 String childName = child.getName();
-                if (childName.length() > 1) {
+                //Si controlla se il nodo tag ha la proprietà "cq:movedTo" settata-> ciò vuol dire che è già stato gestito e referenzia già il nuovo tag
+                Node childNode = child.adaptTo(Node.class);
 
-                    //Si recupera il namespace corrente del tag da spostare
+                if (childName.length() > 1 && !childNode.hasProperty(CQMOVETO_PROPERTY)) {
+
+                    //Si recupera il namespace/tagId corrente del tag da spostare
                     Tag tagChild = child.adaptTo(Tag.class);
                     prevTagId = tagChild.getTagID();
 
@@ -765,7 +772,7 @@ public class LibraryImporter implements Cloneable{
                         // 3. sostituire il vecchio namespace del tag autore con il nuovo nel content fragment
                         // 4. procedere con lo spostamento del nodo tramite il metodo session.move(src ,dest)
 
-                        //tagChild = tagManager.moveTag(tagChild,destinationPath+"/" + childName );NON FUNZIONA SEMPRE
+                        Tag newTag = tagmanager.moveTag(tagChild,destinationPath+"/" + childName );
 
                         //1.
                         String newTagNamespace = StringUtils.substringBeforeLast(prevTagId, "/") + "/" + tagContainerName + "/" + childName;
@@ -774,8 +781,8 @@ public class LibraryImporter implements Cloneable{
                         RangeIterator<Resource> res = tagmanager.find(prevTagId);
                         if (res != null) {
                             while (res.hasNext()) {
-                                Resource r = res.next();
-                                String jsonPath = r.getPath().replace(importerConfig.getDamRootPath(), "");
+                                Resource masterNodeResource = res.next(); //è il nodo master sotto <Content_Fragment>/jcr:content/data
+                                String jsonPath = masterNodeResource.getPath().replace(importerConfig.getDamRootPath(), "");
                                 jsonPath = jsonPath.replace("/jcr:content/data/master", "");
                                 jsonPath = jsonPath + ".json";
 
@@ -792,30 +799,41 @@ public class LibraryImporter implements Cloneable{
                                     }).collect(Collectors.toList());
                                     cf.getProperties().getElements().getAuthor().setValue(newAuthorList);
 
-                                    String targetPath = r.getPath().replace(importerConfig.getDamRootPath(), "");
+                                    String targetPath = masterNodeResource.getPath().replace(importerConfig.getDamRootPath(), "");
                                     targetPath = targetPath.replace("/jcr:content/data/master", "");
 
                                     cfApi.put(hostname, targetPath, cf);
+
+                                    //Tag[] currentTags = tagmanager.getTags(masterNodeResource);
+                                    //tagmanager.setTags(masterNodeResource,currentTags);
+
+
                                 }
 
                             }
                         }
 
                         //4.
-                        session.move(tagChild.getPath(), destinationPath + "/" + childName);
+                        /*session.move(tagChild.getPath(), destinationPath + "/" + childName);
                         session.refresh(true);
                         session.save();
-
-                    } catch (RepositoryException e) {
+                        */
+                    } /*catch (RepositoryException e) {
                         addErrors(e.getMessage());
 
+                    } */catch (TagException e) {
+                        addErrors(e.getMessage());
+                    } catch (InvalidTagFormatException e) {
+                        addErrors(e.getMessage());
                     }
 
 
                 }
             }
 
-        }finally {
+        } catch (RepositoryException e) {
+            addErrors(e.getMessage());
+        } finally {
             if (resolver != null) {
                 resolver.close();
             }
@@ -922,6 +940,9 @@ public class LibraryImporter implements Cloneable{
         Session session = resolver.adaptTo(Session.class);
         Externalizer externalizer = resolver.adaptTo(Externalizer.class);
         String hostname =  externalizer.authorLink(resolver, "/");
+        TagManager tagmanager = resolver.adaptTo(TagManager.class);
+
+        HashMap<String, ContentFragmentModel> cfMap = new HashMap<String, ContentFragmentModel>();
 
         // Si crea la folder della categoria, se non esiste,  per la storicizzazione dei content fragment relativi agli articoli
         try {
@@ -990,13 +1011,49 @@ public class LibraryImporter implements Cloneable{
                             String targetPath = StringUtils.replace(cfResourcePath, importerConfig.getDamRootPath() + "/", "") ;
 
                             storeContentFragment(true,  hostname, targetPath, cf);
+
                         }
 
+                        cfMap.put(cfResourcePath, cf);
                     }
                 }
                 count++;
             }
 
+            if(cfMap.size() >0){
+                session.refresh(true);
+                cfMap.forEach((cfResourcePath, cf) -> {
+                    //settaggio dei tags
+                    //1. si recuperano i tagID === namespace dei tag dell'elemento content fragment
+                    List<Object> allTagIds =  new ArrayList<Object>();
+                    if(cf.getProperties().getElements().getTags()!= null && cf.getProperties().getElements().getTags().getValue() != null)
+                        allTagIds.addAll(cf.getProperties().getElements().getTags().getValue());
+                    if(cf.getProperties().getElements().getAuthor()!= null &&cf.getProperties().getElements().getAuthor().getValue() != null)
+                        allTagIds.addAll(cf.getProperties().getElements().getAuthor().getValue());
+                    if(cf.getProperties().getElements().getSource()!= null && cf.getProperties().getElements().getSource().getValue() != null)
+                        allTagIds.addAll( cf.getProperties().getElements().getSource().getValue());
+                    if(cf.getProperties().getElements().getTopic()!= null &&cf.getProperties().getElements().getTopic().getValue() != null)
+                        allTagIds.addAll(cf.getProperties().getElements().getTopic().getValue());
+                    if(cf.getProperties().getElements().getTypology()!= null &&cf.getProperties().getElements().getTypology().getValue() != null)
+                        allTagIds.addAll(cf.getProperties().getElements().getTypology().getValue());
+
+                    if(allTagIds != null && allTagIds.size() >0) {
+                        //2.si recuperano tutti gli elementi di tipo Tag sulla base del TagId
+                        Tag[] allTags = allTagIds.stream().map(tagId->{
+                            return tagmanager.resolve((String)tagId);
+                        }).toArray(Tag[]::new);
+                        //3.si recupera il content fragment appena creato/modificato
+                        Resource masterNodeResource = resolver.getResource(cfResourcePath+"/jcr:content/data/master");
+                        //4. si associano i tags al content fragment
+                        if(masterNodeResource != null)
+                            tagmanager.setTags(masterNodeResource, allTags);
+                        else
+                            addErrors("Impostare cq:tags per "+cfResourcePath);
+                    }
+                });
+
+
+            }
         } catch (IOException | RepositoryException | ImportLibraryException e) {
             addErrors(e.getMessage());
             return;

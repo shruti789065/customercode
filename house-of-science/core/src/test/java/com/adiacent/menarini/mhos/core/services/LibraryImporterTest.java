@@ -105,6 +105,17 @@ class LibraryImporterTest {
                 }}
             );
 
+            lenient().when(tagManager.resolve(any(String.class))).thenAnswer(new Answer<Tag>() {
+                @Override
+                public Tag answer(InvocationOnMock invocation) throws Throwable {
+                    return mockedTag;
+                }}
+            );
+
+            lenient().doNothing().when(tagManager).deleteTag(any(Tag.class));
+
+            lenient().doNothing().when(tagManager).setTags(any(Resource.class),any(Tag[].class));
+
         } catch (InvalidTagFormatException e) {
             throw new RuntimeException(e);
         } catch (TagException e) {
@@ -115,12 +126,12 @@ class LibraryImporterTest {
         //gestione sessione mocckata
         Session session = mock(Session.class);
         //when(servlet.getCustomSession(any(ResourceResolver.class))).thenReturn(session);
-        try {
+        /*try {
             doNothing().when(session).save();
             doNothing().when(session).move(any(String.class), any(String.class));
         } catch (RepositoryException e) {
             throw new RuntimeException(e);
-        }
+        }*/
 
 
 
