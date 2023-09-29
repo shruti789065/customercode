@@ -425,6 +425,7 @@ public class LibraryImporter implements Cloneable{
         label = label.trim().toLowerCase().replaceAll("[\\(\\)\\[\\]\\']","");
         label = label.replaceAll("[\\s:]","-");
         label = label.replaceAll("[\\?]","-");
+        label = label.replaceAll("[\\%]","-");
         return JcrUtil.escapeIllegalJcrChars(label);
     }
 
