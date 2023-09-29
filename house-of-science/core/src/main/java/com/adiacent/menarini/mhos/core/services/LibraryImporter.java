@@ -953,7 +953,7 @@ public class LibraryImporter implements Cloneable{
                 Node n = createNode(importerConfig.getCategoryPath(), "sling:Folder", session);
                 Node jcr = createNode(importerConfig.getCategoryPath()+"/jcr:content", JcrConstants.NT_UNSTRUCTURED, session);
                 if(jcr != null) {
-                    jcr.setProperty("title", "infectivology");
+                    jcr.setProperty("title", "Microbiology & Infectious Disease");
                     jcr.setProperty("source", "false");
                     session.refresh(true);
                     session.save();
