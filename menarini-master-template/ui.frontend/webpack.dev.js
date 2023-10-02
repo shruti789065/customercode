@@ -25,6 +25,24 @@ module.exports = env => {
 			}),
 			new HtmlWebpackPlugin({
 				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/library.html'),
+				filename: 'library.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/content-page.html'),
+				filename: 'content-page.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/internal-page.html'),
+				filename: 'internal-page.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
 				template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/landing-research.html'),
 				filename: 'landing-research.html',
 				chunks: ['site', 'stemline']
