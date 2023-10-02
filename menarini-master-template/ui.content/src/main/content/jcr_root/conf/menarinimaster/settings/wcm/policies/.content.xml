@@ -1269,6 +1269,37 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1684407369649>
             </wrapper-standard>
+            <full-width-banner jcr:primaryType="nt:unstructured">
+                <policy_1695716621541
+                    jcr:lastModified="{Date}2023-09-26T10:24:53.462+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Full width banner Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Image"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-full-width-banner--right"
+                                    cq:styleId="1695716669830"
+                                    cq:styleLabel="Right"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-full-width-banner--left"
+                                    cq:styleId="1695716680319"
+                                    cq:styleLabel="Left"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1695716621541>
+            </full-width-banner>
         </components>
     </menarinimaster>
 </jcr:root>
