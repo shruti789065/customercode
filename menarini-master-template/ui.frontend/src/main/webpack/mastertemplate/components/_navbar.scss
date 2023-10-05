@@ -1,0 +1,143 @@
+.cmp-navbar {
+	background-color: $color-corporate;
+	height: 40px;
+	&.cq-Editable-dom {
+		max-height: 100%;
+		.text {
+			margin-bottom: 1em;
+		}
+	}
+	.text{
+		margin: 0px;
+	}
+	.cmp-text {
+		font-family: $font-family-georgia;
+		font-style: italic;
+		font-weight: normal;
+		color: $white;
+		position: relative;
+		top: 5px;
+		p {
+			margin: 4px 0px;
+			font-size: 16px;
+			font-weight: $font-regular;
+
+			a {
+				display: block;
+				margin: 0;
+				font-family: $font-family-oswald;
+				font-weight: $font-regular;
+				color: $white;
+				font-style: normal;
+				text-decoration: none;
+				&:hover {
+					background-color: transparent;
+					color: $white;
+					text-decoration: underline;
+				}
+			}
+		}
+		&#qualitycomesfirst {
+			p {
+				a {
+					font-family: $font-family-georgia;
+					font-style: italic;
+				}
+			}
+		}
+	}
+	&.buildingblock {
+		&-mobile {
+			top: 100px;
+			position: fixed;
+			height: calc(100vh - 100px);
+			width: 100vw;
+			border-radius: 0px;
+			left: 100%;
+			transition: left 0.8s ease-in;
+			border: 0px;
+			background-color: $color-six;
+			display: block;
+			overflow-y: auto;
+			padding-top: 1.5em;
+			margin-top: 0px;
+			z-index: 999;
+			&--active {
+				left: 0%;
+			}
+		}
+	}
+	.languagenavigation{
+		width: fit-content !important;
+	}
+	.buildingblock {
+		margin-left: auto !important;
+		margin-right: 2rem !important;
+		.cmp-text {
+			p {
+				font-size: 13px;
+				margin: 6px 0px;
+			}
+		}
+	}
+	&-overlayer {
+		position: fixed;
+		display: none;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 88;
+		cursor: pointer;
+	}	
+	
+	&--text-mobile {
+		display: none;
+	}
+	.aem-Grid.aem-Grid--12.aem-Grid--tablet--12.aem-Grid--default--12.aem-Grid--phone--12,
+	.aem-Grid.aem-Grid--12.aem-Grid--tablet--12.aem-Grid--default--12.aem-Grid--phone--12  {
+		display: flex;
+	}
+}
+
+@media (max-width: 1200px) {
+	.cmp-navbar {
+		.buildingblock {
+			.cmp-text {
+				visibility: hidden;
+			}
+		}
+		&--text-mobile {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			background-color: $color-six;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			margin-top: 50px;
+			.cmp-text {
+				text-transform: uppercase;
+				font-size: 16px;
+				font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+				color: $color-text !important;
+				text-align: center;
+				p {
+					text-align: center !important;
+					a{
+						color: $color-text !important;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 375px) {
+	.cmp-navbar{
+		max-height: 60px;
+	}
+}

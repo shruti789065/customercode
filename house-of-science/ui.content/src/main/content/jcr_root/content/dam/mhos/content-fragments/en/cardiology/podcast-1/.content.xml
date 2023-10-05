@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="8a1140c3-c40d-4ee7-9e84-e071194c31cd">
+    <jcr:content
+        cq:name="podcast-1"
+        cq:parentPath="/content/dam/mhos/content-fragments/en/cardiology"
+        jcr:lastModified="{Date}2023-03-30T14:35:21.245+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Podcast 1"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-30T14:35:21.245+02:00">
+        <data
+            cq:model="/conf/mhos/settings/dam/cfm/models/result-fragment"
+            jcr:primaryType="nt:unstructured">
+            <master
+                cq:tags="[house-of-science:typology/podcasts,house-of-science:generic-tags/blood,house-of-science:topic/public-health,house-of-science:author/attanasio,house-of-science:source/accademia-dei-lincei]"
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                articleDate="{Date}2022-12-13T00:00:00.000Z"
+                articleDate_x0040_LastModified="{Date}2023-03-30T14:35:21.231+02:00"
+                author="[house-of-science:author/attanasio]"
+                author_x0040_LastModified="{Date}2023-03-30T14:35:21.230+02:00"
+                description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&amp;nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xa;"
+                description_x0040_ContentType="text/html"
+                description_x0040_LastModified="{Date}2023-02-06T12:36:19.611+01:00"
+                link="https://www.msn.com/it-it/notizie/mondo/tesla-model-3-finisce-dentro-una-piscina-la-causa-%C3%A8-davvero-delle-pi%C3%B9-banali/ss-AA177P7N?ocid=entnewsntp&amp;amp;cvid=0a8b50b6cc6b4c0396bfe967e2fea20f"
+                link_x0040_LastModified="{Date}2023-03-30T14:34:03.671+02:00"
+                linkLabel="read more"
+                linkLabel_x0040_LastModified="{Date}2023-03-30T14:34:03.671+02:00"
+                linkTarget="_blank"
+                linkTarget_x0040_LastModified="{Date}2023-03-30T14:34:03.671+02:00"
+                source="[house-of-science:source/accademia-dei-lincei]"
+                source_x0040_LastModified="{Date}2023-03-30T14:34:03.671+02:00"
+                tags="[house-of-science:generic-tags/blood]"
+                tags_x0040_LastModified="{Date}2023-03-30T14:34:03.669+02:00"
+                topic="[house-of-science:topic/public-health]"
+                topic_x0040_LastModified="{Date}2023-03-30T14:35:21.232+02:00"
+                typology="[house-of-science:typology/podcasts]"
+                typology_x0040_LastModified="{Date}2023-03-30T14:34:03.670+02:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,43 @@
+.cmp-title {
+}
+.cmp-title--border__left {
+}
+.cmp-title__text {
+  font-family: $font-family-Libre;
+  color: $black;
+  font-weight: bold;
+  font-size: 20px;
+}
+.cmp-title--color {
+  &__white {
+	.cmp-title__text{
+		color: $white;
+	}
+  }
+  &__primary {
+	.cmp-title__text{
+		color: $primary-color-three;
+	}
+  }
+}
+.cmp-title--alignment__left{
+  text-align: left;
+}
+
+.cmp-title--alignment__center{
+  text-align: center;
+}
+
+.cmp-title__link {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 1200px) {
+  .cmp-title__text{
+    text-align: center;
+  }
+}
+
+
+
+

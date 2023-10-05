@@ -1,0 +1,20 @@
+
+.cmp-image {}
+
+.cmp-image__link {}
+
+.cmp-image__image {
+	object-fit: cover;
+	height: 100%;
+}
+
+.cmp-image__title {}
+
+.cmp-image__real-size{
+	.cmp-image{
+		.cmp-image__image{
+			object-fit: none;
+		}
+	}
+}
+

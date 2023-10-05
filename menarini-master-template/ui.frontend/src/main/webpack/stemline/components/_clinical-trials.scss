@@ -1,0 +1,285 @@
+#clinicalTrials {
+    display: flex;
+    flex-direction: column;
+
+    .resultsclinicalTrials {
+        flex-direction: column;
+
+        &.show {
+            display: flex;
+        }
+
+        .compoundPipeline {
+            width: 35%;
+        }
+
+        .indicationPipeline {
+            width: 35%;
+        }
+
+        .statusPipeline {
+            width: 14%;
+            padding-left: 1%;
+        }
+
+        .datailPipeline {
+            width: 15%;
+        }
+
+        .headerPipeline {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 2px solid $color-fourth;
+            font-family: $font-family-georgia;
+            font-weight: $font-regular;
+            font-size: 20px;
+            font-style: italic;
+            width: 100%;
+            margin-bottom: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            .indicationPipeline {
+                padding: 0px 0px 0px 20px;
+            }
+
+            .compoundPipeline {
+                padding: 0px 0px 0px 20px;
+            }
+
+        }
+
+        .bodyPipeline {
+            display: flex;
+            flex-direction: column;
+
+            .rowPipeline {
+                display: flex;
+                flex-direction: row;
+                align-items: start;
+
+                &.first {
+                    .indicationPipeline {
+                        font-size: 20px;
+                        font-family: $font-family-oswald;
+                        font-weight: $font-light;
+                        border-left: 0px;
+                    }
+
+                    .compoundPipeline {
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        font-family: $font-family-oswald;
+                        font-weight: $font-regular;
+                        opacity: 1;
+                        border-right: 1px solid $color-fourth;
+
+                        .popUpPipeline {
+                            padding: 0px;
+                            display: flex;
+
+                            button {
+                                font-family: $font-family-arimo;
+                                border: 0px;
+                                background-color: unset;
+                                color: $color-primary;
+                                text-transform: capitalize;
+                                font-weight: $font-regular;
+                                font-size: 14px;
+                                padding: 0px;
+                                margin: 0px;
+                                text-decoration: underline;
+                            }
+
+                            .modal {
+                                .modal-dialog {
+                                    .modal-content {
+                                        border-radius: 0px;
+                                        padding: 20px;
+
+                                        .modal-header {
+                                            font-size: 20px;
+                                            text-transform: uppercase;
+                                            font-family: $font-family-oswald;
+                                            font-weight: $font-regular;
+                                            padding: 0px 0px 15px 0px;
+                                            color: $color-corporate;
+                                            letter-spacing: 0.5px;
+                                        }
+
+                                        .modal-body {
+                                            padding: 15px 0px 0px 0px;
+                                            font-family: $font-family-arimo;
+                                            text-transform: capitalize;
+                                            font-size: 16px;
+                                            font-weight: $font-regular;
+                                            color: $color-corporate;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.last {
+                    background-image: linear-gradient(to right, $color-fourth 33%, $white 0%);
+                    background-position: bottom;
+                    background-size: 15px 1px;
+                    background-repeat: repeat-x;
+                }
+
+                .compoundPipeline {
+                    opacity: 0;
+                    padding: 20px 0px 20px 20px;
+                    font-family: $font-family-oswald;
+                    font-weight: $font-regular;
+                    min-height: 100px;
+                    font-size: 20px;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    color: $color-corporate;
+                    letter-spacing: 0.5px;
+
+                    .popUpPipeline {
+                        display: none;
+                    }
+                }
+
+                .indicationPipeline {
+                    font-size: 20px;
+                    font-family: $font-family-oswald;
+                    font-weight: $font-light;
+                    padding: 20px 0px 20px 20px;
+                    min-height: 100px;
+                    border-left: 1px solid $color-fourth;
+                    box-sizing: border-box;
+                    margin-left: -1px;
+                    color: $color-corporate;
+                    letter-spacing: 0.5px;
+                }
+
+                .statusPipeline {
+                    padding: 20px 0px 20px 1%;
+                    font-size: 19px;
+                    font-family: $font-family-oswald;
+                    font-weight: $font-light;
+                    text-transform: capitalize;
+                    color: $color-corporate;
+                    letter-spacing: 0.47px;
+                }
+
+                .detailPipeline {
+                    padding: 20px 0px;
+
+                    a {
+                        color: $color-primary;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .resultsclinicalTrials {
+            width: 100%;
+            align-items: start;
+
+            .bodyPipeline {
+                width: 100%;
+
+                .rowPipeline {
+                    background-image: linear-gradient(to right, $color-fourth 33%, $white 0%);
+                    background-position: bottom;
+                    background-size: 15px 1px;
+                    background-repeat: repeat-x;
+
+                    &.last {
+                        background-image: linear-gradient(to right, $color-fourth 100%, $white 0%);
+                        background-size: 15px 2px;
+                    }
+
+                    .compoundPipeline,
+                    .indicationPipeline,
+                    .statusPipeline,
+                    .detailPipeline {
+                        width: 60%;
+                        min-height: 100px;
+                        margin-left: auto;
+                        padding: 20px 20px 20px 20px;
+                        position: relative;
+                        border-left: 1px solid $color-fourth !important;
+                        border-right: 0px !important;
+                        opacity: 1;
+                        overflow: visible;
+
+                        &:before {
+                            display: block;
+                            margin-left: -70%;
+                            margin-top: 0px;
+                            position: absolute;
+                            max-width: 90px;
+                            font-family: $font-family-georgia;
+                            font-weight: $font-regular;
+                            font-size: 16px;
+                            font-style: italic;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    .compoundPipeline:before {
+                        content: "Compound";
+                    }
+
+                    .indicationPipeline:before {
+                        content: "Indication";
+                    }
+
+                    .statusPipeline:before {
+                        content: "Status";
+                    }
+
+                    .detailPipeline:before {
+                        content: " ";
+                    }
+
+                }
+            }
+
+        }
+
+        .resultsclinicalTrials {
+            .headerPipeline {
+                display: none;
+            }
+
+            .bodyPipeline {
+                .rowPipeline {
+                    flex-direction: column;
+
+                    .compoundPipeline {
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        font-family: $font-family-oswald;
+                        font-weight: $font-regular;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .resultsclinicalTrials {
+            .headerPipeline {
+                display: none;
+            }
+
+            .bodyPipeline {
+                .rowPipeline {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

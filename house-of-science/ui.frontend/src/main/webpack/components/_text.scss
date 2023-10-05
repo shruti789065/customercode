@@ -1,0 +1,20 @@
+.cmp-text {
+  color: $black;
+  font-family: $font-family;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  p{
+    font-weight: 300;
+  }
+}
+.cmp-text--color__white{
+	.cmp-text {
+		color: $white;
+	}
+}
+@media (max-width: 768px) {
+  .cmp-text{
+    text-align: center;
+  }
+}

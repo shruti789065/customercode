@@ -1,0 +1,98 @@
+.cmp-scientific-list {
+	margin: 60px auto;
+
+	.cmp-list {
+		list-style-type: none;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+		flex-direction: row;
+		justify-content: space-between;
+
+		.cmp-list__item {
+			width: 100%;
+			height: 330px;
+			margin-bottom: 27px;
+
+			.cmp-teaser {
+				position: relative;
+				float: left;
+				text-align: center;
+				width: 100%;
+				height: 100%;
+				background: url("/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/images/scientific-card-bg.png ") center center no-repeat;
+
+				.cmp-teaser__title {
+					position: absolute;
+					top: 45%;
+					color: $primary-color-three;
+					font-family: Montserrat;
+					font-size: 20px;
+					font-weight: bold;
+					line-height: 29px;
+					text-align: center;
+					text-transform: uppercase;
+					float: left;
+					text-align: center;
+					width: 100%;
+					left: 0;
+					margin: 0;
+					z-index: 9;
+				}
+			}
+
+			.cmp-teaser__link {
+				height: 100%;
+
+				.cmp-teaser__image {
+					height: 100%;
+					cursor: pointer;
+					
+					.cmp-image {
+						height: 100%;
+						
+						.cmp-image__image {
+							max-width: 350px;
+							max-height: 100%;
+							height: 100%;
+							padding: 25px;
+							transition: transform 330ms ease-in-out;
+							margin: auto;
+							
+							&:hover {
+								transform: scale(1.1);
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		.cmp-list {
+			gap: 2%;
+			.cmp-list__item {
+				flex-basis: 32%;
+				width: auto;
+			}
+		}
+
+	}
+
+	@media (min-width: 768px) and (max-width:1200px) {
+		.cmp-list {
+			gap: 2%;
+			.cmp-list__item {
+				flex-basis: 49%;
+				.cmp-teaser {
+					.cmp-teaser__title {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+
+	}
+}

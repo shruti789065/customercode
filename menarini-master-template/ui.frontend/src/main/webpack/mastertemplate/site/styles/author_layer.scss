@@ -1,0 +1,80 @@
+.cq-Editable-dom {
+	&.placeholder.aem-AllowedComponent--component {
+		display: none;
+	}
+
+	.internalmenu {
+		.cmp-internalmenu__button {
+			&.cmp-internalmenu__button-opened {
+				left: 0;
+			}
+		}
+	}
+	.cmp-navbar{
+		height: auto;
+	}
+
+	.cmp-internal-header {
+		.cmp-teaser__content {
+			top: 0;
+		}
+	}
+
+	.cmp-carousel {
+		height: 700px !important;
+
+		.cmp-carousel__item {
+
+			.cmp-teaser {
+				video {
+					height: 100%;
+				}
+			}
+
+			.cmp-teaser,
+			.cmp-teaser__image,
+			img {
+				height: 700px !important;
+			}
+			@media (min-width: 769px) {
+				[data-small-screen-only] {
+					display: none;
+				}
+			}
+		}
+	}
+}
+.editor-panel-content {
+	div{
+		&[title="Section"]{
+			&.is-active,
+			&.is-hover,
+			&.is-selected,
+			&:focus{
+				border: 1px solid black!important;
+				.cq-Overlay--component-name{
+					background-color: black!important;
+				}
+			}
+		}
+	}
+}
+
+.cmp-megamenu--editor-share-item {
+	display: flex;
+    padding-bottom: 30px;
+    justify-content: space-between;
+	.coral-Form-fieldwrapper{
+		display: inline-flex;
+		.cmp-megamenu--editor-social{
+			margin: 0 10px;
+		}
+	}
+}
+
+.aem-AuthorLayer-Edit,
+.cq-Editable-dom {
+	.cmp-share-mobile {
+		display: none !important;
+	}
+}

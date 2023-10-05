@@ -1,0 +1,12 @@
+#requestContactIcon {
+	.image {
+		max-width: 50px;
+		margin-right: 10px;
+	}
+}
+@media (max-width: 768px) {
+	#requestContactIcon .cmp-container .aem-Grid {
+		display: flex;
+		flex-direction: row;
+	}
+}

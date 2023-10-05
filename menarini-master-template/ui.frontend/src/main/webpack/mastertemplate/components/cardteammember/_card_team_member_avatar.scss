@@ -1,0 +1,61 @@
+.cmp-card-avatar-container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 30px 0;
+    align-items: flex-start;
+    .card-avatar__image{
+        height: 200px;
+        border-radius: 50%;
+        width: 200px;
+    }
+    .cmp-card-avatar__content{
+        padding: 10px 40px;
+        font-family: $font-family-oswald;
+        .cmp-card-avatar__name{
+            margin: auto;
+            padding-bottom: 10px;
+            font-weight: $font-extra-light;
+            font-size: 30px;
+            color: $color-primary-hover;
+        }
+        .cmp-card-avatar__position{
+            font-size: 20px;
+            text-transform: uppercase;
+            color: $color-corporate;
+            font-weight: $font-regular;
+        }
+        .cmp-card-avatar__button{
+            text-transform: uppercase;
+            padding: 0;
+            background-color: unset;
+            color: $color-text;
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 14px;
+            transition: 0.4s;
+            text-decoration: underline;
+        }
+        .cmp-card-avatar__description_hide{
+            display: none;
+        }
+        .cmp-card-avatar__description_show{
+            display: block;
+            font-family: $font-family-arimo;
+            font-weight: $font-regular;
+            font-size: 14px;
+            padding-top: 15px;
+        }
+    }
+}
+
+
+@media (max-width: 576px) {
+	.cmp-card-avatar-container{
+        flex-direction: column;
+	}
+}

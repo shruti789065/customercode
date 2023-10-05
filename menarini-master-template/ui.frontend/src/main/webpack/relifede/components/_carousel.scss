@@ -1,0 +1,17 @@
+.cmp-slideshow-primary-button,
+.cmp-slideshow-secondary-button {
+	.cmp-teaser .cmp-teaser__content .cmp-teaser__action-container {
+		background-color: $color-rel-third;
+		cursor: pointer;
+		a {
+			color: $color-primary;
+		}
+
+		&:hover{
+			background-color: $color-primary;
+			a{
+				color: $color-rel-third;
+			}
+		}
+	}
+}

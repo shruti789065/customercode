@@ -1,0 +1,554 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Wed Jun 22 2022 22:57:12 GMT+0200",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Header",
+    "cq:template": "/conf/menarinimaster/settings/wcm/templates/xf-web-variation",
+    "cq:xfMasterVariation": true,
+    "jcr:created": "Wed Jun 22 2022 22:57:12 GMT+0200",
+    "cq:lastModified": "Fri Jun 24 2022 11:00:49 GMT+0200",
+    "cq:xfVariantType": "web",
+    "cq:tags": [],
+    "sling:resourceType": "menarinimaster/components/xfpage",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:lastModifiedBy": "admin",
+      "layout": "responsiveGrid",
+      "jcr:lastModified": "Wed Jun 08 2022 11:59:04 GMT+0200",
+      "sling:resourceType": "menarinimaster/components/container",
+      "logo": {
+        "jcr:primaryType": "nt:folder",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Wed Jun 22 2022 22:57:13 GMT+0200",
+        "logo.svg": {
+          "jcr:primaryType": "nt:file",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Wed Jun 22 2022 22:57:13 GMT+0200",
+          "jcr:content": {
+            "jcr:primaryType": "nt:resource",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:mimeType": "image/svg+xml",
+            "jcr:lastModified": "Wed Jun 22 2022 22:57:13 GMT+0200",
+            ":jcr:data": 3432,
+            "jcr:uuid": "bf109b16-56cd-406d-bcfd-9369eb8ddef0"
+          }
+        }
+      },
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "layout": "responsiveGrid",
+        "jcr:created": "Mon Jun 06 2022 11:53:40 GMT+0200",
+        "jcr:lastModified": "Mon Jun 06 2022 12:36:36 GMT+0200",
+        "sling:resourceType": "menarinimaster/components/container",
+        "backgroundColor": "#143F59",
+        "cq:styleIds": [
+          "1653644898118",
+          "1653644909760"
+        ],
+        "text": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Mon Jun 06 2022 12:37:12 GMT+0200",
+          "text": "<p>Quality Comes First</p>\r\n",
+          "jcr:lastModified": "Mon Jun 06 2022 12:38:09 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/text",
+          "textIsRich": "true",
+          "cq:responsive": {
+            "jcr:primaryType": "nt:unstructured",
+            "default": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "0",
+              "width": "5"
+            },
+            "tablet": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "0",
+              "width": "4"
+            }
+          }
+        },
+        "text_1286020863": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:title": "navbar text",
+          "cq:masterBuildingBlock": true,
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Mon Jun 06 2022 13:01:08 GMT+0200",
+          "jcr:lastModified": "Fri Jun 10 2022 16:49:22 GMT+0200",
+          "sling:resourceType": "cq/experience-fragments/editor/components/buildingblock",
+          "cq:responsive": {
+            "jcr:primaryType": "nt:unstructured",
+            "default": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "1",
+              "width": "5"
+            },
+            "tablet": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "0",
+              "width": "2",
+              "behavior": "hide"
+            },
+            "phone": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "0",
+              "width": "2",
+              "behavior": "hide"
+            }
+          },
+          "text_1098403844": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Tue Jun 21 2022 17:41:49 GMT+0200",
+            "text": "<p style=\"text-align: center;\">Scopri il Guppo Menarini</p>\r\n",
+            "jcr:lastModified": "Wed Jun 22 2022 09:58:16 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/text",
+            "textIsRich": "true",
+            "cq:responsive": {
+              "jcr:primaryType": "nt:unstructured",
+              "default": {
+                "jcr:primaryType": "nt:unstructured",
+                "offset": "0",
+                "width": "2"
+              }
+            }
+          },
+          "text": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri Jun 10 2022 16:54:13 GMT+0200",
+            "text": "<p style=\"text-align: right;\"><a href=\"#\">GLOBAL WEBSITE</a></p>\r\n",
+            "jcr:lastModified": "Tue Jun 21 2022 17:53:07 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/text",
+            "textIsRich": "true",
+            "cq:responsive": {
+              "jcr:primaryType": "nt:unstructured",
+              "default": {
+                "jcr:primaryType": "nt:unstructured",
+                "offset": "0",
+                "width": "2"
+              }
+            }
+          },
+          "text_488425983": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri Jun 10 2022 16:54:52 GMT+0200",
+            "text": "<p style=\"text-align: right;\"><a href=\"#\">COUNTRIES</a></p>\r\n",
+            "jcr:lastModified": "Tue Jun 21 2022 17:46:11 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/text",
+            "textIsRich": "true",
+            "cq:responsive": {
+              "jcr:primaryType": "nt:unstructured",
+              "default": {
+                "jcr:primaryType": "nt:unstructured",
+                "offset": "0",
+                "width": "1"
+              }
+            }
+          }
+        },
+        "languagenavigation": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Mon Jun 06 2022 14:26:56 GMT+0200",
+          "navigationRoot": "/content/menarinimaster/en",
+          "jcr:lastModified": "Tue Jun 07 2022 15:26:05 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/languagenavigation",
+          "structureDepth": "1",
+          "cq:responsive": {
+            "jcr:primaryType": "nt:unstructured",
+            "default": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "0",
+              "width": "1"
+            },
+            "tablet": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "6",
+              "width": "2"
+            },
+            "phone": {
+              "jcr:primaryType": "nt:unstructured",
+              "offset": "5",
+              "width": "2"
+            }
+          }
+        }
+      },
+      "container_1861674306": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "layout": "responsiveGrid",
+        "jcr:created": "Mon Jun 06 2022 12:36:46 GMT+0200",
+        "jcr:lastModified": "Mon Jun 06 2022 14:32:16 GMT+0200",
+        "sling:resourceType": "menarinimaster/components/container",
+        "cq:styleIds": [
+          "1655115764732"
+        ],
+        "megamenu": {
+          "jcr:primaryType": "nt:unstructured",
+          "altValueFromPageImage": "false",
+          "jcr:createdBy": "admin",
+          "imageFromPageImage": "false",
+          "fileReference": "/content/dam/menarinimaster/assets/logo_menarini_group.svg",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Wed Jun 08 2022 12:41:11 GMT+0200",
+          "alt": "menarini logo",
+          "jcr:lastModified": "Fri Jun 24 2022 11:00:48 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/header/megamenu",
+          "isDecorative": "false",
+          "altValueFromDAM": "false",
+          "share": {
+            "jcr:primaryType": "nt:unstructured"
+          },
+          "item_1654787081213": {
+            "jcr:primaryType": "nt:unstructured",
+            "cq:panelTitle": "News",
+            "jcr:lastModifiedBy": "admin",
+            "layout": "responsiveGrid",
+            "jcr:lastModified": "Thu Jun 09 2022 17:05:41 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container",
+            "container_2025416242": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Fri Jun 10 2022 14:12:04 GMT+0200",
+              "jcr:lastModified": "Fri Jun 10 2022 14:12:04 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/container",
+              "cq:styleIds": [
+                "1655115768500"
+              ],
+              "cq:responsive": {
+                "jcr:primaryType": "nt:unstructured"
+              },
+              "teaser": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "imageFromPageImage": "false",
+                "fileReference": "/content/dam/menarinimaster/assets/boxMenu_consumerHealthBIG.jpg",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Fri Jun 10 2022 14:14:43 GMT+0200",
+                "titleFromPage": "true",
+                "alt": "alt",
+                "linkURL": "#",
+                "linkTarget": "_self",
+                "jcr:lastModified": "Fri Jun 10 2022 14:15:25 GMT+0200",
+                "descriptionFromPage": "true",
+                "sling:resourceType": "menarinimaster/components/teaser",
+                "isDecorative": "false",
+                "textIsRich": "true",
+                "altValueFromDAM": "false"
+              },
+              "text": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Fri Jun 10 2022 14:15:33 GMT+0200",
+                "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;</p>\r\n",
+                "jcr:lastModified": "Fri Jun 10 2022 14:16:08 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/text",
+                "textIsRich": "true"
+              },
+              "button": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:title": "Read more",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Fri Jun 10 2022 14:16:15 GMT+0200",
+                "linkTarget": "_self",
+                "jcr:lastModified": "Fri Jun 10 2022 14:17:22 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/button",
+                "cq:styleIds": [
+                  "1653579684271",
+                  "1653579730618"
+                ]
+              }
+            },
+            "container": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 09 2022 17:10:03 GMT+0200",
+              "jcr:lastModified": "Thu Jun 09 2022 17:10:03 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/container",
+              "cq:styleIds": [
+                "1655115774651"
+              ],
+              "title": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:title": "Discover More",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 17:10:17 GMT+0200",
+                "type": "h2",
+                "linkTarget": "_self",
+                "jcr:lastModified": "Thu Jun 09 2022 17:10:58 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/title",
+                "cq:styleIds": [
+                  "1653552493699"
+                ]
+              },
+              "cq:responsive": {
+                "jcr:primaryType": "nt:unstructured"
+              },
+              "list": {
+                "jcr:primaryType": "nt:unstructured",
+                "showModificationDate": "false",
+                "jcr:createdBy": "admin",
+                "tagsMatch": "any",
+                "linkItems": "true",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 17:11:04 GMT+0200",
+                "parentPage": "/content/menarinimaster/language-masters",
+                "sortOrder": "asc",
+                "displayItemAsTeaser": "false",
+                "pages": [
+                  "/content/menarinimaster/language-masters/it/my-account/address-book",
+                  "/content/menarinimaster/language-masters/it/my-account/address-book",
+                  "/content/menarinimaster/language-masters/it/my-account/address-book",
+                  "/content/menarinimaster/language-masters/it/my-account/address-book"
+                ],
+                "showDescription": "false",
+                "jcr:lastModified": "Wed Jun 15 2022 09:51:29 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/list",
+                "childDepth": "1",
+                "listFrom": "children"
+              }
+            }
+          },
+          "item_1654787773435": {
+            "jcr:primaryType": "nt:unstructured",
+            "cq:panelTitle": "Therapeutic Area",
+            "jcr:lastModifiedBy": "admin",
+            "layout": "responsiveGrid",
+            "jcr:lastModified": "Thu Jun 09 2022 17:16:49 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container",
+            "container": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "layout": "responsiveGrid",
+              "jcr:created": "Thu Jun 09 2022 17:16:38 GMT+0200",
+              "jcr:lastModified": "Mon Jun 13 2022 10:47:00 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/container",
+              "cq:styleIds": [
+                "1655115768500"
+              ],
+              "cq:responsive": {
+                "jcr:primaryType": "nt:unstructured"
+              },
+              "container": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 17:19:16 GMT+0200",
+                "jcr:lastModified": "Thu Jun 09 2022 17:19:16 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/container",
+                "cq:styleIds": [
+                  "1655115768500",
+                  "1655115780275"
+                ]
+              },
+              "container_copy": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 17:19:16 GMT+0200",
+                "jcr:lastModified": "Thu Jun 09 2022 17:19:16 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/container",
+                "cq:styleIds": [
+                  "1655115774651",
+                  "1655115780275"
+                ]
+              }
+            },
+            "container_377507982": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 09 2022 17:17:18 GMT+0200",
+              "jcr:lastModified": "Thu Jun 09 2022 17:17:18 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/container",
+              "cq:styleIds": [
+                "1655115774651"
+              ],
+              "cq:responsive": {
+                "jcr:primaryType": "nt:unstructured"
+              },
+              "title": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:title": "prova",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 17:17:47 GMT+0200",
+                "type": "h3",
+                "linkTarget": "_self",
+                "jcr:lastModified": "Thu Jun 09 2022 17:18:00 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/title"
+              }
+            }
+          },
+          "item_1654693185355": {
+            "jcr:primaryType": "nt:unstructured",
+            "cq:panelTitle": "About Us",
+            "jcr:lastModifiedBy": "admin",
+            "layout": "responsiveGrid",
+            "jcr:lastModified": "Fri Jun 10 2022 14:07:13 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container",
+            "container_1702028982": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 09 2022 12:03:55 GMT+0200",
+              "jcr:lastModified": "Thu Jun 09 2022 12:03:55 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/container",
+              "cq:styleIds": [
+                "1655115768500"
+              ],
+              "cq:responsive": {
+                "jcr:primaryType": "nt:unstructured"
+              },
+              "teaser": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:title": "pharmaceuticals",
+                "imageFromPageImage": "false",
+                "fileReference": "/content/dam/menarinimaster/assets/boxMenu_pharmaceuticalsBIG.jpg",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 12:08:18 GMT+0200",
+                "titleFromPage": "false",
+                "alt": "pharmaceuticals banner image",
+                "linkURL": "/content/menarinimaster/it/it/my-account",
+                "linkTarget": "_self",
+                "jcr:lastModified": "Tue Jun 21 2022 17:14:45 GMT+0200",
+                "descriptionFromPage": "false",
+                "sling:resourceType": "menarinimaster/components/teaser",
+                "isDecorative": "false",
+                "textIsRich": "true",
+                "altValueFromDAM": "false"
+              },
+              "list": {
+                "jcr:primaryType": "nt:unstructured",
+                "showModificationDate": "false",
+                "jcr:createdBy": "admin",
+                "tagsMatch": "any",
+                "linkItems": "true",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 12:09:26 GMT+0200",
+                "sortOrder": "asc",
+                "displayItemAsTeaser": "false",
+                "pages": [
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it"
+                ],
+                "showDescription": "false",
+                "jcr:lastModified": "Fri Jun 10 2022 14:33:28 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/list",
+                "childDepth": "1",
+                "listFrom": "static"
+              }
+            },
+            "container_781062112": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 09 2022 12:04:59 GMT+0200",
+              "jcr:lastModified": "Fri Jun 10 2022 14:54:02 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/container",
+              "cq:styleIds": [
+                "1655115774651"
+              ],
+              "cq:responsive": {
+                "jcr:primaryType": "nt:unstructured"
+              },
+              "teaser_copy": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:title": "Consumer Healtcare",
+                "imageFromPageImage": "false",
+                "fileReference": "/content/dam/menarinimaster/assets/boxMenu_consumerHealthBIG.jpg",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 12:08:18 GMT+0200",
+                "titleFromPage": "false",
+                "alt": "Consumer Healtcare banner image",
+                "linkURL": "/content/menarinimaster/en/en/content-test",
+                "linkTarget": "_self",
+                "jcr:lastModified": "Tue Jun 21 2022 17:14:57 GMT+0200",
+                "descriptionFromPage": "false",
+                "sling:resourceType": "menarinimaster/components/teaser",
+                "isDecorative": "false",
+                "textIsRich": "true",
+                "altValueFromDAM": "false"
+              },
+              "list_copy": {
+                "jcr:primaryType": "nt:unstructured",
+                "showModificationDate": "false",
+                "jcr:createdBy": "admin",
+                "tagsMatch": "any",
+                "linkItems": "true",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Thu Jun 09 2022 12:09:26 GMT+0200",
+                "sortOrder": "asc",
+                "displayItemAsTeaser": "false",
+                "pages": [
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it",
+                  "/content/menarinimaster/language-masters/it"
+                ],
+                "showDescription": "false",
+                "jcr:lastModified": "Fri Jun 10 2022 14:33:37 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/list",
+                "childDepth": "1",
+                "listFrom": "static"
+              }
+            }
+          }
+        },
+        "item_1654693234653": {
+          "jcr:primaryType": "nt:unstructured",
+          "cq:panelTitle": "NEWS",
+          "jcr:lastModifiedBy": "admin",
+          "layout": "responsiveGrid",
+          "jcr:lastModified": "Thu Jun 09 2022 15:25:07 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/container"
+        }
+      },
+      "container_571272791": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Fri Jun 24 2022 09:19:47 GMT+0200",
+        "id": "cmp-logo-container",
+        "jcr:lastModified": "Fri Jun 24 2022 09:54:32 GMT+0200",
+        "sling:resourceType": "menarinimaster/components/container",
+        "cq:styleIds": [
+          "1656055479743"
+        ]
+      }
+    }
+  }
+}

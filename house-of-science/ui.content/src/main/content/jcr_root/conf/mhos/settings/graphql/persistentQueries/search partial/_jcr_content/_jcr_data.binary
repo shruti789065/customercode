@@ -1,0 +1,50 @@
+
+
+
+query {
+  resultFragmentList(
+    filter: {
+      _path: {
+        _expressions: [
+        {
+          value: "/content/dam/mhos/content-fragments/en/cardiology"
+         _operator: STARTS_WITH
+        }]
+      },
+       typology: {
+      _expressions: [
+        {
+          value: "pod"
+          _operator: CONTAINS
+        }
+      ]
+      },
+      description: {
+        plaintext:{ 
+          _expressions: [
+        {
+          value: "lorem"
+          _operator: CONTAINS
+          _ignoreCase:true
+           
+        }
+      ]
+        }
+      
+    }
+      
+    })
+    {
+    items {
+      _path
+      author
+      topic 
+      tags
+      typology
+      articleDate
+      description {
+        plaintext
+      }
+    }
+  }
+}

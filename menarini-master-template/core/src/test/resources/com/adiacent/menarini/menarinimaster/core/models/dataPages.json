@@ -1,0 +1,247 @@
+{
+  "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Mon May 30 2022 16:20:12 GMT+0200",
+    "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "en",
+    "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---homepage",
+    "jcr:created": "Mon May 30 2022 16:20:12 GMT+0200",
+    "cq:lastModified": "Mon May 30 2022 13:05:15 GMT+0200",
+    "siteName":"menarinimaster",
+    "sling:resourceType": "menarinimaster/components/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "menarinimaster/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "slideshow": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Fri May 27 2022 14:11:50 GMT+0200",
+          "autopauseDisabled": "false",
+          "delay": "5000",
+          "jcr:lastModified": "Fri May 27 2022 14:12:31 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/slideshow",
+          "autoplay": "false",
+          "item_1653653527361": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "First Teaser title",
+            "imageFromPageImage": "false",
+            "fileReference": "/content/dam/wknd/en/magazine/skitouring/Skitouring5Sjoeberg.JPG",
+            "cq:panelTitle": "Elem1",
+            "jcr:lastModifiedBy": "admin",
+            "titleFromPage": "false",
+            "alt": "ski",
+            "title": "First Teaser Title",
+            "jcr:description": "<p>Teaser Description</p>\r\n",
+            "linkTarget": "_self",
+            "jcr:lastModified": "Fri May 27 2022 15:16:15 GMT+0200",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "menarinimaster/components/teaser",
+            "isDecorative": "false",
+            "textIsRich": "true",
+            "altValueFromDAM": "false",
+            "actions": {
+              "jcr:primaryType": "nt:unstructured",
+              "item0": {
+                "jcr:primaryType": "nt:unstructured",
+                "link": "/content/menarinimaster/language-masters/it/search",
+                "text": "Read More",
+                "linkTarget": "_self"
+              }
+            }
+          },
+          "actions": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "jcr:primaryType": "nt:unstructured",
+              "link": "/content/menarinimaster/language-masters/it/search",
+              "text": "Read More",
+              "linkTarget": "_self"
+            }
+          },
+          "item_1653653543341": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "Second Teaser Title",
+            "imageFromPageImage": "false",
+            "fileReference": "/content/dam/wknd/en/magazine/la-skateparks/AdobeStock_243954373.JPG",
+            "cq:panelTitle": "Elem2",
+            "jcr:lastModifiedBy": "admin",
+            "titleFromPage": "false",
+            "alt": "beach",
+            "title": "Second Teaser Title",
+            "jcr:description": "<p>Teaser Description</p>\r\n",
+            "linkTarget": "_self",
+            "jcr:lastModified": "Fri May 27 2022 15:15:56 GMT+0200",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "menarinimaster/components/teaser",
+            "isDecorative": "false",
+            "textIsRich": "true",
+            "altValueFromDAM": "false",
+            "actions": {
+              "jcr:primaryType": "nt:unstructured",
+              "item0": {
+                "jcr:primaryType": "nt:unstructured",
+                "link": "/content/menarinimaster/language-masters/it/search",
+                "text": "Read More",
+                "linkTarget": "_self"
+              }
+            }
+          }
+        }
+      }
+    },
+    "cq:featuredimage": {
+      "jcr:primaryType": "nt:unstructured",
+      "fileReference": "/content/dam/wknd/en/adventures/napa-wine-tasting/AdobeStock_280313729.jpg",
+      "jcr:lastModifiedBy": "admin",
+      "jcr:lastModified": "Mon Jun 06 2022 11:36:49 GMT+0200",
+      "sling:resourceType": "core/wcm/components/image/v3/image",
+      "altValueFromDAM": "false"
+    }
+  },
+  "test-content-page": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Tue Jun 07 2022 17:37:13 GMT+0200",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:createdBy": "admin",
+      "jcr:title": "test content page",
+      "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---content-page",
+      "jcr:created": "Tue Jun 07 2022 17:37:13 GMT+0200",
+      "cq:lastModified": "Tue Jun 07 2022 17:38:12 GMT+0200",
+      "sling:resourceType": "menarinimaster/components/page",
+      "cq:lastModifiedBy": "admin",
+      "root": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "menarinimaster/components/container",
+          "internalheader": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:title": "content title IH",
+            "imageFromPageImage": "false",
+            "fileReference": "/content/dam/menarinimaster/assets/logo_menarini_group.svg",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri May 27 2022 16:15:23 GMT+0200",
+            "titleFromPage": "false",
+            "alt": "fd",
+            "jcr:lastModified": "Tue Jun 07 2022 17:38:12 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/internalheader",
+            "isDecorative": "false",
+            "textIsRich": "true",
+            "altValueFromDAM": "false"
+          },
+          "breadcrumb": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri May 27 2022 16:15:51 GMT+0200",
+            "jcr:lastModified": "Fri May 27 2022 16:15:51 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/breadcrumb"
+          },
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "layout": "responsiveGrid",
+            "jcr:created": "Mon May 30 2022 15:20:02 GMT+0200",
+            "jcr:lastModified": "Mon May 30 2022 15:20:11 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container",
+            "title": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Mon May 30 2022 15:20:17 GMT+0200",
+              "jcr:lastModified": "Mon May 30 2022 15:20:17 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/title"
+            }
+          }
+        }
+      }
+    },
+    "test-detail-page": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Jun 07 2022 17:38:29 GMT+0200",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:createdBy": "admin",
+        "jcr:title": "test detail page",
+        "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---details-page",
+        "jcr:created": "Tue Jun 07 2022 17:38:29 GMT+0200",
+        "cq:lastModified": "Tue Jun 07 2022 17:39:12 GMT+0200",
+        "sling:resourceType": "menarinimaster/components/page",
+        "cq:lastModifiedBy": "admin",
+        "root": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "menarinimaster/components/container",
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "layout": "responsiveGrid",
+            "sling:resourceType": "menarinimaster/components/container",
+            "internalheader": {
+              "jcr:primaryType": "nt:unstructured",
+              "altValueFromPageImage": "true",
+              "jcr:createdBy": "admin",
+              "imageFromPageImage": "true",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Mon May 30 2022 15:02:57 GMT+0200",
+              "titleFromPage": "false",
+              "jcr:lastModified": "Tue Jun 07 2022 17:39:12 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/internalheader",
+              "isDecorative": "false",
+              "textIsRich": "true"
+            },
+            "breadcrumb": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Mon May 30 2022 15:03:07 GMT+0200",
+              "jcr:lastModified": "Mon May 30 2022 15:03:07 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/breadcrumb"
+            },
+            "container": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "layout": "responsiveGrid",
+              "jcr:created": "Mon May 30 2022 15:07:46 GMT+0200",
+              "jcr:lastModified": "Mon May 30 2022 15:09:24 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/container",
+              "internalmenu": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Mon May 30 2022 15:09:13 GMT+0200",
+                "jcr:lastModified": "Mon May 30 2022 15:09:13 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/internalmenu"
+              },
+              "title": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:createdBy": "admin",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:created": "Mon May 30 2022 15:09:35 GMT+0200",
+                "jcr:lastModified": "Mon May 30 2022 15:09:35 GMT+0200",
+                "sling:resourceType": "menarinimaster/components/title"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

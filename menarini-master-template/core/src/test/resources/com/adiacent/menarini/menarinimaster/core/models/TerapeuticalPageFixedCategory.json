@@ -1,0 +1,258 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Wed Jun 29 2022 14:25:09 GMT+0200",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "terapeutical area",
+    "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-area",
+    "jcr:created": "Wed Jun 29 2022 14:25:09 GMT+0200",
+    "cq:lastModified": "Thu Jun 30 2022 16:13:26 GMT+0200",
+    "sling:resourceType": "menarinimaster/components/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "menarinimaster/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "internalheader": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Fri Jun 24 2022 16:44:30 GMT+0200",
+          "jcr:lastModified": "Fri Jun 24 2022 16:44:30 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/internalheader"
+        },
+        "breadcrumb": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Fri Jun 24 2022 16:44:51 GMT+0200",
+          "jcr:lastModified": "Fri Jun 24 2022 16:44:51 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/breadcrumb"
+        },
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "layout": "responsiveGrid",
+          "jcr:created": "Fri Jun 24 2022 16:45:10 GMT+0200",
+          "jcr:lastModified": "Fri Jun 24 2022 16:58:46 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/container",
+          "title": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri Jun 24 2022 16:45:38 GMT+0200",
+            "jcr:lastModified": "Fri Jun 24 2022 16:45:38 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/title"
+          },
+          "text": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri Jun 24 2022 16:58:28 GMT+0200",
+            "jcr:lastModified": "Fri Jun 24 2022 16:58:28 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/text",
+            "cq:responsive": {
+              "jcr:primaryType": "nt:unstructured",
+              "default": {
+                "jcr:primaryType": "nt:unstructured",
+                "offset": "0",
+                "width": "7"
+              }
+            }
+          },
+          "image": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Fri Jun 24 2022 16:58:36 GMT+0200",
+            "jcr:lastModified": "Fri Jun 24 2022 16:58:36 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/image",
+            "cq:responsive": {
+              "jcr:primaryType": "nt:unstructured",
+              "default": {
+                "jcr:primaryType": "nt:unstructured",
+                "offset": "0",
+                "width": "5"
+              }
+            }
+          },
+          "productcategorylist": {
+            "jcr:primaryType": "nt:unstructured",
+            "showModificationDate": "false",
+            "jcr:createdBy": "admin",
+            "tagsMatch": "any",
+            "linkItems": "false",
+            "productArea": "all",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Mon Jun 27 2022 17:26:06 GMT+0200",
+            "parentPage": "/content/menarinimaster/language-masters",
+            "sortOrder": "asc",
+            "displayItemAsTeaser": "true",
+            "pages": [
+              "/content/menarinimaster/en/en/terapeutical-area/category1",
+              "/content/menarinimaster/en/en/terapeutical-area/category2"
+            ],
+            "showDescription": "false",
+            "jcr:lastModified": "Thu Jun 30 2022 16:13:26 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/productcategorylist",
+            "childDepth": "1",
+            "listFrom": "static"
+          }
+        }
+      }
+    }
+  },
+  "category1": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Thu Jun 30 2022 14:33:34 GMT+0200",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:createdBy": "admin",
+      "jcr:title": "category1",
+      "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-category",
+      "jcr:created": "Thu Jun 30 2022 14:33:34 GMT+0200",
+      "cq:lastModified": "Thu Jun 30 2022 14:33:34 GMT+0200",
+      "sling:resourceType": "menarinimaster/components/page",
+      "cq:lastModifiedBy": "admin",
+      "root": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "menarinimaster/components/container",
+          "internalheader": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Thu Jun 30 2022 12:00:03 GMT+0200",
+            "jcr:lastModified": "Thu Jun 30 2022 12:00:03 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/internalheader"
+          },
+          "breadcrumb": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Thu Jun 30 2022 12:00:10 GMT+0200",
+            "jcr:lastModified": "Thu Jun 30 2022 12:00:10 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/breadcrumb"
+          },
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Thu Jun 30 2022 12:00:24 GMT+0200",
+            "jcr:lastModified": "Thu Jun 30 2022 12:00:24 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container",
+            "title": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 30 2022 12:01:13 GMT+0200",
+              "jcr:lastModified": "Thu Jun 30 2022 12:01:13 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/title"
+            },
+            "productcategoryarea": {
+              "jcr:primaryType": "nt:unstructured",
+              "showModificationDate": "false",
+              "jcr:createdBy": "admin",
+              "tagsMatch": "any",
+              "linkItems": "false",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 30 2022 14:25:40 GMT+0200",
+              "sortOrder": "asc",
+              "displayItemAsTeaser": "false",
+              "showDescription": "false",
+              "jcr:lastModified": "Thu Jun 30 2022 14:26:15 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/productcategoryarea",
+              "childDepth": "1",
+              "listFrom": "children"
+            }
+          }
+        }
+      }
+    }
+  },
+  "category2": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Thu Jun 30 2022 16:10:33 GMT+0200",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:createdBy": "admin",
+      "jcr:title": "category2",
+      "cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-category",
+      "jcr:created": "Thu Jun 30 2022 16:10:33 GMT+0200",
+      "cq:lastModified": "Thu Jun 30 2022 16:10:33 GMT+0200",
+      "sling:resourceType": "menarinimaster/components/page",
+      "cq:lastModifiedBy": "admin",
+      "root": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container",
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "menarinimaster/components/container",
+          "internalheader": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Thu Jun 30 2022 12:00:03 GMT+0200",
+            "jcr:lastModified": "Thu Jun 30 2022 12:00:03 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/internalheader"
+          },
+          "breadcrumb": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Thu Jun 30 2022 12:00:10 GMT+0200",
+            "jcr:lastModified": "Thu Jun 30 2022 12:00:10 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/breadcrumb"
+          },
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:created": "Thu Jun 30 2022 12:00:24 GMT+0200",
+            "jcr:lastModified": "Thu Jun 30 2022 12:00:24 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container",
+            "title": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:createdBy": "admin",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 30 2022 12:01:13 GMT+0200",
+              "jcr:lastModified": "Thu Jun 30 2022 12:01:13 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/title"
+            },
+            "productcategoryarea": {
+              "jcr:primaryType": "nt:unstructured",
+              "showModificationDate": "false",
+              "jcr:createdBy": "admin",
+              "tagsMatch": "any",
+              "linkItems": "false",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:created": "Thu Jun 30 2022 14:25:40 GMT+0200",
+              "sortOrder": "asc",
+              "displayItemAsTeaser": "false",
+              "showDescription": "false",
+              "jcr:lastModified": "Thu Jun 30 2022 14:26:15 GMT+0200",
+              "sling:resourceType": "menarinimaster/components/productcategoryarea",
+              "childDepth": "1",
+              "listFrom": "children"
+            }
+          }
+        }
+      }
+    }
+  }
+}

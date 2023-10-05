@@ -1,0 +1,51 @@
+.cmp-form-options {}
+.cmp-form-options__legend {
+	display: none;
+}
+.cmp-form-options__field-label {
+	display: flex;
+}
+.cmp-form-options__field {}
+.cmp-form-options--checkbox{
+	padding: 0 10px;
+}
+.cmp-form-options__field--checkbox {
+	width: 33px;
+	height: 33px;
+	display: flex;
+	flex-shrink: 0;
+	background-color: $color-background;
+	border-radius: 50%;
+	align-self: auto;
+	border: 7px solid $color-background;
+	appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	cursor: pointer;
+
+	&:checked {
+		background-color: $primary-color-three;
+
+	}
+}
+.cmp-form-options__field--radio {}
+.cmp-form-options__field-description {
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 0;
+	line-height: 30px;
+	padding-left: 20px;
+}
+.cmp-form-options__label {
+	display: flex;
+	padding: 0 10px;
+}
+.cmp-form-options__drop-down-field {}
+.cmp-form-options__multi-drop-down-field {}
+.cmp-form-options__help-message {}
+
+@media (min-width: 768px) {
+	.cmp-form-options__field--checkbox{
+		align-self: center;
+	}
+}

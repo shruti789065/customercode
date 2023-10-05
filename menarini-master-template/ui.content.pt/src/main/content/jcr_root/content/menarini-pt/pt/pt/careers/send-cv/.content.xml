@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2022-11-08T14:20:17.826Z"
+        cq:lastModifiedBy="a.messori@adiacent.com"
+        cq:template="/conf/menarini-pt/settings/wcm/templates/menarini---details-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Send CV"
+        sling:resourceType="menarinimaster/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader
+                    jcr:lastModified="{Date}2022-11-09T17:03:57.354+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/internalheader"
+                    disableLazyLoading="false"
+                    fileReference="/content/dam/menarini-pt/assets/placeholders/sample-1920-360.jpg"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    textIsRich="true"
+                    titleFromPage="false"/>
+                <breadcrumb
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/breadcrumb"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/container"
+                    layout="responsiveGrid">
+                    <internalmenu
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/internalmenu">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="12"/>
+                        </cq:responsive>
+                    </internalmenu>
+                    <container
+                        cq:styleIds="[1655202404538]"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container"
+                        layout="responsiveGrid">
+                        <title
+                            cq:styleIds="[1653552493699]"
+                            jcr:created="{Date}2022-05-30T15:20:17.163+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2022-07-27T15:16:55.510+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h2">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="5"/>
+                            </cq:responsive>
+                        </title>
+                        <text
+                            jcr:created="{Date}2022-11-10T09:25:27.239+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2022-11-10T09:26:14.771+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="8"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="8"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="12"/>
+                        </cq:responsive>
+                        <container
+                            jcr:created="{Date}2022-07-28T15:11:07.969+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2022-07-29T10:01:53.154+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/form/container"
+                            action="/content/usergeneratedmenarini-ptcontacts/cq-gen1659013867975/"
+                            actionType="foundation/components/form/actions/mail"
+                            from="luca.ambrosini.adiacent@gmail.com"
+                            mailto="l.ambrosini@adiacent.com"
+                            redirect="/content/menarini-pt/pt/pt/thank-you-page"
+                            subject="Contatti da Menarini Portugal">
+                            <text
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:36:31.927+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Given name"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Given Name"
+                                name="name"
+                                required="true"
+                                requiredMessage="Name mandatory"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text>
+                            <text_copy
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:18:16.683+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Family name"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Family name"
+                                name="family-name"
+                                required="true"
+                                requiredMessage="Family Name mandatory"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy>
+                            <text_copy_copy
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:16:54.273+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Job Title"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Job Title"
+                                name="job-title"
+                                requiredMessage="Family Name mandatory"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy>
+                            <text_copy_copy_920838233
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:17:46.395+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Address"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Address"
+                                name="address"
+                                requiredMessage="Family Name mandatory"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_920838233>
+                            <text_copy_copy_92083
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:19:00.384+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="City"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="City"
+                                name="city"
+                                requiredMessage="Family Name mandatory"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083>
+                            <text_copy_copy_92083_292625700
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:21:08.584+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Zip code / Post Code"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Zip Code / Post code"
+                                name="zip"
+                                requiredMessage="Family Name mandatory"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_292625700>
+                            <text_copy_copy_92083_1829429253
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:23:55.179+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="State"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                constraintMessage="Please enter a valid email address"
+                                helpMessage="State"
+                                name="State"
+                                requiredMessage="Email mandatory"
+                                rows="2"
+                                type="text"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_1829429253>
+                            <text_copy_copy_92083_922336832
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:25:00.202+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Telephone"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                constraintMessage="Please enter a valid Telephone number"
+                                helpMessage="Telephone"
+                                name="Telephone"
+                                requiredMessage="Email mandatory"
+                                rows="2"
+                                type="tel"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_922336832>
+                            <text_copy_copy_92083_1159773737
+                                jcr:created="{Date}2022-07-28T15:13:16.146+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:49:42.598+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Email"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                constraintMessage="Email mandatory"
+                                helpMessage="Email"
+                                name="email"
+                                required="true"
+                                requiredMessage="Please enter a valid email address "
+                                rows="2"
+                                type="email"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_copy_copy_92083_1159773737>
+                            <options
+                                jcr:created="{Date}2022-07-28T15:25:23.095+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:27:01.478+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="I want information about"
+                                sling:resourceType="menarinimaster/components/form/options"
+                                name="information"
+                                requiredMessage="This field is mandatory"
+                                requiredMultiSelect="false"
+                                requiredRadio="false"
+                                requiredSelect="true"
+                                source="local"
+                                type="drop-down">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="true"
+                                        text="Option 1"
+                                        value="Value1"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="Option 2"
+                                        value="Value 2"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="Option 3"
+                                        value="Value 3"/>
+                                </items>
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </options>
+                            <text_1015623835
+                                jcr:created="{Date}2022-07-28T15:27:39.464+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:28:36.495+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Please leave your message here"
+                                sling:resourceType="menarinimaster/components/form/text"
+                                helpMessage="Please Leave your message here"
+                                name="message"
+                                required="true"
+                                requiredMessage="The message is mandatory"
+                                rows="6"
+                                type="textarea"
+                                usePlaceholder="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_1015623835>
+                            <text_657280565
+                                jcr:created="{Date}2022-07-28T15:32:22.911+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:33:24.004+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/text"
+                                text="&lt;p>Letta l’&lt;a>informativa &lt;a href=&quot;/content/menarini-pt/pt/pt/privacy-policy.html&quot; target=&quot;_blank&quot;>privacy&lt;/a>&lt;/a>&amp;nbsp;acconsento al trattamento dei dati personali, comuni e sensibili, per la gestione della mia richiesta ai sensi del Regolamento&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="8"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_657280565>
+                            <options_1810179993
+                                jcr:created="{Date}2022-07-28T15:29:26.396+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:31:20.471+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Privacy"
+                                sling:resourceType="menarinimaster/components/form/options"
+                                name="privacy"
+                                requiredMessage="This field is mandatory"
+                                requiredMultiSelect="false"
+                                requiredRadio="true"
+                                requiredSelect="false"
+                                source="local"
+                                type="radio">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="Yes"
+                                        value="1"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="true"
+                                        text="No"
+                                        value="0"/>
+                                </items>
+                            </options_1810179993>
+                            <text_657280565_copy
+                                jcr:created="{Date}2022-07-28T15:32:22.911+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:33:59.500+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/text"
+                                text="&lt;p>Inoltre, acconsento al trattamento dei dati personali per l’invio di comunicazioni istituzionali (newsletter) da parte della Società sia con modalità di contatto automatizzate che tradizionali&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                            </text_657280565_copy>
+                            <options_1810179993_c
+                                jcr:created="{Date}2022-07-28T15:29:26.396+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:34:32.786+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Personal data"
+                                sling:resourceType="menarinimaster/components/form/options"
+                                name="personal-data"
+                                requiredMessage="This field is mandatory"
+                                requiredMultiSelect="false"
+                                requiredRadio="true"
+                                requiredSelect="false"
+                                source="local"
+                                type="radio">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="false"
+                                        text="Yes"
+                                        value="1"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="true"
+                                        text="No"
+                                        value="0"/>
+                                </items>
+                            </options_1810179993_c>
+                            <button
+                                jcr:created="{Date}2022-07-28T15:38:09.839+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2022-07-28T15:38:21.866+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/form/button"
+                                type="submit"/>
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="8"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </container>
+                    </container>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

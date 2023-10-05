@@ -1,0 +1,189 @@
+//== XF Footer style, used on page template
+
+.cmp-experiencefragment--footer {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	.cmp-container {
+		padding: 25px 0;
+	}
+	.cmp-layoutcontainer--no-padding {
+		.cmp-container {
+			padding: 0;
+		}
+	}
+
+	.cmp-title {
+		&__text {
+			margin-top: 0px;
+			margin-bottom: 0px;
+			display: flex;
+			justify-content: flex-end;
+			color: $white;
+			font-family: $font-family-oswald;
+			font-weight: $font-light;
+			font-size: 40px;
+			line-height: 45px;
+			@media (max-width: 768px) {
+				margin: 25px 0;
+				justify-content: flex-start;
+			}
+		}
+	}
+	.cmp-text {
+		font-family: $font-family-arimo;
+		font-weight: $font-regular;
+		font-size: 15px;
+		line-height: 25px;
+		color: $color-text;
+		p {
+			margin-bottom: 0px;
+			margin-top: 0px;
+			font-weight: $font-regular;
+			font-family: $font-family-arimo;
+			font-size: 12px;
+			line-height: 25px;
+			color: $color-text;
+		}
+		span {
+			margin: 0;
+			font-family: $font-family-arimo;
+			padding: 0;
+			font-size: 12px;
+			border: 0;
+			font: inherit;
+			vertical-align: baseline;
+		}
+	}
+	.image {
+		float: inherit;
+		.cmp-image {
+			display: flex;
+			justify-content: flex-end;
+			margin-left: auto;
+			&__image {
+				max-width: 200px;
+			}
+		}
+	}
+	.cmp-list {
+		list-style: none;
+		font-family: $font-family-oswald;
+		font-weight: $font-light;
+		font-size: 25px;
+		padding-left: 0px;
+		column-count: 2;
+		-moz-column-count: 2;
+		-moz-column-gap: 1em;
+		-webkit-column-count: 2;
+		-webkit-column-gap: 1em;
+		column-gap: 2em;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		&__item {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			display: inline-block;
+			width: 100%;
+		}
+		&__item-link {
+			color: $white;
+			background: url($resources-path + '/images/icons/arrow-R-W.svg')
+				no-repeat right;
+			text-decoration: none;
+			display: flex;
+			font-weight: $font-extra-light;
+		}
+	}
+	.buildingblock {
+		.xf-master-building-block {
+			display: flex;
+			justify-content: flex-end;
+			.button {
+				width: 60px;
+			}
+			.newpar.cq-Editable-dom {
+				width: 50%;
+			}
+		}
+	}
+	.cmp-button {
+		width: 40px;
+		padding: 0 18px;
+		&__icon {
+			&::before {
+				content: "";
+				display: flex;
+				margin: 0 auto;
+				width: 40px;
+				height: 40px;
+				background-size: contain;
+			}
+			&--linkedin {
+				&::before {
+					background: url($resources-path + '/images/icons/social-icon-linkedin.svg')
+						no-repeat center;
+				}
+			}
+			&--facebook {
+				&::before {
+					background: url($resources-path + '/images/icons/social-icon-facebook.svg')
+						no-repeat center;
+				}
+			}
+			&--instagram {
+				&::before {
+					background: url($resources-path + '/images/icons/social-icon-instagram.svg')
+						no-repeat center;
+				}
+			}
+			&--twitter {
+				&::before {
+					background: url($resources-path + '/images/icons/social-icon-twitter.svg')
+						no-repeat center;
+				}
+			}
+			&--youtube {
+				&::before {
+					background: url($resources-path + '/images/icons/social-icon-youtube.svg')
+						no-repeat center;
+				}
+			}
+		}
+	}
+	.cmp-title__text{
+		margin-bottom:16px;
+	}
+	@media (max-width: 768px) {
+		.buildingblock .xf-master-building-block {
+			justify-content: normal;
+		}
+		.button {
+			margin-right: 25px;
+		}
+		.cmp-list {
+			column-count: 2;
+			&__item {
+				margin-bottom: 10px;
+				&-link {
+					font-size: 20px;
+				}
+			}
+		}
+		.cmp-title__text {
+			margin: 25px 0px 16px;
+			justify-content: flex-start;
+		}
+		.cmp-image {
+			margin-top: 20px;
+		}
+	}
+	@media (max-width: 576px) {
+		.cmp-container {
+			padding: 15px 0;
+		}
+
+		.cmp-list {
+			column-count: 1;
+		}
+	}
+}

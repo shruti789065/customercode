@@ -1,0 +1,1258 @@
+{
+	"jcr:primaryType": "cq:Page",
+	"jcr:createdBy": "admin",
+	"jcr:created": "Wed Feb 22 2023 11:39:53 GMT+0100",
+	"jcr:content": {
+		"jcr:primaryType": "cq:PageContent",
+		"jcr:createdBy": "admin",
+		"jcr:title": "Contacts",
+		"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---content-page",
+		"jcr:created": "Wed Feb 22 2023 11:39:53 GMT+0100",
+		"cq:lastModified": "Tue Feb 28 2023 18:26:27 GMT+0100",
+		"sling:resourceType": "menarinimaster/components/page",
+		"cq:lastModifiedBy": "admin",
+		"root": {
+			"jcr:primaryType": "nt:unstructured",
+			"layout": "responsiveGrid",
+			"sling:resourceType": "menarinimaster/components/container",
+			"container": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"internalheader": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:createdBy": "admin",
+					"jcr:lastModifiedBy": "admin",
+					"jcr:created": "Fri May 27 2022 16:15:23 GMT+0200",
+					"jcr:lastModified": "Fri May 27 2022 16:15:23 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/internalheader"
+				},
+				"breadcrumb": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:createdBy": "admin",
+					"jcr:lastModifiedBy": "admin",
+					"jcr:created": "Fri May 27 2022 16:15:51 GMT+0200",
+					"jcr:lastModified": "Fri May 27 2022 16:15:51 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/breadcrumb"
+				},
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:createdBy": "admin",
+					"jcr:lastModifiedBy": "admin",
+					"layout": "responsiveGrid",
+					"jcr:created": "Mon May 30 2022 15:20:02 GMT+0200",
+					"jcr:lastModified": "Mon May 30 2022 15:20:11 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/container",
+					"cq:styleIds": [
+						"1655202404538"
+					],
+					"title": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Mon May 30 2022 15:20:17 GMT+0200",
+						"type": "h2",
+						"linkTarget": "_self",
+						"jcr:lastModified": "Wed Jul 27 2022 15:16:55 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/title",
+						"cq:styleIds": [
+							"1653552493699"
+						]
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"subject": "Contatti da Menarini Master Template",
+						"action": "/content/menarinimaster/language-masters/en/contacts/jcr:content/root/container/container/container.customMail.html",
+						"jcr:lastModifiedBy": "admin",
+						"mailto": "test@adiacent.com",
+						"redirect": "/content/menarinimaster/language-masters/en/thank-you-page",
+						"jcr:created": "Thu Jul 28 2022 15:11:07 GMT+0200",
+						"from": "no-reply@adiacent.com",
+						"mailAdminText": [
+							"testo di esempio per mail admin"
+						],
+						"jcr:lastModified": "Fri Feb 24 2023 15:24:22 GMT+0100",
+						"mailClientText": "testo di esempio per mail cliente",
+						"sling:resourceType": "menarinimaster/components/form/container",
+						"actionType": "foundation/components/form/actions/mail",
+						"text": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Given name",
+							"jcr:lastModifiedBy": "admin",
+							"required": "true",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "name",
+							"rows": "2",
+							"type": "text",
+							"jcr:lastModified": "Thu Jul 28 2022 15:36:31 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Name mandatory",
+							"helpMessage": "Given Name",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Family name",
+							"jcr:lastModifiedBy": "admin",
+							"required": "true",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "family-name",
+							"rows": "2",
+							"type": "text",
+							"jcr:lastModified": "Thu Jul 28 2022 15:18:16 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Family Name mandatory",
+							"helpMessage": "Family name",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy_copy": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Job Title",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "job-title",
+							"rows": "2",
+							"type": "text",
+							"jcr:lastModified": "Thu Jul 28 2022 15:16:54 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Family Name mandatory",
+							"helpMessage": "Job Title",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy_copy_920838233": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Address",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "address",
+							"rows": "2",
+							"type": "text",
+							"jcr:lastModified": "Thu Jul 28 2022 15:17:46 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Family Name mandatory",
+							"helpMessage": "Address",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy_copy_92083": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "City",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "city",
+							"rows": "2",
+							"type": "text",
+							"jcr:lastModified": "Thu Jul 28 2022 15:19:00 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Family Name mandatory",
+							"helpMessage": "City",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy_copy_92083_292625700": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Zip code / Post Code",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "zip",
+							"rows": "2",
+							"type": "text",
+							"jcr:lastModified": "Thu Jul 28 2022 15:21:08 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Family Name mandatory",
+							"helpMessage": "Zip Code / Post code",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy_copy_92083_1829429253": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "State",
+							"constraintMessage": "Please enter a valid email address",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "State",
+							"rows": "2",
+							"type": "text",
+							"jcr:lastModified": "Thu Jul 28 2022 15:23:55 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Email mandatory",
+							"helpMessage": "State",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy_copy_92083_922336832": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Telephone",
+							"constraintMessage": "Please enter a valid Telephone number",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "Telephone",
+							"rows": "2",
+							"type": "tel",
+							"jcr:lastModified": "Thu Jul 28 2022 15:25:00 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Email mandatory",
+							"helpMessage": "Telephone",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "6"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_copy_copy_92083_1159773737": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Email",
+							"constraintMessage": "Email mandatory",
+							"jcr:lastModifiedBy": "admin",
+							"required": "true",
+							"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "email",
+							"rows": "2",
+							"type": "email",
+							"jcr:lastModified": "Thu Jul 28 2022 15:49:42 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "Please enter a valid email address ",
+							"helpMessage": "Email",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"options": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "I want information about",
+							"requiredSelect": "true",
+							"requiredMultiSelect": "false",
+							"jcr:lastModifiedBy": "admin",
+							"source": "local",
+							"jcr:created": "Thu Jul 28 2022 15:25:23 GMT+0200",
+							"name": "information",
+							"type": "drop-down",
+							"jcr:lastModified": "Fri Feb 24 2023 16:50:06 GMT+0100",
+							"requiredRadio": "false",
+							"sling:resourceType": "menarinimaster/components/form/options",
+							"requiredMessage": "This field is mandatory",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							},
+							"items": {
+								"jcr:primaryType": "nt:unstructured",
+								"item0": {
+									"jcr:primaryType": "nt:unstructured",
+									"text": "Option 1",
+									"value": "Value1",
+									"optMailTo": "test1@adiacent.com",
+									"selected": "true"
+								},
+								"item1": {
+									"jcr:primaryType": "nt:unstructured",
+									"text": "Option 2",
+									"value": "Value 2",
+									"optMailTo": "test2@adiacent.com",
+									"selected": "false"
+								},
+								"item2": {
+									"jcr:primaryType": "nt:unstructured",
+									"text": "Option 3",
+									"value": "Value 3",
+									"selected": "false"
+								}
+							}
+						},
+						"upload_file": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Wed Feb 22 2023 12:05:44 GMT+0100",
+							"jcr:lastModified": "Wed Feb 22 2023 12:05:44 GMT+0100",
+							"sling:resourceType": "menarinimaster/components/form/upload-file"
+						},
+						"text_1015623835": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Please leave your message here",
+							"jcr:lastModifiedBy": "admin",
+							"required": "true",
+							"jcr:created": "Thu Jul 28 2022 15:27:39 GMT+0200",
+							"usePlaceholder": "true",
+							"name": "message",
+							"rows": "6",
+							"type": "textarea",
+							"jcr:lastModified": "Thu Jul 28 2022 15:28:36 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/text",
+							"requiredMessage": "The message is mandatory",
+							"helpMessage": "Please Leave your message here",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"text_657280565": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:32:22 GMT+0200",
+							"text": "<p>Letta l’<a>informativa <a href=\"/content/menarinimaster/language-masters/en/privacy-policy.html\" target=\"_blank\">privacy</a></a>&nbsp;acconsento al trattamento dei dati personali, comuni e sensibili, per la gestione della mia richiesta ai sensi del Regolamento</p>\r\n",
+							"jcr:lastModified": "Thu Jul 28 2022 15:33:24 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/text",
+							"textIsRich": "true",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "8"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"options_1810179993": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Privacy",
+							"requiredSelect": "false",
+							"requiredMultiSelect": "false",
+							"jcr:lastModifiedBy": "admin",
+							"source": "local",
+							"jcr:created": "Thu Jul 28 2022 15:29:26 GMT+0200",
+							"name": "privacy",
+							"type": "radio",
+							"jcr:lastModified": "Thu Jul 28 2022 15:31:20 GMT+0200",
+							"requiredRadio": "true",
+							"sling:resourceType": "menarinimaster/components/form/options",
+							"requiredMessage": "This field is mandatory",
+							"items": {
+								"jcr:primaryType": "nt:unstructured",
+								"item0": {
+									"jcr:primaryType": "nt:unstructured",
+									"text": "Yes",
+									"value": "1",
+									"selected": "false"
+								},
+								"item1": {
+									"jcr:primaryType": "nt:unstructured",
+									"text": "No",
+									"value": "0",
+									"selected": "true"
+								}
+							}
+						},
+						"text_657280565_copy": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:32:22 GMT+0200",
+							"text": "<p>Inoltre, acconsento al trattamento dei dati personali per l’invio di comunicazioni istituzionali (newsletter) da parte della Società sia con modalità di contatto automatizzate che tradizionali</p>\r\n",
+							"jcr:lastModified": "Thu Jul 28 2022 15:33:59 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/text",
+							"textIsRich": "true",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"options_1810179993_c": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Personal data",
+							"requiredSelect": "false",
+							"requiredMultiSelect": "false",
+							"jcr:lastModifiedBy": "admin",
+							"source": "local",
+							"jcr:created": "Thu Jul 28 2022 15:29:26 GMT+0200",
+							"name": "personal-data",
+							"type": "radio",
+							"jcr:lastModified": "Thu Jul 28 2022 15:34:32 GMT+0200",
+							"requiredRadio": "true",
+							"sling:resourceType": "menarinimaster/components/form/options",
+							"requiredMessage": "This field is mandatory",
+							"items": {
+								"jcr:primaryType": "nt:unstructured",
+								"item0": {
+									"jcr:primaryType": "nt:unstructured",
+									"text": "Yes",
+									"value": "1",
+									"selected": "false"
+								},
+								"item1": {
+									"jcr:primaryType": "nt:unstructured",
+									"text": "No",
+									"value": "0",
+									"selected": "true"
+								}
+							}
+						},
+						"button": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 28 2022 15:38:09 GMT+0200",
+							"type": "submit",
+							"jcr:lastModified": "Thu Jul 28 2022 15:38:21 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/form/button"
+						},
+						"cq:responsive": {
+							"jcr:primaryType": "nt:unstructured",
+							"default": {
+								"jcr:primaryType": "nt:unstructured",
+								"offset": "0",
+								"width": "8"
+							},
+							"tablet": {
+								"jcr:primaryType": "nt:unstructured",
+								"offset": "0",
+								"width": "12"
+							},
+							"phone": {
+								"jcr:primaryType": "nt:unstructured",
+								"offset": "0",
+								"width": "12"
+							}
+						},
+						"recaptcha": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Tue Feb 28 2023 18:26:01 GMT+0100",
+							"jcr:lastModified": "Tue Feb 28 2023 18:26:01 GMT+0100",
+							"sling:resourceType": "menarinimaster/components/form/recaptcha",
+							"secretKey": "XXXXXXXX"
+						}
+					}
+				}
+			}
+		}
+	},
+	"group-contacts": {
+		"jcr:primaryType": "cq:Page",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Wed Feb 22 2023 11:39:53 GMT+0100",
+		"jcr:content": {
+			"jcr:primaryType": "cq:PageContent",
+			"jcr:createdBy": "admin",
+			"jcr:title": "Group Contacts",
+			"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---details-page",
+			"jcr:created": "Wed Feb 22 2023 11:39:53 GMT+0100",
+			"cq:lastModified": "Fri Jul 29 2022 09:51:06 GMT+0200",
+			"sling:resourceType": "menarinimaster/components/page",
+			"cq:lastModifiedBy": "admin",
+			"root": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"internalheader": {
+						"jcr:primaryType": "nt:unstructured",
+						"sling:resourceType": "menarinimaster/components/internalheader"
+					},
+					"breadcrumb": {
+						"jcr:primaryType": "nt:unstructured",
+						"sling:resourceType": "menarinimaster/components/breadcrumb"
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"internalmenu": {
+							"jcr:primaryType": "nt:unstructured",
+							"navigationRoot": "/content/menarinimaster/language-masters/en/contacts",
+							"sling:resourceType": "menarinimaster/components/internalmenu",
+							"structureStart": 0,
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "3"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "4"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						},
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"layout": "responsiveGrid",
+							"sling:resourceType": "menarinimaster/components/container",
+							"cq:styleIds": [
+								"1655202404538"
+							],
+							"title": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:lastModifiedBy": "admin",
+								"type": "h2",
+								"linkTarget": "_self",
+								"jcr:lastModified": "Tue Jul 26 2022 17:40:44 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/title",
+								"cq:styleIds": [
+									"1653552493699"
+								],
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "5"
+									}
+								}
+							},
+							"container": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"subject": "Form Contatto da Menarini Master Template",
+								"action": "/content/usergenerated/menarinimaster/language-masters/en/contacts/cq-gen1659013867975/",
+								"jcr:lastModifiedBy": "admin",
+								"mailto": "test3@adiacent.com",
+								"redirect": "/content/menarinimaster/language-masters/en/thank-you-page",
+								"jcr:created": "Thu Jul 28 2022 15:11:07 GMT+0200",
+								"from": "luca.ambrosini.adiacent@gmail.com",
+								"jcr:lastModified": "Fri Jul 29 2022 09:51:06 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/form/container",
+								"actionType": "foundation/components/form/actions/mail",
+								"text": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Given name",
+									"jcr:lastModifiedBy": "admin",
+									"required": "true",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "name",
+									"rows": "2",
+									"type": "text",
+									"jcr:lastModified": "Thu Jul 28 2022 15:36:31 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Name mandatory",
+									"helpMessage": "Given Name",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "6"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Family name",
+									"jcr:lastModifiedBy": "admin",
+									"required": "true",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "family-name",
+									"rows": "2",
+									"type": "text",
+									"jcr:lastModified": "Thu Jul 28 2022 15:18:16 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Family Name mandatory",
+									"helpMessage": "Family name",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "6"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy_copy": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Job Title",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "job-title",
+									"rows": "2",
+									"type": "text",
+									"jcr:lastModified": "Thu Jul 28 2022 15:16:54 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Family Name mandatory",
+									"helpMessage": "Job Title",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "6"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy_copy_920838233": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Address",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "address",
+									"rows": "2",
+									"type": "text",
+									"jcr:lastModified": "Thu Jul 28 2022 15:17:46 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Family Name mandatory",
+									"helpMessage": "Address",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy_copy_92083": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "City",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "city",
+									"rows": "2",
+									"type": "text",
+									"jcr:lastModified": "Thu Jul 28 2022 15:19:00 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Family Name mandatory",
+									"helpMessage": "City",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "6"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy_copy_92083_292625700": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Zip code / Post Code",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "zip",
+									"rows": "2",
+									"type": "text",
+									"jcr:lastModified": "Thu Jul 28 2022 15:21:08 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Family Name mandatory",
+									"helpMessage": "Zip Code / Post code",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "6"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy_copy_92083_1829429253": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "State",
+									"constraintMessage": "Please enter a valid email address",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "State",
+									"rows": "2",
+									"type": "text",
+									"jcr:lastModified": "Thu Jul 28 2022 15:23:55 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Email mandatory",
+									"helpMessage": "State",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "6"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy_copy_92083_922336832": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Telephone",
+									"constraintMessage": "Please enter a valid Telephone number",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "Telephone",
+									"rows": "2",
+									"type": "tel",
+									"jcr:lastModified": "Thu Jul 28 2022 15:25:00 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Email mandatory",
+									"helpMessage": "Telephone",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "6"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_copy_copy_92083_1159773737": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Email",
+									"constraintMessage": "Email mandatory",
+									"jcr:lastModifiedBy": "admin",
+									"required": "true",
+									"jcr:created": "Thu Jul 28 2022 15:13:16 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "email",
+									"rows": "2",
+									"type": "email",
+									"jcr:lastModified": "Thu Jul 28 2022 15:49:42 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "Please enter a valid email address ",
+									"helpMessage": "Email",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"options": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "I want information about",
+									"requiredSelect": "true",
+									"requiredMultiSelect": "false",
+									"jcr:lastModifiedBy": "admin",
+									"source": "local",
+									"jcr:created": "Thu Jul 28 2022 15:25:23 GMT+0200",
+									"name": "information",
+									"type": "drop-down",
+									"jcr:lastModified": "Thu Jul 28 2022 15:27:01 GMT+0200",
+									"requiredRadio": "false",
+									"sling:resourceType": "menarinimaster/components/form/options",
+									"requiredMessage": "This field is mandatory",
+									"items": {
+										"jcr:primaryType": "nt:unstructured",
+										"item0": {
+											"jcr:primaryType": "nt:unstructured",
+											"text": "Option 1",
+											"value": "Value1",
+											"selected": "true"
+										},
+										"item1": {
+											"jcr:primaryType": "nt:unstructured",
+											"text": "Option 2",
+											"value": "Value 2",
+											"selected": "false"
+										},
+										"item2": {
+											"jcr:primaryType": "nt:unstructured",
+											"text": "Option 3",
+											"value": "Value 3",
+											"selected": "false"
+										}
+									},
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "4"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_1015623835": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Please leave your message here",
+									"jcr:lastModifiedBy": "admin",
+									"required": "true",
+									"jcr:created": "Thu Jul 28 2022 15:27:39 GMT+0200",
+									"usePlaceholder": "true",
+									"name": "message",
+									"rows": "6",
+									"type": "textarea",
+									"jcr:lastModified": "Thu Jul 28 2022 15:28:36 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/text",
+									"requiredMessage": "The message is mandatory",
+									"helpMessage": "Please Leave your message here",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"text_657280565": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:32:22 GMT+0200",
+									"text": "<p>Letta l’<a>informativa <a href=\"/content/menarinimaster/language-masters/en/privacy-policy.html\" target=\"_blank\">privacy</a></a>&nbsp;acconsento al trattamento dei dati personali, comuni e sensibili, per la gestione della mia richiesta ai sensi del Regolamento</p>\r\n",
+									"jcr:lastModified": "Thu Jul 28 2022 15:33:24 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/text",
+									"textIsRich": "true",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"default": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "8"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										},
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"options_1810179993": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Privacy",
+									"requiredSelect": "false",
+									"requiredMultiSelect": "false",
+									"jcr:lastModifiedBy": "admin",
+									"source": "local",
+									"jcr:created": "Thu Jul 28 2022 15:29:26 GMT+0200",
+									"name": "privacy",
+									"type": "radio",
+									"jcr:lastModified": "Thu Jul 28 2022 15:31:20 GMT+0200",
+									"requiredRadio": "true",
+									"sling:resourceType": "menarinimaster/components/form/options",
+									"requiredMessage": "This field is mandatory",
+									"items": {
+										"jcr:primaryType": "nt:unstructured",
+										"item0": {
+											"jcr:primaryType": "nt:unstructured",
+											"text": "Yes",
+											"value": "1",
+											"selected": "false"
+										},
+										"item1": {
+											"jcr:primaryType": "nt:unstructured",
+											"text": "No",
+											"value": "0",
+											"selected": "true"
+										}
+									}
+								},
+								"text_657280565_copy": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:32:22 GMT+0200",
+									"text": "<p>Inoltre, acconsento al trattamento dei dati personali per l’invio di comunicazioni istituzionali (newsletter) da parte della Società sia con modalità di contatto automatizzate che tradizionali</p>\r\n",
+									"jcr:lastModified": "Thu Jul 28 2022 15:33:59 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/text",
+									"textIsRich": "true",
+									"cq:responsive": {
+										"jcr:primaryType": "nt:unstructured",
+										"phone": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										},
+										"tablet": {
+											"jcr:primaryType": "nt:unstructured",
+											"offset": "0",
+											"width": "12"
+										}
+									}
+								},
+								"options_1810179993_c": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:title": "Personal data",
+									"requiredSelect": "false",
+									"requiredMultiSelect": "false",
+									"jcr:lastModifiedBy": "admin",
+									"source": "local",
+									"jcr:created": "Thu Jul 28 2022 15:29:26 GMT+0200",
+									"name": "personal-data",
+									"type": "radio",
+									"jcr:lastModified": "Thu Jul 28 2022 15:34:32 GMT+0200",
+									"requiredRadio": "true",
+									"sling:resourceType": "menarinimaster/components/form/options",
+									"requiredMessage": "This field is mandatory",
+									"items": {
+										"jcr:primaryType": "nt:unstructured",
+										"item0": {
+											"jcr:primaryType": "nt:unstructured",
+											"text": "Yes",
+											"value": "1",
+											"selected": "false"
+										},
+										"item1": {
+											"jcr:primaryType": "nt:unstructured",
+											"text": "No",
+											"value": "0",
+											"selected": "true"
+										}
+									}
+								},
+								"button": {
+									"jcr:primaryType": "nt:unstructured",
+									"jcr:createdBy": "admin",
+									"jcr:lastModifiedBy": "admin",
+									"jcr:created": "Thu Jul 28 2022 15:38:09 GMT+0200",
+									"type": "submit",
+									"jcr:lastModified": "Thu Jul 28 2022 15:38:21 GMT+0200",
+									"sling:resourceType": "menarinimaster/components/form/button"
+								},
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "8"
+									},
+									"tablet": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "12"
+									},
+									"phone": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "12"
+									}
+								}
+							},
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "8"
+								},
+								"tablet": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "8"
+								},
+								"phone": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "12"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

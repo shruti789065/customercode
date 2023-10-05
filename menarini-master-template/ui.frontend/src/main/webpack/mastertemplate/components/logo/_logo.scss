@@ -1,0 +1,33 @@
+.cmp-image--logo {
+	display: flex !important;
+	padding: 0px;
+	margin: auto 0px;
+	
+	a {
+		align-self: center;
+
+		.cmp-image {
+			display: flex;
+			height: 45px;
+			.cmp-image__image{
+				object-position: left;
+				width: auto;
+			}
+		}
+
+	}
+	
+}
+
+@media (max-width: 768px) {
+	.cmp-image--logo {
+
+		margin-right: 30px;
+
+		a {
+			.cmp-image {
+				height: auto;
+			}	
+		}		
+	}
+}

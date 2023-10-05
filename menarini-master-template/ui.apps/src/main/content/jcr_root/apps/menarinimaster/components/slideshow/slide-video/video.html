@@ -1,0 +1,31 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2021 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<sly data-sly-template.video="${@ teaser, imageResource, videoResource}">
+    <sly data-sly-test="${videoResource && imageResource}" >
+        <video  class="cmp-slide_video--item cmp-slide_video--item--desktop" autoplay="true" duration="${properties.manualDuration || teaser.duration}" loop="true" playsinline="true" muted="true" width="100%" poster="${imageResource}">
+            <source src="${videoResource}" type="${teaser.videoFormat}">
+            Your browser does not support the video tag.
+        </video>
+        <div class="cmp-teaser__image" data-small-screen-only="false" data-sly-test.imageResource="${teaser.imageResource}" data-sly-resource="${teaser.imageResource @ wcmmode=disabled}"></div>
+    </sly>
+    <sly data-sly-test="${videoResource && !imageResource}">
+        <video  class="cmp-slide_video--item" autoplay="true" duration="${teaser.duration}" loop="true" playsinline="true" muted="true" width="100%" poster="${imageResource}">
+            <source src="${videoResource}" type="${teaser.videoFormat}">
+            Your browser does not support the video tag.
+        </video>
+    </sly>
+</sly>
+

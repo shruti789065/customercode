@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="50acab51-1b68-436d-951b-b60784aa0fb8">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-10T10:05:14.588+01:00"
+        cq:lastModifiedBy="admin"
+        cq:name="breast-cancer-combination"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/indication-dropdown"
+        jcr:lastModified="{Date}2023-03-09T16:55:03.767+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Breast cancer combination"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T16:55:03.767+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="Breast cancer combination"
+                label_x0040_LastModified="{Date}2023-03-09T16:55:03.723+01:00"
+                value="breast cancer combination"
+                value_x0040_LastModified="{Date}2023-03-09T16:55:03.724+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="8cba9db3-8d49-4d49-ab03-97fe54bbbe8c"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="Breast cancer combination"
+                string_x0040_value="breast cancer combination"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

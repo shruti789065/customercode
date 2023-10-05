@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+	xmlns:rep="internal"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:mixinTypes="[rep:AccessControllable]" jcr:primaryType="cq:Page">
+	<rep:policy/>
+	<mhos jcr:primaryType="nt:unstructured">
+		<components jcr:primaryType="nt:unstructured">
+			<form jcr:primaryType="nt:unstructured">
+				<container jcr:primaryType="nt:unstructured">
+					<form-container jcr:description="Allows the form components to be dropped into this core form container." jcr:primaryType="nt:unstructured" jcr:title="Content Form" sling:resourceType="wcm/core/components/policy/policy" components="[/apps/mhos/components/form/button,/apps/mhos/components/form/hidden,/apps/mhos/components/form/options,/apps/mhos/components/form/text]">
+						<jcr:content jcr:primaryType="nt:unstructured"/>
+					</form-container>
+				</container>
+			</form>
+			<languagenavigation jcr:primaryType="nt:unstructured">
+				<policy_xfm jcr:primaryType="nt:unstructured" jcr:title="Menarini House Of Science Language Navigation - Experience Fragment" sling:resourceType="wcm/core/components/policy/policy" navigationRoot="/content/mhos" structureDepth="1">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_xfm>
+			</languagenavigation>
+			<image jcr:primaryType="nt:unstructured">
+				<policy_651483963895698 jcr:description="- Enable lazy loading for faster page loading.&#xd;&#xa;- Define allowed image widths for automatic loading of the image in the most optimal resolution, given the size at which each image is displayed on the page, and the visitor's pixel density.&#xd;&#xa;- Disallow direct asset upload, to force authors to first upload the images to Assets." jcr:primaryType="nt:unstructured" jcr:title="Content Image" sling:resourceType="wcm/core/components/policy/policy" allowedRenditionWidths="[320,480,600,800,1024,1200,1600]" allowUpload="false" altValueFromDAM="true" disableLazyLoading="false" displayPopupTitle="true" enableAssetDelivery="true" isDecorative="false" jpegQuality="{Long}85" titleValueFromDAM="true" uuidDisabled="true">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<plugins jcr:primaryType="nt:unstructured">
+						<crop jcr:primaryType="nt:unstructured" features="*">
+							<aspectRatios jcr:primaryType="nt:unstructured">
+								<item0 jcr:primaryType="nt:unstructured" name="Wide Landscape" ratio="0.6180"/>
+								<item1 jcr:primaryType="nt:unstructured" name="Landscape" ratio="0.8284"/>
+								<item2 jcr:primaryType="nt:unstructured" name="Square" ratio="1"/>
+								<item3 jcr:primaryType="nt:unstructured" name="Portrait" ratio="1.6180"/>
+							</aspectRatios>
+						</crop>
+						<rotate jcr:primaryType="nt:unstructured" features="right"/>
+						<flip jcr:primaryType="nt:unstructured" features="-"/>
+					</plugins>
+				</policy_651483963895698>
+			</image>
+			<text jcr:primaryType="nt:unstructured">
+				<policy_641562756958017 jcr:lastModified="{Date}2023-01-04T17:53:13.841+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Content Text" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<rtePlugins jcr:primaryType="nt:unstructured">
+						<paraformat jcr:primaryType="nt:unstructured" features="*">
+							<formats jcr:primaryType="nt:unstructured" override="true">
+								<item0 jcr:primaryType="nt:unstructured" description="Paragraph" tag="p"/>
+								<item1 jcr:primaryType="nt:unstructured" description="Quote" tag="blockquote"/>
+								<item2 jcr:primaryType="nt:unstructured" description="Preformatted" tag="pre"/>
+							</formats>
+						</paraformat>
+						<misctools jcr:primaryType="nt:unstructured" features="-">
+							<specialCharsConfig jcr:primaryType="nt:unstructured">
+								<chars jcr:primaryType="nt:unstructured" override="true">
+									<item0 jcr:primaryType="nt:unstructured" entity="&amp;copy;" name="copyright"/>
+									<item1 jcr:primaryType="nt:unstructured" entity="&amp;euro;" name="euro"/>
+									<item2 jcr:primaryType="nt:unstructured" entity="&amp;reg;" name="registered"/>
+									<item3 jcr:primaryType="nt:unstructured" entity="&amp;trade;" name="trademark"/>
+								</chars>
+							</specialCharsConfig>
+						</misctools>
+						<edit jcr:primaryType="nt:unstructured" features="-"/>
+						<findreplace jcr:primaryType="nt:unstructured" features="-"/>
+						<undo jcr:primaryType="nt:unstructured" features="-"/>
+						<spellcheck jcr:primaryType="nt:unstructured" features="-"/>
+						<image jcr:primaryType="nt:unstructured" features="-"/>
+						<table jcr:primaryType="nt:unstructured" features="-"/>
+						<lists jcr:primaryType="nt:unstructured" features="*"/>
+						<justify jcr:primaryType="nt:unstructured" features="*"/>
+						<format jcr:primaryType="nt:unstructured" features="bold,italic,underline"/>
+						<links jcr:primaryType="nt:unstructured" features="modifylink,unlink,anchor"/>
+						<subsuperscript jcr:primaryType="nt:unstructured" features="-"/>
+					</rtePlugins>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Color" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-text--color__white" cq:styleId="1672740387254" cq:styleLabel="white" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+					</cq:styleGroups>
+				</policy_641562756958017>
+			</text>
+			<title jcr:primaryType="nt:unstructured">
+				<policy_641475696923109 jcr:description="Allows only H1 and disallows links for the main page title." jcr:primaryType="nt:unstructured" jcr:title="Page Title" sling:resourceType="wcm/core/components/policy/policy" allowedTypes="h1" linkDisabled="true" type="h1">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_641475696923109>
+				<policy_641528232375303 jcr:description="Allows all sizes, but not H1, which is reserved for the main page title." jcr:lastModified="{Date}2023-01-17T11:04:59.660+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Title Policy" sling:resourceType="wcm/core/components/policy/policy" allowedTypes="[h1,h2,h3,h4,h5,h6]" linkDisabled="true" type="h2">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Color" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-title--color__white" cq:styleId="1672655168350" cq:styleLabel="White" jcr:primaryType="nt:unstructured"/>
+								<item1 cq:styleClasses="cmp-title--color__primary" cq:styleId="1672655175078" cq:styleLabel="Primary" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+						<item1 cq:styleGroupLabel="Alignment" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-title--alignment__left" cq:styleId="1673622940924" cq:styleLabel="Left" jcr:primaryType="nt:unstructured"/>
+								<item1 cq:styleClasses="cmp-title--alignment__center" cq:styleId="1673622954330" cq:styleLabel="Center" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item1>
+					</cq:styleGroups>
+				</policy_641528232375303>
+			</title>
+			<experiencefragment jcr:primaryType="nt:unstructured">
+				<policy_header cq:styleDefaultElement="header" jcr:description="Sets a &lt;header> element on the page header experience fragment." jcr:primaryType="nt:unstructured" jcr:title="Page Header" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_header>
+				<policy_footer cq:styleDefaultElement="footer" jcr:description="Sets a &lt;footer> element on the page footer experience fragment." jcr:primaryType="nt:unstructured" jcr:title="Page Footer" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_footer>
+				<policy_365746587536400 cq:styleDefaultElement="header" jcr:lastModified="{Date}2023-01-17T12:34:25.260+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="MHOS Header" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 jcr:primaryType="nt:unstructured"/>
+					</cq:styleGroups>
+				</policy_365746587536400>
+				<policy_366021431398400 cq:styleDefaultElement="footer" jcr:lastModified="{Date}2023-01-17T12:34:40.004+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="MHOS Footer" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_366021431398400>
+			</experiencefragment>
+			<container jcr:primaryType="nt:unstructured">
+				<policy_1574694950110 jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)." jcr:primaryType="nt:unstructured" jcr:title="Page Root" sling:resourceType="wcm/core/components/policy/policy" components="[group:Menarini House Of Science - Content,/apps/mhos/components/form/container,group:Menarini House Of Science - Structure]">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:authoring jcr:primaryType="nt:unstructured">
+						<assetToComponentMapping jcr:primaryType="nt:unstructured">
+							<mapping_1575024218483 jcr:primaryType="nt:unstructured" assetGroup="media" assetMimetype="image/*" droptarget="image" resourceType="mhos/components/image"/>
+							<mapping_1575030843388 jcr:primaryType="nt:unstructured" assetGroup="content" assetMimetype="text/html" droptarget="experiencefragment" resourceType="mhos/components/experiencefragment"/>
+							<mapping_1575030853128 jcr:primaryType="nt:unstructured" assetGroup="media" assetMimetype="[text/html,application/vnd.adobe.contentfragment]" droptarget="contentfragment" resourceType="mhos/components/contentfragment"/>
+						</assetToComponentMapping>
+					</cq:authoring>
+				</policy_1574694950110>
+				<policy_1574695586800 jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)." jcr:lastModified="{Date}2023-02-10T15:32:13.668+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Page Content" sling:resourceType="wcm/core/components/policy/policy" components="[/libs/core/wcm/components/form/container/v2/container,group:Core Form,/apps/mhos/components/accordion,/apps/mhos/components/breadcrumb,/apps/mhos/components/button,/apps/mhos/components/card-hover-container,/apps/mhos/components/carousel,/apps/mhos/components/container,/apps/mhos/components/dialog-card-container,/apps/mhos/components/download,/apps/mhos/components/embed,/apps/mhos/components/experiencefragment,/apps/mhos/components/filter-library,/apps/mhos/components/image,/apps/mhos/components/internal-header,/apps/mhos/components/list,/apps/mhos/components/pdfviewer,/apps/mhos/components/progressbar,/apps/mhos/components/scientific-list,/apps/mhos/components/separator,/apps/mhos/components/spacer,/apps/mhos/components/tabs,/apps/mhos/components/teaser,/apps/mhos/components/text,/apps/mhos/components/title,/apps/mhos/components/video,/apps/mhos/components/custom-search,/apps/mhos/components/latest-article-card]" layoutDisabled="false">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:authoring jcr:primaryType="nt:unstructured">
+						<assetToComponentMapping jcr:primaryType="nt:unstructured">
+							<mapping_1575030255082 jcr:primaryType="nt:unstructured" assetGroup="media" assetMimetype="image/*" droptarget="image" resourceType="mhos/components/image"/>
+							<mapping_1575030260142 jcr:primaryType="nt:unstructured" assetGroup="content" assetMimetype="text/html" droptarget="experiencefragment" resourceType="mhos/components/experiencefragment"/>
+							<mapping_1575030269139 jcr:primaryType="nt:unstructured" assetGroup="media" assetMimetype="[text/html,application/vnd.adobe.contentfragment]" droptarget="contentfragment" resourceType="mhos/components/contentfragment"/>
+						</assetToComponentMapping>
+					</cq:authoring>
+				</policy_1574695586800>
+				<policy_649128221558427 cq:styleDefaultElement="main" jcr:description="Sets a &lt;main> element on the page content area." jcr:primaryType="nt:unstructured" jcr:title="Page Main" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_649128221558427>
+				<policy_1575040440977 jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)." jcr:lastModified="{Date}2022-12-13T17:54:49.180+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="XF Root" sling:resourceType="wcm/core/components/policy/policy" backgroundColorEnabled="true" backgroundImageEnabled="true" components="[/libs/cq/experience-fragments/editor/components/buildingblock,group:Menarini House Of Science - Content,/apps/mhos/components/form/container,/apps/mhos/components/languagenavigation,/apps/mhos/components/navigation,/apps/menarinimaster/components/oneTrust]" layout="responsiveGrid" layoutDisabled="false">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:authoring jcr:primaryType="nt:unstructured">
+						<assetToComponentMapping jcr:primaryType="nt:unstructured">
+							<mapping_1575024218483 jcr:primaryType="nt:unstructured" assetGroup="media" assetMimetype="image/*" droptarget="image" resourceType="mhos/components/image"/>
+							<mapping_1575030843388 jcr:primaryType="nt:unstructured" assetGroup="content" assetMimetype="text/html" droptarget="experiencefragment" resourceType="mhos/components/experiencefragment"/>
+							<mapping_1575030853128 jcr:primaryType="nt:unstructured" assetGroup="media" assetMimetype="[text/html,application/vnd.adobe.contentfragment]" droptarget="contentfragment" resourceType="mhos/components/contentfragment"/>
+						</assetToComponentMapping>
+					</cq:authoring>
+				</policy_1575040440977>
+				<policy_369990025524000 jcr:lastModified="{Date}2023-01-17T10:53:04.618+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Site Containers" sling:resourceType="wcm/core/components/policy/policy" allowedColorSwatches="[#134686,#A42220]" backgroundColorEnabled="true" backgroundImageEnabled="true" layout="responsiveGrid" layoutDisabled="false">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Width" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-container--standard_width" cq:styleId="1670947509108" cq:styleLabel="Standard " jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+					</cq:styleGroups>
+				</policy_369990025524000>
+				<policy_1674652114074 cq:styleDefaultClasses="cmp-container--content-detail" cq:styleDefaultElement="main" jcr:lastModified="{Date}2023-02-07T16:52:40.793+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Content Detail" sling:resourceType="wcm/core/components/policy/policy" components="[/libs/core/wcm/components/contentfragment/v1/contentfragment,/libs/core/wcm/components/contentfragmentlist/v2/contentfragmentlist,/libs/core/wcm/components/form/container/v2/container,group:Core Form,/apps/mhos/components/detail-breadcrumb,/apps/mhos/components/accordion,/apps/mhos/components/breadcrumb,/apps/mhos/components/button,/apps/mhos/components/carousel,/apps/mhos/components/container,/apps/mhos/components/carousel-dialog-container,/apps/mhos/components/download,/apps/mhos/components/embed,/apps/mhos/components/experiencefragment,/apps/mhos/components/filter-library,/apps/mhos/components/detail-container,/apps/mhos/components/image,/apps/mhos/components/internal-header,/apps/mhos/components/list,/apps/mhos/components/pdfviewer,/apps/mhos/components/progressbar,/apps/mhos/components/separator,/apps/mhos/components/spacer,/apps/mhos/components/tabs,/apps/mhos/components/teaser,/apps/mhos/components/text,/apps/mhos/components/title,/apps/mhos/components/video,/apps/mhos/components/custom-search]" layoutDisabled="false">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1674652114074>
+			</container>
+			<teaser jcr:primaryType="nt:unstructured">
+				<policy_1575031387650 jcr:description="Sets the title size to H3." jcr:primaryType="nt:unstructured" jcr:title="Content Teaser" sling:resourceType="wcm/core/components/policy/policy" titleType="h3">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Card Layout" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="card minuti" cq:styleId="1671636816926" cq:styleLabel="Card Discovery with Read icon" jcr:primaryType="nt:unstructured"/>
+								<item1 cq:styleClasses="card fondazione" cq:styleId="1671719205012" cq:styleLabel="Card Discovery with Cast icon" jcr:primaryType="nt:unstructured"/>
+								<item2 cq:styleClasses="cardHover red" cq:styleId="1671718042877" cq:styleLabel="Card Hover Red" jcr:primaryType="nt:unstructured"/>
+								<item3 cq:styleClasses="cardHover blue" cq:styleId="1671719335213" cq:styleLabel="Card Hover Blue" jcr:primaryType="nt:unstructured"/>
+								<item4 cq:styleClasses="teaser--banner-mhos" cq:styleId="1673345362786" cq:styleLabel="Banner" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+					</cq:styleGroups>
+				</policy_1575031387650>
+				<policy_1674738412222 cq:styleDefaultClasses="dialogCarousel__item" jcr:lastModified="{Date}2023-03-03T10:34:37.537Z" jcr:lastModifiedBy="a.messori@adiacent.com" jcr:primaryType="nt:unstructured" jcr:title="dialog container teaser policy" sling:resourceType="wcm/core/components/policy/policy" allowedHeadingElements="[h1,h2,h3,h4,h5,h6]" showTitleType="false" titleType="h2">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Type of Card" cq:styleGroupMultiple="true" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="dialogCarousel__item" cq:styleId="1675937337479" cq:styleLabel="Preview Card" jcr:primaryType="nt:unstructured"/>
+								<item1 cq:styleClasses="cmp-card--presentation" cq:styleId="1675940248131" cq:styleLabel="Business Card" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+						<item1 cq:styleGroupLabel="Padding" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="pl-2" cq:styleId="1675938046293" cq:styleLabel="Padding Left" jcr:primaryType="nt:unstructured"/>
+								<item1 cq:styleClasses="pr-2" cq:styleId="1675938259639" cq:styleLabel="Padding Right" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item1>
+					</cq:styleGroups>
+				</policy_1674738412222>
+			</teaser>
+			<download jcr:primaryType="nt:unstructured">
+				<policy_1575032193319 jcr:description="Sets the title size to H3." jcr:primaryType="nt:unstructured" jcr:title="Content Download" sling:resourceType="wcm/core/components/policy/policy" allowUpload="false" displayFilename="true" displayFormat="true" displaySize="true" titleType="h3">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1575032193319>
+			</download>
+			<page jcr:primaryType="nt:unstructured">
+				<policy jcr:description="Includes the required client libraries." jcr:lastModified="{Date}2023-02-09T12:42:34.024+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Generic Page" sling:resourceType="wcm/core/components/policy/policy" clientlibs="[mhos.dependencies,mhos.site]" clientlibsAsync="false" clientlibsJsHead="mhos.dependencies">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Page Type" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-page--dialog" cq:styleId="1675942843464" cq:styleLabel="Dialog" jcr:primaryType="nt:unstructured"/>
+								<item1 cq:styleClasses="cmp-page--scientific" cq:styleId="1675942894190" cq:styleLabel="Scientific Library" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+					</cq:styleGroups>
+				</policy>
+			</page>
+			<button jcr:primaryType="nt:unstructured">
+				<policy_1670944679146 jcr:lastModified="{Date}2022-12-13T16:19:10.103+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Button Policies" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Layout" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="borderWhite" cq:styleId="1671640546801" cq:styleLabel="Border White" jcr:primaryType="nt:unstructured"/>
+								<item1 cq:styleClasses="borderRed" cq:styleId="1671640617559" cq:styleLabel="Border Red" jcr:primaryType="nt:unstructured"/>
+								<item2 cq:styleClasses="bgWhite" cq:styleId="1671640858105" cq:styleLabel="Background White" jcr:primaryType="nt:unstructured"/>
+								<item3 cq:styleClasses="bgRed" cq:styleId="1671640872502" cq:styleLabel="Background Red" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+						<item1 cq:styleGroupLabel="Margin" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-button__margin-bottom" cq:styleId="1674723563973" cq:styleLabel="Margin Bottom" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item1>
+					</cq:styleGroups>
+				</policy_1670944679146>
+			</button>
+			<separator jcr:primaryType="nt:unstructured">
+				<policy_1672664457721 jcr:lastModified="{Date}2023-01-02T14:02:45.289+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Separator Policy" sling:resourceType="wcm/core/components/policy/policy">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Border" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-separator__primary" cq:styleId="1672664491569" cq:styleLabel="Primary" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+					</cq:styleGroups>
+				</policy_1672664457721>
+			</separator>
+			<internal-header jcr:primaryType="nt:unstructured">
+				<policy_1672755181602 jcr:lastModified="{Date}2023-01-09T11:40:26.199+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Internal Header policy" sling:resourceType="wcm/core/components/policy/policy" allowedColorSwatches="[#B62623,#134686]" backgroundColorSwatchesOnly="true" components="[/apps/mhos/components/internal-header-background-color,/apps/mhos/components/internal-header-background-image]" layoutDisabled="true">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1672755181602>
+			</internal-header>
+			<internal-header-background-image jcr:primaryType="nt:unstructured">
+				<policy_1672842905920 jcr:lastModified="{Date}2023-01-04T15:35:40.200+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Internal Header - Background Image " sling:resourceType="wcm/core/components/policy/policy" backgroundImageEnabled="true" layout="responsiveGrid" layoutDisabled="true">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1672842905920>
+			</internal-header-background-image>
+			<internal-header-background-color jcr:primaryType="nt:unstructured">
+				<policy_1672842943485 jcr:lastModified="{Date}2023-01-04T15:36:31.510+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="Internal  Header - Background Color" sling:resourceType="wcm/core/components/policy/policy" allowedColorSwatches="[#B62623,#134686]" backgroundColorEnabled="true" backgroundColorSwatchesOnly="true" layout="responsiveGrid" layoutDisabled="true">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1672842943485>
+			</internal-header-background-color>
+			<dialog-card-container jcr:primaryType="nt:unstructured">
+				<policy_1673448926406 jcr:primaryType="nt:unstructured" jcr:title="dialog card container policy" sling:resourceType="wcm/core/components/policy/policy" components="/apps/mhos/components/dialog-card">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1673448926406>
+			</dialog-card-container>
+			<carousel-dialog-container jcr:primaryType="nt:unstructured">
+				<policy_1674227260298 jcr:lastModified="{Date}2023-01-20T16:09:05.697+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="dialog container policy" sling:resourceType="wcm/core/components/policy/policy" components="/apps/mhos/components/teaser" layoutDisabled="false">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1674227260298>
+			</carousel-dialog-container>
+			<card-hover-container jcr:primaryType="nt:unstructured">
+				<policy_1674552948816 jcr:lastModified="{Date}2023-01-24T10:36:08.507+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="card hover policy" sling:resourceType="wcm/core/components/policy/policy" components="/apps/mhos/components/teaser">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+				</policy_1674552948816>
+			</card-hover-container>
+			<detail-container jcr:primaryType="nt:unstructured">
+				<policy_1674660623654 jcr:lastModified="{Date}2023-01-25T16:32:19.414+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="header detail policy" sling:resourceType="wcm/core/components/policy/policy" layoutDisabled="false">
+					<jcr:content jcr:primaryType="nt:unstructured"/>
+					<cq:styleGroups jcr:primaryType="nt:unstructured">
+						<item0 cq:styleGroupLabel="Width" jcr:primaryType="nt:unstructured">
+							<cq:styles jcr:primaryType="nt:unstructured">
+								<item0 cq:styleClasses="cmp-container--standard_width" cq:styleId="1674660708874" cq:styleLabel="Standard" jcr:primaryType="nt:unstructured"/>
+							</cq:styles>
+						</item0>
+					</cq:styleGroups>
+				</policy_1674660623654>
+			</detail-container>
+			<Slideshow jcr:primaryType="nt:unstructured">
+				<slideshow-container jcr:primaryType="nt:unstructured">
+					<policy_1675165479996 jcr:lastModified="{Date}2023-01-31T12:44:56.717+01:00" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="slideshow policy" sling:resourceType="wcm/core/components/policy/policy" autopauseDisabled="false" autoplay="false" components="/apps/mhos/components/Slideshow/slide" controlsPrepended="false" delay="5000">
+						<jcr:content jcr:primaryType="nt:unstructured"/>
+					</policy_1675165479996>
+				</slideshow-container>
+			</Slideshow>
+            <filter-library jcr:primaryType="nt:unstructured">
+                <policy_1680775975226
+                        jcr:lastModified="{Date}2023-04-06T12:15:22.082+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Filter Library policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Function"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="cmp-filter-library__without-category"
+                                        cq:styleId="1680776019660"
+                                        cq:styleLabel="Search without category"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1680775975226>
+            </filter-library>
+		</components>
+	</mhos>
+</jcr:root>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="a9c101ff-0833-4c43-af77-ae6b18439a97">
+    <jcr:content
+        cq:name="internal-header-v1"
+        cq:parentPath="/content/dam/mhos"
+        jcr:lastModified="{Date}2023-01-02T17:22:21.295+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Internal header v1"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-01-02T17:22:21.295+01:00">
+        <data
+            cq:model="/conf/mhos/settings/dam/cfm/models/internal-header"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                image="/content/dam/mhos/macchina-da-scrivere.png"
+                image_x0040_LastModified="{Date}2023-01-02T17:22:21.191+01:00"
+                text="&lt;p>promuove il progresso delle scienze mediche, riconoscendo l'eccellenza scientifica e stimolando un approccio interdisciplinare alla conoscenza attraverso la collaborazione internazionale delle più prestigiose Istituzioni Mediche.&lt;/p>&#xa;"
+                text_x0040_ContentType="text/html"
+                text_x0040_LastModified="{Date}2023-01-02T17:22:21.190+01:00"
+                title="PROJECT FOUNDATION"
+                title_x0040_LastModified="{Date}2023-01-02T17:22:21.189+01:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

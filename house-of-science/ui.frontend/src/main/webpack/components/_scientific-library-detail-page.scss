@@ -1,0 +1,37 @@
+.cmp-page--scientific {
+	.cmp-detail--header {
+		min-height: 150px;
+		max-height: 25px;
+
+		.cmp-title {
+			padding: 30px 0;
+		}
+
+		.button {
+			text-align: center;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		
+	}
+	@media (min-width: 768px) and (max-width: 1199px) {
+		.cmp-detail--header {
+			.cmp-text {
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.cmp-page--scientific .cmp-detail--header {
+		display: contents !important;
+		text-align: center !important;
+	}
+	#internalLibraryHOS {
+		.pe-3 {
+			padding-right:0px !important;
+		}
+	} 
+}

@@ -1,0 +1,379 @@
+{
+	"jcr:primaryType": "cq:Page",
+	"jcr:createdBy": "admin",
+	"jcr:created": "Wed Jul 20 2022 10:40:54 GMT+0200",
+	"jcr:content": {
+		"jcr:primaryType": "cq:PageContent",
+		"jcr:createdBy": "admin",
+		"jcr:title": "categoria1",
+		"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-category",
+		"jcr:created": "Wed Jul 20 2022 10:40:54 GMT+0200",
+		"cq:lastModified": "Wed Jul 20 2022 11:33:48 GMT+0200",
+		"sling:resourceType": "menarinimaster/components/page",
+		"cq:lastModifiedBy": "admin",
+		"root": {
+			"jcr:primaryType": "nt:unstructured",
+			"layout": "responsiveGrid",
+			"sling:resourceType": "menarinimaster/components/container",
+			"container": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:createdBy": "admin",
+					"jcr:lastModifiedBy": "admin",
+					"layout": "responsiveGrid",
+					"jcr:created": "Thu Jun 30 2022 12:00:24 GMT+0200",
+					"jcr:lastModified": "Fri Jul 08 2022 13:41:57 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/container",
+					"experiencefragment-productcategoryarea": {
+						"jcr:primaryType": "nt:unstructured",
+						"fragmentVariationPath": "/content/experience-fragments/menarinimaster/language-masters/en/site/product-category-area-xf/master",
+						"sling:resourceType": "menarinimaster/components/experiencefragment"
+					}
+				}
+			}
+		}
+	},
+	"healtcare1": {
+		"jcr:primaryType": "cq:Page",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Wed Jul 20 2022 10:41:13 GMT+0200",
+		"jcr:content": {
+			"jcr:primaryType": "cq:PageContent",
+			"jcr:createdBy": "admin",
+			"jcr:title": "Healtcare1",
+			"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-healthcare",
+			"jcr:created": "Wed Jul 20 2022 10:41:13 GMT+0200",
+			"cq:lastModified": "Wed Jul 20 2022 10:41:13 GMT+0200",
+			"sling:resourceType": "menarinimaster/components/page",
+			"cq:lastModifiedBy": "admin",
+			"root": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"internalheader": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Tue Jul 05 2022 09:40:28 GMT+0200",
+						"jcr:lastModified": "Tue Jul 05 2022 09:40:28 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/internalheader"
+					},
+					"breadcrumb": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Tue Jul 05 2022 09:40:37 GMT+0200",
+						"jcr:lastModified": "Tue Jul 05 2022 09:40:37 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/breadcrumb"
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"layout": "responsiveGrid",
+						"jcr:created": "Tue Jul 05 2022 09:40:56 GMT+0200",
+						"jcr:lastModified": "Tue Jul 05 2022 09:47:05 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/container",
+						"internalmenu": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 07 2022 12:16:38 GMT+0200",
+							"jcr:lastModified": "Thu Jul 07 2022 12:16:38 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/internalmenu",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "3"
+								}
+							}
+						},
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 07 2022 12:16:55 GMT+0200",
+							"jcr:lastModified": "Thu Jul 07 2022 12:16:55 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "9"
+								}
+							}
+						},
+						"productlist": {
+							"jcr:primaryType": "nt:unstructured",
+							"showModificationDate": "false",
+							"jcr:createdBy": "admin",
+							"tagsMatch": "any",
+							"linkItems": "true",
+							"jcr:lastModifiedBy": "admin",
+							"target": "_self",
+							"jcr:created": "Thu Jul 07 2022 12:17:07 GMT+0200",
+							"sortOrder": "asc",
+							"displayItemAsTeaser": "true",
+							"showDescription": "false",
+							"jcr:lastModified": "Thu Jul 07 2022 12:17:25 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/productlist",
+							"childDepth": "1",
+							"listFrom": "children",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "3",
+									"width": "9"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"prodotto1": {
+			"jcr:primaryType": "cq:Page",
+			"jcr:createdBy": "admin",
+			"jcr:created": "Wed Jul 20 2022 10:41:14 GMT+0200",
+			"jcr:content": {
+				"jcr:primaryType": "cq:PageContent",
+				"jcr:createdBy": "admin",
+				"jcr:title": "prodotto1",
+				"pwaOrientation": "any",
+				"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---details-product",
+				"jcr:created": "Wed Jul 20 2022 10:41:14 GMT+0200",
+				"pwaDisplay": "standalone",
+				"cq:lastModified": "Wed Jul 20 2022 10:41:14 GMT+0200",
+				"pwaCachestrategy": "staleWhileRevalidate",
+				"sling:resourceType": "menarinimaster/components/page",
+				"cq:lastModifiedBy": "admin",
+				"root": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"layout": "responsiveGrid",
+						"sling:resourceType": "menarinimaster/components/container",
+						"internalheader": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Tue May 31 2022 12:49:45 GMT+0200",
+							"jcr:lastModified": "Tue May 31 2022 12:49:45 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/internalheader"
+						},
+						"breadcrumb": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Tue May 31 2022 12:49:53 GMT+0200",
+							"jcr:lastModified": "Tue May 31 2022 12:49:53 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/breadcrumb"
+						},
+						"container": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"layout": "responsiveGrid",
+							"jcr:created": "Tue May 31 2022 12:49:59 GMT+0200",
+							"jcr:lastModified": "Tue May 31 2022 12:50:06 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/container",
+							"internalmenu": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Tue May 31 2022 12:50:17 GMT+0200",
+								"jcr:lastModified": "Tue May 31 2022 12:50:17 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/internalmenu",
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "3"
+									}
+								}
+							},
+							"title": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Fri Jul 08 2022 09:38:13 GMT+0200",
+								"jcr:lastModified": "Fri Jul 08 2022 09:38:13 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/title",
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "0",
+										"width": "9"
+									}
+								}
+							},
+							"image": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Fri Jul 08 2022 09:38:26 GMT+0200",
+								"jcr:lastModified": "Fri Jul 08 2022 09:38:26 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/image",
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "3",
+										"width": "9"
+									}
+								}
+							},
+							"text": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Fri Jul 08 2022 09:38:37 GMT+0200",
+								"jcr:lastModified": "Fri Jul 08 2022 09:38:37 GMT+0200",
+								"sling:resourceType": "menarinimaster/components/text",
+								"cq:responsive": {
+									"jcr:primaryType": "nt:unstructured",
+									"default": {
+										"jcr:primaryType": "nt:unstructured",
+										"offset": "3",
+										"width": "9"
+									}
+								}
+							}
+						}
+					}
+				},
+				"cq:featuredimage": {
+					"jcr:primaryType": "nt:unstructured",
+					"fileReference": "/content/dam/menarinimaster/assets/consumerhelthcare_productareadefault.jpg",
+					"jcr:lastModifiedBy": "admin",
+					"jcr:lastModified": "Fri Jul 08 2022 13:47:22 GMT+0200",
+					"sling:resourceType": "core/wcm/components/image/v3/image",
+					"altValueFromDAM": "false"
+				}
+			}
+		}
+	},
+	"pharmaceutical": {
+		"jcr:primaryType": "cq:Page",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Wed Jul 20 2022 11:33:34 GMT+0200",
+		"jcr:content": {
+			"jcr:primaryType": "cq:PageContent",
+			"jcr:createdBy": "admin",
+			"jcr:title": "Pharmaceutical",
+			"cq:template": "/conf/menarinimaster/settings/wcm/templates/menarini---product-list-pharmaceutical",
+			"jcr:created": "Wed Jul 20 2022 11:33:34 GMT+0200",
+			"cq:lastModified": "Wed Jul 20 2022 11:33:34 GMT+0200",
+			"sling:resourceType": "menarinimaster/components/page",
+			"cq:lastModifiedBy": "admin",
+			"root": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"container": {
+					"jcr:primaryType": "nt:unstructured",
+					"layout": "responsiveGrid",
+					"sling:resourceType": "menarinimaster/components/container",
+					"internalheader": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Tue Jul 05 2022 09:40:28 GMT+0200",
+						"jcr:lastModified": "Tue Jul 05 2022 09:40:28 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/internalheader"
+					},
+					"breadcrumb": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"jcr:created": "Tue Jul 05 2022 09:40:37 GMT+0200",
+						"jcr:lastModified": "Tue Jul 05 2022 09:40:37 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/breadcrumb"
+					},
+					"container": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"layout": "responsiveGrid",
+						"jcr:created": "Tue Jul 05 2022 09:40:56 GMT+0200",
+						"jcr:lastModified": "Tue Jul 05 2022 09:47:05 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/container",
+						"internalmenu": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Tue Jul 05 2022 09:41:34 GMT+0200",
+							"jcr:lastModified": "Tue Jul 05 2022 09:41:34 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/internalmenu",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "3"
+								}
+							}
+						},
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Jul 07 2022 10:48:33 GMT+0200",
+							"jcr:lastModified": "Thu Jul 07 2022 10:48:33 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "0",
+									"width": "9"
+								}
+							}
+						},
+						"productleafleftconta": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"layout": "responsiveGrid",
+							"jcr:created": "Thu Jul 07 2022 10:48:47 GMT+0200",
+							"jcr:lastModified": "Thu Jul 07 2022 10:48:59 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/productleafleftcontainer",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured",
+								"default": {
+									"jcr:primaryType": "nt:unstructured",
+									"offset": "3",
+									"width": "9"
+								}
+							},
+							"productleafleft": {
+								"jcr:primaryType": "nt:unstructured",
+								"jcr:createdBy": "admin",
+								"jcr:lastModifiedBy": "admin",
+								"jcr:created": "Thu Jul 07 2022 10:50:38 GMT+0200",
+								"jcr:lastModified": "Thu Jul 07 2022 10:50:38 GMT+0200",
+								"linktext": "Patient Information Leaflet",
+								"sling:resourceType": "menarinimaster/components/productleafleft"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

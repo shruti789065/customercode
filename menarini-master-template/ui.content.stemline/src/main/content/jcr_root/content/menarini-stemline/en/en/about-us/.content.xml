@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <mission/>
+    <jcr:content
+        cq:lastModified="{Date}2023-04-19T13:58:29.893Z"
+        cq:lastModifiedBy="m.papini@adiacent.com"
+        cq:lastReplicated="{Date}2023-04-19T13:59:18.599Z"
+        cq:lastReplicated_publish="{Date}2023-04-19T13:59:18.599Z"
+        cq:lastReplicatedBy="m.papini@adiacent.com"
+        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/menarini-stemline/settings/wcm/templates/menarini---content-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="About Us"
+        jcr:uuid="2a11c912-c24d-40b2-8989-c49339d52a25"
+        sling:resourceType="menarinimaster/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader
+                    jcr:lastModified="{Date}2023-04-19T13:56:52.423Z"
+                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/internalheader"
+                    disableLazyLoading="false"
+                    fileReference="/content/dam/menarini-stemline/assets/header_about_us.jpg"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    textIsRich="true"
+                    titleFromPage="false"/>
+                <breadcrumb
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/breadcrumb"/>
+                <container
+                    jcr:lastModified="{Date}2022-11-09T17:06:45.847+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/container"
+                    layout="responsiveGrid">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <tablet
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="11"/>
+                    </cq:responsive>
+                    <container_1141806574
+                        cq:styleIds="[1677232233407]"
+                        jcr:lastModified="{Date}2023-03-08T14:59:52.595Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container"
+                        layout="responsiveGrid">
+                        <title
+                            cq:styleIds="[1653552493699]"
+                            jcr:lastModified="{Date}2023-03-01T10:43:20.212Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="About Us"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h2"/>
+                        <text
+                            jcr:lastModified="{Date}2023-03-01T10:51:36.441Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p>Stemline Therapeutics is a commercial-stage biopharmaceutical company focused on the development and commercialization of novel oncology therapeutics. Stemline was founded in 2003 and is headquartered in New York City. In 2020, Stemline was acquired by the Menarini Group. The goal of our dedicated team of scientists, oncologists, medical and business professionals is to build a leading biopharmaceutical company focused on improving the lives of cancer patients by developing and commercializing novel first- in-class therapeutics.&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    behavior="none"
+                                    offset="0"
+                                    width="7"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="11"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </text>
+                        <container
+                            jcr:lastModified="{Date}2023-03-16T11:58:43.718Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <card_copy
+                                jcr:description="&lt;p>We’re focused on improving the lives of patients with difficult to treat cancers.&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2023-04-19T13:57:36.857Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Our Mission"
+                                sling:resourceType="menarinimaster/components/card"
+                                descriptionFromPage="false"
+                                disableLazyLoading="false"
+                                fileReference="/content/dam/menarini-stemline/assets/our_mission.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                linkURL="/content/menarini-stemline/en/en/about-us/mission"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="10"/>
+                                </cq:responsive>
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        link="/content/menarini-stemline/en/en/about-us/mission"
+                                        linkTarget="_self"
+                                        text="EXPLORE YOUR MISSION"/>
+                                </actions>
+                            </card_copy>
+                            <card
+                                jcr:description="&lt;p>The Stemline pipeline demonstrates a deep commitment to innovative cancer therapies.&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2023-04-19T13:57:55.607Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Our Pipeline"
+                                sling:resourceType="menarinimaster/components/card"
+                                descriptionFromPage="false"
+                                disableLazyLoading="false"
+                                fileReference="/content/dam/menarini-stemline/assets/pipeline.jpg"
+                                imageFromPageImage="false"
+                                isDecorative="true"
+                                linkTarget="_self"
+                                linkURL="/content/menarini-stemline/en/en/science/research/pipeline"
+                                textIsRich="true"
+                                titleFromPage="false">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="10"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="10"/>
+                                </cq:responsive>
+                                <actions jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        link="/content/menarini-stemline/en/en/science/research/pipeline"
+                                        linkTarget="_self"
+                                        text="VIEW CURRENTE PIPELINE"/>
+                                </actions>
+                            </card>
+                            <spacer
+                                jcr:lastModified="{Date}2023-03-28T08:19:24.317Z"
+                                jcr:lastModifiedBy="m.papini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/spacer"
+                                spacer="50"/>
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="11"/>
+                            </cq:responsive>
+                        </container>
+                        <banner
+                            cq:styleIds="[1655107229265]"
+                            jcr:description="&lt;p>Menarini Group is present in 140 countries around the world. With the acquisition of Stemline, Menarini marked its entry into the U.S. oncology market.&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-04-19T13:58:29.881Z"
+                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="About Menarini Group"
+                            sling:resourceType="menarinimaster/components/banner"
+                            altValueFromDAM="false"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-stemline/assets/megabox_menarini_group.jpg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_blank"
+                            linkURL="https://www.menarini.com/en-us/about-us"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <actions jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    link="https://www.menarini.com/en-us/about-us"
+                                    linkTarget="_self"
+                                    text="LEARN ABOUT OF MENARINI GROUP"/>
+                            </actions>
+                        </banner>
+                    </container_1141806574>
+                </container>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-03-06T15:43:05.710Z"
+            jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"
+            fileReference="/content/dam/menarini-stemline/assets/slider_about_us.jpg"/>
+    </jcr:content>
+    <values/>
+    <our-history/>
+    <leadership/>
+    <news/>
+    <business-ethics-compliance/>
+</jcr:root>

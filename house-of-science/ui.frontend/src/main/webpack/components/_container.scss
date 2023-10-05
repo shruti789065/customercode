@@ -1,0 +1,87 @@
+main.container {
+	padding-top: 115px;
+}
+
+.container {
+	max-width: 100%;
+	padding: 0;
+}
+
+.cmp-container--standard_width {
+	margin: 0 8.33%;
+	max-width: 84%;
+	float: inherit !important;
+}
+
+.containerTestComponent {
+	margin-top: 1rem !important;
+	padding: 3rem !important;
+}
+
+#backgroundImageLampada{
+	background-position: top center;
+	background-size: 150px !important;
+}
+
+@media (max-width: 768px) {
+	.containerTestComponent {
+		padding: 0.3rem !important;
+
+		.cmp-accordion__panel {
+			padding: 0.3rem !important;
+			;
+		}
+	}
+}
+
+.cmp-container .aem-Grid:has(.teaser.card.cq-Editable-dom) {
+	display: block;
+}
+
+.cmp-container_card-padding {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+
+@media (min-width: 375px) {
+	main.container {
+		padding-top: $top-height;
+	}
+}
+
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+	.container.cmp-container--standard_width {
+		//max-width: 960px;
+	}
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+	.container.cmp-container--standard_width {
+		//max-width: 990pt;
+		margin: 0 auto;
+	}
+
+	.cmp-container_card-padding {
+		flex-wrap: nowrap;
+	}
+
+	#backgroundImageLampada{
+		background-position: top right;
+		background-size: 370px !important;
+	}
+}
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1440px) {
+
+	.container.cmp-container--standard_width {
+		//max-width: 990pt;
+	}
+}
+

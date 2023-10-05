@@ -1,0 +1,26 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2021 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<!-- TODO: gestione ordinamento per property data da recuperare dalla pagina single news-->
+<template data-sly-template.item="${@ list, item}">
+    <span data-sly-test="${list.showModificationDate}" data-sly-use.dateValue="${'com.adiacent.menarini.menarinimaster.core.models.LatestNewsDateFormatter' @item=item.path}"
+          class="cmp-list__item-date article_date">${dateValue.formattedValue}</span>
+    <a class="cmp-list__item-link" data-sly-attribute="${item.link.htmlAttributes}" data-sly-unwrap="${!list.linkItems || !item.link.valid}"
+       data-cmp-clickable="${item.data ? true : false}">
+        <h3 class="cmp-list__item-title">${item.title}</h3>
+    </a>
+    <span data-sly-test="${list.showDescription}" class="cmp-list__item-description">${item.description}</span>
+    <div class="btn_read_more"><a href="${item.path @ extension='html'}">${'read more' @ i18n}</a></div>
+</template>

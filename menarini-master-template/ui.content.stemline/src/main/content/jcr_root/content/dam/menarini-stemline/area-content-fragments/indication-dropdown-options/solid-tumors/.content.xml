@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="ffdcc890-871f-45a8-8be8-4822de251503">
+    <jcr:content
+        cq:name="solid-tumors"
+        cq:parentPath="/content/dam/menarini-stemline/area-content-fragments/indication-dropdown"
+        jcr:lastModified="{Date}2023-03-09T16:56:28.426+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Solid tumors"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-03-09T16:56:28.426+01:00">
+        <data
+            cq:model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                label="Solid tumors"
+                label_x0040_LastModified="{Date}2023-03-09T16:56:28.412+01:00"
+                value="solid tumors"
+                value_x0040_LastModified="{Date}2023-03-09T16:56:28.413+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="a65f1259-ed24-4e07-8c53-360aeeccd3f3"
+                _x0040_string_x0040_model="/conf/menarini-stemline/settings/dam/cfm/models/indication-dropdown"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_label="Solid tumors"
+                string_x0040_value="solid tumors"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

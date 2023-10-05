@@ -1,0 +1,304 @@
+/*cardFilters*/
+.filter-library{
+    .row{
+        .col-md-4{
+            h3{
+                font-size: 20px;
+            }
+        }
+    }
+}
+.cardFilters {
+    .cardSF {
+        border: 1px solid $color-foreground-two;
+        padding: 0px 10px;
+        margin-bottom: 10px;
+
+        .card-header {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            h2 {
+                cursor: pointer;
+                position: relative;
+
+                &:before,
+                &:has(button[aria-expanded="false"]):before {
+                    display: flex;
+                    content: " ";
+                    background-image: url('/etc.clientlibs/mhos/clientlibs/clientlib-site/resources/icons/arrow-up-v2.svg');
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                }
+                &:has(button[aria-expanded="true"]):before {
+                    rotate: 180deg;
+                }
+                button {
+                    width: 100%;
+                    padding: 0px;
+                    text-decoration: unset;
+                    &:focus,
+                    &:hover {
+                        box-shadow: unset;
+                        text-decoration: unset;
+                    }
+                    label {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        color: $primary-color-three;
+                        font-family: $font-family;
+                        font-weight: $bold;
+                        font-size: 16px;
+                        cursor: pointer;
+                        position: relative;
+                    }
+                }
+            }
+        }
+        .card-body {
+            padding: 15px 0px;
+            max-height: 300px;
+            scroll-behavior: auto;
+            overflow: auto;
+            overflow-x: hidden;
+            
+            &::-webkit-scrollbar {
+                width: 8px;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
+            }
+            &::-ms-thumb {
+                width: 8px;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
+            }
+            &::-ms-track {
+                width: 8px;
+                background-color: $color-foreground-two;
+                border-radius: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $primary-color-three;
+                border-radius: 8px;
+                border: 1px solid $primary-color-three;
+            }
+            scrollbar {
+                width: 12px;
+                background-color: $color-foreground-two;
+                thumb {
+                    background-color: $color-foreground-two;
+                }
+            }
+            [id*='-filter'] {
+                label {
+                    position: relative;
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    margin: 0px;
+                    width: 100%;
+                    border-bottom: 1px solid $color-foreground-two;
+                    padding: 15px;
+                    font-size: 16px;
+                    font-weight: $light;
+                    &.filter-selected {
+                        border: 1px solid $primary-color;
+                    }
+                    input[type="checkbox"] {
+                        position: absolute;
+                        right: 20px;
+                        accent-color: $primary-color;
+                        width: 25px;
+                        height: 25px;
+                        border: 1px solid $primary-color;
+                        border-radius: 3px;
+                        &:hover{
+                            accent-color: $primary-color;
+                        }
+
+                        &:checked+label {
+                            
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                width: 10px;
+                                height: 5px;
+                                top: 5px;
+                                left: 5px;
+                                border: solid $white;
+                                border-width: 0 2px 2px 0;
+                                transform: rotate(45deg);
+                            }
+                        }
+                        
+                    }
+                    input[type="checkbox"]+label {
+                        position: relative;
+                        padding-left: 25px;
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            left: 0;
+                            top: 0;
+                            background-color: $white;
+                            border: 1px solid $color-foreground-two;
+                        }
+                    }
+                }
+            }
+            #typology-filter {
+
+            } 
+            #tag-filter {
+                display: block;
+                label {
+                    background-color: $color-foreground-two;
+                    color: $black;
+                    width: fit-content;
+                    border-bottom: 0px;
+                    margin-bottom: 5px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    &.filter-selected {
+                        border: 1px solid $primary-color;
+                    }
+                    input[type=checkbox]{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+} 
+
+
+#results {
+    .cardSFR {
+        border: 0px;
+        background-color: unset;
+        border-bottom: 1px solid $color-foreground-two;
+        border-radius: 0px;
+        .card-header {
+            border-bottom: unset;
+            padding: 15px;
+            button {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-decoration: unset;
+                padding: 0px;
+                &:focus {
+                    box-shadow: unset;
+                }
+                .typology {
+                    color: $white;
+                    text-transform: uppercase;
+                    padding: 5px 15px;
+                    margin: 0px;
+                    font-weight: $extra-light;
+                }
+                .title{
+                    text-align: left;
+                    color: $black;
+                    font-size: 20px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin-top: 15px;
+                    font-weight: $light;
+                    p{
+                        font-weight: $light;
+                        margin-bottom: 0;  
+                        line-height: 29px;
+                    }
+                }
+            }
+            .date {
+                display: flex;
+                color: $color-other;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            font-weight: $regular;
+            padding: 0px 15px;
+            * {
+                display: flex;
+            }
+            .meta-data {
+                flex-direction: column;
+                .meta-data-item{
+                    &.Author {    
+                        margin-top: 30px;
+                    }
+                    &.Source {
+                        margin-top: 30px;
+                    }
+                    &.Tag {
+                        margin-top: 30px;
+						display: flex;
+						gap: 20px;
+                        flex-wrap: wrap;
+						.cmp-tag--item{
+							background-color: $color-other;
+							color: $white;
+							text-align: center;
+							font-size: $font-size;
+							padding: 10px 20px;
+							text-transform: uppercase;
+							font-weight: $extra-light;
+						}
+                    }
+                }
+            }
+            .description {    
+                margin-top: 30px;
+                display: block;
+                p{
+                    font-weight: 400;
+                }
+            }
+            .containerLink{
+                margin-bottom: 20px;
+                .Link {
+                    background-color: $primary-color-three;
+                    color: $white;
+                    font-weight: $bold;
+                    padding: 15px 30px;
+                    margin-top: 30px;
+                    text-decoration: unset;
+                    text-transform: capitalize;
+                }
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #results {
+        .cardSFR {
+            .card-header{
+                padding: 15px 0px;
+                button{
+                    .title{
+                        
+                    }
+                }
+            }
+            .card-body {
+                padding: 0px 0px;
+            }
+        }
+    }
+}

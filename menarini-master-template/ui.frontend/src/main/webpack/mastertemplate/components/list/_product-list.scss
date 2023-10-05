@@ -1,0 +1,77 @@
+.cmp-product-list {
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.cmp-list {
+		-moz-column-count: 2;
+		-moz-column-gap: 2em;
+		-webkit-column-count: 2;
+		-webkit-column-gap: 2em;
+		column-count: 2;
+		column-gap: 2em;
+		padding-left: 0px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin: 0px auto;
+		.cmp-list__item {
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			margin-bottom: 50px;
+			padding-bottom: 50px;
+			border-bottom: 1px solid $color-six;
+			width: 100%;
+			max-width: 430px;
+			.cmp-teaser {
+				max-width: 400px;
+				width: 100%;
+				.cmp-teaser__image {
+					height: 250px;
+					width: 100%;
+					position: relative;
+					overflow: hidden;
+					display: flex;
+					border: 1px solid $color-six;
+					.cmp-image {
+						.cmp-image__image {
+							position: absolute;
+							width: auto;
+							height: 100%;
+							left: 50%;
+							top: 50%;
+							-webkit-transform: translate(-50%, -50%);
+							transform: translate(-50%, -50%);
+						}
+					}
+				}
+				.cmp-teaser__content {
+					.cmp-teaser__title {
+						height: 60px;
+						margin-top: 10px;
+						overflow: hidden;
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						text-align: center;
+						text-transform: uppercase;
+						font-family: $font-family-oswald;
+						font-weight: $font-medium;
+						font-size: $title-extra-small-font-size;
+						color: $color-corporate;
+					}
+					.cmp-teaser__description {
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 1200px) {
+	.cmp-product-list .cmp-list .cmp-list__item .cmp-teaser .cmp-teaser__image {
+		height: 180px;
+	}
+}
