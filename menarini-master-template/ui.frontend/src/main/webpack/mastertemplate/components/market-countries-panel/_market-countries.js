@@ -34,6 +34,9 @@ const MarketCountries = (() => {
    * @public
    */
   function init() {
+	const mobileBtn = document.querySelector(
+		".cmp-button--mobile"
+	  );
     const marketCountriesAnchor = document.querySelectorAll(
       ".cmp-countries-markets"
     );
@@ -41,11 +44,29 @@ const MarketCountries = (() => {
       element.addEventListener("click", toggleMarketPanel);
     });
     marketCountriesCloseButton.addEventListener("click", toggleMarketPanel);
+    const observer = new MutationObserver((mutationsList, observer) => {
+      // Itera attraverso le mutazioni osservate
+      for (const mutation of mutationsList) {
+        // Verifica se la classe cmp-button--mobile__toggler_close è stata aggiunta al DOM
+        if (
+          mutation.target.classList.contains(
+            "cmp-button--mobile__toggler_close"
+          )
+        ) {
+          const menuCloseButton = document.querySelector(
+            ".cmp-button--mobile__toggler_close"
+          );
+          menuCloseButton.addEventListener("click", () => {marketCountriesContainer.style.left = "100%";});
+        }
+      }
+    });
+
+    observer.observe(mobileBtn, { attributes: true, attributeFilter: ["class"] });
   }
 
   function toggleMarketPanel() {
     if (marketCountriesContainer) {
-      if (!_isDesktop) {
+      if (_isDesktop()) {
         const currentDisplayStyle = window
           .getComputedStyle(marketCountriesContainer)
           .getPropertyValue("display");
