@@ -94,6 +94,7 @@ document.querySelectorAll(".swiper").forEach(function (s) {
     modules: [Navigation, Pagination,Thumbs],
     thumbs: {
       swiper: $thumbs,
+      autoScrollOffset: 1,      
     },    
   });
 });
