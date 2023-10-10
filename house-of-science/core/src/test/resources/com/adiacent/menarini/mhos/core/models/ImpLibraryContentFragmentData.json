@@ -1,0 +1,651 @@
+{
+  "jcr:primaryType": "sling:Folder",
+  "jcr:mixinTypes": [
+    "rep:AccessControllable"
+  ],
+  "jcr:createdBy": "admin",
+  "jcr:created": "Fri Sep 08 2023 11:15:20 GMT+0200",
+  "cardiology": {
+    "jcr:primaryType": "sling:Folder",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Fri Sep 08 2023 11:15:20 GMT+0200",
+    "podcast-1": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:versionHistory": "1d28c24f-5db8-4721-b7fc-49f262167953",
+      "jcr:predecessors": [
+        "40e284c1-d4cc-4ef2-86fc-abae6883097e"
+      ],
+      "jcr:created": "Fri Sep 08 2023 11:15:20 GMT+0200",
+      "jcr:baseVersion": "40e284c1-d4cc-4ef2-86fc-abae6883097e",
+      "jcr:isCheckedOut": true,
+      "jcr:uuid": "8a1140c3-c40d-4ee7-9e84-e071194c31cd",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:title": "Podcast 1",
+        "jcr:lastModifiedBy": "admin",
+        "contentFragment": true,
+        "cq:name": "podcast-1",
+        "jcr:lastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+        "lastFragmentSave": "Thu Mar 30 2023 14:35:21 GMT+0200",
+        "cq:parentPath": "/content/dam/mhos/content-fragments/en/cardiology",
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ]
+        },
+        "data": {
+          "jcr:primaryType": "nt:unstructured",
+          "cq:model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable",
+              "dam:cfVariationNode"
+            ],
+            "linkLabel@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n",
+            "linkLabel": "read more",
+            "author@LastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+            "author": [
+              "house-of-science:author/attanasio"
+            ],
+            "link@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+            "description@LastModified": "Mon Feb 06 2023 12:36:19 GMT+0100",
+            "tags@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+            "source": [
+              "house-of-science:source/accademia-dei-lincei"
+            ],
+            "typology": [
+              "house-of-science:typology/podcasts"
+            ],
+            "source@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+            "link": "https://www.msn.com/it-it/notizie/mondo/tesla-model-3-finisce-dentro-una-piscina-la-causa-%C3%A8-davvero-delle-pi%C3%B9-banali/ss-AA177P7N?ocid=entnewsntp&amp;cvid=0a8b50b6cc6b4c0396bfe967e2fea20f",
+            "tags": [
+              "house-of-science:generic-tags/blood"
+            ],
+            "topic": [
+              "house-of-science:topic/public-health"
+            ],
+            "topic@LastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+            "articleDate": "Tue Dec 13 2022 00:00:00 GMT+0000",
+            "linkTarget": "_blank",
+            "cq:tags": [],
+            "linkTarget@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+            "typology@LastModified": "Thu Mar 30 2023 14:34:03 GMT+0200",
+            "articleDate@LastModified": "Thu Mar 30 2023 14:35:21 GMT+0200",
+            "description@ContentType": "text/html"
+          }
+        }
+      }
+    },
+    "jcr:content": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:title": "Cardiology",
+      "sourcing": "false"
+    },
+    "article-1": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:versionHistory": "3a70e8a6-4092-4b09-93d7-c202ab053a13",
+      "jcr:predecessors": [
+        "75853b93-3c95-4323-9c2e-9432f61b7722"
+      ],
+      "jcr:created": "Fri Sep 08 2023 11:15:20 GMT+0200",
+      "jcr:baseVersion": "75853b93-3c95-4323-9c2e-9432f61b7722",
+      "jcr:isCheckedOut": true,
+      "jcr:uuid": "5acfae0d-257e-48a2-946f-0aa1c10e2525",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:title": "Article 1",
+        "jcr:lastModifiedBy": "admin",
+        "contentFragment": true,
+        "cq:name": "article-1",
+        "jcr:lastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+        "lastFragmentSave": "Thu Mar 30 2023 14:37:14 GMT+0200",
+        "cq:parentPath": "/content/dam/mhos/content-fragments/en/cardiology",
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ]
+        },
+        "data": {
+          "jcr:primaryType": "nt:unstructured",
+          "cq:model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable",
+              "dam:cfVariationNode"
+            ],
+            "linkLabel@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n",
+            "linkLabel": "read  more read more",
+            "author@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "author": [
+              "house-of-science:author/alessandro-vespignani"
+            ],
+            "link@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "description@LastModified": "Mon Feb 06 2023 12:28:30 GMT+0100",
+            "tags@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "source": [
+              "house-of-science:source/accademia-dei-lincei"
+            ],
+            "typology": [
+              "house-of-science:typology/articles"
+            ],
+            "source@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "link": "https://www.msn.com/it-it/lifestyle/notizie/maine-coon-il-gatto-dalle-dimensioni-record/ss-AA177OXF?ocid=entnewsntp&amp;cvid=0a8b50b6cc6b4c0396bfe967e2fea20f",
+            "tags": [
+              "house-of-science:generic-tags/blood"
+            ],
+            "topic": [
+              "house-of-science:topic/insulin"
+            ],
+            "topic@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "articleDate": "Mon Feb 06 2023 00:00:00 GMT+0000",
+            "linkTarget": "_blank",
+            "cq:tags": [],
+            "linkTarget@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "typology@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "articleDate@LastModified": "Thu Mar 30 2023 14:37:14 GMT+0200",
+            "description@ContentType": "text/html"
+          }
+        }
+      }
+    }
+  },
+  "internal-medicine": {
+    "jcr:primaryType": "sling:OrderedFolder",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Fri Sep 08 2023 11:15:21 GMT+0200",
+    "jcr:content": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:title": "Internal Medicine",
+      "dam:noThumbnail": true,
+      "sourcing": "false"
+    },
+    "obesity-and-weight-management-for-the-prevention-and-treatment-of-type-2-diabetes--standards-of-care-in-diabetes-2023": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:versionHistory": "b3f4292d-6a17-419f-b76e-8b7edf1d1316",
+      "jcr:predecessors": [
+        "0b1dee21-212c-4793-8c78-c4d5aeef0f9c"
+      ],
+      "jcr:created": "Fri Sep 08 2023 11:15:21 GMT+0200",
+      "jcr:baseVersion": "0b1dee21-212c-4793-8c78-c4d5aeef0f9c",
+      "jcr:isCheckedOut": true,
+      "jcr:uuid": "bb32f6cd-7c0d-46fe-bf53-9052468bd603",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:mixinTypes": [
+          "cq:ReplicationStatus2"
+        ],
+        "jcr:title": "Obesity and Weight Management for the Prevention and Treatment of Type 2 Diabetes: Standards of Care in Diabetes-2023.",
+        "cq:lastReplicatedBy_publish": "workflow-process-service",
+        "cq:isDelivered": true,
+        "cq:lastReplicationAction": "Activate",
+        "dam:processingRenditions": [
+          "cq5dam.web.1280.1280.jpeg",
+          "cq5dam.thumbnail.319.319.png",
+          "cq5dam.zoom.2048.2048.jpeg",
+          "cq5dam.thumbnail.48.48.png",
+          "cqdam.machine.metadata.features.json",
+          "cqdam.machine.metadata.colors.json",
+          "cq5dam.preview.pdf",
+          "cqdam.machine.metadata.tags.json",
+          "cqdam.metadata.xml",
+          "cqdam.text.txt",
+          "cq5dam.thumbnail.140.100.png"
+        ],
+        "cq:lastReplicatedBy": "workflow-process-service",
+        "jcr:lastModifiedBy": "lambrosini@cloud.menarini.com",
+        "dam:runDMProcess": true,
+        "cq:lastReplicationAction_publish": "Activate",
+        "dam:processingId": "2bca7df9-1429-4189-b7ec-77f7d1a1c3b0",
+        "cq:lastReplicated": "Tue Sep 05 2023 08:17:21 GMT+0000",
+        "dam:runPostProcess": true,
+        "contentFragment": true,
+        "dam:processingRequestedDate": "Thu May 04 2023 11:57:21 GMT+0000",
+        "cq:name": "obesity-and-weight-management-for-the-prevention-and-treatment-of-type-2-diabetes--standards-of-care-in-diabetes-2023",
+        "jcr:lastModified": "Wed Sep 06 2023 09:33:52 GMT+0000",
+        "lastFragmentSave": "Wed Sep 06 2023 09:33:52 GMT+0000",
+        "cq:parentPath": "/content/dam/mhos/content-fragments/en/internal-medicine",
+        "cq:lastReplicated_publish": "Tue Sep 05 2023 08:17:21 GMT+0000",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Tue Sep 19 2023 16:34:34 GMT+0200"
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "indexedData": {
+          "jcr:primaryType": "nt:unstructured",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "dam:IndexedFragmentData"
+            ],
+            "@string@model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+            "@stringArray@variations": [],
+            "string@link": "https://diabetesjournals.org/care/article-pdf/46/Supplement_1/S128/693592/dc23s008.pdf",
+            "string@description": "<p>The American Diabetes Association (ADA) &quot;Standards of Care in Diabetes&quot; includes the ADA's current clinical practice recommendations and is intended to provide the components of diabetes care, general treatment goals and guidelines, and tools to evaluate quality of care. Members of the ADA Professional Practice Committee, a multidisciplinary expert committee, are responsible for updating the Standards of Care annually, or more frequently as warranted. For a detailed description of ADA standards, statements, and reports, as well as the evidence-grading system for ADA's clinical practice recommendations and a full list of Professional Practice Committee members, please refer to Introduction and Methodology. Readers who wish to comment on the Standards of Care are invited to do so at professional.diabetes.org/SOC.</p>\n",
+            "string@linkTarget": "_blank",
+            "calendar@articleDate": "Mon Dec 12 2022 00:00:00 GMT+0000",
+            "jcr:uuid": "568031f6-17e5-4e39-8213-88db0ccc4bef",
+            "string@linkLabel": "read more"
+          }
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ]
+        },
+        "data": {
+          "jcr:primaryType": "nt:unstructured",
+          "_strucVersion": 1,
+          "cq:model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable",
+              "dam:cfVariationNode"
+            ],
+            "linkLabel@LastModified": "Thu May 04 2023 11:57:20 GMT+0000",
+            "description": "<p>The American Diabetes Association (ADA) &quot;Standards of Care in Diabetes&quot; includes the ADA's current clinical practice recommendations and is intended to provide the components of diabetes care, general treatment goals and guidelines, and tools to evaluate quality of care. Members of the ADA Professional Practice Committee, a multidisciplinary expert committee, are responsible for updating the Standards of Care annually, or more frequently as warranted. For a detailed description of ADA standards, statements, and reports, as well as the evidence-grading system for ADA's clinical practice recommendations and a full list of Professional Practice Committee members, please refer to Introduction and Methodology. Readers who wish to comment on the Standards of Care are invited to do so at professional.diabetes.org/SOC.</p>\n",
+            "linkLabel": "read more",
+            "author@LastModified": "Fri Sep 01 2023 12:42:13 GMT+0000",
+            "author": [
+              "house-of-science:author/aroda-vanita-r",
+              "house-of-science:author/leon-jose",
+              "house-of-science:author/seley-jane-jeffrie",
+              "house-of-science:author/elsayed-nuha-a",
+              "house-of-science:author/bruemmer-dennis",
+              "house-of-science:author/perry-mary-lou",
+              "house-of-science:author/khunti-kamlesh",
+              "house-of-science:author/brown-florence-m",
+              "house-of-science:author/prahalad-priya",
+              "house-of-science:author/stanton-robert-c",
+              "house-of-science:author/bannuru-raveendhara-r",
+              "house-of-science:author/hilliard-marisa-e",
+              "house-of-science:author/aleppo-grazia",
+              "house-of-science:author/collins-billy-s",
+              "house-of-science:author/johnson-eric-l",
+              "house-of-science:author/gabbay-robert-a",
+              "house-of-science:author/pratley-richard-e",
+              "house-of-science:author/isaacs-diana",
+              "house-of-science:author/kahan-scott",
+              "house-of-science:author/lyons-sarah-k"
+            ],
+            "link@LastModified": "Thu May 04 2023 11:57:20 GMT+0000",
+            "description@LastModified": "Wed Sep 06 2023 09:33:52 GMT+0000",
+            "tags@LastModified": "Thu May 04 2023 11:57:20 GMT+0000",
+            "source": [
+              "house-of-science:source/diabetes-care"
+            ],
+            "typology": [
+              "house-of-science:typology/articles"
+            ],
+            "source@LastModified": "Thu May 04 2023 11:57:20 GMT+0000",
+            "link": "https://diabetesjournals.org/care/article-pdf/46/Supplement_1/S128/693592/dc23s008.pdf",
+            "tags": [
+              "house-of-science:generic-tags/diabetes",
+              "house-of-science:generic-tags/prevention"
+            ],
+            "topic": [
+              "house-of-science:topic/diabetes"
+            ],
+            "topic@LastModified": "Thu May 04 2023 11:57:20 GMT+0000",
+            "articleDate": "Mon Dec 12 2022 00:00:00 GMT+0000",
+            "linkTarget": "_blank",
+            "cq:tags": [
+              "house-of-science:author/johnson-eric-l",
+              "house-of-science:author/khunti-kamlesh",
+              "house-of-science:author/isaacs-diana",
+              "house-of-science:topic/diabetes",
+              "house-of-science:typology/articles",
+              "house-of-science:author/collins-billy-s",
+              "house-of-science:author/lyons-sarah-k",
+              "house-of-science:author/stanton-robert-c",
+              "house-of-science:author/leon-jose",
+              "house-of-science:author/prahalad-priya",
+              "house-of-science:author/elsayed-nuha-a",
+              "house-of-science:author/bruemmer-dennis",
+              "house-of-science:author/hilliard-marisa-e",
+              "house-of-science:generic-tags/prevention",
+              "house-of-science:source/diabetes-care",
+              "house-of-science:author/bannuru-raveendhara-r",
+              "house-of-science:author/brown-florence-m",
+              "house-of-science:author/aroda-vanita-r",
+              "house-of-science:author/pratley-richard-e",
+              "house-of-science:author/gabbay-robert-a",
+              "house-of-science:author/perry-mary-lou",
+              "house-of-science:author/kahan-scott",
+              "house-of-science:generic-tags/diabetes",
+              "house-of-science:author/seley-jane-jeffrie",
+              "house-of-science:author/aleppo-grazia"
+            ],
+            "linkTarget@LastModified": "Thu May 04 2023 11:57:20 GMT+0000",
+            "typology@LastModified": "Fri Sep 01 2023 14:21:52 GMT+0000",
+            "articleDate@LastModified": "Wed Sep 06 2023 09:33:52 GMT+0000",
+            "description@ContentType": "text/html"
+          }
+        }
+      }
+    },
+    "gestational-glucose-intolerance-and-risk-of-future-diabetes": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:versionHistory": "a688200e-55cc-4ff1-85ab-c100a7a5640d",
+      "jcr:predecessors": [
+        "46a6457b-32b6-46b7-b894-ff9849758cc7"
+      ],
+      "jcr:created": "Fri Sep 08 2023 11:15:22 GMT+0200",
+      "jcr:baseVersion": "46a6457b-32b6-46b7-b894-ff9849758cc7",
+      "jcr:isCheckedOut": true,
+      "jcr:uuid": "4a31f6d2-10c1-4d6c-9d5d-d740d163349d",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:title": "Gestational Glucose Intolerance and Risk of Future Diabetes.",
+        "cq:lastReplicatedBy_publish": "L.ambrosini@adiacent.com",
+        "cq:lastReplicationAction": "Activate",
+        "dam:processingRenditions": [
+          "cq5dam.web.1280.1280.jpeg",
+          "cqdam.metadata.xml",
+          "cq5dam.thumbnail.140.100.png",
+          "cq5dam.thumbnail.319.319.png",
+          "cq5dam.zoom.2048.2048.jpeg",
+          "cqdam.machine.metadata.features.json",
+          "cqdam.machine.metadata.tags.json",
+          "cqdam.text.txt",
+          "cq5dam.thumbnail.48.48.png",
+          "cq5dam.preview.pdf",
+          "cqdam.machine.metadata.colors.json"
+        ],
+        "cq:lastReplicatedBy": "L.ambrosini@adiacent.com",
+        "jcr:lastModifiedBy": "m.papini@adiacent.com",
+        "dam:runDMProcess": true,
+        "cq:lastReplicationAction_publish": "Activate",
+        "dam:processingId": "8ebb98f2-1dda-44e1-8e87-8957caa55d65",
+        "cq:lastReplicated": "Mon May 08 2023 13:53:08 GMT+0000",
+        "dam:runPostProcess": true,
+        "contentFragment": true,
+        "dam:processingRequestedDate": "Thu May 04 2023 12:07:23 GMT+0000",
+        "cq:name": "gestational-glucose-intolerance-and-risk-of-future-diabetes",
+        "jcr:lastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+        "lastFragmentSave": "Thu May 04 2023 12:07:23 GMT+0000",
+        "cq:parentPath": "/content/dam/mhos/content-fragments/en/internal-medicine",
+        "cq:lastReplicated_publish": "Mon May 08 2023 13:53:08 GMT+0000",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Tue Sep 19 2023 16:34:34 GMT+0200"
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "indexedData": {
+          "jcr:primaryType": "nt:unstructured",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "dam:IndexedFragmentData"
+            ],
+            "@string@model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+            "@stringArray@variations": [],
+            "string@link": "https://doi.org/10.2337/figshare.21308007",
+            "string@description": "<p>&quot;OBJECTIVE: Pregnant individuals are universally screened for gestational diabetes mellitus (GDM). Gestational glucose intolerance (GGI) (an abnormal initial GDM screening test without a GDM diagnosis) is not a recognized diabetes risk factor. We tested for an association between GGI and diabetes after pregnancy.</p>\n<p>RESEARCH DESIGN AND METHODS: We conducted a retrospective cohort study of individuals followed for prenatal and primary care. We defined GGI as an abnormal screening glucose-loading test result at ≥24 weeks' gestation with an oral glucose tolerance test (OGTT) that did not meet GDM criteria. The primary outcome was incident diabetes. We used Cox proportional hazards models with time-varying exposures and covariates to compare incident diabetes risk in individuals with GGI and normal glucose tolerance.</p>\n<p>RESULTS: Among 16,836 individuals, there were 20,359 pregnancies with normal glucose tolerance, 2,943 with GGI, and 909 with GDM. Over a median of 8.4 years of follow-up, 428 individuals developed diabetes. Individuals with GGI had increased diabetes risk compared to those with normal glucose tolerance in pregnancy (adjusted hazard ratio [aHR] 2.01 [95% CI 1.54-2.62], P &lt; 0.001). Diabetes risk increased with the number of abnormal OGTT values (zero, aHR 1.54 [1.09-2.16], P = 0.01; one, aHR 2.97 [2.07-4.27], P &lt; 0.001; GDM, aHR 8.26 [6.49-10.51], P &lt; 0.001 for each compared with normal glucose tolerance). The fraction of cases of diabetes 10 years after delivery attributable to GGI and GDM was 8.5% and 28.1%, respectively.</p>\n<p>CONCLUSIONS: GGI confers an increased risk of future diabetes. Routinely available clinical data identify an unrecognized group who may benefit from enhanced diabetes screening and prevention.&quot;</p>\n",
+            "string@linkTarget": "_blank",
+            "calendar@articleDate": "Wed Dec 21 2022 00:00:00 GMT+0000",
+            "jcr:uuid": "5b205ce0-4e90-445e-bf23-fd58885cb3f7",
+            "string@linkLabel": "read more"
+          }
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ]
+        },
+        "data": {
+          "jcr:primaryType": "nt:unstructured",
+          "_strucVersion": 1,
+          "cq:model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable",
+              "dam:cfVariationNode"
+            ],
+            "linkLabel@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "description": "<p>&quot;OBJECTIVE: Pregnant individuals are universally screened for gestational diabetes mellitus (GDM). Gestational glucose intolerance (GGI) (an abnormal initial GDM screening test without a GDM diagnosis) is not a recognized diabetes risk factor. We tested for an association between GGI and diabetes after pregnancy.</p>\n<p>RESEARCH DESIGN AND METHODS: We conducted a retrospective cohort study of individuals followed for prenatal and primary care. We defined GGI as an abnormal screening glucose-loading test result at ≥24 weeks' gestation with an oral glucose tolerance test (OGTT) that did not meet GDM criteria. The primary outcome was incident diabetes. We used Cox proportional hazards models with time-varying exposures and covariates to compare incident diabetes risk in individuals with GGI and normal glucose tolerance.</p>\n<p>RESULTS: Among 16,836 individuals, there were 20,359 pregnancies with normal glucose tolerance, 2,943 with GGI, and 909 with GDM. Over a median of 8.4 years of follow-up, 428 individuals developed diabetes. Individuals with GGI had increased diabetes risk compared to those with normal glucose tolerance in pregnancy (adjusted hazard ratio [aHR] 2.01 [95% CI 1.54-2.62], P &lt; 0.001). Diabetes risk increased with the number of abnormal OGTT values (zero, aHR 1.54 [1.09-2.16], P = 0.01; one, aHR 2.97 [2.07-4.27], P &lt; 0.001; GDM, aHR 8.26 [6.49-10.51], P &lt; 0.001 for each compared with normal glucose tolerance). The fraction of cases of diabetes 10 years after delivery attributable to GGI and GDM was 8.5% and 28.1%, respectively.</p>\n<p>CONCLUSIONS: GGI confers an increased risk of future diabetes. Routinely available clinical data identify an unrecognized group who may benefit from enhanced diabetes screening and prevention.&quot;</p>\n",
+            "linkLabel": "read more",
+            "author@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "author": [
+              "house-of-science:author/selen-daryl-j",
+              "house-of-science:author/thaweethai-tanayott",
+              "house-of-science:author/schulte-carolin-c-m",
+              "house-of-science:author/hsu-sarah",
+              "house-of-science:author/he-wei",
+              "house-of-science:author/james-kaitlyn",
+              "house-of-science:author/kaimal-anjali",
+              "house-of-science:author/meigs-james-b",
+              "house-of-science:author/powe-camille-e"
+            ],
+            "link@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "description@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "tags@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "source": [
+              "house-of-science:source/diabetes-care"
+            ],
+            "typology": [
+              "house-of-science:typology/articles"
+            ],
+            "source@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "link": "https://doi.org/10.2337/figshare.21308007",
+            "tags": [
+              "house-of-science:generic-tags/diabetes",
+              "house-of-science:generic-tags/prevention"
+            ],
+            "topic": [
+              "house-of-science:topic/diabetes"
+            ],
+            "topic@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "articleDate": "Wed Dec 21 2022 00:00:00 GMT+0000",
+            "linkTarget": "_blank",
+            "cq:tags": [
+              "house-of-science:author/schulte-carolin-c-m",
+              "house-of-science:author/selen-daryl-j",
+              "house-of-science:generic-tags/prevention",
+              "house-of-science:author/james-kaitlyn",
+              "house-of-science:author/hsu-sarah",
+              "house-of-science:source/diabetes-care",
+              "house-of-science:author/he-wei",
+              "house-of-science:author/kaimal-anjali",
+              "house-of-science:author/powe-camille-e",
+              "house-of-science:topic/diabetes",
+              "house-of-science:typology/articles",
+              "house-of-science:author/meigs-james-b",
+              "house-of-science:author/thaweethai-tanayott",
+              "house-of-science:generic-tags/diabetes"
+            ],
+            "linkTarget@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "typology@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "articleDate@LastModified": "Thu May 04 2023 12:07:23 GMT+0000",
+            "description@ContentType": "text/html"
+          }
+        }
+      }
+    },
+    "giant-cell-arteritis--update-on-clinical-manifestations-diagnosis-and-management": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:mixinTypes": [
+        "mix:referenceable",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:versionHistory": "d7b3f10b-480a-4f65-9170-32a85718bbaa",
+      "jcr:predecessors": [
+        "7475d348-340a-4fe9-b93e-159e2efa181f"
+      ],
+      "jcr:created": "Fri Sep 08 2023 11:15:25 GMT+0200",
+      "jcr:baseVersion": "7475d348-340a-4fe9-b93e-159e2efa181f",
+      "jcr:isCheckedOut": true,
+      "jcr:uuid": "912a7275-4e48-4935-a8f0-fb3e1f35332c",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "jcr:title": "Giant cell arteritis: Update on clinical manifestations, diagnosis, and management",
+        "cq:lastReplicatedBy_publish": "L.ambrosini@adiacent.com",
+        "cq:lastReplicationAction": "Activate",
+        "dam:processingRenditions": [
+          "cq5dam.web.1280.1280.jpeg",
+          "cq5dam.thumbnail.319.319.png",
+          "cqdam.machine.metadata.tags.json",
+          "cq5dam.thumbnail.48.48.png",
+          "cqdam.metadata.xml",
+          "cq5dam.preview.pdf",
+          "cqdam.machine.metadata.features.json",
+          "cqdam.machine.metadata.colors.json",
+          "cq5dam.zoom.2048.2048.jpeg",
+          "cqdam.text.txt",
+          "cq5dam.thumbnail.140.100.png"
+        ],
+        "cq:lastReplicatedBy": "L.ambrosini@adiacent.com",
+        "jcr:lastModifiedBy": "m.papini@adiacent.com",
+        "dam:runDMProcess": true,
+        "cq:lastReplicationAction_publish": "Activate",
+        "dam:processingId": "4e4c3b71-ed72-4dc4-89da-ca17490a8fef",
+        "cq:lastReplicated": "Mon May 08 2023 13:53:08 GMT+0000",
+        "dam:runPostProcess": true,
+        "contentFragment": true,
+        "dam:processingRequestedDate": "Fri May 05 2023 10:07:15 GMT+0000",
+        "cq:name": "giant-cell-arteritis--update-on-clinical-manifestations-diagnosis-and-management",
+        "jcr:lastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+        "lastFragmentSave": "Fri May 05 2023 10:07:15 GMT+0000",
+        "cq:parentPath": "/content/dam/mhos/content-fragments/en/internal-medicine",
+        "cq:lastReplicated_publish": "Mon May 08 2023 13:53:08 GMT+0000",
+        "renditions": {
+          "jcr:primaryType": "nt:folder",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Tue Sep 19 2023 16:34:35 GMT+0200"
+        },
+        "related": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "indexedData": {
+          "jcr:primaryType": "nt:unstructured",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "dam:IndexedFragmentData"
+            ],
+            "@string@model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+            "@stringArray@variations": [],
+            "string@link": "https://www.sciencedirect.com/science/article/pii/S0953620522003867",
+            "string@description": "<p>Giant cell arteritis (GCA) is the most common vasculitis affecting people older than 50 years. The last decades have shed new light on the clinical paradigm of this condition, expanding its spectrum beyond cranial vessel inflammation. GCA can be now considered a multifaceted vasculitic syndrome encompassing inflammation of cranial and extra-cranial arteries and girdles, isolated or combined. Such heterogeneity often leads to diagnostic delays and increases the likelihood of acute and chronic GCA-related damage. On the other hand, the approach to suspected GCA patients has been revolutionized by the introduction of vascular ultrasound which allows a rapid, cost-effective, and non-invasive GCA diagnosis. Likewise, the use of tocilizumab is now part of the therapeutic algorithm of GCA and ensures a satisfactory disease control even in steroid-refractory patients. Nonetheless, some aspects of GCA still need to be clarified, including the clinical correlation of different histological patterns, and the prevention of long-term vascular complications. This narrative review depicts the diagnostic and therapeutic aspects of GCA most relevant in clinical practice, with a focus on clinical updates and novelties introduced over the last decade.</p>\n",
+            "string@linkTarget": "_blank",
+            "calendar@articleDate": "Fri Nov 04 2022 00:00:00 GMT+0000",
+            "jcr:uuid": "5563c24b-2a4b-4e4c-9815-4aa7ad69a946",
+            "string@linkLabel": "read more"
+          }
+        },
+        "metadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:mixinTypes": [
+            "cq:Taggable"
+          ]
+        },
+        "data": {
+          "jcr:primaryType": "nt:unstructured",
+          "_strucVersion": 1,
+          "cq:model": "/conf/mhos/settings/dam/cfm/models/result-fragment",
+          "master": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:mixinTypes": [
+              "cq:Taggable",
+              "dam:cfVariationNode"
+            ],
+            "linkLabel@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "description": "<p>Giant cell arteritis (GCA) is the most common vasculitis affecting people older than 50 years. The last decades have shed new light on the clinical paradigm of this condition, expanding its spectrum beyond cranial vessel inflammation. GCA can be now considered a multifaceted vasculitic syndrome encompassing inflammation of cranial and extra-cranial arteries and girdles, isolated or combined. Such heterogeneity often leads to diagnostic delays and increases the likelihood of acute and chronic GCA-related damage. On the other hand, the approach to suspected GCA patients has been revolutionized by the introduction of vascular ultrasound which allows a rapid, cost-effective, and non-invasive GCA diagnosis. Likewise, the use of tocilizumab is now part of the therapeutic algorithm of GCA and ensures a satisfactory disease control even in steroid-refractory patients. Nonetheless, some aspects of GCA still need to be clarified, including the clinical correlation of different histological patterns, and the prevention of long-term vascular complications. This narrative review depicts the diagnostic and therapeutic aspects of GCA most relevant in clinical practice, with a focus on clinical updates and novelties introduced over the last decade.</p>\n",
+            "linkLabel": "read more",
+            "author@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "author": [
+              "house-of-science:author/farina-nicola",
+              "house-of-science:author/tomelleri-alessandro",
+              "house-of-science:author/campochiaro-corrado",
+              "house-of-science:author/dagna-lorenzo"
+            ],
+            "link@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "description@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "tags@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "source": [
+              "house-of-science:source/european-journal-of-internal-medicine"
+            ],
+            "typology": [
+              "house-of-science:typology/articles"
+            ],
+            "source@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "link": "https://www.sciencedirect.com/science/article/pii/S0953620522003867",
+            "tags": [
+              "house-of-science:generic-tags/prevention",
+              "house-of-science:generic-tags/inflammation"
+            ],
+            "topic": [
+              "house-of-science:topic/inflammation-autoimmunity-and-rheumatism"
+            ],
+            "topic@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "articleDate": "Fri Nov 04 2022 00:00:00 GMT+0000",
+            "linkTarget": "_blank",
+            "cq:tags": [
+              "house-of-science:author/campochiaro-corrado",
+              "house-of-science:typology/articles",
+              "house-of-science:generic-tags/prevention",
+              "house-of-science:generic-tags/inflammation",
+              "house-of-science:author/dagna-lorenzo",
+              "house-of-science:topic/inflammation-autoimmunity-and-rheumatism",
+              "house-of-science:source/european-journal-of-internal-medicine",
+              "house-of-science:author/farina-nicola",
+              "house-of-science:author/tomelleri-alessandro"
+            ],
+            "linkTarget@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "typology@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "articleDate@LastModified": "Fri May 05 2023 10:07:15 GMT+0000",
+            "description@ContentType": "text/html"
+          }
+        }
+      }
+    }
+  },
+  "jcr:content": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:title": "en",
+    "dam:noThumbnail": true,
+    "sourcing": "false"
+  }
+}

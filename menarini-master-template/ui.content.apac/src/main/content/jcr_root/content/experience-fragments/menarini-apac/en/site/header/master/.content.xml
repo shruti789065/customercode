@@ -3,8 +3,8 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-13T11:07:16.091Z"
-        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastModified="{Date}2023-10-05T15:55:21.393+02:00"
+        cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2023-06-13T11:14:17.091Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
         cq:lastReplicated_publish="{Date}2023-06-13T11:14:17.091Z"
@@ -42,12 +42,12 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <text_quality
-                        jcr:lastModified="{Date}2023-06-12T15:52:30.359Z"
-                        jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                        jcr:lastModified="{Date}2023-10-03T16:03:13.141+02:00"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
                         id="qualitycomesfirst"
-                        text="&lt;p>&lt;a href=&quot;http://www.menarini.it/en-us/quality-comes-first&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>&lt;i>Quality Comes First&lt;/i>&lt;/a>&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>&lt;a href=&quot;https://www.menarini.it/en-us/quality-comes-first&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>&lt;i>Quality Comes First&lt;/i>&lt;/a>&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
@@ -107,28 +107,6 @@
                                     width="12"/>
                             </cq:responsive>
                         </text_globalwebsite>
-                        <text_country
-                            jcr:lastModified="{Date}2023-05-26T12:36:49.014Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="menarinimaster/components/text"
-                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a href=&quot;https://www.menarini.com/en-us/country&quot; target=&quot;_blank&quot; title=&quot;www.menarini.com&quot;>COUNTRY&lt;/a>&lt;/p>&#xd;&#xa;"
-                            textIsRich="true">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                                <tablet
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="2"/>
-                                <phone
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="2"/>
-                            </cq:responsive>
-                        </text_country>
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
@@ -144,6 +122,22 @@
                                 offset="&#xa;0"
                                 width="2"/>
                         </cq:responsive>
+                        <countries
+                            jcr:created="{Date}2023-10-02T11:21:49.603+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2023-10-02T11:27:13.531+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/header/countries"
+                            text="&lt;p style=&quot;text-align: right;&quot;>MARKETS&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="1"/>
+                            </cq:responsive>
+                        </countries>
                     </text_block>
                     <languagenavigation
                         jcr:lastModified="{Date}2022-06-07T15:26:05.751+02:00"
@@ -761,6 +755,277 @@
                 </wrapper>
             </section_megamenu>
             <logo/>
+            <section
+                jcr:created="{Date}2023-10-03T14:52:51.870+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-10-03T16:54:42.309+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/section"/>
+            <market_countries_con
+                jcr:created="{Date}2023-10-03T16:16:31.326+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-10-04T14:15:07.716+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/header/market-countries-container"
+                backImg="/content/dam/menarini-apac/assets/menu/contries_background.jpg">
+                <wrapper_54523298
+                    cq:styleIds="[1684741727110]"
+                    jcr:created="{Date}2023-10-02T14:18:30.297+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-10-03T16:55:04.304+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/wrapper">
+                    <container
+                        jcr:created="{Date}2023-10-03T16:55:34.744+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-10-05T15:55:21.249+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container"
+                        id="marketHeader"
+                        layout="responsiveGrid">
+                        <image jcr:primaryType="nt:unstructured"/>
+                        <image_924198876
+                            jcr:created="{Date}2023-10-03T16:56:24.515+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2023-10-05T15:53:11.217+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/image"
+                            displayPopupTitle="false"
+                            fileReference="/content/dam/logo/menarini-demo/logo-neg.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_self"
+                            titleValueFromDAM="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                            </cq:responsive>
+                        </image_924198876>
+                        <text
+                            cq:styleIds="[1696341422476]"
+                            jcr:created="{Date}2023-10-05T15:46:45.479+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2023-10-05T15:47:07.364+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p>MARKETS&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                            </cq:responsive>
+                        </text>
+                        <button
+                            jcr:created="{Date}2023-10-03T16:56:35.933+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2023-10-04T10:09:28.566+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/button"
+                            id="marketCountriesClose"
+                            linkTarget="_self">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="7"
+                                    width="1"/>
+                            </cq:responsive>
+                        </button>
+                    </container>
+                    <container_637601767
+                        jcr:created="{Date}2023-10-03T16:53:37.414+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-10-03T16:53:55.426+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/container"
+                        layout="responsiveGrid">
+                        <container
+                            cq:styleIds="[1684742010090]"
+                            jcr:created="{Date}2023-10-02T14:34:22.990+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2023-10-02T14:34:22.990+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="4"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                            <spacer
+                                jcr:created="{Date}2023-10-05T10:16:48.801+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-05T10:26:25.727+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/spacer"
+                                spacer="40"/>
+                            <title
+                                cq:styleIds="[1684743270559]"
+                                jcr:created="{Date}2023-10-03T15:46:06.883+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-03T15:46:29.243+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Explore Our APAC Markets"
+                                sling:resourceType="menarinimaster/components/title"
+                                linkTarget="_self"
+                                type="h2"/>
+                            <list
+                                jcr:created="{Date}2023-10-03T16:17:36.798+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-03T16:18:27.463+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/list"
+                                childDepth="1"
+                                displayItemAsTeaser="false"
+                                linkItems="false"
+                                listFrom="children"
+                                parentPage="/content/menarini-apac/en/therapeutic-areas"
+                                showDescription="false"
+                                showModificationDate="false"
+                                sortOrder="asc"
+                                tagsMatch="any"/>
+                        </container>
+                        <container_1424446831
+                            cq:styleIds="[1655115743785,1684742010090]"
+                            jcr:created="{Date}2023-10-02T14:34:39.783+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2023-10-02T14:34:39.783+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="4"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                            <spacer_copy
+                                jcr:created="{Date}2023-10-05T10:16:48.801+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-05T10:16:59.772+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/spacer"
+                                spacer="40"/>
+                            <text
+                                cq:styleIds="[1696341422476]"
+                                jcr:created="{Date}2023-10-03T15:45:38.867+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-04T11:15:30.604+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/text"
+                                text="&lt;p>The healthcare sector in Asia Pacific is rapidly growing. As part of the world’s leading Italian biopharmaceutical company, Menarini AP has a strong presence in 13 key markets across the region. &lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>As a partner of choice for numerous global healthcare companies, we engage in the entire pharmaceutical development lifecycle to tap growth opportunities and grow their brand footprint. In doing so, we also support healthcare professionals and patients with quality medical products and technology to raise standards and invigorate lives for tomorrow.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="4"/>
+                                </cq:responsive>
+                            </text>
+                        </container_1424446831>
+                        <container_1076911042
+                            cq:styleIds="[1655115743785]"
+                            jcr:created="{Date}2023-10-02T14:35:01.294+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2023-10-02T14:35:01.294+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="4"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                            <spacer
+                                jcr:created="{Date}2023-10-04T17:53:05.715+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-05T10:17:40.343+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/spacer"
+                                spacer="40"/>
+                            <title
+                                cq:styleIds="[1684743270559]"
+                                jcr:created="{Date}2023-10-03T15:44:43.424+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-03T15:45:23.117+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/title"
+                                linkTarget="_self"
+                                type="h2"/>
+                            <text
+                                cq:styleIds="[1696341422476]"
+                                jcr:created="{Date}2023-10-03T15:44:05.174+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-03T15:44:59.115+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/text"
+                                text="&lt;p>A. MENARINI ASIA-PACIFIC HOLDINGS PTE LTD A. MENARINI ASIA-PACIFIC PRIVATE LIMITED A. MENARINI SINGAPORE PTE LTD A. MENARINI BIOMARKERS SINGAPORE PTE LTD 30 Pasir Panjang Road, Mapletree Business City, #08-32Singapore 117440 Tel: +65-6494-7200 Fax: +65-6777-1787&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
+                            <spacer_copy
+                                jcr:created="{Date}2023-10-05T10:16:48.801+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-10-05T10:16:59.772+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/spacer"
+                                spacer="40"/>
+                        </container_1076911042>
+                    </container_637601767>
+                </wrapper_54523298>
+                <spacer
+                    jcr:created="{Date}2023-10-05T10:05:27.615+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:05:39.636+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/spacer"
+                    spacer="50"/>
+            </market_countries_con>
         </root>
         <cq:metadata jcr:primaryType="nt:unstructured"/>
     </jcr:content>
