@@ -3,8 +3,8 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-13T08:35:55.392Z"
-        cq:lastModifiedBy="L.ambrosini@adiacent.com"
+        cq:lastModified="{Date}2023-10-05T10:30:57.757Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
         cq:lastReplicated="{Date}2023-06-13T11:25:31.814Z"
         cq:lastReplicated_publish="{Date}2023-06-13T11:25:31.814Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
@@ -117,6 +117,10 @@
                             sling:resourceType="wcm/core/components/policies/mapping"/>
                         <banner
                             cq:policy="menarinimaster/components/banner/policy_1655106936933"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <accordion
+                            cq:policy="menarinimaster/components/accordion/policy_1677581474992"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping"/>
                     </components>
