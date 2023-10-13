@@ -1,0 +1,20 @@
+.countryOptions.options{
+    .cmp-form-options--drop-down{
+        padding-left: 0;
+    }
+
+    #dropdownCountries{
+        text-transform: uppercase;
+        color: $color-corporate;
+        background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-down.svg");
+        background-size: 20px 20px;
+        font-weight:$font-regular;
+    }
+}
+
+#availablePositionsResults{
+    margin-top: 80px;
+    .availablePosition:not(:last-child){
+        margin-bottom: 50px;
+    }
+}
