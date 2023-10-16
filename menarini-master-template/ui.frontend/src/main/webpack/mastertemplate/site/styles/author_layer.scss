@@ -1,97 +1,118 @@
 .cq-Editable-dom {
-	&.placeholder.aem-AllowedComponent--component {
-		display: none;
-	}
+  &.placeholder.aem-AllowedComponent--component {
+    display: none;
+  }
 
-	.internalmenu {
-		.cmp-internalmenu__button {
-			&.cmp-internalmenu__button-opened {
-				left: 0;
+  .internalmenu {
+    .cmp-internalmenu__button {
+      &.cmp-internalmenu__button-opened {
+        left: 0;
+      }
+    }
+  }
+  .cmp-navbar {
+    height: auto;
+  }
+
+  .cmp-internal-header {
+    .cmp-teaser__content {
+      top: 0;
+    }
+  }
+
+  .cmp-carousel {
+    height: 700px !important;
+
+    .cmp-carousel__item {
+      .cmp-teaser {
+        video {
+          height: 100%;
+        }
+      }
+
+      .cmp-teaser,
+      .cmp-teaser__image,
+      img {
+        height: 700px !important;
+      }
+      @media (min-width: 769px) {
+        [data-small-screen-only] {
+          display: none;
+        }
+      }
+    }
+    &.cmp-men-carousel {
+      height: auto !important;
+	  .cmp-carousel__item{
+        .card {
+          left: -9000px;
+        }
+      }
+      .cmp-carousel__item--active {
+        .card {
+			left: 0;
+          .cmp-card {
+            height: 350px !important;
+            width: auto;
+            min-width: 350px;
+			.cmp-teaser__image{
+				height: 350px!important;
 			}
-		}
-	}
-	.cmp-navbar{
-		height: auto;
-	}
+          }
+        }
+      }
+    }
+  }
 
-	.cmp-internal-header {
-		.cmp-teaser__content {
-			top: 0;
-		}
-	}
-
-	.cmp-carousel {
-		height: 700px !important;
-
-		.cmp-carousel__item {
-
-			.cmp-teaser {
-				video {
-					height: 100%;
-				}
-			}
-
-			.cmp-teaser,
-			.cmp-teaser__image,
-			img {
-				height: 700px !important;
-			}
-			@media (min-width: 769px) {
-				[data-small-screen-only] {
-					display: none;
-				}
-			}
-		}
-	}
-	&#marketCountriesContainer{
-		position: relative;
-		display: block;
-		left: 0;
-		height: 100%;
-		max-height: 2000px;
-	}
-	.cmp-tabs__tablist_mobile{
-		left: 0;
-		height: 100%;
-		max-height: 2000px;
-	}
-	.tabs-menu__container{
-		height: 100%;
-		max-height: 2000px;
-	}
+  &#marketCountriesContainer {
+    position: relative;
+    display: block;
+    left: 0;
+    height: 100%;
+    max-height: 2000px;
+  }
+  .cmp-tabs__tablist_mobile {
+    left: 0;
+    height: 100%;
+    max-height: 2000px;
+  }
+  .tabs-menu__container {
+    height: 100%;
+    max-height: 2000px;
+  }
 }
+
 .editor-panel-content {
-	div{
-		&[title="Section"]{
-			&.is-active,
-			&.is-hover,
-			&.is-selected,
-			&:focus{
-				border: 1px solid black!important;
-				.cq-Overlay--component-name{
-					background-color: black!important;
-				}
-			}
-		}
-	}
+  div {
+    &[title="Section"] {
+      &.is-active,
+      &.is-hover,
+      &.is-selected,
+      &:focus {
+        border: 1px solid black !important;
+        .cq-Overlay--component-name {
+          background-color: black !important;
+        }
+      }
+    }
+  }
 }
 
 .cmp-megamenu--editor-share-item {
-	display: flex;
-    padding-bottom: 30px;
-    justify-content: space-between;
-	.coral-Form-fieldwrapper{
-		display: inline-flex;
-		.cmp-megamenu--editor-social{
-			margin: 0 10px;
-		}
-	}
+  display: flex;
+  padding-bottom: 30px;
+  justify-content: space-between;
+  .coral-Form-fieldwrapper {
+    display: inline-flex;
+    .cmp-megamenu--editor-social {
+      margin: 0 10px;
+    }
+  }
 }
 
 .aem-AuthorLayer-Edit,
 .cq-Editable-dom {
-	.cmp-share-mobile {
-		display: none !important;
-	}
-	
+  .cmp-share-mobile {
+    display: none !important;
+  }
 }
