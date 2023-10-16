@@ -80,10 +80,8 @@ public class JobPositionServlet extends SlingAllMethodsServlet {
                 result.put("title", title);
                 result.put("url",link);
                 results.put(result);
-                int r = 0;
             }
             response.put("results", results);
-            int u = 0;
 
         }
         return response;
