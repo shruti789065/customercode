@@ -27,7 +27,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
-  padding: 5%;
+  padding:0 25px;
   #marketHeader {
     .cmp-image__image {
       max-width: 165px;
@@ -141,4 +141,10 @@
       }
     }
   }
+}
+
+@media (min-width: 1440px) {
+	#marketCountriesContainer {
+		padding: 25px 0;
+	}
 }
