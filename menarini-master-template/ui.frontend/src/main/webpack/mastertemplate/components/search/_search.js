@@ -24,23 +24,24 @@ import $ from "jquery";
       const port = window.location.port;
       const protocol = window.location.protocol;
       //const lang = document.documentElement.lang;
-      currentNodeSearch = document.querySelector(".currentNodeSearch").value;
+      if (document.querySelector(".currentNodeSearch") !== null) {
+        currentNodeSearch = document.querySelector(".currentNodeSearch").value;
 
-      input = document.querySelector("#search-input");
-      resultsContainer = document.querySelector("#search-results");
-      searchButton = document.querySelector("#search-button");
-      searchButton.disabled = true;
+        input = document.querySelector("#search-input");
+        resultsContainer = document.querySelector("#search-results");
+        searchButton = document.querySelector("#search-button");
+        searchButton.disabled = true;
 
-      loadingSpinner = document.createElement("div");
-      loadingSpinner.classList.add("loading-spinner");
-
+        loadingSpinner = document.createElement("div");
+        loadingSpinner.classList.add("loading-spinner");
+      }
       function loadingSpinner() {
         resultsContainer.appendChild(loadingSpinner);
       }
 
       function copyDataFromJson(query) {
         //loadingSpinner();
-		//localStorage.clear();
+        //localStorage.clear();
         if (domainName === "localhost" && port === "4502") {
           url = `${protocol}//${domainName}:${port}${currentNodeSearch}.searchresult.json?fulltext=${query}`;
         } else if (domainName === "localhost") {
@@ -125,9 +126,9 @@ import $ from "jquery";
         query = input.value.toLowerCase().trim();
         copyDataFromJson(query);
         searchResults = JSON.parse(localStorage.getItem("searchResults"));
-		if(searchResults !== null){
-			displaySearchResults(searchResults);
-		} 
+        if (searchResults !== null) {
+          displaySearchResults(searchResults);
+        }
       }
     }
     return {
