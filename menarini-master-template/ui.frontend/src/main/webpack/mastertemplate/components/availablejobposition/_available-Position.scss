@@ -1,20 +1,49 @@
 .countryOptions.options{
     .cmp-form-options--drop-down{
-        padding-left: 0;
+        padding: 0;
     }
-
+    .cmp-form-options__label{
+        color: $color-corporate;
+    }
     #dropdownCountries{
         text-transform: uppercase;
         color: $color-corporate;
         background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-down.svg");
         background-size: 20px 20px;
         font-weight:$font-regular;
+        height: 60px;
+        font-size: 16px;
+    }
+    .cmp-form-options__field.cmp-form-options__field--drop-down.active{
+        background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-up.svg") !important;
     }
 }
 
 #availablePositionsResults{
     margin-top: 80px;
+    .cmp-title__text{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
     .availablePosition:not(:last-child){
         margin-bottom: 50px;
     }
+    .button{
+        .cmp-button__text{
+            font-weight: $font-regular;
+        }
+    }
+    @media (max-width: 768px) {
+        .availablePosition{
+            .cmp-title--corporate{
+                .cmp-title__text{
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+    
 }

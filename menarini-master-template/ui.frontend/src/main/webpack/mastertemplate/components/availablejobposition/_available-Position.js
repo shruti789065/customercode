@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import $ from "jquery";
 
 (function () {
@@ -35,7 +34,6 @@ import $ from "jquery";
                 fetch(url)
                     .then((response) => response.json())
                     .then((data) => {
-                        //localStorage.setItem("searchResults", JSON.stringify(data));
                         //console.log("Data copied to local storage!", data);
                         resultsContainer.innerHTML = "";
                         if (data.results.length === 0) {
@@ -78,25 +76,27 @@ import $ from "jquery";
                     })
                     .catch((error) => {
                         console.error("Error copying data to local storage:", error);
-                        // Hide loading spinner
-                        //loadingSpinner.remove();
                     });
             }
-
-            dropdown.addEventListener("change", function () {
-                var selectedValue = dropdown.value;
-                if(selectedValue == "-"){
-                    resultsContainer.innerHTML = "";
-                    resultsContainer.style.display = "none";
-                } else {
-                    callServlet(selectedValue);
-                }
-                //console.log("selected value", selectedValue);
-                
-
-            });
-
-
+            if(dropdown != null){
+                dropdown.addEventListener('click', (e) => {
+					e.preventDefault();
+					e.target.classList.toggle("active");
+					
+				});
+                dropdown.addEventListener("change", function () {
+                    var selectedValue = dropdown.value;
+                    if(resultsContainer != null){
+                        if(selectedValue == "-"){
+                            resultsContainer.innerHTML = "";
+                            resultsContainer.style.display = "none";
+                        } else {
+                            callServlet(selectedValue);
+                        }
+                    }
+                    //console.log("selected value", selectedValue);
+                });
+            }
 
         }
         return {
@@ -108,5 +108,3 @@ import $ from "jquery";
         Positions.init();
     });
 })($);
-
-/* eslint-disable max-len */
