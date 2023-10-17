@@ -472,7 +472,6 @@
                     if (i === parseInt(that._active)) {
                       items[i].classList.add("cmp-carousel__item--active");
                       items[i].removeAttribute("aria-hidden");
-                      setCustomDelay(items[i]);
                       if (indicators){
         	              indicators[i].classList.add("cmp-carousel__indicator--active");
         	              indicators[i].setAttribute("aria-selected", true);
