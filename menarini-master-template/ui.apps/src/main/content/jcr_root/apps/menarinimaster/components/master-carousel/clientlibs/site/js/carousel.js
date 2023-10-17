@@ -463,33 +463,38 @@
          * @private
          */
         function refreshActive() {
-            var items = that._elements["item"];
-            var indicators = that._elements["indicator"];
+              var items = that._elements["item"];
+              var indicators = that._elements["indicator"];
 
-            if (items) {
+              if (items) {
                 if (Array.isArray(items)) {
-                    for (var i = 0; i < items.length; i++) {
-                        if (i === parseInt(that._active)) {
-                            items[i].classList.add("cmp-carousel__item--active");
-                            items[i].removeAttribute("aria-hidden");
-                            indicators[i].classList.add("cmp-carousel__indicator--active");
-                            indicators[i].setAttribute("aria-selected", true);
-                            indicators[i].setAttribute("tabindex", "0");
-                        } else {
-                            items[i].classList.remove("cmp-carousel__item--active");
-                            items[i].setAttribute("aria-hidden", true);
-                            indicators[i].classList.remove("cmp-carousel__indicator--active");
-                            indicators[i].setAttribute("aria-selected", false);
-                            indicators[i].setAttribute("tabindex", "-1");
-                        }
+                  for (var i = 0; i < items.length; i++) {
+                    if (i === parseInt(that._active)) {
+                      items[i].classList.add("cmp-carousel__item--active");
+                      items[i].removeAttribute("aria-hidden");
+                      setCustomDelay(items[i]);
+                      if (indicators){
+        	              indicators[i].classList.add("cmp-carousel__indicator--active");
+        	              indicators[i].setAttribute("aria-selected", true);
+        	              indicators[i].setAttribute("tabindex", "0");
+                      }
+                    } else {
+                      items[i].classList.remove("cmp-carousel__item--active");
+                      items[i].setAttribute("aria-hidden", true);
+                      if (indicators){
+        	              indicators[i].classList.remove("cmp-carousel__indicator--active");
+        	              indicators[i].setAttribute("aria-selected", false);
+        	              indicators[i].setAttribute("tabindex", "-1");
+                      }
                     }
+                  }
                 } else {
-                    // only one item
-                    items.classList.add("cmp-carousel__item--active");
-                    indicators.classList.add("cmp-carousel__indicator--active");
+                  // only one item
+                  items.classList.add("cmp-carousel__item--active");
+                  indicators.classList.add("cmp-carousel__indicator--active");
                 }
+              }
             }
-        }
 
         /**
          * Focuses the element and prevents scrolling the element into view

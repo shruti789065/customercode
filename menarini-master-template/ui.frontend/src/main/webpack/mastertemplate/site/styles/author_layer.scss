@@ -43,25 +43,32 @@
     }
     &.cmp-men-carousel {
       height: auto !important;
-	  .cmp-carousel__item{
+      .cmp-carousel__item {
         .card {
           left: -9000px;
         }
       }
       .cmp-carousel__item--active {
         .card {
-			left: 0;
-			min-width: 350px;
+          left: 0;
+          min-width: 350px;
           .cmp-card {
             height: 350px !important;
             width: auto;
             min-width: 350px;
-			.cmp-teaser__image{
-				height: 350px!important;
-				bottom: 0;
-				left: 0;
-			}
+            .cmp-teaser__image {
+              height: 350px !important;
+              bottom: 0;
+              left: 0;
+            }
           }
+        }
+      }
+      .newpar {
+        &.cq-Editable-dom {
+          width: 100%;
+          position: relative;
+          min-width: 500px;
         }
       }
     }
@@ -73,12 +80,16 @@
     left: 0;
     height: 100%;
     max-height: 2000px;
-	#marketCountriesClose{
-		position: relative;
-		height: 50px;
-	}
-  
-}
+    #marketHeader {
+      .button {
+        height: 50px;
+        #marketCountriesClose {
+          position: relative;
+          height: 50px;
+        }
+      }
+    }
+  }
   .cmp-tabs__tablist_mobile {
     left: 0;
     height: 100%;
