@@ -51,12 +51,15 @@
       .cmp-carousel__item--active {
         .card {
 			left: 0;
+			min-width: 350px;
           .cmp-card {
             height: 350px !important;
             width: auto;
             min-width: 350px;
 			.cmp-teaser__image{
 				height: 350px!important;
+				bottom: 0;
+				left: 0;
 			}
           }
         }
@@ -70,7 +73,12 @@
     left: 0;
     height: 100%;
     max-height: 2000px;
-  }
+	#marketCountriesClose{
+		position: relative;
+		height: 50px;
+	}
+  
+}
   .cmp-tabs__tablist_mobile {
     left: 0;
     height: 100%;

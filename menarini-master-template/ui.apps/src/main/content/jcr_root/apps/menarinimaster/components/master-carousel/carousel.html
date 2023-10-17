@@ -43,8 +43,10 @@
 					</sly>
 				</div>
 			</div>
-			<div class="swiper-button-next"></div>
-			<div class="swiper-button-prev"></div>
+			<sly data-sly-test="${!wcmmode.edit}">
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</sly>
 
 			<input type="hidden" class="slides-number" value="${slidesPerRow ? slidesPerRow : '3'}">
 			<input type="hidden" class="slide-mode" value="carousel">
