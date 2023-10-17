@@ -79,6 +79,11 @@ import $ from "jquery";
                     });
             }
             if(dropdown != null){
+                dropdown.addEventListener('click', (e) => {
+					e.preventDefault();
+					e.target.classList.toggle("active");
+					
+				});
                 dropdown.addEventListener("change", function () {
                     var selectedValue = dropdown.value;
                     if(resultsContainer != null){
