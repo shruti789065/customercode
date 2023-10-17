@@ -15,7 +15,6 @@ import $ from "jquery";
             const domainName = window.location.hostname;
             const port = window.location.port;
             const protocol = window.location.protocol;
-            console.log("domainName", domainName);
             dropdown = document.querySelector("#dropdownCountries");
             if (document.querySelector(".currentNodeCountry") !== null) {
                 currentNodeCountry = document.querySelector(".currentNodeCountry").value;
@@ -37,10 +36,10 @@ import $ from "jquery";
                     .then((response) => response.json())
                     .then((data) => {
                         //localStorage.setItem("searchResults", JSON.stringify(data));
-                        console.log("Data copied to local storage!", data);
+                        //console.log("Data copied to local storage!", data);
                         resultsContainer.innerHTML = "";
                         if (data.results.length === 0) {
-                            console.log("No results found.");
+                            //console.log("No results found.");
                             resultsContainer.style.display = "grid";
                             resultsContainer.innerHTML = "No results found.";
                             return;
@@ -89,9 +88,11 @@ import $ from "jquery";
                 if(selectedValue == "-"){
                     resultsContainer.innerHTML = "";
                     resultsContainer.style.display = "none";
+                } else {
+                    callServlet(selectedValue);
                 }
-                console.log("selected value", selectedValue);
-                callServlet(selectedValue)
+                //console.log("selected value", selectedValue);
+                
 
             });
 
