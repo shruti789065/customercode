@@ -1,0 +1,32 @@
+.news-archive {
+  ul {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+    .cmp-list__item {
+      list-style-type: none;
+      &-link {
+        font-family: $font-family-oswald;
+        font-weight: 100;
+        text-align: left;
+        color: $color-corporate;
+        font-size: 30px;
+        line-height: 38px;
+        float: left;
+        margin-left: 20px;
+      }
+
+      &::before {
+        float: left;
+        display: inline;
+        padding-right: 20px;
+        content: " ";
+        width: 36px;
+        height: 0px;
+        border: 1px solid $color-corporate;
+        margin-top: 20px;
+        font-weight: 100;
+      }
+    }
+  }
+}
