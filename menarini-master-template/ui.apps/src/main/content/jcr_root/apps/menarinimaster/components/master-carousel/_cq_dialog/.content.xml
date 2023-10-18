@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2018 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Master Carousel"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[core.wcm.components.commons.editor.dialog.childreneditor.v1,core.wcm.components.carousel.v1.editor,core.wcm.components.form.options.v2.editor]"
+          helpPath="https://www.adobe.com/go/aem_cmp_carousel_v1"
+          trackingFeature="core-components:carousel:v1">
+	<content
+			jcr:primaryType="nt:unstructured"
+			granite:class="cmp-carousel__editor">
+		<items jcr:primaryType="nt:unstructured">
+			<tabs jcr:primaryType="nt:unstructured">
+				<items jcr:primaryType="nt:unstructured" sling:hideChildren="[accessibility]">
+					<properties
+							jcr:primaryType="nt:unstructured"
+							jcr:title="Properties"
+							sling:orderBefore="cq:styles"
+							sling:resourceType="granite/ui/components/coral/foundation/container"
+							margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<columns
+									jcr:primaryType="nt:unstructured"
+									sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+									margin="{Boolean}true">
+								<items jcr:primaryType="nt:unstructured">
+									<column
+											jcr:primaryType="nt:unstructured"
+											sling:resourceType="granite/ui/components/coral/foundation/container">
+										<items jcr:primaryType="nt:unstructured" sling:hideChildren="[activeItem,activeSelect,autoplay,autoplayGroup]">
+											<layout
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/foundation/form/select"
+													class="cq-dialog-dropdown-showhide"
+													cq-dialog-dropdown-showhide-target=".carousel-options-showhide-target"
+													fieldLabel="Layout"
+													name="./layout">
+												<items jcr:primaryType="nt:unstructured">
+													<gallery jcr:primaryType="nt:unstructured" text="Gallery" value="gallery"/>
+													<carousel jcr:primaryType="nt:unstructured" text="Carousel" value="carousel"/>
+												</items>
+											</layout>
+
+											<setItemNumber jcr:primaryType="nt:unstructured"
+											         sling:resourceType="granite/ui/components/foundation/container"
+											         class="hide carousel-options-showhide-target"
+											         showhidetargetvalue="carousel">
+												<items jcr:primaryType="nt:unstructured">
+													<heading jcr:primaryType="nt:unstructured"
+													         sling:resourceType="granite/ui/components/foundation/heading"
+													         class="coral-Heading coral-Heading--4" level="{Long}4"
+													         text="Items per row" />
+													<well
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/foundation/container">
+														<layout
+																jcr:primaryType="nt:unstructured"
+																sling:resourceType="granite/ui/components/foundation/layouts/well"/>
+														<items jcr:primaryType="nt:unstructured">
+															<radio-group
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+																	deleteHint="{Boolean}false"
+																	vertical="{Boolean}false"
+																	name="./itemNumbers">
+																<items
+																		jcr:primaryType="nt:unstructured">
+																	<three
+																			jcr:primaryType="nt:unstructured"
+																			text="3"
+																			value="3"
+																			checked="{Boolean}true"/>
+																	<four
+																			jcr:primaryType="nt:unstructured"
+																			text="4"
+																			value="4"
+																			checked="{Boolean}false"/>
+																</items>
+															</radio-group>
+														</items>
+													</well>
+												</items>
+											</setItemNumber>
+
+											<id
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+													fieldDescription="HTML ID attribute to apply to the component."
+													fieldLabel="ID"
+													name="./id"
+													validation="html-unique-id-validator"/>
+										</items>
+									</column>
+								</items>
+							</columns>
+						</items>
+					</properties>
+				</items>
+			</tabs>
+		</items>
+	</content>
+</jcr:root>

@@ -43,7 +43,9 @@ const MarketCountries = (() => {
     marketCountriesAnchor.forEach((element) => {
       element.addEventListener("click", toggleMarketPanel);
     });
-    marketCountriesCloseButton.addEventListener("click", toggleMarketPanel);
+	if(marketCountriesCloseButton != null){
+		marketCountriesCloseButton.addEventListener("click", toggleMarketPanel);
+	} 
     const observer = new MutationObserver((mutationsList, observer) => {
       // Itera attraverso le mutazioni osservate
       for (const mutation of mutationsList) {
