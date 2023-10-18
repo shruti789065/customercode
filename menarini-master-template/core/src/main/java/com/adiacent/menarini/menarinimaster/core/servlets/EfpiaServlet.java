@@ -32,7 +32,7 @@ import java.util.Iterator;
 @ServiceDescription("Menarini Master Template - EFPIA Servlet")
 
 public class EfpiaServlet extends SlingAllMethodsServlet {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -1430771641903473979L;
     private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     public static final String DEFAULT_SELECTOR = "efpia";
