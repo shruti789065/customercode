@@ -4,6 +4,7 @@
 	flex-direction: column;
 	gap: 10px;
     .cmp-list__item {
+		display: inline-flex;
       list-style-type: none;
       &-link {
         font-family: $font-family-oswald;
@@ -27,6 +28,18 @@
         margin-top: 20px;
         font-weight: 100;
       }
+	  &::after{
+		content: "";
+		display: block;
+		position: relative;
+		background-image: url('/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_right.svg');
+		background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+		width: 30px;
+		height: 40px;
+		margin: 0 5px;
+	  }
     }
   }
 }
