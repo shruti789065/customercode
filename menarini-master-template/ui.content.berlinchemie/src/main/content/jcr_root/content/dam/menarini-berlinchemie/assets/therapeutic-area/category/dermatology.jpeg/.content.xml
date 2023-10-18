@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:exif="http://ns.adobe.com/exif/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="ebc00eb9-8516-4e67-be85-328cd4cfd31a">
+    <jcr:content
+        dam:assetState="processed"
+        dam:jobId="8330ffa4-f38b-46ab-bca3-79c1701a6f8c"
+        dam:processingId="c8007eab-0a38-4e79-a930-8b493171344e"
+        dam:processingRenditions="[cq5dam.thumbnail.48.48.png,cqdam.machine.metadata.tags.json,cqdam.metadata.xml,cq5dam.thumbnail.319.319.png,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.colors.json,cq5dam.zoom.2048.2048.jpeg,cq5dam.preview.pdf,cq5dam.thumbnail.140.100.png,cqdam.text.txt,cqdam.machine.metadata.features.json]"
+        dam:processingRequestedDate="{Date}2023-06-07T10:53:39.607Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2023-06-12T16:40:26.183+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpeg files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpeg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2023-06-12T16:40:22.448+02:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:predictedColors="{Long}[27061,1039]"
+            dam:Progressive="no"
+            dam:sha1="5829eb4be291401ae11edb76768e1ee71cf28c2a"
+            dam:size="{Long}503092"
+            dc:format="image/jpeg"
+            exif:PixelXDimension="{Long}800"
+            exif:PixelYDimension="{Long}737"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}737"
+            tiff:ImageWidth="{Long}800">
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:lastModified="{Date}2023-06-07T10:53:55.470Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.6058"
+                    name="PINK"
+                    rank="{Long}1"
+                    rgb="{Long}[239,193,195]"/>
+                <color2
+                    jcr:lastModified="{Date}2023-06-07T10:53:55.471Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.3942"
+                    name="RED"
+                    rank="{Long}2"
+                    rgb="{Long}[235,150,146]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
