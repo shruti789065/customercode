@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-12T11:56:07.260+02:00"
+        cq:lastModified="{Date}2023-10-19T10:56:11.232+02:00"
         cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2023-06-13T11:20:16.768Z"
         cq:lastReplicated_publish="{Date}2023-06-13T11:20:16.768Z"
@@ -111,6 +111,10 @@
                             sling:resourceType="wcm/core/components/policies/mapping"/>
                         <separator
                             cq:policy="menarinimaster/components/separator/policy_1686562797028"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <trusted-partner
+                            cq:policy="menarinimaster/components/trusted-partner/policy_1697705735927"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping"/>
                     </components>

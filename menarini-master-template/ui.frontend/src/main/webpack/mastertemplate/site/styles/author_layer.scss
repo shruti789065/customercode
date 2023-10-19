@@ -19,6 +19,17 @@
       top: 0;
     }
   }
+  .trusted-partner {
+    .cmp-container {
+      display: inline;
+      .image {
+		width: 200px;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+  }
 
   .cmp-carousel {
     height: 700px !important;
