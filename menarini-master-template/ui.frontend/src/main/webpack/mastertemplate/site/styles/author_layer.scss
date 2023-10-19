@@ -43,6 +43,22 @@
 			}
 		}
 	}
+	&#marketCountriesContainer{
+		position: relative;
+		display: block;
+		left: 0;
+		height: 100%;
+		max-height: 2000px;
+	}
+	.cmp-tabs__tablist_mobile{
+		left: 0;
+		height: 100%;
+		max-height: 2000px;
+	}
+	.tabs-menu__container{
+		height: 100%;
+		max-height: 2000px;
+	}
 }
 .editor-panel-content {
 	div{
@@ -58,4 +74,24 @@
 			}
 		}
 	}
+}
+
+.cmp-megamenu--editor-share-item {
+	display: flex;
+    padding-bottom: 30px;
+    justify-content: space-between;
+	.coral-Form-fieldwrapper{
+		display: inline-flex;
+		.cmp-megamenu--editor-social{
+			margin: 0 10px;
+		}
+	}
+}
+
+.aem-AuthorLayer-Edit,
+.cq-Editable-dom {
+	.cmp-share-mobile {
+		display: none !important;
+	}
+	
 }

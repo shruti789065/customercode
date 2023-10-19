@@ -3,20 +3,18 @@ package com.adiacent.menarini.mhos.core.servlets;
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.FragmentData;
-import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
-import com.day.cq.wcm.api.LanguageManager;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.apache.commons.text.WordUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,13 +24,17 @@ import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.*;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.servlet.Servlet;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Iterator;
 
 
 @Component(service = { Servlet.class }, name = "Menarini House of Science - Search Filter Servlet", immediate = true)
@@ -87,12 +89,24 @@ public class SearchFilterServlet extends SlingSafeMethodsServlet {
                     Iterator<Resource> resouceCategory =  resourceDam.listChildren();
                     while (resouceCategory.hasNext()){
                         JSONObject cfResults = new JSONObject();
+                        JSONObject res = null;
                         Resource resourceCf = resouceCategory.next();
-
-                        JSONObject res = contentFragmentData(resourceCf, resourceResolver);
-                        if(res.length() >0){
-                            results.put(res);
+                        if(resourceCf.getResourceType().equals("sling:Folder")){
+                            Iterator<Resource> yearCfResources =  resourceCf.listChildren();
+                            while(yearCfResources.hasNext()){
+                                Resource singleCf =  yearCfResources.next();
+                                res = contentFragmentData(singleCf, resourceResolver);
+                                if(res.length()>0){
+                                    results.put(res);
+                                }
+                            }
+                        }else{
+                            res = contentFragmentData(resourceCf, resourceResolver);
+                            if(res.length() >0){
+                                results.put(res);
+                            }
                         }
+
                     }
                 }
             }
@@ -153,7 +167,7 @@ public class SearchFilterServlet extends SlingSafeMethodsServlet {
             cfResults.put("description", cf.getElement("description").getContent());
             cfResults.put("urlLink", cf.getElement("link").getContent());
             cfResults.put("targetLink", cf.getElement("linkTarget").getContent());
-            cfResults.put("labelLink", cf.getElement("linkLabel").getContent());
+            cfResults.put("labelLink", cf.getElement("linkLabel").getContent().isEmpty() ? "Read More" : cf.getElement("linkLabel").getContent());
             TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
             String[] authors =  cf.getElement("author").getValue().getValue(String[].class);
             String[] topics = cf.getElement("topic").getValue().getValue(String[].class);
@@ -163,7 +177,7 @@ public class SearchFilterServlet extends SlingSafeMethodsServlet {
             cfResults.put("author", getTags(authors,tagManager));
             cfResults.put("topic",getTags(topics,tagManager));
             cfResults.put("source", getTags(sources,tagManager));
-            cfResults.put("typology", typology != null ? typology.getTitle() :"");
+            cfResults.put("typology", typology != null ? WordUtils.capitalize(typology.getTitle()) :"");
             cfResults.put("tag",getTags(tags,tagManager));
 
         }
@@ -176,7 +190,8 @@ public class SearchFilterServlet extends SlingSafeMethodsServlet {
             for (String val : arrayTags) {
                 Tag tag = tagManager.resolve(val.toString());
                 if (tag != null) {
-                    authorTag.put(tag.getTitle());
+                    String textValue=  WordUtils.capitalize(tag.getTitle());
+                    authorTag.put(textValue);
                 }
             }
         }

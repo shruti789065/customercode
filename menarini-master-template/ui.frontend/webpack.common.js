@@ -14,6 +14,7 @@ const SITE_stemline = '/stemline';
 const SITE_relifede = '/relifede';
 const SITE_biotech = '/biotech';
 const SITE_berlin = '/berlin';
+const SITE_apac = '/apac';
 
 const resolve = {
 	extensions: ['.js', '.ts'],
@@ -29,7 +30,8 @@ module.exports = {
 		stemline: SOURCE_ROOT + SITE_stemline + '/site/main.ts',
 		relifede: SOURCE_ROOT + SITE_relifede + '/site/main.ts',
 		biotech: SOURCE_ROOT + SITE_biotech + '/site/main.ts',
-		berlin: SOURCE_ROOT + SITE_berlin + '/site/main.ts'
+		berlin: SOURCE_ROOT + SITE_berlin + '/site/main.ts',
+		apac: SOURCE_ROOT + SITE_apac + '/site/main.ts'
 	},
 	output: {
 		filename: (chunkData) => {
@@ -102,7 +104,8 @@ module.exports = {
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_stemline + '/resources/'), to: './clientlib-stemline' },
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_relifede + '/resources/'), to: './clientlib-relifede' },
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_biotech + '/resources/'), to: './clientlib-biotech' },
-				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_berlin + '/resources/'), to: './clientlib-berlin' }
+				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_berlin + '/resources/'), to: './clientlib-berlin' },
+				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_apac + '/resources/'), to: './clientlib-apac' }
 			]
 		})
 	],

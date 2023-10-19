@@ -447,6 +447,9 @@
 		if (document.querySelectorAll('body').length > 0) {
 			document.querySelector('body').classList.remove('h-overflow');
 		}
+		if (document.querySelectorAll('.cmp-share-desktop .cmp-share__container .cmp-share__active').length > 0) {
+            document.querySelector('.cmp-share-desktop .cmp-share__container').classList.remove('cmp-share__active');
+        }
 		$('.cmp-share__container').hide();
 	}
 
