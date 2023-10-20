@@ -2,12 +2,12 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:isCheckedOut="{Boolean}false"
     jcr:primaryType="cq:WorkflowModel"
-    jcr:uuid="03aecc6c-6d94-11ee-b962-0242ac120002"
+    jcr:uuid="275d58f9-5eb9-49b6-9b90-ea2abee518c3"
     sling:resourceType="cq/workflow/components/model"
     description="No Description"
-    title="Publish approval for Menarini Berlin">
+    title="Publish approval for Menarini Apac">
     <metaData
-        cq:generatingPage="/conf/global/settings/workflow/models/publish-approval-for-menarini-berlinchemie/jcr:content"
+        cq:generatingPage="/conf/global/settings/workflow/models/publish-approval-for-menarini-apac/jcr:content"
         cq:lastModified="{Long}1687945882963"
         cq:lastModifiedBy="L.ambrosini@adiacent.com"
         jcr:primaryType="nt:unstructured"
@@ -27,7 +27,7 @@
             <metaData
                 jcr:primaryType="nt:unstructured"
                 DO_NOTIFY="true"
-                PARTICIPANT="approver-menarini-berlinchemie"/>
+                PARTICIPANT="approver-menarini-apac"/>
         </node1>
         <node2
             jcr:primaryType="cq:WorkflowNode"
@@ -69,7 +69,7 @@
             <metaData
                 jcr:primaryType="nt:unstructured"
                 DO_NOTIFY="true"
-                PARTICIPANT="editor-menarini-berlinchemie"
+                PARTICIPANT="editor-menarini-apac"
                 timeoutMillis="1"/>
         </node6>
         <node7
