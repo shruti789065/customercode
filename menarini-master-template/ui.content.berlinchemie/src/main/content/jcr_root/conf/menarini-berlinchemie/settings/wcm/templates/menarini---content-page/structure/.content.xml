@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-06-13T11:20:07.765Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-06-13T11:20:16.768Z"
+        cq:lastReplicated_publish="{Date}2023-06-13T11:20:16.768Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/menarini-berlinchemie/settings/wcm/templates/menarini---content-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:uuid="8ef2a397-c449-49bc-b8b7-75bae9c20ca5"
+        sling:resourceType="menarinimaster/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <experiencefragment-header
+                cq:styleIds="[1653640494827]"
+                jcr:lastModified="{Date}2023-06-13T11:20:07.755Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/menarini-berlinchemie/de/site/header/master"/>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid"/>
+            <experiencefragment-footer
+                cq:styleIds="[1653640499553]"
+                jcr:lastModified="{Date}2023-06-13T11:19:41.103Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/menarini-berlinchemie/de/site/footer/master"/>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
