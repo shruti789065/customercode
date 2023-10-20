@@ -81,6 +81,7 @@ public class MarketListDropdownServlet extends SlingAllMethodsServlet {
                     request.setAttribute(DataSource.class.getName(), dataSource);
                 }
             }
+            
 
         }catch (Exception e){
             LOG.error("Error in Dropdown Market List Servlet ", e);
