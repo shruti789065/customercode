@@ -49,7 +49,7 @@ public class MarketListServlet extends SlingAllMethodsServlet {
             if(pageManager != null) {
                 Page currentPage = pageManager.getContainingPage(currentResource.getPath());
                 if (currentPage != null) {
-                    JsonObject jsonObject = getResult(request, resourceResolver, pageManager);
+                    JsonObject jsonObject = getResult(request, resourceResolver);
                     response.setContentType(Constants.APPLICATION_JSON);
                     response.getWriter().print(jsonObject);
                 }
@@ -60,7 +60,7 @@ public class MarketListServlet extends SlingAllMethodsServlet {
         }
     }
 
-    protected JsonObject getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver, PageManager pageManager) throws RepositoryException, JsonException {
+    protected JsonObject getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver) throws RepositoryException, JsonException {
         JsonArray results = new JsonArray();
         JsonObject response = new JsonObject();
         if(request.getParameter("country") != null){
