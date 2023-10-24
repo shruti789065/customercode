@@ -2,10 +2,10 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:isCheckedOut="{Boolean}false"
     jcr:primaryType="cq:WorkflowModel"
-    jcr:uuid="7361c721-b31d-4580-8e62-214880b6720d"
+    jcr:uuid="24f82c8a-1a80-448c-a4de-bc7acca25b77"
     sling:resourceType="cq/workflow/components/model"
     description="No Description"
-    title="efpia-menarini-ch">
+    title="Approval Menarini EFPIA CH">
     <variables jcr:primaryType="nt:unstructured">
         <test
             jcr:primaryType="nt:unstructured"
@@ -19,11 +19,10 @@
             type="java.lang.Boolean"/>
     </variables>
     <metaData
-        cq:generatingPage="/conf/global/settings/workflow/models/efpia-menarini-ch/jcr:content"
+        cq:generatingPage="/conf/global/settings/workflow/models/approval-menarini-efpia_ch/jcr:content"
         cq:lastModified="{Long}1696948586020"
-        cq:lastModifiedBy="efpia-editor"
+        cq:lastModifiedBy="L.ambrosini@adiacent.com"
         jcr:primaryType="nt:unstructured"
-        deleted="true"
         lastSynced="{Date}2023-10-10T16:36:25.740+02:00"
         multiResourceSupport="true"/>
     <nodes jcr:primaryType="nt:unstructured">
@@ -57,7 +56,7 @@
         </node3>
         <node4
             jcr:primaryType="cq:WorkflowNode"
-            title="Publishing approval"
+            title="Publishing Approval EFPIA CH "
             type="PARTICIPANT">
             <metaData
                 jcr:primaryType="nt:unstructured"
