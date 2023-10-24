@@ -523,12 +523,12 @@
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
                     jcr:description="Sets a &lt;main> element on the page content area."
-                    jcr:lastModified="{Date}2023-06-12T11:56:07.253+02:00"
+                    jcr:lastModified="{Date}2023-10-19T10:55:26.427+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
+                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/trusted-partner,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -3547,6 +3547,18 @@
                     </cq:styleGroups>
                 </policy_1686576922008>
             </productcategoryarea>
+            <trusted-partner jcr:primaryType="nt:unstructured">
+                <policy_1697705735927
+                    jcr:lastModified="{Date}2023-10-19T10:56:11.221+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Trusted Partner policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/menarinimaster/components/image"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1697705735927>
+            </trusted-partner>
         </components>
     </menarinimaster>
 </jcr:root>
