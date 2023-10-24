@@ -1,0 +1,14 @@
+<sly data-sly-test="${properties.cardType == 'standard'}"
+     data-sly-use.cardStandardTemplate="card-standard.html"
+     data-sly-call="${cardStandardTemplate.cardStandard}"></sly>
+<sly data-sly-test="${properties.cardType == 'hover'}"
+     data-sly-use.cardHoverTemplate="card-hover.html"
+     data-sly-call="${cardHoverTemplate.cardHover}"></sly>
+<sly data-sly-test="${properties.cardType == 'badge'}"
+     data-sly-use.cardBadgeTemplate="card-badge.html"
+     data-sly-call="${cardBadgeTemplate.cardBadge}"></sly>
+<sly data-sly-test="${properties.cardType == 'news'}"
+     data-sly-use.cardNewsTemplate="card-news.html"
+     data-sly-call="${cardNewsTemplate.cardNews}"></sly>
+
+
