@@ -7,6 +7,7 @@ function onSubmitEfpia() {
     if (grecaptcha.getResponse() !== "") {
         // Show the success message
         document.getElementById("successMessage").style.display = "block";
+        document.getElementById("efpia-button-report").style.display = "block";
         // Hide the reCAPTCHA and button
         document.getElementById("recaptcha").style.display = "none";
         document.getElementById("efpia-button").style.display = "none";
@@ -19,7 +20,10 @@ function onSubmitEfpia() {
 
 var efpiaButton = document.getElementById("efpia-button");
 if (efpiaButton) {
-    efpiaButton.addEventListener("click", checkEfpia);
+  efpiaButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    checkEfpia();
+  });
 }
 
 function openPopup() {
@@ -69,7 +73,7 @@ const copyDataFromJsonEfpia = () => {
 
 
   function displayDataEfpia(efpiaData) {
-    const resultsEfpia = document.querySelector(".modal-content-text");
+    const resultsEfpia = document.querySelector("#modalEfpia");
     resultsEfpia.innerHTML = "";
     
     const years = Object.keys(efpiaData);
@@ -78,17 +82,23 @@ const copyDataFromJsonEfpia = () => {
         resultsEfpia.innerHTML = "No results found.";
         return;
     }
- 
-    const template = years.map((year) => {
-        const images = efpiaData[year].map((entry) => `<img src="${entry.url}" alt="${year}">`).join("");
-        return `
-            <div class="year-container">
-                <h3>${year}</h3>
-                <div class="image-container">${images}</div>
-            </div>
-        `;
-    }).join("");
-
+    
+    const template = `
+    <div id="modal-content">
+        <div id="modal-content-text">
+            ${years.map((year) => {
+                const images = efpiaData[year].map((entry) => `<img src="${entry.url}" alt="${year}">`).join("");
+                return `
+                    <div class="year-container">
+                        <h3>${year}</h3>
+                        <div class="image-container">${images}</div>
+                    </div>
+                `;
+            }).join("")}
+        </div>
+        <span id="modalEfpiaClose">X</span>
+    </div>
+  `;
     resultsEfpia.innerHTML = template;
   }
 

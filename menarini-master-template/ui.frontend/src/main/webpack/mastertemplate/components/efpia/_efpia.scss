@@ -3,6 +3,10 @@
 #cmp-efpia {
     #efpia-button-report {
         cursor: pointer;
+        display: none;
+    }
+    #successMessage {
+        display: none;
     }
 
     #modalEfpia {
@@ -16,7 +20,7 @@
         align-items: center;
         justify-content: center;
 
-        .modal-content {
+        #modal-content {
             background-color: #fff;
             padding: 20px;
             border: 1px solid #888;
@@ -93,7 +97,7 @@
             }
         } 
         @media screen and (min-width: 992px) {
-            .modal-content {
+            #modal-content {
                 width: 60%;
             }
         }

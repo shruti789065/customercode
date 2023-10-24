@@ -777,6 +777,30 @@
                                 <div id="section-3aceb5ff47" class="cmp-container">
                                     <div class="wrapper container responsivegrid cmp-container--standard_width">
                                         <div id="wrapper-df49f88d53" class="cmp-container">
+
+                                            <!--start real recaptcha
+
+                                            <div class="recaptcha aem-GridColumn aem-GridColumn--default--12">
+                                                <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+                                                <script type="text/javascript">
+                                                var onloadCallback = function () {
+                                                    //alert("grecaptcha is ready!");
+                                                    var publicKey = '${properties.publicKey @ context='scriptString'}'
+                                                    grecaptcha.render("g-recaptcha", { sitekey: publicKey });
+                                                };
+                                                var onSuccess = function (response) {
+                                                    //alert("grecaptcha is verified !" + response);
+                                                    $('#g-recaptcha-response').val(response);
+                                                };
+                                                </script>
+                                            
+                                                <div id="g-recaptcha" data-callback="onSuccess"></div>
+                                                <input type="hidden" id="g-recaptcha-response" value=""/>
+                                                <div id="recaptcha-error-message" class="error-captcha"></div>
+                                              </div>
+                                            
+                                            end real recaptcha-->
+
                                             <!-- EFPIA START -->
 
                                             <!-- TEST API KEY
@@ -787,37 +811,33 @@
                                             -->
                                             <input type="hidden" value="/pippo/" class="currentNodeEfpia"/>
 
-                                            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-                                            <div id="cmp-efpia">
-                                                <form action="#" method="POST" id="myForm">
-                                                    <div class="g-recaptcha" data-sitekey="6LdAvLYoAAAAAJP8cOuLxCMgW-kj3vtuc-GBNYcz" id="recaptcha"></div>
-                                                    <br>
-                                                    <div class="button cmp-title--primary cmp-button--small">
-                                                        <a class="cmp-button" id="efpia-button" type="button">
-                                                            <span class="cmp-button__text">READ MORE</span>
-                                                        </a>
-                                                    </div>
-                                                </form>
-                                                <div id="successMessage" style="display: none;">
-                                                    <div class="efpia-message">
-                                                        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
-                                                        </p>
-                                                    </div>
-                                                    <div class="button cmp-title--primary cmp-button--small">
-                                                        <a class="cmp-button" id="efpia-button-report">
-                                                            <span class="cmp-button__text">REPORT EFPIA</span>
-                                                        </a>
-                                                    </div>
+                                            <form method="POST" action="" id="cmp-efpia" enctype="multipart/form-data" novalidate="" class="cmp-form aem-Grid aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12">
+                                                <input type="hidden" name=":formstart" value="">
+                                                <input type="hidden" name="_charset_" value="utf-8">
+                                                <input type="hidden" name="resourcePath" value="">
+                                              
+                                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                                <div class="g-recaptcha" data-sitekey="6LdAvLYoAAAAAJP8cOuLxCMgW-kj3vtuc-GBNYcz" id="recaptcha"></div>                                              
+                                              
+                                                <div class="button aem-GridColumn aem-GridColumn--default--12">
+                                                  <button type="SUBMIT" id="efpia-button" class="cmp-form-button">Submit</button>
                                                 </div>
-                                                <div id="modalEfpia">
-                                                    <div class="modal-content">
-                                                        <div class="modal-content-text">
-                                                        </div>
-                                                        <span id="modalEfpiaClose">X</span>
-                                                    </div>                                                    
+                                              
+                                                <div id="successMessage" class="text aem-GridColumn--tablet--12 aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0">
+                                                  <p>lorem ipsum text for efpia</p>
                                                 </div>
-                                            </div>
+                                              
+                                                <div class="button cmp-title--primary cmp-button--small cmp-text-center aem-GridColumn aem-GridColumn--default--12">
+                                                  <button type="button" id="efpia-button-report" class="cmp-button" >
+                                                    <span class="cmp-button__text">READ REPORT EFPIA</span>
+                                                  </button>
+                                                </div>
+                                              
+                                                <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
+                                                  <div id="modalEfpia" class="cmp-container"> </div>
+                                                </div>
+                                                
+                                              </form>
                                             
                                             <!-- EFPIA END-->
                                         </div>
