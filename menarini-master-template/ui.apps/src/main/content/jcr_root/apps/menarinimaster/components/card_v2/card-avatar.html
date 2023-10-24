@@ -13,61 +13,34 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-
-<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Copyright 2021 Adobe
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <template data-sly-template.cardAvatar="">
-   <sly data-sly-test.configured=${properties.fileReference}></sly>
-   <div class="cmp-card-avatar-container" data-sly-test="${properties.fileReference}">
-      <div class="cmp-card-avatar-image">
-         <img src="${properties.fileReference}" class="card-avatar__image" alt="">
-      </div>
-      <div class="cmp-card-avatar__content">
-         <h2 class="cmp-card-avatar__name"> ${properties.name} </h2>
-         <h5 class="cmp-card-avatar__position">${properties.position}</h5>
-         <button class="cmp-card-avatar__button">
-            ${!properties.buttonLabel ? 'Read Biography' : properties.buttonLabel}
-         </button>
-         <div class="cmp-card-avatar__description_hide">
-            ${properties.description @context='html'}
-         </div>
-      </div>
-   </div>
-   <div data-sly-test="${ !configured }" data-emptytext="Card Team Member Avatar" class="cq-placeholder"></div>
-   <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
-</template>
-<!--/* <template data-sly-template.cardAvatar="">
    <div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
         data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
-        data-sly-use.imageTemplate="/card-avatar/image.html"
-        data-sly-use.titleTemplate="/card-avatar/title.html"
-        data-sly-use.descriptionTemplate="/card-avatar/description.html"
-        data-sly-use.actionsTemplate="/card-avatar/actions.html"
+        data-sly-use.imageTemplate="image.html"
+
+        data-sly-use.titleTemplate="title.html"
+        data-sly-use.descriptionTemplate="description.html"
+        data-sly-use.actionsTemplate="actions.html"
         data-sly-test.hasContent="${teaser.imageResource}"
         id="${teaser.id}"
-        class="cmp-card cmp-card-avatar-container cmp-card--${properties.cardType} cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-card"
+        class="cmp-card cmp-card--${properties.cardType} cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}"
         data-cmp-data-layer="${teaser.data.json}">
-      <sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
-
-      <div class="cmp-card-avatar__content">
-
-         <sly data-sly-call="${titleTemplate.title @ teaser=teaser}"></sly>
-         <sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
-         <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
-      </div>
+      <a class="cmp-teaser__link"
+         data-sly-attribute="${teaser.link.htmlAttributes}"
+         data-sly-unwrap="${!teaser.link.valid || !teaser.actions.empty}"
+         data-cmp-clickable="${teaser.data ? true : false}">
+         <div class="cmp-teaser__content">
+            <sly data-sly-call="${titleTemplate.title @ teaser=teaser}"></sly>
+            <sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
+            <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
+            <div class="cmp-icon--badge">
+               <div class="cmp-image">
+                  <img srcset="${properties.iconBadge}" class="cmp-image__image">
+               </div>
+            </div>
+         </div>
+         <sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
+      </a>
    </div>
-   <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>    <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
-</template> */-->
+   <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
+</template>

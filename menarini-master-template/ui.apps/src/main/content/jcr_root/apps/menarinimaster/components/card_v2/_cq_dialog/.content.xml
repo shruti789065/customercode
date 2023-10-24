@@ -40,12 +40,9 @@
 												<items jcr:primaryType="nt:unstructured">
 													<standard jcr:primaryType="nt:unstructured" text="Standard" value="standard"/>
 													<hover jcr:primaryType="nt:unstructured" text="Hover" value="hover"/>
-													<badge jcr:primaryType="nt:unstructured" text="Badge" value="badge"/>
 													<avatar jcr:primaryType="nt:unstructured" text="Avatar" value="avatar"/>
 												</items>
 											</cardType>
-
-
 										</items>
 									</column>
 								</items>
@@ -400,9 +397,9 @@
 							jcr:primaryType="nt:unstructured"
 							sling:resourceType="granite/ui/components/coral/foundation/include"
 							path="/mnt/overlay/cq/gui/components/authoring/dialog/style/tab_edit/styletab"/>
-					<customSetting
+					<cardLayout
 							jcr:primaryType="nt:unstructured"
-							jcr:title="Custom Setting"
+							jcr:title="Layout"
 							sling:resourceType="granite/ui/components/coral/foundation/container"
 							margin="{Boolean}true">
 						<items jcr:primaryType="nt:unstructured">
@@ -411,82 +408,120 @@
 									sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
 									margin="{Boolean}true">
 								<items jcr:primaryType="nt:unstructured">
-									<setCardBadge jcr:primaryType="nt:unstructured"
-									              sling:resourceType="granite/ui/components/foundation/container"
-									              class="hide card-options-showhide-target"
-									              showhidetargetvalue="badge">
+									<column
+											jcr:primaryType="nt:unstructured"
+											sling:resourceType="granite/ui/components/coral/foundation/container">
 										<items jcr:primaryType="nt:unstructured">
-											<heading jcr:primaryType="nt:unstructured"
-											         sling:resourceType="granite/ui/components/foundation/heading"
-											         class="coral-Heading coral-Heading--4" level="{Long}4"
-											         text="Card badge panel" />
-											<well
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/foundation/container">
-												<layout
-														jcr:primaryType="nt:unstructured"
-														sling:resourceType="granite/ui/components/foundation/layouts/well"/>
+											<setCardLayout jcr:primaryType="nt:unstructured"
+											              sling:resourceType="granite/ui/components/foundation/container">
 												<items jcr:primaryType="nt:unstructured">
-													<icon
+													<items-position
 															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-															rootPath="/content"
-															fieldLabel="Icon"
-															name="./iconBadge"/>
-												</items>
-											</well>
-										</items>
-									</setCardBadge>
-									<setCardHover jcr:primaryType="nt:unstructured"
-									              sling:resourceType="granite/ui/components/foundation/container"
-									              class="hide card-options-showhide-target"
-									              showhidetargetvalue="hover">
-										<items jcr:primaryType="nt:unstructured">
-											<heading jcr:primaryType="nt:unstructured"
-											         sling:resourceType="granite/ui/components/foundation/heading"
-											         class="coral-Heading coral-Heading--4" level="{Long}4"
-											         text="Card hover color" />
-											<well
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/foundation/container">
-												<layout
-														jcr:primaryType="nt:unstructured"
-														sling:resourceType="granite/ui/components/foundation/layouts/well"/>
-												<items jcr:primaryType="nt:unstructured">
-													<hover-color
-															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
-															deleteHint="{Boolean}false"
-															vertical="{Boolean}false"
-															name="./hoverColor">
-														<items
-																jcr:primaryType="nt:unstructured">
-															<primary
-																	jcr:primaryType="nt:unstructured"
-																	text="Primary"
-																	value="primary"
-																	checked="{Boolean}true"/>
-															<secondary
-																	jcr:primaryType="nt:unstructured"
-																	text="Secondary"
-																	value="secondary"
-																	checked="{Boolean}false"/>
+															sling:resourceType="granite/ui/components/foundation/form/select"
+															fieldLabel="Align Items"
+															name="./alignItems">
+														<items jcr:primaryType="nt:unstructured">
+															<start jcr:primaryType="nt:unstructured" text="Start" value="flex-start"/>
+															<center jcr:primaryType="nt:unstructured" text="Center" value="center"/>
+															<end jcr:primaryType="nt:unstructured" text="End" value="flex-end"/>
 														</items>
-													</hover-color>
-													<icon
+													</items-position>
+													<justify-content
 															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-															rootPath="/content"
-															fieldLabel="Icon"
-															name="./iconHover"/>
+															sling:resourceType="granite/ui/components/foundation/form/select"
+															fieldLabel="Justify Content"
+															name="./justifyContent">
+														<items jcr:primaryType="nt:unstructured">
+															<start jcr:primaryType="nt:unstructured" text="Start" value="flex-start"/>
+															<center jcr:primaryType="nt:unstructured" text="Center" value="center"/>
+															<end jcr:primaryType="nt:unstructured" text="End" value="flex-end"/>
+															<space-around jcr:primaryType="nt:unstructured" text="Space around" value="space-around"/>
+															<space-between jcr:primaryType="nt:unstructured" text="Space between" value="space-between"/>
+															<space-evenly jcr:primaryType="nt:unstructured" text="Space evenly" value="space-evenly"/>
+														</items>
+													</justify-content>
 												</items>
-											</well>
+											</setCardLayout>
+											<setCardBadge jcr:primaryType="nt:unstructured"
+											              sling:resourceType="granite/ui/components/foundation/container"
+											              class="hide card-options-showhide-target"
+											              showhidetargetvalue="standard">
+												<items jcr:primaryType="nt:unstructured">
+													<heading jcr:primaryType="nt:unstructured"
+													         sling:resourceType="granite/ui/components/foundation/heading"
+													         class="coral-Heading coral-Heading--4" level="{Long}4"
+													         text="Card panel" />
+													<well
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/foundation/container">
+														<layout
+																jcr:primaryType="nt:unstructured"
+																sling:resourceType="granite/ui/components/foundation/layouts/well"/>
+														<items jcr:primaryType="nt:unstructured">
+															<icon
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+																	rootPath="/content"
+																	fieldLabel="Badge"
+																	name="./iconBadge"/>
+														</items>
+													</well>
+												</items>
+											</setCardBadge>
+											<setCardHover jcr:primaryType="nt:unstructured"
+											              sling:resourceType="granite/ui/components/foundation/container"
+											              class="hide card-options-showhide-target"
+											              showhidetargetvalue="hover">
+												<items jcr:primaryType="nt:unstructured">
+													<heading jcr:primaryType="nt:unstructured"
+													         sling:resourceType="granite/ui/components/foundation/heading"
+													         class="coral-Heading coral-Heading--4" level="{Long}4"
+													         text="Card hover layout" />
+													<well
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/foundation/container">
+														<layout
+																jcr:primaryType="nt:unstructured"
+																sling:resourceType="granite/ui/components/foundation/layouts/well"/>
+														<items jcr:primaryType="nt:unstructured">
+															<hover-color
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+																	deleteHint="{Boolean}false"
+																	vertical="{Boolean}false"
+																	name="./hoverColor">
+																<items
+																		jcr:primaryType="nt:unstructured">
+																	<primary
+																			jcr:primaryType="nt:unstructured"
+																			text="Primary"
+																			value="primary"
+																			checked="{Boolean}true"/>
+																	<secondary
+																			jcr:primaryType="nt:unstructured"
+																			text="Secondary"
+																			value="secondary"
+																			checked="{Boolean}false"/>
+																</items>
+															</hover-color>
+															<icon
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+																	rootPath="/content"
+																	fieldLabel="Icon"
+																	name="./iconHover"/>
+														</items>
+													</well>
+												</items>
+											</setCardHover>
+
 										</items>
-									</setCardHover>
+									</column>
 								</items>
 							</columns>
 						</items>
-					</customSetting>
+
+					</cardLayout>
 				</items>
 			</tabs>
 		</items>
