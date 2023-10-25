@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
           jcr:primaryType="nt:unstructured"
           jcr:title="Card v2"
           sling:resourceType="cq/gui/components/authoring/dialog"
@@ -32,15 +34,25 @@
 										<items jcr:primaryType="nt:unstructured">
 											<cardType
 													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/foundation/form/select"
-													class="cq-dialog-dropdown-showhide"
+													sling:resourceType="granite/ui/components/coral/foundation/form/select"
+													granite:class="cq-dialog-dropdown-showhide"
 													cq-dialog-dropdown-showhide-target=".card-options-showhide-target"
 													fieldLabel="Card Layout"
 													name="./cardType">
+												<granite:data
+														jcr:primaryType="nt:unstructured"
+												        cq-dialog-dropdown-showhide-target=".card-options-showhide-target"/>
 												<items jcr:primaryType="nt:unstructured">
-													<standard jcr:primaryType="nt:unstructured" text="Standard" value="standard"/>
-													<hover jcr:primaryType="nt:unstructured" text="Hover" value="hover"/>
-													<avatar jcr:primaryType="nt:unstructured" text="Avatar" value="avatar"/>
+													<standard jcr:primaryType="nt:unstructured"
+													          text="Standard"
+													          value="standard"
+													          selected="{Boolean}true"/>
+													<hover jcr:primaryType="nt:unstructured"
+													       text="Hover"
+													       value="hover"/>
+													<avatar jcr:primaryType="nt:unstructured"
+													        text="Avatar"
+													        value="avatar"/>
 												</items>
 											</cardType>
 										</items>
@@ -131,6 +143,7 @@
 							</columns>
 						</items>
 					</actions>
+
 					<text
 							jcr:primaryType="nt:unstructured"
 							jcr:title="Text"
@@ -145,88 +158,190 @@
 									<column
 											jcr:primaryType="nt:unstructured"
 											sling:resourceType="granite/ui/components/coral/foundation/container">
-										<items jcr:primaryType="nt:unstructured">
-											<pretitle
-													granite:hide="${cqDesign.pretitleHidden}"
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-													fieldDescription="A pretitle that will be displayed above the Teaser's title."
-													fieldLabel="Pretitle"
-													name="./pretitle"/>
-											<titleGroup
-													granite:hide="${cqDesign.titleHidden}"
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/coral/foundation/well">
+										<items jcr:primaryType="nt:unstructured"
+										       sling:hideChildren="[pretitle,titleGroup]">
+											<setTitleStandard jcr:primaryType="nt:unstructured"
+											                  sling:resourceType="granite/ui/components/coral/foundation/container"
+											                  granite:class="hide card-options-showhide-target">
+												<granite:data jcr:primaryType="nt:unstructured" showhidetargetvalue="standard"/>
 												<items jcr:primaryType="nt:unstructured">
-													<title
+													<titleGroup
+															granite:hide="${cqDesign.titleHidden}"
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/well">
+														<items jcr:primaryType="nt:unstructured">
+															<title
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+																	fieldDescription="A title to display as the headline for the teaser."
+																	fieldLabel="Title"
+																	name="./jcr:title"
+																	value="${cqDesign._jcr_description}"/>
+															<titleType
+																	granite:hide="${!cqDesign.showTitleType or (empty cqDesign.allowedHeadingElements and empty cqDesign.allowedTypes)}"
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/select"
+																	fieldDescription="The heading HTML element used for the teaser's title type."
+																	fieldLabel="Heading Element"
+																	name="./titleType"
+																	ordered="{Boolean}true"
+																	wrapperClass="foundation-toggleable">
+																<datasource
+																		jcr:primaryType="nt:unstructured"
+																		sling:resourceType="core/wcm/components/title/v1/datasource/allowedtypes"/>
+															</titleType>
+															<titleTypeBackwardsCompatibility
+																	granite:hide="${!cqDesign.showTitleType or not empty cqDesign.allowedHeadingElements or not empty cqDesign.allowedTypes}"
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/select"
+																	fieldLabel="Title Type"
+																	name="./titleType"
+																	granite:class="foundation-toggleable">
+																<items jcr:primaryType="nt:unstructured">
+																	<def
+																			jcr:primaryType="nt:unstructured"
+																			text="(default)"
+																			value=""/>
+																	<h1
+																			jcr:primaryType="nt:unstructured"
+																			text="H1"
+																			value="h1"/>
+																	<h2
+																			jcr:primaryType="nt:unstructured"
+																			text="H2"
+																			value="h2"/>
+																	<h3
+																			jcr:primaryType="nt:unstructured"
+																			text="H3"
+																			value="h3"/>
+																	<h4
+																			jcr:primaryType="nt:unstructured"
+																			text="H4"
+																			value="h4"/>
+																	<h5
+																			jcr:primaryType="nt:unstructured"
+																			text="H5"
+																			value="h5"/>
+																	<h6
+																			jcr:primaryType="nt:unstructured"
+																			text="H6"
+																			value="h6"/>
+																</items>
+															</titleTypeBackwardsCompatibility>
+															<titleFromLinkedPage
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+																	checked="{Boolean}true"
+																	fieldDescription="When checked, populate the title with the linked page's title."
+																	name="./titleFromPage"
+																	text="Get title from linked page"
+																	uncheckedValue="{Boolean}false"
+																	value="{Boolean}true"/>
+														</items>
+													</titleGroup>
+												</items>
+											</setTitleStandard>
+											<setTitleHover jcr:primaryType="nt:unstructured"
+											               sling:resourceType="granite/ui/components/coral/foundation/container"
+											               granite:class="hide card-options-showhide-target">
+												<granite:data jcr:primaryType="nt:unstructured" showhidetargetvalue="hover"/>
+												<items jcr:primaryType="nt:unstructured">
+													<titleGroup
+															granite:hide="${cqDesign.titleHidden}"
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/well">
+														<items jcr:primaryType="nt:unstructured">
+															<title
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+																	fieldDescription="A title to display as the headline for the teaser."
+																	fieldLabel="Title"
+																	name="./jcr:title"
+																	value="${cqDesign._jcr_description}"/>
+															<titleType
+																	granite:hide="${!cqDesign.showTitleType or (empty cqDesign.allowedHeadingElements and empty cqDesign.allowedTypes)}"
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/select"
+																	fieldDescription="The heading HTML element used for the teaser's title type."
+																	fieldLabel="Heading Element"
+																	name="./titleType"
+																	ordered="{Boolean}true"
+																	wrapperClass="foundation-toggleable">
+																<datasource
+																		jcr:primaryType="nt:unstructured"
+																		sling:resourceType="core/wcm/components/title/v1/datasource/allowedtypes"/>
+															</titleType>
+															<titleTypeBackwardsCompatibility
+																	granite:hide="${!cqDesign.showTitleType or not empty cqDesign.allowedHeadingElements or not empty cqDesign.allowedTypes}"
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/select"
+																	fieldLabel="Title Type"
+																	name="./titleType"
+																	granite:class="foundation-toggleable">
+																<items jcr:primaryType="nt:unstructured">
+																	<def
+																			jcr:primaryType="nt:unstructured"
+																			text="(default)"
+																			value=""/>
+																	<h1
+																			jcr:primaryType="nt:unstructured"
+																			text="H1"
+																			value="h1"/>
+																	<h2
+																			jcr:primaryType="nt:unstructured"
+																			text="H2"
+																			value="h2"/>
+																	<h3
+																			jcr:primaryType="nt:unstructured"
+																			text="H3"
+																			value="h3"/>
+																	<h4
+																			jcr:primaryType="nt:unstructured"
+																			text="H4"
+																			value="h4"/>
+																	<h5
+																			jcr:primaryType="nt:unstructured"
+																			text="H5"
+																			value="h5"/>
+																	<h6
+																			jcr:primaryType="nt:unstructured"
+																			text="H6"
+																			value="h6"/>
+																</items>
+															</titleTypeBackwardsCompatibility>
+															<titleFromLinkedPage
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+																	checked="{Boolean}true"
+																	fieldDescription="When checked, populate the title with the linked page's title."
+																	name="./titleFromPage"
+																	text="Get title from linked page"
+																	uncheckedValue="{Boolean}false"
+																	value="{Boolean}true"/>
+														</items>
+													</titleGroup>
+												</items>
+											</setTitleHover>
+											<setAvatarTitle jcr:primaryType="nt:unstructured"
+											                sling:resourceType="granite/ui/components/coral/foundation/container"
+											                granite:class="hide card-options-showhide-target">
+												<granite:data jcr:primaryType="nt:unstructured" showhidetargetvalue="avatar"/>
+												<items jcr:primaryType="nt:unstructured">
+													<name
 															jcr:primaryType="nt:unstructured"
 															sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-															fieldDescription="A title to display as the headline for the teaser."
-															fieldLabel="Title"
+															fieldDescription="A name that will be displayed above the Teaser's title."
+															fieldLabel="Name"
+															name="./pretitle"/>
+													<position
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+															fieldDescription="A position to display as the headline for the teaser."
+															fieldLabel="Position"
 															name="./jcr:title"
 															value="${cqDesign._jcr_description}"/>
-													<titleType
-															granite:hide="${!cqDesign.showTitleType or (empty cqDesign.allowedHeadingElements and empty cqDesign.allowedTypes)}"
-															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/select"
-															fieldDescription="The heading HTML element used for the teaser's title type."
-															fieldLabel="Heading Element"
-															name="./titleType"
-															ordered="{Boolean}true"
-															wrapperClass="foundation-toggleable">
-														<datasource
-																jcr:primaryType="nt:unstructured"
-																sling:resourceType="core/wcm/components/title/v1/datasource/allowedtypes"/>
-													</titleType>
-													<titleTypeBackwardsCompatibility
-															granite:hide="${!cqDesign.showTitleType or not empty cqDesign.allowedHeadingElements or not empty cqDesign.allowedTypes}"
-															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/select"
-															fieldLabel="Title Type"
-															name="./titleType"
-															granite:class="foundation-toggleable">
-														<items jcr:primaryType="nt:unstructured">
-															<def
-																	jcr:primaryType="nt:unstructured"
-																	text="(default)"
-																	value=""/>
-															<h1
-																	jcr:primaryType="nt:unstructured"
-																	text="H1"
-																	value="h1"/>
-															<h2
-																	jcr:primaryType="nt:unstructured"
-																	text="H2"
-																	value="h2"/>
-															<h3
-																	jcr:primaryType="nt:unstructured"
-																	text="H3"
-																	value="h3"/>
-															<h4
-																	jcr:primaryType="nt:unstructured"
-																	text="H4"
-																	value="h4"/>
-															<h5
-																	jcr:primaryType="nt:unstructured"
-																	text="H5"
-																	value="h5"/>
-															<h6
-																	jcr:primaryType="nt:unstructured"
-																	text="H6"
-																	value="h6"/>
-														</items>
-													</titleTypeBackwardsCompatibility>
-													<titleFromLinkedPage
-															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-															checked="{Boolean}true"
-															fieldDescription="When checked, populate the title with the linked page's title."
-															name="./titleFromPage"
-															text="Get title from linked page"
-															uncheckedValue="{Boolean}false"
-															value="{Boolean}true"/>
 												</items>
-											</titleGroup>
+											</setAvatarTitle>
 											<descriptionGroup
 													granite:hide="${cqDesign.descriptionHidden}"
 													jcr:primaryType="nt:unstructured"
@@ -413,7 +528,7 @@
 											sling:resourceType="granite/ui/components/coral/foundation/container">
 										<items jcr:primaryType="nt:unstructured">
 											<setCardLayout jcr:primaryType="nt:unstructured"
-											              sling:resourceType="granite/ui/components/foundation/container">
+											               sling:resourceType="granite/ui/components/foundation/container">
 												<items jcr:primaryType="nt:unstructured">
 													<items-position
 															jcr:primaryType="nt:unstructured"
@@ -421,9 +536,12 @@
 															fieldLabel="Align Items"
 															name="./alignItems">
 														<items jcr:primaryType="nt:unstructured">
-															<start jcr:primaryType="nt:unstructured" text="Start" value="flex-start"/>
-															<center jcr:primaryType="nt:unstructured" text="Center" value="center"/>
-															<end jcr:primaryType="nt:unstructured" text="End" value="flex-end"/>
+															<start jcr:primaryType="nt:unstructured" text="Start"
+															       value="flex-start"/>
+															<center jcr:primaryType="nt:unstructured" text="Center"
+															        value="center"/>
+															<end jcr:primaryType="nt:unstructured" text="End"
+															     value="flex-end"/>
 														</items>
 													</items-position>
 													<justify-content
@@ -432,12 +550,18 @@
 															fieldLabel="Justify Content"
 															name="./justifyContent">
 														<items jcr:primaryType="nt:unstructured">
-															<start jcr:primaryType="nt:unstructured" text="Start" value="flex-start"/>
-															<center jcr:primaryType="nt:unstructured" text="Center" value="center"/>
-															<end jcr:primaryType="nt:unstructured" text="End" value="flex-end"/>
-															<space-around jcr:primaryType="nt:unstructured" text="Space around" value="space-around"/>
-															<space-between jcr:primaryType="nt:unstructured" text="Space between" value="space-between"/>
-															<space-evenly jcr:primaryType="nt:unstructured" text="Space evenly" value="space-evenly"/>
+															<start jcr:primaryType="nt:unstructured" text="Start"
+															       value="flex-start"/>
+															<center jcr:primaryType="nt:unstructured" text="Center"
+															        value="center"/>
+															<end jcr:primaryType="nt:unstructured" text="End"
+															     value="flex-end"/>
+															<space-around jcr:primaryType="nt:unstructured"
+															              text="Space around" value="space-around"/>
+															<space-between jcr:primaryType="nt:unstructured"
+															               text="Space between" value="space-between"/>
+															<space-evenly jcr:primaryType="nt:unstructured"
+															              text="Space evenly" value="space-evenly"/>
 														</items>
 													</justify-content>
 												</items>
@@ -450,7 +574,7 @@
 													<heading jcr:primaryType="nt:unstructured"
 													         sling:resourceType="granite/ui/components/foundation/heading"
 													         class="coral-Heading coral-Heading--4" level="{Long}4"
-													         text="Card panel" />
+													         text="Card panel"/>
 													<well
 															jcr:primaryType="nt:unstructured"
 															sling:resourceType="granite/ui/components/foundation/container">
@@ -476,7 +600,7 @@
 													<heading jcr:primaryType="nt:unstructured"
 													         sling:resourceType="granite/ui/components/foundation/heading"
 													         class="coral-Heading coral-Heading--4" level="{Long}4"
-													         text="Card hover layout" />
+													         text="Card hover layout"/>
 													<well
 															jcr:primaryType="nt:unstructured"
 															sling:resourceType="granite/ui/components/foundation/container">
@@ -514,7 +638,6 @@
 													</well>
 												</items>
 											</setCardHover>
-
 										</items>
 									</column>
 								</items>
