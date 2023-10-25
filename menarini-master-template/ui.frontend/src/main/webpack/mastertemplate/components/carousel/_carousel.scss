@@ -1,300 +1,172 @@
-.slideshow:not(.cq-Editable-dom) {
-	&:after {
-		content: "";
-		position: absolute;
-		top: 40px;
-		height: calc(100% - 40px);
-		width: 100%;
-		z-index: 3;
-		background-image: -moz-linear-gradient(top,
-				rgba(20, 63, 89, 1) 0%,
-				rgba(20, 63, 89, 0.5) 50%,
-				rgba(255, 255, 255, 0) 100%);
-		background-image: -webkit-linear-gradient(top,
-				rgba(20, 63, 89, 1) 0%,
-				rgba(20, 63, 89, 0.5) 50%,
-				rgba(255, 255, 255, 0) 100%);
-		background-image: linear-gradient(to bottom,
-				rgba(20, 63, 89, 1) 0%,
-				rgba(20, 63, 89, 0.5) 50%,
-				rgba(255, 255, 255, 0) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$color-corporate', endColorstr='#0000fff5', GradientType=0);
-	}
-}
-
-
-.cmp-slideshow-primary-button .cmp-teaser__content {
-	.cmp-teaser__action-container {
-		background-color: $color-primary;
-
-		&:hover {
-			background-color: $color-primary-hover;
-		}
-	}
-}
-
-.cmp-slideshow-secondary-button .cmp-teaser__content {
-	.cmp-teaser__action-container {
-		background-color: $color-secondary;
-
-		&:hover {
-			background-color: $color-secondary-hover;
-		}
-	}
-}
-
-.cmp-slideshow-primary-button,
-.cmp-slideshow-secondary-button {
-	.cmp-teaser .cmp-teaser__content .cmp-teaser__action-container {
-		transition: 0.5s;
-		margin-top: 5%;
-		padding: 18px 35px;
-		text-transform: uppercase;
-		font-family: $font-family-oswald;
-		font-weight: $font-semi-bold;
-		font-style: normal;
-		font-size: 16px;
-
-		a {
-			color: $white;
-			// padding: 18px 35px;
-			color: $white;
-			text-decoration: none;
-			-webkit-transition: 0.5s;
-			transition: 0.5s;
-			text-transform: uppercase;
-			font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-			font-weight: $font-medium;
-
-			@media (max-width: 480px) {
-				display: contents;
-			}
-		}
-	}
-}
-
-.cmp-carousel {
-	width: 100%;
-	height: 100vh;
-	margin-bottom: 30px;
-	.cmp-carousel__content{
-		background-color: $color-corporate;
-	}
-
-	//transition on slideshow
-	.cmp-carousel__item {
-		display: block;
-		visibility: hidden;
-		height: 0px;
-		opacity: 0;
-		transition: visibility 0s, opacity 0.5s ease-in-out;
-		.cmp-teaser .cmp-teaser__content {
-			display: flex;
-			visibility: hidden;
-			height: 0px;
-			opacity: 0;
-			transition: visibility 0s, opacity 1s ease-in-out;
-			transition-delay: .5s;
-		}
-		&--active {
-			display: block;
-			visibility: visible;
-			height: auto;
-    		opacity: 1;
-			.cmp-teaser .cmp-teaser__content {
-				display: flex;
-				visibility: visible;
-				height: auto;
-				opacity: 1;
-			}
-		}
-
-	}
-	//end transition
-
-	.cmp-carousel__item {
-		.cmp-teaser {
-			position: relative;
-			height: 100vh;
-
-			.cmp-teaser__content {
-				position: absolute;
-				width: 70%;
-				left: 50%;
-				top: 50%;
-				-webkit-transform: translate(-50%, -50%);
-				transform: translate(-50%, -50%);
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				text-align: center;
-				z-index: 8;
-
-				.cmp-teaser__pretitle {
-					color: $white;
-					font-size: $font-size;
-					-webkit-line-clamp: 1; 
-				}
-
-				.cmp-teaser__title {
-					color: $white;
-					font-size: $title-small-font-size;
-					line-height: 35px;
-					font-family: $font-family-oswald;
-					font-weight: $font-regular;
-					text-transform: none;
-					margin-top: 0px;
-					margin-bottom: 8px;
-					display: -webkit-box;
-					-webkit-line-clamp: 2;
-					-webkit-box-orient: vertical;
-					overflow: hidden;
-					width: 100%;
-					min-height: auto;
-
-					.cmp-teaser__title-link {
-						text-decoration: none;
-						color: $white;
-					}
-				}
-
-				.cmp-teaser__description {
-					color: $white;
-					font-size: 50px;
-					line-height: 55px;
-					font-family: $font-family-oswald;
-					font-weight: $font-regular;
-					font-style: normal;
-					text-align: center;
-					display: -webkit-box;
-					-webkit-line-clamp: 3;
-					-webkit-box-orient: vertical;
-					overflow: hidden;
-					width: 100%;
-					min-height: auto;
-
-					p {
-						margin-top: 0px;
-						margin-bottom: 8px;
-					}
-				}
-			}
-
-			.cmp-teaser__image {
-				position: absolute;
-				overflow: hidden;
-				width: 100%;
-				height: 100vh;
-
-				.cmp-image__image {
-					width: 100% !important;
-					height: 100vh !important;
-					margin-top: 7px !important;
-					margin-bottom: 7px !important;
-					object-fit: cover;
-				}
-			}
-
-			.cmp-slide_video--item {
-				height: 100vh;
-				width: 100vw;
-				object-fit: cover;
-			}
-
-			.cmp-teaser-video__image {
-				display: none;
-			}
-		}
-
-	}
-
-	.cmp-carousel__actions {
+.cmp-men-carousel {
+  min-width: 0;
+  display: grid;
+  justify-content: center;
+  margin: 90px 0;
+  &.cmp-men-carousel-gallery {
+    padding: 90px 0 40px 0;
+    @media (min-width: 1200px) {
+      margin: 90px 0;
+    }
+	.swiper-button-next,
+	.swiper-button-prev{
 		display: none;
 	}
+  }
+  &.cmp-men-carousel-gallery-preview {
+    padding: 0px 0 80px 0;
+    .swiper-container {
+      .swiper-thumbs-slider {
+        .swiper-wrapper {
+          .swiper-slide {
+            img {
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
 
-	.cmp-carousel__action {}
+  .swiper-container {
+    height: 100%;
+    max-height: 100vw;
+    position: relative;
+    min-height: 0;
+    min-width: 0;
+    max-width: 100vw;
+    width: 100%;
+    overflow: visible !important;
+    display: flex !important;
 
-	.cmp-carousel__action--disabled {}
+    .swiper {
+      max-width: 100%;
+      @media (min-width: 1600px) {
+        max-width: 1550px;
+      }
+      padding: 0;
+      margin: 0 auto;
 
-	.cmp-carousel__action--previous {}
+      .swiper-wrapper {
+        max-height: 100%;
+        height: 100%;
+        display: flex;
 
-	.cmp-carousel__action--next {}
+        .swiper-slide {
+          width: 100%;
+          min-width: 350px;
+          flex-shrink: 0;
+          display: block;
+          //height: 100%;
+          //max-height: 100%;
+        }
+      }
+    }
 
-	.cmp-carousel__action--pause {}
+    .swiper-thumbs-slider {
+      max-width: 100%;
+      @media (min-width: 1600px) {
+        max-width: 1000px;
+      }
+      padding: 0;
+      height: 40px;
+      margin: 0 auto;
 
-	.cmp-carousel__action--play {}
+      .swiper-wrapper {
+        max-height: 100%;
+        height: 100%;
+        display: flex;
 
-	.cmp-carousel__action-icon {}
+        .swiper-slide {
+          display: block;
+          width: 70px;
+          min-width: 70px;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.4;
+        }
 
-	.cmp-carousel__action-text {}
+        .swiper-slide-thumb-active {
+          opacity: 1;
+        }
+      }
+    }
 
-	.cmp-carousel__indicators {
-		position: absolute;
-		left: 50%;
-		bottom: 20px;
-		-webkit-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		cursor: pointer;
-		z-index: 9;
-	}
+    .swiper-pagination {
+      bottom: -45px !important;
+    }
 
-	.cmp-carousel__indicator {
-		background-color: unset;
-		border: 2px solid $white;
-	}
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none !important;
+      @media (min-width: 1700px) {
+        display: block !important;
+      }
+      width: 42px !important;
+      height: 15px !important;
+      &::after {
+        content: "" !important;
+        width: 42px !important;
+        height: 15px !important;
+        display: block;
+      }
+    }
 
-	.cmp-carousel__indicator.cmp-carousel__indicator--active {
-		background-color: $white;
-	}
+    .swiper-button-next {
+      right: -60px !important;
+      background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_right_big_B.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    .swiper-button-prev {
+      left: -60px !important;
+      background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/freccia_left_big_B.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &.swiper-preview {
+      max-width: 95vw;
+      width: 95%;
+      overflow: hidden !important;
+      @media (min-width: 1200px) {
+        overflow: visible !important;
+      }
+      margin: 0 auto;
+    }
+  }
 }
 
-@media (max-width: 768px) {
-	.cmp-carousel {
-		.cmp-carousel__item {
-			.cmp-teaser {
-				.cmp-slide_video--item--desktop {
-					display: none;
-				}
-
-				.cmp-teaser-video__image {
-					display: block;
-					height: 100%;
-					position: absolute;
-					overflow: hidden;
-					width: 100%;
-					height: 100vh;
-
-					.cmp-image {
-						height: 100%;
-
-						.cmp-image__image {
-							width: 100% !important;
-							height: 100vh !important;
-							margin-top: 7px !important;
-							margin-bottom: 7px !important;
-							object-fit: cover;
-						}
-					}
-				}
-
-				.cmp-teaser__content {
-					width: 90%;
-
-					.cmp-teaser__title,
-					.cmp-teaser__pretitle {
-						font-size: $title-small-font-size !important;
-					}
-
-					.cmp-teaser__description {
-						font-size: $title-font-size !important;
-					}
-
-					.cmp-teaser__action-container {
-						margin-top: 8% !important;
-						padding: 7px 25px !important;
-					}
-				}
-			}
-		}
-	}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px) !important;
 }
+
+.swiper-pagination-bullet-active {
+  background: $color-primary !important;
+}
+
+.swiper-pagination-bullet {
+  width: var(
+    --swiper-pagination-bullet-width,
+    var(--swiper-pagination-bullet-size, 10px)
+  ) !important;
+  height: var(
+    --swiper-pagination-bullet-height,
+    var(--swiper-pagination-bullet-size, 10px)
+  ) !important;
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next,
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next,
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev,
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+  transform: scale(1) !important;
+  background: none !important;
+  opacity: 1 !important;
+  border: solid 2px #d0cfb6 !important;
+}
+
