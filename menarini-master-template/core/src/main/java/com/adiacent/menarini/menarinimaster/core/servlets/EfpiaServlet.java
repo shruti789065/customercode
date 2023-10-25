@@ -52,7 +52,7 @@ public class EfpiaServlet extends SlingAllMethodsServlet {
                 String damFolderPath = currentResource.getValueMap().get("folderPath").toString();
                 Resource damFolder = resourceResolver.getResource(damFolderPath);
 
-                if(damFolder.getResourceType().equals("sling:Folder")){
+                if(damFolder.getResourceType().equals("sling:Folder") || damFolder.getResourceType().equals("nt:folder")){
 
                     JsonObject finalResult = new JsonObject();
 
