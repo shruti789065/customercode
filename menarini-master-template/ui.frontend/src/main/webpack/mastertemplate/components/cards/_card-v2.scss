@@ -299,6 +299,59 @@
       }
     }
   }
+  .cmp-card--avatar {
+    display: flex;
+    align-items: center;
+	flex-direction: column;
+    justify-content: flex-start;
+    margin: 30px 0;
+    align-items: flex-start;
+    .cmp-teaser__content {
+      padding: 10px 40px;
+      font-family: $font-family-oswald;
+      .cmp-teaser__pretitle {
+        margin: auto;
+        padding-bottom: 10px;
+        font-weight: $font-extra-light;
+        font-size: 30px;
+        color: $color-primary-hover;
+      }
+      .cmp-teaser__title {
+		font-size: 20px;
+        text-transform: uppercase;
+        color: $color-corporate;
+        font-weight: $font-regular;
+      }
+      .cmp-teaser__action-link {
+        text-transform: uppercase;
+        padding: 0;
+        background-color: unset;
+        color: $color-text;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 14px;
+        transition: 0.4s;
+        text-decoration: underline;
+      }
+      .cmp-teaser__description {
+        display: none;
+        font-family: $font-family-arimo;
+        font-weight: $font-regular;
+        font-size: 14px;
+        padding-top: 15px;
+      }
+    }
+    .cmp-teaser__image {
+		.cmp-image__image{
+			height: 200px;
+			border-radius: 50%;
+			width: 200px;
+		}
+    }
+  }
 }
 
 .card_v2 .cmp-banner--secondary .cmp-teaser__action-container,
@@ -400,6 +453,9 @@
         padding: 30px;
       }
     }
+	.cmp-card--avatar {
+		flex-direction: row;
+	}
   }
 }
 
