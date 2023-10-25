@@ -3,20 +3,25 @@
 
 // Function to execute when the button is clicked
 function onSubmitEfpia() {
-    // Check if reCAPTCHA is checked
-    if (grecaptcha.getResponse() !== "") {
-        // Show the success message
-        document.getElementById("successMessage").style.display = "block";
-        document.getElementById("efpia-button-report").style.display = "block";
-        // Hide the reCAPTCHA and button
-        document.getElementById("recaptcha").style.display = "none";
-        document.getElementById("efpia-button").style.display = "none";
-    } else {
-        // reCAPTCHA is not checked, display an error or take other actions
-        //alert("Please complete the reCAPTCHA.");
-        console.log('Please complete the reCAPTCHA');
-    }
+  // Check if reCAPTCHA is checked
+  if (grecaptcha.getResponse() !== "") {
+      // Show the success message
+      document.getElementById("successMessage").style.display = "block";
+      document.getElementById("efpia-button-report").style.display = "block";
+      // Hide the reCAPTCHA and button by class name
+      var recaptchaElements = document.getElementsByClassName("recaptcha");
+      for (var i = 0; i < recaptchaElements.length; i++) {
+          recaptchaElements[i].style.display = "none";
+      }
+
+      document.getElementById("efpia-button").style.display = "none";
+  } else {
+      // reCAPTCHA is not checked, display an error or take other actions
+      //alert("Please complete the reCAPTCHA.");
+      console.log('Please complete the reCAPTCHA');
+  }
 }
+
 
 var efpiaButton = document.getElementById("efpia-button");
 if (efpiaButton) {
@@ -27,23 +32,22 @@ if (efpiaButton) {
 }
 
 function openPopup() {
-    var modalEfpia = document.getElementById("modalEfpia");
+  var modalEfpia = document.getElementById("modalEfpia");
+  var closeBtn = document.getElementById("modalEfpiaClose");
 
-    var closeBtn = document.getElementById("modalEfpiaClose");
-    
-    closeBtn.addEventListener("click", function() {
-        modalEfpia.style.display = "none";
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      modalEfpia.style.display = "none";
     });
+  }
 
-    modalEfpia.style.display = "flex";
+  modalEfpia.style.display = "flex";
 }
 
 var efpiaButtonReport = document.getElementById("efpia-button-report");
 if (efpiaButtonReport) {
     efpiaButtonReport.addEventListener("click", openPopup);
 }
-
-
 
 const copyDataFromJsonEfpia = () => {
     const domainName = window.location.hostname;

@@ -780,24 +780,10 @@
 
                                             <!--start real recaptcha
 
-                                            <div class="recaptcha aem-GridColumn aem-GridColumn--default--12">
-                                                <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-                                                <script type="text/javascript">
-                                                var onloadCallback = function () {
-                                                    //alert("grecaptcha is ready!");
-                                                    var publicKey = '${properties.publicKey @ context='scriptString'}'
-                                                    grecaptcha.render("g-recaptcha", { sitekey: publicKey });
-                                                };
-                                                var onSuccess = function (response) {
-                                                    //alert("grecaptcha is verified !" + response);
-                                                    $('#g-recaptcha-response').val(response);
-                                                };
-                                                </script>
-                                            
-                                                <div id="g-recaptcha" data-callback="onSuccess"></div>
-                                                <input type="hidden" id="g-recaptcha-response" value=""/>
-                                                <div id="recaptcha-error-message" class="error-captcha"></div>
-                                              </div>
+                                           
+
+                                              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                                <div class="g-recaptcha" data-sitekey="6LdAvLYoAAAAAJP8cOuLxCMgW-kj3vtuc-GBNYcz" id="recaptcha"></div>   
                                             
                                             end real recaptcha-->
 
@@ -816,8 +802,24 @@
                                                 <input type="hidden" name="_charset_" value="utf-8">
                                                 <input type="hidden" name="resourcePath" value="">
                                               
-                                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                                                <div class="g-recaptcha" data-sitekey="6LdAvLYoAAAAAJP8cOuLxCMgW-kj3vtuc-GBNYcz" id="recaptcha"></div>                                              
+                                                <div class="recaptcha aem-GridColumn aem-GridColumn--default--12">
+                                                    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+                                                    <script type="text/javascript">
+                                                    var onloadCallback = function () {
+                                                        //alert("grecaptcha is ready!");
+                                                        var publicKey = '6LdAvLYoAAAAAJP8cOuLxCMgW-kj3vtuc-GBNYcz'
+                                                        grecaptcha.render("g-recaptcha", { sitekey: publicKey });
+                                                    };
+                                                    var onSuccess = function (response) {
+                                                        //alert("grecaptcha is verified !" + response);
+                                                        $('#g-recaptcha-response').val(response);
+                                                    };
+                                                    </script>
+                                                
+                                                    <div id="g-recaptcha" data-callback="onSuccess"></div>
+                                                    <input type="hidden" id="g-recaptcha-response" value=""/>
+                                                    <div id="recaptcha-error-message" class="error-captcha"></div>
+                                                  </div>                                               
                                               
                                                 <div class="button aem-GridColumn aem-GridColumn--default--12">
                                                   <button type="SUBMIT" id="efpia-button" class="cmp-form-button">Submit</button>
