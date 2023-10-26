@@ -5,14 +5,14 @@
     .cmp-form-options__label{
         color: $color-corporate;
     }
-    #dropdownCountries{
-        text-transform: uppercase;
-        color: $color-corporate;
-        background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-down.svg");
-        background-size: 20px 20px;
-        font-weight:$font-regular;
-        height: 60px;
-        font-size: 16px;
+    .cmp-form-options__field.cmp-form-options__field--drop-down{
+        text-transform: uppercase !important;
+        color: $color-corporate !important;
+        background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-down.svg") !important;
+        background-size: 20px 20px !important;
+        font-weight:$font-regular !important;
+        height: 60px !important;
+        font-size: 16px !important;
     }
     .cmp-form-options__field.cmp-form-options__field--drop-down.active{
         background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow-up.svg") !important;
