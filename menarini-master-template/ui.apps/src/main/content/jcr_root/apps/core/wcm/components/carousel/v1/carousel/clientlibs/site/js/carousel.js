@@ -549,15 +549,19 @@
               items[i].classList.add("cmp-carousel__item--active");
               items[i].removeAttribute("aria-hidden");
               setCustomDelay(items[i]);
-              indicators[i].classList.add("cmp-carousel__indicator--active");
-              indicators[i].setAttribute("aria-selected", true);
-              indicators[i].setAttribute("tabindex", "0");
+              if (indicators){
+	              indicators[i].classList.add("cmp-carousel__indicator--active");
+	              indicators[i].setAttribute("aria-selected", true);
+	              indicators[i].setAttribute("tabindex", "0");
+              }
             } else {
               items[i].classList.remove("cmp-carousel__item--active");
               items[i].setAttribute("aria-hidden", true);
-              indicators[i].classList.remove("cmp-carousel__indicator--active");
-              indicators[i].setAttribute("aria-selected", false);
-              indicators[i].setAttribute("tabindex", "-1");
+              if (indicators){
+	              indicators[i].classList.remove("cmp-carousel__indicator--active");
+	              indicators[i].setAttribute("aria-selected", false);
+	              indicators[i].setAttribute("tabindex", "-1");
+              }
             }
           }
         } else {
@@ -657,7 +661,9 @@
      */
     function navigateAndFocusIndicator(index, keepHash) {
       navigate(index, keepHash);
-      focusWithoutScroll(that._elements["indicator"][index]);
+      if(that._elements["indicator"] != null){
+        focusWithoutScroll(that._elements["indicator"][index]);
+      }
 
       if (dataLayerEnabled) {
         dataLayer.push({
