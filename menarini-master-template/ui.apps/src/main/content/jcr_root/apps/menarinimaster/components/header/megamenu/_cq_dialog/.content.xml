@@ -111,6 +111,50 @@
                             </columns>
                         </items>
                     </accessibility>
+                    <share
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Share"
+                            sling:orderBefore="cq:styles"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <facebook
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription=""
+                                                    fieldLabel="Facebook Link"
+                                                    name="./facebookLink"
+                                                    rootPath="/content"/>
+
+                                            <linkedin
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription=""
+                                                    fieldLabel="Linkedin Link"
+                                                    name="./linkedinLink"
+                                                    rootPath="/content"/>
+                                            <x
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription=""
+                                                    fieldLabel="X Link"
+                                                    name="./xLink"
+                                                    rootPath="/content"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </share>
                 </items>
             </tabs>
         </items>

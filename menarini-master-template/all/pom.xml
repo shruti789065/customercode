@@ -79,6 +79,7 @@
                            <target>/apps/menarinimaster-packages/content/install</target>
                        </embedded>-->
                         <!--<embedded>
+<<<<<<< HEAD
                            <groupId>com.adiacent.menarini.menarinimaster</groupId>
                            <artifactId>menarinimaster.ch.ui.content</artifactId>
                            <type>zip</type>
@@ -90,6 +91,17 @@
                            <type>zip</type>
                            <target>/apps/menarinimaster-packages/content/install</target>
                        </embedded>-->
+                          <!--  <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                            <artifactId>menarinimaster.ch.ui.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/menarinimaster-packages/content/install</target>
+                        </embedded>-->
+                        <!--<embedded>
+                            <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                            <artifactId>menarinimaster.minisite.ui.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/menarinimaster-packages/content/install</target>
+                        </embedded>-->
                         <!--<embedded>
                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
                             <artifactId>menarinimaster.stemline.ui.content</artifactId>
@@ -108,6 +120,30 @@
                             <type>zip</type>
                             <target>/apps/menarinimaster-packages/content/install</target>
                         </embedded>-->
+                        <!--<embedded>
+                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                             <artifactId>menarinimaster.apac.ui.content</artifactId>
+                             <type>zip</type>
+                             <target>/apps/menarinimaster-packages/content/install</target>
+                         </embedded>-->
+                        <!--<embedded>
+                            <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                            <artifactId>menarinimaster.fr.ui.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/menarinimaster-packages/content/install</target>
+                        </embedded>-->
+                        <!-- <embedded>
+                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                             <artifactId>menarinimaster.be.ui.content</artifactId>
+                             <type>zip</type>
+                             <target>/apps/menarinimaster-packages/content/install</target>
+                         </embedded>
+                         <embedded>
+                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                             <artifactId>menarinimaster.berlinchemie.ui.content</artifactId>
+                             <type>zip</type>
+                             <target>/apps/menarinimaster-packages/content/install</target>
+                         </embedded>-->
                         <embedded>
                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
                             <artifactId>menarinimaster.ui.config</artifactId>
@@ -227,12 +263,12 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.adiacent.menarini.menarinimaster</groupId>
             <artifactId>menarinimaster.ch.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
-        </dependency>
+        </dependency>-->
         <!-- <dependency>
             <groupId>com.adiacent.menarini.menarinimaster</groupId>
             <artifactId>menarinimaster.demo.ui.content</artifactId>
@@ -269,11 +305,35 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>-->
-        <dependency>
+        <!-- <dependency>
+             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+             <artifactId>menarinimaster.apac.ui.content</artifactId>
+             <version>${project.version}</version>
+             <type>zip</type>
+         </dependency>-->
+        <!--<dependency>
             <groupId>com.adiacent.menarini.menarinimaster</groupId>
-            <artifactId>menarinimaster.ui.config</artifactId>
+            <artifactId>menarinimaster.fr.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
-        </dependency>
-    </dependencies>
-</project>
+        </dependency>-->
+        <!-- <dependency>
+             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+             <artifactId>menarinimaster.be.ui.content</artifactId>
+             <version>${project.version}</version>
+             <type>zip</type>
+         </dependency>
+          <dependency>
+              <groupId>com.adiacent.menarini.menarinimaster</groupId>
+              <artifactId>menarinimaster.berlinchemie.ui.content</artifactId>
+              <version>${project.version}</version>
+              <type>zip</type>
+          </dependency>
+          <dependency>
+              <groupId>com.adiacent.menarini.menarinimaster</groupId>
+              <artifactId>menarinimaster.ui.config</artifactId>
+              <version>${project.version}</version>
+              <type>zip</type>
+          </dependency>-->
+      </dependencies>
+  </project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:templateType="/conf/menarini-apac/settings/wcm/template-types/page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Menarini Apac - Content News List"
+        allowedChildren="[/conf/menarini-apac/settings/wcm/templates/menarini---news-year]"
+        allowedParents="[/conf/menarini-apac/settings/wcm/templates/menarini---homepage]"
+        status="enabled"/>
+</jcr:root>
