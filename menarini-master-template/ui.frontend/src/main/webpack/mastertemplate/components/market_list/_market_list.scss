@@ -1,0 +1,20 @@
+#marketListResultContainer{
+    .marketlistcontainer{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
+        .iconUrl{
+            margin: 20px 20px 0px 0px;
+        }
+        .marketlisticon{
+            img{
+                width: 80px;
+                height: 80px;
+                border-radius: 15px;
+            }
+        }
+    }
+
+}
