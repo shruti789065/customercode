@@ -5,10 +5,15 @@ import com.adobe.granite.workflow.WorkflowSession;
 import com.adobe.granite.workflow.exec.HistoryItem;
 import com.adobe.granite.workflow.exec.WorkItem;
 import com.day.cq.commons.jcr.JcrUtil;
+import com.day.cq.dam.api.Asset;
+import com.day.cq.dam.api.AssetManager;
 import com.day.cq.wcm.foundation.TextFormat;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventAdmin;
 import org.slf4j.Logger;
 
 import javax.jcr.*;
@@ -20,8 +25,10 @@ import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 public class EFPIALogger {
+
 
     private final String siteName;
     private final Level level;
@@ -48,11 +55,14 @@ public class EFPIALogger {
         }
     }
 
-    public static EFPIALogger getLogger(String siteName, Level level, WorkItem workItem, WorkflowSession workflowSession) throws RepositoryException, WorkflowException {
+    public static EFPIALogger getLogger(String siteName, Level level, WorkItem workItem, WorkflowSession workflowSession) throws RepositoryException, WorkflowException, PersistenceException {
         EFPIALogger logger = new EFPIALogger(siteName, level);
         logger.jcrSession =  workflowSession.adaptTo(Session.class);
         List<HistoryItem> history = workflowSession.getHistory(workItem.getWorkflow());
-        logger.userId = workItem.getWorkflowData().getMetaDataMap().get("userId").toString();
+        logger.userId = "nobody";
+        if (workItem.getWorkflowData().getMetaDataMap() != null)
+            if (workItem.getWorkflowData().getMetaDataMap().get("userId") != null)
+                logger.userId = workItem.getWorkflowData().getMetaDataMap().get("userId").toString();
         if (history != null && !history.isEmpty()) {
             for (int i = history.size()-1; i >= 0; i--) {
                 HistoryItem hi = history.get(i);
@@ -74,15 +84,28 @@ public class EFPIALogger {
             }
         }
         path += "/" + logFileName;
+
+        ResourceResolver resourceResolver = workflowSession.adaptTo(ResourceResolver.class);
+        AssetManager assetManager = resourceResolver.adaptTo(AssetManager.class);
         if (!logger.jcrSession.nodeExists(path)) {
-            Node fileNode = JcrUtil.createPath(path, "nt:file", logger.jcrSession);
+            byte[] data = new byte[0];
+            InputStream is = new ByteArrayInputStream(data);
+
+            final ValueFactory valueFactory = logger.jcrSession.getValueFactory();
+            final Binary binary = valueFactory.createBinary(is);
+
+            Asset fileAsset = assetManager.createOrReplaceAsset(path, binary, "text/plain", true);
+
+            //Node fileNode = fileAsset.adaptTo(Node.class);
+
+                    /*JcrUtil.createPath(path, "nt:file", logger.jcrSession);
             logger.jcrNode = fileNode.addNode("jcr:content", "nt:resource");
             logger.jcrNode.setProperty("jcr:mimeType", "text/plain");
-            logger.jcrNode.setProperty("jcr:encoding", "utf-8");
-        } else {
-            ResourceResolver resourceResolver = workflowSession.adaptTo(ResourceResolver.class);
-            logger.jcrNode = resourceResolver.getResource(path + "/jcr:content").adaptTo(Node.class);
-        }
+            logger.jcrNode.setProperty("jcr:encoding", "utf-8");*/
+            resourceResolver.commit();
+        } //else {
+        logger.jcrNode = resourceResolver.getResource(path + "/jcr:content/renditions/original/jcr:content").adaptTo(Node.class);
+        //}
         return logger;
     }
 
@@ -121,7 +144,6 @@ public class EFPIALogger {
                         s = StringUtils.replaceOnce(s, "{}", a.toString());
                     }
                 }
-
                 Value value = null;
                 byte[] fileContent = new byte[0];
                 try {
