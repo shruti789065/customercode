@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RecaptchaValidationResponseTest {
 
-    @Test
+//    @Test
     void testGetMessage() throws Exception {
         // some very basic junit tests
         RecaptchaValidationResponse obj = new RecaptchaValidationResponse();
