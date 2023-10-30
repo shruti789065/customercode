@@ -46,7 +46,7 @@ public class EFPIAValidationStep implements WorkflowProcess {
             Resource resource = resourceResolver.getResource(path);
             //workItem.getMetaDataMap().put("comment", "<h4>Workflow comment</h4>");
             int assetsToApprove = 0;
-            if (resource.hasChildren()) {
+            if (resource != null && resource.hasChildren()) {
                 for (Resource asset : resource.getChildren()) {
                     logger.debug("Type: {} - Name: {} - Path: {}", asset.getResourceType(), asset.getName(), asset.getPath());
                     try {

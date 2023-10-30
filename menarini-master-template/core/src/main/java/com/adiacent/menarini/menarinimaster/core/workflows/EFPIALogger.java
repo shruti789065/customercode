@@ -104,7 +104,9 @@ public class EFPIALogger {
             logger.jcrNode.setProperty("jcr:encoding", "utf-8");*/
             resourceResolver.commit();
         } //else {
-        logger.jcrNode = resourceResolver.getResource(path + "/jcr:content/renditions/original/jcr:content").adaptTo(Node.class);
+        Resource r = resourceResolver.getResource(path + "/jcr:content/renditions/original/jcr:content");
+        if (r != null)
+            logger.jcrNode = r.adaptTo(Node.class);
         //}
         return logger;
     }
@@ -137,7 +139,7 @@ public class EFPIALogger {
     }
 
     private void write(Level level, String s, Object... args) {
-        if ((level.value & this.levelMask) != 0) {
+        if (((level.value & this.levelMask) != 0) && (jcrNode != null)) {
             try {
                 if (args != null) {
                     for (Object a : args) {
