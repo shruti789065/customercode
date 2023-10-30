@@ -1,5 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.workflow;
 
+import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAAssetsMoveStep;
 import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAValidationStep;
 import com.adobe.granite.workflow.WorkflowSession;
 import com.adobe.granite.workflow.exec.WorkItem;
@@ -19,7 +20,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
@@ -31,9 +34,10 @@ import static junitx.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.spy;
 
 @ExtendWith({AemContextExtension.class, MockitoExtension.class})
-public class EFPIAValidationStepTest {
+public class EFPIAWorkflowTest {
     private final AemContext context = new AemContext(ResourceResolverType.JCR_MOCK);
 
     private final Session session = context.resourceResolver().adaptTo(Session.class);
@@ -53,7 +57,9 @@ public class EFPIAValidationStepTest {
     @Mock
     private WorkItem workItem;
 
-    private final EFPIAValidationStep myWorkflow = new EFPIAValidationStep();
+    private final EFPIAValidationStep efpiaValidationStep = new EFPIAValidationStep();
+
+    private final EFPIAAssetsMoveStep efpiaAssetsMoveStep = new EFPIAAssetsMoveStep();
 
     private final MetaDataMap metaData = new SimpleMetaDataMap();
 
@@ -65,20 +71,29 @@ public class EFPIAValidationStepTest {
 
     private final String NOARG="no arguments";
 
+
     @BeforeEach
     void setup() {
-        lenient().when(workflowSession.adaptTo(ResourceResolver.class)).thenReturn(context.resourceResolver());
-        lenient().when(workflowSession.adaptTo(Session.class)).thenReturn(session);
+        ResourceResolver rr = spy(context.resourceResolver());
+        lenient().doNothing().when(rr).close();
+
+        Session s = spy(rr.adaptTo(Session.class));
+
+        lenient().when(workflowSession.adaptTo(ResourceResolver.class)).thenReturn(rr);
+        lenient().when(workflowSession.adaptTo(Session.class)).thenReturn(s);
         lenient().when(workflow.getMetaDataMap()).thenReturn(metaData);
         lenient().when(workflowData.getMetaDataMap()).thenReturn(dataMetaData);
         lenient().when(workflowData.getPayloadType()).thenReturn("JCR_PATH");
         lenient().when(workflowData.getPayload()).thenReturn("/content/dam/menarini-ch/efpia/2022");
         lenient().when(workItem.getWorkflow()).thenReturn(workflow);
         lenient().when(workItem.getWorkflowData()).thenReturn(workflowData);
+        lenient().when(rr.adaptTo(AssetManager.class)).thenReturn(assetManager);
 
         assertNotNull(session);
-
+    /*
         context.registerAdapter(WorkflowSession.class, Session.class, session);
+*/
+        /*
         context.registerAdapter(ResourceResolver.class, AssetManager.class, new Function<ResourceResolver, AssetManager>() {
             @Nullable
             @Override
@@ -86,56 +101,15 @@ public class EFPIAValidationStepTest {
                 return assetManager;
             }
         });
-        //context.load().json(EFPIAValidationStepTest.class.getResourceAsStream("/com/adiacent/menarini/menarinimaster/core/models/EFPIATempFolder.json"), "/content/dam/menarini-ch/efpia");
+*/
+        context.create().resource("/content/dam/menarini-ch/efpia/2022", "jcr:primaryType", "nt:folder");
         context.create().asset("/content/dam/menarini-ch/efpia/2022/001.jpg", "/com/adiacent/menarini/menarinimaster/core/models/001.jpg", "image/jpg");
         context.create().asset("/content/dam/menarini-ch/efpia/2022/002.jpg", "/com/adiacent/menarini/menarinimaster/core/models/002.jpg", "image/jpg");
     }
 
-/*
     @Test
-    public void myWorkflowWithArgs() throws Exception {
-        metaData.put("PROCESS_ARGS", ARG);
-
-        myWorkflow.execute(workItem, workflowSession, metaData);
-
-        String arg = metaData.get("PROCESS_ARGS", String.class);
-        assertNotNull(arg);
-        assertEquals(ARG,arg);
-
-        assertNotNull(session);
-        Node node = session.getNode("/" + "content" + "/" + "page" + "/" + "jcr:content");
-        assertNotNull(node);
-
-        Property property = node.getProperty(PROPERTY);
-        assertNotNull(property);
-
-        String value = property.getValue().getString();
-        assertNotNull(value);
-        assertEquals(ARG,value);
-    }
-*/
-    //@Test
-    public void myWorkflowWithoutArgs() throws Exception {
-        myWorkflow.execute(workItem, workflowSession, metaData);
-
-        /*
-        assertNotNull(session);
-        Node node = session.getNode("/" + "content" + "/" + "page" + "/" + "jcr:content");
-        assertNotNull(node);
-
-        Property property = node.getProperty(PROPERTY);
-        assertNotNull(property);
-
-        String value = property.getValue().getString();
-        assertNotNull(value);
-        assertEquals(NOARG,value);
-
-         */
+    public void testEFPIAValidationStep() throws Exception {
+        efpiaValidationStep.execute(workItem, workflowSession, metaData);
         assertTrue((Boolean) workItem.getWorkflowData().getMetaDataMap().get("isValid"));
-    }
-
-    //@Test
-    public void wrongFileNamePattern() throws Exception {
-        context.create().asset("/content/dam/menarini-ch/efpia/2022/002.jpg", "/com/adiacent/menarini/menarinimaster/core/models/ERR002.jpg", "image/jpg");
     }
 }
