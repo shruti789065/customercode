@@ -7,6 +7,9 @@
 <sly data-sly-test="${properties.cardType == 'avatar'}"
      data-sly-use.cardAvatarTemplate="card-avatar.html"
      data-sly-call="${cardAvatarTemplate.cardAvatar}"></sly>
+<sly data-sly-test="${properties.cardType == 'round'}"
+     data-sly-use.cardRoundTemplate="card-round.html"
+     data-sly-call="${cardRoundTemplate.cardRound}"></sly>
 
 <div data-sly-test="${!properties.cardType}" data-emptytext="Card v2" class="cq-placeholder"></div>
 

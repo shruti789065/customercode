@@ -42,7 +42,7 @@
         font-weight: $font-regular;
         line-height: 22px;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
         margin-bottom: 20px;
@@ -259,7 +259,7 @@
       color: $color-corporate;
       margin: 0px 0px 20px 0px;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 1;
       width: 100%;
       //overflow: hidden;
       min-height: 60px;
@@ -271,7 +271,7 @@
       font-size: 18px;
       color: $color-text;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 4;
       width: 100%;
       //overflow: hidden;
       min-height: 75px;
@@ -351,6 +351,17 @@
 			width: 200px;
 		}
     }
+  }
+  .cmp-card--round{
+	position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    max-height: 300px;
+    max-width: 300px;
+    margin: 0 auto;
+	.cmp-teaser__content{
+		text-align: center;
+	}
   }
 }
 
