@@ -162,6 +162,22 @@
 											jcr:primaryType="nt:unstructured"
 											sling:resourceType="granite/ui/components/coral/foundation/container">
 										<items jcr:primaryType="nt:unstructured" sling:hideChildren="[pretitle]">
+											<setRoundTitle jcr:primaryType="nt:unstructured"
+											                sling:resourceType="granite/ui/components/coral/foundation/container"
+											                granite:class="hide card-options-showhide-target"
+											                sling:hideChildren="[pretitle,titleGroup]">
+												<granite:data jcr:primaryType="nt:unstructured"
+												              showhidetargetvalue="round"/>
+												<items jcr:primaryType="nt:unstructured" sling:hideChildren="">
+													<pretitle-round
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+															sling:orderBefore="titleGroup"
+															fieldDescription="A position that will be displayed above the Teaser's title."
+															fieldLabel="Pretitle"
+															name="./pretitleRound"/>
+												</items>
+											</setRoundTitle>
 											<setAvatarTitle jcr:primaryType="nt:unstructured"
 											                sling:resourceType="granite/ui/components/coral/foundation/container"
 											                granite:class="hide card-options-showhide-target"

@@ -45,7 +45,6 @@
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        margin-bottom: 20px;
         p {
           margin-top: 0px;
           margin-bottom: 0px;
@@ -302,7 +301,7 @@
   .cmp-card--avatar {
     display: flex;
     align-items: center;
-	flex-direction: column;
+    flex-direction: column;
     justify-content: flex-start;
     margin: 30px 0;
     align-items: flex-start;
@@ -317,7 +316,7 @@
         color: $color-primary-hover;
       }
       .cmp-teaser__title {
-		font-size: 20px;
+        font-size: 20px;
         text-transform: uppercase;
         color: $color-corporate;
         font-weight: $font-regular;
@@ -345,22 +344,73 @@
       }
     }
     .cmp-teaser__image {
-		.cmp-image__image{
-			height: 200px;
-			border-radius: 50%;
-			width: 200px;
-		}
+      .cmp-image__image {
+        height: 200px;
+        border-radius: 50%;
+        width: 200px;
+      }
     }
   }
-  .cmp-card--round{
-	position: relative;
+  .cmp-card--round {
+    position: relative;
     border-radius: 50%;
     overflow: hidden;
     max-height: 300px;
     max-width: 300px;
     margin: 0 auto;
-	.cmp-teaser__content{
-		text-align: center;
+    .cmp-teaser__content {
+      padding: 20px;
+      text-align: center;
+      .cmp-teaser__pretitle {
+        font-size: 18px;
+      }
+      .cmp-teaser__title {
+        font-size: 60px;
+      }
+      .cmp-teaser__description {
+        margin-bottom: 0;
+        font-size: 18px;
+      }
+    }
+  }
+  &.cmp-card--regular{
+	.cmp-card{
+		.cmp-teaser__content{
+			font-family: $font-family-oswald;
+			padding: 40px;
+			.cmp-teaser__pretitle{
+
+			}
+			.cmp-teaser__title{
+				font-size: 50px;
+				font-weight: 400;
+			}
+			.cmp-teaser__description{
+				font-weight: 300;
+				font-size: 30px;
+				-webkit-line-clamp: 2;
+				line-height: 40px;
+			}
+		}
+	}
+  }
+  &.cmp-card--extralight{
+	.cmp-card{
+		.cmp-teaser__content{
+			font-family: $font-family-oswald;
+			padding: 40px;
+			.cmp-teaser__pretitle{
+
+			}
+			.cmp-teaser__title{
+				font-size: 30px;
+				font-weight: 200;
+			}
+			.cmp-teaser__description{
+				font-weight: 300;
+				font-size: 14px;
+			}
+		}
 	}
   }
 }
@@ -464,9 +514,9 @@
         padding: 30px;
       }
     }
-	.cmp-card--avatar {
-		flex-direction: row;
-	}
+    .cmp-card--avatar {
+      flex-direction: row;
+    }
   }
 }
 
