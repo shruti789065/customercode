@@ -1,0 +1,12 @@
+<sly data-sly-test="${properties.bannerType == 'overlay'}"
+     data-sly-use.bannerOverlayTemplate="overlay-banner.html"
+     data-sly-call="${bannerOverlayTemplate.bannerOverlay}"></sly>
+<sly data-sly-test="${properties.bannerType == 'slim'}"
+     data-sly-use.bannerSlimTemplate="slim-banner.html"
+     data-sly-call="${bannerSlimTemplate.bannerSlim}"></sly>
+<sly data-sly-test="${properties.bannerType == 'row'}"
+     data-sly-use.bannerRowTemplate="row-banner.html"
+     data-sly-call="${bannerRowTemplate.bannerRow}"></sly>
+
+<div data-sly-test="${!properties.bannerType}" data-emptytext="Banner v2" class="cq-placeholder"></div>
+
