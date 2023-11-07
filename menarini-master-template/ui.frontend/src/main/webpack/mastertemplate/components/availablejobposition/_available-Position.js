@@ -1,51 +1,55 @@
+/* eslint-disable max-len */
 import $ from "jquery";
 
 (function () {
-    "use strict";
+  "use strict";
 
-    var Positions = (function () {
-        var dropdown, url, currentNodeCountry, resultsContainer ;
-        /**
-         * Initializes the job positions
-         *
-         * @public
-         */
-        function init() {
-            const domainName = window.location.hostname;
-            const port = window.location.port;
-            const protocol = window.location.protocol;
-            dropdown = document.querySelector("#dropdownCountries");
-            if (document.querySelector(".currentNodeCountry") !== null) {
-                currentNodeCountry = document.querySelector(".currentNodeCountry").value;
+  var Positions = (function () {
+    var dropdown, url, currentNodeCountry, resultsContainer;
+    /**
+     * Initializes the job positions
+     *
+     * @public
+     */
+    function init() {
+      const domainName = window.location.hostname;
+      const port = window.location.port;
+      const protocol = window.location.protocol;
+      dropdown = document.querySelector("#dropdownCountries");
+      if (document.querySelector(".currentNodeCountry") !== null) {
+        currentNodeCountry = document.querySelector(".currentNodeCountry")
+          .value;
+      }
+
+      if (document.querySelector("#availablePositionsResults") != null) {
+        resultsContainer = document.querySelector("#availablePositionsResults");
+        resultsContainer.style.display = "none";
+      }
+
+      function callServlet(selectedCountry) {
+        if (domainName === "localhost" && port === "4502") {
+          // eslint-disable-next-line max-len
+          url = `${protocol}//${domainName}:${port}${currentNodeCountry}.searchJobPosition.json?country=${selectedCountry}`;
+        } else {
+          url = `${protocol}//${domainName}${currentNodeCountry}.searchJobPosition.json?country=${selectedCountry}`;
+        }
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            //console.log("Data copied to local storage!", data);
+            resultsContainer.innerHTML = "";
+            if (data.results.length === 0) {
+              //console.log("No results found.");
+              resultsContainer.style.display = "grid";
+              resultsContainer.innerHTML = "No results found.";
+              return;
             }
-
-            if(document.querySelector("#availablePositionsResults") != null){
-                resultsContainer = document.querySelector("#availablePositionsResults");
-                resultsContainer.style.display = "none";
-            }
-
-            function callServlet(selectedCountry) {
-                if (domainName === "localhost" && port === "4502") {
-                    url = `${protocol}//${domainName}:${port}${currentNodeCountry}.searchJobPosition.json?country=${selectedCountry}`;
-                } else {
-                    url = `${protocol}//${domainName}${currentNodeCountry}.searchJobPosition.json?country=${selectedCountry}`;
-                } 
-
-                fetch(url)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        //console.log("Data copied to local storage!", data);
-                        resultsContainer.innerHTML = "";
-                        if (data.results.length === 0) {
-                            //console.log("No results found.");
-                            resultsContainer.style.display = "grid";
-                            resultsContainer.innerHTML = "No results found.";
-                            return;
-                        }
-                        let card = "";
-                        resultsContainer.style.display = "grid";
-                        card = data.results.map(
-                              (result) => `
+            let card = "";
+            resultsContainer.style.display = "grid";
+            card = data.results
+              .map(
+                (result) => `
                               <div class="container responsivegrid cmp-container--border availablePosition aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--tablet--8 aem-GridColumn--default--8">
                                 <div id="container-a5013d7404" class="cmp-container">
                                     <div class="aem-Grid aem-Grid--8 aem-Grid--default--8 aem-Grid--phone--12 ">
@@ -69,42 +73,40 @@ import $ from "jquery";
                                 </div>
                               </div>
                                 `
-                            ).join("");
+              )
+              .join("");
 
-                            resultsContainer.innerHTML = card;
-
-                    })
-                    .catch((error) => {
-                        console.error("Error copying data to local storage:", error);
-                    });
+            resultsContainer.innerHTML = card;
+          })
+          .catch((error) => {
+            console.error("Error copying data to local storage:", error);
+          });
+      }
+      if (dropdown != null) {
+        dropdown.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.target.classList.toggle("active");
+        });
+        dropdown.addEventListener("change", function () {
+          var selectedValue = dropdown.value;
+          if (resultsContainer != null) {
+            if (selectedValue == "-") {
+              resultsContainer.innerHTML = "";
+              resultsContainer.style.display = "none";
+            } else {
+              callServlet(selectedValue);
             }
-            if(dropdown != null){
-                dropdown.addEventListener('click', (e) => {
-					e.preventDefault();
-					e.target.classList.toggle("active");
-					
-				});
-                dropdown.addEventListener("change", function () {
-                    var selectedValue = dropdown.value;
-                    if(resultsContainer != null){
-                        if(selectedValue == "-"){
-                            resultsContainer.innerHTML = "";
-                            resultsContainer.style.display = "none";
-                        } else {
-                            callServlet(selectedValue);
-                        }
-                    }
-                    //console.log("selected value", selectedValue);
-                });
-            }
+          }
+          //console.log("selected value", selectedValue);
+        });
+      }
+    }
+    return {
+      init: init,
+    };
+  })();
 
-        }
-        return {
-            init: init,
-        };
-    })();
-
-    $(function () {
-        Positions.init();
-    });
+  $(function () {
+    Positions.init();
+  });
 })($);
