@@ -185,4 +185,25 @@ public class ModelUtils {
 		return resource;
 	}
 
+	public static int extractIntFromString(String input) {
+		int extractedInt = 0;
+		try {
+			extractedInt = Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			System.out.println("Impossibile estrarre un intero dalla stringa.");
+		}
+		return extractedInt;
+	}
+	public static String extractIntAsString(String input) {
+		StringBuilder result = new StringBuilder();
+
+		for (char c : input.toCharArray()) {
+			if (Character.isDigit(c)) {
+				result.append(c);
+			}
+		}
+
+		return result.toString();
+	}
+
 }
