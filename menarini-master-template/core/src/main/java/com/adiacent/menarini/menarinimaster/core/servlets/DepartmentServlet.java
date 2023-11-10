@@ -21,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
@@ -75,21 +76,24 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 					QueryManager queryManager = session.getWorkspace().getQueryManager();
 					Query query = queryManager.createQuery(myXpathQuery.toString(), Query.JCR_SQL2);
 					QueryResult queryResult = query.execute();
-
-					if (queryResult.getNodes().hasNext()) {
-						Node node = queryResult.getNodes().nextNode();
+					NodeIterator item = queryResult.getNodes();
+					while (item.hasNext()) {
+						Node node = item.nextNode();
 						Resource itemRes = resolver.getResource(node.getPath());
+						assert itemRes != null;
 						if (itemRes.getResourceType().equals("dam:Asset")) {
 							ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
 							assert cf != null;
 							JsonObject cfResultsPartial = new JsonObject();
 							cfResultsPartial.addProperty("title", cf.getTitle());
-
 							cfResultsPartial.addProperty("name", cf.getName());
+							JsonArray cfData = contentFragmentData(cf);
+							cfResultsPartial.add("department", cfData);
 
-							JsonObject cfData = contentFragmentData(cf);
-							results.add(cfResultsPartial);
-							//results.add(cfData);
+							JsonArray currentResults = new JsonArray();
+							currentResults.add(cfResultsPartial);
+							Resource currentResultResource = createResourceFromJsonObject(resolver, cfResultsPartial);
+							departmentsList.add(currentResultResource);
 						}
 					}
 
@@ -103,27 +107,40 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 		}
 	}
 
-	protected JsonObject contentFragmentData(ContentFragment cf) throws JsonException {
+	protected JsonArray contentFragmentData(ContentFragment cf) throws JsonException {
 		Iterator<ContentElement> elementIterator = cf.getElements();
 		JsonObject jsonObject = new JsonObject();
+		JsonArray jsonArray = new JsonArray();
+		List<String> keyList = new ArrayList<String>();
+		List<String> valueList = new ArrayList<String>();
 
 		while (elementIterator.hasNext()) {
 			ContentElement element = elementIterator.next();
 			String itemElement = element.getName();
-			KeyValueItem keyValueItem = new KeyValueItem();
 			String actualIndex = ModelUtils.extractIntAsString(itemElement);
 
 			if(itemElement.contains(actualIndex)){
 				if (containsKey(itemElement)) {
-					keyValueItem.setKey(element.getContent());
-
+					keyList.add(element.getContent());
+				} else if (containsValue(itemElement)) {
+					valueList.add(element.getContent());
 				}
 			}
-			int i = 0;
-			//jsonArray.add(keyValueItem);
 		}
 
-		return jsonObject;
+		for(int i = 0; i < keyList.size(); i++) {
+			String key = keyList.get(i);
+			String value = valueList.get(i);
+			if (key != null && !key.isEmpty() && value != null && !value.isEmpty()) {
+				KeyValueItem keyValueItem = new KeyValueItem();
+				keyValueItem.setKey(key);
+				keyValueItem.setValue(value);
+				jsonObject.addProperty(keyValueItem.getKey(), keyValueItem.getValue());
+			}
+		}
+
+		jsonArray.add(jsonObject);
+		return jsonArray;
 	}
 
 	protected Boolean containsKey(String s) {
@@ -134,5 +151,11 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 	protected Boolean containsValue(String s) {
 		final String VALUE = "value";
 		return s.contains(VALUE);
+	}
+	private Resource createResourceFromJsonObject(ResourceResolver resolver, JsonObject jsonObject) {
+		// Assuming a path based on timestamp for uniqueness
+		String resourcePath = "/path/to/resource/" + System.currentTimeMillis();
+		String resourceType = "myapp/components/myResourceType"; // Replace with your resource type
+		return resolver.create(resourcePath, jsonObject, resourceType);
 	}
 }
