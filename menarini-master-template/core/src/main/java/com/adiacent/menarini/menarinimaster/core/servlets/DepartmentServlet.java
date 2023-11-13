@@ -1,6 +1,5 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
-import com.adiacent.menarini.menarinimaster.core.beans.KeyValueItem;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
@@ -9,13 +8,15 @@ import com.adobe.granite.ui.components.ds.EmptyDataSource;
 import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.day.cq.wcm.api.PageManager;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ModifiableValueMap;
+import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,24 +27,18 @@ import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
-import javax.json.JsonException;
 import javax.servlet.Servlet;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_RESOURCE_TYPES;
-
 
 @Component(service = Servlet.class, name = "Menarini Master Template - Dropdown Departments Servlet", property = {
 		SLING_SERVLET_RESOURCE_TYPES + "=bin/apac/department/dropdown"
 }, immediate = true)
-
 public class DepartmentServlet extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 1447885216776273029L;
 
-	private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
@@ -53,24 +48,22 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 
 			ResourceResolver resolver = request.getResourceResolver();
 			PageManager pageManager = resolver.adaptTo(PageManager.class);
-			JsonArray results = new JsonArray();
-			List<Resource> departmentsList = new ArrayList<>();
+			JsonArray departmentsList = new JsonArray();
 			if (pageManager != null) {
 				String dropdownPath = request.getRequestPathInfo().getResourcePath();
 				Resource dropdownResource = resolver.getResource(dropdownPath);
 				assert dropdownResource != null;
-				String departmentPagePath = dropdownResource.getValueMap().containsKey("parentPagePath") ? dropdownResource.getValueMap().get("parentPagePath").toString() : "";
+				String departmentPagePath = dropdownResource.getValueMap().get("parentPagePath", String.class);
 
 				Session session = resolver.adaptTo(Session.class);
 				StringBuilder myXpathQuery;
-				Resource contentFragRes = null;
-				contentFragRes = resolver.getResource(departmentPagePath);
+				Resource contentFragRes = resolver.getResource(departmentPagePath);
 
 				if (contentFragRes != null) {
-					myXpathQuery = new StringBuilder();
-					myXpathQuery.append("SELECT * FROM [dam:Asset] as p ");
-					myXpathQuery.append("WHERE ISDESCENDANTNODE('").append(contentFragRes.getPath()).append("') ");
-					myXpathQuery.append(" ORDER BY p.[jcr:created] ASC ");
+					myXpathQuery = new StringBuilder()
+							.append("SELECT * FROM [dam:Asset] as p ")
+							.append("WHERE ISDESCENDANTNODE('").append(contentFragRes.getPath()).append("') ")
+							.append(" ORDER BY p.[jcr:created] ASC ");
 					assert session != null;
 
 					QueryManager queryManager = session.getWorkspace().getQueryManager();
@@ -81,7 +74,7 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 						Node node = item.nextNode();
 						Resource itemRes = resolver.getResource(node.getPath());
 						assert itemRes != null;
-						if (itemRes.getResourceType().equals("dam:Asset")) {
+						if ("dam:Asset".equals(itemRes.getResourceType())) {
 							ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
 							assert cf != null;
 							JsonObject cfResultsPartial = new JsonObject();
@@ -89,15 +82,13 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 							cfResultsPartial.addProperty("name", cf.getName());
 							JsonArray cfData = contentFragmentData(cf);
 							cfResultsPartial.add("department", cfData);
-
-							JsonArray currentResults = new JsonArray();
-							currentResults.add(cfResultsPartial);
-							Resource currentResultResource = createResourceFromJsonObject(resolver, cfResultsPartial);
-							departmentsList.add(currentResultResource);
+							departmentsList.add(cfResultsPartial);
 						}
 					}
 
-					DataSource dataSource = new SimpleDataSource(departmentsList.iterator());
+					List<Resource> departmentResources = convertJsonArrayToResources(departmentsList, contentFragRes, resolver);
+
+					DataSource dataSource = new SimpleDataSource(departmentResources.iterator());
 					request.setAttribute(DataSource.class.getName(), dataSource);
 				}
 			}
@@ -107,55 +98,64 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 		}
 	}
 
-	protected JsonArray contentFragmentData(ContentFragment cf) throws JsonException {
-		Iterator<ContentElement> elementIterator = cf.getElements();
-		JsonObject jsonObject = new JsonObject();
+	protected JsonArray contentFragmentData(ContentFragment cf) {
 		JsonArray jsonArray = new JsonArray();
-		List<String> keyList = new ArrayList<String>();
-		List<String> valueList = new ArrayList<String>();
+		Iterator<ContentElement> elementIterator = cf.getElements();
 
 		while (elementIterator.hasNext()) {
 			ContentElement element = elementIterator.next();
 			String itemElement = element.getName();
 			String actualIndex = ModelUtils.extractIntAsString(itemElement);
 
-			if(itemElement.contains(actualIndex)){
+			if (itemElement.contains(actualIndex)) {
 				if (containsKey(itemElement)) {
-					keyList.add(element.getContent());
+					JsonObject jsonObject = new JsonObject();
+					jsonObject.addProperty("key", element.getContent());
+					jsonArray.add(jsonObject);
 				} else if (containsValue(itemElement)) {
-					valueList.add(element.getContent());
+					JsonObject jsonObject = new JsonObject();
+					jsonObject.addProperty("value", element.getContent());
+					jsonArray.add(jsonObject);
 				}
 			}
 		}
 
-		for(int i = 0; i < keyList.size(); i++) {
-			String key = keyList.get(i);
-			String value = valueList.get(i);
-			if (key != null && !key.isEmpty() && value != null && !value.isEmpty()) {
-				KeyValueItem keyValueItem = new KeyValueItem();
-				keyValueItem.setKey(key);
-				keyValueItem.setValue(value);
-				jsonObject.addProperty(keyValueItem.getKey(), keyValueItem.getValue());
-			}
-		}
-
-		jsonArray.add(jsonObject);
 		return jsonArray;
 	}
 
-	protected Boolean containsKey(String s) {
-		final String KEY = "key";
-		return s.contains(KEY);
+	public static List<Resource> convertJsonArrayToResources(JsonArray jsonArray, Resource parentResource, ResourceResolver resolver) throws PersistenceException {
+		List<Resource> resourceList = new ArrayList<>();
+
+		for (JsonElement jsonElement : jsonArray) {
+			if (jsonElement.isJsonObject()) {
+				JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+				// Creazione di una risorsa per ogni dipartimento
+				String departmentName = jsonObject.get("name").getAsString();
+
+				Map<String, Object> properties = new HashMap<>();
+				for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
+					properties.put(entry.getKey(), entry.getValue().getAsString());
+				}
+
+
+				Resource departmentResource = resolver.create(parentResource, departmentName,properties);
+
+				JsonArray departmentArray = jsonObject.getAsJsonArray("department");
+				List<Resource> departmentElementResources = convertJsonArrayToResources(departmentArray, departmentResource, resolver);
+				// Aggiungi la lista di risorse dei dipartimenti come sottorisorse del dipartimento
+				resourceList.addAll(departmentElementResources);
+			}
+		}
+
+		return resourceList;
 	}
 
-	protected Boolean containsValue(String s) {
-		final String VALUE = "value";
-		return s.contains(VALUE);
+	protected boolean containsKey(String s) {
+		return s.contains("key");
 	}
-	private Resource createResourceFromJsonObject(ResourceResolver resolver, JsonObject jsonObject) {
-		// Assuming a path based on timestamp for uniqueness
-		String resourcePath = "/path/to/resource/" + System.currentTimeMillis();
-		String resourceType = "myapp/components/myResourceType"; // Replace with your resource type
-		return resolver.create(resourcePath, jsonObject, resourceType);
+
+	protected boolean containsValue(String s) {
+		return s.contains("value");
 	}
 }

@@ -10,19 +10,32 @@ import com.day.cq.wcm.api.PageManager;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.resource.*;
 import org.apache.sling.settings.SlingSettingsService;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import org.apache.sling.api.resource.ModifiableValueMap;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
+import com.adobe.granite.ui.components.ds.SimpleDataSource;
+import com.adobe.granite.ui.components.ds.DataSource;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import org.apache.sling.api.resource.ModifiableValueMap;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModelUtils {
 
@@ -206,4 +219,29 @@ public class ModelUtils {
 		return result.toString();
 	}
 
+	public static List<Resource> convertJsonArrayToResources(JsonArray jsonArray, Resource parentResource, ResourceResolver resolver) throws PersistenceException {
+		List<Resource> resourceList = new ArrayList<>();
+
+		for (int i = 0; i < jsonArray.size(); i++) {
+			JsonObject jsonItem = jsonArray.get(i).getAsJsonObject();
+
+			// Creazione di una risorsa per ogni elemento del JSON
+			String itemName = jsonItem.get("name").getAsString();
+			Map<String, Object> properties = convertJsonObjectToMap(jsonItem);
+			Resource itemResource = resolver.create(parentResource, itemName, properties);
+
+			// Aggiungi la risorsa alla lista
+			resourceList.add(itemResource);
+		}
+
+		return resourceList;
+	}
+
+	public static Map<String, Object> convertJsonObjectToMap(JsonObject jsonObject) {
+		Map<String, Object> properties = new HashMap<>();
+		for (Map.Entry<String, com.google.gson.JsonElement> entry : jsonObject.entrySet()) {
+			properties.put(entry.getKey(), entry.getValue().getAsString());
+		}
+		return properties;
+	}
 }
