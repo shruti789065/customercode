@@ -8,12 +8,9 @@ import com.adobe.granite.ui.components.ds.EmptyDataSource;
 import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.day.cq.wcm.api.PageManager;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.ModifiableValueMap;
-import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
@@ -28,7 +25,7 @@ import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.servlet.Servlet;
-import java.util.*;
+import java.util.Iterator;
 
 import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_RESOURCE_TYPES;
 
@@ -38,7 +35,7 @@ import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVL
 public class DepartmentServlet extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 1447885216776273029L;
 
-	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
+	private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
@@ -53,17 +50,18 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 				String dropdownPath = request.getRequestPathInfo().getResourcePath();
 				Resource dropdownResource = resolver.getResource(dropdownPath);
 				assert dropdownResource != null;
-				String departmentPagePath = dropdownResource.getValueMap().get("parentPagePath", String.class);
+				String departmentPagePath = dropdownResource.getValueMap().containsKey("parentPagePath") ?
+						dropdownResource.getValueMap().get("parentPagePath").toString() : "";
 
 				Session session = resolver.adaptTo(Session.class);
 				StringBuilder myXpathQuery;
 				Resource contentFragRes = resolver.getResource(departmentPagePath);
 
 				if (contentFragRes != null) {
-					myXpathQuery = new StringBuilder()
-							.append("SELECT * FROM [dam:Asset] as p ")
-							.append("WHERE ISDESCENDANTNODE('").append(contentFragRes.getPath()).append("') ")
-							.append(" ORDER BY p.[jcr:created] ASC ");
+					myXpathQuery = new StringBuilder();
+					myXpathQuery.append("SELECT * FROM [dam:Asset] as p ");
+					myXpathQuery.append("WHERE ISDESCENDANTNODE('").append(contentFragRes.getPath()).append("') ");
+					myXpathQuery.append(" ORDER BY p.[jcr:created] ASC ");
 					assert session != null;
 
 					QueryManager queryManager = session.getWorkspace().getQueryManager();
@@ -74,7 +72,7 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 						Node node = item.nextNode();
 						Resource itemRes = resolver.getResource(node.getPath());
 						assert itemRes != null;
-						if ("dam:Asset".equals(itemRes.getResourceType())) {
+						if (itemRes.getResourceType().equals("dam:Asset")) {
 							ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
 							assert cf != null;
 							JsonObject cfResultsPartial = new JsonObject();
@@ -86,9 +84,8 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 						}
 					}
 
-					List<Resource> departmentResources = convertJsonArrayToResources(departmentsList, contentFragRes, resolver);
-
-					DataSource dataSource = new SimpleDataSource(departmentResources.iterator());
+					// Creare un DataSource direttamente dal JsonArray
+					DataSource dataSource = new SimpleDataSource(departmentsList.iterator());
 					request.setAttribute(DataSource.class.getName(), dataSource);
 				}
 			}
@@ -108,11 +105,11 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 			String actualIndex = ModelUtils.extractIntAsString(itemElement);
 
 			if (itemElement.contains(actualIndex)) {
-				if (containsKey(itemElement)) {
+				if (containsKey(itemElement) && !element.getContent().isEmpty()) {
 					JsonObject jsonObject = new JsonObject();
 					jsonObject.addProperty("key", element.getContent());
 					jsonArray.add(jsonObject);
-				} else if (containsValue(itemElement)) {
+				} else if (containsValue(itemElement) && !element.getContent().isEmpty()) {
 					JsonObject jsonObject = new JsonObject();
 					jsonObject.addProperty("value", element.getContent());
 					jsonArray.add(jsonObject);
@@ -123,39 +120,13 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 		return jsonArray;
 	}
 
-	public static List<Resource> convertJsonArrayToResources(JsonArray jsonArray, Resource parentResource, ResourceResolver resolver) throws PersistenceException {
-		List<Resource> resourceList = new ArrayList<>();
-
-		for (JsonElement jsonElement : jsonArray) {
-			if (jsonElement.isJsonObject()) {
-				JsonObject jsonObject = jsonElement.getAsJsonObject();
-
-				// Creazione di una risorsa per ogni dipartimento
-				String departmentName = jsonObject.get("name").getAsString();
-
-				Map<String, Object> properties = new HashMap<>();
-				for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
-					properties.put(entry.getKey(), entry.getValue().getAsString());
-				}
-
-
-				Resource departmentResource = resolver.create(parentResource, departmentName,properties);
-
-				JsonArray departmentArray = jsonObject.getAsJsonArray("department");
-				List<Resource> departmentElementResources = convertJsonArrayToResources(departmentArray, departmentResource, resolver);
-				// Aggiungi la lista di risorse dei dipartimenti come sottorisorse del dipartimento
-				resourceList.addAll(departmentElementResources);
-			}
-		}
-
-		return resourceList;
-	}
-
 	protected boolean containsKey(String s) {
-		return s.contains("key");
+		final String KEY = "key";
+		return s.contains(KEY);
 	}
 
 	protected boolean containsValue(String s) {
-		return s.contains("value");
+		final String VALUE = "value";
+		return s.contains(VALUE);
 	}
 }
