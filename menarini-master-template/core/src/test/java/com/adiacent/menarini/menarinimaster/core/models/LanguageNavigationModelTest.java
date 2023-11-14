@@ -1,6 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
-import com.adobe.cq.wcm.core.components.models.NavigationItem;
+
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextBuilder;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
@@ -12,16 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.InputStream;
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 
 import static com.adobe.cq.wcm.core.components.testing.mock.ContextPlugins.CORE_COMPONENTS;
-import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+
 
 @ExtendWith({AemContextExtension.class})
 class LanguageNavigationModelTest {
@@ -42,13 +40,7 @@ class LanguageNavigationModelTest {
         InputStream isData = LanguageNavigationModelTest.class.getResourceAsStream("LanguageNavigationPages.json");
         ctx.load().json(isData, "/content/menarini-apac");
 
-        //carico la risorsa da testare
-        //InputStream is = LanguageNavigationModelTest.class.getResourceAsStream("LanguageNavigationData.json");
-        //ctx.load().json(is, "/content/experience-fragments/menarini-apac/en/site/header/master/jcr:content/root/section_navbar/wrapper/languagenavigation");
-
-
-
-
+       
 
     }
 
@@ -56,7 +48,10 @@ class LanguageNavigationModelTest {
     @Order(1)
     void test() {
 
+        //carico la risorsa da testare
         ctx.load().json(LanguageNavigationModelTest.class.getResourceAsStream("LanguageNavigationData.json"),"/content/experience-fragments/menarini-apac/en/site/header/master/");
+
+
 
         Resource r = ctx.resourceResolver().getResource("/content/experience-fragments/menarini-apac/en/site/header/master/jcr:content/root/section_navbar/wrapper/languagenavigation");
         ctx.currentResource(r);
