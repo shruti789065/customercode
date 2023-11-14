@@ -29,20 +29,16 @@ import static java.util.stream.Collectors.toList;
 public class LanguageNavigationModel extends GenericBaseModel implements LanguageNavigationI {
 
     public static final String RESOURCE_TYPE = "menarinimaster/components/languagenavigation";
-    //private static final String PARENT_TEMPLATE_NAME = "/conf/menarinimaster/settings/wcm/templates/menarini---homepage";//"Menarini MT - Homepage";
-
 
     @Self // Indicates that we are resolving the current resource
     @Via(type = ResourceSuperType.class) // Resolve not as this model, but as the model of our supertype (ie: CC Teaser)
     @Delegate(excludes = DelegationExclusion.class) // Delegate all our methods to the CC Image except those defined below
     private LanguageNavigation delegate;
 
-
-
     @Override
     public List<NavigationItem> getItems() {
         //return delegate.getItems();
-       //primo filtraggio per rimozione elementi nel languagenavigation che risultano puntare alla medesima pagina in lingua
+        //primo filtraggio per rimozione elementi nel languagenavigation che risultano puntare alla medesima pagina in lingua
         // a seguito di redirect di pagina
         if(delegate.getItems() == null)
             return null;

@@ -56,30 +56,15 @@ class LanguageNavigationModelTest {
     @Order(1)
     void test() {
 
-
-
-
         ctx.load().json(LanguageNavigationModelTest.class.getResourceAsStream("LanguageNavigationData.json"),"/content/experience-fragments/menarini-apac/en/site/header/master/");
-
-
-
 
         Resource r = ctx.resourceResolver().getResource("/content/experience-fragments/menarini-apac/en/site/header/master/jcr:content/root/section_navbar/wrapper/languagenavigation");
         ctx.currentResource(r);
         ctx.addModelsForClasses(LanguageNavigationI.class);
         model =  ctx.request().adaptTo(LanguageNavigationI.class);
+
         assertNotNull(model.getItems());
 
-        /*LanguageNavigationModel s = mock(LanguageNavigationModel.class);
 
-
-
-        List<NavigationItem> lista = new ArrayList<>();
-        lista.add(new NavigationItem() {
-
-        });
-        when(s.getItems()).thenReturn(lista);
-
-        assertNotNull(s.getItems());*/
     }
 }
