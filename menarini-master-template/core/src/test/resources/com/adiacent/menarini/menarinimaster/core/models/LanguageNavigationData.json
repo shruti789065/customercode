@@ -1,26 +1,190 @@
 {
-  "jcr:primaryType": "nt:unstructured",
-  "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
-  "navigationRoot": "/content/menarini-apac/",
-  "jcr:lastModified": "Tue Nov 07 2023 16:16:37 GMT+0000",
-  "sling:resourceType": "menarinimaster/components/languagenavigation",
-  "structureDepth": "1",
-  "cq:responsive": {
-    "jcr:primaryType": "nt:unstructured",
-    "default": {
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Tue Nov 14 2023 00:05:54 GMT+0100",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:mixinTypes": [
+      "cq:ReplicationStatus2",
+      "mix:versionable"
+    ],
+    "cq:lastReplicatedBy_preview": "L.ambrosini@adiacent.com",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Header",
+    "cq:lastReplicatedBy_publish": "d.mariotti@adiacent.com",
+    "cq:isDelivered": true,
+    "cq:lastReplicationAction": "Activate",
+    "jcr:versionHistory": "fc72667c-bd7f-4481-b7c1-ff6cefbf2a49",
+    "cq:template": "/conf/menarini-apac/settings/wcm/templates/xf-web-variation",
+    "cq:lastReplicatedBy": "d.mariotti@adiacent.com",
+    "cq:lastReplicationAction_preview": "Activate",
+    "cq:lastReplicationAction_publish": "Activate",
+    "jcr:predecessors": [
+      "3cd9d3c1-33fa-4b75-a662-0326f9f4c22a"
+    ],
+    "jcr:created": "Tue Nov 14 2023 00:05:54 GMT+0100",
+    "cq:lastReplicated": "Mon Nov 13 2023 14:25:24 GMT+0000",
+    "cq:lastModified": "Mon Nov 13 2023 14:25:22 GMT+0000",
+    "cq:xfVariantType": "web",
+    "jcr:baseVersion": "3cd9d3c1-33fa-4b75-a662-0326f9f4c22a",
+    "jcr:isCheckedOut": true,
+    "jcr:uuid": "0783372f-9c74-4da1-839a-abffbc514fd0",
+    "sling:resourceType": "menarinimaster/components/xfpage",
+    "cq:lastReplicated_preview": "Wed Dec 21 2022 09:45:52 GMT+0000",
+    "cq:lastReplicated_publish": "Mon Nov 13 2023 14:25:24 GMT+0000",
+    "cq:lastModifiedBy": "reference-adjustment-service",
+    "root": {
       "jcr:primaryType": "nt:unstructured",
-      "offset": "0",
-      "width": "1"
+      "jcr:lastModifiedBy": "admin",
+      "layout": "responsiveGrid",
+      "jcr:lastModified": "Wed Jun 08 2022 11:59:04 GMT+0200",
+      "sling:resourceType": "menarinimaster/components/container",
+      "section_navbar": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+        "jcr:lastModified": "Wed May 24 2023 10:29:42 GMT+0000",
+        "sling:resourceType": "menarinimaster/components/section",
+        "cq:styleIds": [
+          "1684741843688"
+        ],
+        "wrapper": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+          "layout": "responsiveGrid",
+          "jcr:lastModified": "Wed May 24 2023 10:27:33 GMT+0000",
+          "sling:resourceType": "menarinimaster/components/wrapper",
+          "cq:styleIds": [
+            "1684741727110"
+          ],
+          "text_quality": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+            "id": "qualitycomesfirst",
+            "text": "<p><a href=\"http://www.menarini.it/en-us/quality-comes-first\" target=\"_blank\" rel=\"noopener noreferrer\"><i>Quality Comes First</i></a></p>\r\n",
+            "jcr:lastModified": "Mon Jun 12 2023 15:52:30 GMT+0000",
+            "sling:resourceType": "menarinimaster/components/text",
+            "textIsRich": "true"
+          },
+          "text_block": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "GLOBAL",
+            "cq:masterBuildingBlock": true,
+            "jcr:lastModifiedBy": "admin",
+            "jcr:lastModified": "Wed May 24 2023 11:01:17 GMT+0000",
+            "sling:resourceType": "cq/experience-fragments/editor/components/buildingblock"
+          },
+          "languagenavigation": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+            "navigationRoot": "/content/menarini-apac/",
+            "jcr:lastModified": "Tue Nov 07 2023 16:16:37 GMT+0000",
+            "sling:resourceType": "menarinimaster/components/languagenavigation",
+            "structureDepth": "1"
+          }
+        }
+      },
+      "section_megamenu": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:lastModifiedBy": "a.messori@adiacent.com",
+        "jcr:lastModified": "Wed May 24 2023 07:46:25 GMT+0000",
+        "sling:resourceType": "menarinimaster/components/section",
+        "cq:styleIds": [
+          "1684741856631"
+        ],
+        "wrapper": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:lastModifiedBy": "a.messori@adiacent.com",
+          "id": "wrapper-menu",
+          "jcr:lastModified": "Wed May 24 2023 07:47:39 GMT+0000",
+          "sling:resourceType": "menarinimaster/components/wrapper",
+          "megamenu": {
+            "jcr:primaryType": "nt:unstructured",
+            "altValueFromPageImage": "false",
+            "logoFolder": "/content/dam/logo/menarini-apac",
+            "imageFromPageImage": "false",
+            "fileReference": "/content/dam/menarini-apac/assets/placeholders/logo_menarini_group.svg",
+            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+            "facebookLink": "https://www.facebook.com/sharer.php?u=",
+            "alt": "menarini logo",
+            "xLink": "https://twitter.com/intent/tweet?url=",
+            "logoUrl": "/content/menarini-apac/en",
+            "jcr:lastModified": "Fri Sep 29 2023 14:13:02 GMT+0000",
+            "sling:resourceType": "menarinimaster/components/header/megamenu",
+            "isDecorative": "false",
+            "disableLazyLoading": "false",
+            "altValueFromDAM": "false"
+          }
+        }
+      },
+      "market_countries_con": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "a.messori@adiacent.com",
+        "backImg": "/content/dam/menarini-apac/assets/menu/countries_background.jpg",
+        "jcr:created": "Tue Oct 03 2023 16:16:31 GMT+0200",
+        "jcr:lastModified": "Tue Nov 07 2023 15:55:33 GMT+0000",
+        "sling:resourceType": "menarinimaster/components/header/market-countries-container",
+        "wrapper_54523298": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Mon Oct 02 2023 14:18:30 GMT+0200",
+          "jcr:lastModified": "Tue Oct 03 2023 16:55:04 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/wrapper",
+          "cq:styleIds": [
+            "1684741727110"
+          ],
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "layout": "responsiveGrid",
+            "jcr:created": "Tue Oct 03 2023 16:55:34 GMT+0200",
+            "id": "marketHeader",
+            "jcr:lastModified": "Thu Oct 05 2023 15:55:21 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container"
+          },
+          "container_637601767": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:createdBy": "admin",
+            "jcr:lastModifiedBy": "admin",
+            "layout": "responsiveGrid",
+            "jcr:created": "Tue Oct 03 2023 16:53:37 GMT+0200",
+            "jcr:lastModified": "Tue Oct 03 2023 16:53:55 GMT+0200",
+            "sling:resourceType": "menarinimaster/components/container"
+          }
+        },
+        "spacer": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "spacer": "50",
+          "jcr:created": "Thu Oct 05 2023 10:05:27 GMT+0200",
+          "jcr:lastModified": "Thu Oct 05 2023 10:05:39 GMT+0200",
+          "sling:resourceType": "menarinimaster/components/spacer"
+        }
+      },
+      "logo": {
+        "jcr:primaryType": "nt:folder",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Tue Nov 14 2023 00:05:56 GMT+0100",
+        "logo.svg": {
+          "jcr:primaryType": "nt:file",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Tue Nov 14 2023 00:05:56 GMT+0100",
+          "jcr:content": {
+            "jcr:primaryType": "nt:resource",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:mimeType": "image/svg+xml",
+            "jcr:lastModified": "Tue Nov 14 2023 00:05:56 GMT+0100",
+            ":jcr:data": 3432,
+            "jcr:uuid": "22f51160-5e50-4179-8cab-272943b984a5"
+          }
+        }
+      }
     },
-    "tablet": {
-      "jcr:primaryType": "nt:unstructured",
-      "offset": "8",
-      "width": "3"
-    },
-    "phone": {
-      "jcr:primaryType": "nt:unstructured",
-      "offset": "2",
-      "width": "3"
+    "cq:metadata": {
+      "jcr:primaryType": "nt:unstructured"
     }
   }
 }

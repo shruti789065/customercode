@@ -22,7 +22,7 @@ import static java.util.stream.Collectors.toList;
 
 @Model(
         adaptables = {Resource.class, SlingHttpServletRequest.class},
-        adapters = {LanguageNavigationI.class, ComponentExporter.class}, // Adapts to the CC model interface
+        adapters = {LanguageNavigationI.class}, // Adapts to the CC model interface
         resourceType = LanguageNavigationModel.RESOURCE_TYPE, // Maps to OUR component, not the CC component
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL // No properties? No problem!
 )
