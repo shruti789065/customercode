@@ -68,10 +68,16 @@
                         </embedded>
                         <embedded>
                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
-                            <artifactId>menarinimaster.ui.content</artifactId>
+                            <artifactId>menarinimaster.ui.config</artifactId>
                             <type>zip</type>
-                            <target>/apps/menarinimaster-packages/content/install</target>
+                            <target>/apps/menarinimaster-packages/application/install</target>
                         </embedded>
+                        <embedded>
+                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                             <artifactId>menarinimaster.ui.content</artifactId>
+                             <type>zip</type>
+                             <target>/apps/menarinimaster-packages/content/install</target>
+                         </embedded>
                         <!--<embedded>
                            <groupId>com.adiacent.menarini.menarinimaster</groupId>
                            <artifactId>menarinimaster.demo.ui.content</artifactId>
@@ -138,12 +144,6 @@
                              <type>zip</type>
                              <target>/apps/menarinimaster-packages/content/install</target>
                          </embedded>-->
-                        <embedded>
-                            <groupId>com.adiacent.menarini.menarinimaster</groupId>
-                            <artifactId>menarinimaster.ui.config</artifactId>
-                            <type>zip</type>
-                            <target>/apps/menarinimaster-packages/application/install</target>
-                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -253,6 +253,12 @@
         </dependency>
         <dependency>
             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+            <artifactId>menarinimaster.ui.config</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adiacent.menarini.menarinimaster</groupId>
             <artifactId>menarinimaster.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
@@ -320,12 +326,6 @@
           <dependency>
               <groupId>com.adiacent.menarini.menarinimaster</groupId>
               <artifactId>menarinimaster.berlinchemie.ui.content</artifactId>
-              <version>${project.version}</version>
-              <type>zip</type>
-          </dependency>
-          <dependency>
-              <groupId>com.adiacent.menarini.menarinimaster</groupId>
-              <artifactId>menarinimaster.ui.config</artifactId>
               <version>${project.version}</version>
               <type>zip</type>
           </dependency>-->

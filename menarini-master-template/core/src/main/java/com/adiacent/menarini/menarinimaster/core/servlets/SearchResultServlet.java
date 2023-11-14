@@ -32,7 +32,7 @@ import javax.servlet.Servlet;
 
 
 
-@Component(service = { Servlet.class }, name = "Menarini Master Template - Search Result Servlet", immediate = true)
+@Component(service = { Servlet.class }, immediate = true)
 @SlingServletResourceTypes(
         resourceTypes = NameConstants.NT_PAGE,
         methods= {HttpConstants.METHOD_GET},

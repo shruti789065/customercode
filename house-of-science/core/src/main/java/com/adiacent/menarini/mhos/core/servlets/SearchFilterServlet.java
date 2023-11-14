@@ -37,7 +37,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 
 
-@Component(service = { Servlet.class }, name = "Menarini House of Science - Search Filter Servlet", immediate = true)
+@Component(service = { Servlet.class }, immediate = true)
 @SlingServletResourceTypes(
         resourceTypes = NameConstants.NT_PAGE,
         methods= {HttpConstants.METHOD_GET},
