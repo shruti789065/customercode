@@ -70,7 +70,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 			}
 
 		} catch (Exception e) {
-			logger.error("Error in Dropdown Department Servlet ", e);
+			logger.error("Error in Connected Options Servlet ", e);
 		}
 	}
 
