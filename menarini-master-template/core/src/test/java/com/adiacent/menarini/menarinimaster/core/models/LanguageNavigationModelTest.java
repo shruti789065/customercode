@@ -40,7 +40,7 @@ class LanguageNavigationModelTest {
         InputStream isData = LanguageNavigationModelTest.class.getResourceAsStream("LanguageNavigationPages.json");
         ctx.load().json(isData, "/content/menarini-apac");
 
-       
+
 
     }
 
