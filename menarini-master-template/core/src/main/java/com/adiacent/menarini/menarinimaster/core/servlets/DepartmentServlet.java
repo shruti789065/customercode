@@ -94,9 +94,9 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 						}
 					}
 					int i = 0;
-					//List<Resource> departmentResources = convertJsonArrayToResources(departmentsList, contentFragRes, resolver);
-					//DataSource dataSource = new SimpleDataSource(departmentResources.iterator());
-					//request.setAttribute(DataSource.class.getName(), dataSource);
+					List<Resource> departmentResources = convertJsonArrayToResources(departmentsList, contentFragRes, resolver);
+					DataSource dataSource = new SimpleDataSource(departmentResources.iterator());
+					request.setAttribute(DataSource.class.getName(), dataSource);
 				}
 			}
 
@@ -141,32 +141,37 @@ public class DepartmentServlet extends SlingAllMethodsServlet {
 		return jsonArray;
 	}
 
-	public static List<Resource> convertJsonArrayToResources(JsonArray jsonArray, Resource parentResource, ResourceResolver resolver) throws PersistenceException, PersistenceException {
+	protected List<Resource> convertJsonArrayToResources(List<JsonArray> departmentsList, Resource parentResource, ResourceResolver resolver) throws PersistenceException {
 		List<Resource> resourceList = new ArrayList<>();
 
-		for (JsonElement jsonElement : jsonArray) {
-			if (jsonElement.isJsonObject()) {
-				JsonObject jsonObject = jsonElement.getAsJsonObject();
+		for (JsonArray jsonArray : departmentsList) {
+			for (JsonElement jsonElement : jsonArray) {
+				if (jsonElement.isJsonObject()) {
+					JsonObject jsonObject = jsonElement.getAsJsonObject();
 
+					String departmentName = jsonObject.get("name").getAsString();
+					String departmentTitle = jsonObject.get("title").getAsString();
 
-				String departmentName = jsonObject.get("name").getAsString();
+					Map<String, Object> properties = new HashMap<>();
+					properties.put("name", departmentName);
+					properties.put("title", departmentTitle);
+					Resource departmentNameResource = resolver.create(parentResource, departmentName, properties);
+					Resource departmentTitleResource = resolver.create(parentResource, departmentTitle, properties);
+					resourceList.add(departmentNameResource);
+					resourceList.add(departmentTitleResource);
 
-				Map<String, Object> properties = new HashMap<>();
-				for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
-					properties.put(entry.getKey(), entry.getValue().getAsString());
+					if (jsonObject.has("department") && jsonObject.get("department").isJsonArray()) {
+						JsonArray departmentArray = jsonObject.getAsJsonArray("department");
+						List<Resource> departmentElementResources = convertJsonArrayToResources(Collections.singletonList(departmentArray), departmentResource, resolver);
+						resourceList.addAll(departmentElementResources);
+					}
 				}
-
-				Resource departmentResource = resolver.create(parentResource, departmentName, properties);
-
-				JsonArray departmentArray = jsonObject.getAsJsonArray("department");
-				List<Resource> departmentElementResources = convertJsonArrayToResources(departmentArray, departmentResource, resolver);
-				resourceList.add(departmentResource);
-				resourceList.addAll(departmentElementResources);
 			}
 		}
 
 		return resourceList;
 	}
+
 	protected Boolean containsKey(String s) {
 		final String KEY = "key";
 		return s.contains(KEY);

@@ -219,23 +219,7 @@ public class ModelUtils {
 		return result.toString();
 	}
 
-	public static List<Resource> convertJsonArrayToResources(JsonArray jsonArray, Resource parentResource, ResourceResolver resolver) throws PersistenceException {
-		List<Resource> resourceList = new ArrayList<>();
 
-		for (int i = 0; i < jsonArray.size(); i++) {
-			JsonObject jsonItem = jsonArray.get(i).getAsJsonObject();
-
-			// Creazione di una risorsa per ogni elemento del JSON
-			String itemName = jsonItem.get("name").getAsString();
-			Map<String, Object> properties = convertJsonObjectToMap(jsonItem);
-			Resource itemResource = resolver.create(parentResource, itemName, properties);
-
-			// Aggiungi la risorsa alla lista
-			resourceList.add(itemResource);
-		}
-
-		return resourceList;
-	}
 
 	public static Map<String, Object> convertJsonObjectToMap(JsonObject jsonObject) {
 		Map<String, Object> properties = new HashMap<>();
