@@ -46,7 +46,7 @@
 									<column
 											jcr:primaryType="nt:unstructured"
 											sling:resourceType="granite/ui/components/coral/foundation/container">
-										<items jcr:primaryType="nt:unstructured">
+										<items jcr:primaryType="nt:unstructured" sling:hideChildren="[source, datasource]">
 											<mainHeading
 													jcr:primaryType="nt:unstructured"
 													sling:resourceType="granite/ui/components/coral/foundation/heading"
@@ -217,12 +217,6 @@
 													</options>
 												</items>
 											</fromLocal>
-											<parentPagePath
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-													fieldLabel="Source Folder"
-													name="./sourceFolder"
-													rootPath="/content"/>
 											<aboutHeading
 													jcr:primaryType="nt:unstructured"
 													sling:resourceType="granite/ui/components/coral/foundation/heading"

@@ -79,7 +79,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		String dropdownPath = request.getRequestPathInfo().getResourcePath();
 
 		Resource dropdownResource = resolver.resolve(dropdownPath);
-		String resourceType= "menarinimaster/components/form/connectedOptions";
+		String resourceType= "menarinimaster/components/form/connected-option-container";
 		String departmentPagePath = getComponentProperty(dropdownResource.getPath(),resourceType,"sourceFolder", resolver);
 
 		Session session = resolver.adaptTo(Session.class);
