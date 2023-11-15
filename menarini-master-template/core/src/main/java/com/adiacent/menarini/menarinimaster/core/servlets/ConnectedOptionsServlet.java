@@ -5,16 +5,12 @@ import com.adiacent.menarini.menarinimaster.core.utils.Constants;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
-import com.day.cq.wcm.api.constants.NameConstants;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
@@ -36,12 +32,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_RESOURCE_TYPES;
-
 
 @Component(service = Servlet.class,immediate = true)
 @SlingServletResourceTypes(
-		resourceTypes = SLING_SERVLET_RESOURCE_TYPES + "=menarinimaster/components/form/connected-option-container",
+		resourceTypes = {"menarinimaster/components/form/connected-option-container"},
 		methods = {HttpConstants.METHOD_GET},
 		extensions = Constants.JSON,
 		selectors = {ConnectedOptionsServlet.DEFAULT_SELECTOR})
@@ -59,15 +53,21 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		try {
 			Resource currentResource = request.getResource();
 			ResourceResolver resolver = currentResource.getResourceResolver();
-			PageManager pageManager = resolver.adaptTo(PageManager.class);
+			//PageManager pageManager = resolver.adaptTo(PageManager.class);
 
-			if (pageManager != null) {
+			/*if (pageManager != null) {
 				Page currentPage = pageManager.getContainingPage(currentResource.getPath());
 				if (currentPage != null) {
 					JsonObject jsonObject = getResult(request, resolver);
 					response.setContentType(Constants.APPLICATION_JSON);
 					response.getWriter().print(jsonObject);
 				}
+			}*/
+			Node currentNode = currentResource.adaptTo(Node.class);
+			if (currentNode != null) {
+				JsonObject jsonObject = getResult(request, resolver,currentNode);
+				response.setContentType(Constants.APPLICATION_JSON);
+				response.getWriter().print(jsonObject);
 			}
 
 		} catch (Exception e) {
@@ -75,13 +75,15 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		}
 	}
 
-	protected JsonObject getResult(SlingHttpServletRequest request, ResourceResolver resolver) throws RepositoryException, JsonException {
+	protected JsonObject getResult(SlingHttpServletRequest request, ResourceResolver resolver, Node currentNode) throws RepositoryException, JsonException {
 		List<JsonArray> departmentsList = new ArrayList<>();
 		String dropdownPath = request.getRequestPathInfo().getResourcePath();
 
-		Resource dropdownResource = resolver.resolve(dropdownPath);
+		/*Resource dropdownResource = resolver.resolve(dropdownPath);
 		String resourceType= "menarinimaster/components/form/connected-option-container";
-		String departmentPagePath = getComponentProperty(dropdownResource.getPath(),resourceType,"sourceFolder", resolver);
+		String departmentPagePath = getComponentProperty(dropdownResource.getPath(),resourceType,"sourceFolder", resolver);*/
+
+		String departmentPagePath = currentNode.getProperty("sourceFolder").getString();
 
 		Session session = resolver.adaptTo(Session.class);
 		StringBuilder myXpathQuery;
@@ -136,7 +138,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return mergedObject;
 	}
 
-	public static String getComponentProperty(String pagePath, String resourceType, String propertyName,ResourceResolver resolver) {
+	/*public static String getComponentProperty(String pagePath, String resourceType, String propertyName,ResourceResolver resolver) {
 		String propertyValue = "";
 
 		// Ottieni il Resource della pagina
@@ -152,10 +154,10 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		}
 
 		return propertyValue;
-	}
+	}*/
 
 
-	private static Resource findComponentByResourceType(Resource parentResource, String resourceType) {
+	/*private static Resource findComponentByResourceType(Resource parentResource, String resourceType) {
 		if (parentResource.isResourceType(resourceType)) {
 			return parentResource;
 		}
@@ -168,7 +170,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		}
 
 		return null;
-	}
+	}*/
 
 	protected JsonArray contentFragmentData(ContentFragment cf) throws JsonException {
 		Iterator<ContentElement> elementIterator = cf.getElements();
