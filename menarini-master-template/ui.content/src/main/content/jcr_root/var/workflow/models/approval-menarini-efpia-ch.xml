@@ -7,11 +7,11 @@
     description="No Description"
     title="Approval Menarini EFPIA CH">
     <variables jcr:primaryType="nt:unstructured">
-        <test
+        <version
             jcr:primaryType="nt:unstructured"
-            defaultValue="prova"
-            name="test"
-            type="java.lang.String"/>
+            defaultValue="1.0"
+            name="versione"
+            type="java.lang.Double"/>
         <isValid
             jcr:primaryType="nt:unstructured"
             defaultValue="false"
@@ -19,11 +19,11 @@
             type="java.lang.Boolean"/>
     </variables>
     <metaData
-        cq:generatingPage="/conf/global/settings/workflow/models/approval-menarini-efpia_ch/jcr:content"
-        cq:lastModified="{Long}1696948586020"
-        cq:lastModifiedBy="L.ambrosini@adiacent.com"
+        cq:generatingPage="/conf/global/settings/workflow/models/approval-menarini-efpia-ch/jcr:content"
+        cq:lastModified="{Long}1699887505588"
+        cq:lastModifiedBy="admin"
         jcr:primaryType="nt:unstructured"
-        lastSynced="{Date}2023-10-10T16:36:25.740+02:00"
+        lastSynced="{Date}2023-11-13T15:58:25.572+01:00"
         multiResourceSupport="true"/>
     <nodes jcr:primaryType="nt:unstructured">
         <node0
@@ -39,7 +39,7 @@
             <metaData
                 jcr:primaryType="nt:unstructured"
                 PROCESS="com.adiacent.menarini.menarinimaster.core.workflows.EFPIAValidationStep"
-                PROCESS_ARGS="pippo,pluto"
+                PROCESS_ARGS=""
                 PROCESS_AUTO_ADVANCE="true"/>
         </node1>
         <node2
@@ -56,7 +56,7 @@
         </node3>
         <node4
             jcr:primaryType="cq:WorkflowNode"
-            title="Publishing Approval EFPIA CH "
+            title="Publishing approval"
             type="PARTICIPANT">
             <metaData
                 jcr:primaryType="nt:unstructured"
@@ -87,15 +87,15 @@
         <node8
             jcr:primaryType="cq:WorkflowNode"
             title="Reject"
-            type="DYNAMIC_PARTICIPANT">
+            type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                DO_NOTIFY="true"
-                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"/>
+                PROCESS="com.adiacent.menarini.menarinimaster.core.workflows.EFPIAAssetsRejectStep"
+                PROCESS_AUTO_ADVANCE="true"/>
         </node8>
         <node9
             jcr:primaryType="cq:WorkflowNode"
-            title="Asset validation failed"
+            title="Rejected"
             type="DYNAMIC_PARTICIPANT">
             <metaData
                 jcr:primaryType="nt:unstructured"
@@ -104,10 +104,19 @@
         </node9>
         <node10
             jcr:primaryType="cq:WorkflowNode"
+            title="Asset validation failed"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DO_NOTIFY="true"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"/>
+        </node10>
+        <node11
+            jcr:primaryType="cq:WorkflowNode"
             title="End"
             type="END">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node10>
+        </node11>
     </nodes>
     <transitions jcr:primaryType="nt:unstructured">
         <node0_x0023_node1
@@ -162,38 +171,45 @@
                 jcr:primaryType="nt:unstructured"
                 isDefault="false"/>
         </node5_x0023_node8>
-        <node8_x0023_node6
+        <node8_x0023_node9
             jcr:primaryType="cq:WorkflowTransition"
             from="node8"
+            rule="\0"
+            to="node9">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node8_x0023_node9>
+        <node9_x0023_node6
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node9"
             to="node6">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node8_x0023_node6>
+        </node9_x0023_node6>
         <node6_x0023_node3
             jcr:primaryType="cq:WorkflowTransition"
             from="node6"
             to="node3">
             <metaData jcr:primaryType="nt:unstructured"/>
         </node6_x0023_node3>
-        <node2_x0023_node9
+        <node2_x0023_node10
             jcr:primaryType="cq:WorkflowTransition"
             from="node2"
             rule="\{&quot;nodeName&quot;:&quot;ROOT&quot;,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONDITION&quot;,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;,&quot;value&quot;:{&quot;id&quot;:&quot;isValid&quot;,&quot;displayName&quot;:&quot;isValid&quot;,&quot;type&quot;:&quot;BOOLEAN&quot;,&quot;displayPath&quot;:&quot;workflow_variables/isValid/&quot;,&quot;name&quot;:&quot;isValid&quot;,&quot;parent&quot;:&quot;workflow_variables&quot;}}},{&quot;nodeName&quot;:&quot;OPERATOR&quot;,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;IS_FALSE&quot;,&quot;value&quot;:null}},{&quot;nodeName&quot;:&quot;EXPRESSION&quot;,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;,&quot;value&quot;:null}}]},&quot;nested&quot;:false}}],&quot;isValid&quot;:true,&quot;enabled&quot;:true,&quot;version&quot;:1}"
-            to="node9">
+            to="node10">
             <metaData
                 jcr:primaryType="nt:unstructured"
                 isDefault="false"/>
-        </node2_x0023_node9>
-        <node9_x0023_node3
+        </node2_x0023_node10>
+        <node10_x0023_node3
             jcr:primaryType="cq:WorkflowTransition"
-            from="node9"
+            from="node10"
             to="node3">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node9_x0023_node3>
-        <node3_x0023_node10
+        </node10_x0023_node3>
+        <node3_x0023_node11
             jcr:primaryType="cq:WorkflowTransition"
             from="node3"
-            to="node10">
+            to="node11">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node3_x0023_node10>
+        </node3_x0023_node11>
     </transitions>
 </jcr:root>

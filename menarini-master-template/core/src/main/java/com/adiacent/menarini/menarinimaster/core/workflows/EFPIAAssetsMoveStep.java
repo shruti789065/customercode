@@ -46,19 +46,19 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
         final WorkflowData workflowData = workItem.getWorkflowData();
         final String path = workflowData.getPayload().toString();
         String siteName = EFPIAUtils.siteNameFromPath(path);
-        EFPIALogger logger = null;
+        EFPIAXLSXLogger logger = null;
 
         ResourceResolver resourceResolver =  workflowSession.adaptTo(ResourceResolver.class);
         Session jcrSession =  workflowSession.adaptTo(Session.class);
         AssetManager assetManager = resourceResolver.adaptTo(AssetManager.class);
 
         String[] pathArr = StringUtils.split(path, "/");
-        String year = pathArr[pathArr.length-1];
+        Integer year = Integer.parseInt(pathArr[pathArr.length-1]);
 
         String PUBLISH_DIR_PATH = EFPIAUtils.getPublishPath(siteName, year);
         try {
             // + Verify publish path
-            logger = EFPIALogger.getLogger(siteName, EFPIALogger.Level.DEBUG, workItem, workflowSession);
+            logger = EFPIAXLSXLogger.getLogger(siteName, workItem, workflowSession);
             Resource publishDir = resourceResolver.getResource(PUBLISH_DIR_PATH);
             if (publishDir == null) {
                 String[] nodeNames = StringUtils.split(PUBLISH_DIR_PATH, "/");
@@ -83,27 +83,12 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
                             JcrUtil.createPath(PUBLISH_DIR_PATH + "/" + backupFolderName, "nt:folder", jcrSession);
                         }
                         assetManager.moveAsset(r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
-                        logger.info("Asset {} backed up into {}", r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
+                        log.info("Asset {} backed up into {}", r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
                     } catch (EFPIAUtils.EFPIABlockingValidationException e) {
-                       logger.warn("Asset {} not backed up: {}", r.getPath(), e.getMessage());
+                       log.warn("Asset {} not backed up: {}", r.getPath(), e.getMessage());
                     } catch (EFPIAUtils.EFPIANonBlockingValidationException e) {
-                        logger.debug("Asset {} not backed up: {}", r.getPath(), e.getMessage());
+                        log.debug("Asset {} not backed up: {}", r.getPath(), e.getMessage());
                     }
-                    /*
-                    if (EFPIAUtils.isResourceTypeValid(r.getResourceType())) {
-                        String fileName = StringUtils.substringBeforeLast(r.getName(), ".");
-                        String fileExt = StringUtils.lowerCase(StringUtils.substringAfterLast(r.getName(), "."));
-                        if (EFPIAUtils.isFileTypeValid(fileExt)) {
-                            if (EFPIAUtils.isFileNameValid(fileName)) {
-                                if (!jcrSession.nodeExists(PUBLISH_DIR_PATH + "/" + backupFolderName)) {
-                                    JcrUtil.createPath(PUBLISH_DIR_PATH + "/" + backupFolderName, "nt:folder", jcrSession);
-                                }
-                                assetManager.moveAsset(r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
-                                logger.info("Asset {} backed up into {}", r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
-                            }
-                        }
-                    }
-                     */
                 }
             }
             // - Move assets in backup folder
@@ -113,56 +98,32 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
             int assetsMoved = 0;
             if (resource.hasChildren()) {
                 for (Resource asset : resource.getChildren()) {
-                    logger.debug("Type: {} - Name: {} - Path: {}", asset.getResourceType(), asset.getName(), asset.getPath());
+                    log.debug("Type: {} - Name: {} - Path: {}", asset.getResourceType(), asset.getName(), asset.getPath());
                     try {
                         String publishingPath = PUBLISH_DIR_PATH + "/" + asset.getName();
                         EFPIAUtils.validateResource(asset);
-                        logger.info("Asset {} is valid", asset.getPath());
+                        log.info("Asset {} is valid", asset.getPath());
                         assetManager.moveAsset(asset.getPath(), publishingPath);
-                        logger.info("Asset {} moved from DRAFT to PUBLISH path: {}", asset.getPath(), publishingPath);
+                        log.info("Asset {} moved from DRAFT to PUBLISH path: {}", asset.getPath(), publishingPath);
                         assetsMoved++;
                         replicator.replicate(jcrSession, ReplicationActionType.ACTIVATE, publishingPath);
-                        logger.info("Publication of {} started", publishingPath);
+                        log.info("Publication of {} started", publishingPath);
                         Resource res = resourceResolver.getResource(publishingPath);
                         ReplicationStatus resStatus = res.adaptTo(ReplicationStatus.class);
-                        logger.info("Replication status for resource {} is: {}", publishingPath, resStatus);
+                        log.info("Replication status for resource {} is: {}", publishingPath, resStatus);
                     } catch (EFPIAUtils.EFPIABlockingValidationException e) {
-                        logger.warn("Asset {} not moved: {}", asset.getPath(), e.getMessage());
+                        log.warn("Asset {} not moved: {}", asset.getPath(), e.getMessage());
                     } catch (EFPIAUtils.EFPIANonBlockingValidationException e) {
-                        logger.debug("Asset {} not moved: {}", asset.getPath(), e.getMessage());
+                        log.debug("Asset {} not moved: {}", asset.getPath(), e.getMessage());
                     }
-                    /*
-                    if (EFPIAUtils.isResourceTypeValid(asset.getResourceType())) {
-                        String fileName = StringUtils.substringBeforeLast(asset.getName(), ".");
-                        String fileExt = StringUtils.lowerCase(StringUtils.substringAfterLast(asset.getName(), "."));
-                        if (EFPIAUtils.isFileTypeValid(fileExt)) {
-                            if (EFPIAUtils.isFileNameValid(fileName)) {
-                                logger.info("Asset {} is valid", asset.getPath());
-                                assetManager.moveAsset(asset.getPath(), PUBLISH_DIR_PATH + "/" + asset.getName());
-                                logger.info("Asset {} moved from DRAFT to PUBLISH path: {}", asset.getPath(), PUBLISH_DIR_PATH + "/" + asset.getName());
-                                assetsMoved++;
-                            } else {
-                                logger.error("File name '{}' not acceptable", fileName);
-                                return;
-                            }
-                        } else {
-                            logger.error("File extension {} is not allowed. Asset {} rejected", fileExt, asset.getName());
-                            return;
-                        }
-                    } else {
-                        logger.info("Resource type {} for resource {} is not acceptable. Skipped.", asset.getResourceType(), asset.getName());
-                    }
-                     */
                 }
-                logger.info("{} assets moved", assetsMoved);
-
+                log.info("{} assets moved", assetsMoved);
+                double version = workflowData.getMetaDataMap().get("version", Double.class);
+                logger.approve(year, version, workItem.getMetaDataMap().get("comment", String.class));
             }
 
         } catch (Exception e) {
-            if (logger != null)
-                logger.error("[EFPIAAssetsMoveStep] ", e);
-            else
-                log.error("[EFPIAAssetsMoveStep] ", e);
+            log.error("[EFPIAAssetsMoveStep] ", e);
         }
     }
 }

@@ -29,6 +29,12 @@ public class EFPIAUtils {
         return null;
     }
 
+    public static Integer yearFromPath(String path) {
+        if (isPathValid(path))
+            return Integer.parseInt(StringUtils.substringAfter(path, "/efpia/"));
+        return null;
+    }
+
     public static boolean isResourceTypeValid(String resourceType) {
         return ACCEPTED_RESOURCE_TYPES.contains(StringUtils.lowerCase(resourceType));
     }
@@ -63,7 +69,7 @@ public class EFPIAUtils {
         return StringSubstitutor.replace(DRAFT_PATH, Map.of("siteName", siteName, "year", year));
     }
 
-    public static String getPublishPath(String siteName, String year) {
+    public static String getPublishPath(String siteName, Integer year) {
         return StringSubstitutor.replace(PUBLISH_PATH, Map.of("siteName", siteName, "year", year));
     }
 
