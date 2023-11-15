@@ -36,11 +36,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_RESOURCE_TYPES;
 
 
 @Component(service = Servlet.class,immediate = true)
 @SlingServletResourceTypes(
-		resourceTypes = NameConstants.NT_PAGE,
+		resourceTypes = SLING_SERVLET_RESOURCE_TYPES + "=menarinimaster/components/form/connected-option-container",
 		methods = {HttpConstants.METHOD_GET},
 		extensions = Constants.JSON,
 		selectors = {ConnectedOptionsServlet.DEFAULT_SELECTOR})

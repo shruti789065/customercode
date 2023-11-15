@@ -20,27 +20,26 @@
 		<sly data-sly-test="${options.type.value == 'drop-down' || options.type.value == 'multi-drop-down'}">
 			<label class="cmp-form-options__label" for="${options.id}">${options.title}</label>
 			<sly data-sly-test="${wcmmode.disabled}">
-				<select class="cmp-form-options__field cmp-form-options__field--${options.type.value}"
-			        name="${options.name}" id="${options.id}"
-			        data-sly-list.optionItem="${options.items}"
-			        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
-					<option value="${optionItem.value}" selected="${optionItem.selected}" disabled="${optionItem.disabled}"
-					        data-sly-attribute.aria-describedby="${options.helpMessage ? [options.id, 'helpMessage'] : '' @ join = '-'}">
-						${optionItem.text}
-					</option>
+				<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+				        name="${options.name}" id="${options.id}"
+				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+					<option value="" selected="" disabled=""
+					        data-sly-attribute.aria-describedby="">
 
+					</option>
 				</select>
-				<sly data-sly-test="${!wcmmode.disabled}">
-					<select class="cmp-form-options__field cmp-form-options__field--${options.type.value}"
-					        name="${options.name}" id="${options.id}"
-					        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
-						<option value="" selected="" disabled=""
-						        data-sly-attribute.aria-describedby="">
-							select...
-						</option>
-					</select>
-				</sly>
 			</sly>
+			<sly data-sly-test="${wcmmode.edit || wcmmode.preview}">
+				<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+				        name="${options.name}" id="${options.id}"
+				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+					<option value="" selected="" disabled=""
+					        data-sly-attribute.aria-describedby="">
+						Connected select...
+					</option>
+				</select>
+			</sly>
+
 		</sly>
 		<p id="${options.id}-helpMessage" class="cmp-form-options__help-message" data-sly-test="${options.helpMessage}">
 			${options.helpMessage}</p>
