@@ -1,0 +1,239 @@
+{
+	"jcr:primaryType": "sling:Folder",
+	"jcr:createdBy": "admin",
+	"jcr:created": "Thu Oct 19 2023 17:01:30 GMT+0200",
+	"china": {
+		"jcr:primaryType": "sling:Folder",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Thu Oct 19 2023 09:54:39 GMT+0200",
+		"jcr:content": {
+			"jcr:primaryType": "nt:unstructured",
+			"jcr:title": "china",
+			"sourcing": "false"
+		},
+		"market-china-1": {
+			"jcr:primaryType": "dam:Asset",
+			"jcr:mixinTypes": [
+				"mix:referenceable"
+			],
+			"jcr:createdBy": "admin",
+			"jcr:created": "Fri Oct 20 2023 09:28:13 GMT+0200",
+			"jcr:uuid": "4bc22fdd-2ba4-47fa-bd94-18413d52f06a",
+			"jcr:content": {
+				"jcr:primaryType": "dam:AssetContent",
+				"jcr:title": "market china 1",
+				"contentFragment": true,
+				"renditions": {
+					"jcr:primaryType": "nt:folder",
+					"jcr:createdBy": "admin",
+					"jcr:created": "Fri Oct 20 2023 09:28:13 GMT+0200"
+				},
+				"related": {
+					"jcr:primaryType": "nt:unstructured"
+				},
+				"indexedData": {
+					"jcr:primaryType": "nt:unstructured",
+					"master": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:mixinTypes": [
+							"dam:IndexedFragmentData"
+						],
+						"@string@model": "/conf/menarini-apac/settings/dam/cfm/models/market-list-fragment",
+						"@stringArray@variations": [],
+						"jcr:uuid": "a3fc0f73-1543-470f-8852-b1ee322fa73d"
+					}
+				},
+				"metadata": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:mixinTypes": [
+						"cq:Taggable"
+					]
+				},
+				"data": {
+					"jcr:primaryType": "nt:unstructured",
+					"_strucVersion": 1,
+					"cq:model": "/conf/menarini-apac/settings/dam/cfm/models/market-list-fragment",
+					"master": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:mixinTypes": [
+							"dam:cfVariationNode",
+							"cq:Taggable"
+						],
+						"linkUrl@LastModified": "Fri Oct 20 2023 09:28:13 GMT+0200",
+						"iconPath@LastModified": "Fri Oct 20 2023 09:28:13 GMT+0200"
+					}
+				}
+			}
+		}
+	},
+	"indonesia": {
+		"jcr:primaryType": "sling:Folder",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Thu Oct 19 2023 09:53:45 GMT+0200",
+		"fragment-2-indonesia": {
+			"jcr:primaryType": "dam:Asset",
+			"jcr:mixinTypes": [
+				"mix:referenceable",
+				"mix:versionable"
+			],
+			"jcr:createdBy": "admin",
+			"jcr:versionHistory": "e91860ca-37a5-4d93-939a-dffe7fefc0da",
+			"jcr:predecessors": [
+				"87c14b08-ad9e-4c88-bfd1-dc8544a59151"
+			],
+			"jcr:created": "Fri Oct 20 2023 09:28:44 GMT+0200",
+			"jcr:baseVersion": "87c14b08-ad9e-4c88-bfd1-dc8544a59151",
+			"jcr:isCheckedOut": true,
+			"jcr:uuid": "8a0fd9ab-7cbf-4a07-8a70-66004965c8ae",
+			"jcr:content": {
+				"jcr:primaryType": "dam:AssetContent",
+				"jcr:title": "fragment 2 indonesia",
+				"jcr:lastModifiedBy": "admin",
+				"contentFragment": true,
+				"cq:name": "fragment-2-indonesia",
+				"jcr:lastModified": "Fri Oct 20 2023 10:43:07 GMT+0200",
+				"lastFragmentSave": "Fri Oct 20 2023 10:43:07 GMT+0200",
+				"cq:parentPath": "/content/dam/menarini-apac/area-content-fragments/countries/indonesia",
+				"renditions": {
+					"jcr:primaryType": "nt:folder",
+					"jcr:createdBy": "admin",
+					"jcr:created": "Fri Oct 20 2023 09:28:44 GMT+0200"
+				},
+				"related": {
+					"jcr:primaryType": "nt:unstructured"
+				},
+				"indexedData": {
+					"jcr:primaryType": "nt:unstructured",
+					"master": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:mixinTypes": [
+							"dam:IndexedFragmentData"
+						],
+						"@string@model": "/conf/menarini-apac/settings/dam/cfm/models/market-list-fragment",
+						"@stringArray@variations": [],
+						"jcr:uuid": "897bccec-f0c6-46b8-9248-696b2f3ec608"
+					}
+				},
+				"metadata": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:mixinTypes": [
+						"cq:Taggable"
+					]
+				},
+				"data": {
+					"jcr:primaryType": "nt:unstructured",
+					"_strucVersion": 1,
+					"cq:model": "/conf/menarini-apac/settings/dam/cfm/models/market-list-fragment",
+					"master": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:mixinTypes": [
+							"dam:cfVariationNode",
+							"cq:Taggable"
+						],
+						"linkUrl@LastModified": "Fri Oct 20 2023 09:28:44 GMT+0200",
+						"iconPath@LastModified": "Fri Oct 20 2023 10:43:07 GMT+0200",
+						"iconPath": "/content/dam/mhos/doctor-placeholder.jpg"
+					}
+				}
+			}
+		},
+		"jcr:content": {
+			"jcr:primaryType": "nt:unstructured",
+			"jcr:title": "indonesia",
+			"sourcing": "false"
+		},
+		"fragment-1-indonesia": {
+			"jcr:primaryType": "dam:Asset",
+			"jcr:mixinTypes": [
+				"mix:referenceable",
+				"mix:versionable"
+			],
+			"jcr:createdBy": "admin",
+			"jcr:versionHistory": "604c520a-3820-4f84-9cd3-27cc18d514e2",
+			"jcr:predecessors": [
+				"27848889-3a70-4fda-9b11-ff31057cf2cf"
+			],
+			"jcr:created": "Thu Oct 19 2023 09:55:18 GMT+0200",
+			"jcr:baseVersion": "27848889-3a70-4fda-9b11-ff31057cf2cf",
+			"jcr:isCheckedOut": true,
+			"jcr:uuid": "5d7314c5-8438-4b01-849b-b73302c3b5ce",
+			"jcr:content": {
+				"jcr:primaryType": "dam:AssetContent",
+				"jcr:title": "fragment 1 indonesia",
+				"jcr:lastModifiedBy": "admin",
+				"contentFragment": true,
+				"cq:name": "fragment-1-indonesia",
+				"jcr:lastModified": "Fri Oct 20 2023 11:17:03 GMT+0200",
+				"lastFragmentSave": "Fri Oct 20 2023 11:17:03 GMT+0200",
+				"cq:parentPath": "/content/dam/menarini-apac/area-content-fragments/countries/indonesia",
+				"renditions": {
+					"jcr:primaryType": "nt:folder",
+					"jcr:createdBy": "admin",
+					"jcr:created": "Thu Oct 19 2023 09:55:18 GMT+0200"
+				},
+				"related": {
+					"jcr:primaryType": "nt:unstructured"
+				},
+				"indexedData": {
+					"jcr:primaryType": "nt:unstructured",
+					"master": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:mixinTypes": [
+							"dam:IndexedFragmentData"
+						],
+						"@string@model": "/conf/menarini-apac/settings/dam/cfm/models/market-list-fragment",
+						"@stringArray@variations": [],
+						"jcr:uuid": "17e6e6f0-cfd0-462b-81a8-af2711dd9e6a"
+					}
+				},
+				"metadata": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:mixinTypes": [
+						"cq:Taggable"
+					]
+				},
+				"data": {
+					"jcr:primaryType": "nt:unstructured",
+					"_strucVersion": 1,
+					"cq:model": "/conf/menarini-apac/settings/dam/cfm/models/market-list-fragment",
+					"master": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:mixinTypes": [
+							"dam:cfVariationNode",
+							"cq:Taggable"
+						],
+						"linkUrl@LastModified": "Thu Oct 19 2023 09:58:39 GMT+0200",
+						"iconPath@LastModified": "Fri Oct 20 2023 11:17:03 GMT+0200",
+						"iconPath": "/content/dam/menarini-apac/assets/home/cardhover_consumerhealth.jpg",
+						"linkUrl": "/content/menarini-apac/en/about-us"
+					}
+				}
+			}
+		},
+		"test": {
+			"jcr:primaryType": "sling:Folder",
+			"jcr:createdBy": "admin",
+			"jcr:created": "Thu Oct 19 2023 15:06:41 GMT+0200",
+			"jcr:content": {
+				"jcr:primaryType": "nt:unstructured",
+				"jcr:title": "r",
+				"sourcing": "false"
+			}
+		}
+	},
+	"jcr:content": {
+		"jcr:primaryType": "nt:unstructured",
+		"jcr:title": "countries",
+		"sourcing": "false"
+	},
+	"india": {
+		"jcr:primaryType": "sling:Folder",
+		"jcr:createdBy": "admin",
+		"jcr:created": "Fri Oct 20 2023 09:59:17 GMT+0200",
+		"jcr:content": {
+			"jcr:primaryType": "nt:unstructured",
+			"jcr:title": "india",
+			"sourcing": "false"
+		}
+	}
+}

@@ -1,5 +1,5 @@
 /*start custom teaser*/
-.teaser.cmp-custom-teaser {
+.cmp-custom-teaser {
 	background-color: $color-six;
 	display: flex;
 	width: 100%;
@@ -87,12 +87,12 @@
 	}
 }
 @media (min-width: 1200px) {
-	.teaser.cmp-custom-teaser {
+	.cmp-custom-teaser {
 		margin-bottom: 100px;
 	}
 }
 @media (max-width: 1200px) {
-	.teaser.cmp-custom-teaser {
+	.cmp-custom-teaser {
 		.cmp-teaser {
 			.cmp-teaser__image {
 				height: auto;
@@ -104,7 +104,7 @@
 	}
 }
 @media (max-width: 576px) {
-	.teaser.cmp-custom-teaser {
+	.cmp-custom-teaser {
 		.cmp-teaser {
 			flex-direction: column;
 			.cmp-teaser__image {
