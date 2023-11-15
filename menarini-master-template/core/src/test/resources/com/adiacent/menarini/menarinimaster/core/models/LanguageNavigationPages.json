@@ -1,0 +1,306 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:mixinTypes": [
+    "granite:AuthenticationRequired",
+    "rep:AccessControllable"
+  ],
+  "jcr:createdBy": "admin",
+  "jcr:created": "Tue Nov 14 2023 00:02:22 GMT+0100",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:mixinTypes": [
+      "cq:ReplicationStatus2",
+      "mix:versionable"
+    ],
+    "jcr:createdBy": "admin",
+    "jcr:title": "Menarini Apac",
+    "cq:lastReplicatedBy_publish": "L.ambrosini@adiacent.com",
+    "cq:isDelivered": true,
+    "cq:lastReplicationAction": "Activate",
+    "jcr:versionHistory": "e4cd28be-68ee-46d1-8861-b7aa8b780ff8",
+    "pwaOrientation": "any",
+    "cq:template": "/conf/menarini-apac/settings/wcm/templates/page-content",
+    "cq:lastReplicatedBy": "L.ambrosini@adiacent.com",
+    "cq:lastReplicationAction_publish": "Activate",
+    "sling:configRef": "/conf/menarini-apac",
+    "jcr:predecessors": [
+      "bf1bcc82-55ff-4296-b11e-b7ca9a13999c"
+    ],
+    "cq:redirectTarget": "/content/menarini-apac/en",
+    "sling:redirect": "true",
+    "jcr:created": "Tue Nov 14 2023 00:02:22 GMT+0100",
+    "pwaDisplay": "standalone",
+    "cq:lastReplicated": "Fri Nov 10 2023 13:59:15 GMT+0000",
+    "cq:lastModified": "Fri Nov 10 2023 13:58:35 GMT+0000",
+    "sling:redirectStatus": 302,
+    "pwaCachestrategy": "staleWhileRevalidate",
+    "jcr:baseVersion": "bf1bcc82-55ff-4296-b11e-b7ca9a13999c",
+    "jcr:isCheckedOut": true,
+    "siteName": "menarini apac",
+    "cq:conf": "/conf/menarini-apac",
+    "jcr:uuid": "79214ae5-4eb2-42d9-81ef-90b533cbb41a",
+    "sling:resourceType": "menarinimaster/components/page",
+    "sling:ResourceType": "menarinimaster/components/page",
+    "cq:allowedTemplates": "/conf/menarini-apac/settings/wcm/templates/(?!xf-).*",
+    "cq:lastReplicated_publish": "Fri Nov 10 2023 13:59:15 GMT+0000",
+    "cq:lastModifiedBy": "L.ambrosini@adiacent.com",
+    "image": {
+      "jcr:primaryType": "nt:unstructured"
+    },
+    "cq:featuredimage": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+      "jcr:lastModified": "Fri Nov 10 2023 13:58:35 GMT+0000",
+      "sling:resourceType": "core/wcm/components/image/v3/image",
+      "altValueFromDAM": "false"
+    }
+  },
+  "en": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Tue Nov 14 2023 00:02:23 GMT+0100",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:mixinTypes": [
+        "cq:ReplicationStatus2",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:title": "Home",
+      "cq:lastReplicatedBy_publish": "d.mariotti@adiacent.com",
+      "cq:isDelivered": true,
+      "cq:lastReplicationAction": "Activate",
+      "jcr:versionHistory": "4674a3d2-1ef9-4d45-972e-db0101db2ddb",
+      "pwaOrientation": "any",
+      "cq:template": "/conf/menarini-apac/settings/wcm/templates/menarini---homepage",
+      "cq:lastReplicatedBy": "d.mariotti@adiacent.com",
+      "oneTrustId": "###LOREMIPSUM###",
+      "cq:lastReplicationAction_publish": "Activate",
+      "jcr:predecessors": [
+        "b679654c-b2b0-406d-a061-6f95d83f0748"
+      ],
+      "jcr:created": "Tue Nov 14 2023 00:02:23 GMT+0100",
+      "pwaDisplay": "standalone",
+      "cq:lastReplicated": "Mon Nov 13 2023 14:15:14 GMT+0000",
+      "cq:lastModified": "Mon Nov 13 2023 14:15:07 GMT+0000",
+      "pwaCachestrategy": "staleWhileRevalidate",
+      "jcr:baseVersion": "b679654c-b2b0-406d-a061-6f95d83f0748",
+      "jcr:isCheckedOut": true,
+      "siteName": "menarini-apac",
+      "jcr:uuid": "2a9f7eb6-9414-4886-9f47-98570b7ddb97",
+      "sling:resourceType": "menarinimaster/components/page",
+      "cq:lastReplicated_publish": "Mon Nov 13 2023 14:15:14 GMT+0000",
+      "faviconFolder": "/content/dam/menarini-apac/assets/icons/favicon",
+      "cq:lastModifiedBy": "d.mariotti@adiacent.com"
+    },
+    "about-us": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:23 GMT+0100"
+    },
+    "key-business-areas": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:25 GMT+0100"
+    },
+    "news": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:36 GMT+0100"
+    },
+    "careers": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:52 GMT+0100"
+    },
+    "contact-us": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:54 GMT+0100"
+    },
+    "data-privacy": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:54 GMT+0100"
+    },
+    "sitemap": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:55 GMT+0100"
+    },
+    "partnering": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:55 GMT+0100"
+    },
+    "innovation--research": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:56 GMT+0100"
+    },
+    "responsibility": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:56 GMT+0100"
+    },
+    "apac-markets": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:02:57 GMT+0100"
+    }
+  },
+  "ko": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Tue Nov 14 2023 00:03:07 GMT+0100",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:mixinTypes": [
+        "cq:LiveRelationship",
+        "cq:LiveSync",
+        "cq:PropertyLiveSyncCancelled",
+        "cq:ReplicationStatus2",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:title": "Home",
+      "cq:lastReplicatedBy_publish": "L.ambrosini@adiacent.com",
+      "cq:isDelivered": true,
+      "cq:propertyInheritanceCancelled": [
+        "cq:redirectTarget",
+        "hideInNav"
+      ],
+      "jcr:versionHistory": "246b1c25-ce8f-45b5-a105-dbd45fd5fde9",
+      "pwaOrientation": "any",
+      "cq:template": "/conf/menarini-apac/settings/wcm/templates/menarini---homepage",
+      "oneTrustId": "###LOREMIPSUM###",
+      "cq:lastRolledout": "Mon Nov 13 2023 14:15:08 GMT+0000",
+      "cq:lastReplicationAction_publish": "Activate",
+      "jcr:predecessors": [
+        "f31e58aa-b7a1-4f9f-85d6-4da41cc7bbf0"
+      ],
+      "cq:redirectTarget": "/content/menarini-apac/en",
+      "jcr:created": "Tue Nov 14 2023 00:03:07 GMT+0100",
+      "pwaDisplay": "standalone",
+      "cq:lastModified": "Mon Nov 13 2023 14:15:08 GMT+0000",
+      "pwaCachestrategy": "staleWhileRevalidate",
+      "jcr:baseVersion": "f31e58aa-b7a1-4f9f-85d6-4da41cc7bbf0",
+      "jcr:isCheckedOut": true,
+      "siteName": "menarini-apac",
+      "jcr:uuid": "d2c3c7b0-f65c-482f-8c7b-43478a7c95a0",
+      "sling:resourceType": "menarinimaster/components/page",
+      "cq:lastReplicated_publish": "Fri Nov 10 2023 13:59:15 GMT+0000",
+      "faviconFolder": "/content/dam/menarini-apac/assets/icons/favicon",
+      "cq:lastRolledoutBy": "msm-service",
+      "cq:lastModifiedBy": "msm-service"
+    },
+    "apac-markets": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:08 GMT+0100"
+    }
+  },
+  "zh": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Tue Nov 14 2023 00:03:10 GMT+0100",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:mixinTypes": [
+        "cq:LiveRelationship",
+        "cq:LiveSync",
+        "cq:PropertyLiveSyncCancelled",
+        "cq:ReplicationStatus2",
+        "mix:versionable"
+      ],
+      "jcr:createdBy": "admin",
+      "jcr:title": "Home",
+      "cq:lastReplicatedBy_publish": "L.ambrosini@adiacent.com",
+      "cq:isDelivered": true,
+      "cq:propertyInheritanceCancelled": [
+        "jcr:language"
+      ],
+      "cq:lastReplicationAction": "Activate",
+      "jcr:versionHistory": "f38b2114-c87e-404f-a84b-9e71f7c01fef",
+      "pwaOrientation": "any",
+      "cq:template": "/conf/menarini-apac/settings/wcm/templates/menarini---homepage",
+      "cq:lastReplicatedBy": "L.ambrosini@adiacent.com",
+      "oneTrustId": "###LOREMIPSUM###",
+      "jcr:language": "zh_cn",
+      "cq:lastRolledout": "Mon Nov 13 2023 14:15:08 GMT+0000",
+      "cq:lastReplicationAction_publish": "Activate",
+      "jcr:predecessors": [
+        "8b074cac-2551-4e82-adc9-c04528e5f7fb"
+      ],
+      "jcr:created": "Tue Nov 14 2023 00:03:10 GMT+0100",
+      "pwaDisplay": "standalone",
+      "cq:lastReplicated": "Fri Nov 10 2023 13:59:38 GMT+0000",
+      "cq:lastModified": "Mon Nov 13 2023 14:15:08 GMT+0000",
+      "pwaCachestrategy": "staleWhileRevalidate",
+      "jcr:baseVersion": "8b074cac-2551-4e82-adc9-c04528e5f7fb",
+      "jcr:isCheckedOut": true,
+      "siteName": "menarini-apac",
+      "jcr:uuid": "9c74a60e-cbec-44db-b552-3b3cd4b01218",
+      "sling:resourceType": "menarinimaster/components/page",
+      "cq:lastReplicated_publish": "Fri Nov 10 2023 13:59:38 GMT+0000",
+      "faviconFolder": "/content/dam/menarini-apac/assets/icons/favicon",
+      "cq:lastRolledoutBy": "msm-service",
+      "cq:lastModifiedBy": "msm-service"
+    },
+    "about-us": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:10 GMT+0100"
+    },
+    "key-business-areas": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:12 GMT+0100"
+    },
+    "news": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:20 GMT+0100"
+    },
+    "careers": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:33 GMT+0100"
+    },
+    "contact-us": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:35 GMT+0100"
+    },
+    "data-privacy": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:35 GMT+0100"
+    },
+    "sitemap": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:36 GMT+0100"
+    },
+    "partnering": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:36 GMT+0100"
+    },
+    "innovation--research": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:37 GMT+0100"
+    },
+    "responsibility": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:38 GMT+0100"
+    },
+    "apac-markets": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Nov 14 2023 00:03:38 GMT+0100"
+    }
+  }
+}
