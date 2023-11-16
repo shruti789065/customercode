@@ -68,29 +68,39 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		Resource contentFragRes = resolver.getResource(departmentPagePath);
 
 		if (contentFragRes != null) {
-			StringBuilder myXpathQuery = new StringBuilder();
-			myXpathQuery.append("SELECT * FROM [dam:Asset] as p ");
-			myXpathQuery.append("WHERE ISDESCENDANTNODE('").append(contentFragRes.getPath()).append("') ");
-			myXpathQuery.append(" ORDER BY p.[jcr:created] ASC ");
+			String xpathQuery = buildXpathQuery(contentFragRes.getPath());
+			Query query = buildQuery(session, xpathQuery);
+			NodeIterator itemIterator = executeQuery(query);
 
-			assert session != null;
-			QueryManager queryManager = session.getWorkspace().getQueryManager();
-			Query query = queryManager.createQuery(myXpathQuery.toString(), Query.JCR_SQL2);
-			QueryResult queryResult = query.execute();
-			NodeIterator item = queryResult.getNodes();
-			while (item.hasNext()) {
-				Node node = item.nextNode();
-				Resource itemRes = resolver.getResource(node.getPath());
-				if (itemRes != null && itemRes.getResourceType().equals("dam:Asset")) {
-					ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
-					if (cf != null) {
-						JsonObject cfResultsPartial = new JsonObject();
-						cfResultsPartial.addProperty("title", cf.getTitle());
-						cfResultsPartial.addProperty("name", cf.getName());
-						JsonArray cfData = contentFragmentData(cf);
-						if (cfData != null) {
-							cfResultsPartial.add("department", cfData);
-						}
+			processNodes(resolver, itemIterator, departmentsList);
+		}
+
+		return mergeJsonArrays(departmentsList);
+	}
+
+	protected String buildXpathQuery(String path) {
+		return "SELECT * FROM [dam:Asset] as p WHERE ISDESCENDANTNODE('" + path + "') ORDER BY p.[jcr:created] ASC";
+	}
+
+	protected Query buildQuery(Session session, String xpathQuery) throws RepositoryException {
+		QueryManager queryManager = session.getWorkspace().getQueryManager();
+		return queryManager.createQuery(xpathQuery, Query.JCR_SQL2);
+	}
+
+	private NodeIterator executeQuery(Query query) throws RepositoryException {
+		QueryResult queryResult = query.execute();
+		return queryResult.getNodes();
+	}
+
+	private void processNodes(ResourceResolver resolver, NodeIterator itemIterator, List<JsonArray> departmentsList) throws Exception {
+		while (itemIterator.hasNext()) {
+			Node node = itemIterator.nextNode();
+			Resource itemRes = resolver.getResource(node.getPath());
+			if (itemRes != null && itemRes.getResourceType().equals("dam:Asset")) {
+				ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
+				if (cf != null) {
+					JsonObject cfResultsPartial = processContentFragment(cf);
+					if (cfResultsPartial != null) {
 						JsonArray currentResults = new JsonArray();
 						currentResults.add(cfResultsPartial);
 						departmentsList.add(currentResults);
@@ -98,10 +108,21 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 				}
 			}
 		}
-		return mergeJsonArrays(departmentsList);
 	}
 
-	private static JsonObject mergeJsonArrays(List<JsonArray> jsonArrays) {
+	private JsonObject processContentFragment(ContentFragment cf) throws Exception {
+		JsonObject cfResultsPartial = new JsonObject();
+		cfResultsPartial.addProperty("title", cf.getTitle());
+		cfResultsPartial.addProperty("name", cf.getName());
+		JsonArray cfData = contentFragmentData(cf);
+		if (cfData != null) {
+			cfResultsPartial.add("department", cfData);
+			return cfResultsPartial;
+		}
+		return null;
+	}
+
+	protected static JsonObject mergeJsonArrays(List<JsonArray> jsonArrays) {
 		JsonObject mergedObject = new JsonObject();
 		for (int i = 0; i < jsonArrays.size(); i++) {
 			JsonArray jsonArray = jsonArrays.get(i);
