@@ -7,35 +7,24 @@ import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import com.google.gson.JsonObject;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.*;
-import org.apache.sling.settings.SlingSettingsService;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
 
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import org.apache.sling.api.resource.ModifiableValueMap;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
-import com.adobe.granite.ui.components.ds.SimpleDataSource;
-import com.adobe.granite.ui.components.ds.DataSource;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import org.apache.sling.api.resource.ModifiableValueMap;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceUtil;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class ModelUtils {
 
@@ -228,4 +217,36 @@ public class ModelUtils {
 		}
 		return properties;
 	}
+	public static String encrypt(String key, String iv, String value, String TRANSFORMATION) throws Exception {
+		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
+		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes("UTF-8"));
+		cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
+
+		byte[] encrypted = cipher.doFinal(value.getBytes());
+		return Base64.getEncoder().encodeToString(encrypted);
+	}
+
+	public static String decrypt(String key, String iv, String encryptedValue, String TRANSFORMATION) throws Exception {
+		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
+		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes("UTF-8"));
+		cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
+
+		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
+		return new String(decrypted);
+	}
+	/*public static String encodeValue(String valore, SecretKey secretKey) throws Exception {
+		Cipher cipher = Cipher.getInstance("AES");
+		cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+		byte[] valoreCodificato = cipher.doFinal(valore.getBytes());
+		return Base64.getEncoder().encodeToString(valoreCodificato);
+	}
+
+	public static String decodeValue(String valoreCodificato, SecretKey secretKey) throws Exception {
+		Cipher cipher = Cipher.getInstance("AES");
+		cipher.init(Cipher.DECRYPT_MODE, secretKey);
+		byte[] valoreDecodificato = cipher.doFinal(Base64.getDecoder().decode(valoreCodificato));
+		return new String(valoreDecodificato);
+	}*/
 }

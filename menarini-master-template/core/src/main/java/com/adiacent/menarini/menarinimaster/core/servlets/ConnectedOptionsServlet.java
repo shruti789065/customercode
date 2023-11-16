@@ -19,6 +19,8 @@ import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -28,6 +30,7 @@ import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.json.JsonException;
 import javax.servlet.Servlet;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -53,19 +56,10 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		try {
 			Resource currentResource = request.getResource();
 			ResourceResolver resolver = currentResource.getResourceResolver();
-			//PageManager pageManager = resolver.adaptTo(PageManager.class);
 
-			/*if (pageManager != null) {
-				Page currentPage = pageManager.getContainingPage(currentResource.getPath());
-				if (currentPage != null) {
-					JsonObject jsonObject = getResult(request, resolver);
-					response.setContentType(Constants.APPLICATION_JSON);
-					response.getWriter().print(jsonObject);
-				}
-			}*/
 			Node currentNode = currentResource.adaptTo(Node.class);
 			if (currentNode != null) {
-				JsonObject jsonObject = getResult(request, resolver,currentNode);
+				JsonObject jsonObject = getResult(resolver,currentNode);
 				response.setContentType(Constants.APPLICATION_JSON);
 				response.getWriter().print(jsonObject);
 			}
@@ -75,15 +69,9 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		}
 	}
 
-	protected JsonObject getResult(SlingHttpServletRequest request, ResourceResolver resolver, Node currentNode) throws RepositoryException, JsonException {
+	protected JsonObject getResult(ResourceResolver resolver, Node currentNode) throws Exception {
 		List<JsonArray> departmentsList = new ArrayList<>();
-		String dropdownPath = request.getRequestPathInfo().getResourcePath();
-
-		/*Resource dropdownResource = resolver.resolve(dropdownPath);
-		String resourceType= "menarinimaster/components/form/connected-option-container";
-		String departmentPagePath = getComponentProperty(dropdownResource.getPath(),resourceType,"sourceFolder", resolver);*/
-
-		String departmentPagePath = currentNode.getProperty("sourceFolder").getString();
+		String departmentPagePath = currentNode.hasProperty("sourceFolder") ? currentNode.getProperty("sourceFolder").getString() : "";
 
 		Session session = resolver.adaptTo(Session.class);
 		StringBuilder myXpathQuery;
@@ -138,41 +126,8 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return mergedObject;
 	}
 
-	/*public static String getComponentProperty(String pagePath, String resourceType, String propertyName,ResourceResolver resolver) {
-		String propertyValue = "";
 
-		// Ottieni il Resource della pagina
-		Resource pageResource = resolver.getResource(pagePath);
-		if (pageResource != null) {
-			// Cerca il componente nella pagina con il resource type specificato
-			Resource componentResource = findComponentByResourceType(pageResource, resourceType);
-			if (componentResource != null) {
-				// Ottieni il ValueMap del componente e recupera il valore della proprietà
-				ValueMap valueMap = componentResource.getValueMap();
-				propertyValue = valueMap.get(propertyName, String.class);
-			}
-		}
-
-		return propertyValue;
-	}*/
-
-
-	/*private static Resource findComponentByResourceType(Resource parentResource, String resourceType) {
-		if (parentResource.isResourceType(resourceType)) {
-			return parentResource;
-		}
-
-		for (Resource childResource : parentResource.getChildren()) {
-			Resource foundResource = findComponentByResourceType(childResource, resourceType);
-			if (foundResource != null) {
-				return foundResource;
-			}
-		}
-
-		return null;
-	}*/
-
-	protected JsonArray contentFragmentData(ContentFragment cf) throws JsonException {
+	protected JsonArray contentFragmentData(ContentFragment cf) throws Exception {
 		Iterator<ContentElement> elementIterator = cf.getElements();
 		JsonObject jsonObject = new JsonObject();
 		JsonArray jsonArray = new JsonArray();
@@ -188,7 +143,8 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 				if (Boolean.TRUE.equals(containsKey(itemElement))) {
 					keyList.add(element.getContent());
 				} else if (Boolean.TRUE.equals(containsValue(itemElement))) {
-					valueList.add(element.getContent());
+					valueList.add(ModelUtils.encrypt("0123456789abcdef","abcdefghijklmnop",element.getContent(), "AES/CBC/PKCS5PADDING"));
+
 				}
 			}
 		}
@@ -215,5 +171,13 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 	protected Boolean containsValue(String s) {
 		final String VALUE = "value";
 		return s.contains(VALUE);
+	}
+	protected static SecretKey generateSecretKey() throws NoSuchAlgorithmException {
+		// Usiamo il KeyGenerator per generare la chiave
+		KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+		keyGenerator.init(256); // Specifica la lunghezza desiderata della chiave (in bit)
+
+		// Genera la chiave segreta
+		return keyGenerator.generateKey();
 	}
 }

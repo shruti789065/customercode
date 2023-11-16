@@ -29,3 +29,17 @@ export function _findSiblingsWithClass(element, className) {
   }
   return siblings;
 }
+
+export function getJsonProperty(jsonData, parameter) {
+	const items = [];
+	for (const key in jsonData) {
+	  if (jsonData.hasOwnProperty(key)) {
+		const fragment = jsonData[key];
+		if (fragment.hasOwnProperty(parameter)) {
+			items.push(fragment[parameter]);
+		}
+	  }
+	}
+
+	return items;
+  }
