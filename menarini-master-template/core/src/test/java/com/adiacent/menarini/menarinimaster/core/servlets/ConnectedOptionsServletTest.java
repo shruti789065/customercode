@@ -1,17 +1,11 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.servlets.HttpConstants;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -28,6 +22,10 @@ import javax.jcr.query.QueryResult;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Collections;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.*;
 
 public class ConnectedOptionsServletTest {
 

@@ -16,7 +16,6 @@ import java.util.Map;
 
 import static com.adobe.cq.wcm.core.components.testing.mock.ContextPlugins.CORE_COMPONENTS;
 import static junit.framework.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith({AemContextExtension.class})
 class NewsListModelTest {

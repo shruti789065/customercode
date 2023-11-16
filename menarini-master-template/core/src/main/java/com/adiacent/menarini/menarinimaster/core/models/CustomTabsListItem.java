@@ -1,13 +1,9 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
-import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.components.commons.link.Link;
 import com.adobe.cq.wcm.core.components.models.ListItem;
 import com.adobe.cq.wcm.core.components.models.datalayer.ComponentData;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Exporter;
 
 import java.util.Calendar;
 public class CustomTabsListItem implements ListItem {

@@ -3,12 +3,10 @@ package com.adiacent.menarini.menarinimaster.core.servlets;
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
 import com.adobe.granite.ui.components.ds.DataSource;
 import com.adobe.granite.ui.components.ds.EmptyDataSource;
-
 import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.adobe.granite.ui.components.ds.ValueMapResource;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
-
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;

@@ -2,12 +2,9 @@ package com.adiacent.menarini.menarinimaster.core.models;
 
 
 import com.adobe.cq.wcm.core.components.models.Teaser;
-
-
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextBuilder;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,7 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Model;
