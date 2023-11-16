@@ -19,8 +19,6 @@ import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -28,9 +26,7 @@ import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
-import javax.json.JsonException;
 import javax.servlet.Servlet;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -43,12 +39,9 @@ import java.util.List;
 		extensions = Constants.JSON,
 		selectors = {ConnectedOptionsServlet.DEFAULT_SELECTOR})
 @ServiceDescription("Menarini Master Template - Connected Options Servlet")
-
 public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 1447885216776273029L;
-
 	public static final String DEFAULT_SELECTOR = "connectedOptions";
-
 	private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
@@ -56,14 +49,12 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		try {
 			Resource currentResource = request.getResource();
 			ResourceResolver resolver = currentResource.getResourceResolver();
-
 			Node currentNode = currentResource.adaptTo(Node.class);
 			if (currentNode != null) {
-				JsonObject jsonObject = getResult(resolver,currentNode);
+				JsonObject jsonObject = getResult(resolver, currentNode);
 				response.setContentType(Constants.APPLICATION_JSON);
 				response.getWriter().print(jsonObject);
 			}
-
 		} catch (Exception e) {
 			logger.error("Error in Connected Options Servlet ", e);
 		}
@@ -74,16 +65,15 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		String departmentPagePath = currentNode.hasProperty("sourceFolder") ? currentNode.getProperty("sourceFolder").getString() : "";
 
 		Session session = resolver.adaptTo(Session.class);
-		StringBuilder myXpathQuery;
 		Resource contentFragRes = resolver.getResource(departmentPagePath);
 
 		if (contentFragRes != null) {
-			myXpathQuery = new StringBuilder();
+			StringBuilder myXpathQuery = new StringBuilder();
 			myXpathQuery.append("SELECT * FROM [dam:Asset] as p ");
 			myXpathQuery.append("WHERE ISDESCENDANTNODE('").append(contentFragRes.getPath()).append("') ");
 			myXpathQuery.append(" ORDER BY p.[jcr:created] ASC ");
-			assert session != null;
 
+			assert session != null;
 			QueryManager queryManager = session.getWorkspace().getQueryManager();
 			Query query = queryManager.createQuery(myXpathQuery.toString(), Query.JCR_SQL2);
 			QueryResult queryResult = query.execute();
@@ -91,21 +81,20 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 			while (item.hasNext()) {
 				Node node = item.nextNode();
 				Resource itemRes = resolver.getResource(node.getPath());
-				assert itemRes != null;
-				if (itemRes.getResourceType().equals("dam:Asset")) {
+				if (itemRes != null && itemRes.getResourceType().equals("dam:Asset")) {
 					ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
-					assert cf != null;
-					JsonObject cfResultsPartial = new JsonObject();
-					cfResultsPartial.addProperty("title", cf.getTitle());
-					cfResultsPartial.addProperty("name", cf.getName());
-					JsonArray cfData = contentFragmentData(cf);
-					if (cfData != null) {
-						cfResultsPartial.add("department", cfData);
+					if (cf != null) {
+						JsonObject cfResultsPartial = new JsonObject();
+						cfResultsPartial.addProperty("title", cf.getTitle());
+						cfResultsPartial.addProperty("name", cf.getName());
+						JsonArray cfData = contentFragmentData(cf);
+						if (cfData != null) {
+							cfResultsPartial.add("department", cfData);
+						}
+						JsonArray currentResults = new JsonArray();
+						currentResults.add(cfResultsPartial);
+						departmentsList.add(currentResults);
 					}
-
-					JsonArray currentResults = new JsonArray();
-					currentResults.add(cfResultsPartial);
-					departmentsList.add(currentResults);
 				}
 			}
 		}
@@ -114,18 +103,15 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 
 	private static JsonObject mergeJsonArrays(List<JsonArray> jsonArrays) {
 		JsonObject mergedObject = new JsonObject();
-		// Itera attraverso ogni JsonArray nella lista
 		for (int i = 0; i < jsonArrays.size(); i++) {
 			JsonArray jsonArray = jsonArrays.get(i);
-			// Aggiungi ogni elemento del JsonArray all'oggetto principale
 			for (int j = 0; j < jsonArray.size(); j++) {
 				JsonObject jsonObject = jsonArray.get(j).getAsJsonObject();
-				mergedObject.add("fragment-"+ (i), jsonObject);
+				mergedObject.add("fragment-" + (i), jsonObject);
 			}
 		}
 		return mergedObject;
 	}
-
 
 	protected JsonArray contentFragmentData(ContentFragment cf) throws Exception {
 		Iterator<ContentElement> elementIterator = cf.getElements();
@@ -140,11 +126,11 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 			String actualIndex = ModelUtils.extractIntAsString(itemElement);
 
 			if (itemElement.contains(actualIndex)) {
-				if (Boolean.TRUE.equals(containsKey(itemElement))) {
+				if (containsKey(itemElement)) {
 					keyList.add(element.getContent());
-				} else if (Boolean.TRUE.equals(containsValue(itemElement))) {
-					String encripted = ModelUtils.encrypt("0123456789abcdef","abcdefghijklmnop",element.getContent(), "AES/CBC/PKCS5PADDING");
-					valueList.add(encripted);
+				} else if (containsValue(itemElement)) {
+					String encrypted = ModelUtils.encrypt("0123456789abcdef", "abcdefghijklmnop", element.getContent(), "AES/CBC/PKCS5PADDING");
+					valueList.add(encrypted);
 				}
 			}
 		}
@@ -163,12 +149,12 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return jsonArray;
 	}
 
-	protected Boolean containsKey(String s) {
+	protected boolean containsKey(String s) {
 		final String KEY = "key";
 		return s.contains(KEY);
 	}
 
-	protected Boolean containsValue(String s) {
+	protected boolean containsValue(String s) {
 		final String VALUE = "value";
 		return s.contains(VALUE);
 	}

@@ -95,9 +95,9 @@ import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
 
     function fillSecondOption(value, jsonArray) {
       const departments = getDepartments(jsonArray, value);
-
-      let out = secondOption.innerHTML;
-
+	  let out = "";
+      out += `<option value="">Choose department</option>`;
+      
       for (const department of departments) {
         const { name, email } = department;
         out += `<option data-email="${email}" value="${_generateUniqueValue(name,email)}">${name}</option>`;
