@@ -144,7 +144,6 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 					keyList.add(element.getContent());
 				} else if (Boolean.TRUE.equals(containsValue(itemElement))) {
 					String encripted = ModelUtils.encrypt("0123456789abcdef","abcdefghijklmnop",element.getContent(), "AES/CBC/PKCS5PADDING");
-					//String decripted = ModelUtils.decrypt("0123456789abcdef","abcdefghijklmnop",encripted, "AES/CBC/PKCS5PADDING");
 					valueList.add(encripted);
 				}
 			}
@@ -172,13 +171,5 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 	protected Boolean containsValue(String s) {
 		final String VALUE = "value";
 		return s.contains(VALUE);
-	}
-	protected static SecretKey generateSecretKey() throws NoSuchAlgorithmException {
-		// Usiamo il KeyGenerator per generare la chiave
-		KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-		keyGenerator.init(256); // Specifica la lunghezza desiderata della chiave (in bit)
-
-		// Genera la chiave segreta
-		return keyGenerator.generateKey();
 	}
 }
