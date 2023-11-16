@@ -143,8 +143,9 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 				if (Boolean.TRUE.equals(containsKey(itemElement))) {
 					keyList.add(element.getContent());
 				} else if (Boolean.TRUE.equals(containsValue(itemElement))) {
-					valueList.add(ModelUtils.encrypt("0123456789abcdef","abcdefghijklmnop",element.getContent(), "AES/CBC/PKCS5PADDING"));
-
+					String encripted = ModelUtils.encrypt("0123456789abcdef","abcdefghijklmnop",element.getContent(), "AES/CBC/PKCS5PADDING");
+					//String decripted = ModelUtils.decrypt("0123456789abcdef","abcdefghijklmnop",encripted, "AES/CBC/PKCS5PADDING");
+					valueList.add(encripted);
 				}
 			}
 		}

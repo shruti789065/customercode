@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { getJsonProperty } from "../../site/_util.js";
+import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
 
 (function () {
   "use strict";
@@ -82,8 +82,8 @@ import { getJsonProperty } from "../../site/_util.js";
     }
 
     function fillFirstOption(jsonArray) {
-      const titles = getJsonProperty(jsonArray, "title");
-      const names = getJsonProperty(jsonArray, "name");
+      const titles = _getJsonProperty(jsonArray, "title");
+      const names = _getJsonProperty(jsonArray, "name");
 
       let out = "";
       out += `<option value="">Choose country</option>`;
@@ -100,7 +100,7 @@ import { getJsonProperty } from "../../site/_util.js";
 
       for (const department of departments) {
         const { name, email } = department;
-        out += `<option data-email="${email}" value="${email}">${name}</option>`;
+        out += `<option data-email="${email}" value="${_generateUniqueValue(name,email)}">${name}</option>`;
       }
 
       secondOption.innerHTML = out;
