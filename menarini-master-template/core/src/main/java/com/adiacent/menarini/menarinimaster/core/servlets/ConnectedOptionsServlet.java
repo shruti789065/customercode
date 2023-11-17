@@ -87,12 +87,12 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return queryManager.createQuery(xpathQuery, Query.JCR_SQL2);
 	}
 
-	private NodeIterator executeQuery(Query query) throws RepositoryException {
+	protected NodeIterator executeQuery(Query query) throws RepositoryException {
 		QueryResult queryResult = query.execute();
 		return queryResult.getNodes();
 	}
 
-	private void processNodes(ResourceResolver resolver, NodeIterator itemIterator, List<JsonArray> departmentsList) throws Exception {
+	protected static void processNodes(ResourceResolver resolver, NodeIterator itemIterator, List<JsonArray> departmentsList) throws Exception {
 		while (itemIterator.hasNext()) {
 			Node node = itemIterator.nextNode();
 			Resource itemRes = resolver.getResource(node.getPath());
@@ -110,7 +110,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		}
 	}
 
-	private JsonObject processContentFragment(ContentFragment cf) throws Exception {
+	protected static JsonObject processContentFragment(ContentFragment cf) throws Exception {
 		JsonObject cfResultsPartial = new JsonObject();
 		cfResultsPartial.addProperty("title", cf.getTitle());
 		cfResultsPartial.addProperty("name", cf.getName());
@@ -134,7 +134,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return mergedObject;
 	}
 
-	protected JsonArray contentFragmentData(ContentFragment cf) throws Exception {
+	protected static JsonArray contentFragmentData(ContentFragment cf) throws Exception {
 		Iterator<ContentElement> elementIterator = cf.getElements();
 		JsonObject jsonObject = new JsonObject();
 		JsonArray jsonArray = new JsonArray();
@@ -170,12 +170,12 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return jsonArray;
 	}
 
-	protected boolean containsKey(String s) {
+	protected static boolean containsKey(String s) {
 		final String KEY = "key";
 		return s.contains(KEY);
 	}
 
-	protected boolean containsValue(String s) {
+	protected static boolean containsValue(String s) {
 		final String VALUE = "value";
 		return s.contains(VALUE);
 	}
