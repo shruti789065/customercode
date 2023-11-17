@@ -1,6 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Model;
@@ -12,8 +13,9 @@ import javax.inject.Inject;
 @Model(adaptables = SlingHttpServletRequest.class)
 public class LinkFormatter {
 	@Inject @Optional
-	private String authoredLink;
+	protected String authoredLink;
 
+    @Getter
     private String formattedLink;
 
 	/**
@@ -26,8 +28,5 @@ public class LinkFormatter {
 		if(StringUtils.isNotEmpty(authoredLink)){
 			formattedLink = ModelUtils.getModifiedLink(authoredLink);
 		}
-	}
-	public String getFormattedLink() {
-		return formattedLink;
 	}
 }

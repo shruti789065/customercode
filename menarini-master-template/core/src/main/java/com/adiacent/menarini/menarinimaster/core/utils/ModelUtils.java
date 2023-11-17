@@ -235,17 +235,5 @@ public class ModelUtils {
 		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
 		return new String(decrypted);
 	}
-	/*public static String encodeValue(String valore, SecretKey secretKey) throws Exception {
-		Cipher cipher = Cipher.getInstance("AES");
-		cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-		byte[] valoreCodificato = cipher.doFinal(valore.getBytes());
-		return Base64.getEncoder().encodeToString(valoreCodificato);
-	}
 
-	public static String decodeValue(String valoreCodificato, SecretKey secretKey) throws Exception {
-		Cipher cipher = Cipher.getInstance("AES");
-		cipher.init(Cipher.DECRYPT_MODE, secretKey);
-		byte[] valoreDecodificato = cipher.doFinal(Base64.getDecoder().decode(valoreCodificato));
-		return new String(valoreDecodificato);
-	}*/
 }
