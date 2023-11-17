@@ -9,14 +9,14 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Designate(ocd = EncodeDecodeSercetKey.Config.class)
+@Designate(ocd = EncodeDecodeSecretKey.Config.class)
 @Component(immediate = true)
-public class EncodeDecodeSercetKey {
+public class EncodeDecodeSecretKey {
 
-    private static final Logger LOG = LoggerFactory.getLogger(EncodeDecodeSercetKey.class);
+    private static final Logger LOG = LoggerFactory.getLogger(EncodeDecodeSecretKey.class);
 
     private Config config;
-    private static EncodeDecodeSercetKey _instance = null;
+    private static EncodeDecodeSecretKey _instance = null;
 
     /**
      * Configuration class
@@ -37,7 +37,7 @@ public class EncodeDecodeSercetKey {
     @Modified
     protected void activate(final Config config){
         LOG.info("Activating Menarini Encode Secret Key");
-        EncodeDecodeSercetKey._instance = this;
+        EncodeDecodeSecretKey._instance = this;
         this.config = config;
         LOG.info("*********************************************************************************************");
         LOG.info("** secret key = " + this.config.getSecretKey());
@@ -50,7 +50,7 @@ public class EncodeDecodeSercetKey {
      * @return the _instance
      */
 
-    public static EncodeDecodeSercetKey get_instance(){
+    public static EncodeDecodeSecretKey get_instance(){
         return _instance;
     }
 
