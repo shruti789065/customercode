@@ -86,5 +86,15 @@
 	}
 }
 
+.cmp-list--color__white{
+	.cmp-list {
+		&__item{
+			color: $white;
+			&-link {
+				color: $white;
+			}
+		}
+	}	
+}
 
 
