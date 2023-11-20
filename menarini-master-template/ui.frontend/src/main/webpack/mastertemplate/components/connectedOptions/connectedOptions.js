@@ -49,13 +49,14 @@ import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
       }
 
       jsonArray = await callServlet(currentNodePath, jsonSelector);
-      fillFirstOption(jsonArray);
-      secondOption.innerHTML = `<option value="">Choose department</option>`;
+      fillFirstOption(jsonArray,firstOption.querySelector("option").value);
+      secondOption.innerHTML = `<option value="${secondOption.querySelector("option").value}">
+	  ${secondOption.querySelector("option").value}</option>`;
       secondOption.disabled = true;
 
       if (firstOption != null) {
         firstOption.addEventListener("change", (event) => {
-          fillSecondOption(event.target.value, jsonArray);
+          fillSecondOption(event.target.value, jsonArray,secondOption.querySelector("option").value);
         });
       }
     }
@@ -81,22 +82,22 @@ import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
       return jsonArray;
     }
 
-    function fillFirstOption(jsonArray) {
+    function fillFirstOption(jsonArray, placeholder) {
       const titles = _getJsonProperty(jsonArray, "title");
       const names = _getJsonProperty(jsonArray, "name");
 
       let out = "";
-      out += `<option value="">Choose country</option>`;
+      out += `<option value="">${placeholder}</option>`;
       for (let i = 0; i < titles.length; i++) {
         out += `<option value="${names[i]}">${titles[i]}</option>`;
       }
       firstOption.innerHTML = out;
     }
 
-    function fillSecondOption(value, jsonArray) {
+    function fillSecondOption(value, jsonArray,placeholder) {
       const departments = getDepartments(jsonArray, value);
 	  let out = "";
-      out += `<option value="">Choose department</option>`;
+      out += `<option value="${placeholder}">${placeholder}</option>`;
       
       for (const department of departments) {
         const { name, email } = department;

@@ -85,10 +85,9 @@ import java.util.stream.Stream;
 @ServiceDescription("Menarini House of Science - Import Library Servlet")
 public class ImportLibraryServlet extends AbstractJsonServlet {
 
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
     public static final String DEFAULT_SELECTOR = "importLibrary";
     protected transient ImportLibraryServlet.Response ilr = null;
-
 
     @Reference
     protected transient LibraryImporter importerInstance;
@@ -102,11 +101,11 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
     @Activate
     protected void activate() {
-        LOG.info("*** ACTIVATING {}",this.getClass().getName());
+        logger.info("*** ACTIVATING {}",this.getClass().getName());
     }
     @Deactivate
     protected void deactivate() {
-        LOG.info("*** DEACTIVATING {}",this.getClass().getName());
+        logger.info("*** DEACTIVATING {}",this.getClass().getName());
         importerInstance = null;
     }
 
@@ -141,7 +140,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
                         result = KO_RESULT;
                     }
                 } catch (CloneNotSupportedException e) {
-                    LOG.error("Library Import Servlet Error:" + e.getMessage(), e);
+                    logger.error("Library Import Servlet Error:" + e.getMessage(), e);
                     result = KO_RESULT;
                 }
 
@@ -154,7 +153,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
             endImport = Calendar.getInstance();
 
             sendResult(ilr, response);
-            LOG.info("******************FINE Import library servlet ************************");
+            logger.info("******************FINE Import library servlet ************************");
         }
 
     }

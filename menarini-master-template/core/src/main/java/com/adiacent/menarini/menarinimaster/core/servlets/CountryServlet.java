@@ -35,7 +35,7 @@ import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVL
 public class CountryServlet extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 1L;
 
-	private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+	private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
@@ -84,7 +84,7 @@ public class CountryServlet extends SlingAllMethodsServlet {
 			}
 
 		} catch (Exception e) {
-			LOG.error("Error in Dropdown Country Servlet ", e);
+			logger.error("Error in Dropdown Country Servlet ", e);
 		}
 	}
 }

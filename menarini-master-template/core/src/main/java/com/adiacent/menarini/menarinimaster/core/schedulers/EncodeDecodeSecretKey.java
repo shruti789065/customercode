@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 @Component(immediate = true)
 public class EncodeDecodeSecretKey {
 
-    private static final Logger LOG = LoggerFactory.getLogger(EncodeDecodeSecretKey.class);
+    private static final Logger logger = LoggerFactory.getLogger(EncodeDecodeSecretKey.class);
 
     private Config config;
     private static EncodeDecodeSecretKey _instance = null;
@@ -36,14 +36,14 @@ public class EncodeDecodeSecretKey {
     @Activate
     @Modified
     protected void activate(final Config config){
-        LOG.info("Activating Menarini Encode Secret Key");
+        logger.info("Activating Menarini Encode Secret Key");
         EncodeDecodeSecretKey._instance = this;
         this.config = config;
-        LOG.info("*********************************************************************************************");
-        LOG.info("** secret key = " + this.config.getSecretKey());
-        LOG.info("** Iv Parameter = " + this.config.getIvParameter());
-        LOG.info("** Alghorithm = " + this.config.getAlgorithm());
-        LOG.info("*********************************************************************************************");
+        logger.info("*********************************************************************************************");
+        logger.info("** secret key = " + this.config.getSecretKey());
+        logger.info("** Iv Parameter = " + this.config.getIvParameter());
+        logger.info("** Alghorithm = " + this.config.getAlgorithm());
+        logger.info("*********************************************************************************************");
     }
 
     /**

@@ -34,7 +34,7 @@ import java.util.Iterator;
 
 public class CountryJobPositionOptionsServlet extends SlingAllMethodsServlet {
     private static final long serialVersionUID = 8861971348268777529L;
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public static final String DEFAULT_SELECTOR = "countryJobOptions";
 
@@ -51,7 +51,7 @@ public class CountryJobPositionOptionsServlet extends SlingAllMethodsServlet {
             }
 
         }catch (Exception e){
-            LOG.error("Error in Connected Country And Job Position Dropdown Options Servlet Get call: ", e);
+            logger.error("Error in Connected Country And Job Position Dropdown Options Servlet Get call: ", e);
         }
     }
 

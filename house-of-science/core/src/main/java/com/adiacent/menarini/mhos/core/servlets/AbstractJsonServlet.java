@@ -20,7 +20,7 @@ public abstract class AbstractJsonServlet extends SlingAllMethodsServlet {
     public static final String OK_RESULT = "OK";
     public static final String KO_RESULT = "KO";
 
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractJsonServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(AbstractJsonServlet.class);
 
     private transient Gson gson = null;
 
@@ -50,7 +50,7 @@ public abstract class AbstractJsonServlet extends SlingAllMethodsServlet {
 
         } catch (IOException e) {
             response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            LOG.error("Error on sending servlet JSON result from " + this.getClass().getName(), e);
+            logger.error("Error on sending servlet JSON result from " + this.getClass().getName(), e);
         }
     }
 

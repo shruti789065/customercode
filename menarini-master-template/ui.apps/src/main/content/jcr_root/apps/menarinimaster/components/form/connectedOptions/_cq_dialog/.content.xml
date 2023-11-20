@@ -79,6 +79,7 @@
 															jcr:primaryType="nt:unstructured"
 															text="Multi-select drop-down"
 															value="multi-drop-down"/>
+
 												</items>
 											</optionTypes>
 											<title
@@ -94,6 +95,13 @@
 													fieldDescription="The name of the field, which is submitted with the form data."
 													fieldLabel="Name"
 													name="./name"
+													required="{Boolean}true"/>
+											<placeholder
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+													fieldDescription="The placeholder of the field."
+													fieldLabel="Placeholder Text"
+													name="./placeholderText"
 													required="{Boolean}true"/>
 											<source
 													granite:class="cmp-form-options-source cq-dialog-dropdown-showhide"
@@ -256,37 +264,7 @@
 											jcr:primaryType="nt:unstructured"
 											sling:resourceType="granite/ui/components/coral/foundation/container">
 										<items jcr:primaryType="nt:unstructured">
-											<checkboxOptions
-													granite:class="list-option-required-showhide-target foundation-layout-util-vmargin"
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/coral/foundation/container">
-												<granite:data
-														jcr:primaryType="nt:unstructured"
-														showhidetargetvalue="checkbox"/>
-												<items jcr:primaryType="nt:unstructured">
 
-												</items>
-											</checkboxOptions>
-
-											<radioOptions
-													granite:class="hide list-option-required-showhide-target foundation-layout-util-vmargin foundation-nestedcheckboxlist"
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/coral/foundation/container">
-												<granite:data
-														jcr:primaryType="nt:unstructured"
-														showhidetargetvalue="radio"/>
-												<items jcr:primaryType="nt:unstructured">
-													<firstRequired
-															granite:class="cmp-form-radio__required"
-															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/switch"
-															fieldDescription="Whether the first option must be accepted to proceed with the submit"
-															fieldLabel="First Item Acceptance Required"
-															name="./requiredRadio"
-															value="true"
-															uncheckedValue="false"/>
-												</items>
-											</radioOptions>
 
 											<selectOptions
 													granite:class="hide list-option-required-showhide-target foundation-layout-util-vmargin foundation-nestedcheckboxlist"
@@ -308,24 +286,7 @@
 												</items>
 											</selectOptions>
 
-											<multiSelectOptions
-													granite:class="hide list-option-required-showhide-target foundation-layout-util-vmargin foundation-nestedcheckboxlist"
-													jcr:primaryType="nt:unstructured"
-													sling:resourceType="granite/ui/components/coral/foundation/container">
-												<granite:data
-														jcr:primaryType="nt:unstructured"
-														showhidetargetvalue="multi-drop-down"/>
-												<items jcr:primaryType="nt:unstructured">
-													<multiSelectRequired
-															granite:class="cmp-form-radio__required"
-															jcr:primaryType="nt:unstructured"
-															sling:resourceType="granite/ui/components/coral/foundation/form/switch"
-															fieldDescription="Whether at least one option must be selected"
-															name="./requiredMultiSelect"
-															fieldLabel="Required field"
-															value="false"/>
-												</items>
-											</multiSelectOptions>
+
 
 											<requiredMessage
 													jcr:primaryType="nt:unstructured"

@@ -26,7 +26,7 @@ import static org.apache.sling.api.servlets.ServletResolverConstants.*;
 
 public class ProductsServlet extends SlingSafeMethodsServlet {
     private static final long serialVersionUID = 1L;
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -55,7 +55,7 @@ public class ProductsServlet extends SlingSafeMethodsServlet {
                 response.getWriter().print(results);
             }
         }catch (Exception e){
-            LOG.error("Error in Products servlet Get call: ", e);
+            logger.error("Error in Products servlet Get call: ", e);
         }
     }
 
