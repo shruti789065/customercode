@@ -188,7 +188,7 @@
         .cmp-teaser__title-link {
           color: $color-corporate;
           text-transform: inherit;
-          font-weight: $font-light;
+          font-weight: $font-extra-light;
           font-size: $title-font-size;
           font-family: $font-family-oswald;
           margin: 0px;
@@ -201,8 +201,8 @@
         }
 
         .cmp-teaser__description {
-          font-size: 18px;
-		  color: $color-corporate;
+          font-size: $font-size;
+		      color: $color-corporate;
           font-family: $font-family-arimo;
           display: -webkit-box;
           -webkit-line-clamp: 4;
@@ -210,7 +210,8 @@
           width: 100%;
           overflow: hidden;
           margin: 20px auto 30px;
-		  
+          font-style: normal;
+          line-height: 24px;
 
           p {
             margin: 0px;
@@ -233,6 +234,7 @@
           }
         }
       }
+      
     }
   }
   &.cmp-banner--secondary {
@@ -256,6 +258,55 @@
           transition: 0.5s;
           &:hover {
             background-color: $color-primary-hover;
+          }
+        }
+      }
+    }
+  }
+  &.cmp-fullDescription{
+    .cmp-banner--row{
+      .cmp-teaser__content,
+      .cmp-teaser__link {
+        .cmp-teaser__description{
+          display: -webkit-box;
+          -webkit-line-clamp: unset;
+          -webkit-box-orient: vertical;
+          width: 100%;
+          overflow: unset;
+        }
+      }
+    }
+  }
+  &.cmp-titleColor{
+    &-primary{
+      .cmp-banner--row{
+        .cmp-teaser__content{
+          .cmp-teaser__title{
+            .cmp-teaser__title-link{
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-secondary{
+      .cmp-banner--row{
+        .cmp-teaser__content{
+          .cmp-teaser__title{
+            .cmp-teaser__title-link{
+              color: $color-secondary;
+            }
+          }
+        }
+      }
+    }
+    &-corporate{
+      .cmp-banner--row{
+        .cmp-teaser__content{
+          .cmp-teaser__title{
+            .cmp-teaser__title-link{
+              color: $color-corporate;
+            }
           }
         }
       }

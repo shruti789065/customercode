@@ -128,86 +128,88 @@
 
     a {
       text-decoration: unset;
-    }
-
-    .cmp-teaser__image {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      .cmp-image {
-        height: 100%;
-
-        .cmp-image__image {
-          width: 100%;
-        }
-      }
-    }
-
-    .cmp-teaser__content,
-    .cmp-teaser__link {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      margin: 0px auto;
-      padding: 80px 0px;
-      background: rgba(0, 0, 0, 0.35);
-      transition: 0.5s;
-      min-height: 305px;
-
       .cmp-teaser__image {
-        position: relative;
-        width: auto;
-        background-color: unset;
-        left: unset;
-        top: unset;
-        transform: unset;
-
-        .cmp-image__image {
-          background-color: $white;
-          border-radius: 50%;
-          position: relative;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        .cmp-image {
+          height: 100%;
+  
+          .cmp-image__image {
+            width: 100%;
+          }
         }
       }
-    }
-
-    .cmp-teaser__title {
-      font-size: $title-font-size;
-      font-weight: $font-regular;
-      line-height: 55px;
-      font-family: $font-family-oswald;
-      margin: 0px;
-      color: $white;
-      text-align: center;
-    }
-
-    .cmp-teaser__description {
-      font-style: italic;
-      font-family: georgia;
-      font-size: 18px;
-      font-weight: $font-regular;
-      line-height: 22px;
-      color: $white;
-      padding: 0 20px;
-
-      p {
-        min-height: 44px;
-        text-align: center;
-        margin: 16px 0px;
+  
+      .cmp-teaser__content,
+      .cmp-teaser__link {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        margin: 0px auto;
+        padding: 80px 0px;
+        background: rgba(0, 0, 0, 0.35);
+        transition: 0.5s;
+        min-height: 305px;  
+        
+        .cmp-teaser__title {
+          font-size: $title-font-size;
+          font-weight: $font-regular;
+          line-height: 55px;
+          font-family: $font-family-oswald;
+          margin: 0px;
+          color: $white;
+          text-align: center;
+        }
+    
+        .cmp-teaser__description {
+          font-style: italic;
+          font-family: georgia;
+          font-size: 18px;
+          font-weight: $font-regular;
+          line-height: 22px;
+          color: $white;
+          padding: 0 20px;
+    
+          p {
+            min-height: 44px;
+            text-align: center;
+            margin: 16px 0px;
+          }
+        }
+        .cmp-teaser__image {
+          position: relative;
+          width: auto;
+          background-color: unset;
+          left: unset;
+          top: unset;
+          transform: unset;
+  
+          .cmp-image__image {
+            background-color: $white;
+            border-radius: 50%;
+            position: relative;
+          }
+        }
       }
+  
+      
+      
     }
     &.cmp-teaser--background_primary .cmp-teaser__content:hover,
     &.cmp-teaser--background_primary .cmp-teaser__link:hover {
-      background-color: $color-primary;
-      opacity: 0.7;
+        background-color: $color-primary;
+        opacity: 0.7;
     }
     &.cmp-teaser--background_secondary .cmp-teaser__content:hover,
     &.cmp-teaser--background_secondary .cmp-teaser__link:hover {
-      background-color: $color-secondary;
-      opacity: 0.7;
+        background-color: $color-secondary;
+        opacity: 0.7;
     }
+
   }
   .cmp-card--news {
     margin: 15px;
@@ -390,6 +392,7 @@
 				font-size: 30px;
 				-webkit-line-clamp: 2;
 				line-height: 40px;
+        margin-bottom: 20px;
 			}
 		}
 	}
@@ -412,6 +415,49 @@
 			}
 		}
 	}
+  }
+  &.cmp-titleColor{
+    &-primary{
+      .cmp-card--avatar{
+        .cmp-teaser__content{
+          .cmp-teaser__pretitle{
+              color: $color-primary;
+          }
+        }
+      }
+    }
+    &-secondary{
+      .cmp-card--avatar{
+        .cmp-teaser__content{
+          .cmp-teaser__pretitle{
+              color: $color-secondary;
+          }
+        }
+      }
+    }
+    &-corporate{
+      .cmp-card--avatar{
+        .cmp-teaser__content{
+          .cmp-teaser__pretitle{
+              color: $color-corporate;
+          }
+        }
+      }
+    }
+  }
+  &.cmp-fullDescription{
+    .cmp-card--standard{
+      .cmp-teaser__content,
+      .cmp-teaser__link {
+        .cmp-teaser__description{
+          display: -webkit-box;
+          -webkit-line-clamp: unset;
+          -webkit-box-orient: vertical;
+          width: 100%;
+          overflow: unset;
+        }
+      }
+    }
   }
 }
 
