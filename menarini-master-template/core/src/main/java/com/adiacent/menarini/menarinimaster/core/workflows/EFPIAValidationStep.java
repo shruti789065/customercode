@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component(property = {
-        Constants.SERVICE_DESCRIPTION + "=Validate EFPIA assets",
+        Constants.SERVICE_DESCRIPTION + "=EFPIA: Assets validation",
         Constants.SERVICE_VENDOR + "=Adiacent",
         "process.label" + "=Validation process of EFPIA assets"
 })
@@ -51,7 +51,7 @@ public class EFPIAValidationStep implements WorkflowProcess {
                       log.info("Asset {} is valid", asset.getPath());
                       assetsToApprove++;
                     } catch (EFPIAUtils.EFPIABlockingValidationException e) {
-                        log.error(e.getMessage());
+                        log.error("[EFPIAValidationStep]", e);
                         return;
                     } catch (EFPIAUtils.EFPIANonBlockingValidationException e) {
                         log.debug(e.getMessage());

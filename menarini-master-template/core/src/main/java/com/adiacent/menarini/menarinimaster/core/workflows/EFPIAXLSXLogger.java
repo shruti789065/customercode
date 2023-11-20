@@ -4,9 +4,11 @@ import com.adobe.granite.workflow.WorkflowException;
 import com.adobe.granite.workflow.WorkflowSession;
 import com.adobe.granite.workflow.exec.HistoryItem;
 import com.adobe.granite.workflow.exec.WorkItem;
+import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
-import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
+import com.day.cq.workflow.event.WorkflowEvent;
+import com.drew.lang.annotations.NotNull;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -15,10 +17,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
@@ -27,6 +32,7 @@ import java.util.List;
 
 public class EFPIAXLSXLogger {
 
+    private static transient final Logger log = LoggerFactory.getLogger(EFPIAXLSXLogger.class);
 
     private final String siteName;
 
@@ -48,6 +54,11 @@ public class EFPIAXLSXLogger {
     private static int IDX_REJECTER = 9;
     private static int IDX_REJECT_NOTES = 10;
 
+    private static final String ST_DRAFT = "DRAFT";
+    private static final String ST_APPROVED = "APPROVED";
+    private static final String ST_REJECTED = "REJECTED";
+    private static final String ST_OUTDATED = "OUTDATED";
+
     public static EFPIAXLSXLogger getLogger(String siteName, WorkItem workItem, WorkflowSession workflowSession) throws RepositoryException, WorkflowException, PersistenceException {
         EFPIAXLSXLogger logger = new EFPIAXLSXLogger(siteName);
         logger.jcrSession =  workflowSession.adaptTo(Session.class);
@@ -59,7 +70,7 @@ public class EFPIAXLSXLogger {
         if (history != null && !history.isEmpty()) {
             for (int i = history.size()-1; i >= 0; i--) {
                 HistoryItem hi = history.get(i);
-                if ("WorkflowCompleted".equals(hi.getAction())) {
+                if (WorkflowEvent.WORKFLOW_COMPLETED_EVENT.equals(hi.getAction())) {
                     logger.userId = hi.getUserId();
                     break;
                 }
@@ -74,7 +85,7 @@ public class EFPIAXLSXLogger {
         for (String nodeName : nodeNames) {
             path += "/" + nodeName;
             if (!logger.jcrSession.nodeExists(path)) {
-                JcrUtil.createPath(path, "nt:folder", logger.jcrSession);
+                JcrUtil.createPath(path, JcrConstants.NT_FOLDER, logger.jcrSession);
             }
         }
         path += "/" + logFileName;
@@ -88,7 +99,7 @@ public class EFPIAXLSXLogger {
             final ValueFactory valueFactory = logger.jcrSession.getValueFactory();
             final Binary binary = valueFactory.createBinary(is);
 
-            Asset fileAsset = assetManager.createOrReplaceAsset(path, binary, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", true);
+            assetManager.createOrReplaceAsset(path, binary, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", true);
 
             //Node fileNode = fileAsset.adaptTo(Node.class);
 
@@ -98,7 +109,7 @@ public class EFPIAXLSXLogger {
             logger.jcrNode.setProperty("jcr:encoding", "utf-8");*/
             resourceResolver.commit();
         } //else {
-        Resource r = resourceResolver.getResource(path + "/jcr:content/renditions/original/jcr:content");
+        Resource r = resourceResolver.getResource(path + "/"+JcrConstants.JCR_CONTENT+"/renditions/original/" + JcrConstants.JCR_CONTENT);
         if (r != null)
             logger.jcrNode = r.adaptTo(Node.class);
         //}
@@ -109,13 +120,13 @@ public class EFPIAXLSXLogger {
         this.siteName = siteName;
     }
 
-    private Workbook read() {
+    private byte[] read() {
         if (jcrNode != null) {
             try {
                 Value value = null;
                 byte[] fileContent = new byte[0];
                 try {
-                    Property data = jcrNode.getProperty("jcr:data");
+                    Property data = jcrNode.getProperty(JcrConstants.JCR_DATA);
                     if (data != null) {
                         value = (Value) data.getValue();
                         InputStream is = value.getBinary().getStream();
@@ -124,120 +135,163 @@ public class EFPIAXLSXLogger {
                     }
                 } catch (RepositoryException e) {
                 }
-                Workbook res = null;
+
                 if (fileContent.length == 0) {
-                    res = new XSSFWorkbook();
-                    Sheet sheet = res.createSheet("ReportHeaders");
-                    Row header = sheet.createRow(0);
-                    //
-                    header.createCell(IDX_YEAR).setCellValue("Year");
-                    header.createCell(IDX_VERSION).setCellValue("Version");
-                    header.createCell(IDX_STATUS).setCellValue("Status");
-                    header.createCell(IDX_NOTES).setCellValue("Note");
-                    header.createCell(IDX_DATE_CREATED).setCellValue("CreatedOnDate");
-                    header.createCell(IDX_CREATOR).setCellValue("CreatedByUser");
-                    header.createCell(IDX_DATE_APPROVED).setCellValue("ApprovedOnDate");
-                    header.createCell(IDX_APPROVER).setCellValue("ApprovedByUser");
-                    header.createCell(IDX_DATE_REJECTED).setCellValue("RejectedOnDate");
-                    header.createCell(IDX_REJECTER).setCellValue("RejectedByUser");
-                    header.createCell(IDX_REJECT_NOTES).setCellValue("RejectedNote");
-                } else {
-                    res = new XSSFWorkbook(new ByteArrayInputStream(fileContent));
-                }
-                return res;
-            } catch (Exception ex) {
-                ex.printStackTrace();
+                    Workbook wb = null;
+                    try {
+                        wb = new XSSFWorkbook();
+                        Sheet sheet = wb.createSheet("ReportHeaders");
+                        Row header = sheet.createRow(0);
+                        //
+                        header.createCell(IDX_YEAR).setCellValue("Year");
+                        header.createCell(IDX_VERSION).setCellValue("Version");
+                        header.createCell(IDX_STATUS).setCellValue("Status");
+                        header.createCell(IDX_NOTES).setCellValue("Note");
+                        header.createCell(IDX_DATE_CREATED).setCellValue("CreatedOnDate");
+                        header.createCell(IDX_CREATOR).setCellValue("CreatedByUser");
+                        header.createCell(IDX_DATE_APPROVED).setCellValue("ApprovedOnDate");
+                        header.createCell(IDX_APPROVER).setCellValue("ApprovedByUser");
+                        header.createCell(IDX_DATE_REJECTED).setCellValue("RejectedOnDate");
+                        header.createCell(IDX_REJECTER).setCellValue("RejectedByUser");
+                        header.createCell(IDX_REJECT_NOTES).setCellValue("RejectedNote");
+
+                        ByteArrayOutputStream out = new ByteArrayOutputStream();
+                        wb.write(out);
+                        wb.close();
+                        return out.toByteArray();
+                    } finally {
+                        if (wb != null)
+                            try { wb.close();} catch (Exception e) {}
+                    }
+                } /*else {
+                    return fileContent; //new XSSFWorkbook(new ByteArrayInputStream(fileContent));
+                }*/
+                return fileContent;
+            } catch (Exception e) {
+                log.error("[EFPIAXLSXLogger]", e);
             }
         }
         return null;
     }
 
-    private void write(Workbook wb) {
-        try {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            wb.write(bos);
-            wb.close();
-            byte[] fileContent = bos.toByteArray();
-            Value value = null;
-            ValueFactory factory = jcrSession.getValueFactory();
-            Binary binary = factory.createBinary(new ByteArrayInputStream(fileContent));
-            value = factory.createValue(binary);
-            jcrNode.setProperty("jcr:data", value);
-            binary.dispose();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void write(@NotNull Workbook wb) throws IOException, RepositoryException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        wb.write(bos);
+        byte[] fileContent = bos.toByteArray();
+        Value value = null;
+        ValueFactory factory = jcrSession.getValueFactory();
+        Binary binary = factory.createBinary(new ByteArrayInputStream(fileContent));
+        value = factory.createValue(binary);
+        jcrNode.setProperty(JcrConstants.JCR_DATA, value);
+        binary.dispose();
     }
 
     public double submitForApproval(Integer year, String note) {
-        Workbook wb = this.read();
-        Sheet sheet = wb.getSheetAt(0);
-        int rowIndex = 1;
-        double version = 0;
-        Row row;
-        while ((row = sheet.getRow(rowIndex)) != null) {
-            if (row.getCell(IDX_VERSION).getNumericCellValue() > version) {
-                version = row.getCell(1).getNumericCellValue();
+        byte[] fileContent = this.read();
+        Workbook wb = null;
+        Double version = null;
+        try {
+            wb = new XSSFWorkbook(new ByteArrayInputStream(fileContent));
+            Sheet sheet = wb.getSheetAt(0);
+            int rowIndex = 1;
+            Row row;
+            while ((row = sheet.getRow(rowIndex)) != null) {
+                if (row.getCell(IDX_VERSION).getNumericCellValue() > version) {
+                    version = row.getCell(1).getNumericCellValue();
+                }
+                rowIndex++;
             }
-            rowIndex++;
+            version++;
+
+            row = sheet.createRow(rowIndex);
+            row.createCell(IDX_YEAR).setCellValue(year);
+            row.createCell(IDX_VERSION).setCellValue(version);
+            row.createCell(IDX_STATUS).setCellValue(ST_DRAFT);
+            row.createCell(IDX_NOTES).setCellValue(note);
+            row.createCell(IDX_DATE_CREATED).setCellValue(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+            row.createCell(IDX_CREATOR).setCellValue(this.userId);
+
+
+            this.write(wb);
+
+        } catch (RepositoryException e) {
+            log.error("[EFPIAXLSXLogger]", e);
+        } catch (IOException e) {
+            log.error("[EFPIAXLSXLogger]", e);
+        } finally {
+            if (wb != null)
+                try { wb.close();} catch (Exception e) {}
         }
-        version++;
-
-        row = sheet.createRow(rowIndex);
-        row.createCell(IDX_YEAR).setCellValue(year);
-        row.createCell(IDX_VERSION).setCellValue(version);
-        row.createCell(IDX_STATUS).setCellValue("DRAFT");
-        row.createCell(IDX_NOTES).setCellValue(note);
-        row.createCell(IDX_DATE_CREATED).setCellValue(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
-        row.createCell(IDX_CREATOR).setCellValue(this.userId);
-
-
-        this.write(wb);
 
         return version;
     }
 
     public void approve(Integer year, Double version, String note) {
-        Workbook wb = this.read();
-        Sheet sheet = wb.getSheetAt(0);
-        int rowIndex = 1;
-        Row row;
-        while ((row = sheet.getRow(rowIndex)) != null) {
-            if (row.getCell(IDX_YEAR).getNumericCellValue() == (double)year && "APPROVED".equals(row.getCell(IDX_STATUS).getStringCellValue())) {
-                row.getCell(IDX_STATUS).setCellValue("OUTDATED");
+        Workbook wb = null;
+        try {
+            byte[] fileContent = this.read();
+            wb = new XSSFWorkbook(new ByteArrayInputStream(fileContent));
+            Sheet sheet = wb.getSheetAt(0);
+            int rowIndex = 1;
+            Row row;
+            while ((row = sheet.getRow(rowIndex)) != null) {
+                if (row.getCell(IDX_YEAR).getNumericCellValue() == (double)year && ST_APPROVED.equals(row.getCell(IDX_STATUS).getStringCellValue())) {
+                    row.getCell(IDX_STATUS).setCellValue(ST_OUTDATED);
+                }
+                if (row.getCell(IDX_YEAR).getNumericCellValue() == (double)year && row.getCell(IDX_VERSION).getNumericCellValue() == version)
+                    break;
+                rowIndex++;
             }
-            if (row.getCell(IDX_YEAR).getNumericCellValue() == (double)year && row.getCell(IDX_VERSION).getNumericCellValue() == version)
-                break;
-            rowIndex++;
+            if (row != null) {
+                row.getCell(IDX_STATUS).setCellValue(ST_APPROVED);
+                row.createCell(IDX_DATE_APPROVED).setCellValue(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                row.createCell(IDX_APPROVER).setCellValue(this.userId);
+                row.createCell(IDX_NOTES).setCellValue(note);
+            }
+
+
+            this.write(wb);
+        } catch (RepositoryException e) {
+            log.error("[EFPIAXLSXLogger]", e);
+        } catch (IOException e) {
+            log.error("[EFPIAXLSXLogger]", e);
+        } finally {
+            if (wb != null)
+                try { wb.close();} catch (Exception e) {}
         }
-
-        row.getCell(IDX_STATUS).setCellValue("APPROVED");
-        row.createCell(IDX_DATE_APPROVED).setCellValue(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
-        row.createCell(IDX_APPROVER).setCellValue(this.userId);
-        row.createCell(IDX_NOTES).setCellValue(note);
-
-
-        this.write(wb);
     }
 
     public void reject(Integer year, Double version, String note) {
-        Workbook wb = this.read();
-        Sheet sheet = wb.getSheetAt(0);
-        int rowIndex = 1;
-        Row row;
-        while ((row = sheet.getRow(rowIndex)) != null) {
-            if (row.getCell(IDX_YEAR).getNumericCellValue() == (double)year && row.getCell(IDX_VERSION).getNumericCellValue() == version)
-                break;
-            rowIndex++;
+        Workbook wb = null;
+        try {
+            byte[] fileContent = this.read();
+            wb = new XSSFWorkbook(new ByteArrayInputStream(fileContent));
+
+            Sheet sheet = wb.getSheetAt(0);
+            int rowIndex = 1;
+            Row row;
+            while ((row = sheet.getRow(rowIndex)) != null) {
+                if (row.getCell(IDX_YEAR).getNumericCellValue() == (double)year && row.getCell(IDX_VERSION).getNumericCellValue() == version)
+                    break;
+                rowIndex++;
+            }
+            if (row != null) {
+                row.getCell(IDX_STATUS).setCellValue(ST_REJECTED);
+                row.createCell(IDX_DATE_REJECTED).setCellValue(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                row.createCell(IDX_REJECTER).setCellValue(this.userId);
+                row.createCell(IDX_REJECT_NOTES).setCellValue(note);
+            }
+
+
+            this.write(wb);
+        } catch (RepositoryException e) {
+            log.error("[EFPIAXLSXLogger]", e);
+        } catch (IOException e) {
+            log.error("[EFPIAXLSXLogger]", e);
+        } finally {
+            if (wb != null)
+                try { wb.close();} catch (Exception e) {}
         }
-
-        row.getCell(IDX_STATUS).setCellValue("REJECTED");
-        row.createCell(IDX_DATE_REJECTED).setCellValue(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
-        row.createCell(IDX_REJECTER).setCellValue(this.userId);
-        row.createCell(IDX_REJECT_NOTES).setCellValue(note);
-
-
-        this.write(wb);
     }
 
 }

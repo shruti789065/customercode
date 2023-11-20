@@ -3,11 +3,11 @@ package com.adiacent.menarini.menarinimaster.core.workflows;
 import com.adobe.granite.asset.api.AssetManager;
 import com.adobe.granite.workflow.WorkflowException;
 import com.adobe.granite.workflow.WorkflowSession;
-import com.adobe.granite.workflow.exec.Participant;
 import com.adobe.granite.workflow.exec.WorkItem;
 import com.adobe.granite.workflow.exec.WorkflowData;
 import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
+import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationStatus;
@@ -22,13 +22,12 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Component(property = {
-        Constants.SERVICE_DESCRIPTION + "=Move EFPIA assets to publish folder",
+        Constants.SERVICE_DESCRIPTION + "=EFPIA: Assets move to publish folder",
         Constants.SERVICE_VENDOR + "=Adiacent",
         "process.label" + "=Move EFPIA Assets to publish folder"
 })
@@ -66,7 +65,7 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
                 for (String nodeName : nodeNames) {
                     publishPath += "/" + nodeName;
                     if (!jcrSession.nodeExists(publishPath)) {
-                        JcrUtil.createPath(publishPath, "nt:folder", jcrSession);
+                        JcrUtil.createPath(publishPath, JcrConstants.NT_FOLDER, jcrSession);
                     }
                 }
                 publishDir = resourceResolver.getResource(PUBLISH_DIR_PATH);
@@ -80,7 +79,7 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
                     try {
                         EFPIAUtils.validateResource(r);
                         if (!jcrSession.nodeExists(PUBLISH_DIR_PATH + "/" + backupFolderName)) {
-                            JcrUtil.createPath(PUBLISH_DIR_PATH + "/" + backupFolderName, "nt:folder", jcrSession);
+                            JcrUtil.createPath(PUBLISH_DIR_PATH + "/" + backupFolderName, JcrConstants.NT_FOLDER, jcrSession);
                         }
                         assetManager.moveAsset(r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
                         log.info("Asset {} backed up into {}", r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());

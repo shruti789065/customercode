@@ -4,31 +4,31 @@ import com.adobe.granite.workflow.WorkflowException;
 import com.adobe.granite.workflow.WorkflowSession;
 import com.adobe.granite.workflow.exec.HistoryItem;
 import com.adobe.granite.workflow.exec.WorkItem;
+import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
-import com.day.cq.wcm.foundation.TextFormat;
+import com.day.cq.workflow.event.WorkflowEvent;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.osgi.service.event.Event;
-import org.osgi.service.event.EventAdmin;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.*;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.text.Format;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 
 public class EFPIALogger {
 
+    private static final transient Logger log = LoggerFactory.getLogger(EFPIALogger.class);
 
     private final String siteName;
     private final Level level;
@@ -66,7 +66,7 @@ public class EFPIALogger {
         if (history != null && !history.isEmpty()) {
             for (int i = history.size()-1; i >= 0; i--) {
                 HistoryItem hi = history.get(i);
-                if ("WorkflowCompleted".equals(hi.getAction())) {
+                if (WorkflowEvent.WORKFLOW_COMPLETED_EVENT.equals(hi.getAction())) {
                     logger.userId = hi.getUserId();
                     break;
                 }
@@ -80,7 +80,7 @@ public class EFPIALogger {
         for (String nodeName : nodeNames) {
             path += "/" + nodeName;
             if (!logger.jcrSession.nodeExists(path)) {
-                JcrUtil.createPath(path, "nt:folder", logger.jcrSession);
+                JcrUtil.createPath(path, JcrConstants.NT_FOLDER, logger.jcrSession);
             }
         }
         path += "/" + logFileName;
@@ -149,7 +149,7 @@ public class EFPIALogger {
                 Value value = null;
                 byte[] fileContent = new byte[0];
                 try {
-                    Property data = jcrNode.getProperty("jcr:data");
+                    Property data = jcrNode.getProperty(JcrConstants.JCR_DATA);
                     if (data != null) {
                         value = (Value) data.getValue();
                         InputStream is = value.getBinary().getStream();
@@ -168,10 +168,10 @@ public class EFPIALogger {
                 ValueFactory factory = jcrSession.getValueFactory();
                 Binary binary = factory.createBinary(new ByteArrayInputStream(fileContent));
                 value = factory.createValue(binary);
-                jcrNode.setProperty("jcr:data", value);
+                jcrNode.setProperty(JcrConstants.JCR_DATA, value);
                 binary.dispose();
             } catch (Exception ex) {
-                ex.printStackTrace();
+                log.error("[EFPIALogger]", ex);
             }
         }
     }
