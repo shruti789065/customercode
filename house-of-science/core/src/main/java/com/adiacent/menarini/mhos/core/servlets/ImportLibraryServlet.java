@@ -91,7 +91,7 @@ public class ImportLibraryServlet extends AbstractJsonServlet {
 
 
     @Reference
-    protected LibraryImporter importerInstance;
+    protected transient LibraryImporter importerInstance;
 
     protected boolean running = false; //TRUE: è in corso l'import dei prodotti
     private Calendar endImport = null; //data fine i-esima importazione

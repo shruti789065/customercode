@@ -7,22 +7,23 @@ import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import com.google.gson.JsonObject;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.settings.SlingSettingsService;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+
 
 public class ModelUtils {
 
@@ -183,6 +184,56 @@ public class ModelUtils {
 			resource = resourceResolver.getResource(path);
 		}
 		return resource;
+	}
+
+	public static int extractIntFromString(String input) {
+		int extractedInt = 0;
+		try {
+			extractedInt = Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			System.out.println("Impossibile estrarre un intero dalla stringa.");
+		}
+		return extractedInt;
+	}
+	public static String extractIntAsString(String input) {
+		StringBuilder result = new StringBuilder();
+
+		for (char c : input.toCharArray()) {
+			if (Character.isDigit(c)) {
+				result.append(c);
+			}
+		}
+
+		return result.toString();
+	}
+
+
+
+	public static Map<String, Object> convertJsonObjectToMap(JsonObject jsonObject) {
+		Map<String, Object> properties = new HashMap<>();
+		for (Map.Entry<String, com.google.gson.JsonElement> entry : jsonObject.entrySet()) {
+			properties.put(entry.getKey(), entry.getValue().getAsString());
+		}
+		return properties;
+	}
+	public static String encrypt(String key, String iv, String value, String TRANSFORMATION) throws Exception {
+		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
+		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes("UTF-8"));
+		cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
+
+		byte[] encrypted = cipher.doFinal(value.getBytes());
+		return Base64.getEncoder().encodeToString(encrypted);
+	}
+
+	public static String decrypt(String key, String iv, String encryptedValue, String TRANSFORMATION) throws Exception {
+		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
+		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes("UTF-8"));
+		cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
+
+		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
+		return new String(decrypted);
 	}
 
 }

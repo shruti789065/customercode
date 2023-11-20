@@ -7,23 +7,21 @@ import com.adobe.cq.wcm.core.components.models.Tabs;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.foundation.Image;
-
 import lombok.experimental.Delegate;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.jackrabbit.commons.webdav.JcrRemotingConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.*;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceUtil;
 import org.apache.sling.jcr.resource.api.JcrResourceConstants;
-import org.apache.sling.models.annotations.*;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
 
 import javax.annotation.PostConstruct;
 import javax.jcr.Node;
-
-
 import java.util.*;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 

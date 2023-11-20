@@ -1,0 +1,48 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2016 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<sly data-sly-use.options="com.adobe.cq.wcm.core.components.models.form.Options"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.isNotEmpty="${options.title}">
+	<fieldset class="cmp-form-options cmp-form-options--${options.type.value}">
+		<sly data-sly-test="${options.type.value == 'drop-down' || options.type.value == 'multi-drop-down'}">
+			<label class="cmp-form-options__label" for="${options.id}">${options.title}</label>
+			<sly data-sly-test="${wcmmode.disabled}">
+				<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+				        name="${options.name}" id="${options.id}"
+				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+					<option value="" selected="" disabled=""
+					        data-sly-attribute.aria-describedby="">
+
+					</option>
+				</select>
+			</sly>
+			<sly data-sly-test="${wcmmode.edit || wcmmode.preview}">
+				<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+				        name="${options.name}" id="${options.id}"
+				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+					<option value="" selected="" disabled=""
+					        data-sly-attribute.aria-describedby="">
+						Connected select...
+					</option>
+				</select>
+			</sly>
+
+		</sly>
+		<p id="${options.id}-helpMessage" class="cmp-form-options__help-message" data-sly-test="${options.helpMessage}">
+			${options.helpMessage}</p>
+	</fieldset>
+</sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=!isNotEmpty, classAppend='cmp-form-options'}"></sly>
