@@ -36,7 +36,7 @@ public class CountryJobPositionOptionsServlet extends SlingAllMethodsServlet {
     private static final long serialVersionUID = 8861971348268777529L;
     private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-    public static final String DEFAULT_SELECTOR = "connectedCountryJobOptions";
+    public static final String DEFAULT_SELECTOR = "countryJobOptions";
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
