@@ -2,63 +2,53 @@ package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.request.RequestPathInfo;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.osgi.framework.BundleContext;
 
-import java.util.Iterator;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
 
 @ExtendWith({AemContextExtension.class, MockitoExtension.class})
 class DropdownServletTest {
     private final AemContext aemContext = new AemContext(ResourceResolverType.JCR_MOCK);
     private MockSlingHttpServletRequest request;
     private MockSlingHttpServletResponse response;
-    private BundleContext bundleContext;
     private DropdownServlet dropdownServlet;
 
     @BeforeEach
     void setUp() {
-        request = aemContext.request();
+        aemContext.load().json("/com/adiacent/menarini/menarinimaster/core/models/pipeline.json", "/content/menarini-stemline/en/en/science/research/clinical-trials");
+        aemContext.load().json("/com/adiacent/menarini/menarinimaster/core/models/pipelineCF.json", "/content/dam/menarini-stemline/area-content-fragments");
+        Resource currentResource = aemContext.resourceResolver().getResource("/content/menarini-stemline/en/en/science/research/clinical-trials/jcr:content/root/container/container_1242765028/container_1321963744/pipeline_container/pipeline_item");
+        aemContext.currentResource(currentResource);
+        aemContext.addModelsForClasses(PipelineServlet.class);
+
         response = aemContext.response();
-        bundleContext= aemContext.bundleContext();
+        request = spy(aemContext.request());
+
+        when(request.getResource()).thenReturn(currentResource);
+
         dropdownServlet = aemContext.registerInjectActivateService(new DropdownServlet());
     }
 
     @Test
     void doGet() {
         try{
-            SlingHttpServletRequest request  = mock(SlingHttpServletRequest.class);
 
-            RequestPathInfo rpi = mock(RequestPathInfo.class);
-            Mockito.when(request.getRequestPathInfo()).thenReturn(rpi);
-            Mockito.when(rpi.getSuffix()).thenReturn("/content/menarini-stemline/en/en/research/pipeline/jcr:content/root/container/container/container_835588614/pipeline_container.pipeline.json?type=compound");
+            aemContext.requestPathInfo().setSuffix("/content/menarini-stemline/en/en/science/research/clinical-trials/jcr:content/root/container/container_1242765028/container_1321963744/pipeline_container/pipeline_item");
 
             Resource currentResource = mock(Resource.class);
             when(request.getResource()).thenReturn(currentResource);
             when(currentResource.getResourceType()).thenReturn("/bin/menariniStemline/compoundOption");
 
-            ResourceResolver resolver = mock(ResourceResolver.class);
-            Resource resource = mock(Resource.class);
-            when(request.getResourceResolver()).thenReturn(resolver);
-            when(resolver.getResource("/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options")).thenReturn(resource);
-
-            Iterator<Resource> iterator = Mockito.mock(Iterator.class);
-            Mockito.when(resource.listChildren()).thenReturn(iterator);
-            Mockito.when(iterator.hasNext()).thenReturn(false);
-            dropdownServlet.doGet(request, response);
+            dropdownServlet.doGet(request,response);
+            assertTrue(response.getBufferSize() > 0);
 
         }catch (Exception e){
 
