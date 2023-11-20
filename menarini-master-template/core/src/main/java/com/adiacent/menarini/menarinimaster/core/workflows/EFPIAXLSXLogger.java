@@ -6,6 +6,7 @@ import com.adobe.granite.workflow.exec.HistoryItem;
 import com.adobe.granite.workflow.exec.WorkItem;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
+import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.workflow.event.WorkflowEvent;
 import com.drew.lang.annotations.NotNull;

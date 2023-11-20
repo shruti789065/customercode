@@ -81,7 +81,8 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
                         if (!jcrSession.nodeExists(PUBLISH_DIR_PATH + "/" + backupFolderName)) {
                             JcrUtil.createPath(PUBLISH_DIR_PATH + "/" + backupFolderName, JcrConstants.NT_FOLDER, jcrSession);
                         }
-                        assetManager.moveAsset(r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
+                        if (assetManager != null)
+                            assetManager.moveAsset(r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
                         log.info("Asset {} backed up into {}", r.getPath(), PUBLISH_DIR_PATH + "/" + backupFolderName + "/" + r.getName());
                     } catch (EFPIAUtils.EFPIABlockingValidationException e) {
                        log.warn("Asset {} not backed up: {}", r.getPath(), e.getMessage());
@@ -102,10 +103,12 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
                         String publishingPath = PUBLISH_DIR_PATH + "/" + asset.getName();
                         EFPIAUtils.validateResource(asset);
                         log.info("Asset {} is valid", asset.getPath());
-                        assetManager.moveAsset(asset.getPath(), publishingPath);
+                        if (assetManager != null)
+                            assetManager.moveAsset(asset.getPath(), publishingPath);
                         log.info("Asset {} moved from DRAFT to PUBLISH path: {}", asset.getPath(), publishingPath);
                         assetsMoved++;
-                        replicator.replicate(jcrSession, ReplicationActionType.ACTIVATE, publishingPath);
+                        if (replicator != null)
+                            replicator.replicate(jcrSession, ReplicationActionType.ACTIVATE, publishingPath);
                         log.info("Publication of {} started", publishingPath);
                         Resource res = resourceResolver.getResource(publishingPath);
                         ReplicationStatus resStatus = res.adaptTo(ReplicationStatus.class);
