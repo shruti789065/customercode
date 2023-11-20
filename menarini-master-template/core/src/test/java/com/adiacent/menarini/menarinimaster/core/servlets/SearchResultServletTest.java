@@ -1,58 +1,76 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
-import static org.mockito.Mockito.*;
 
-import com.adiacent.menarini.menarinimaster.core.utils.Constants;
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
+import com.google.common.collect.ImmutableMap;
+import io.wcm.testing.mock.aem.junit5.AemContext;
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.apache.sling.testing.mock.sling.ResourceResolverType;
+import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
+import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.slf4j.Logger;
 
-import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.Workspace;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
-import javax.servlet.http.HttpServletResponse;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.spy;
 
-@ExtendWith(MockitoExtension.class)
-class SearchResultServletTest {
+@ExtendWith({AemContextExtension.class, MockitoExtension.class})
+public class SearchResultServletTest {
+    private final AemContext ctx = new AemContext(ResourceResolverType.JCR_MOCK);
 
-    @Mock
-    private SlingHttpServletRequest request;
+    private MockSlingHttpServletRequest request;
 
-
-    @Mock
-    private Resource currentResource;
+    private MockSlingHttpServletResponse response;
 
     @Mock
-    private ResourceResolver resourceResolver;
+    private SearchResultServlet servlet;
 
     @Mock
-    private PageManager pageManager;
+    private QueryManager queryManager;
 
     @Mock
-    private Page currentPage;
-
-    @Mock
-    private Page homepage;
+    private Query query;
 
     @Mock
     private QueryResult queryResult;
 
-    @InjectMocks
-    private SearchResultServlet servlet;
+    @Mock
+    private Workspace workspace;
+
+    @Mock
+    private Session session;
+
+
+    @BeforeEach
+    public void setUp() throws RepositoryException {
+        ctx.load().json("/com/adiacent/menarini/menarinimaster/core/models/pages.json", "/content/menarini-berlinchemie/de");
+        Resource currentRes = ctx.resourceResolver().getResource("/content/menarini-berlinchemie/de/search");
+        ctx.currentResource(currentRes);
+        ctx.addModelsForClasses(SearchResultServlet.class);
+        response = ctx.response();
+        request = spy(ctx.request());
+        servlet = ctx.registerInjectActivateService(new SearchResultServlet());
+    }
 
     @Test
+    @Order(1)
+    public void testDoGet(){
+        ctx.request().setParameterMap(ImmutableMap.of("fulltext", "test"));
+        servlet.doGet(request,response);
+        assertTrue(response.getBufferSize() > 0);
+    }
+
+    /*@Test
     void testDoGet() {
         SlingHttpServletRequest request  = mock(SlingHttpServletRequest.class);
         Resource currentResource = mock(Resource.class);
@@ -70,17 +88,6 @@ class SearchResultServletTest {
         when(resourceResolver.adaptTo(PageManager.class)).thenReturn(pageManager);
         when(pageManager.getContainingPage(anyString())).thenReturn(currentPage);
         servlet.doGet(request, response);
-    }
-
-    /*@Test
-    void testGetResult() throws Exception {
-        when(request.getParameter("fulltext")).thenReturn("test");
-        when(resourceResolver.adaptTo(Session.class)).thenReturn(mock(Session.class));
-        when(resourceResolver.adaptTo(PageManager.class)).thenReturn(pageManager);
-        when(pageManager.getContainingPage(anyString())).thenReturn(currentPage);
-        when(queryResult.getNodes()).thenReturn(mock(NodeIterator.class));
-
-        JSONObject result = servlet.getResult(request, resourceResolver);
-        assertEquals("test", result.getJSONArray("results").toString());
     }*/
+
 }
