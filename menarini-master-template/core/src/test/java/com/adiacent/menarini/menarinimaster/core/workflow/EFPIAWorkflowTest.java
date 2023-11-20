@@ -1,6 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.workflow;
 
 import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAAssetsMoveStep;
+import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAAssetsRejectStep;
 import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAValidationStep;
 import com.adobe.granite.workflow.WorkflowSession;
 import com.adobe.granite.workflow.exec.WorkItem;
@@ -50,6 +51,8 @@ public class EFPIAWorkflowTest {
     private final EFPIAValidationStep efpiaValidationStep = new EFPIAValidationStep();
 
     private final EFPIAAssetsMoveStep efpiaAssetsMoveStep = new EFPIAAssetsMoveStep();
+
+    private final EFPIAAssetsRejectStep efpiaAssetsRejectionStep = new EFPIAAssetsRejectStep();
 
     private final MetaDataMap metaData = new SimpleMetaDataMap();
 
@@ -101,5 +104,15 @@ public class EFPIAWorkflowTest {
     public void testEFPIAValidationStep() throws Exception {
         efpiaValidationStep.execute(workItem, workflowSession, metaData);
         assertTrue((Boolean) workItem.getWorkflowData().getMetaDataMap().get("isValid"));
+    }
+
+    @Test
+    public void testEFPIAAssetsMoveStep() throws Exception {
+        efpiaAssetsMoveStep.execute(workItem, workflowSession, metaData);
+    }
+
+    @Test
+    public void testEFPIAAssetsRejectionStep() throws Exception {
+        efpiaAssetsRejectionStep.execute(workItem, workflowSession, metaData);
     }
 }
