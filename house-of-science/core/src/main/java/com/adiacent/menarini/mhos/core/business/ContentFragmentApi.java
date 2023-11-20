@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
+import org.apache.http.ParseException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
 import org.apache.http.client.utils.URIBuilder;
@@ -33,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ContentFragmentApi {
+public class    ContentFragmentApi {
 
     private static final Logger LOG = LoggerFactory.getLogger(ContentFragmentApi.class);
 
@@ -136,17 +137,14 @@ public class ContentFragmentApi {
             }
             LOG.info("Response: {}", res);
 
-        } catch (org.apache.http.ParseException | IOException e) {
+        } catch (ParseException | IOException | URISyntaxException e) {
             LOG.error(e.getMessage(), e);
 
-        } catch (URISyntaxException e) {
-            LOG.error(e.getMessage(), e);
         } finally {
             try {
                 client.close();
             } catch (IOException e) {
                 LOG.error(e.getMessage(), e);
-                return null;
             }
         }
         return res;
