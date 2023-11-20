@@ -189,7 +189,7 @@ public class EFPIAXLSXLogger {
     public double submitForApproval(Integer year, String note) {
         byte[] fileContent = this.read();
         Workbook wb = null;
-        Double version = null;
+        Double version = 0d;
         try {
             wb = new XSSFWorkbook(new ByteArrayInputStream(fileContent));
             Sheet sheet = wb.getSheetAt(0);
@@ -197,7 +197,7 @@ public class EFPIAXLSXLogger {
             Row row;
             while ((row = sheet.getRow(rowIndex)) != null) {
                 if (row.getCell(IDX_VERSION).getNumericCellValue() > version) {
-                    version = row.getCell(1).getNumericCellValue();
+                    version = row.getCell(IDX_VERSION).getNumericCellValue();
                 }
                 rowIndex++;
             }
