@@ -1,7 +1,14 @@
 .cmp-text{
-	font-family: $font-family-arimo;	
+	font-family: $font-family-arimo;
+	&--color__white{
+		color: $white;
+	}
+	&--minHeightProduct{
+		min-height: 350px;
+	}
+	&--minHeightCountry {
+		min-height: 200px;
+	}
 }
-.cmp-text--color__white{
-	color: $white;
-}
+
 .cmp-text__paragraph {}
