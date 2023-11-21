@@ -1,6 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.workflow;
 
 import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAAssetsMoveStep;
+import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAAssetsRejectStep;
 import com.adiacent.menarini.menarinimaster.core.workflows.EFPIAValidationStep;
 import com.adobe.granite.workflow.WorkflowSession;
 import com.adobe.granite.workflow.exec.WorkItem;
@@ -51,6 +52,8 @@ public class EFPIAWorkflowTest {
 
     private final EFPIAAssetsMoveStep efpiaAssetsMoveStep = new EFPIAAssetsMoveStep();
 
+    private final EFPIAAssetsRejectStep efpiaAssetsRejectionStep = new EFPIAAssetsRejectStep();
+
     private final MetaDataMap metaData = new SimpleMetaDataMap();
 
     private final MetaDataMap dataMetaData = new SimpleMetaDataMap();
@@ -91,15 +94,34 @@ public class EFPIAWorkflowTest {
                 return assetManager;
             }
         });
-*/
-        context.create().resource("/content/dam/menarini-ch/efpia/2022", "jcr:primaryType", "nt:folder");
-        context.create().asset("/content/dam/menarini-ch/efpia/2022/001.jpg", "/com/adiacent/menarini/menarinimaster/core/models/001.jpg", "image/jpg");
-        context.create().asset("/content/dam/menarini-ch/efpia/2022/002.jpg", "/com/adiacent/menarini/menarinimaster/core/models/002.jpg", "image/jpg");
+*/      try {
+            context.create().resource("/content/dam/menarini-ch/efpia/2022", "jcr:primaryType", "nt:folder");
+            context.create().asset("/content/dam/menarini-ch/efpia/2022/001.jpg", "/com/adiacent/menarini/menarinimaster/core/models/001.jpg", "image/jpg");
+            context.create().asset("/content/dam/menarini-ch/efpia/2022/002.jpg", "/com/adiacent/menarini/menarinimaster/core/models/002.jpg", "image/jpg");
+            context.create().asset("/content/dam/efpia/menarini-ch/log/EFPIA_ReportHeaders.xlsx", "/com/adiacent/menarini/menarinimaster/core/models/RH.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    private Double version;
 
     @Test
     public void testEFPIAValidationStep() throws Exception {
         efpiaValidationStep.execute(workItem, workflowSession, metaData);
         assertTrue((Boolean) workItem.getWorkflowData().getMetaDataMap().get("isValid"));
+        this.version = workItem.getWorkflowData().getMetaDataMap().get("version", Double.class);
+    }
+
+    @Test
+    public void testEFPIAAssetsMoveStep() throws Exception {
+        workItem.getWorkflowData().getMetaDataMap().put("version", this.version);
+        efpiaAssetsMoveStep.execute(workItem, workflowSession, metaData);
+    }
+
+    @Test
+    public void testEFPIAAssetsRejectionStep() throws Exception {
+        workItem.getWorkflowData().getMetaDataMap().put("version", this.version);
+        efpiaAssetsRejectionStep.execute(workItem, workflowSession, metaData);
     }
 }
