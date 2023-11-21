@@ -56,27 +56,6 @@ public class EFPIAValidationStep implements WorkflowProcess {
                     } catch (EFPIAUtils.EFPIANonBlockingValidationException e) {
                         log.debug(e.getMessage());
                     }
-
-                    /*
-                    if (EFPIAUtils.isResourceTypeValid(asset.getResourceType())) {
-                        String fileName = StringUtils.substringBeforeLast(asset.getName(), ".");
-                        String fileExt = StringUtils.lowerCase(StringUtils.substringAfterLast(asset.getName(), "."));
-                        if (EFPIAUtils.isFileTypeValid(fileExt)) {
-                            if (EFPIAUtils.isFileNameValid(fileName)) {
-                                logger.info("Asset {} is valid", asset.getPath());
-                                assetsToApprove++;
-                            } else {
-                                logger.error("File name '{}' not acceptable", fileName);
-                                return;
-                            }
-                        } else {
-                            logger.error("File extension {} is not allowed. Asset {} rejected", fileExt, asset.getName());
-                            return;
-                        }
-                    } else {
-                        logger.info("Resource type {} for resource {} is not acceptable. Skipped.", asset.getResourceType(), asset.getName());
-                    }
-                     */
                 }
 
                 log.info("Found {} assets to submit for approval", assetsToApprove);
