@@ -1,7 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
 
-
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextBuilder;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
@@ -12,10 +11,10 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+
 import static com.adobe.cq.wcm.core.components.testing.mock.ContextPlugins.CORE_COMPONENTS;
 import static junit.framework.Assert.assertEquals;
 

@@ -1,0 +1,14 @@
+<sly data-sly-test="${wcmmode.edit}"></sly>
+<div id="${properties.id}"
+     aria-label="${properties.accessibilityLabel}"
+     role="${properties.roleAttribute}"
+     class="cmp-connected-option-container">
+	<sly data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}">
+		<div data-sly-resource="${'contentFragmentListOne' @ resourceType='menarinimaster/components/form/connectedOptions'}"></div>
+		<div data-sly-resource="${'contentFragmentListSecond' @ resourceType='menarinimaster/components/form/connectedOptions'}"></div>
+	</sly>
+	<input type="hidden"class="cmp-connected--json-selector" name="resourceType" value="${properties.jsonSelector}">
+	<input type="hidden" class="cmp-connected--currentnode" value="${currentNode.path}">
+</div>
+
+

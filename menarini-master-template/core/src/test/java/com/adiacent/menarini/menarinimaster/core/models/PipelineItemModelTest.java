@@ -1,8 +1,5 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.factory.ModelFactory;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

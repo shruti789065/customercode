@@ -1,8 +1,5 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
-import com.adobe.cq.dam.cfm.ContentFragment;
-import com.adobe.cq.dam.cfm.FragmentData;
-import com.adobe.xfa.Element;
 import com.google.common.collect.ImmutableMap;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
@@ -13,10 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
