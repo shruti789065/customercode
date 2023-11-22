@@ -31,6 +31,14 @@
 
         .cmp-breadcrumb__item--active {
             color: $color-text;
+            max-width: 500px;
+            span {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                width: 100%;
+                overflow: hidden;
+            }
         }
     }
 
