@@ -12,7 +12,17 @@
 
 .cmp-container--border {
 	border: 1px solid $color-third;
-	padding: 3%;
+	
+
+	.cmp-container {
+		padding: 40px;
+
+		.cmp-button--small {
+			.cmp-button {
+				padding: 7px 0px;
+			}
+		}
+	}
 
 	.cmp-title__text {
 		font-size: 30px;
@@ -21,6 +31,10 @@
 		line-height: 1.2;
 		margin: 0 0 20px;
 	}
+}
+
+.cmp-container--BGwhite {
+	background-color: $white;
 }
 
 .cmp-container {
