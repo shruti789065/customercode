@@ -1,6 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import com.adiacent.menarini.menarinimaster.core.beans.KeyValueItem;
+import com.adiacent.menarini.menarinimaster.core.schedulers.EncodeDecodeSecretKey;
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.adobe.cq.dam.cfm.ContentElement;
@@ -150,7 +151,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 				if (containsKey(itemElement)) {
 					keyList.add(element.getContent());
 				} else if (containsValue(itemElement)) {
-					String encrypted = ModelUtils.encrypt("0123456789abcdef", "abcdefghijklmnop", element.getContent(), "AES/CBC/PKCS5PADDING");
+					String encrypted = ModelUtils.encrypt(EncodeDecodeSecretKey.get_instance().getConfig().getSecretKey(), EncodeDecodeSecretKey.get_instance().getConfig().getIvParameter(), element.getContent(), EncodeDecodeSecretKey.get_instance().getConfig().getAlgorithm());
 					valueList.add(encrypted);
 				}
 			}

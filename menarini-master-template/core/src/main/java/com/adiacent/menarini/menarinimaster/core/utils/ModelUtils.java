@@ -203,7 +203,6 @@ public class ModelUtils {
 				result.append(c);
 			}
 		}
-
 		return result.toString();
 	}
 
@@ -234,6 +233,13 @@ public class ModelUtils {
 
 		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
 		return new String(decrypted);
+	}
+
+	public static boolean isValidEmailFormat(String email) {
+		// Implementa la tua logica di validazione dell'indirizzo email
+		// Ad esempio, puoi utilizzare espressioni regolari
+		// Qui viene fornito solo un esempio di base
+		return email.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
 	}
 
 }

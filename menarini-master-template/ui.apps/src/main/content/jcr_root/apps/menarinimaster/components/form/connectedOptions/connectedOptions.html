@@ -20,24 +20,49 @@
 		<sly data-sly-test="${options.type.value == 'drop-down' || options.type.value == 'multi-drop-down'}">
 			<label class="cmp-form-options__label ${properties.requiredSelect ? 'required-field' : ''}" for="${options.id}">${options.title}</label>
 			<sly data-sly-test="${wcmmode.disabled}">
-				<select class="cmp-form-options__field cmp-form-options__field--drop-down"
-				        name="${options.name}" id="${options.id}"
-				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
-					<option value="${properties.placeholderText}" selected="" disabled=""
-					        data-sly-attribute.aria-describedby="">
-						${properties.placeholderText}
-					</option>
-				</select>
+				<sly data-sly-test.required="${properties.requiredSelect}">
+					<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+					        name="${options.name}" id="${options.id}"
+					        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}"
+							required>
+						<option value="${properties.placeholderText}" selected="" disabled=""
+						        data-sly-attribute.aria-describedby="">
+							${properties.placeholderText}
+						</option>
+					</select>
+				</sly>
+				<sly data-sly-test="${!required}">
+					<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+					        name="${options.name}" id="${options.id}"
+					        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+						<option value="${properties.placeholderText}" selected="" disabled=""
+						        data-sly-attribute.aria-describedby="">
+							${properties.placeholderText}
+						</option>
+					</select>
+				</sly>
 			</sly>
 			<sly data-sly-test="${wcmmode.edit || wcmmode.preview}">
-				<select class="cmp-form-options__field cmp-form-options__field--drop-down"
-				        name="${options.name}" id="${options.id}"
-				        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
-					<option value="" selected="" disabled=""
-					        data-sly-attribute.aria-describedby="">
-						Connected select...
-					</option>
-				</select>
+				<sly data-sly-test.required="${properties.requiredSelect}">
+					<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+					        name="${options.name}" id="${options.id}"
+					        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+						<option value="" selected="" disabled=""
+						        data-sly-attribute.aria-describedby="">
+							Connected select...
+						</option>
+					</select>
+				</sly>
+				<sly data-sly-test="${!required}">
+					<select class="cmp-form-options__field cmp-form-options__field--drop-down"
+					        name="${options.name}" id="${options.id}"
+					        data-sly-attribute.multiple="${options.type.value == 'multi-drop-down'}">
+						<option value="" selected="" disabled=""
+						        data-sly-attribute.aria-describedby="">
+							Connected select...
+						</option>
+					</select>
+				</sly>
 			</sly>
 
 		</sly>

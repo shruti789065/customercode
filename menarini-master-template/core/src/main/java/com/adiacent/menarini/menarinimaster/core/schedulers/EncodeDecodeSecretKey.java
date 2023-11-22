@@ -1,5 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.schedulers;
 
+import lombok.Getter;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
@@ -9,6 +10,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Getter
 @Designate(ocd = EncodeDecodeSecretKey.Config.class)
 @Component(immediate = true)
 public class EncodeDecodeSecretKey {
@@ -16,6 +18,12 @@ public class EncodeDecodeSecretKey {
     private static final Logger logger = LoggerFactory.getLogger(EncodeDecodeSecretKey.class);
 
     private Config config;
+    /**
+     * -- GETTER --
+     *
+     * @return the _instance
+     */
+    @Getter
     private static EncodeDecodeSecretKey _instance = null;
 
     /**
@@ -44,18 +52,6 @@ public class EncodeDecodeSecretKey {
         logger.info("** Iv Parameter = " + this.config.getIvParameter());
         logger.info("** Alghorithm = " + this.config.getAlgorithm());
         logger.info("*********************************************************************************************");
-    }
-
-    /**
-     * @return the _instance
-     */
-
-    public static EncodeDecodeSecretKey get_instance(){
-        return _instance;
-    }
-
-    public Config getConfig(){
-        return config;
     }
 
 }

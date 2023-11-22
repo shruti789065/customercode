@@ -16,6 +16,7 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 
+import com.adiacent.menarini.menarinimaster.core.schedulers.EncodeDecodeSecretKey;
 import com.day.cq.mailer.MailService;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -51,6 +52,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
@@ -71,14 +73,13 @@ class MailServletTest {
     @Mock
     private QueryBuilder qBuilder;
 
+    private EncodeDecodeSecretKey encodeDecodeSecretKey;
+    private final AemContext aemContext = new AemContext(ResourceResolverType.JCR_MOCK);
 
     @Test
     void doPost(AemContext context) throws ServletException, IOException, RepositoryException {
-
-
         InputStream is = MailServletTest.class.getResourceAsStream("/com/adiacent/menarini/menarinimaster/core/models/contactsPage.json");
         ctx.load().json(is, "/content/menarinimaster/language-masters/en/contacts.html");
-
 
         Resource c = spy(ctx.currentResource("/content/menarinimaster/language-masters/en/contacts.html"));
 
@@ -102,7 +103,16 @@ class MailServletTest {
         params.put("zip","");
         params.put(":redirect","home.html");
         params.put("resourcePath","/content/menarinimaster/language-masters/en/contacts/jcr:content/root/container/container/container");
+        params.put("_crypted-value_","LNqKzrCnF+YnBpyFWD48mAR9FKdepJmayfFvRfePZj4=");
         request.setParameterMap(params);
+        //request = aemContext.request();
+        //response = aemContext.response();
+        encodeDecodeSecretKey = aemContext.registerInjectActivateService(new EncodeDecodeSecretKey(),
+                "getSecretKey","LYA6f1TM09aL1xMD",
+                "getIvParameter", "eXRa60ZQHI0XbwJb",
+                "getAlgorithm", "AES/CBC/PKCS5PADDING");
+
+
 
         lenient().when(qBuilder.createQuery(any(PredicateGroup.class), any(Session.class))).thenReturn(query);
         List<Hit> listHits = new ArrayList<>();
@@ -136,13 +146,10 @@ class MailServletTest {
         doReturn(params.keySet().iterator()).when(servlet).getRequestParamIterators(any(SlingHttpServletRequest.class));
         doReturn(new ArrayList<Resource>().iterator()).when(servlet).getResourceFormElements(any(SlingHttpServletRequest.class));
 
-
-
         lenient().doReturn(c).when(spy(request)).getResource();
         lenient().doReturn(ctx.resourceResolver()).when(c).getResourceResolver();
         Resource p = ctx.resourceResolver().getResource("/content/menarinimaster/language-masters/en/contacts.html/jcr:content/root/container/container/container");
         doReturn(p).when(servlet).getParentResource(any(ResourceResolver.class), any(String.class));
-
 
         //doReturn(true).when(servlet).checkRecaptcha(any(String.class), any(String.class));
         //oppure:
@@ -158,11 +165,8 @@ class MailServletTest {
         byte[] byteArrray = inputString.getBytes();
         doReturn(byteArrray).when(inputStream).readAllBytes();
 
-
-
         servlet.doPost(request, response);
         boolean res= response.getBufferSize() > 0;
         assertTrue(res);
-
     }
 }

@@ -47,17 +47,36 @@ import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
           return;
         }
       }
-
-      jsonArray = await callServlet(currentNodePath, jsonSelector);
-      fillFirstOption(jsonArray,firstOption.querySelector("option").value);
-      secondOption.innerHTML = `<option value="${secondOption.querySelector("option").value}">
+      if (connectedContainer) {
+        jsonArray = await callServlet(currentNodePath, jsonSelector);
+        fillFirstOption(jsonArray, firstOption.querySelector("option").value);
+        secondOption.innerHTML = `<option value="${
+          secondOption.querySelector("option").value
+        }">
 	  ${secondOption.querySelector("option").value}</option>`;
-      secondOption.disabled = true;
+        secondOption.disabled = true;
 
-      if (firstOption != null) {
-        firstOption.addEventListener("change", (event) => {
-          fillSecondOption(event.target.value, jsonArray,secondOption.querySelector("option").value);
-        });
+        if (firstOption != null) {
+          firstOption.addEventListener("change", (event) => {
+            fillSecondOption(
+              event.target.value,
+              jsonArray,
+              secondOption.querySelector("option").value
+            );
+          });
+        }
+        if (secondOption != null) {
+          secondOption.addEventListener("change", (event) => {
+            let inputElement = document.querySelector(
+              'input[type="hidden"][name="_crypted-value_"]'
+            );
+
+            let selectedOption =
+              event.target.options[event.target.selectedIndex];
+            let dataEmailValue = selectedOption.getAttribute("data-email");
+            inputElement.value = dataEmailValue;
+          });
+        }
       }
     }
 
@@ -94,18 +113,25 @@ import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
       firstOption.innerHTML = out;
     }
 
-    function fillSecondOption(value, jsonArray,placeholder) {
+    function fillSecondOption(value, jsonArray, placeholder) {
       const departments = getDepartments(jsonArray, value);
-	  let out = "";
+      let inputElement = document.querySelector(
+        'input[type="hidden"][name="_crypted-value_"]'
+      );
+      inputElement.value = "";
+      let out = "";
       out += `<option value="${placeholder}">${placeholder}</option>`;
-      
+
       for (const department of departments) {
         const { name, email } = department;
-        out += `<option data-email="${email}" value="${_generateUniqueValue(name,email)}">${name}</option>`;
+        out += `<option data-email="${email}" value="${_generateUniqueValue(
+          name,
+          email
+        )}">${name}</option>`;
       }
 
       secondOption.innerHTML = out;
-	  secondOption.disabled = false;
+      secondOption.disabled = false;
     }
 
     function getDepartments(json, name) {
