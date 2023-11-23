@@ -445,6 +445,20 @@
       }
     }
   }
+  &.cmp-fullTitle{
+    .cmp-card--standard{
+      .cmp-teaser__content,
+      .cmp-teaser__link {
+        .cmp-teaser__title{
+          display: -webkit-box;
+          -webkit-line-clamp: unset;
+          -webkit-box-orient: vertical;
+          width: 100%;
+          overflow: unset;
+        }
+      }
+    }
+  }
   &.cmp-fullDescription{
     .cmp-card--standard{
       .cmp-teaser__content,

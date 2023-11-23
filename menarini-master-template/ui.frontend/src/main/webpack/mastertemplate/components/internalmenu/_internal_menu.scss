@@ -130,6 +130,11 @@
 						text-transform: initial;
 						font-size: 16px;
 						font-weight: $font-light;
+						display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        width: 100%;
+                        overflow: hidden;
 					}
 					&::before {
 						content: "";

@@ -1,0 +1,89 @@
+{
+	"jcr:primaryType": "cq:Page",
+	"jcr:createdBy": "admin",
+	"jcr:created": "Mon Oct 16 2023 10:53:37 GMT+0200",
+	"jcr:content": {
+		"jcr:primaryType": "cq:PageContent",
+		"jcr:createdBy": "admin",
+		"jcr:title": "test",
+		"cq:template": "/conf/menarini-apac/settings/wcm/templates/menarini---content-page",
+		"jcr:created": "Mon Oct 16 2023 10:53:37 GMT+0200",
+		"cq:lastModified": "Wed Oct 18 2023 12:23:20 GMT+0200",
+		"sling:resourceType": "menarinimaster/components/page",
+		"cq:lastModifiedBy": "admin",
+		"root": {
+			"jcr:primaryType": "nt:unstructured",
+			"layout": "responsiveGrid",
+			"sling:resourceType": "menarinimaster/components/container",
+			"container": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"internalheader": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:lastModifiedBy": "admin",
+					"jcr:lastModified": "Fri May 27 2022 16:15:23 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/internalheader"
+				},
+				"section": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:lastModifiedBy": "a.messori@adiacent.com",
+					"jcr:lastModified": "Tue May 23 2023 15:04:29 GMT+0000",
+					"sling:resourceType": "menarinimaster/components/section",
+					"wrapper": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:lastModifiedBy": "a.messori@adiacent.com",
+						"jcr:lastModified": "Tue May 23 2023 15:05:56 GMT+0000",
+						"sling:resourceType": "menarinimaster/components/wrapper",
+						"breadcrumb": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:lastModified": "Fri May 27 2022 16:15:51 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/breadcrumb"
+						}
+					}
+				},
+				"section_1473771530": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:lastModifiedBy": "a.messori@adiacent.com",
+					"jcr:lastModified": "Tue May 23 2023 15:06:16 GMT+0000",
+					"sling:resourceType": "menarinimaster/components/section",
+					"wrapper": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:lastModifiedBy": "a.messori@adiacent.com",
+						"jcr:lastModified": "Tue May 23 2023 15:06:21 GMT+0000",
+						"sling:resourceType": "menarinimaster/components/wrapper",
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:lastModifiedBy": "admin",
+							"type": "h2",
+							"linkTarget": "_self",
+							"jcr:lastModified": "Wed Jul 27 2022 15:16:55 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title",
+							"cq:styleIds": [
+								"1653552493699"
+							]
+						},
+						"text_copy": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+							"text": "<p>lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;</p>\r\n",
+							"jcr:lastModified": "Wed Jun 07 2023 14:20:22 GMT+0000",
+							"sling:resourceType": "menarinimaster/components/text",
+							"textIsRich": "true"
+						},
+						"efpia": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"folderPath": "/content/dam/menarini-apac/assets/efpia",
+							"jcr:created": "Mon Oct 16 2023 10:53:49 GMT+0200",
+							"jcr:lastModified": "Wed Oct 18 2023 12:23:20 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/efpia"
+						}
+					}
+				}
+			}
+		}
+	}
+}
