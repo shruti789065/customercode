@@ -113,7 +113,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 	private static final Integer MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1024 * 1024;//in byte //max dimensione file allegato
 
 	private static final EncryptedMail encryptedMail = new EncryptedMail();
-	private final List<String> paramsToExclude = List.of("g-recaptcha-response",CRYPTED_VALUE);
+	private final List<String> paramsToExclude = List.of("g-recaptcha-response",CRYPTED_VALUE,"resourceType","resourcePath");
 	public static final String ERROR_MESSAGE_ATTRIBUTE_NAME = "contactFormErrorAttr"; //Nome attributo in sessione contenente eventuali messaggi di errore
 	//inerenti il fallito invio del form contatti
 
@@ -321,7 +321,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 			if(getEncryptedEmail(String.valueOf(encryptedMail)) != null && !getEncryptedEmail(String.valueOf(encryptedMail)).isEmpty()){
 				mailTo = new String[]{getEncryptedEmail(String.valueOf(encryptedMail))};
 			}
-			sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, emailValue, ccRecs, bccRecs, subject, namesList, resBundle);
+			sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, fromAddress, ccRecs, bccRecs, subject, namesList, resBundle);
 		}
 
 
@@ -371,8 +371,8 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 				buffer.append(mailText);
 				buffer.append("\n\n");
 			}
-			buffer.append(resBundle.getString("Values"));
-			buffer.append(":\n\n");
+			/*buffer.append(resBundle.getString("Values"));
+			buffer.append(":\n\n");*/
 
 
 			// now add form fields to message
