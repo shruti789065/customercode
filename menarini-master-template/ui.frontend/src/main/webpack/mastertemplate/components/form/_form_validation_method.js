@@ -1,6 +1,7 @@
 const ERRORS = {
-  CLASS: "label-error label_required",
+  CLASS: "label_error",
   MESSAGE: {
+    file_required: "Please, this field cannot be empty, upload your",
     file_size: "File too big: Limit is 3MB",
     text_field: "Please, this field cannot be empty",
     file_extension: "File extension not allowed",
@@ -22,7 +23,12 @@ function getAssociatedErrorMessage(element, errorMessage) {
 }
 
 function appendErrorMessage(el, errorMessage) {
-  $(el).parent().append(`<p class='${ERRORS.CLASS}'>${errorMessage}</p>`);
+  const parent = $(el).parent();
+  const existingError = parent.find("." + ERRORS.CLASS);
+
+  if (!existingError.length) {
+    parent.append(`<p class='${ERRORS.CLASS}'>${errorMessage}</p>`);
+  }
 }
 
 function isElementOrParentRequired(element) {
@@ -31,30 +37,19 @@ function isElementOrParentRequired(element) {
   );
 }
 
-function validateFile(element) {
-  const inputFile = $(element);
-  const file = inputFile[0].files[0];
-  const errorMessageFile = getAssociatedErrorMessage(
-    element,
-    ERRORS.MESSAGE.file_size
-  );
+function removeErrorMessage(el) {
+  const parent = $(el).parent();
+  const errorElement = parent.find("." + ERRORS.CLASS);
 
-  if (file && file.size < 3 * 1024 * 1024) {
-    handleValidationResult(element, true);
-  } else {
-    handleValidationResult(element, false, errorMessageFile);
-  }
-
-  if (file) {
-    const fileNameExt = file.name
-      .substring(file.name.lastIndexOf(".") + 1)
-      .toLowerCase();
-    validateFileExtension(element, fileNameExt);
+  if (errorElement.length) {
+    errorElement.remove();
+    $(el).css("border", "3px solid #000");
   }
 }
+
 /**
  *
- * TODO Controllare come mai inserisce la label di errore su tutti i campi
+ * TODO
  *
  */
 
@@ -107,20 +102,39 @@ function validateEmailField(element, value) {
   }
 }
 
+function validateFileExtension(element, file, errorMessage) {
+  const fileExtensionsAllowed = ["pdf", "doc", "docx"];
+  const fileNameExt = file.name
+    .substring(file.name.lastIndexOf(".") + 1)
+    .toLowerCase();
+  if (!fileExtensionsAllowed.includes(fileNameExt)) {
+    appendErrorMessage(element, errorMessage);
+  }
+}
+
+function validateFileSize(element, file, errorMessage) {
+  if (file.size > 3 * 1024 * 1024) {
+    appendErrorMessage(element, errorMessage);
+  }
+}
+
 function handleValidationResult(element, isValid, errorMessage) {
+  const errorClass = ERRORS.CLASS;
+
   if (!isValid) {
     $(element).css("border", "3px solid #a94442");
-    if (
-      !$(element)
-        .parent()
-        .find("." + ERRORS.CLASS).length
-    ) {
-      $(element)
-        .parent()
-        .append(`<p class='${ERRORS.CLASS}'>${errorMessage}</p>`);
-    }
+    appendErrorMessage(element, errorMessage);
   } else {
-    removeErrorMessage(element);
+    const parent = $(element).parent();
+    const errorElement = parent.find("." + errorClass);
+
+    if (errorElement.length) {
+      errorElement.remove(); // Rimuovi il messaggio di errore se esiste
+    }
+
+    // Aggiungi un nuovo elemento vuoto per mantenere la struttura
+    parent.append(`<p class='${errorClass}'></p>`);
+    $(element).css("border", ""); // Ripristina il bordo al suo stato originale
   }
 }
 
@@ -128,44 +142,16 @@ function handleValidationResult(element, isValid, errorMessage) {
  *
  * ? Inizio funzioni da esportazione
  */
-export function validateFileExtension(element, fileNameExt) {
-  const fileExtensionsAllowed = ["pdf", "doc", "docx"];
-  const errorMessageFileExtension = getAssociatedErrorMessage(
-    element,
-    ERRORS.MESSAGE.file_extension
-  );
-  if (!fileExtensionsAllowed.includes(fileNameExt)) {
-    appendErrorMessage(element, errorMessageFileExtension);
-  }
-}
-
-export function validateFileSize(element, file) {
-  const errorMessageFileSize = getAssociatedErrorMessage(
-    element,
-    ERRORS.MESSAGE.file_size
-  );
-  if (file.size > 3 * 1024 * 1024) {
-    appendErrorMessage(element, errorMessageFileSize);
-  }
-}
-
-export function removeErrorMessage(el) {
-  const parent = $(el).parent();
-  const errorElement = parent.find("." + ERRORS.CLASS);
-
-  if (errorElement.length) {
-    errorElement.remove();
-    $(el).css("border", "3px solid #000");
-  }
-}
 
 export function validateInputs(form) {
   let inputsValid = true;
 
   form.find(":input:not(:hidden,:checkbox)").each(function () {
+    console.log("$(this) ", $(this));
+    console.log("this ", this);
     if ($(this).is("select")) {
       inputsValid = validateSelect(this) && inputsValid;
-    } else if ($(this).attr("type") === "file") {
+    } else if ($(this).attr("type") == "file") {
       inputsValid = validateFile(this) && inputsValid;
     } else {
       inputsValid = validateText(this) && inputsValid;
@@ -173,6 +159,32 @@ export function validateInputs(form) {
   });
 
   return inputsValid;
+}
+
+export function validateFile(element, file, fileContainer) {
+  const errorMessageFileSize = getAssociatedErrorMessage(
+    element,
+    ERRORS.MESSAGE.file_size
+  );
+  const errorMessageFileExtension = getAssociatedErrorMessage(
+    element,
+    ERRORS.MESSAGE.file_size
+  );
+  const errorMessageFileRequired = getAssociatedErrorMessage(
+    element,
+    ERRORS.MESSAGE.file_required
+  );
+  const isRequired = isElementOrParentRequired(element);
+
+  if (file) {
+    validateFileSize(element, file, errorMessageFileSize);
+    validateFileExtension(element, file, errorMessageFileExtension);
+    fileContainer.text(file.name).append('<i class="cmp-close__icon"></i>');
+  }
+
+  if (isRequired) {
+    handleValidationResult(element, !isRequired, errorMessageFileRequired);
+  }
 }
 
 export function validateRadios(form) {

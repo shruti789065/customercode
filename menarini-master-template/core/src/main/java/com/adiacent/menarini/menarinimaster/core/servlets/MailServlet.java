@@ -198,9 +198,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 					}
 				}
 			}
-
 		}
-
 
 		Map<String, String> predicate = new HashMap<>();
 		predicate.put("path", request.getResource().getPath() + "/jcr:content");

@@ -2,8 +2,7 @@ import {
   validateInputs,
   validateRadios,
   validateRecaptcha,
-  validateFileSize,
-  validateFileExtension,
+  validateFile,
 } from "./_form_validation_method";
 
 $(function () {
@@ -49,27 +48,16 @@ $(function () {
   function setupFileInput($fileInput, $filesContainer) {
     $fileInput.on("change", function () {
       const file = this.files[0];
-
-      if (!file) return;
-
-      const fileNameExt = file.name
-        .substring(file.name.lastIndexOf(".") + 1)
-        .toLowerCase();
-
-      removeErrorMessage(".label_file_too_big");
-      removeErrorMessage(".label_file_extension_not_allowed");
-
-      validateFileSize(file);
-      validateFileExtension(fileNameExt);
-
-      $filesContainer.text(file.name).append('<i class="cmp-close__icon"></i>');
+      if (!file) {
+        return;
+      }
+      validateFile(this, file, $filesContainer);
     });
 
     $filesContainer.on("click", ".cmp-close__icon", function () {
       $fileInput.val("");
       $filesContainer.text("");
       $(this).remove();
-      removeErrorMessage(".label_file_extension_not_allowed");
     });
   }
 
@@ -85,9 +73,9 @@ $(function () {
   function performAllValidations($form) {
     return (
       //validateInputs($form) && validateRadios($form) && validateRecaptcha()
-	  //validateInputs($form) && validateRadios($form)
-	  //validateRadios($form)
-	  validateInputs($form) 
+      //validateInputs($form) && validateRadios($form)
+      //validateRadios($form)
+      validateInputs($form)
     );
   }
 });
