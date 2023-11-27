@@ -1,6 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import com.adiacent.menarini.menarinimaster.core.beans.KeyValueItem;
+import com.adiacent.menarini.menarinimaster.core.schedulers.EncodeDecodeSecretKey;
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.adobe.cq.dam.cfm.ContentElement;
@@ -68,11 +69,11 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		Resource contentFragRes = resolver.getResource(departmentPagePath);
 
 		if (contentFragRes != null) {
-			String xpathQuery = buildXpathQuery(contentFragRes.getPath());
+			/*String xpathQuery = buildXpathQuery(contentFragRes.getPath());
 			Query query = buildQuery(session, xpathQuery);
-			NodeIterator itemIterator = executeQuery(query);
-
-			processNodes(resolver, itemIterator, departmentsList);
+			NodeIterator itemIterator = executeQuery(query);*/
+			Iterator<Resource> items = contentFragRes.listChildren();
+			processNodes(resolver, items, departmentsList);
 		}
 
 		return mergeJsonArrays(departmentsList);
@@ -87,15 +88,15 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return queryManager.createQuery(xpathQuery, Query.JCR_SQL2);
 	}
 
-	protected NodeIterator executeQuery(Query query) throws RepositoryException {
+	private NodeIterator executeQuery(Query query) throws RepositoryException {
 		QueryResult queryResult = query.execute();
 		return queryResult.getNodes();
 	}
 
-	protected static void processNodes(ResourceResolver resolver, NodeIterator itemIterator, List<JsonArray> departmentsList) throws Exception {
+	private void processNodes(ResourceResolver resolver, Iterator<Resource> itemIterator, List<JsonArray> departmentsList) throws Exception {
 		while (itemIterator.hasNext()) {
-			Node node = itemIterator.nextNode();
-			Resource itemRes = resolver.getResource(node.getPath());
+			Resource countryRes = itemIterator.next();
+			Resource itemRes = resolver.getResource(countryRes.getPath());
 			if (itemRes != null && itemRes.getResourceType().equals("dam:Asset")) {
 				ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
 				if (cf != null) {
@@ -110,7 +111,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		}
 	}
 
-	protected static JsonObject processContentFragment(ContentFragment cf) throws Exception {
+	private JsonObject processContentFragment(ContentFragment cf) throws Exception {
 		JsonObject cfResultsPartial = new JsonObject();
 		cfResultsPartial.addProperty("title", cf.getTitle());
 		cfResultsPartial.addProperty("name", cf.getName());
@@ -134,7 +135,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return mergedObject;
 	}
 
-	protected static JsonArray contentFragmentData(ContentFragment cf) throws Exception {
+	protected JsonArray contentFragmentData(ContentFragment cf) throws Exception {
 		Iterator<ContentElement> elementIterator = cf.getElements();
 		JsonObject jsonObject = new JsonObject();
 		JsonArray jsonArray = new JsonArray();
@@ -150,7 +151,7 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 				if (containsKey(itemElement)) {
 					keyList.add(element.getContent());
 				} else if (containsValue(itemElement)) {
-					String encrypted = ModelUtils.encrypt("0123456789abcdef", "abcdefghijklmnop", element.getContent(), "AES/CBC/PKCS5PADDING");
+					String encrypted = ModelUtils.encrypt(EncodeDecodeSecretKey.get_instance().getConfig().getSecretKey(), EncodeDecodeSecretKey.get_instance().getConfig().getIvParameter(), element.getContent(), EncodeDecodeSecretKey.get_instance().getConfig().getAlgorithm());
 					valueList.add(encrypted);
 				}
 			}
@@ -170,12 +171,12 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return jsonArray;
 	}
 
-	protected static boolean containsKey(String s) {
+	protected boolean containsKey(String s) {
 		final String KEY = "key";
 		return s.contains(KEY);
 	}
 
-	protected static boolean containsValue(String s) {
+	protected boolean containsValue(String s) {
 		final String VALUE = "value";
 		return s.contains(VALUE);
 	}
