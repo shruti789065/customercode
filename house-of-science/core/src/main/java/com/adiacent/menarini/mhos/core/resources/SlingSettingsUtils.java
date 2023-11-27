@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 @Component(immediate = true)
 public class SlingSettingsUtils {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SlingSettingsUtils.class);
+    private static final Logger logger = LoggerFactory.getLogger(SlingSettingsUtils.class);
 
     private static SlingSettingsUtils _instance = null;
 

@@ -18,10 +18,7 @@ import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 @Component(service = EventHandler.class, immediate = true,
         property = {

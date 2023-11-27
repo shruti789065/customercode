@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
  */
 public class LibraryImporterJob implements Runnable, Cloneable{
 
-    private static final Logger LOG = LoggerFactory.getLogger(LibraryImporterJob.class);
+    private static final Logger logger = LoggerFactory.getLogger(LibraryImporterJob.class);
 
 
     @Reference
@@ -36,8 +36,8 @@ public class LibraryImporterJob implements Runnable, Cloneable{
     @Activate
     @Modified
     protected void activate(final Config config) {
-        LOG.info("Activating Menarini Library Importer  Cron Job");
-        LOG.info("Library Importer instance is null {}",(instance==null));
+        logger.info("Activating Menarini Library Importer  Cron Job");
+        logger.info("Library Importer instance is null {}",(instance==null));
     }
 
     public LibraryImporter getImporterIstance(){
@@ -46,11 +46,11 @@ public class LibraryImporterJob implements Runnable, Cloneable{
     @Override
     public void run() {
         try {
-            LOG.info("Starting Menarini Library Importer...");
+            logger.info("Starting Menarini Library Importer...");
             LibraryImporter importerClone = (LibraryImporter) getImporterIstance().clone();
             importerClone.start();
         } catch (CloneNotSupportedException e) {
-            LOG.error(e.getMessage(),e);
+            logger.error(e.getMessage(),e);
         }
     }
 

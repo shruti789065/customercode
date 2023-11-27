@@ -137,5 +137,29 @@
 				height: 10px;
 			}
 		}
+		&.cmp-link--footer-list{
+			display: flex;
+			justify-content: space-between;	
+			padding-left: 0px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		
+			.cmp-link--text{
+			display: flex;
+			order: 1;
+			color: $white;
+			font-family: $font-family-oswald;
+			font-weight: $font-extra-light;
+			font-size: 25px;
+			}
+			.cmp-link__icon-asset {
+				display: flex;
+				order: 2;
+				color: $white;
+				background: url($resources-path + '/images/icons/arrow-R-W.svg') no-repeat right;
+				text-decoration: none;
+				width: 20px;
+			}
+		}
 	}
 }

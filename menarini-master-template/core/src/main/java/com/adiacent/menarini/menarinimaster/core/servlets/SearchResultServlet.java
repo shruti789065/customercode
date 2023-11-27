@@ -42,7 +42,7 @@ import javax.servlet.Servlet;
 
 public class SearchResultServlet extends SlingSafeMethodsServlet {
 
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
     public static final String DEFAULT_SELECTOR = "searchresult";
 
     private String keyword ;
@@ -66,7 +66,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                 response.getWriter().print(jsonObject);
             }
         }catch (Exception e){
-            LOG.error("Error in search results Get call: ", e);
+            logger.error("Error in search results Get call: ", e);
         }
     }
 

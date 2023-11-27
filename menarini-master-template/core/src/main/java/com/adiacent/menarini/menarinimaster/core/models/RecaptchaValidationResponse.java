@@ -1,16 +1,9 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import org.joda.time.format.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 
 /*

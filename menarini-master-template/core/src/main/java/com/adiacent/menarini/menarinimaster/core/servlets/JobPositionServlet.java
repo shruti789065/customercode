@@ -34,7 +34,7 @@ import java.util.Iterator;
 
 public class JobPositionServlet extends SlingAllMethodsServlet {
     private static final long serialVersionUID = 1L;
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public static final String DEFAULT_SELECTOR = "searchJobPosition";
 
@@ -61,7 +61,7 @@ public class JobPositionServlet extends SlingAllMethodsServlet {
 
 
         }catch (Exception e){
-            LOG.error("Error in Job Positions Servlet Get call: ", e);
+            logger.error("Error in Job Positions Servlet Get call: ", e);
         }
     }
 

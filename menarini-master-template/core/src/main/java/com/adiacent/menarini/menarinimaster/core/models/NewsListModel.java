@@ -7,29 +7,20 @@ import com.adobe.cq.wcm.core.components.models.List;
 import com.adobe.cq.wcm.core.components.models.ListItem;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.replication.ReplicationStatus;
-import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.foundation.Image;
 import lombok.experimental.Delegate;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceUtil;
 import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
-import org.apache.xmlbeans.impl.xb.xsdschema.impl.ListDocumentImpl;
 
 import javax.annotation.PostConstruct;
-import javax.jcr.Node;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Model(
 		adaptables = {Resource.class, SlingHttpServletRequest.class},
