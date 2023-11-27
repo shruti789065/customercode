@@ -45,7 +45,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
     private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
     public static final String DEFAULT_SELECTOR = "searchresult";
 
-    private String keyword ;
+
     private transient Page currentPage = null;
     private transient Page homepage = null;
 
@@ -71,6 +71,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
     }
 
     protected JSONObject getResult(SlingHttpServletRequest request, ResourceResolver resourceResolver) throws RepositoryException, JSONException {
+        String keyword ;
         JSONArray results = new JSONArray();
         JSONObject response = new JSONObject();
         if(request.getParameter("fulltext") != null){
