@@ -69,11 +69,11 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		Resource contentFragRes = resolver.getResource(departmentPagePath);
 
 		if (contentFragRes != null) {
-			String xpathQuery = buildXpathQuery(contentFragRes.getPath());
+			/*String xpathQuery = buildXpathQuery(contentFragRes.getPath());
 			Query query = buildQuery(session, xpathQuery);
-			NodeIterator itemIterator = executeQuery(query);
-
-			processNodes(resolver, itemIterator, departmentsList);
+			NodeIterator itemIterator = executeQuery(query);*/
+			Iterator<Resource> items = contentFragRes.listChildren();
+			processNodes(resolver, items, departmentsList);
 		}
 
 		return mergeJsonArrays(departmentsList);
@@ -93,10 +93,10 @@ public class ConnectedOptionsServlet extends SlingAllMethodsServlet {
 		return queryResult.getNodes();
 	}
 
-	private void processNodes(ResourceResolver resolver, NodeIterator itemIterator, List<JsonArray> departmentsList) throws Exception {
+	private void processNodes(ResourceResolver resolver, Iterator<Resource> itemIterator, List<JsonArray> departmentsList) throws Exception {
 		while (itemIterator.hasNext()) {
-			Node node = itemIterator.nextNode();
-			Resource itemRes = resolver.getResource(node.getPath());
+			Resource countryRes = itemIterator.next();
+			Resource itemRes = resolver.getResource(countryRes.getPath());
 			if (itemRes != null && itemRes.getResourceType().equals("dam:Asset")) {
 				ContentFragment cf = itemRes.adaptTo(ContentFragment.class);
 				if (cf != null) {

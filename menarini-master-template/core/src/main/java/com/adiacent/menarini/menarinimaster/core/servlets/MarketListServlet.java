@@ -66,7 +66,7 @@ public class MarketListServlet extends SlingAllMethodsServlet {
         if(request.getParameter("country") != null){
             String country = request.getParameter("country");
             Resource countryFolder = resourceResolver.getResource(country);
-            if(countryFolder != null && countryFolder.isResourceType("sling:Folder")){
+            if(countryFolder != null && (countryFolder.isResourceType("sling:Folder") || countryFolder.isResourceType("sling:OrderedFolder")) ){
                 Iterator<Resource> items = countryFolder.listChildren();
                 while (items.hasNext()){
                     JsonObject result = new JsonObject();
