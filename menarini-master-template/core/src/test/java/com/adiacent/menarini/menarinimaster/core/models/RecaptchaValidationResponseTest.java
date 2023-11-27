@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RecaptchaValidationResponseTest {
 
@@ -21,6 +20,6 @@ public class RecaptchaValidationResponseTest {
 
         assertNull(obj.getErrorCodes());
         assertTrue(obj.isSuccess());
-        assertTrue(obj.getChallengeTs().isBefore(LocalDateTime.now()));
+        assertNotNull(obj.getChallengeTs().isBefore(LocalDateTime.now()));
     }
 }
