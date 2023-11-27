@@ -61,7 +61,7 @@ public class MarketListDropdownServlet extends SlingAllMethodsServlet {
                             vm.put("text", "Select");
                         } else {
                             Resource countryOption = countryRes.next();
-                            if(countryOption.isResourceType("sling:Folder")){
+                            if(countryOption.isResourceType("sling:Folder") || countryOption.isResourceType("sling:OrderedFolder")){
                                 String title = countryOption.getChild("jcr:content").getValueMap().get("jcr:title").toString();
                                 String value = countryOption.getPath();
                                 vm.put("value", value);
