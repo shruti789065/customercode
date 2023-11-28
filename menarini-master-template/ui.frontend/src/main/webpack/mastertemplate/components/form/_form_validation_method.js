@@ -82,8 +82,10 @@ function validateText(element) {
 
   if (value.length === 0 && isRequired) {
     handleValidationResult(element, false, errorMessageText);
+    return false;
   } else {
     handleValidationResult(element, true);
+    return true;
   }
 
   if ($(element).attr("type") === "email") {
@@ -103,11 +105,14 @@ function validateSelect(element) {
 
   const isRequired = isElementOrParentRequired(element);
 
-  handleValidationResult(
-    element,
-    valueSelected || !isRequired,
-    errorMessageSelect
-  );
+  if (isRequired) {
+    handleValidationResult(element, valueSelected, errorMessageSelect);
+    return valueSelected; // Restituisci true se la validazione passa, altrimenti false
+  } else {
+    // Se non è richiesto, consideralo sempre valido
+    handleValidationResult(element, true);
+    return true;
+  }
 }
 
 function validateEmailField(element, value) {
@@ -230,6 +235,7 @@ export function validateFile(element, file, fileContainer) {
   if (isMyFilesEmpty && isRequired) {
     // Se il campo myFiles è vuoto e il campo è richiesto, mostra il messaggio di errore
     handleValidationResult(element, false, errorMessageFileRequired);
+    return false; // Restituisci false se la validazione non passa
   } else if (file) {
     // Se un file è stato caricato, rimuovi il messaggio di errore per il file richiesto
     handleValidationResult(element, true, errorMessageFileRequired);
@@ -238,6 +244,9 @@ export function validateFile(element, file, fileContainer) {
     validateFileSize(element, file, errorMessageFileSize);
     validateFileExtension(element, file, errorMessageFileExtension);
     fileContainer.text(file.name).append('<i class="cmp-close__icon"></i>');
+    return true; // Restituisci true se la validazione passa
+  } else {
+    return true; // Se il file non è presente, consideralo valido
   }
 }
 

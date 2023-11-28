@@ -33,7 +33,7 @@ $(function () {
     });
 
     $form.find("[required]").each(function () {
-      if (this.type === "radio" || this.type === "file") {
+      if (this.type && (this.type === "radio" || this.type === "file")) {
         $(this).closest("label").attr("for", this.id);
       }
       if (this.id !== "") {
@@ -47,35 +47,42 @@ $(function () {
   function setupFileInput($fileInput, $filesContainer) {
     $fileInput.on("change", function () {
       const file = this.files[0];
-      if (!file) {
-        return;
+      if (file) {
+        validateFile(this, file, $filesContainer);
       }
-      validateFile(this, file, $filesContainer);
     });
 
-    $filesContainer.on("click", ".cmp-close__icon", function () {
+    $filesContainer.on("click", ".cmp-close__icon", function (event) {
+      event.stopPropagation();
       $fileInput.val("");
       $filesContainer.text("");
       $(this).remove();
     });
   }
 
+  function showOverlayAndLoader($form) {
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    $form.append(overlay);
+    const loader = document.createElement("div");
+    loader.classList.add("loader");
+    $form.append(loader);
+    $form.addClass("loading");
+  }
+
   function setupFormSubmit($form) {
     $form.on("submit", function (event) {
-      event.preventDefault();
-      if (performAllValidations($form)) {
-        $form.trigger("submit");
+      if (!performAllValidations($form)) {
+        event.preventDefault();
+      } else {
+        showOverlayAndLoader($form);
       }
     });
   }
 
   function performAllValidations($form) {
-    let validInput = validateInputs($form);
-    let validRadio = validateRadios($form);
-    let validCaptcha = validateRecaptcha();
-
-    if (validRadio && validInput && validCaptcha) {
-      return true;
-    }
+    return (
+      validateRadios($form) && validateInputs($form) && validateRecaptcha()
+    );
   }
 });
