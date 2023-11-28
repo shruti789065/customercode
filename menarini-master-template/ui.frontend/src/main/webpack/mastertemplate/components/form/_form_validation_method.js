@@ -15,19 +15,14 @@ const ERRORS = {
   },
 };
 
+function isValidPhoneNumber(phoneNumber) {
+  const phoneRegex = /^(\+(?:[0-9] ?){6,14}[0-9]|(?:[0-9] ?){6,14}[0-9])$/;
+  return phoneRegex.test(phoneNumber);
+}
+
 function isValidMailFormat(email) {
   const re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
   return re.test(email);
-}
-
-function isValidPhoneNumber(phoneNumber) {
-  const phoneRegex = /^(\+(?:[0-9] ?){6,14}[0-9]|(?:[0-9] ?){6,14}[0-9])$/;
-
-  if (phoneRegex.test(phoneNumber)) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 function getAssociatedErrorMessage(element, errorMessage) {
@@ -123,7 +118,7 @@ function validateEmailField(element, value) {
   );
   const errorMessageMailFormat = ERRORS.MESSAGE.email_format;
 
-  if (value.length > 0) {
+  if (value) {
     emailFormat
       ? removeErrorMessage(element)
       : handleValidationResult(element, emailFormat, errorMessageMailFormat);
@@ -265,15 +260,6 @@ export function validateRadios(form) {
         handleValidationResult($this, true, "");
       }
     }
-
-    /* if (value === "no" && $this.is(":checked")) {
-      radioValid = false;
-      handleValidationResult(
-        $this,
-        false,
-        $this.closest("fieldset").data("cmp-required-message")
-      );
-    } */
   });
 
   return radioValid;
@@ -281,8 +267,8 @@ export function validateRadios(form) {
 
 export function validateRecaptcha() {
   const recaptchaElement = document.getElementById("g-recaptcha-response");
-  const tokenRecaptcha = recaptchaElement.value.trim();
-  if (!tokenRecaptcha) {
+  const tokenRecaptcha = recaptchaElement.value;
+  if (!tokenRecaptcha.trim()) {
     appendErrorMessage(recaptchaElement, ERRORS.MESSAGE.reCAPTCHA);
     return false;
   } else {
