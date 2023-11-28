@@ -1,35 +1,40 @@
 .cmp-form {
-	background-color: $white;
-	padding: 60px 0;
-	margin: 0 auto;
+  background-color: $white;
+  padding: 60px 0;
+  margin: 0 auto;
 
-	.label_required,
-	.label_email_not_valid,
-	.label_file_too_big,
-	.label_file_extension_not_allowed,
-	.label_error {
-		margin-top: 4px;
-		color: $color-primary-hover;
-		font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-		font-size: 14px;
-	}
+  .label_required,
+  .label_email_not_valid,
+  .label_file_too_big,
+  .label_file_extension_not_allowed,
+  .label_error {
+    margin-top: 4px;
+    color: $color-primary-hover;
+    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    height: 22px;
+  }
+  .no_error_label {
+    height: 22px;
+    display: block;
+  }
 
-	.button {
-		.cmp-form-button:hover {
-			-webkit-transform: none;
-			transform: none;
-		}
-	}
+  .button {
+    .cmp-form-button:hover {
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
 
-	#myFiles {
-		width: 100%;
-		padding: 1%;
-		margin: 0px;
-		display: inline-block;
+  #myFiles {
+    width: 100%;
+    padding: 1%;
+    margin: 0px;
+    display: inline-block;
 
-		&:not(:empty) {
-			background: $color-six;
-			margin-bottom: 1%;
-		}
-	}
+    &:not(:empty) {
+      background: $color-six;
+      margin-bottom: 1%;
+    }
+  }
 }

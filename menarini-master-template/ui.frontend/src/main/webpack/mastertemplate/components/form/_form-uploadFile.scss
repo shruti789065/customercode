@@ -1,71 +1,56 @@
 .upload-file {
-	.cmp-form-text {
-		label {
-			margin-bottom: 0px;
-		}
-		.buttonText {
-			background-color: $color-primary;
-			color: $white;
-			cursor: pointer;
-			font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
-			font-size: 16px;
-			text-transform: uppercase;
-			font-weight: $font-regular;
-			padding: 19px 36px;
-			text-align: center;
-			display: inline-block;
-			/*
-			background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/plus-icon-white.png");
-			background-repeat: no-repeat;
-			background-position: left center;
-			background-position-x: 10px;
-			background-size: 14px;
-			*/
-			border-radius: 0px;
-			border: 1px solid transparent;
-			line-height: 20px;
-			margin-top: 70px;
-			span {
-				font-size: 36px;
-				padding: 0;
-				margin: 0;
-				line-height: inherit;
-				vertical-align: top;
-				margin-right: -1px;
-				font-weight: 100;
-			}
-		}
+  .cmp-form-text {
+    label {
+      margin-bottom: 0px;
+    }
+    .buttonText {
+      background-color: $color-primary;
+      color: $white;
+      cursor: pointer;
+      font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: $font-regular;
+      padding: 19px 36px;
+      text-align: center;
+      display: inline-block;
+      border-radius: 0px;
+      border: 1px solid transparent;
+      line-height: 20px;
+      margin-top: 70px;
+      span {
+        font-size: 36px;
+        padding: 0;
+        margin: 0;
+        line-height: inherit;
+        vertical-align: top;
+        margin-right: -1px;
+        font-weight: 100;
+      }
+    }
 
-		#myfile {
-			display: none;
-		}
+    #myfile {
+      visibility: hidden;
+    }
+    #myFiles {
+      display: flex;
+      justify-content: space-between;
 
-		#myFiles {
-			display: flex;
-			justify-content: space-between;
+      .cmp-close__icon {
+        margin-right: 15px;
 
-			.cmp-close__icon {
-				margin-right: 15px;
+        &::after {
+          content: "X";
+          font-size: 18px;
+          font-weight: $font-bold;
+          color: $color-primary-hover;
+          cursor: pointer;
+        }
+      }
+    }
 
-				&::after {
-					content: 'X';
-					font-size: 18px;
-					font-weight: $font-bold;
-					color: $color-primary-hover;
-					cursor: pointer;
-				}
-
-				/* width: 42px;
-				height: 36px;
-				background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/icon_side_menu_close.svg");
-				background-position: center center;
-				background-size: contain;
-				background-repeat: no-repeat; */
-			}
-		}
-
-		.buttonText:after {
-			content: none;
-		}
-	}
+    .buttonText:after {
+      content: none;
+    }
+  }
 }

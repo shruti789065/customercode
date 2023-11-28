@@ -8,11 +8,13 @@
 .cmp-form-options__legend {
 }
 .cmp-form-options__field-label {
+	display: inline-flex;
+	gap: 5px;
 	font-family: $font-family-arimo; 
 	font-size: 18px;
 	font-weight: $font-light;
 	color: $color-text;
-	min-height: 20px;
+	height: 22px;
     padding-left: 20px;
     margin-bottom: 0;
     font-weight: $font-regular;

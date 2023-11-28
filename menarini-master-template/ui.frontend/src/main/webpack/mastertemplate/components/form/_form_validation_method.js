@@ -1,15 +1,24 @@
 const ERRORS = {
   CLASS: "label_error",
   MESSAGE: {
-    file_required: "Please, this field cannot be empty, upload your",
+    file_required: "Please, this field cannot be empty, upload your file",
     file_size: "File too big: Limit is 3MB",
     text_field: "Please, this field cannot be empty",
     file_extension: "File extension not allowed",
     select: "Please select at least one option",
     email: "Please enter a valid email address",
+    email_format: "Email not valid",
+    phone: "Please enter a phone number",
+    phone_format: "Please enter a valid phone number format",
+    radio: "Please, you must accept this option",
     reCAPTCHA: "Please fill in the reCAPTCHA field",
   },
 };
+
+function isValidPhoneNumber(phoneNumber) {
+  const phoneRegex = /^(\+(?:[0-9] ?){6,14}[0-9]|(?:[0-9] ?){6,14}[0-9])$/;
+  return phoneRegex.test(phoneNumber);
+}
 
 function isValidMailFormat(email) {
   const re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
@@ -23,11 +32,20 @@ function getAssociatedErrorMessage(element, errorMessage) {
 }
 
 function appendErrorMessage(el, errorMessage) {
-  const parent = $(el).parent();
+  const $el = $(el);
+  const parent = $el.parent();
   const existingError = parent.find("." + ERRORS.CLASS);
 
-  if (!existingError.length) {
-    parent.append(`<p class='${ERRORS.CLASS}'>${errorMessage}</p>`);
+  if (!existingError.length || existingError.text() !== errorMessage) {
+    existingError.remove(); // Rimuovi il messaggio di errore esistente se presente
+
+    if ($el.is(":radio") || $el.is(":checkbox")) {
+      // Se l'elemento è un radio button o una casella di controllo,
+      // appendi l'errore al parent del parent
+      parent.parent().append(`<p class='${ERRORS.CLASS}'>${errorMessage}</p>`);
+    } else {
+      parent.append(`<p class='${ERRORS.CLASS}'>${errorMessage}</p>`);
+    }
   }
 }
 
@@ -71,6 +89,9 @@ function validateText(element) {
   if ($(element).attr("type") === "email") {
     validateEmailField(element, value);
   }
+  if ($(element).attr("type") === "tel") {
+    validatePhoneField(element, value);
+  }
 }
 
 function validateSelect(element) {
@@ -95,10 +116,30 @@ function validateEmailField(element, value) {
     element,
     ERRORS.MESSAGE.email
   );
-  if (value.length > 0) {
-    handleValidationResult(element, emailFormat, errorMessageMail);
+  const errorMessageMailFormat = ERRORS.MESSAGE.email_format;
+
+  if (value) {
+    emailFormat
+      ? removeErrorMessage(element)
+      : handleValidationResult(element, emailFormat, errorMessageMailFormat);
   } else {
-    removeErrorMessage(element);
+    handleValidationResult(element, emailFormat, errorMessageMail);
+  }
+}
+
+function validatePhoneField(element, value) {
+  const phoneFormat = isValidPhoneNumber(value);
+  const errorMessagePhone = getAssociatedErrorMessage(
+    element,
+    ERRORS.MESSAGE.phone
+  );
+  const errorMessagePhoneFormat = ERRORS.MESSAGE.phone_format;
+  if (value.length > 0) {
+    phoneFormat
+      ? removeErrorMessage(element)
+      : handleValidationResult(element, phoneFormat, errorMessagePhoneFormat);
+  } else {
+    handleValidationResult(element, phoneFormat, errorMessagePhone);
   }
 }
 
@@ -120,21 +161,30 @@ function validateFileSize(element, file, errorMessage) {
 
 function handleValidationResult(element, isValid, errorMessage) {
   const errorClass = ERRORS.CLASS;
+  const $element = $(element);
+  const parent = $element.parent();
+  const errorElement = parent.find("." + errorClass);
 
   if (!isValid) {
-    $(element).css("border", "3px solid #a94442");
+    $element.css("border", "3px solid #a94442");
     appendErrorMessage(element, errorMessage);
   } else {
-    const parent = $(element).parent();
-    const errorElement = parent.find("." + errorClass);
-
-    if (errorElement.length) {
-      errorElement.remove(); // Rimuovi il messaggio di errore se esiste
+    if ($element.is(":radio") || $element.is(":checkbox")) {
+      // Se l'elemento è un radio button
+      // rimuovi l'errore dal parent del parent
+      parent
+        .parent()
+        .find("." + errorClass)
+        .remove();
+    } else if (errorElement.length) {
+      // Se l'elemento non è un radio button,
+      // rimuovi l'errore dal parent
+      errorElement.remove();
     }
 
     // Aggiungi un nuovo elemento vuoto per mantenere la struttura
-    parent.append(`<p class='${errorClass}'></p>`);
-    $(element).css("border", ""); // Ripristina il bordo al suo stato originale
+    parent.append(`<p class='${errorClass} no_error_label'></p>`);
+    $element.css("border", ""); // Ripristina il bordo al suo stato originale
   }
 }
 
@@ -147,8 +197,6 @@ export function validateInputs(form) {
   let inputsValid = true;
 
   form.find(":input:not(:hidden,:checkbox)").each(function () {
-    console.log("$(this) ", $(this));
-    console.log("this ", this);
     if ($(this).is("select")) {
       inputsValid = validateSelect(this) && inputsValid;
     } else if ($(this).attr("type") == "file") {
@@ -168,7 +216,7 @@ export function validateFile(element, file, fileContainer) {
   );
   const errorMessageFileExtension = getAssociatedErrorMessage(
     element,
-    ERRORS.MESSAGE.file_size
+    ERRORS.MESSAGE.file_extension
   );
   const errorMessageFileRequired = getAssociatedErrorMessage(
     element,
@@ -176,58 +224,55 @@ export function validateFile(element, file, fileContainer) {
   );
   const isRequired = isElementOrParentRequired(element);
 
-  if (file) {
+  const myFilesInput = document.getElementById("myfile");
+  const isMyFilesEmpty = myFilesInput && myFilesInput.value.trim() === "";
+
+  if (isMyFilesEmpty && isRequired) {
+    // Se il campo myFiles è vuoto e il campo è richiesto, mostra il messaggio di errore
+    handleValidationResult(element, false, errorMessageFileRequired);
+  } else if (file) {
+    // Se un file è stato caricato, rimuovi il messaggio di errore per il file richiesto
+    handleValidationResult(element, true, errorMessageFileRequired);
+
+    // Esegui le opportune validazioni e carica il file
     validateFileSize(element, file, errorMessageFileSize);
     validateFileExtension(element, file, errorMessageFileExtension);
     fileContainer.text(file.name).append('<i class="cmp-close__icon"></i>');
   }
-
-  if (isRequired) {
-    handleValidationResult(element, !isRequired, errorMessageFileRequired);
-  }
 }
 
 export function validateRadios(form) {
-  let radiosValid = true;
-  let isRequired = 0;
+  let radioValid = true;
 
   form.find(":radio").each(function () {
     const $this = $(this);
     const value = $this.val().toLowerCase();
 
     if (["si", "yes", "1"].includes(value)) {
-      if ($this.attr("required")) {
-        isRequired = 1;
-        if ($this.is(":checked")) {
-          removeErrorMessage($this);
-        }
-      } else {
-        isRequired = 0;
-      }
-    }
-
-    if (value === "no" && $this.is(":checked")) {
-      if (isRequired === 1) {
-        radiosValid = false;
-        appendErrorMessage(
+      if ($this.attr("required") && !$this.is(":checked")) {
+        radioValid = false;
+        handleValidationResult(
           $this,
-          "label_required",
-          $this.closest("fieldset").data("cmp-required-message")
+          false,
+          getAssociatedErrorMessage(this, ERRORS.MESSAGE.radio)
         );
       } else {
-        removeErrorMessage($this);
+        handleValidationResult($this, true, "");
       }
     }
   });
-  return radiosValid;
+
+  return radioValid;
 }
 
 export function validateRecaptcha() {
   const recaptchaElement = document.getElementById("g-recaptcha-response");
-  const tokenRecaptcha = recaptchaElement.value.trim();
-  if (!tokenRecaptcha) {
+  const tokenRecaptcha = recaptchaElement.value;
+  if (!tokenRecaptcha.trim()) {
     appendErrorMessage(recaptchaElement, ERRORS.MESSAGE.reCAPTCHA);
     return false;
+  } else {
+    removeErrorMessage(recaptchaElement);
+    return true;
   }
-  return true;
 }
