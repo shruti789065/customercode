@@ -202,11 +202,9 @@ export function validateInputs(form) {
   let inputsValid = true;
 
   form.find(":input:not(:hidden,:checkbox)").each(function () {
-    console.log("$(this) ", $(this).attr("type"));
     if ($(this).is("select")) {
       inputsValid = validateSelect(this) && inputsValid;
     } else if ($(this).attr("type") == "file") {
-      console.log("this ", this);
       inputsValid = validateFile(this) && inputsValid;
     } else {
       inputsValid = validateText(this) && inputsValid;
@@ -287,6 +285,8 @@ export function validateRecaptcha() {
   if (!tokenRecaptcha) {
     appendErrorMessage(recaptchaElement, ERRORS.MESSAGE.reCAPTCHA);
     return false;
+  } else {
+    removeErrorMessage(recaptchaElement);
+    return true;
   }
-  return true;
 }
