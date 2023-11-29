@@ -41,8 +41,8 @@
             </languagenavigation>
             <image jcr:primaryType="nt:unstructured">
                 <policy_4689979585600
-                    jcr:lastModified="{Date}2023-06-09T09:54:49.651+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-06-30T07:43:47.588Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Menarini MT image policy"
                     sling:resourceType="wcm/core/components/policy/policy"
@@ -66,6 +66,17 @@
                         jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
+                            cq:styleGroupLabel="Size"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-image__real-size"
+                                    cq:styleId="1688110825165"
+                                    cq:styleLabel="Real size"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
                             cq:styleGroupLabel="margin"
                             cq:styleGroupMultiple="true"
                             jcr:primaryType="nt:unstructured">
@@ -91,8 +102,8 @@
                                     cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
-                        </item0>
-                        <item1
+                        </item1>
+                        <item2
                             cq:styleGroupLabel="padding"
                             cq:styleGroupMultiple="true"
                             jcr:primaryType="nt:unstructured">
@@ -118,7 +129,7 @@
                                     cq:styleLabel="right big"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
-                        </item1>
+                        </item2>
                     </cq:styleGroups>
                 </policy_4689979585600>
             </image>
@@ -480,12 +491,12 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2023-06-12T14:29:44.164+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:36:09.048Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="homepage policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini Home Page,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[group:Menarini Home Page,/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -523,12 +534,12 @@
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
                     jcr:description="Sets a &lt;main> element on the page content area."
-                    jcr:lastModified="{Date}2023-06-12T11:56:07.253+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:37:17.629Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/full-search,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -686,12 +697,12 @@
                     </cq:styleGroups>
                 </policy_777922468291300>
                 <policy_11097788065800
-                    jcr:lastModified="{Date}2023-06-12T14:16:08.797+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:34:47.672Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details page policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/cookie-list,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/embed,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/sitemap,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper,group:Menarini MT - Form]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -727,12 +738,12 @@
                     </cq:authoring>
                 </policy_11097788065800>
                 <policy_13297555366500
-                    jcr:lastModified="{Date}2023-06-12T12:36:13.565+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:37:53.146Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="content news policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/latestNews,/apps/menarinimaster/components/link,/apps/menarinimaster/components/news_list,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/latestNews,/apps/menarinimaster/components/link,/apps/menarinimaster/components/news_list,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -844,12 +855,12 @@
                     </cq:styleGroups>
                 </policy_18390849275000>
                 <policy_4452714892300
-                    jcr:lastModified="{Date}2023-06-13T07:57:55.537Z"
-                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                    jcr:lastModified="{Date}2023-10-05T10:35:32.702Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details news policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/latestNews,/apps/menarinimaster/components/link,/apps/menarinimaster/components/news_data,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/card-avatar-team-member,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/latestNews,/apps/menarinimaster/components/link,/apps/menarinimaster/components/news_data,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-06-13T11:22:19.240Z"
@@ -884,12 +895,12 @@
                     </cq:authoring>
                 </policy_4452714892300>
                 <policy_6386712489300
-                    jcr:lastModified="{Date}2023-06-12T15:34:42.517+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:31:33.975Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="category product policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productcategoryarea,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productcategoryarea,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layout="responsiveGrid"
                     layoutDisabled="false">
                     <jcr:content
@@ -904,12 +915,12 @@
                         jcr:primaryType="nt:unstructured"/>
                 </policy_6386712489300>
                 <policy_12088385090100
-                    jcr:lastModified="{Date}2023-06-13T08:35:55.387Z"
-                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                    jcr:lastModified="{Date}2023-10-05T10:28:01.496Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="healtcare product list policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productlist,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[group:Menarini MT - Content]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-06-13T11:25:31.814Z"
@@ -944,12 +955,12 @@
                     </cq:authoring>
                 </policy_12088385090100>
                 <policy_15581283876800
-                    jcr:lastModified="{Date}2023-06-12T14:27:07.300+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:34:10.748Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="details product page"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-06-13T11:23:33.443Z"
@@ -1024,12 +1035,12 @@
                     </cq:styleGroups>
                 </policy_1307698943930800>
                 <policy_1656579161845
-                    jcr:lastModified="{Date}2023-06-12T15:27:29.073+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:32:15.564Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="product area policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productcategorylist,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productcategorylist,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-06-13T11:24:28.193Z"
@@ -1042,12 +1053,12 @@
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1656579161845>
                 <policy_1657727659177
-                    jcr:lastModified="{Date}2023-06-12T15:59:02.111+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-10-05T10:27:20.553Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="pharmaceutical template policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productleafleft,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productleafleft,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-06-13T11:26:20.213Z"
@@ -2078,15 +2089,38 @@
             </productTitleAndIcon>
             <accordion jcr:primaryType="nt:unstructured">
                 <policy_1677581474992
-                    cq:styleDefaultClasses="cmp-accordion--custom-style"
-                    jcr:lastModified="{Date}2023-03-01T09:57:42.378+01:00"
-                    jcr:lastModifiedBy="admin"
+                    cq:styleDefaultClasses="cmp-accordion--custom-style primary"
+                    jcr:lastModified="{Date}2023-10-05T10:55:58.211Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="MT Accordion Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h2,h3,h4,h5,h6]"
                     headingElement="h3">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Label Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-accordion--custom-style primary"
+                                    cq:styleId="1696501791173"
+                                    cq:styleLabel="Primary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-accordion--custom-style secondary"
+                                    cq:styleId="1696503295773"
+                                    cq:styleLabel="Secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-accordion--custom-style corporate"
+                                    cq:styleId="1696501792653"
+                                    cq:styleLabel="Corporate"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_1677581474992>
             </accordion>
             <wrapper jcr:primaryType="nt:unstructured">

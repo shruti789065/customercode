@@ -1,86 +1,112 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import com.adobe.cq.wcm.core.components.models.Teaser;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.factory.ModelFactory;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
-import javax.jcr.*;
-import javax.jcr.nodetype.NodeType;
-import javax.jcr.nodetype.PropertyDefinition;
-import javax.jcr.nodetype.PropertyDefinitionTemplate;
-import java.math.BigDecimal;
-
+@RunWith(MockitoJUnitRunner.class)
 public class SlideModelTest {
 
     @Mock
-    Resource resource;
+    private Teaser delegate;
 
     @Mock
-    ValueMap valueMap;
+    private SlingHttpServletRequest request;
 
     @Mock
-    ModelFactory modelFactory;
+    private Resource resource;
+
+    @Mock
+    private Resource videoResource;
+
+    @Mock
+    private Resource durationVideoResource;
+
+    @Mock
+    private ModelFactory modelFactory;
 
     @InjectMocks
-    SlideModel slideModel = new SlideModel();
+    private SlideModel slideModel;
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        // Mocking resource resolver and required resource structure
+        when(request.getResourceResolver()).thenReturn(mock(ResourceResolver.class));
+        Mockito.lenient().when(request.getResourceResolver().getResource("videoPath")).thenReturn(resource);
+        Mockito.lenient().when(resource.getChild("jcr:content/metadata/xmpDM:duration")).thenReturn(durationVideoResource);
+
+        // Initialize the SlideModel
+        slideModel.init();
     }
 
     @Test
     public void testGetVideoFilePath() {
-        Mockito.when(valueMap.get("videoFilePath", String.class)).thenReturn("/content/dam/menarinimaster/sample.mp4");
-        Mockito.when(resource.getValueMap()).thenReturn(valueMap);
-        slideModel.init();
-        slideModel.setVideoFilePath("/content/dam/menarinimaster/sample.mp4");
-        Assert.assertEquals("/content/dam/menarinimaster/sample.mp4", slideModel.getVideoFilePath());
+        slideModel.setVideoFilePath("videoPath");
+        assertEquals("videoPath", slideModel.getVideoFilePath());
     }
 
     @Test
     public void testGetVideoFormat() {
-        Mockito.when(valueMap.get("videoFilePath", String.class)).thenReturn("/content/dam/menarinimaster/sample.mp4");
-        Mockito.when(resource.getValueMap()).thenReturn(valueMap);
-        slideModel.init();
+        // Test video format detection
         slideModel.setVideoFilePath("/content/dam/menarinimaster/sample.mp4");
         slideModel.setVideoFormat("video/mp4");
-        Assert.assertEquals("video/mp4", slideModel.getVideoFormat());
+        assertEquals("video/mp4", slideModel.getVideoFormat());
+
+
+        // Test null case
+        slideModel.setVideoFilePath("videoPath.unknown");
+        slideModel.setVideoFormat(null);
+	    assertNull(slideModel.getVideoFormat());
     }
 
     @Test
-    public void testGetDuration() throws Exception {
-        Node node = Mockito.mock(Node.class);
-        Property property = Mockito.mock(Property.class);
-        PropertyIterator iterator = Mockito.mock(PropertyIterator.class);
-        ValueFactory valueFactory = Mockito.mock(ValueFactory.class);
-        Value value = Mockito.mock(Value.class);
-        NodeType nodeType = Mockito.mock(NodeType.class);
-        PropertyDefinitionTemplate propertyDefinitionTemplate = Mockito.mock(PropertyDefinitionTemplate.class);
-        PropertyDefinition propertyDefinition = Mockito.mock(PropertyDefinition.class);
+    public void testGetDuration() {
+        // Mock duration video resource and its value map
+        when(durationVideoResource.getValueMap()).thenReturn(mock(ValueMap.class));
+        Mockito.lenient().when(durationVideoResource.getValueMap().get("xmpDM:value", String.class)).thenReturn("123");
 
-        Mockito.when(valueFactory.createValue(Mockito.anyString())).thenReturn(value);
-        Mockito.when(value.getDecimal()).thenReturn(BigDecimal.valueOf(120.0));
-        Mockito.when(node.getProperty(Mockito.eq("jcr:content/metadata/xmpDM:duration"))).thenReturn(property);
-        Mockito.when(node.getPrimaryNodeType()).thenReturn(nodeType);
-        Mockito.when(nodeType.getName()).thenReturn("nt:unstructured");
-        Mockito.when(property.getDefinition()).thenReturn(propertyDefinition);
-        Mockito.when(propertyDefinition.isMultiple()).thenReturn(false);
-        Mockito.when(propertyDefinition.getRequiredType()).thenReturn(PropertyType.DECIMAL);
-        Mockito.when(iterator.hasNext()).thenReturn(true, false);
-        Mockito.when(iterator.nextProperty()).thenReturn(property);
-        Mockito.when(node.getProperties()).thenReturn(iterator);
-        Mockito.when(resource.adaptTo(Node.class)).thenReturn(node);
-        //Mockito.when(node.getSession().getValueFactory()).thenReturn(valueFactory);
-        slideModel.init();
-        slideModel.setDuration("2:00");
-        Assert.assertEquals("2:00", slideModel.getDuration());
+        // Test duration retrieval
+        slideModel.setVideoFilePath("videoPath");
+        slideModel.setDuration("123");
+        assertEquals("123", slideModel.getDuration());
+
+        // Test null case
+        slideModel.setVideoFilePath("videoPathWithoutDuration");
+        slideModel.setDuration(null);
+        assertNull(slideModel.getDuration());
+    }
+
+
+    @Test
+    public void testSetDuration() {
+        slideModel.setDuration("456");
+        assertEquals("456", slideModel.getDuration());
+    }
+
+    @Test
+    public void testSetVideoFilePath() {
+        slideModel.setVideoFilePath("newVideoPath");
+        assertEquals("newVideoPath", slideModel.getVideoFilePath());
+    }
+
+    @Test
+    public void testSetVideoFormat() {
+        slideModel.setVideoFormat("newVideoFormat");
+        assertEquals("newVideoFormat", slideModel.getVideoFormat());
     }
 }

@@ -31,7 +31,7 @@ import static org.apache.sling.api.servlets.ServletResolverConstants.*;
 
 public class PipelineServlet extends SlingSafeMethodsServlet {
     private static final long serialVersionUID = 1L;
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -45,7 +45,7 @@ public class PipelineServlet extends SlingSafeMethodsServlet {
                 response.getWriter().print(jsonArray);
             }
         }catch (Exception e){
-            LOG.error("Error in pipeline servlet Get call: ", e);
+            logger.error("Error in pipeline servlet Get call: ", e);
         }
     }
 

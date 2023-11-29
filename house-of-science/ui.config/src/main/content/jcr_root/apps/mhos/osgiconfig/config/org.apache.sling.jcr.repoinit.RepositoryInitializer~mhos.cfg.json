@@ -1,7 +1,0 @@
-{
-    "scripts": [
-        "create path (sling:OrderedFolder) /content/dam/mhos",
-        "create path (nt:unstructured) /content/dam/mhos/jcr:content",
-        "set properties on /content/dam/mhos/jcr:content\n  set cq:conf{String} to /conf/mhos\n  set jcr:title{String} to \"Menarini House Of Science\"\nend"
-    ]
-}

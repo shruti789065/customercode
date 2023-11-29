@@ -25,6 +25,30 @@ module.exports = env => {
 			}),
 			new HtmlWebpackPlugin({
 				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/efpia.html'),
+				filename: 'efpia.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/library.html'),
+				filename: 'library.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/content-page.html'),
+				filename: 'content-page.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/internal-page.html'),
+				filename: 'internal-page.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
 				template: path.resolve(__dirname, SOURCE_ROOT + '/stemline/static/landing-research.html'),
 				filename: 'landing-research.html',
 				chunks: ['site', 'stemline']
@@ -63,7 +87,13 @@ module.exports = env => {
 				inject: true,
 				template: path.resolve(__dirname, SOURCE_ROOT + '/berlin/static/index.html'),
 				filename: 'berlin.html',
-				chunks: ['site', 'biotech']
+				chunks: ['site', 'berlin']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/apac/static/index.html'),
+				filename: 'apac.html',
+				chunks: ['site', 'apac']
 			})
 		],
 		devServer: {

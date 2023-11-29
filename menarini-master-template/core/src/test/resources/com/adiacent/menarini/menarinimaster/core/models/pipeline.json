@@ -1,0 +1,408 @@
+{
+	"jcr:created": "Tue May 30 2023 14:42:39 GMT+0000",
+	"jcr:createdBy": "L.ambrosini@adiacent.com",
+	"jcr:primaryType": "cq:Page",
+	"jcr:content": {
+		"jcr:created": "Tue May 30 2023 14:42:39 GMT+0000",
+		"cq:lastReplicatedBy": "d.mariotti@adiacent.com",
+		"cq:lastReplicationAction": "Activate",
+		"jcr:createdBy": "L.ambrosini@adiacent.com",
+		"cq:lastReplicatedBy_publish": "d.mariotti@adiacent.com",
+		"sling:resourceType": "menarinimaster/components/page",
+		"jcr:uuid": "9ad3995c-667d-4f03-a71e-15599b67961d",
+		"jcr:title": "Clinical Trials",
+		"cq:isDelivered": true,
+		"jcr:versionHistory": "b7b4f265-d04d-4209-8e2a-7c0f2592da28",
+		"jcr:predecessors": [
+			"d25614b3-9b05-4185-a014-6007e142f3f6"
+		],
+		"jcr:isCheckedOut": true,
+		"jcr:mixinTypes": [
+			"mix:versionable"
+		],
+		"cq:lastReplicationAction_publish": "Activate",
+		"cq:lastModified": "Thu Jun 01 2023 08:29:15 GMT+0000",
+		"cq:lastModifiedBy": "L.ambrosini@adiacent.com",
+		"jcr:primaryType": "cq:PageContent",
+		"cq:lastReplicated": "Wed May 31 2023 10:15:35 GMT+0000",
+		"cq:lastReplicated_publish": "Wed May 31 2023 10:15:35 GMT+0000",
+		"cq:template": "/conf/menarini-stemline/settings/wcm/templates/menarini---details-page",
+		"jcr:baseVersion": "d25614b3-9b05-4185-a014-6007e142f3f6",
+		"root": {
+			"layout": "responsiveGrid",
+			"sling:resourceType": "menarinimaster/components/container",
+			"jcr:primaryType": "nt:unstructured",
+			"container": {
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"jcr:primaryType": "nt:unstructured",
+				"internalheader": {
+					"disableLazyLoading": "false",
+					"jcr:lastModifiedBy": "m.papini@adiacent.com",
+					"textIsRich": "true",
+					"sling:resourceType": "menarinimaster/components/internalheader",
+					"titleFromPage": "false",
+					"isDecorative": "true",
+					"jcr:lastModified": "Wed Apr 19 2023 15:11:57 GMT+0000",
+					"jcr:primaryType": "nt:unstructured",
+					"imageFromPageImage": "false",
+					"fileReference": "/content/dam/menarini-stemline/assets/slideshow/internal-header/header_clinical_trials.png"
+				},
+				"container_266438554": {
+					"jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+					"jcr:lastModified": "Thu May 18 2023 13:03:30 GMT+0000",
+					"sling:resourceType": "menarinimaster/components/container",
+					"jcr:primaryType": "nt:unstructured",
+					"container": {
+						"cq:styleIds": [
+							"1677232233407"
+						],
+						"jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+						"jcr:lastModified": "Thu May 18 2023 13:03:34 GMT+0000",
+						"sling:resourceType": "menarinimaster/components/container",
+						"jcr:primaryType": "nt:unstructured",
+						"breadcrumb": {
+							"sling:resourceType": "menarinimaster/components/breadcrumb",
+							"jcr:primaryType": "nt:unstructured"
+						}
+					}
+				},
+				"container": {
+					"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+					"sling:resourceType": "menarinimaster/components/container",
+					"layout": "responsiveGrid",
+					"jcr:lastModified": "Wed Apr 19 2023 08:59:13 GMT+0000",
+					"jcr:primaryType": "nt:unstructured",
+					"internalmenu": {
+						"structureStart": 0,
+						"navigationRoot": "/content/menarini-stemline/en/en/science",
+						"sling:resourceType": "menarinimaster/components/internalmenu",
+						"jcr:primaryType": "nt:unstructured",
+						"cq:responsive": {
+							"jcr:primaryType": "nt:unstructured",
+							"default": {
+								"offset": "0",
+								"width": "3",
+								"jcr:primaryType": "nt:unstructured"
+							},
+							"tablet": {
+								"offset": "0",
+								"width": "4",
+								"jcr:primaryType": "nt:unstructured"
+							},
+							"phone": {
+								"offset": "0",
+								"width": "12",
+								"jcr:primaryType": "nt:unstructured"
+							}
+						}
+					},
+					"container": {
+						"layout": "responsiveGrid",
+						"cq:styleIds": [
+							"1684771252337"
+						],
+						"sling:resourceType": "menarinimaster/components/container",
+						"jcr:primaryType": "nt:unstructured",
+						"title": {
+							"cq:styleIds": [
+								"1653552493699"
+							],
+							"jcr:lastModifiedBy": "m.papini@adiacent.com",
+							"linkTarget": "_self",
+							"sling:resourceType": "menarinimaster/components/title",
+							"jcr:title": "OUR CLINICAL TRIALS",
+							"type": "h2",
+							"jcr:lastModified": "Mon Mar 06 2023 14:14:01 GMT+0000",
+							"jcr:primaryType": "nt:unstructured",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured"
+							}
+						},
+						"cq:responsive": {
+							"jcr:primaryType": "nt:unstructured",
+							"default": {
+								"offset": "0",
+								"width": "8",
+								"jcr:primaryType": "nt:unstructured"
+							},
+							"tablet": {
+								"offset": "0",
+								"width": "8",
+								"jcr:primaryType": "nt:unstructured"
+							},
+							"phone": {
+								"offset": "1",
+								"width": "10",
+								"jcr:primaryType": "nt:unstructured"
+							}
+						},
+						"spacer": {
+							"jcr:created": "Thu Jun 01 2023 08:29:07 GMT+0000",
+							"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+							"jcr:createdBy": "L.ambrosini@adiacent.com",
+							"sling:resourceType": "menarinimaster/components/spacer",
+							"jcr:lastModified": "Thu Jun 01 2023 08:29:15 GMT+0000",
+							"spacer": "40",
+							"jcr:primaryType": "nt:unstructured"
+						},
+						"text": {
+							"jcr:lastModifiedBy": "m.papini@adiacent.com",
+							"textIsRich": "true",
+							"sling:resourceType": "menarinimaster/components/text",
+							"jcr:lastModified": "Mon Mar 06 2023 14:14:23 GMT+0000",
+							"jcr:primaryType": "nt:unstructured",
+							"text": "<p>Inspired by the goal to improve outcomes for patients with unmet medical needs, Stemline is a biopharmaceutical company driven to discover and develop innovative therapeutics for the treatment of cancer.</p>\r\n"
+						}
+					},
+					"spacer": {
+						"jcr:lastModifiedBy": "m.papini@adiacent.com",
+						"sling:resourceType": "menarinimaster/components/spacer",
+						"jcr:lastModified": "Tue Mar 28 2023 14:17:47 GMT+0000",
+						"spacer": "50",
+						"jcr:primaryType": "nt:unstructured"
+					}
+				},
+				"container_1242765028": {
+					"jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+					"jcr:lastModified": "Thu May 18 2023 13:04:51 GMT+0000",
+					"sling:resourceType": "menarinimaster/components/container",
+					"jcr:primaryType": "nt:unstructured",
+					"container_1321963744": {
+						"cq:styleIds": [
+							"1677232233407"
+						],
+						"jcr:lastModifiedBy": "m.papini@adiacent.com",
+						"jcr:lastModified": "Mon Mar 27 2023 10:25:45 GMT+0000",
+						"sling:resourceType": "menarinimaster/components/container",
+						"jcr:primaryType": "nt:unstructured",
+						"pipeline_container": {
+							"componentType": "componentClinicalTrials",
+							"jcr:lastModifiedBy": "m.papini@adiacent.com",
+							"jcr:lastModified": "Mon Mar 27 2023 14:57:54 GMT+0000",
+							"sling:resourceType": "menarinimaster/components/pipeline-container",
+							"jcr:primaryType": "nt:unstructured",
+							"pipeline_item": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/elacestrant",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://clinicaltrials.gov/ct2/show/NCT03778931?term=Stemline&draw=2",
+								"indicationValue": "Metastatic Breast Cancer - Monotherapy",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:29:29 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							},
+							"pipeline_item_copy": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/elacestrant",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://clinicaltrials.gov/ct2/show/NCT05386108?term=Stemline&draw=2&rank=2",
+								"indicationValue": "Metastatic Breast Cancer/Glioblastoma - Combination",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:34:39 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							},
+							"pipeline_item_copy_c": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/elacestrant",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://clinicaltrials.gov/ct2/show/NCT05563220?term=Stemline&draw=2&rank=1",
+								"indicationValue": "Metastatic Breast Cancer - Combination",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:34:31 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							},
+							"pipeline_item_copy_c_1187921545": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/elacestrant",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://clinicaltrials.gov/ct2/show/NCT05596409?term=Stemline&draw=2",
+								"indicationValue": "Metastatic Breast Cancer - Combination",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:38:15 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							},
+							"pipeline_item_copy_c_870805836": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/men1703",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://clinicaltrials.gov/ct2/show/NCT03008187?term=NCT03008187&draw=2&rank=1",
+								"indicationValue": "Acute Myeloid Leukemia (AML), Relapsed/Refractory",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:45:38 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							},
+							"pipeline_item_copy_c_1276338677": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/men1611",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://clinicaltrials.gov/ct2/show/NCT04495621?term=NCT04495621&draw=2&rank=1",
+								"indicationValue": "Metastatic Colorectal Cancer",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:46:38 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							},
+							"pipeline_item_copy_c_1165662889": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/men1611",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://www.clinicaltrials.gov/ct2/show/NCT03767335?term=NCT03767335&draw=2&rank=1",
+								"indicationValue": "Advanced or Metastatic Breast Cancer",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:47:20 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							},
+							"pipeline_item_copy_c_276000136": {
+								"compoundValue": "/content/dam/menarini-stemline/area-content-fragments/compound-dropdown-options/sl-901",
+								"statusType": "open",
+								"textIsRich": "true",
+								"sling:resourceType": "menarinimaster/components/pipeline-item",
+								"readMore": "<p>Elacestrant is a selective estrogen receptor degrader (SERD) evaluated for potential use as a once daily oral treatment in patients with estrogen receptor positive (ER&#43;)/HER2- advanced or metastatic breast cancer. Studies completed to date, including the positive results from the EMERALD phase 3 trial, indicate that the compound has the potential for use as a single agent or in combination with other therapies for the treatment of breast cancer. Indeed, Elacestrant has been the first oral SERD to show positive results in a pivotal, phase III trial as a monotherapy versus standard of care for the treatment of ER&#43;/ HER2- advanced or metastatic breast cancer.</p>\r\n",
+								"clinicalTrials": "https://clinicaltrials.gov/ct2/show/NCT05382936?term=Stemline&draw=2&rank=3",
+								"indicationValue": "Advanced Solid Tumors",
+								"jcr:lastModifiedBy": "L.ambrosini@adiacent.com",
+								"target": "_blank",
+								"enableStage3": "false",
+								"enableStage4": "false",
+								"enableStage5": "false",
+								"enableStage6": "false",
+								"enableStage7": "false",
+								"labeClinicalTrials": "View details",
+								"jcr:lastModified": "Tue Apr 18 2023 10:48:21 GMT+0000",
+								"jcr:primaryType": "nt:unstructured",
+								"enableStage1": "false",
+								"enableStage2": "false"
+							}
+						}
+					}
+				},
+				"container_87346761": {
+					"cq:styleIds": [
+						"1655202404538"
+					],
+					"jcr:lastModifiedBy": "m.papini@adiacent.com",
+					"sling:resourceType": "menarinimaster/components/container",
+					"jcr:lastModified": "Mon Mar 06 2023 14:16:12 GMT+0000",
+					"jcr:primaryType": "nt:unstructured",
+					"container": {
+						"cq:styleIds": [
+							"1677232233407"
+						],
+						"jcr:lastModifiedBy": "m.papini@adiacent.com",
+						"sling:resourceType": "menarinimaster/components/container",
+						"layout": "responsiveGrid",
+						"jcr:lastModified": "Mon Mar 06 2023 14:16:27 GMT+0000",
+						"jcr:primaryType": "nt:unstructured",
+						"banner": {
+							"disableLazyLoading": "false",
+							"linkTarget": "_blank",
+							"textIsRich": "true",
+							"sling:resourceType": "menarinimaster/components/banner",
+							"jcr:title": "MENARINI’S CLINICAL TRIALS",
+							"titleFromPage": "false",
+							"isDecorative": "true",
+							"linkURL": "https://www.menarini.com/en-us/innovation-research/clinical-trials/clinical-trials-database",
+							"imageFromPageImage": "false",
+							"cq:styleIds": [
+								"1655107229265"
+							],
+							"jcr:lastModifiedBy": "m.papini@adiacent.com",
+							"jcr:description": "<p>Like Stemline, Menarini Group believes clinical trials are instrumental to translating the promising results of scientific research into high-quality medicines capable of improving patients’ lives.</p>\r\n",
+							"jcr:lastModified": "Fri May 05 2023 14:03:51 GMT+0000",
+							"jcr:primaryType": "nt:unstructured",
+							"fileReference": "/content/dam/menarini-stemline/assets/menu/megabox_men_clinical-trial.jpg",
+							"descriptionFromPage": "false",
+							"actions": {
+								"jcr:primaryType": "nt:unstructured"
+							}
+						},
+						"spacer_copy": {
+							"jcr:lastModifiedBy": "m.papini@adiacent.com",
+							"jcr:lastModified": "Tue Mar 28 2023 14:17:47 GMT+0000",
+							"sling:resourceType": "menarinimaster/components/spacer",
+							"spacer": "50",
+							"jcr:primaryType": "nt:unstructured"
+						}
+					}
+				}
+			}
+		}
+	}
+}

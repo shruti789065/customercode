@@ -1,0 +1,160 @@
+{
+	"jcr:primaryType": "cq:Page",
+	"jcr:createdBy": "admin",
+	"jcr:created": "Mon Oct 16 2023 10:53:37 GMT+0200",
+	"jcr:content": {
+		"jcr:primaryType": "cq:PageContent",
+		"jcr:createdBy": "admin",
+		"jcr:title": "test",
+		"cq:template": "/conf/menarini-apac/settings/wcm/templates/menarini---content-page",
+		"jcr:created": "Mon Oct 16 2023 10:53:37 GMT+0200",
+		"cq:lastModified": "Fri Oct 20 2023 10:36:27 GMT+0200",
+		"sling:resourceType": "menarinimaster/components/page",
+		"cq:lastModifiedBy": "admin",
+		"root": {
+			"jcr:primaryType": "nt:unstructured",
+			"layout": "responsiveGrid",
+			"sling:resourceType": "menarinimaster/components/container",
+			"container": {
+				"jcr:primaryType": "nt:unstructured",
+				"layout": "responsiveGrid",
+				"sling:resourceType": "menarinimaster/components/container",
+				"internalheader": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:lastModifiedBy": "admin",
+					"jcr:lastModified": "Fri May 27 2022 16:15:23 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/internalheader"
+				},
+				"section": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:lastModifiedBy": "a.messori@adiacent.com",
+					"jcr:lastModified": "Tue May 23 2023 15:04:29 GMT+0000",
+					"sling:resourceType": "menarinimaster/components/section",
+					"wrapper": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:lastModifiedBy": "a.messori@adiacent.com",
+						"jcr:lastModified": "Tue May 23 2023 15:05:56 GMT+0000",
+						"sling:resourceType": "menarinimaster/components/wrapper",
+						"breadcrumb": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:lastModified": "Fri May 27 2022 16:15:51 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/breadcrumb"
+						}
+					}
+				},
+				"section_1473771530": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:lastModifiedBy": "a.messori@adiacent.com",
+					"jcr:lastModified": "Tue May 23 2023 15:06:16 GMT+0000",
+					"sling:resourceType": "menarinimaster/components/section",
+					"wrapper": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:lastModifiedBy": "a.messori@adiacent.com",
+						"jcr:lastModified": "Tue May 23 2023 15:06:21 GMT+0000",
+						"sling:resourceType": "menarinimaster/components/wrapper",
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:lastModifiedBy": "admin",
+							"type": "h2",
+							"linkTarget": "_self",
+							"jcr:lastModified": "Wed Jul 27 2022 15:16:55 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title",
+							"cq:styleIds": [
+								"1653552493699"
+							]
+						},
+						"text_copy": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+							"text": "<p>lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;lorem ipsum&nbsp;</p>\r\n",
+							"jcr:lastModified": "Wed Jun 07 2023 14:20:22 GMT+0000",
+							"sling:resourceType": "menarinimaster/components/text",
+							"textIsRich": "true"
+						},
+						"efpia": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"folderPath": "/content/dam/menarini-apac/assets/efpia",
+							"jcr:created": "Mon Oct 16 2023 10:53:49 GMT+0200",
+							"jcr:lastModified": "Wed Oct 18 2023 12:23:20 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/efpia"
+						}
+					}
+				},
+				"section_59866877": {
+					"jcr:primaryType": "nt:unstructured",
+					"jcr:createdBy": "admin",
+					"jcr:lastModifiedBy": "admin",
+					"jcr:created": "Thu Oct 19 2023 11:46:06 GMT+0200",
+					"jcr:lastModified": "Thu Oct 19 2023 12:04:22 GMT+0200",
+					"sling:resourceType": "menarinimaster/components/section",
+					"backgroundColor": "#F7F6F4",
+					"wrapper": {
+						"jcr:primaryType": "nt:unstructured",
+						"jcr:createdBy": "admin",
+						"jcr:lastModifiedBy": "admin",
+						"layout": "responsiveGrid",
+						"jcr:created": "Thu Oct 19 2023 11:46:10 GMT+0200",
+						"jcr:lastModified": "Thu Oct 19 2023 11:46:21 GMT+0200",
+						"sling:resourceType": "menarinimaster/components/wrapper",
+						"spacer": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"spacer": "80",
+							"jcr:created": "Thu Oct 19 2023 12:05:50 GMT+0200",
+							"jcr:lastModified": "Thu Oct 19 2023 12:05:53 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/spacer"
+						},
+						"title": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Visit others countries eshop",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Thu Oct 19 2023 12:04:37 GMT+0200",
+							"type": "h2",
+							"linkTarget": "_self",
+							"jcr:lastModified": "Thu Oct 19 2023 12:05:35 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/title",
+							"cq:styleIds": [
+								"1653552493699"
+							]
+						},
+						"countryoptions": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:title": "Select Country",
+							"requiredSelect": "false",
+							"datasourceRT": "bin/apac/marketlist/dropdown",
+							"requiredMultiSelect": "false",
+							"jcr:lastModifiedBy": "admin",
+							"parentPagePath": "/content/dam/menarini-apac/area-content-fragments/countries",
+							"source": "datasource",
+							"jcr:created": "Thu Oct 19 2023 12:08:00 GMT+0200",
+							"id": "marketListDropdown",
+							"name": "Select Country",
+							"type": "drop-down",
+							"jcr:lastModified": "Thu Oct 19 2023 17:01:53 GMT+0200",
+							"requiredRadio": "false",
+							"sling:resourceType": "menarinimaster/components/countryOptions",
+							"cq:responsive": {
+								"jcr:primaryType": "nt:unstructured"
+							}
+						},
+						"container_1551196324": {
+							"jcr:primaryType": "nt:unstructured",
+							"jcr:createdBy": "admin",
+							"jcr:lastModifiedBy": "admin",
+							"jcr:created": "Fri Oct 20 2023 10:27:37 GMT+0200",
+							"id": "marketListResultContainer",
+							"jcr:lastModified": "Fri Oct 20 2023 10:33:57 GMT+0200",
+							"sling:resourceType": "menarinimaster/components/container"
+						}
+					}
+				}
+			}
+		}
+	}
+}

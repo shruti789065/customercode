@@ -62,7 +62,7 @@ public class PublishPageValidationIT {
 
 
 
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(PublishPageValidationIT.class);
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(PublishPageValidationIT.class);
 
     @ClassRule
     public static final CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule(true);
@@ -97,7 +97,7 @@ public class PublishPageValidationIT {
 
     private static void verifyPage (HtmlUnitClient client, String path) throws ClientProtocolException, IOException {
         URI baseURI = client.getUrl();
-        LOG.info("Using {} as baseURL", baseURI.toString());
+        logger.info("Using {} as baseURL", baseURI.toString());
         HttpGet get = new HttpGet(baseURI.toString() + path);
         org.apache.http.HttpResponse validationResponse = client.execute(get);
         assertEquals("Request to [" + get.getURI().toString() + "] does not return expected returncode 200",
@@ -110,19 +110,19 @@ public class PublishPageValidationIT {
         assertTrue(path + " does not contain any references!", references.size() > 0);
         for (URI ref : references ) {
             if (isSameOrigin(client.getUrl(), ref)) {
-                LOG.info("verifying linked resource {}", ref.toString());
+                logger.info("verifying linked resource {}", ref.toString());
                 SlingHttpResponse response = client.doGet(ref.getRawPath());
                 int statusCode = response.getStatusLine().getStatusCode();
                 int responseSize = response.getContent().length();
                 assertEquals("Unexpected status returned from [" + ref + "]", 200, statusCode);
                 if (! ZEROBYTEFILES.stream().anyMatch(s -> ref.getPath().startsWith(s))) {
                     if (responseSize == 0) {
-                        LOG.warn("Empty response body from [" + ref.getPath() + "], please validate if this is correct");
+                        logger.warn("Empty response body from [" + ref.getPath() + "], please validate if this is correct");
                     }
                 }
 
             } else {
-                LOG.info("skipping linked resource from another domain {}", ref.toString());
+                logger.info("skipping linked resource from another domain {}", ref.toString());
             }
         }
     }

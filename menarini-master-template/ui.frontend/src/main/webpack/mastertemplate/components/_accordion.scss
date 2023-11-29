@@ -50,6 +50,45 @@
             }
         }
     }
+    &.primary {
+        .cmp-accordion {
+            .cmp-accordion__item{
+                .cmp-accordion__header {
+                    .cmp-accordion__button {
+                        .cmp-accordion__title {
+                            color: $color-primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.secondary {
+        .cmp-accordion {
+            .cmp-accordion__item{
+                .cmp-accordion__header {
+                    .cmp-accordion__button {
+                        .cmp-accordion__title {
+                            color: $color-secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.corporate {
+        .cmp-accordion {
+            .cmp-accordion__item{
+                .cmp-accordion__header {
+                    .cmp-accordion__button {
+                        .cmp-accordion__title {
+                            color: $color-corporate;
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     
     

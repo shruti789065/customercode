@@ -19,8 +19,7 @@ import org.mockito.Mock;
 import java.io.InputStream;
 
 import static junit.framework.Assert.assertEquals;
-import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.*;
 
 @ExtendWith({AemContextExtension.class})
 public class ProductCategoryAreaModelTest {
