@@ -42,7 +42,7 @@ import $ from "jquery";
             if (data.results.length === 0) {
               //console.log("No results found.");
               resultsContainer.style.display = "grid";
-              resultsContainer.innerHTML = "No results found.";
+              resultsContainer.innerHTML = "No available position";
               return;
             }
             let card = "";
