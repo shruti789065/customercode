@@ -63,6 +63,22 @@
 		}
 	}
 
+	&.cmp-title--berlin {
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+
+			&.cmp-title__text,
+			.cmp-title__link {
+				color: $color-berlin;
+			}
+		}
+	}
+
 	&.cmp-title--other {
 
 		h1,
