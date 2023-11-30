@@ -7,9 +7,6 @@
   padding: 0 15px;
 }
 
-.cmp-form-options__legend {
-}
-
 .cmp-form-options__field-label {
   display: inline-flex;
   gap: 5px;
@@ -30,15 +27,6 @@
   }
 }
 
-.cmp-form-options__field--checkbox {}
-
-.cmp-form-options__field--radio {}
-
-.cmp-form-options__field-description {}
-
-.cmp-form-options__drop-down-field,
-.cmp-form-options__multi-drop-down-field {}
-
 .cmp-form-options__field--drop-down {
   display: block;
   background-position: right 30px center;
@@ -58,10 +46,9 @@
   line-height: 1.42857143;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding: 0 15px; // Duplicato, quindi rimosso
+  appearance: none;
+  padding: 0 15px;
 }
-
-.cmp-form-options__help-message {}
 
 .form-group {
   padding: 0 15px;

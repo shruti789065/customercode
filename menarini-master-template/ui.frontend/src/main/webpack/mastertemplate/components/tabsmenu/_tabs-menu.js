@@ -18,7 +18,7 @@ const MenuTabs = (() => {
 
   function init() {
     $tabsMenu = $(".tabs-menu");
-    if ($tabsMenu.length === 0) return;
+    if ($tabsMenu.length === 0) {return;}
 
     $whiteMenu = false;
     $shareButton = $(".cmp-share-desktop .cmp-button");
@@ -35,10 +35,10 @@ const MenuTabs = (() => {
     } else {
       setupDesktopMenu();
     }
-    setShareHref(elementsWithClass,currentUrl);
+    setShareHref(elementsWithClass, currentUrl);
   }
 
-  function setShareHref(element,currentUrl) {
+  function setShareHref(element, currentUrl) {
     element.forEach(function (element) {
       var link = element.querySelector("a");
 
@@ -68,7 +68,7 @@ const MenuTabs = (() => {
     });
 
     $(".panel-menu-toggler").on("click", () => {
-      $(".tabs-menu__container").removeClass("cmp-tabs__tabpanel--active");
+      $(".tabs-menu__container").removeClass(CONST.ACTIVE_PANEL);
     });
 
     $(".cmp-button--mobile__toggler").on("click", () => {
@@ -106,8 +106,6 @@ const MenuTabs = (() => {
   function handleResize() {
     if ($(window).height() < 600) {
       _addWhiteMenu();
-    } else {
-      console.log("Height > 600");
     }
   }
 
@@ -149,14 +147,12 @@ const MenuTabs = (() => {
     if ($(".cmp-button--mobile__toggler_close").length < 1) {
       $(".cmp-button--mobile").addClass("cmp-button--mobile__toggler_close");
       $("body").addClass("h-overflow");
-      console.log("menu aperto");
     } else {
       $tablistMobile.removeClass("cmp-tabs__tablist-opened");
-      $(".tabs-menu__container").removeClass("cmp-tabs__tabpanel--active");
+      $(".tabs-menu__container").removeClass(CONST.ACTIVE_PANEL);
       $(".cmp-button--mobile").removeClass("cmp-button--mobile__toggler_close");
       $("body").removeClass("h-overflow");
       $(".cmp-navbar-overlayer").hide();
-      console.log("menu chiuso");
     }
     $tablistMobile.toggleClass("cmp-tabs__tablist_mobile-active");
     $mobileTabsActive = document.querySelectorAll(

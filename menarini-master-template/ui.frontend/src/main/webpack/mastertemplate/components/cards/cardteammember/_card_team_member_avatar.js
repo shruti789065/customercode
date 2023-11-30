@@ -12,7 +12,7 @@ window.$ = jQuery;
 	 * @classdesc initiating javascript for the Card Avatar Component.
 	 */
 	var CardAvatar = function () {
-		var $cardButton;
+		/*var $cardButton;*/
 		
 		/**
 		 * Initializes the CardAvatar

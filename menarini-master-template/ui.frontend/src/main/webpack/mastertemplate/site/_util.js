@@ -58,3 +58,24 @@ export function _generateUniqueValue(name, key) {
 
   return uniqueValue;
 }
+
+export function showOverlayAndLoader(item, needOverlay) {
+  if (needOverlay) {
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    item.append(overlay);
+  }
+  const loader = document.createElement("div");
+  loader.classList.add("loader");
+  item.append(loader);
+  item.addClass("loading");
+}
+
+export function hideOverlayAndLoader(item) {
+  item.find(".loader").remove();
+  const overlay = item.find(".overlay");
+  if (overlay.length > 0) {
+    overlay.remove();
+  }
+  item.removeClass("loading");
+}
