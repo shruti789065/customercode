@@ -1,153 +1,181 @@
 /* eslint-disable max-len */
-import $ from 'jquery';
-import jQuery from 'jquery';
+import $ from "jquery";
+import jQuery from "jquery";
 window.$ = jQuery;
 
 (function () {
+  "use strict";
 
-	"use strict";
+  /**
+   * NewsList ListScroll
+   *
+   * @class ContactForm
+   * @classdesc initiating javascript for the ListScroll Component.
+   */
 
-	/**
-	 * NewsList ListScroll
-	 *
-	 * @class ContactForm
-	 * @classdesc initiating javascript for the ListScroll Component.
-	 */
+  var ListScroll = (function () {
+    var CONST = {
+      URL: _getJSON(),
+    };
 
-	var ListScroll = function () {
+    var $newsListContainer, mainContainer, mainChildren, loader;
 
-		var CONST = {
-			URL: _getJSON()
-		};
+    /**
+     * Initializes the ListScroll
+     *
+     * @public
+     */
+    function init() {
+      $newsListContainer = document.querySelector(".cmp-news-list");
+      if ($newsListContainer != undefined || $newsListContainer != null) {
+        $newsListContainer.append(
+          Object.assign(document.createElement("div"), { id: "loading" })
+        );
 
-		var $newsListContainer, mainContainer, mainChildren, loader;
+        mainContainer = document.querySelector(".cmp-news-list .cmp-list");
+        mainChildren = mainContainer.childElementCount;
+        loader = document.querySelector("#loading");
 
-		/**
-		 * Initializes the ListScroll
-		 *
-		 * @public
-		 */
-		function init() {
-			$newsListContainer = document.querySelector('.cmp-news-list');
-			if ($newsListContainer != undefined || $newsListContainer != null) {
-				$newsListContainer.append(
-					Object.assign(document.createElement('div'), { id: 'loading' })
-				);
+        document.addEventListener("DOMContentLoaded", () => {
+          let options = {
+            root: null,
+            rootMargins: "0px",
+            threshold: 0.5,
+          };
+          const observer = new IntersectionObserver(handleIntersect, options);
+          observer.observe(document.querySelector("footer"));
+        });
+      }
+    }
 
-				mainContainer = document.querySelector(".cmp-news-list .cmp-list");
-				mainChildren = mainContainer.childElementCount;
-				loader = document.querySelector("#loading");
+    function getData() {
+      displayLoading(loader);
+      fetch(CONST.URL)
+        .then((response) => response.json())
+        .then((data) => {
+          hideLoading(loader);
 
-				document.addEventListener("DOMContentLoaded", () => {
-					let options = {
-						root: null,
-						rootMargins: "0px",
-						threshold: 0.5
-					};
-					const observer = new IntersectionObserver(handleIntersect, options);
-					observer.observe(document.querySelector("footer"));
-				});
-			}
-		}
+          var boxes = Object.keys(data)
+            .filter((v) => !v.startsWith("jcr:"))
+            .map((e) => data[e]);
+          boxes.forEach((item, index) => {
+            if (typeof item == "string") {
+              return;
+            }
+            if ("jcr:content" in item && index >= mainChildren) {
+              _createElement(item, mainContainer);
+            }
+          });
+        });
+    }
 
+    function _createElement(item, mainContainer) {
+      let listItem = Object.assign(document.createElement("div"), {
+        className: "cmp-list__item",
+      });
+      let teaserContainer = Object.assign(document.createElement("div"), {
+        className: "cmp-teaser",
+      });
 
-		function getData() {
-			displayLoading(loader);
-			fetch(CONST.URL)
-				.then(response => response.json())
-				.then(data => {
-					hideLoading(loader);
+      let imageTeaserContainer = Object.assign(document.createElement("div"), {
+        className: "cmp-teaser__image",
+      });
+      let imageComponent = Object.assign(document.createElement("div"), {
+        className: "cmp-image",
+        itemtype: "http://schema.org/ImageObject",
+      });
+      let image = Object.assign(document.createElement("img"), {
+        className: "cmp-image__image",
+        itemprop: "contentUrl",
+        loading: "lazy",
+      });
 
-					var boxes = Object.keys(data).filter(v => !v.startsWith('jcr:')).map(e => data[e]);
-					boxes.forEach((item, index) => {
+      let teaserContent = Object.assign(document.createElement("div"), {
+        className: "cmp-teaser__content",
+      });
+      let teaserPretitle = Object.assign(document.createElement("p"), {
+        className: "cmp-teaser__pretitle",
+        innerHTML: _formatDate(item["jcr:content"]),
+      });
+      let teaserTitle = Object.assign(document.createElement("h2"), {
+        className: "cmp-teaser__title",
+        innerHTML: item["jcr:content"]["jcr:title"],
+      });
+      let teaserDescription = Object.assign(document.createElement("div"), {
+        className: "cmp-teaser__description",
+        innerHTML: item["jcr:content"]["jcr:description"] || "placeholder",
+      });
 
-						if (typeof item == 'string') { return; }
-						if ('jcr:content' in item && index >= mainChildren) {
-							_createElement(item, mainContainer);
-						}
-					});
-				});
-		}
+      let teaserActionContainer = Object.assign(document.createElement("div"), {
+        className: "cmp-teaser__action-container",
+      });
+      let teaserActionLink = Object.assign(document.createElement("a"), {
+        className: "cmp-teaser__action-container",
+        href: "/content/prova",
+        innerHTML: "read more",
+      });
+      let imageSrc = "";
+      if ("cq:featuredimage" in item["jcr:content"]) {
+        imageSrc = item["jcr:content"]["cq:featuredimage"].fileReference;
+        image.src = imageSrc;
+      }
 
-		function _createElement(item, mainContainer) {
+      mainContainer
+        .appendChild(listItem)
+        .appendChild(teaserContainer)
+        .appendChild(imageTeaserContainer)
+        .appendChild(imageComponent)
+        .appendChild(image);
 
+      teaserContainer.appendChild(teaserContent).appendChild(teaserPretitle);
 
-			let listItem = Object.assign(document.createElement('div'), { className: 'cmp-list__item' });
-			let teaserContainer = Object.assign(document.createElement('div'), { className: 'cmp-teaser' });
+      teaserContent.appendChild(teaserTitle);
+      teaserContent.appendChild(teaserDescription);
 
-			let imageTeaserContainer = Object.assign(document.createElement('div'), { className: 'cmp-teaser__image' });
-			let imageComponent = Object.assign(document.createElement('div'), { className: 'cmp-image', itemtype: 'http://schema.org/ImageObject' });
-			let image = Object.assign(document.createElement('img'), { className: 'cmp-image__image', itemprop: 'contentUrl', loading: 'lazy' });
+      teaserContent.appendChild(teaserActionContainer);
+      teaserActionContainer.appendChild(teaserActionLink);
+      mainChildren += 1;
+    }
 
-			let teaserContent = Object.assign(document.createElement('div'), { className: 'cmp-teaser__content' });
-			let teaserPretitle = Object.assign(document.createElement('p'), { className: 'cmp-teaser__pretitle', innerHTML: _formatDate(item['jcr:content']) });
-			let teaserTitle = Object.assign(document.createElement('h2'), { className: 'cmp-teaser__title', innerHTML: item['jcr:content']['jcr:title'] });
-			let teaserDescription = Object.assign(document.createElement('div'), { className: 'cmp-teaser__description', innerHTML: item['jcr:content']['jcr:description'] || 'placeholder' });
+    function displayLoading(loader) {
+      loader.classList.add("display");
+      setTimeout(() => {
+        loader.classList.remove("display");
+      }, 5000);
+    }
 
-			let teaserActionContainer = Object.assign(document.createElement('div'), { className: 'cmp-teaser__action-container' });
-			let teaserActionLink = Object.assign(document.createElement('a'), { className: 'cmp-teaser__action-container', href: '/content/prova', innerHTML: 'read more' });
-			let imageSrc = '';
-			if ('cq:featuredimage' in item['jcr:content']) {
-				imageSrc = item['jcr:content']['cq:featuredimage'].fileReference;
-				image.src = imageSrc;
-			}
+    function hideLoading(loader) {
+      loader.classList.remove("display");
+    }
 
-			mainContainer.appendChild(listItem).appendChild(teaserContainer)
-				.appendChild(imageTeaserContainer).appendChild(imageComponent)
-				.appendChild(image);
+    function _formatDate(jcrContent) {
+      let formattedDate = "";
+      if ("cq:lastModified" in jcrContent) {
+        formattedDate = jcrContent["cq:lastModified"];
+      } else {
+        formattedDate = jcrContent["jcr:created"];
+      }
+      return formattedDate;
+    }
 
-			teaserContainer.appendChild(teaserContent).appendChild(teaserPretitle);
+    function handleIntersect(entries) {
+      if (entries[0].isIntersecting) {
+        getData();
+      }
+    }
 
-			teaserContent.appendChild(teaserTitle);
-			teaserContent.appendChild(teaserDescription);
+    function _getJSON() {
+      let origin = window.location.origin;
+      let pathName = window.location.pathname;
+      return origin + pathName.replace("html", "4.json");
+    }
 
-			teaserContent.appendChild(teaserActionContainer);
-			teaserActionContainer.appendChild(teaserActionLink);
-			mainChildren += 1;
-		}
+    return {
+      init: init,
+    };
+  })();
 
-		function displayLoading(loader) {
-			loader.classList.add("display");
-			setTimeout(() => {
-				loader.classList.remove("display");
-			}, 5000);
-		}
-
-		function hideLoading(loader) {
-			loader.classList.remove("display");
-		}
-
-		function _formatDate(jcrContent) {
-			let formattedDate = '';
-			if ('cq:lastModified' in jcrContent) {
-				formattedDate = jcrContent['cq:lastModified'];
-			} else {
-				formattedDate = jcrContent['jcr:created'];
-			}
-			return formattedDate;
-
-		}
-
-		function handleIntersect(entries) {
-			if (entries[0].isIntersecting) {
-				getData();
-			}
-		}
-
-		function _getJSON() {
-			let origin = window.location.origin;
-			let pathName = window.location.pathname;
-			return origin + pathName.replace('html', '4.json');
-		}
-
-		return {
-			init: init
-		};
-
-	}();
-
-	$(function () {
-		ListScroll.init();
-	});
-
-}($));
+  $(function () {
+    ListScroll.init();
+  });
+})($);

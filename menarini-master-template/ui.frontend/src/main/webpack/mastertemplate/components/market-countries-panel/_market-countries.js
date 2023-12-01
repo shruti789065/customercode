@@ -46,7 +46,7 @@ const MarketCountries = (() => {
         marketCountriesCloseButton.addEventListener("click", toggleMarketPanel);
       }
     }
-    const observer = new MutationObserver((mutationsList, observer) => {
+    const observer = new MutationObserver((mutationsList) => {
       // Itera attraverso le mutazioni osservate
       for (const mutation of mutationsList) {
         // Verifica se la classe cmp-button--mobile__toggler_close è stata aggiunta al DOM

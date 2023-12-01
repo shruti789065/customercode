@@ -1,289 +1,268 @@
 #productsStemline {
-    #productsStemlineSelect {
+  #productsStemlineSelect {
+    .select-container {
+      position: relative;
+      width: 50%;
+      font-size: 20px;
+      text-transform: uppercase;
+      font-family: $font-family-oswald;
+      font-weight: $font-regular;
 
-        .select-container {
-            position: relative;
-            width: 50%;
-            font-size: 20px;
-            text-transform: uppercase;
-            font-family: $font-family-oswald;
-            font-weight: $font-regular;
-
-            .select-label {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                height: 40px;
-                padding: 0 16px;
-                background-color: $white;
-                border: 1px solid $color-third;
-                cursor: pointer;
-                padding: 20px 25px;
-	            height: 70px;
-            }
-
-            .select-arrow {
-                position: absolute;
-                top: 50%;
-                right: 30px;
-                transform: translateY(-50%);
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 8px 8px 0 8px;
-                border-color: $color-secondary transparent transparent transparent;
-                pointer-events: none;
-            }
-
-            .options-container {
-                position: absolute;
-                top: calc(100% - 1px);
-                left: 0;
-                width: 100%;
-                max-height: 200px;
-                overflow-y: auto;
-                background-color: $white;
-                border: 1px solid $color-background;
-                border-top: 1px solid $white;
-                z-index: 1;
-                display: none;
-                &.show {
-                    display: block !important;
-                }
-
-                .option {
-                    height: 40px;
-                    padding: 0 16px;
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: $color-secondary;
-                        color: $white;
-                    }
-
-                    &.active {
-                        background-color: $color-secondary;
-                        color: $white;
-                    }
-                }
-            }
-
-        }
-        @media screen and (max-width: 768px) {
-            .select-container {
-                width: 100%;
-            }
-          }
-
-
-    }
-
-    #productsStemlineResults {
+      .select-label {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 3%;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        padding: 0 16px;
+        background-color: $white;
+        border: 1px solid $color-third;
+        cursor: pointer;
+        padding: 20px 25px;
+        height: 70px;
+      }
 
-        .product {
-            background-color: $white;
-            border: 1px solid $color-third;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            width: 30%;
-            margin-top: 6%;
-            text-align: center;
-            overflow: hidden;            
+      .select-arrow {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: $color-secondary transparent transparent transparent;
+        pointer-events: none;
+      }
 
-            .imageProduct {
-                max-width: 350px;
-                height: 200px;
-                margin: 0px auto;
-            }
-            @media screen and (max-width: 992px) {
-                .imageProduct {
-                    max-width: 100%;
-                    max-height: 200px;
-                    margin: auto;
-                    height: unset;
-                }
-              }
-
-            .nameProduct {
-                font-size: 20px;
-                text-transform: uppercase;
-                font-family: $font-family-oswald;
-                font-weight: $font-regular;
-                color: $color-text;
-                margin-top: 30px;
-                text-align: left;
-            }
-
-            .websiteProduct {
-                display: flex;
-                width: fit-content;
-                background-color: $color-stem-fifth;
-                color: $color-stem-third;
-                font-size: $font-size;
-                text-transform: uppercase;
-                font-family: $font-family-oswald;
-                font-weight: $font-regular;
-                padding: 5px 15px;
-                text-align: left;
-                margin-top: 10px;
-                text-decoration: unset;
-            }
+      .options-container {
+        position: absolute;
+        top: calc(100% - 1px);
+        left: 0;
+        width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: $white;
+        border: 1px solid $color-background;
+        border-top: 1px solid $white;
+        z-index: 1;
+        display: none;
+        &.show {
+          display: block !important;
         }
-        @media screen and (max-width: 768px) {
-            .product {
-                width: 47%;
-            }
+
+        .option {
+          height: 40px;
+          padding: 0 16px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $color-secondary;
+            color: $white;
           }
-          @media screen and (max-width: 500px) {
-            .product {
-                width: 100%;
-            }
+
+          &.active {
+            background-color: $color-secondary;
+            color: $white;
           }
+        }
+      }
     }
+    @media screen and (max-width: 768px) {
+      .select-container {
+        width: 100%;
+      }
+    }
+  }
+
+  #productsStemlineResults {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 3%;
+
+    .product {
+      background-color: $white;
+      border: 1px solid $color-third;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      margin-top: 6%;
+      text-align: center;
+      overflow: hidden;
+
+      .imageProduct {
+        max-width: 350px;
+        height: 200px;
+        margin: 0px auto;
+      }
+      @media screen and (max-width: 992px) {
+        .imageProduct {
+          max-width: 100%;
+          max-height: 200px;
+          margin: auto;
+          height: unset;
+        }
+      }
+
+      .nameProduct {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-family: $font-family-oswald;
+        font-weight: $font-regular;
+        color: $color-text;
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      .websiteProduct {
+        display: flex;
+        width: -moz-fit-content;
+        width: fit-content;
+        background-color: $color-stem-fifth;
+        color: $color-stem-third;
+        font-size: $font-size;
+        text-transform: uppercase;
+        font-family: $font-family-oswald;
+        font-weight: $font-regular;
+        padding: 5px 15px;
+        text-align: left;
+        margin-top: 10px;
+        text-decoration: unset;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .product {
+        width: 47%;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      .product {
+        width: 100%;
+      }
+    }
+  }
 }
 
-
 .loading-spinner {
-    border: 6px solid $white;
-    border-top: 6px solid $color-primary;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: auto;
+  border: 6px solid $white;
+  border-top: 6px solid $color-primary;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: auto;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-#productsStemline {
-    #productsStemlineSelect {
-        .selectStemline {
-            .country {}
-        }
+.product-item.cq-Editable-dom {
+  .product {
+    background-color: $white;
+    border: 1px solid $color-third;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    text-align: center;
+    overflow: hidden;
+
+    .imageProduct {
+      max-width: 350px;
+      height: 200px;
+      margin: 0px auto;
     }
 
-    #productsStemlineResults {
-        .product {
-            .imageProduct {}
-
-            .nameProduct {}
-
-            .websiteProduct {}
-        }
+    .nameProduct {
+      font-size: 20px;
+      text-transform: uppercase;
+      font-family: $font-family-oswald;
+      font-weight: $font-regular;
+      color: $color-text;
+      margin-top: 30px;
+      text-align: left;
     }
+
+    .websiteProduct {
+      display: flex;
+      width: -moz-fit-content;
+      width: fit-content;
+      background-color: $color-stem-fifth;
+      color: $color-stem-third;
+      font-size: $font-size;
+      text-transform: uppercase;
+      font-family: $font-family-oswald;
+      font-weight: $font-regular;
+      padding: 5px 15px;
+      text-align: left;
+      margin-top: 10px;
+      text-decoration: unset;
+    }
+  }
 }
-.product-item.cq-Editable-dom{
-    .product {
-        background-color: $white;
-        border: 1px solid $color-third;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        width: 30%;
-        text-align: center;
-        overflow: hidden;            
-
-        .imageProduct {
-            max-width: 350px;
-            height: 200px;
-            margin: 0px auto;
-        }
-
-        .nameProduct {
-            font-size: 20px;
-            text-transform: uppercase;
-            font-family: $font-family-oswald;
-            font-weight: $font-regular;
-            color: $color-text;
-            margin-top: 30px;
-            text-align: left;
-        }
-
-        .websiteProduct {
-            display: flex;
-            width: fit-content;
-            background-color: $color-stem-fifth;
-            color: $color-stem-third;
-            font-size: $font-size;
-            text-transform: uppercase;
-            font-family: $font-family-oswald;
-            font-weight: $font-regular;
-            padding: 5px 15px;
-            text-align: left;
-            margin-top: 10px;
-            text-decoration: unset;
-        }
-    }
-}
-
 
 /*-----disclaimer-----*/
 #disclaimer {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 9998;
-	background-color:  rgb(0 0 0 / 70%);;
-	width: 100%;
-	height: 100%;
-    .popupDisclaimer {
-        z-index: 9999;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #FFF;
-        padding: 35px;
-        border-radius: 0px;
-        border: 1px solid $color-corporate;
-        h2 {
-            font-size: 20px;
-            text-transform: uppercase;
-            color: $color-primary;
-            font-family: $font-family-oswald;
-            font-weight: $font-regular;
-            margin-bottom: 40px;
-        }
-        p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-        button {
-            font-family: $font-family-oswald;
-            font-weight: $font-regular;
-            font-size: 15px;
-            line-height: 20px;
-            padding: 6px 25px;
-            text-transform: uppercase !important;
-            pointer-events: auto !important;
-            cursor: pointer !important;
-            border: 0px;
-            margin-right: 10px;
-            &.primary {
-                background-color: $color-stem-fifth;
-                color: $color-corporate;
-            }
-            &.secondary {
-                background-color: $color-fourth;
-                color: $white;
-            }
-        }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  background-color: rgb(0 0 0 / 70%);
+  width: 100%;
+  height: 100%;
+  .popupDisclaimer {
+    z-index: 9999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 0px;
+    border: 1px solid $color-corporate;
+    h2 {
+      font-size: 20px;
+      text-transform: uppercase;
+      color: $color-primary;
+      font-family: $font-family-oswald;
+      font-weight: $font-regular;
+      margin-bottom: 40px;
     }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    button {
+      font-family: $font-family-oswald;
+      font-weight: $font-regular;
+      font-size: 15px;
+      line-height: 20px;
+      padding: 6px 25px;
+      text-transform: uppercase !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      border: 0px;
+      margin-right: 10px;
+      &.primary {
+        background-color: $color-stem-fifth;
+        color: $color-corporate;
+      }
+      &.secondary {
+        background-color: $color-fourth;
+        color: $white;
+      }
+    }
+  }
 }

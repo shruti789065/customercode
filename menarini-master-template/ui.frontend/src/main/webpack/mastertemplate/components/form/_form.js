@@ -5,6 +5,8 @@ import {
   validateFile,
 } from "./_form_validation_method";
 
+import { showOverlayAndLoader } from "../../site/_util";
+
 $(function () {
   const $form = $("#new_form");
   const $fileInput = $("#myfile");
@@ -60,22 +62,12 @@ $(function () {
     });
   }
 
-  function showOverlayAndLoader($form) {
-    const overlay = document.createElement("div");
-    overlay.classList.add("overlay");
-    $form.append(overlay);
-    const loader = document.createElement("div");
-    loader.classList.add("loader");
-    $form.append(loader);
-    $form.addClass("loading");
-  }
-
   function setupFormSubmit($form) {
     $form.on("submit", function (event) {
       if (!performAllValidations($form)) {
         event.preventDefault();
       } else {
-        showOverlayAndLoader($form);
+        showOverlayAndLoader($form,true);
       }
     });
   }
