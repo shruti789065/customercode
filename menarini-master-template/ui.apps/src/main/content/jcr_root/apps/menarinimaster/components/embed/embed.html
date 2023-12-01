@@ -19,6 +19,11 @@
      data-cmp-data-layer="${embed.data.json}"
      id="${embed.id}"
      class="cmp-embed">
+	<sly data-sly-test="${embed.result && embed.result.processor}"
+	     data-sly-use.processorTemplate="processors/${embed.result.processor}.html"
+	     data-sly-call="${processorTemplate.render @ options=embed.result.options}"></sly>
 	<sly data-sly-test="${embed.html}">${embed.html @context = 'unsafe'}</sly>
+	<sly data-sly-test="${embed.embeddableResourceType}"
+	     data-sly-resource="${resource.path @ resourceType=embed.embeddableResourceType, wcmmode='disabled'}"></sly>
 </div>
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
