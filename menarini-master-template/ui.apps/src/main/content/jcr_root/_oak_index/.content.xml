@@ -26,11 +26,6 @@
                         path="jcr:content"
                         relativeNode="{Boolean}true"/>
             </cq:Page>
-            <nt:file jcr:primaryType="nt:unstructured">
-                <include0
-                        jcr:primaryType="nt:unstructured"
-                        path="jcr:content"/>
-            </nt:file>
             <cq:PageContent jcr:primaryType="nt:unstructured">
                 <include0
                         jcr:primaryType="nt:unstructured"
@@ -52,12 +47,6 @@
         <indexRules jcr:primaryType="nt:unstructured">
             <cq:Page jcr:primaryType="nt:unstructured">
                 <properties jcr:primaryType="nt:unstructured">
-                    <cqLastModified
-                            jcr:primaryType="nt:unstructured"
-                            name="jcr:content/cq:lastModified"
-                            ordered="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="Date"/>
                     <jcrTitle
                             jcr:primaryType="nt:unstructured"
                             name="jcr:content/jcr:title"
@@ -66,41 +55,22 @@
                             type="String"
                             useInSpellcheck="{Boolean}true"
                             useInSuggest="{Boolean}true"/>
-                    <pageTitle
+                    <jcrDescription
                             jcr:primaryType="nt:unstructured"
-                            name="jcr:content/pageTitle"
+                            name="jcr:content/jcr:description"
                             nodeScopeIndex="{Boolean}true"
                             propertyIndex="{Boolean}true"
                             type="String"
                             useInSpellcheck="{Boolean}true"
                             useInSuggest="{Boolean}true"/>
-                    <navTitle
+                    <text
                             jcr:primaryType="nt:unstructured"
-                            name="jcr:content/navTitle"
+                            name="jcr:content/text"
                             nodeScopeIndex="{Boolean}true"
                             propertyIndex="{Boolean}true"
                             type="String"
                             useInSpellcheck="{Boolean}true"
                             useInSuggest="{Boolean}true"/>
-                    <nodeName
-                            jcr:primaryType="nt:unstructured"
-                            name=":nodeName"
-                            nodeScopeIndex="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="String"
-                            useInSpellcheck="{Boolean}true"
-                            useInSuggest="{Boolean}true"/>
-                    <cqLastRolledoutBy
-                            jcr:primaryType="nt:unstructured"
-                            name="jcr:content/cq:lastRolledoutBy"
-                            propertyIndex="{Boolean}true"
-                            type="String"/>
-                    <location
-                            jcr:primaryType="nt:unstructured"
-                            name="jcr:content/location"
-                            notNullCheckEnabled="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="String"/>
                 </properties>
             </cq:Page>
         </indexRules>
@@ -124,11 +94,12 @@
                         path="jcr:content"
                         relativeNode="{Boolean}true"/>
             </cq:Page>
-            <nt:file jcr:primaryType="nt:unstructured">
+            <nt:unstructured jcr:primaryType="nt:unstructured">
                 <include0
                         jcr:primaryType="nt:unstructured"
-                        path="jcr:content"/>
-            </nt:file>
+                        path="jcr:content"
+                        relativeNode="{Boolean}true"/>
+            </nt:unstructured>
             <cq:PageContent jcr:primaryType="nt:unstructured">
                 <include0
                         jcr:primaryType="nt:unstructured"
@@ -151,35 +122,6 @@
             <nt:unstructured
                     jcr:primaryType="nt:unstructured">
                 <properties jcr:primaryType="nt:unstructured">
-                    <lastModifiedBy
-                            jcr:primaryType="nt:unstructured"
-                            index="{Boolean}false"
-                            name="cq:lastModifiedBy"/>
-                    <lastReplicatedBy
-                            jcr:primaryType="nt:unstructured"
-                            index="{Boolean}false"
-                            name="cq:lastReplicatedBy"/>
-                    <lastReplicationAction
-                            jcr:primaryType="nt:unstructured"
-                            index="{Boolean}false"
-                            name="cq:lastReplicationAction"/>
-                    <lastReplicationStatus
-                            jcr:primaryType="nt:unstructured"
-                            index="{Boolean}false"
-                            name="cq:lastReplicationStatus"/>
-                    <createdBy
-                            jcr:primaryType="nt:unstructured"
-                            index="{Boolean}false"
-                            name="jcr:createdBy"/>
-                    <resourceType
-                            jcr:primaryType="nt:unstructured"
-                            name="sling:resourceType"
-                            ordered="{Boolean}false"
-                            propertyIndex="{Boolean}false"/>
-                    <resourceSuperType
-                            jcr:primaryType="nt:unstructured"
-                            name="sling:resourceSuperType"
-                            propertyIndex="{Boolean}false"/>
                     <jcrTitle
                             jcr:primaryType="nt:unstructured"
                             name="jcr:title"
@@ -192,34 +134,14 @@
                             nodeScopeIndex="{Boolean}true"
                             ordered="{Boolean}true"
                             propertyIndex="{Boolean}true"/>
-                    <jcrLastModified
+                    <text
                             jcr:primaryType="nt:unstructured"
-                            name="jcr:lastModified"
-                            ordered="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="Date"/>
-                    <jcrCreated
-                            jcr:primaryType="nt:unstructured"
-                            name="jcr:created"
-                            ordered="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="Date"/>
-                    <cqTags
-                            jcr:primaryType="nt:unstructured"
-                            name="cq:tags"
+                            name="text"
                             nodeScopeIndex="{Boolean}true"
-                            propertyIndex="{Boolean}true"/>
-                    <props
-                            jcr:primaryType="nt:unstructured"
-                            analyzed="{Boolean}true"
-                            isRegexp="{Boolean}true"
-                            name="^[^\\/]*$"
-                            nodeScopeIndex="{Boolean}true"/>
-                    <nodeName
-                            jcr:primaryType="nt:unstructured"
-                            function="fn:lower-case(fn:name())"
-                            ordered="{Boolean}true"
-                            propertyIndex="{Boolean}true"/>
+                            propertyIndex="{Boolean}true"
+                            type="String"
+                            useInSpellcheck="{Boolean}true"
+                            useInSuggest="{Boolean}true"/>
                 </properties>
             </nt:unstructured>
         </indexRules>

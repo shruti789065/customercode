@@ -45,7 +45,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
     private transient Page currentPage = null;
     private transient Page homepage = null;
 
-    private List<String> jcrPropToExclude = List.of("jcr:createdBy","jcr:lastModifiedBy","cq:lastReplicatedBy","cq:lastPublishedBy");
+    private List<String> jcrPropToInclude = List.of("jcr:title","jcr:description","text");
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -97,11 +97,14 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                 NodeIterator nodes = queryPageResult.getNodes();
                 if(nodes.getSize() == 1){
                     Node pageNode = nodes.nextNode();
-                    if(pageNode.hasProperty("jcr:description")){
-                        result.put("description", pageNode.getProperty("jcr:description").getString());
-                    } else {
-                        result.put("description", pageNode.getProperty("jcr:title").getString());
+                    if(pageNode.getProperty("jcr:title").getString().toLowerCase().contains(keyword.toLowerCase())){
+                        if(pageNode.hasProperty("jcr:description")){
+                            result.put("description", pageNode.getProperty("jcr:description").getString());
+                        } else {
+                            result.put("description", pageNode.getProperty("jcr:title").getString());
+                        }
                     }
+
                 } else {
                     while (nodes.hasNext()){
                         Node pageNode = nodes.nextNode();
@@ -109,8 +112,8 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                             PropertyIterator jcrNodeProperties = pageNode.getProperties();
                             while (jcrNodeProperties.hasNext()){
                                 Property property = jcrNodeProperties.nextProperty();
-                                if(!jcrPropToExclude.contains(property.getName())){
-                                    if(!property.isMultiple() && property.getString().contains(keyword)){
+                                if(jcrPropToInclude.contains(property.getName())){
+                                    if(!property.isMultiple() && property.getString().toLowerCase().contains(keyword.toLowerCase())){
                                         String withoutTags = property.getString().replaceAll("\\<.*?\\>","").trim();
                                         String clearText = withoutTags.replaceAll("&nbsp;"," ");
                                         result.put("description", clearText);
