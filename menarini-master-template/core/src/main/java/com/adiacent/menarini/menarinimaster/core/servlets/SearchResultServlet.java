@@ -78,6 +78,14 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
             myXpathQuery.append("SELECT * FROM [cq:Page] as p ");
             myXpathQuery.append("WHERE ISDESCENDANTNODE('" + homepage.getPath() + "') ");
             myXpathQuery.append(" AND contains(p.*, '" + keyword + "' ) ");
+            myXpathQuery.append(" AND (contains(p.*,'/settings/wcm/templates/menarini---homepage') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---content-page') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---details-news') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---product-area') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---product-category') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---product-category') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---details-product') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---details-page')) ");
             myXpathQuery.append("ORDER BY p.[jcr:content/jcr:created] DESC");
             Session session = resourceResolver.adaptTo(Session.class);
             QueryManager queryManager = session.getWorkspace().getQueryManager();
@@ -92,6 +100,7 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                 queryInsidePage.append("SELECT * FROM [nt:unstructured] as page ");
                 queryInsidePage.append("WHERE ISDESCENDANTNODE('" + node.getPath() + "') ");
                 queryInsidePage.append(" AND contains(page.*, '" + keyword + "' ) ");
+
                 Query queryPage = queryManager.createQuery(queryInsidePage.toString(), Query.JCR_SQL2);
                 QueryResult queryPageResult = queryPage.execute();
                 NodeIterator nodes = queryPageResult.getNodes();
