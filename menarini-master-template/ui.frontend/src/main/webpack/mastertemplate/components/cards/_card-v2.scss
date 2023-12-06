@@ -446,7 +446,8 @@
     }
   }
   &.cmp-fullTitle{
-    .cmp-card--standard{
+    .cmp-card--standard,
+    .cmp-card--hover {
       .cmp-teaser__content,
       .cmp-teaser__link {
         .cmp-teaser__title{
@@ -460,7 +461,8 @@
     }
   }
   &.cmp-fullDescription{
-    .cmp-card--standard{
+    .cmp-card--standard,
+    .cmp-card--hover{
       .cmp-teaser__content,
       .cmp-teaser__link {
         .cmp-teaser__description{
