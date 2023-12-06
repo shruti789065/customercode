@@ -63,9 +63,9 @@
       <vault.password>admin</vault.password>
       <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
       <!--suppress UnresolvedMavenProperty -->
-      <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
+	  <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
       <!--suppress UnresolvedMavenProperty -->
-      <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
+	  <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
       <core.wcm.components.version>2.19.0</core.wcm.components.version>
 
        <bnd.version>5.1.2</bnd.version>
@@ -189,7 +189,7 @@
                             </goals>
                             <configuration>
                                 <!--suppress UnresolvedMavenProperty -->
-                                <bnd><![CDATA[
+	                            <bnd><![CDATA[
 Bundle-Category: ${componentGroupName}
 
 # export all versioned packages except for conditional ones (https://github.com/bndtools/bnd/issues/3721#issuecomment-579026778)
