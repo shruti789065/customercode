@@ -133,7 +133,11 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 
 		//return this.tmp != null ? this.tmp : delegate.getListItems();
 
-		return this.tmp;
+		if(this.tmp == null)
+			return null;
+		ListItem[] array = (ListItem[]) this.tmp.toArray(new ListItem[this.tmp.size()]);
+		ListItem[] clone = array.clone();
+		return Arrays.asList(clone);
 	}
 
 
