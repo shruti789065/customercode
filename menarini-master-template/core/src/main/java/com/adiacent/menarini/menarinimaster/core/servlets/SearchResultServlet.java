@@ -20,16 +20,12 @@ import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+import javax.jcr.*;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.servlet.Servlet;
-
-
+import java.util.List;
 
 
 @Component(service = { Servlet.class }, immediate = true)
@@ -48,6 +44,8 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
 
     private transient Page currentPage = null;
     private transient Page homepage = null;
+
+    private List<String> jcrPropToInclude = List.of("jcr:title","jcr:description","text");
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -79,7 +77,15 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
             StringBuilder myXpathQuery = new StringBuilder();
             myXpathQuery.append("SELECT * FROM [cq:Page] as p ");
             myXpathQuery.append("WHERE ISDESCENDANTNODE('" + homepage.getPath() + "') ");
-            myXpathQuery.append(" AND contains(p.*, '*" + keyword + "*' ) ");
+            myXpathQuery.append(" AND contains(p.*, '" + keyword + "' ) ");
+            myXpathQuery.append(" AND (contains(p.*,'/settings/wcm/templates/menarini---homepage') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---content-page') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---details-news') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---product-area') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---product-category') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---product-category') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---details-product') ");
+            myXpathQuery.append(" OR contains(p.*,'/settings/wcm/templates/menarini---details-page')) ");
             myXpathQuery.append("ORDER BY p.[jcr:content/jcr:created] DESC");
             Session session = resourceResolver.adaptTo(Session.class);
             QueryManager queryManager = session.getWorkspace().getQueryManager();
@@ -90,11 +96,49 @@ public class SearchResultServlet extends SlingSafeMethodsServlet {
                 JSONObject result = new JSONObject();
                 Node node = it.nextNode();
                 Page resultPage = resourceResolver.adaptTo(PageManager.class).getContainingPage(node.getPath());
-                result.put("url", resultPage.getPath() + ".html");
-                result.put("path", resultPage.getPath());
-                result.put("title", resultPage.getTitle());
-                result.put("description", resultPage.getDescription());
-                results.put(result);
+                StringBuilder queryInsidePage = new StringBuilder();
+                queryInsidePage.append("SELECT * FROM [nt:unstructured] as page ");
+                queryInsidePage.append("WHERE ISDESCENDANTNODE('" + node.getPath() + "') ");
+                queryInsidePage.append(" AND contains(page.*, '" + keyword + "' ) ");
+
+                Query queryPage = queryManager.createQuery(queryInsidePage.toString(), Query.JCR_SQL2);
+                QueryResult queryPageResult = queryPage.execute();
+                NodeIterator nodes = queryPageResult.getNodes();
+                if(nodes.getSize() == 1){
+                    Node pageNode = nodes.nextNode();
+                    if(pageNode.getProperty("jcr:title").getString().toLowerCase().contains(keyword.toLowerCase())){
+                        if(pageNode.hasProperty("jcr:description")){
+                            result.put("description", pageNode.getProperty("jcr:description").getString());
+                        } else {
+                            result.put("description", pageNode.getProperty("jcr:title").getString());
+                        }
+                    }
+
+                } else {
+                    while (nodes.hasNext()){
+                        Node pageNode = nodes.nextNode();
+                        if(!pageNode.getName().equals("jcr:content")){
+                            PropertyIterator jcrNodeProperties = pageNode.getProperties();
+                            while (jcrNodeProperties.hasNext()){
+                                Property property = jcrNodeProperties.nextProperty();
+                                if(jcrPropToInclude.contains(property.getName())){
+                                    if(!property.isMultiple() && property.getString().toLowerCase().contains(keyword.toLowerCase())){
+                                        String withoutTags = property.getString().replaceAll("\\<.*?\\>","").trim();
+                                        String clearText = withoutTags.replaceAll("&nbsp;"," ");
+                                        result.put("description", clearText);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if(!result.isEmpty()){
+                    result.put("url", resultPage.getPath() + ".html");
+                    result.put("path", resultPage.getPath());
+                    result.put("title", resultPage.getTitle());
+                    results.put(result);
+                }
             }
             response.put("results", results);
         }else{
