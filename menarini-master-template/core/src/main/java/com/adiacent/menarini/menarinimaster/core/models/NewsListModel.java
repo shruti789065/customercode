@@ -21,6 +21,7 @@ import org.apache.sling.models.annotations.via.ResourceSuperType;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Model(
 		adaptables = {Resource.class, SlingHttpServletRequest.class},
@@ -35,7 +36,7 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 
 
 	private static final String ASC_SORT_ORDER = "asc";
-
+	private static final String PN_LIMIT = "limit";
 
 	@Self // Indicates that we are resolving the current resource
 	@Via(type = ResourceSuperType.class) // Resolve not as this model, but as the model of our supertype (ie: CC List)
@@ -54,6 +55,17 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 		if (StringUtils.isNotBlank(orderByProperty) && NEWSDATA_DATE_PROPERTY_NAME.equals(orderByProperty)) {
 			orderByNewsDateValue(sortOrderProperty);
 		}
+
+		else
+			this.tmp = (ArrayList) delegate.getListItems();
+		//filtraggio numerico degli articoli
+		String limitProperty =  (String)vm.get(PN_LIMIT);
+		if (StringUtils.isNotBlank(limitProperty)){
+			int limitValue = Integer.parseInt(limitProperty);
+			if(limitValue > 0)
+				this.tmp = this.tmp != null ? (ArrayList) this.tmp.stream().limit(limitValue).collect(Collectors.toList()) : this.tmp;
+		}
+
 
 /*VERSIONE CON ORDINAMENTO PREFISSATO A CODICE *****************************
         orderByNewsDateValue(ASC_SORT_ORDER);
@@ -118,7 +130,10 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
         /*if(delegate.getListItems() == null || delegate.getListItems().size() == 0 )
             return delegate.getListItems();
         return this.tmp;*/
-		return this.tmp != null ? this.tmp : delegate.getListItems();
+
+		//return this.tmp != null ? this.tmp : delegate.getListItems();
+
+		return this.tmp;
 	}
 
 

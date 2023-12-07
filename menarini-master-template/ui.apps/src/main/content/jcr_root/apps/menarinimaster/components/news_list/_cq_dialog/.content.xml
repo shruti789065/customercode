@@ -288,13 +288,26 @@
                                                             value="desc"/>
                                                 </items>
                                             </sortOrder>
-                                            <maxItems
+                                            <!--Francesca : il seguente attributo -maxItems- è stato commentato in quanto il componente News_List deve eseguire
+                                            l'ordinamento sulla totalità degli item e solo successivamente mostrarne il numero indicato dall'utente( attraverso
+                                            il nuovo attributo 'limit'.
+                                            'maxLimits' ha effetto a livello di core component List e se usato filtrerebbe prima gli articoli e solo dopo verrebbe
+                                            eseguito l'ordinamento da parte del componente News_List
+                                            gli articoli -->
+                                            <!--<maxItems
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
                                                     fieldDescription="Maximum number of items displayed in list. Empty for all items."
                                                     fieldLabel="Max Items"
                                                     min="{Long}0"
-                                                    name="./maxItems"/>
+                                                    name="./maxItems"/>-->
+                                            <limit
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                    fieldDescription="Maximum number of items displayed in list. Empty for all items."
+                                                    fieldLabel="Max Items"
+                                                    min="{Long}0"
+                                                    name="./limit"/>
                                             <id
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
