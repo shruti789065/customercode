@@ -269,7 +269,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 			final String name = names.next();
 			contentNamesList.add(name);
 		}
-		Collections.sort(contentNamesList);
+		//Collections.sort(contentNamesList);
 
 		final List<String> namesList = new ArrayList<>();
 		final Iterator<Resource> fields = getResourceFormElements(request);
@@ -316,12 +316,12 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 		if (errors.isEmpty()) {
 
 			//email per cliente
-			status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle);
+			status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle,true);
 			//email per admin
 			if(getEncryptedEmail(String.valueOf(encryptedMail)) != null && !getEncryptedEmail(String.valueOf(encryptedMail)).isEmpty()){
 				mailTo = new String[]{getEncryptedEmail(String.valueOf(encryptedMail))};
 			}
-			sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, fromAddress, ccRecs, bccRecs, subject, namesList, resBundle);
+			sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, fromAddress, ccRecs, bccRecs, subject, namesList, resBundle,false);
 		}
 
 
@@ -347,26 +347,32 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 	}
 
 
-	private int sendEmail(SlingHttpServletRequest request, String mailText, String[] mailTo, String fromAddress, String[] ccRecs, String[] bccRecs, String subject, List<String> namesList, ResourceBundle resBundle) {
+	private int sendEmail(SlingHttpServletRequest request, String mailText, String[] mailTo, String fromAddress, String[] ccRecs, String[] bccRecs, String subject, List<String> namesList, ResourceBundle resBundle, Boolean removeFormLink) {
 		int status = 200;
 		try {
 			final StringBuilder builder = new StringBuilder();
-			builder.append(request.getScheme());
-			builder.append("://");
-			builder.append(request.getServerName());
-			if ((request.getScheme().equals("https") && request.getServerPort() != 443)
-					|| (request.getScheme().equals("http") && request.getServerPort() != 80)) {
-				builder.append(':');
-				builder.append(request.getServerPort());
-			}
-			builder.append(request.getRequestURI());
 
 			// construct msg
 			final StringBuilder buffer = new StringBuilder();
-			String text = resBundle.getString("You've received a new form based mail from {0}.");//testo editoriale
-			text = text.replace("{0}", builder.toString());
-			buffer.append(text);
-			buffer.append("\n\n");
+
+			if(!removeFormLink){
+				builder.append(request.getScheme());
+				builder.append("://");
+				builder.append(request.getServerName());
+				if ((request.getScheme().equals("https") && request.getServerPort() != 443)
+						|| (request.getScheme().equals("http") && request.getServerPort() != 80)) {
+					builder.append(':');
+					builder.append(request.getServerPort());
+				}
+				builder.append(request.getRequestURI());
+
+				String text = resBundle.getString("You've received a new form based mail from {0}.");//testo editoriale
+				text = text.replace("{0}", builder.toString());
+				buffer.append(text);
+				buffer.append("\n\n");
+			}
+
+			// construct msg
 			if (StringUtils.isNotBlank(mailText)) {
 				buffer.append(mailText);
 				buffer.append("\n\n");
