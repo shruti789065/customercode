@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 @Designate(ocd = ImportLibraryResource.Config.class)
 @Component(immediate = true)
 public class ImportLibraryResource {
-    private static final Logger LOG = LoggerFactory.getLogger(ImportLibraryResource.class);
+    private static final Logger logger = LoggerFactory.getLogger(ImportLibraryResource.class);
 
     private static ImportLibraryResource _instance = null;
     private Config config;
@@ -64,13 +64,13 @@ public class ImportLibraryResource {
     @Activate
     @Modified
     protected void activate(final Config config) {
-        LOG.info("Activating Import Library  Resource");
+        logger.info("Activating Import Library  Resource");
         ImportLibraryResource._instance = this;
         this.config = config;
 
 
-        LOG.debug("Config article import enabled :{}", this.config.isImportArticleEnabled());
-        LOG.debug("Config  tag import enabled{}", this.config.isImportTagEnabled());
+        logger.debug("Config article import enabled :{}", this.config.isImportArticleEnabled());
+        logger.debug("Config  tag import enabled{}", this.config.isImportTagEnabled());
 
     }
 

@@ -34,17 +34,19 @@ const MarketCountries = (() => {
    * @public
    */
   function init() {
-	const mobileBtn = document.querySelector(
-		".cmp-button--mobile"
-	  );
+    const mobileBtn = document.querySelector(".cmp-button--mobile");
     const marketCountriesAnchor = document.querySelectorAll(
       ".cmp-countries-markets"
     );
-    marketCountriesAnchor.forEach((element) => {
-      element.addEventListener("click", toggleMarketPanel);
-    });
-    marketCountriesCloseButton.addEventListener("click", toggleMarketPanel);
-    const observer = new MutationObserver((mutationsList, observer) => {
+    if (marketCountriesAnchor != null) {
+      marketCountriesAnchor.forEach((element) => {
+        element.addEventListener("click", toggleMarketPanel);
+      });
+      if (marketCountriesCloseButton != null) {
+        marketCountriesCloseButton.addEventListener("click", toggleMarketPanel);
+      }
+    }
+    const observer = new MutationObserver((mutationsList) => {
       // Itera attraverso le mutazioni osservate
       for (const mutation of mutationsList) {
         // Verifica se la classe cmp-button--mobile__toggler_close è stata aggiunta al DOM
@@ -56,14 +58,20 @@ const MarketCountries = (() => {
           const menuCloseButton = document.querySelector(
             ".cmp-button--mobile__toggler_close"
           );
-          menuCloseButton.addEventListener("click", () => {marketCountriesContainer.style.left = "100%";});
+          menuCloseButton.addEventListener("click", () => {
+            marketCountriesContainer.style.left = "100%";
+          });
         }
       }
     });
 
-    observer.observe(mobileBtn, { attributes: true, attributeFilter: ["class"] });
+    if (mobileBtn != null) {
+      observer.observe(mobileBtn, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+    }
   }
-
   function toggleMarketPanel() {
     if (marketCountriesContainer) {
       if (_isDesktop()) {

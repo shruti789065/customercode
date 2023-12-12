@@ -1,93 +1,86 @@
 .cmp-form-options {
-	border: none;
+  border: none;
 }
+
 .cmp-form-options--drop-down {
-	margin-bottom: 27px;
-	padding: 0 15px;
+  margin-bottom: 27px;
+  padding: 0 15px;
 }
-.cmp-form-options__legend {
-}
+
 .cmp-form-options__field-label {
-	font-family: $font-family-oswald;
-	font-size: 18px;
-	font-weight: $font-light;
-	color: $color-text;
-	min-height: 20px;
-    padding-left: 20px;
-    margin-bottom: 0;
-    font-weight: $font-regular;
-    cursor: pointer;
+  display: inline-flex;
+  gap: 5px;
+  font-family: $font-family-arimo;
+  font-size: 18px;
+  font-weight: $font-regular; // Aggiornato a $font-regular per coerenza
+  color: $color-text;
+  height: 22px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  cursor: pointer;
 }
+
 .cmp-form-options__field {
-	&:focus {
-		border-color: $color-form-border;
-		outline: 0;
-	}
-}
-.cmp-form-options__field--checkbox {
-}
-.cmp-form-options__field--radio {
-}
-.cmp-form-options__field-description {
-}
-.cmp-form-options__drop-down-field {
+  &:focus {
+    border-color: $color-form-border;
+    outline: 0;
+  }
 }
 
 .cmp-form-options__field--drop-down {
-	display: block;
-	background-position: right 30px center;
-	background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow_down_grey.png");
-	background-repeat: no-repeat;
-	font-family: $font-family-oswald;
-	font-size: 20px;
-	font-weight: $font-light;
-	color: $color-text;
-	border: 0px;
-	box-shadow: none;
-	width: 100%;
-	height: 65px;
-	padding-left: 20px;
-	border-radius: 0px;
-	border: 1px solid $color-text;
-	padding: 6px 12px;
-	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-	line-height: 1.42857143;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	padding: 0 15px;
-}
-.cmp-form-options__multi-drop-down-field {
-}
-.cmp-form-options__help-message {
+  display: block;
+  background-position: right 30px center;
+  background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/arrow_down_grey.png");
+  background-repeat: no-repeat;
+  font-family: $font-family-oswald;
+  font-size: 20px;
+  font-weight: $font-light;
+  color: $color-text;
+  border: 1px solid $color-text;
+  box-shadow: none;
+  width: 100%;
+  height: 65px;
+  padding: 6px 12px;
+  border-radius: 0px;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  line-height: 1.42857143;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0 15px;
 }
 
 .form-group {
-	padding: 0 15px;
+  padding: 0 15px;
 }
 
 .cmp-form-options__label {
-	font-family: $font-family-oswald;
-	font-size: 30px;
-	font-weight: $font-light;
-	color: $color-text;
-	margin-bottom: 18px;
-	display: block;
+  font-family: $font-family-oswald;
+  font-size: 30px;
+  font-weight: $font-light;
+  color: $color-text;
+  margin-bottom: 18px;
+  display: block;
 }
+
 .cmp-options {
-	padding: 0 15px;
-	fieldset {
-		border: none;
-		font-family: $font-family-oswald;
-		font-size: 18px;
-		font-weight: $font-light;
-		color: $color-text;
-		float: left;
-		width: 100%;
-	}
-	legend {
-		margin-bottom: 27px;
-	}
-	.radio-item {
-		display: inline-block;
-	}
+  padding: 0 15px;
+
+  fieldset {
+    border: none;
+    font-family: $font-family-oswald;
+    font-size: 18px;
+    font-weight: $font-light;
+    color: $color-text;
+    float: left;
+    width: 100%;
+  }
+
+  legend {
+    margin-bottom: 27px;
+  }
+
+  .radio-item {
+    display: inline-block;
+  }
 }

@@ -1,14 +1,11 @@
 package com.adiacent.menarini.menarinimaster.core.servlets;
 
 import com.adiacent.menarini.menarinimaster.core.utils.Constants;
-import com.adobe.cq.dam.cfm.ContentFragment;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
@@ -16,9 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
-import java.util.*;
 
 import static org.apache.sling.api.servlets.ServletResolverConstants.*;
 
@@ -31,7 +26,7 @@ import static org.apache.sling.api.servlets.ServletResolverConstants.*;
 
 public class ProductsServlet extends SlingSafeMethodsServlet {
     private static final long serialVersionUID = 1L;
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response){
@@ -60,7 +55,7 @@ public class ProductsServlet extends SlingSafeMethodsServlet {
                 response.getWriter().print(results);
             }
         }catch (Exception e){
-            LOG.error("Error in Products servlet Get call: ", e);
+            logger.error("Error in Products servlet Get call: ", e);
         }
     }
 

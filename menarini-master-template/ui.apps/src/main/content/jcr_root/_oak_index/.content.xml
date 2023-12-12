@@ -7,14 +7,14 @@
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
           jcr:mixinTypes="[rep:AccessControllable]"
           jcr:primaryType="nt:unstructured">
-    <menariniMaster-fulltext-1-custom-3
+    <menariniMaster-fulltext-1-custom-page-1
             jcr:primaryType="oak:QueryIndexDefinition"
             async="[async,nrt]"
             compatVersion="{Long}2"
             evaluatePathRestrictions="{Boolean}true"
             excludedPaths="[/var,/etc/replication,/etc/workflow/instances,/jcr:system,/etc/packages]"
-            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech]"
-            queryPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech]"
+            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
+            queryPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
             reindex="{Boolean}false"
             reindexCount="{Long}1"
             seed="{Long}-6146516853337668993"
@@ -26,11 +26,6 @@
                         path="jcr:content"
                         relativeNode="{Boolean}true"/>
             </cq:Page>
-            <nt:file jcr:primaryType="nt:unstructured">
-                <include0
-                        jcr:primaryType="nt:unstructured"
-                        path="jcr:content"/>
-            </nt:file>
             <cq:PageContent jcr:primaryType="nt:unstructured">
                 <include0
                         jcr:primaryType="nt:unstructured"
@@ -52,12 +47,6 @@
         <indexRules jcr:primaryType="nt:unstructured">
             <cq:Page jcr:primaryType="nt:unstructured">
                 <properties jcr:primaryType="nt:unstructured">
-                    <cqLastModified
-                            jcr:primaryType="nt:unstructured"
-                            name="jcr:content/cq:lastModified"
-                            ordered="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="Date"/>
                     <jcrTitle
                             jcr:primaryType="nt:unstructured"
                             name="jcr:content/jcr:title"
@@ -66,43 +55,95 @@
                             type="String"
                             useInSpellcheck="{Boolean}true"
                             useInSuggest="{Boolean}true"/>
-                    <pageTitle
+                    <jcrDescription
                             jcr:primaryType="nt:unstructured"
-                            name="jcr:content/pageTitle"
+                            name="jcr:content/jcr:description"
                             nodeScopeIndex="{Boolean}true"
                             propertyIndex="{Boolean}true"
                             type="String"
                             useInSpellcheck="{Boolean}true"
                             useInSuggest="{Boolean}true"/>
-                    <navTitle
+                    <text
                             jcr:primaryType="nt:unstructured"
-                            name="jcr:content/navTitle"
+                            name="jcr:content/text"
                             nodeScopeIndex="{Boolean}true"
                             propertyIndex="{Boolean}true"
                             type="String"
                             useInSpellcheck="{Boolean}true"
                             useInSuggest="{Boolean}true"/>
-                    <nodeName
-                            jcr:primaryType="nt:unstructured"
-                            name=":nodeName"
-                            nodeScopeIndex="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="String"
-                            useInSpellcheck="{Boolean}true"
-                            useInSuggest="{Boolean}true"/>
-                    <cqLastRolledoutBy
-                            jcr:primaryType="nt:unstructured"
-                            name="jcr:content/cq:lastRolledoutBy"
-                            propertyIndex="{Boolean}true"
-                            type="String"/>
-                    <location
-                            jcr:primaryType="nt:unstructured"
-                            name="jcr:content/location"
-                            notNullCheckEnabled="{Boolean}true"
-                            propertyIndex="{Boolean}true"
-                            type="String"/>
                 </properties>
             </cq:Page>
         </indexRules>
-    </menariniMaster-fulltext-1-custom-3>
+    </menariniMaster-fulltext-1-custom-page-1>
+    <menariniMaster-fulltext-1-custom-ntunstructured-1
+            jcr:primaryType="oak:QueryIndexDefinition"
+            async="[async,nrt]"
+            compatVersion="{Long}2"
+            evaluatePathRestrictions="{Boolean}true"
+            excludedPaths="[/var,/etc/replication,/etc/workflow/instances,/jcr:system,/etc/packages]"
+            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
+            queryPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
+            reindex="{Boolean}false"
+            reindexCount="{Long}1"
+            seed="{Long}-6146516853337668993"
+            type="lucene">
+        <aggregates jcr:primaryType="nt:unstructured">
+            <cq:Page jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="jcr:content"
+                        relativeNode="{Boolean}true"/>
+            </cq:Page>
+            <nt:unstructured jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="jcr:content"
+                        relativeNode="{Boolean}true"/>
+            </nt:unstructured>
+            <cq:PageContent jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="*"/>
+                <include1
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*"/>
+                <include2
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*"/>
+                <include3
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*/*"/>
+                <include4
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*/*/*"/>
+            </cq:PageContent>
+        </aggregates>
+        <indexRules jcr:primaryType="nt:unstructured">
+            <nt:unstructured
+                    jcr:primaryType="nt:unstructured">
+                <properties jcr:primaryType="nt:unstructured">
+                    <jcrTitle
+                            jcr:primaryType="nt:unstructured"
+                            name="jcr:title"
+                            nodeScopeIndex="{Boolean}true"
+                            ordered="{Boolean}true"
+                            propertyIndex="{Boolean}true"/>
+                    <jcrDescription
+                            jcr:primaryType="nt:unstructured"
+                            name="jcr:description"
+                            nodeScopeIndex="{Boolean}true"
+                            ordered="{Boolean}true"
+                            propertyIndex="{Boolean}true"/>
+                    <text
+                            jcr:primaryType="nt:unstructured"
+                            name="text"
+                            nodeScopeIndex="{Boolean}true"
+                            propertyIndex="{Boolean}true"
+                            type="String"
+                            useInSpellcheck="{Boolean}true"
+                            useInSuggest="{Boolean}true"/>
+                </properties>
+            </nt:unstructured>
+        </indexRules>
+    </menariniMaster-fulltext-1-custom-ntunstructured-1>
 </jcr:root>

@@ -44,7 +44,7 @@ import static org.junit.Assert.fail;
 public class HtmlUnitClient extends CQClient {
 
 
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(HtmlUnitClient.class);
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(HtmlUnitClient.class);
 
     private final WebClient webClient = new WebClient();
 

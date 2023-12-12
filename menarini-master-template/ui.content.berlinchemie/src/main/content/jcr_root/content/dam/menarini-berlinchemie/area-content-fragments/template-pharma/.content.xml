@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="58d39b81-a0e4-4abd-8f38-c8e3d4146b55">
+    <jcr:content
+        cq:name="template-pharma"
+        cq:parentPath="/content/dam/menarini-berlinchemie/area-content-fragments"
+        jcr:lastModified="{Date}2022-07-21T12:31:12.334+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Teplate Pharma"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2022-07-21T12:31:12.334+02:00">
+        <data
+            cq:model="/conf/menarini-berlinchemie/settings/dam/cfm/models/area-content-fragment-model"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                Template="\[&#xa;  {&#xa;    &quot;text&quot;: &quot;This is an example&quot;,&#xa;    &quot;value&quot;: &quot;1&quot;&#xa;  },&#xa;  {&#xa;    &quot;text&quot;: &quot;This is another example&quot;,&#xa;    &quot;value&quot;: &quot;2&quot;&#xa;  }&#xa;]"
+                Template_x0040_LastModified="{Date}2022-07-21T12:31:12.295+02:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

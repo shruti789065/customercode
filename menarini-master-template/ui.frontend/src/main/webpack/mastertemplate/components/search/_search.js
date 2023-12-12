@@ -1,144 +1,103 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable max-len */
 import $ from "jquery";
+import { showOverlayAndLoader, hideOverlayAndLoader } from "../../site/_util";
 
-(function () {
-  "use strict";
+$(function () {
+  const Search = {
+    url: "",
+    searchResults: null,
+    query: "",
+    input: null,
+    searchButton: null,
+    resultsContainer: null,
+    currentNodeSearch: "",
 
-  var Search = (function () {
-    var url,
-      searchResults,
-      query,
-      input,
-      searchButton,
-      resultsContainer,
-      currentNodeSearch,
-      loadingSpinner;
+    init() {
+      this.initializeVariables();
+      this.setupEventListeners();
+    },
 
-    /**
-     * Initializes the Search
-     *
-     * @public
-     */
-    function init() {
+    initializeVariables() {
       const domainName = window.location.hostname;
       const port = window.location.port;
       const protocol = window.location.protocol;
-      //const lang = document.documentElement.lang;
-      if (document.querySelector(".currentNodeSearch") !== null) {
-        currentNodeSearch = document.querySelector(".currentNodeSearch").value;
 
-        input = document.querySelector("#search-input");
-        resultsContainer = document.querySelector("#search-results");
-        searchButton = document.querySelector("#search-button");
-        searchButton.disabled = true;
+      this.currentNodeSearch = $(".currentNodeSearch").val();
+      this.input = $("#search-input");
+      this.resultsContainer = $("#search-results");
+      this.searchButton = $("#search-button");
+      this.searchButton.prop("disabled", true);
+    },
 
-        loadingSpinner = document.createElement("div");
-        loadingSpinner.classList.add("loading-spinner");
-      }
-      function loadingSpinner() {
-        resultsContainer.appendChild(loadingSpinner);
-      }
+    copyDataFromJson(query, domainName, port, protocol, currentNodeSearch) {
+      const url =
+        domainName === "localhost" && port === "4502"
+          ? `${protocol}//${domainName}:${port}${currentNodeSearch}.searchresult.json?fulltext=${query}`
+          : domainName === "localhost"
+          ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchMT/search.json"
+          : `${protocol}//${domainName}${currentNodeSearch}.searchresult.json?fulltext=${query}`;
 
-      function copyDataFromJson(query) {
-        //loadingSpinner();
-        //localStorage.clear();
-        if (domainName === "localhost" && port === "4502") {
-          url = `${protocol}//${domainName}:${port}${currentNodeSearch}.searchresult.json?fulltext=${query}`;
-        } else if (domainName === "localhost") {
-          url =
-            "https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchMT/search.json";
-        } else {
-          url = `${protocol}//${domainName}${currentNodeSearch}.searchresult.json?fulltext=${query}`;
-        }
-
-        fetch(url)
-          .then((response) => response.json())
-          .then((data) => {
-            localStorage.setItem("searchResults", JSON.stringify(data));
-            console.log("Data copied to local storage!");
-            // Hide loading spinner
-            //loadingSpinner.remove();
-          })
-          .catch((error) => {
-            console.error("Error copying data to local storage:", error);
-            // Hide loading spinner
-            //loadingSpinner.remove();
-          });
-      }
-
-      function displaySearchResults(dataResults) {
-        resultsContainer.innerHTML = "";
-        let template = "";
-
-        if (dataResults.results.length === 0) {
-          resultsContainer.innerHTML = "No results found.";
-          return;
-        }
-
-        template = `
-		  <ul>
-			${dataResults.results
-        .map(
-          (result) => `
-			  <li>
-				<a href="${result.url}" target="_self">${result.title}</a>
-				<p>${result.description ? result.description : ""}</p>
-			  </li>
-			`
-        )
-        .join("")}
-		  </ul>
-		`;
-
-        resultsContainer.innerHTML = template;
-      }
-
-      /* document.addEventListener("DOMContentLoaded", () => {
-        input = document.querySelector("#search-input");
-        searchButton = document.querySelector("#search-button");
-        searchButton.disabled = true;
-      }); */
-
-      if (searchButton) {
-        input.addEventListener("keyup", function (event) {
-          let val = event.target.value;
-          if (val === "") {
-            searchButton.disabled = true;
-          } else {
-            searchButton.disabled = false;
-          }
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          localStorage.setItem("searchResults", JSON.stringify(data));
+        })
+        .catch((error) => {
+          console.error("Error copying data to local storage:", error);
         });
+    },
 
-        // Gestore dell'evento "click"
-        searchButton.addEventListener("click", () => {
-          performSearch();
-        });
+    displaySearchResults(dataResults) {
+      this.resultsContainer.html(
+        dataResults.results.length === 0
+          ? "No results found."
+          : `<ul>${dataResults.results
+              .map(
+                (result) =>
+                  `<li><a href="${result.url}" target="_self">${
+                    result.title
+                  }</a><p>${result.description || ""}</p></li>`
+              )
+              .join("")}</ul>`
+      );
+    },
 
-        // Gestore dell'evento "keydown"
-        input.addEventListener("keydown", (event) => {
-          if (event.keyCode === 13) {
-            performSearch();
-          }
-        });
-      }
+    setupEventListeners() {
+      this.input.on("keyup", (event) => {
+        this.searchButton.prop("disabled", !event.target.value.trim());
+      });
 
-      function performSearch() {
-        query = input.value.toLowerCase().trim();
-        copyDataFromJson(query);
-        searchResults = JSON.parse(localStorage.getItem("searchResults"));
-        if (searchResults !== null) {
-          displaySearchResults(searchResults);
+      this.searchButton.on("click", () => {
+        this.performSearch();
+      });
+
+      this.input.on("keydown", (event) => {
+        if (event.keyCode === 13) {
+          this.performSearch();
         }
-      }
-    }
-    return {
-      init: init,
-    };
-  })();
+      });
+    },
 
-  $(function () {
-    Search.init();
-  });
-})($);
-
+    performSearch() {
+      this.query = this.input.val().toLowerCase().trim();
+      showOverlayAndLoader(this.resultsContainer, false);
+      this.copyDataFromJson(
+        this.query,
+        window.location.hostname,
+        window.location.port,
+        window.location.protocol,
+        this.currentNodeSearch
+      );
+      setTimeout(() => {
+        this.searchResults = JSON.parse(localStorage.getItem("searchResults"));
+        if (this.searchResults !== null) {
+          this.displaySearchResults(this.searchResults);
+        }
+        hideOverlayAndLoader(this.resultsContainer);
+      }, 1000);
+    },
+  };
+  Search.init();
+});
 /* eslint-disable max-len */

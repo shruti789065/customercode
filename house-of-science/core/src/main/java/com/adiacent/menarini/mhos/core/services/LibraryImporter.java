@@ -55,7 +55,7 @@ import java.util.stream.Stream;
 )
 public class LibraryImporter implements Cloneable{
 
-    private transient final Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
     //indice colonne del file excel dalle quali recuperare le informazioni
     private static Integer AUTHOREDATE_COL_INDEX = 0;
@@ -93,7 +93,7 @@ public class LibraryImporter implements Cloneable{
 
     public void start() {
         try{
-            LOG.info("******************Importer Library  ************************");
+            logger.info("******************Importer Library  ************************");
 
 
             importerConfig = getCustomConfig();
@@ -161,7 +161,7 @@ public class LibraryImporter implements Cloneable{
 
         }catch (Exception e){
             addErrors(e.getMessage());
-            LOG.error("Error in import library servlet: ", e);
+            logger.error("Error in import library servlet: ", e);
         }
 
 
@@ -170,7 +170,7 @@ public class LibraryImporter implements Cloneable{
 
         sendResult();
 
-        LOG.info("******************FINE Dnn Import library ************************");
+        logger.info("******************FINE Dnn Import library ************************");
 
 
     }
@@ -190,14 +190,14 @@ public class LibraryImporter implements Cloneable{
             mail.addTo(importerConfig.getEmailTo());
         /*for (String copyto : config.getDebugReportRecipientCopyTo()) {
             if (org.apache.commons.lang.StringUtils.isNotEmpty(copyto)) {
-                LOG.info("sendEmail Send Copy To " + copyto);
+                logger.info("sendEmail Send Copy To " + copyto);
                 mail.addCc(copyto);
             }
         }*/
             mail.setCharset("UTF-8");
             getMailService().send(mail);
         } catch (Exception e) {
-            LOG.error("Error sending report email", e);
+            logger.error("Error sending report email", e);
 
         }
 
@@ -703,14 +703,14 @@ public class LibraryImporter implements Cloneable{
         try {
             resolver = resolverFactory.getServiceResourceResolver(param);
         } catch (Exception e) {
-            LOG.error("Error retrieving resolver with system user", e);
+            logger.error("Error retrieving resolver with system user", e);
 
         }
         return resolver;
     }
 
     private void cleanAuthorValueTag(){
-        LOG.info("********** Start cleanAuthorValueTag********************");
+        logger.info("********** Start cleanAuthorValueTag********************");
 
         ResourceResolver resolver = getResourceResolver();
         Session session = resolver.adaptTo(Session.class);
@@ -839,14 +839,14 @@ public class LibraryImporter implements Cloneable{
                 resolver.close();
             }
         }
-        LOG.info("********** END cleanAuthorValueTag********************");
+        logger.info("********** END cleanAuthorValueTag********************");
     }
 
 
 
 
     private void importTagsData(InputStream inputStream) {
-        LOG.info("Start import tags data********************");
+        logger.info("Start import tags data********************");
         XSSFWorkbook workbook = null;
 
         ResourceResolver resolver = getResourceResolver();
@@ -869,35 +869,35 @@ public class LibraryImporter implements Cloneable{
             int count = 0;
             while (itr.hasNext()) {
                 Row row = itr.next();
-                LOG.info("ROW " + row.getRowNum() + " **********");
+                logger.info("ROW " + row.getRowNum() + " **********");
                 //ignoro l'header se il file excel la prevede
                 if(importerConfig.isHeaderRowPresent() && count == 0);
                 else{
 
                     Cell authorCell = row.getCell(AUTHOR_COL_INDEX);
                     if(authorCell != null) {
-                        LOG.info("\t author **********");
+                        logger.info("\t author **********");
                         String value = authorCell.getStringCellValue();
                         handleValueTag( "author", value, resolver, session, tagmanager );
                     }
 
                     Cell topicCell = row.getCell(TOPIC_TAGS_COL_INDEX);
                     if(topicCell != null) {
-                        LOG.info("\t topic  **********");
+                        logger.info("\t topic  **********");
                         String value = topicCell.getStringCellValue();
                         handleValueTag("topic", value, resolver, session, tagmanager );
                     }
 
                     Cell sourceCell = row.getCell(SOURCE_TAGS_COL_INDEX);
                     if(sourceCell != null) {
-                        LOG.info("\t source **********");
+                        logger.info("\t source **********");
                         String value = sourceCell.getStringCellValue();
                         handleValueTag("source", value, resolver, session, tagmanager );
                     }
 
                     Cell genericTagsCell = row.getCell(GENERIC_TAGS_COL_INDEX);
                     if(genericTagsCell != null) {
-                        LOG.info("\t generic tags**********");
+                        logger.info("\t generic tags**********");
                         String value = genericTagsCell.getStringCellValue();
                         handleValueTag("generic tags", value, resolver, session, tagmanager );
                     }
@@ -905,7 +905,7 @@ public class LibraryImporter implements Cloneable{
 
                     Cell typologyCell = row.getCell(TYPOLOGY_TAGS_COL_INDEX);
                     if(typologyCell != null) {
-                        LOG.info("\t typology **********");
+                        logger.info("\t typology **********");
                         String value = typologyCell.getStringCellValue();
                         handleValueTag("typology", value, resolver, session, tagmanager );
                     }
@@ -926,7 +926,7 @@ public class LibraryImporter implements Cloneable{
         }
 
 
-        LOG.info("End import tags data******************************");
+        logger.info("End import tags data******************************");
 
 
     }
@@ -935,7 +935,7 @@ public class LibraryImporter implements Cloneable{
 
 
     private void importArticlesData(InputStream inputStream) {
-        LOG.info("Start import Articles data********************");
+        logger.info("Start import Articles data********************");
 
         ResourceResolver resolver = getResourceResolver();
         Session session = resolver.adaptTo(Session.class);
@@ -1069,7 +1069,7 @@ public class LibraryImporter implements Cloneable{
         } catch (IOException e) {
             addErrors(e.getMessage());
         }
-        LOG.info("End import Articles data******************************");
+        logger.info("End import Articles data******************************");
     }
 
 

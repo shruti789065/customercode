@@ -2,11 +2,14 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-05-23T15:08:27.507Z"
-        cq:lastModifiedBy="a.messori@adiacent.com"
+        cq:lastModified="{Date}2023-10-17T15:58:23.140+02:00"
+        cq:lastModifiedBy="admin"
         cq:template="/conf/menarini-apac/settings/wcm/templates/menarini---content-news"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="menarinimaster/components/page">
+        sling:resourceType="menarinimaster/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="menarinimaster/components/container"
@@ -80,5 +83,11 @@
                 </section_1876381274>
             </container>
         </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-10-17T15:58:23.132+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
 </jcr:root>

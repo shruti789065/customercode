@@ -3,8 +3,8 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-05-31T13:45:20.064Z"
-        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastModified="{Date}2023-10-06T12:15:11.555+02:00"
+        cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2023-06-01T13:12:02.175Z"
         cq:lastReplicated_publish="{Date}2023-06-01T13:12:02.175Z"
         cq:lastReplicatedBy="L.ambrosini@adiacent.com"
@@ -90,6 +90,14 @@
                     <header jcr:primaryType="nt:unstructured">
                         <megamenu
                             cq:policy="menarinimaster/components/header/megamenu/policy_1657724243551"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <countries
+                            cq:policy="menarinimaster/components/header/countries/policy_1696238750635"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <market-countries-container
+                            cq:policy="menarinimaster/components/header/market-countries-container/policy_1696249752680"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping"/>
                     </header>

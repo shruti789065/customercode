@@ -33,7 +33,7 @@ import java.util.List;
 public class DropdownServlet extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
-    private static final transient Logger LOG = LoggerFactory.getLogger(DropdownServlet.class);
+    private static final transient Logger logger = LoggerFactory.getLogger(DropdownServlet.class);
 
     @Override
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response)  {
@@ -93,7 +93,7 @@ public class DropdownServlet extends SlingSafeMethodsServlet {
                 request.setAttribute(DataSource.class.getName(), ds);
             }
         }catch (Exception e){
-            LOG.error("Error in Compound Dropdown servlet Get call: ", e);
+            logger.error("Error in Compound Dropdown servlet Get call: ", e);
         }
     }
 }

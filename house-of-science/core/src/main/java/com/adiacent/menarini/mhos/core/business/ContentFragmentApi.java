@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
+import org.apache.http.ParseException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
 import org.apache.http.client.utils.URIBuilder;
@@ -33,9 +34,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ContentFragmentApi {
+public class    ContentFragmentApi {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ContentFragmentApi.class);
+    private static final Logger logger = LoggerFactory.getLogger(ContentFragmentApi.class);
 
     private  static final int DEFAULT_API_TIMEOUT = 30000;
     private  static final long API_WARNING_TIME = 1000;
@@ -115,7 +116,7 @@ public class ContentFragmentApi {
                 else
                     ((HttpPost) request).setEntity(body);
             }
-            LOG.info("****** uri " + uri);
+            logger.info("****** uri " + uri);
             HttpResponse response = client.execute(request);
             if(response != null){
 
@@ -130,23 +131,20 @@ public class ContentFragmentApi {
                         if(HttpStatus.SC_NOT_FOUND == response.getStatusLine().getStatusCode())
                             res = null;
                         else {
-                            LOG.info("******" + response.getStatusLine().getStatusCode() + " for uri :" + uri );
-                            LOG.info("******PAYLOAD " + payload) ;
+                            logger.info("******" + response.getStatusLine().getStatusCode() + " for uri :" + uri );
+                            logger.info("******PAYLOAD " + payload) ;
                         }
             }
-            LOG.info("Response: {}", res);
+            logger.info("Response: {}", res);
 
-        } catch (org.apache.http.ParseException | IOException e) {
-            LOG.error(e.getMessage(), e);
+        } catch (ParseException | IOException | URISyntaxException e) {
+            logger.error(e.getMessage(), e);
 
-        } catch (URISyntaxException e) {
-            LOG.error(e.getMessage(), e);
         } finally {
             try {
                 client.close();
             } catch (IOException e) {
-                LOG.error(e.getMessage(), e);
-                return null;
+                logger.error(e.getMessage(), e);
             }
         }
         return res;

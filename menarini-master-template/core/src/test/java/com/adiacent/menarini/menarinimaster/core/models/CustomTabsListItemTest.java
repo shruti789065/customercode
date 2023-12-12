@@ -1,13 +1,8 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
-import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.components.commons.link.Link;
 import com.adobe.cq.wcm.core.components.models.ListItem;
-import com.adobe.cq.wcm.core.components.models.datalayer.ComponentData;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Exporter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -16,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class CustomTabsListItemTest {
@@ -73,5 +69,61 @@ class CustomTabsListItemTest {
 	}
 
 	// Add more test methods for the remaining methods of CustomTabsListItem
+
+	@Test
+	void testGetPath() {
+		String expectedURL = "https://example.com";
+		when(wrappedListItem.getPath()).thenReturn(expectedURL);
+
+		String actualPath= customTabsListItem.getPath();
+
+		assertEquals(expectedURL, actualPath);
+
+	}
+
+	@Test
+	void testGetName() {
+		String expectedURL = "https://example.com";
+		when(wrappedListItem.getName()).thenReturn(expectedURL);
+
+		String actualName = customTabsListItem.getName();
+
+		assertEquals(expectedURL, actualName);
+
+	}
+
+	@Test
+	void testGetTeaserResource() {
+
+		Resource currentResource = mock(Resource.class);
+		when(wrappedListItem.getTeaserResource()).thenReturn(currentResource);
+		Resource actualResource = customTabsListItem.getTeaserResource();
+		assertEquals(currentResource, actualResource);
+
+
+	}
+
+	@Test
+	void testGetLink() {
+
+		Link link = mock(Link.class);
+		when(wrappedListItem.getLink()).thenReturn(link);
+		Link actualLink = customTabsListItem.getLink();
+		assertEquals(link, actualLink);
+
+	}
+
+	@Test
+	void testGetLastModified() {
+
+		Calendar expectedLastModified = Calendar.getInstance();
+		when(wrappedListItem.getLastModified()).thenReturn(expectedLastModified);
+
+		Calendar actualLastModified = customTabsListItem.getLastModified();
+
+		assertEquals(expectedLastModified, actualLastModified);
+
+	}
+
 
 }

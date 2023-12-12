@@ -25,6 +25,12 @@ module.exports = env => {
 			}),
 			new HtmlWebpackPlugin({
 				inject: true,
+				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/efpia.html'),
+				filename: 'efpia.html',
+				chunks: ['site']
+			}),
+			new HtmlWebpackPlugin({
+				inject: true,
 				template: path.resolve(__dirname, SOURCE_ROOT + '/menarinimaster/static/library.html'),
 				filename: 'library.html',
 				chunks: ['site']

@@ -49,6 +49,13 @@
                                             fieldLabel="Favicon folder"
                                             rootPath="/content/dam"
                                             name="./faviconFolder"/>
+                                    <sendCVMail
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Send CV E-Mail"
+                                            fieldDescription="E-Mail to send CV, used in careers form in APAC (use in Site Apac for component connected options container)"
+                                            cq:showOnCreate="true"
+                                            name="./sendCVMail"/>
                                     <branding
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="Branding"

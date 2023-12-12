@@ -18,7 +18,6 @@ import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -39,7 +38,9 @@ public class PageCreationListener implements EventHandler {
 
     @Override
     public void handleEvent(Event event) {
-        try (ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(null)) {
+        Map<String, Object> param = new HashMap<>();
+        param.put(ResourceResolverFactory.SUBSERVICE, "menarinimaster");
+        try (ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param)) {
             Iterator<PageModification> pageInfo = PageEvent.fromEvent(event).getModifications();
             while (pageInfo.hasNext()) {
                 PageModification pageModification = pageInfo.next();
