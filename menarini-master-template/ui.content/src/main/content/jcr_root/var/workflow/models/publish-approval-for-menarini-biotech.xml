@@ -2,12 +2,12 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:isCheckedOut="{Boolean}false"
     jcr:primaryType="cq:WorkflowModel"
-    jcr:uuid="31b1bf40-1bdf-11ee-be56-0242ac120002"
+    jcr:uuid="a34a9add-12b7-410c-af41-745800b562ca"
     sling:resourceType="cq/workflow/components/model"
     description="No Description"
-    title="Publish approval for Menarini House of Sciences">
+    title="Publish approval for Menarini Biotech">
     <metaData
-        cq:generatingPage="/conf/global/settings/workflow/models/publish-approval-for-hos/jcr:content"
+        cq:generatingPage="/conf/global/settings/workflow/models/publish-approval-for-menarini-biotech/jcr:content"
         cq:lastModified="{Long}1687945882963"
         cq:lastModifiedBy="L.ambrosini@adiacent.com"
         jcr:primaryType="nt:unstructured"
@@ -27,7 +27,7 @@
             <metaData
                 jcr:primaryType="nt:unstructured"
                 DO_NOTIFY="true"
-                PARTICIPANT="approver-mhos"/>
+                PARTICIPANT="approver-menarini-biotech"/>
         </node1>
         <node2
             jcr:primaryType="cq:WorkflowNode"
@@ -69,7 +69,7 @@
             <metaData
                 jcr:primaryType="nt:unstructured"
                 DO_NOTIFY="true"
-                PARTICIPANT="editor-mhos"
+                PARTICIPANT="editor-menarini-biotech"
                 timeoutMillis="1"/>
         </node6>
         <node7

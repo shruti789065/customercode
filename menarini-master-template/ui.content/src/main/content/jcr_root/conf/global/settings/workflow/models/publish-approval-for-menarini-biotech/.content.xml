@@ -7,7 +7,7 @@
         cq:lastModifiedBy="L.ambrosini@adiacent.com"
         cq:template="/libs/cq/workflow/templates/model"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Publish approval for Menarini House of Sciences"
+        jcr:title="Publish approval for Menarini Biotech"
         sling:resourceType="cq/workflow/components/pages/model"
         lastSynced="{Date}2023-06-28T09:51:22.928Z">
         <flow
@@ -23,7 +23,7 @@
                 <metaData
                     jcr:primaryType="nt:unstructured"
                     DO_NOTIFY="true"
-                    PARTICIPANT="approver-mhos"/>
+                    PARTICIPANT="approver-menarini-biotech"/>
             </participant>
             <or
                 jcr:lastModified="{Date}2023-06-28T08:12:57.330Z"
@@ -73,7 +73,7 @@
                         <metaData
                             jcr:primaryType="nt:unstructured"
                             DO_NOTIFY="true"
-                            PARTICIPANT="editor-mhos"
+                            PARTICIPANT="editor-menarini-biotech"
                             timeoutMillis="1"/>
                     </participant>
                 </_x0032_>
