@@ -4,6 +4,13 @@
     jcr:primaryType="dam:Asset"
     jcr:uuid="204a3941-051f-4d19-9148-ed9224dceef3">
     <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastReplicated="{Date}2023-10-16T08:49:17.767Z"
+        cq:lastReplicated_publish="{Date}2023-10-16T08:49:17.767Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         dam:assetState="processed"
         dam:jobId="70668b23-1c7d-4819-b0b1-4641825ebae2"
         dam:processingId="2b80e9e9-1c04-4003-8a04-31fa5f5bb7d0"
@@ -13,6 +20,7 @@
         dam:runPostProcess="{Boolean}true"
         jcr:lastModified="{Date}2023-07-26T08:42:14.504Z"
         jcr:lastModifiedBy="dam-writer-service"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
         jcr:primaryType="dam:AssetContent">
         <dam:failedRenditions jcr:primaryType="nt:unstructured">
             <cqdam.text.txt

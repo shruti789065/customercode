@@ -4,8 +4,9 @@
     jcr:primaryType="dam:Asset"
     jcr:uuid="ae6bccf4-c553-4100-ada9-ea69bbe14ada">
     <jcr:content
-        cq:lastReplicated="{Date}2023-01-31T11:45:58.657Z"
-        cq:lastReplicated_publish="{Date}2023-01-31T11:45:58.657Z"
+        cq:isDelivered="{Boolean}true"
+        cq:lastReplicated="{Date}2023-10-16T07:57:28.076Z"
+        cq:lastReplicated_publish="{Date}2023-10-16T07:57:28.076Z"
         cq:lastReplicatedBy="L.ambrosini@adiacent.com"
         cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
         cq:lastReplicationAction="Activate"
@@ -13,6 +14,7 @@
         dam:assetState="processed"
         jcr:lastModified="{Date}2023-06-12T16:40:13.458+02:00"
         jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:Bitsperpixel="{Long}24"
