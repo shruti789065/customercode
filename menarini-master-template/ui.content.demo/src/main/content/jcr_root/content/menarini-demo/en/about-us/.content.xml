@@ -2,17 +2,18 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-09-19T15:42:11.113Z"
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-11-08T14:23:25.871Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-14T07:51:40.503Z"
-        cq:lastReplicated_publish="{Date}2023-06-14T07:51:40.503Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicated_publish="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-demo/settings/wcm/templates/menarini---content-page"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="About Us"
         jcr:uuid="d0b77ff3-8866-4e4b-aad3-fe81f39fc4fd"
@@ -26,10 +27,15 @@
                 sling:resourceType="menarinimaster/components/container"
                 layout="responsiveGrid">
                 <internalheader
-                    jcr:lastModified="{Date}2022-05-27T16:15:23.398+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-11-08T14:23:25.865Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="menarinimaster/components/internalheader"/>
+                    sling:resourceType="menarinimaster/components/internalheader"
+                    fileReference="/content/dam/menarini-demo/assets/slideshow/internal-header/header-about-us.jpg"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    textIsRich="true"
+                    titleFromPage="true"/>
                 <section
                     jcr:lastModified="{Date}2023-05-23T15:04:29.514Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
@@ -91,22 +97,34 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/spacer"
                             spacer="40"/>
-                        <card_copy_copy
-                            cq:styleIds="[1684752176188]"
-                            jcr:description="&lt;p>Lorem Ipsum&amp;nbsp;Lorem Ipsum&amp;nbsp;Lorem Ipsum&amp;nbsp;Lorem Ipsum&amp;nbsp;Lorem Ipsum&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T11:07:30.701Z"
+                        <card_v2
+                            cq:styleIds="[1699444242445]"
+                            jcr:created="{Date}2023-11-08T14:07:06.169Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum &lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T14:08:48.232Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Who we are"
-                            sling:resourceType="menarinimaster/components/card"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="flex-start"
+                            cardType="standard"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/placeholders/sample-800-490.jpg"
+                            hoverColor="primary"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="flex-end"
                             linkTarget="_self"
+                            linkURL="/content/menarini-demo/en/about-us/who-we-are"
                             textIsRich="true"
-                            titleFromPage="false">
+                            titleFromPage="true">
+                            <actions jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    link="/content/menarini-demo/en/about-us/who-we-are"
+                                    linkTarget="_self"
+                                    text="READ MORE"/>
+                            </actions>
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
@@ -116,19 +134,8 @@
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
                                     width="12"/>
-                                <tablet
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="6"/>
                             </cq:responsive>
-                            <actions jcr:primaryType="nt:unstructured">
-                                <item0
-                                    jcr:primaryType="nt:unstructured"
-                                    link="/content/menarini-demo/en/about-us/who-we-are"
-                                    linkTarget="_self"
-                                    text="READ MORE"/>
-                            </actions>
-                        </card_copy_copy>
+                        </card_v2>
                         <spacer_copy_1163532597
                             jcr:lastModified="{Date}2023-06-06T11:08:09.395Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -145,22 +152,27 @@
                                     behavior="hide"/>
                             </cq:responsive>
                         </spacer_copy_1163532597>
-                        <card_copy_copy_copy
-                            cq:styleIds="[1684752172948]"
-                            jcr:description="&lt;p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum &lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T11:08:37.987Z"
+                        <card_v2_copy
+                            cq:styleIds="[1699444241844]"
+                            jcr:created="{Date}2023-11-08T14:07:06.169Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum &lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T14:11:43.871Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Where we are"
-                            sling:resourceType="menarinimaster/components/card"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="flex-start"
+                            cardType="standard"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/placeholders/sample-800-490.jpg"
+                            hoverColor="primary"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="flex-end"
                             linkTarget="_self"
+                            linkURL="/content/menarini-demo/en/about-us/where-we-are"
                             textIsRich="true"
-                            titleFromPage="false">
+                            titleFromPage="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
@@ -170,10 +182,6 @@
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
                                     width="12"/>
-                                <tablet
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="6"/>
                             </cq:responsive>
                             <actions jcr:primaryType="nt:unstructured">
                                 <item0
@@ -182,29 +190,34 @@
                                     linkTarget="_self"
                                     text="READ MORE"/>
                             </actions>
-                        </card_copy_copy_copy>
+                        </card_v2_copy>
                         <spacer_copy
                             jcr:lastModified="{Date}2023-06-06T11:08:09.395Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/spacer"
                             spacer="40"/>
-                        <card_copy_copy_copy_1734468845
-                            cq:styleIds="[1684752176188]"
-                            jcr:description="&lt;p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum &lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T11:09:40.120Z"
+                        <card_v2_copy_1241265035
+                            cq:styleIds="[1699444242445]"
+                            jcr:created="{Date}2023-11-08T14:07:06.169Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum &lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T14:13:18.726Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="History"
-                            sling:resourceType="menarinimaster/components/card"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="flex-start"
+                            cardType="standard"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/placeholders/sample-800-490.jpg"
+                            hoverColor="primary"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="flex-end"
                             linkTarget="_self"
+                            linkURL="/content/menarini-demo/en/about-us/history"
                             textIsRich="true"
-                            titleFromPage="false">
+                            titleFromPage="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
@@ -214,10 +227,6 @@
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
                                     width="12"/>
-                                <tablet
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="6"/>
                             </cq:responsive>
                             <actions jcr:primaryType="nt:unstructured">
                                 <item0
@@ -226,7 +235,7 @@
                                     linkTarget="_self"
                                     text="READ MORE"/>
                             </actions>
-                        </card_copy_copy_copy_1734468845>
+                        </card_v2_copy_1241265035>
                         <spacer_copy_11635325
                             jcr:lastModified="{Date}2023-06-06T11:08:09.395Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -243,22 +252,27 @@
                                     behavior="hide"/>
                             </cq:responsive>
                         </spacer_copy_11635325>
-                        <card_copy_copy_copy_
-                            cq:styleIds="[1684752172948]"
-                            jcr:description="&lt;p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum &lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T11:10:26.296Z"
+                        <card_v2_copy_copy
+                            cq:styleIds="[1699444241844]"
+                            jcr:created="{Date}2023-11-08T14:07:06.169Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum &lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T14:13:34.134Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Business Ethics and Compliance"
-                            sling:resourceType="menarinimaster/components/card"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="flex-start"
+                            cardType="standard"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/placeholders/sample-800-490.jpg"
+                            hoverColor="primary"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="flex-end"
                             linkTarget="_self"
+                            linkURL="/content/menarini-demo/en/about-us/business-ethics-and-compliance"
                             textIsRich="true"
-                            titleFromPage="false">
+                            titleFromPage="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
@@ -268,10 +282,6 @@
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
                                     width="12"/>
-                                <tablet
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="6"/>
                             </cq:responsive>
                             <actions jcr:primaryType="nt:unstructured">
                                 <item0
@@ -280,7 +290,7 @@
                                     linkTarget="_self"
                                     text="READ MORE"/>
                             </actions>
-                        </card_copy_copy_copy_>
+                        </card_v2_copy_copy>
                         <spacer_copy_copy
                             jcr:lastModified="{Date}2023-06-06T11:08:09.395Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
