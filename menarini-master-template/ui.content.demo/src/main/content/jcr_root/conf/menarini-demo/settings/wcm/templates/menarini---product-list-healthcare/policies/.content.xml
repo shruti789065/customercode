@@ -3,17 +3,17 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-10-05T10:30:57.757Z"
+        cq:lastModified="{Date}2023-11-08T13:26:56.749Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-13T11:25:31.814Z"
-        cq:lastReplicated_publish="{Date}2023-06-13T11:25:31.814Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicated_publish="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:policy="menarinimaster/components/page/policy"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[cq:ReplicationStatus,mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="nt:unstructured"
         jcr:uuid="7787d443-3fe1-4bf8-81e9-14421fa53835"
         sling:resourceType="wcm/core/components/policies/mappings">
@@ -121,6 +121,14 @@
                             sling:resourceType="wcm/core/components/policies/mapping"/>
                         <accordion
                             cq:policy="menarinimaster/components/accordion/policy_1677581474992"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <banner_v2
+                            cq:policy="menarinimaster/components/banner_v2/policy_1699444094974"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <card_v2
+                            cq:policy="menarinimaster/components/card_v2/policy_1699444182765"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping"/>
                     </components>
