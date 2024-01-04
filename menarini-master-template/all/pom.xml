@@ -149,12 +149,12 @@
                              <type>zip</type>
                              <target>/apps/menarinimaster-packages/content/install</target>
                          </embedded>-->
-                        <embedded>
-                            <groupId>com.adiacent.menarini.menarinimaster</groupId>
-                            <artifactId>menarinimaster.amla.ui.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/menarinimaster-packages/content/install</target>
-                        </embedded>
+                        <!-- <embedded>
+                             <groupId>com.adiacent.menarini.menarinimaster</groupId>
+                             <artifactId>menarinimaster.amla.ui.content</artifactId>
+                             <type>zip</type>
+                             <target>/apps/menarinimaster-packages/content/install</target>
+                         </embedded>-->
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -340,11 +340,11 @@
               <version>${project.version}</version>
               <type>zip</type>
           </dependency>-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.adiacent.menarini.menarinimaster</groupId>
             <artifactId>menarinimaster.amla.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
-        </dependency>
+        </dependency>-->
       </dependencies>
   </project>
