@@ -2,17 +2,18 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-06-13T11:07:16.093Z"
-        cq:lastModifiedBy="reference-adjustment-service"
-        cq:lastReplicated="{Date}2023-06-14T07:51:40.503Z"
-        cq:lastReplicated_publish="{Date}2023-06-14T07:51:40.503Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-12-21T16:58:51.023Z"
+        cq:lastModifiedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicated="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicated_publish="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-demo/settings/wcm/templates/menarini---content-page"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Contact Us"
         jcr:uuid="77b39756-2908-4d89-95d2-d33494a7553a"
@@ -26,10 +27,15 @@
                 sling:resourceType="menarinimaster/components/container"
                 layout="responsiveGrid">
                 <internalheader
-                    jcr:lastModified="{Date}2022-05-27T16:15:23.398+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-11-08T14:26:16.958Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="menarinimaster/components/internalheader"/>
+                    sling:resourceType="menarinimaster/components/internalheader"
+                    fileReference="/content/dam/menarini-demo/assets/slideshow/internal-header/slider_contact_us.jpg"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    textIsRich="true"
+                    titleFromPage="true"/>
                 <section
                     jcr:lastModified="{Date}2023-05-23T15:04:29.514Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
@@ -336,12 +342,12 @@
                                 </cq:responsive>
                             </text_copy_copy_92083_1159773737>
                             <options
-                                jcr:lastModified="{Date}2023-06-07T14:34:25.429Z"
-                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2023-12-21T16:58:51.007Z"
+                                jcr:lastModifiedBy="L.ambrosini@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Reason fot contacting us"
                                 sling:resourceType="menarinimaster/components/form/options"
-                                name="reason-contacting"
+                                name="information"
                                 requiredMessage="required"
                                 requiredMultiSelect="false"
                                 requiredRadio="false"

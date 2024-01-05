@@ -3,11 +3,11 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-09-29T15:41:25.141Z"
+        cq:lastModified="{Date}2023-11-16T17:28:20.653Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-13T11:14:17.091Z"
+        cq:lastReplicated="{Date}2023-11-24T09:21:43.466Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-13T11:14:17.091Z"
+        cq:lastReplicated_publish="{Date}2023-11-24T09:21:43.466Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
         cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
@@ -17,7 +17,7 @@
         cq:template="/conf/menarini-demo/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Header"
         jcr:uuid="14c25b93-e5d0-408b-a14d-d38235691819"
@@ -146,11 +146,11 @@
                         </cq:responsive>
                     </text_block>
                     <languagenavigation
-                        jcr:lastModified="{Date}2022-06-07T15:26:05.751+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2023-11-16T17:17:02.531Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/languagenavigation"
-                        navigationRoot="/content/menarini-demo/gb"
+                        navigationRoot="/content/menarini-demo/"
                         structureDepth="1">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
@@ -481,6 +481,7 @@
                             sling:resourceType="menarinimaster/components/container"
                             layout="responsiveGrid">
                             <container
+                                cq:styleIds="[1685355347992,1685354945533]"
                                 jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
@@ -501,7 +502,7 @@
                                         width="12"/>
                                 </cq:responsive>
                                 <container
-                                    cq:styleIds="[1684742010090,1685354945533]"
+                                    cq:styleIds="[1685354945533,1684742010090]"
                                     jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
@@ -522,18 +523,17 @@
                                             width="12"/>
                                     </cq:responsive>
                                     <teaser
-                                        jcr:lastModified="{Date}2023-06-07T13:10:06.089Z"
+                                        jcr:lastModified="{Date}2023-11-16T17:14:00.664Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="Pharmaceutical"
                                         sling:resourceType="menarinimaster/components/teaser"
                                         descriptionFromPage="true"
-                                        disableLazyLoading="false"
                                         fileReference="/content/dam/menarini-demo/assets/menu/mainmenu_pharmaceutical-small.jpg"
                                         imageFromPageImage="false"
                                         isDecorative="true"
                                         linkTarget="_self"
-                                        linkURL="/content/menarini-demo/en/therapeutic-areas"
+                                        linkURL="/content/menarini-demo/en/pharmaceutical"
                                         textIsRich="true"
                                         titleFromPage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
@@ -577,7 +577,7 @@
                                     </list>
                                 </container>
                                 <container_copy
-                                    cq:styleIds="[1685354945533,1655115743785,1685355347992]"
+                                    cq:styleIds="[1655115743785]"
                                     jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
@@ -598,18 +598,17 @@
                                             width="12"/>
                                     </cq:responsive>
                                     <teaser
-                                        jcr:lastModified="{Date}2023-06-07T13:10:17.262Z"
+                                        jcr:lastModified="{Date}2023-11-16T17:14:24.333Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="Consumer Healthcare"
                                         sling:resourceType="menarinimaster/components/teaser"
                                         descriptionFromPage="true"
-                                        disableLazyLoading="false"
                                         fileReference="/content/dam/menarini-demo/assets/menu/mainmenu_consumer-healthcare-small.jpg"
                                         imageFromPageImage="false"
                                         isDecorative="true"
                                         linkTarget="_self"
-                                        linkURL="/content/menarini-demo/en/therapeutic-areas"
+                                        linkURL="/content/menarini-demo/en/consumer-healthcare"
                                         textIsRich="true"
                                         titleFromPage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
