@@ -34,7 +34,8 @@
         <module>ui.apps.structure</module>
         <module>ui.config</module>
         <module>ui.content</module>
-         <!--<module>ui.content.stemline</module>-->
+        <!--<module>ui.content.amla</module>-->
+        <!--<module>ui.content.stemline</module>-->
         <!--<module>ui.content.relifede</module>-->
         <!--<module>ui.content.biotech</module>-->
         <!--<module>ui.content.demo</module>-->
@@ -47,6 +48,7 @@
         <!--<module>ui.content.fr</module>-->
         <!--<module>ui.content.be</module>-->
         <!--<module>ui.content.berlinchemie</module>-->
+
       <module>it.tests</module>
       <module>ui.tests</module>
   </modules>
@@ -63,15 +65,15 @@
       <vault.password>admin</vault.password>
       <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
       <!--suppress UnresolvedMavenProperty -->
-      <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
+	  <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
       <!--suppress UnresolvedMavenProperty -->
-      <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
-      <core.wcm.components.version>2.23.4</core.wcm.components.version>
+	  <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
+      <core.wcm.components.version>2.19.0</core.wcm.components.version>
 
        <bnd.version>5.1.2</bnd.version>
        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-       <aem.sdk.api>2023.12.14697.20231215T125030Z-231200</aem.sdk.api>
+       <aem.sdk.api>2023.11.14227.20231108T162349Z-231000</aem.sdk.api>
        <aemanalyser.version>1.5.8</aemanalyser.version>
        <componentGroupName>Menarini Master Template</componentGroupName>
    </properties>
@@ -146,8 +148,8 @@
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${frontend-maven-plugin.version}</version>
                     <configuration>
-                        <nodeVersion>v16.20.2</nodeVersion>
-                        <npmVersion>8.19.4</npmVersion>
+                        <nodeVersion>v12.22.7</nodeVersion>
+                        <npmVersion>6.14.0</npmVersion>
                     </configuration>
                     <executions>
                         <execution>
@@ -189,7 +191,7 @@
                             </goals>
                             <configuration>
                                 <!--suppress UnresolvedMavenProperty -->
-                                <bnd><![CDATA[
+	                            <bnd><![CDATA[
 Bundle-Category: ${componentGroupName}
 
 # export all versioned packages except for conditional ones (https://github.com/bndtools/bnd/issues/3721#issuecomment-579026778)

@@ -7,14 +7,14 @@
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
           jcr:mixinTypes="[rep:AccessControllable]"
           jcr:primaryType="nt:unstructured">
-    <menariniMaster-fulltext-1-custom-page-1
+    <menariniMaster-fulltext-1-custom-page-2
             jcr:primaryType="oak:QueryIndexDefinition"
             async="[async,nrt]"
             compatVersion="{Long}2"
             evaluatePathRestrictions="{Boolean}true"
             excludedPaths="[/var,/etc/replication,/etc/workflow/instances,/jcr:system,/etc/packages]"
-            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
-            queryPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
+            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac,/content/menarini-fr,/content/menarini-ch]"
+            queryPaths="[/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac,/content/menarini-fr,/content/menarini-ch,/content/menarini-amla]"
             reindex="{Boolean}false"
             reindexCount="{Long}1"
             seed="{Long}-6146516853337668993"
@@ -74,15 +74,15 @@
                 </properties>
             </cq:Page>
         </indexRules>
-    </menariniMaster-fulltext-1-custom-page-1>
-    <menariniMaster-fulltext-1-custom-ntunstructured-1
+    </menariniMaster-fulltext-1-custom-page-2>
+    <menariniMaster-fulltext-1-custom-ntunstructured-2
             jcr:primaryType="oak:QueryIndexDefinition"
             async="[async,nrt]"
             compatVersion="{Long}2"
             evaluatePathRestrictions="{Boolean}true"
             excludedPaths="[/var,/etc/replication,/etc/workflow/instances,/jcr:system,/etc/packages]"
-            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
-            queryPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac]"
+            includedPaths="[/content/menarinimaster,/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac,/content/menarini-fr,/content/menarini-ch]"
+            queryPaths="[/content/menarini-pt,/content/menarini-demo,/content/menarini-biotech,/content/menarini-apac,/content/menarini-fr,/content/menarini-ch,/content/menarini-amla]"
             reindex="{Boolean}false"
             reindexCount="{Long}1"
             seed="{Long}-6146516853337668993"
@@ -145,5 +145,5 @@
                 </properties>
             </nt:unstructured>
         </indexRules>
-    </menariniMaster-fulltext-1-custom-ntunstructured-1>
+    </menariniMaster-fulltext-1-custom-ntunstructured-2>
 </jcr:root>

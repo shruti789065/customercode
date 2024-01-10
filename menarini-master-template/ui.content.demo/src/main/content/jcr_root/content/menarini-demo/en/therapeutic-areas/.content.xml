@@ -2,17 +2,18 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-06-13T11:07:16.090Z"
-        cq:lastModifiedBy="reference-adjustment-service"
-        cq:lastReplicated="{Date}2023-06-14T07:51:40.503Z"
-        cq:lastReplicated_publish="{Date}2023-06-14T07:51:40.503Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-11-08T14:22:44.318Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicated_publish="{Date}2023-10-16T07:58:12.850Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-demo/settings/wcm/templates/menarini---product-area"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Therapeutic Areas"
         jcr:uuid="eab1062f-5b08-4657-a2ec-36a079dad649"
@@ -26,15 +27,15 @@
                 sling:resourceType="menarinimaster/components/container"
                 layout="responsiveGrid">
                 <internalheader
-                    jcr:lastModified="{Date}2022-07-20T16:36:48.990+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-11-08T14:22:44.312Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/internalheader"
-                    fileReference="/content/dam/menarini-demo/assets/products-area/slider_therapeutic_area.jpg"
+                    fileReference="/content/dam/menarini-demo/assets/slideshow/internal-header/slider_therapeutic_area.jpg"
                     imageFromPageImage="false"
                     isDecorative="true"
                     textIsRich="true"
-                    titleFromPage="false"/>
+                    titleFromPage="true"/>
                 <section
                     jcr:lastModified="{Date}2023-05-23T14:46:58.343Z"
                     jcr:lastModifiedBy="a.messori@adiacent.com"
