@@ -251,7 +251,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 				assert property != null;
 				optMailTo = property.get(OPTMAILTO_PROPERTY, String.class);
 			}
-			session.logout();
+			//session.logout();
 		}
 
 
