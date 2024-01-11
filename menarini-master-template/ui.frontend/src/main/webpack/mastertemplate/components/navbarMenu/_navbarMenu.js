@@ -11,14 +11,6 @@ const NavbarMenu = (() => {
 
   const navbarMenuCloseButton = document.getElementById("navbarMenuClose");
 
-  /*  for (const input of hiddenInputs) {
-    const dataLogoValue = input.getAttribute("data-logo");
-
-    if (dataLogoValue !== null && navbarSection) {
-      setNavbarBackgroundImage(dataLogoValue);
-    }
-  } */
-
   function setNavbarBackgroundImage(dataLogoValue) {
     navbarSection.style.backgroundImage = `
 		linear-gradient(
@@ -70,7 +62,12 @@ const NavbarMenu = (() => {
             ".cmp-button--mobile__toggler_close"
           );
           menuCloseButton.addEventListener("click", () => {
-            containerElements[currentContainerIndex].style.left = "100%";
+            if (navbarSection !== null) {
+              navbarSection.style.left = "100%";
+              containerElements.forEach((container) => {
+                container.style.left = "100%";
+              });
+            }
           });
         }
       }
@@ -87,20 +84,23 @@ const NavbarMenu = (() => {
   function toggleNavbarMenu(clickedElement, dataIndex) {
     if (navbarSection !== null) {
       if (dataIndex !== currentContainerIndex) {
-        containerElements.forEach((container, index) => {
-          container.style.display = index === dataIndex ? "block" : "none";
-        });
-
         currentContainerIndex = dataIndex;
 
         if (_isDesktop()) {
           const displayStyle = navbarSection.style.display;
           navbarSection.style.display =
             displayStyle === "none" ? "block" : "none";
+          dataIndex = dataIndex;
         } else {
           const leftPosition = navbarSection.style.left;
+          navbarSection.style.display = "block";
           navbarSection.style.left = leftPosition === "0px" ? "100%" : "0px";
+          dataIndex = dataIndex - containerElements.length;
         }
+
+        containerElements.forEach((container, index) => {
+          container.style.display = index === dataIndex ? "block" : "none";
+        });
 
         const dataLogoValue = clickedElement
           ? clickedElement.getAttribute("data-logo")
