@@ -474,7 +474,7 @@
       padding: 30px;
       min-height: 180px;
       display: flex;
-	  justify-content: center;
+      justify-content: center;
       position: relative;
       padding: inherit;
       .cmp-teaser__content {
@@ -491,6 +491,15 @@
       }
     }
     &-positive {
+      .cmp-teaser__content,
+	  .cmp-teaser__link {
+        background: $white;
+      }
+      .cmp-teaser__title {
+        color: $color-corporate;
+        font-size: 30px;
+        font-weight: $font-extra-light;
+      }
     }
   }
 }
