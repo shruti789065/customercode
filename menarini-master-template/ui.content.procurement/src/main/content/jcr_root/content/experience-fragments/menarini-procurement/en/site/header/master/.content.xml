@@ -3,21 +3,24 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-13T13:08:14.328+02:00"
+        cq:lastModified="{Date}2023-12-15T11:06:21.586Z"
         cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastReplicated="{Date}2023-12-15T11:06:22.354Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-09T12:20:05.105Z"
+        cq:lastReplicated_publish="{Date}2023-12-15T11:06:22.354Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
-        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_preview="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-procurement/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Header"
-        jcr:uuid="c46555e2-7b71-4c8e-995b-92bdc07c67dd"
+        jcr:uuid="fa9ed5ee-6ed5-4cc6-88f0-55c7f8b43c20"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:lastModified="{Date}2022-06-08T11:59:04.155+02:00"
@@ -39,12 +42,12 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <text_quality
-                        jcr:lastModified="{Date}2023-05-26T12:39:32.512Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:lastModified="{Date}2023-07-31T10:23:21.152Z"
+                        jcr:lastModifiedBy="agiorgetti@menarini.it"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
                         id="qualitycomesfirst"
-                        text="&lt;p>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.it/en-us/quality-comes-first&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>&lt;i>Quality Comes First&lt;/i>&lt;/a>&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>&lt;i>&lt;a href=&quot;https://www.menarini.com/en-us/quality-comes-first&quot; target=&quot;_blank&quot;>Quality Comes First&lt;/a>&lt;/i>&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
@@ -83,11 +86,11 @@
                             </cq:responsive>
                         </text_discover>
                         <text_globalwebsite
-                            jcr:lastModified="{Date}2023-05-26T12:36:02.520Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:lastModified="{Date}2023-07-31T10:23:46.664Z"
+                            jcr:lastModifiedBy="agiorgetti@menarini.it"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/text"
-                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.com&quot; target=&quot;_blank&quot;>MENARINI.COM&lt;/a>&lt;/p>&#xd;&#xa;"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.com/en-us/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>MENARINI.COM&lt;/a>&lt;/p>&#xd;&#xa;"
                             textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
@@ -105,11 +108,11 @@
                             </cq:responsive>
                         </text_globalwebsite>
                         <text_country
-                            jcr:lastModified="{Date}2023-05-26T12:36:49.014Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:lastModified="{Date}2023-07-31T10:24:17.518Z"
+                            jcr:lastModifiedBy="agiorgetti@menarini.it"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/text"
-                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a href=&quot;https://www.menarini.com/en-us/country&quot; target=&quot;_blank&quot; title=&quot;www.menarini.com&quot;>COUNTRY&lt;/a>&lt;/p>&#xd;&#xa;"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a href=&quot;https://www.menarini.com/en-us/countries&quot; target=&quot;_blank&quot;>COUNTRIES&lt;/a>&lt;/p>&#xd;&#xa;"
                             textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
@@ -144,11 +147,11 @@
                         </cq:responsive>
                     </text_block>
                     <languagenavigation
-                        jcr:lastModified="{Date}2022-06-07T15:26:05.751+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2023-07-28T13:36:13.805Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/languagenavigation"
-                        navigationRoot="/content/menarini-procurement/gb"
+                        navigationRoot="/content/menarini-procurement"
                         structureDepth="1">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
@@ -180,8 +183,8 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     id="wrapper-menu">
                     <megamenu
-                        jcr:lastModified="{Date}2023-06-09T08:09:05.086Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:lastModified="{Date}2023-10-26T09:10:29.348Z"
+                        jcr:lastModifiedBy="agiorgetti@menarini.it"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/header/megamenu"
                         alt="menarini logo"
@@ -192,36 +195,36 @@
                         imageFromPageImage="false"
                         isDecorative="false"
                         logoFolder="/content/dam/logo/menarini-procurement/"
-                        logoUrl="/content/menarini-procurement/en/">
+                        logoUrl="/content/menarini-procurement/en.html">
                         <share jcr:primaryType="nt:unstructured"/>
                         <link_1383470917
                             cq:panelTitle="Terms and Conditions"
-                            jcr:lastModified="{Date}2023-06-09T08:06:09.351Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:lastModified="{Date}2023-07-31T10:25:30.034Z"
+                            jcr:lastModifiedBy="agiorgetti@menarini.it"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
-                            label="Terms and Conditions"
-                            link="/content/menarini-procurement/en/terms-and-conditions"
+                            label="Terms and conditions"
+                            link="/content/menarini-procurement/en/termini-condizioni"
                             linkType="standard"
                             target="_self"/>
                         <item_1685536909724
-                            cq:panelTitle="Data Privacy"
-                            jcr:lastModified="{Date}2023-06-09T08:06:35.352Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            cq:panelTitle="Privacy Policy"
+                            jcr:lastModified="{Date}2023-07-31T10:25:53.948Z"
+                            jcr:lastModifiedBy="agiorgetti@menarini.it"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
-                            label="Data Privacy"
-                            link="/content/menarini-procurement/en/data-privacy"
+                            label="Privacy Policy"
+                            link="/content/menarini-procurement/en/data-privacy/privacy-policy"
                             linkType="standard"
                             target="_self"/>
-                        <item_1677144146087
-                            cq:panelTitle="Contact Us"
-                            jcr:lastModified="{Date}2023-06-09T08:07:02.739Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        <item_1689843794433
+                            cq:panelTitle="Cookie Policy"
+                            jcr:lastModified="{Date}2023-07-31T10:26:20.049Z"
+                            jcr:lastModifiedBy="agiorgetti@menarini.it"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
-                            label="Contact Us"
-                            link="/content/menarini-procurement/en/contact-us"
+                            label="Cookie Policy"
+                            link="/content/menarini-procurement/en/data-privacy/cookie-policy"
                             linkType="standard"
                             target="_self"/>
                     </megamenu>

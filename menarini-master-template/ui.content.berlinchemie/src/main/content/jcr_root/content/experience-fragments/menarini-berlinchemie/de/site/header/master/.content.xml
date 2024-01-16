@@ -3,24 +3,24 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-09-29T15:41:25.141Z"
-        cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-13T11:14:17.091Z"
+        cq:lastModified="{Date}2024-01-12T13:38:13.434Z"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastReplicated="{Date}2024-01-12T13:38:15.139Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-13T11:14:17.091Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated_publish="{Date}2024-01-12T13:38:15.139Z"
+        cq:lastReplicatedBy="l.giuntini@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="l.giuntini@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_preview="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-berlinchemie/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Header"
-        jcr:uuid="14c25b93-e5d0-408b-a14d-d38235691819"
+        jcr:uuid="e74237ae-dde8-421d-bf72-c77dfbc8c6b0"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:lastModified="{Date}2022-06-08T11:59:04.155+02:00"
@@ -182,8 +182,8 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     id="wrapper-menu">
                     <megamenu
-                        jcr:lastModified="{Date}2023-09-29T14:10:22.976Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:lastModified="{Date}2024-01-10T08:45:43.927Z"
+                        jcr:lastModifiedBy="f.marrucci@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/header/megamenu"
                         alt="menarini logo"
@@ -199,7 +199,7 @@
                         xLink="https://twitter.com/intent/tweet?url=">
                         <share jcr:primaryType="nt:unstructured"/>
                         <item_aboutus
-                            cq:panelTitle="About Us"
+                            cq:panelTitle="ÜBER UNS"
                             cq:styleIds="[1655115764732]"
                             jcr:lastModified="{Date}2022-06-10T14:07:13.740+02:00"
                             jcr:lastModifiedBy="admin"
@@ -229,20 +229,19 @@
                                         width="12"/>
                                 </cq:responsive>
                                 <teaser
-                                    jcr:lastModified="{Date}2023-06-06T09:43:15.107Z"
-                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-01-09T15:10:04.431Z"
+                                    jcr:lastModifiedBy="f.marrucci@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
-                                    jcr:title="About Us"
+                                    jcr:title="Über uns"
                                     sling:resourceType="menarinimaster/components/teaser"
                                     alt="pharmaceuticals banner image"
                                     altValueFromDAM="false"
                                     descriptionFromPage="false"
-                                    disableLazyLoading="false"
                                     fileReference="/content/dam/menarini-berlinchemie/assets/menu/mainmenu_about-us.jpg"
                                     imageFromPageImage="false"
                                     isDecorative="false"
                                     linkTarget="_self"
-                                    linkURL="/content/menarini-berlinchemie/de/about-us"
+                                    linkURL="/content/menarini-berlinchemie/de/ueber-uns"
                                     textIsRich="true"
                                     titleFromPage="false">
                                     <cq:responsive jcr:primaryType="nt:unstructured">
@@ -307,39 +306,39 @@
                                                 width="12"/>
                                         </cq:responsive>
                                         <link_copy_copy_copy
-                                            jcr:lastModified="{Date}2023-06-06T09:46:03.827Z"
-                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2024-01-09T15:11:18.543Z"
+                                            jcr:lastModifiedBy="f.marrucci@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/link"
-                                            label="Who we are"
-                                            link="/content/menarini-berlinchemie/de/about-us/who-we-are"
+                                            label="Wer wir sind"
+                                            link="/content/menarini-berlinchemie/de/ueber-uns/ueber-berlin-chemie-menarini/wer-wir-sind"
                                             linkType="menu-list"
                                             target="_self"/>
                                         <link_copy_copy_copy__1452147345
-                                            jcr:lastModified="{Date}2023-06-06T09:46:56.439Z"
-                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2024-01-09T15:11:33.920Z"
+                                            jcr:lastModifiedBy="f.marrucci@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/link"
-                                            label="History"
-                                            link="/content/menarini-berlinchemie/de/about-us/history"
+                                            label="Zahlen und Fakten"
+                                            link="/content/menarini-berlinchemie/de/ueber-uns/ueber-berlin-chemie-menarini/zahlen-und-fakten"
                                             linkType="menu-list"
                                             target="_self"/>
                                         <link_copy_copy_copy__900213588
-                                            jcr:lastModified="{Date}2023-06-06T09:47:26.227Z"
-                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2024-01-09T15:12:19.826Z"
+                                            jcr:lastModifiedBy="f.marrucci@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/link"
-                                            label="Where we are"
-                                            link="/content/menarini-berlinchemie/de/about-us/where-we-are"
+                                            label="Unternehmensgeschichte"
+                                            link="/content/menarini-berlinchemie/de/ueber-uns/ueber-berlin-chemie-menarini/unternehmensgeschichte"
                                             linkType="menu-list"
                                             target="_self"/>
                                         <link_copy_copy_copy_
-                                            jcr:lastModified="{Date}2023-06-06T09:47:57.862Z"
-                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2024-01-09T15:13:03.590Z"
+                                            jcr:lastModifiedBy="f.marrucci@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/link"
-                                            label="Business Ethics and Compliance"
-                                            link="/content/menarini-berlinchemie/de/about-us/business-ethics-and-compliance"
+                                            label="Vision &amp; Werte"
+                                            link="/content/menarini-berlinchemie/de/ueber-uns/ueber-berlin-chemie-menarini/vision-werte"
                                             linkType="menu-list"
                                             target="_self"/>
                                     </container_copy>
@@ -452,10 +451,10 @@
                                         </text>
                                         <button
                                             cq:styleIds="[1653579684271,1653579730618]"
-                                            jcr:lastModified="{Date}2023-05-26T13:04:15.603Z"
-                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2024-01-09T15:14:47.449Z"
+                                            jcr:lastModifiedBy="f.marrucci@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
-                                            jcr:title="READ MORE"
+                                            jcr:title="Mehr"
                                             sling:resourceType="menarinimaster/components/button"
                                             linkTarget="_blank"
                                             linkURL="https://www.menarini.com/en-us/"/>
@@ -473,15 +472,30 @@
                                 </container_1230078590>
                             </container_781062112>
                         </item_aboutus>
-                        <item_therapeuticAreas
-                            cq:panelTitle="Therapeutic Area"
-                            jcr:lastModified="{Date}2022-06-09T17:16:49.659+02:00"
+                        <container_copy
+                            cq:panelTitle="Therapiebereiche"
+                            jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/container"
                             layout="responsiveGrid">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
                             <container
-                                jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
+                                cq:styleIds="[1684742010090,1655115743785]"
+                                jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="menarinimaster/components/container"
@@ -490,249 +504,278 @@
                                     <default
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
-                                        width="6"/>
+                                        width="3"/>
                                     <tablet
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
-                                        width="12"/>
+                                        width="5"/>
                                     <phone
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
                                         width="12"/>
                                 </cq:responsive>
-                                <container
-                                    cq:styleIds="[1684742010090,1685354945533]"
-                                    jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
-                                    jcr:lastModifiedBy="admin"
+                                <teaser_copy
+                                    jcr:lastModified="{Date}2024-01-10T10:41:02.813Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="menarinimaster/components/container"
-                                    layout="responsiveGrid">
-                                    <cq:responsive jcr:primaryType="nt:unstructured">
-                                        <default
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="3"/>
-                                        <tablet
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="5"/>
-                                        <phone
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
-                                    </cq:responsive>
-                                    <teaser
-                                        jcr:lastModified="{Date}2023-06-07T13:10:06.089Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="Pharmaceutical"
-                                        sling:resourceType="menarinimaster/components/teaser"
-                                        descriptionFromPage="true"
-                                        disableLazyLoading="false"
-                                        fileReference="/content/dam/menarini-berlinchemie/assets/menu/mainmenu_pharmaceutical-small.jpg"
-                                        imageFromPageImage="false"
-                                        isDecorative="true"
-                                        linkTarget="_self"
-                                        linkURL="/content/menarini-berlinchemie/de/therapeutic-areas"
-                                        textIsRich="true"
-                                        titleFromPage="false">
-                                        <cq:responsive jcr:primaryType="nt:unstructured">
-                                            <default
-                                                jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="3"/>
-                                            <phone
-                                                jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="12"/>
-                                        </cq:responsive>
-                                    </teaser>
-                                    <spacer_copy_copy
-                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="menarinimaster/components/spacer"
-                                        spacer="15"/>
-                                    <list
-                                        jcr:lastModified="{Date}2023-06-07T13:08:55.238Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="menarinimaster/components/list"
-                                        childDepth="1"
-                                        displayItemAsTeaser="false"
-                                        linkItems="true"
-                                        listFrom="tags"
-                                        showDescription="false"
-                                        showModificationDate="false"
-                                        sortOrder="asc"
-                                        tags="[menarini-berlinchemie:menarinimaster-area-tag/pharmaceutical-area,menarini-berlinchemie:menarini-berlinchemie-area-tag/pharmaceutical-area]"
-                                        tagsMatch="any"
-                                        tagsSearchRoot="/content/menarini-berlinchemie/de/therapeutic-areas">
-                                        <cq:responsive jcr:primaryType="nt:unstructured">
-                                            <default
-                                                jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="3"/>
-                                        </cq:responsive>
-                                    </list>
-                                </container>
-                                <container_copy
-                                    cq:styleIds="[1685354945533,1655115743785,1685355347992]"
-                                    jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="menarinimaster/components/container"
-                                    layout="responsiveGrid">
-                                    <cq:responsive jcr:primaryType="nt:unstructured">
-                                        <default
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="3"/>
-                                        <tablet
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="5"/>
-                                        <phone
-                                            jcr:primaryType="nt:unstructured"
-                                            offset="0"
-                                            width="12"/>
-                                    </cq:responsive>
-                                    <teaser
-                                        jcr:lastModified="{Date}2023-06-07T13:10:17.262Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="Consumer Healthcare"
-                                        sling:resourceType="menarinimaster/components/teaser"
-                                        descriptionFromPage="true"
-                                        disableLazyLoading="false"
-                                        fileReference="/content/dam/menarini-berlinchemie/assets/menu/mainmenu_consumer-healthcare-small.jpg"
-                                        imageFromPageImage="false"
-                                        isDecorative="true"
-                                        linkTarget="_self"
-                                        linkURL="/content/menarini-berlinchemie/de/therapeutic-areas"
-                                        textIsRich="true"
-                                        titleFromPage="false">
-                                        <cq:responsive jcr:primaryType="nt:unstructured">
-                                            <default
-                                                jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="3"/>
-                                            <phone
-                                                jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="12"/>
-                                        </cq:responsive>
-                                    </teaser>
-                                    <spacer_copy_copy
-                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="menarinimaster/components/spacer"
-                                        spacer="15"/>
-                                    <list
-                                        jcr:lastModified="{Date}2023-06-07T13:09:09.249Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="menarinimaster/components/list"
-                                        childDepth="1"
-                                        displayItemAsTeaser="false"
-                                        linkItems="true"
-                                        listFrom="tags"
-                                        showDescription="false"
-                                        showModificationDate="false"
-                                        sortOrder="asc"
-                                        tags="[menarini-berlinchemie:menarini-berlinchemie-area-tag/consumer-healtcare-area]"
-                                        tagsMatch="any"
-                                        tagsSearchRoot="/content/menarini-berlinchemie/de/therapeutic-areas">
-                                        <cq:responsive jcr:primaryType="nt:unstructured">
-                                            <default
-                                                jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="3"/>
-                                        </cq:responsive>
-                                        <static jcr:primaryType="nt:unstructured">
-                                            <item0
-                                                jcr:primaryType="nt:unstructured"
-                                                linkTarget="_self"
-                                                linkURL="/content/menarini-berlinchemie/de/therapeutic-area"/>
-                                        </static>
-                                    </list>
-                                </container_copy>
-                            </container>
-                            <container_781062112_
-                                cq:styleIds="[1685355346503]"
-                                jcr:lastModified="{Date}2022-06-10T14:54:02.248+02:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="menarinimaster/components/container">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
-                                    <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="6"/>
-                                    <tablet
-                                        jcr:primaryType="nt:unstructured"
-                                        behavior="newline"
-                                        offset="0"
-                                        width="12"/>
-                                    <phone
-                                        jcr:primaryType="nt:unstructured"
-                                        behavior="newline"
-                                        offset="0"
-                                        width="12"/>
-                                </cq:responsive>
-                                <title
-                                    cq:styleIds="[1653552493699]"
-                                    jcr:lastModified="{Date}2022-07-29T15:32:14.448+02:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="Discover more about Menarini Group"
-                                    sling:resourceType="menarinimaster/components/title"
+                                    jcr:title="Pharmaceuticals"
+                                    sling:resourceType="menarinimaster/components/teaser"
+                                    descriptionFromPage="true"
+                                    fileReference="/content/dam/menarini-berlinchemie/assets/menu/mainmenu_pharmaceutical-small.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
                                     linkTarget="_self"
-                                    type="h2"/>
+                                    linkURL="/content/menarini-fr/en/sante-familiale"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </teaser_copy>
                                 <spacer_copy_copy
-                                    jcr:lastModified="{Date}2023-05-24T14:36:21.419Z"
+                                    jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
                                     jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="menarinimaster/components/spacer"
-                                    spacer="40"/>
-                                <text
-                                    jcr:lastModified="{Date}2023-05-26T13:17:26.325Z"
+                                    spacer="15"/>
+                                <list_copy_copy_copy
+                                    cq:styleIds="[1704883900008]"
+                                    jcr:lastModified="{Date}2024-01-10T10:45:42.303Z"
                                     jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="menarinimaster/components/text"
-                                    text="&lt;p>All company structures are involved at different levels in the drug manufacturing process...&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <button
-                                    cq:styleIds="[1653579684271,1653579730618]"
-                                    jcr:lastModified="{Date}2023-05-26T13:17:57.449Z"
-                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="READ MORE"
-                                    sling:resourceType="menarinimaster/components/button"
-                                    linkTarget="_blank"
-                                    linkURL="https://www.menarini.com/en-us/pharmaceuticals"/>
-                                <list_copy
-                                    jcr:lastModified="{Date}2023-02-08T15:43:12.847Z"
-                                    jcr:lastModifiedBy="m.papini@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="menarinimaster/components/list"
                                     childDepth="1"
                                     displayItemAsTeaser="false"
                                     linkItems="true"
-                                    listFrom="children"
-                                    pages="/content/menarini-berlinchemie/de"
-                                    parentPage="/content/menarini-berlinchemie/de/menu-theraputic-area"
+                                    listFrom="tags"
+                                    pages="[/content/menarini-berlinchemie/de/deleted-therapiebereiche/atemwegserkrankungen,/content/menarini-berlinchemie/de/deleted-therapiebereiche/hauterkrankungen,/content/menarini-berlinchemie/de/deleted-therapiebereiche/diabetes,/content/menarini-berlinchemie/de/deleted-therapiebereiche/gicht]"
                                     showDescription="false"
                                     showModificationDate="false"
                                     sortOrder="asc"
-                                    tagsMatch="any"/>
-                            </container_781062112_>
-                        </item_therapeuticAreas>
+                                    tags="[menarini-fr:menarinimaster-area-tag/pharmaceutical-area,menarini-fr:menarini-fr-area-tag/pharmaceutical-area,menarini-berlinchemie:menarini-berlin-area-tag/pharmaceutical-area]"
+                                    tagsMatch="any"
+                                    tagsSearchRoot="/content/menarini-berlinchemie/de/deleted-therapiebereiche">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                    </cq:responsive>
+                                </list_copy_copy_copy>
+                            </container>
+                            <container_copy
+                                cq:styleIds="[1684742010090,1655115743785]"
+                                jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="5"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <teaser
+                                    jcr:lastModified="{Date}2024-01-10T08:14:57.221Z"
+                                    jcr:lastModifiedBy="f.marrucci@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Consumer Healthcare"
+                                    sling:resourceType="menarinimaster/components/teaser"
+                                    descriptionFromPage="true"
+                                    fileReference="/content/dam/menarini-berlinchemie/assets/menu/mainmenu_consumer-healthcare-small.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    linkURL="/content/menarini-berlinchemie/de/deleted-therapiebereiche/schmerzbehandlung"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </teaser>
+                                <spacer_copy_copy
+                                    jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/spacer"
+                                    spacer="15"/>
+                                <list_copy_copy
+                                    cq:styleIds="[1704883900008]"
+                                    jcr:lastModified="{Date}2024-01-09T16:37:30.178Z"
+                                    jcr:lastModifiedBy="f.marrucci@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/list"
+                                    childDepth="1"
+                                    displayItemAsTeaser="false"
+                                    linkItems="true"
+                                    listFrom="static"
+                                    pages="[/content/menarini-berlinchemie/de/deleted-therapiebereiche/schmerzbehandlung,/content/menarini-berlinchemie/de/deleted-therapiebereiche/magen-darm-beschwerden,/content/menarini-berlinchemie/de/deleted-therapiebereiche/fieber-und-erkaeltung]"
+                                    showDescription="false"
+                                    showModificationDate="false"
+                                    sortOrder="asc"
+                                    tags="[menarini-fr:menarinimaster-area-tag/pharmaceutical-area,menarini-fr:menarini-fr-area-tag/pharmaceutical-area,menarini-fr:menarini-fr-area-tag/consumer-healtcare-area]"
+                                    tagsMatch="any"
+                                    tagsSearchRoot="/content/menarini-fr/fr/aires-therapeutiques">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                    </cq:responsive>
+                                </list_copy_copy>
+                            </container_copy>
+                            <container_copy_1218673450
+                                cq:styleIds="[1655115743785,1684742010090]"
+                                jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="5"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <teaser
+                                    jcr:lastModified="{Date}2023-12-11T16:19:32.845Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Aesthetic Medicine"
+                                    sling:resourceType="menarinimaster/components/teaser"
+                                    descriptionFromPage="true"
+                                    fileReference="/content/dam/menarini-fr/assets/menu/mainMenu_smallRelife.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_blank"
+                                    linkURL="https://relifecompany.fr/heritage/"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </teaser>
+                                <spacer_copy_copy
+                                    jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/spacer"
+                                    spacer="15"/>
+                                <link_copy_copy_copy_
+                                    jcr:lastModified="{Date}2023-12-11T16:20:17.827Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="RELIFE COMPANY"
+                                    link="https://relifecompany.fr/heritage/"
+                                    linkType="menu-list"
+                                    target="_blank"/>
+                            </container_copy_1218673450>
+                            <container_copy_copy
+                                cq:styleIds="[1655115743785,1684742010090]"
+                                jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="5"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <teaser
+                                    jcr:lastModified="{Date}2023-12-05T14:33:00.847Z"
+                                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="A.Menarini Diagnostics"
+                                    sling:resourceType="menarinimaster/components/teaser"
+                                    descriptionFromPage="true"
+                                    fileReference="/content/dam/menarini-fr/assets/menu/mainMenu_diagnostics.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_blank"
+                                    linkURL="https://www.menarinidiagnostics.fr/en-us/"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </teaser>
+                                <spacer_copy_copy
+                                    jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/spacer"
+                                    spacer="15"/>
+                                <link_copy_copy_copy_
+                                    jcr:lastModified="{Date}2023-12-05T14:32:51.401Z"
+                                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="A.MENARINI DIAGNOSTIC"
+                                    link="https://www.menarinidiagnostics.fr/en-us/"
+                                    linkType="menu-list"
+                                    target="_blank"/>
+                            </container_copy_copy>
+                        </container_copy>
                         <item_linkcareers
-                            cq:panelTitle="Careers"
-                            jcr:lastModified="{Date}2023-05-31T12:43:06.834Z"
-                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            cq:panelTitle="JOBS &amp; KARRIERE"
+                            jcr:lastModified="{Date}2024-01-09T16:54:51.547Z"
+                            jcr:lastModifiedBy="f.marrucci@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
                             label="Careers"
@@ -740,17 +783,17 @@
                             linkType="standard"
                             target="_self"/>
                         <link_linknews
-                            cq:panelTitle="News"
+                            cq:panelTitle="PRESSE &amp; MEDIEN"
                             jcr:lastModified="{Date}2023-06-12T16:51:09.165+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
                             label="News"
-                            link="/content/menarini-berlinchemie/de/news"
+                            link="/content/menarini-berlinchemie/de/News-Medien"
                             linkType="standard"
                             target="_self"/>
                         <item_linkcontactus
-                            cq:panelTitle="Contacts"
+                            cq:panelTitle="KONTAKT"
                             jcr:lastModified="{Date}2023-06-12T16:51:32.564+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
