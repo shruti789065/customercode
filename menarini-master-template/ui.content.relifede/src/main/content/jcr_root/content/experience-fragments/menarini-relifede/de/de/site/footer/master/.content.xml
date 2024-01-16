@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-07-29T15:15:55.238+02:00"
-        cq:lastModifiedBy="admin"
+        cq:lastModified="{Date}2023-03-24T10:07:52.861Z"
+        cq:lastModifiedBy="l.giuntini@adiacent.com"
+        cq:lastReplicated="{Date}2023-03-24T10:39:25.246Z"
+        cq:lastReplicated_publish="{Date}2023-03-24T10:39:25.246Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:tags="[experience-fragments:variation/web]"
         cq:template="/conf/menarini-relifede/settings/wcm/templates/xf-web-variation"
         cq:xfMasterVariation="{Boolean}true"
         cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Footer"
+        jcr:uuid="34ef1e4f-75db-41aa-9ac0-7417f01e6922"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
@@ -22,15 +31,15 @@
                 backgroundColor="#143F59"
                 layout="responsiveGrid">
                 <list
-                    jcr:lastModified="{Date}2022-07-29T15:15:55.142+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-03-24T09:29:44.163Z"
+                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/list"
                     childDepth="1"
                     displayItemAsTeaser="false"
                     linkItems="true"
                     listFrom="static"
-                    pages="[/content/menarini-relifede/de/de/cookie-policy,/content/menarini-relifede/de/de/contacts,/content/menarini-relifede/de/de/privacy-policy,/content/menarini-relifede/de/de/about-us]"
+                    pages="/content/menarini-relifede/de/de/datenschutzerklarung"
                     parentPage="/content/menarini-relifede/de/de"
                     showDescription="false"
                     showModificationDate="false"
@@ -80,19 +89,6 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Buttons"
                         sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
-                        <button1220828443128300
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="menarinimaster/components/button"
-                            icon="twitter"
-                            linkTarget="_self"
-                            linkURL="#">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                            </cq:responsive>
-                        </button1220828443128300>
                         <item1220828443734800
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/button"
@@ -107,9 +103,11 @@
                             </cq:responsive>
                         </item1220828443734800>
                         <item1220828444217300
+                            jcr:lastModified="{Date}2023-03-24T09:24:24.756Z"
+                            jcr:lastModifiedBy="L.ambrosini@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/button"
-                            icon="youtube"
+                            icon="linkedin"
                             linkTarget="_self"
                             linkURL="#">
                             <cq:responsive jcr:primaryType="nt:unstructured">
@@ -119,19 +117,6 @@
                                     width="1"/>
                             </cq:responsive>
                         </item1220828444217300>
-                        <item1220828444730600
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="menarinimaster/components/button"
-                            icon="facebook"
-                            linkTarget="_self"
-                            linkURL="#">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                            </cq:responsive>
-                        </item1220828444730600>
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
@@ -145,8 +130,11 @@
                     </button>
                 </container_615222622>
                 <onetrust
+                    jcr:lastModified="{Date}2023-03-24T09:17:32.463Z"
+                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="menarinimaster/components/oneTrust"/>
+                    sling:resourceType="menarinimaster/components/oneTrust"
+                    oneTrustScriptId="79a6c210-19d5-4499-9862-e09dba16194f"/>
             </container>
             <container_1328616157
                 cq:styleIds="[1655115743785]"
@@ -154,9 +142,11 @@
                 sling:resourceType="menarinimaster/components/container"
                 layout="responsiveGrid">
                 <text
+                    jcr:lastModified="{Date}2023-03-24T09:47:54.740Z"
+                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/text"
-                    text="&lt;p>&lt;b>A.Menarini Industrie Farmaceutiche Riunite S.r.l.&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>VAT number and registration number in the Company House: 00395270481&lt;/p>&#xd;&#xa;&lt;p>Office of the Companies House: Florence&lt;/p>&#xd;&#xa;&lt;p>Share Capital: € 150.000.0000 I.V.&lt;/p>&#xd;&#xa;"
+                    text="&lt;p>&lt;b>RELIFE Deutschland - BERLIN-CHEMIE AG&lt;/b>&lt;br>&#xd;&#xa;Glienicker Weg 125 - 12489 Berlin - Deutschland&lt;/p>&#xd;&#xa;"
                     textIsRich="true">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -174,12 +164,15 @@
                     </cq:responsive>
                 </text>
                 <image
+                    jcr:lastModified="{Date}2023-03-24T10:07:49.524Z"
+                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/image"
                     alt="Logo Menarini Group"
                     altValueFromDAM="false"
+                    disableLazyLoading="false"
                     displayPopupTitle="true"
-                    fileReference="/content/dam/menarini-relifede/assets/logo_menarini_group.svg"
+                    fileReference="/content/dam/menarinimaster/assets/logo/logo-pos.svg"
                     imageFromPageImage="false"
                     isDecorative="false"
                     linkTarget="_self"
@@ -200,13 +193,11 @@
                     </cq:responsive>
                 </image>
                 <text_1904139055
-                    jcr:created="{Date}2022-06-23T10:35:06.417+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2022-06-23T12:01:31.149+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2023-03-24T09:49:33.423Z"
+                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/text"
-                    text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>© 2022 The Menarini Group - All rights reserved&lt;/p>&#xd;&#xa;"
+                    text="&lt;p>© 2023 BERLIN-CHEMIE AG&lt;/p>&#xd;&#xa;"
                     textIsRich="true">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default

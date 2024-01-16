@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-11-07T10:49:59.748Z"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastReplicated="{Date}2023-11-08T11:20:36.812Z"
+        cq:lastReplicated_publish="{Date}2023-11-08T11:20:36.812Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-apac/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Countries eShop"
+        jcr:uuid="bd1c676a-b64e-4447-a960-047921f4a29b"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <countryoptions_19030
+                jcr:created="{Date}2023-10-26T08:11:56.538Z"
+                jcr:createdBy="l.giuntini@adiacent.com"
+                jcr:lastModified="{Date}2023-10-26T08:38:14.318Z"
+                jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Select Country"
+                sling:resourceType="menarinimaster/components/countryOptions"
+                datasourceRT="bin/apac/marketlist/dropdown"
+                id="marketListDropdown"
+                name="Select Country"
+                parentPagePath="/content/dam/menarini-apac/area-content-fragments/country-eshop-derma"
+                requiredMultiSelect="false"
+                requiredRadio="false"
+                requiredSelect="false"
+                source="datasource"
+                type="drop-down">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="5"/>
+                </cq:responsive>
+            </countryoptions_19030>
+            <container_copy
+                jcr:created="{Date}2023-10-26T08:24:39.190Z"
+                jcr:createdBy="j.kaur@adiacent.com"
+                jcr:lastModified="{Date}2023-10-26T08:24:52.300Z"
+                jcr:lastModifiedBy="j.kaur@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                id="marketListResultContainer"/>
+            <spacer_1298682919_co
+                jcr:created="{Date}2023-10-26T08:46:44.976Z"
+                jcr:createdBy="l.giuntini@adiacent.com"
+                jcr:lastModified="{Date}2023-10-26T08:46:52.857Z"
+                jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/spacer"
+                spacer="40"/>
+        </root>
+    </jcr:content>
+</jcr:root>

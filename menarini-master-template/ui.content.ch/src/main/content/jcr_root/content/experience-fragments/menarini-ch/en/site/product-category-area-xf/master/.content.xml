@@ -3,10 +3,10 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-07T08:31:02.521Z"
+        cq:lastModified="{Date}2023-09-14T14:33:03.477Z"
         cq:lastModifiedBy="reference-adjustment-service"
-        cq:lastReplicated="{Date}2023-06-13T11:13:43.818Z"
-        cq:lastReplicated_publish="{Date}2023-06-13T11:13:43.818Z"
+        cq:lastReplicated="{Date}2023-09-14T14:33:06.042Z"
+        cq:lastReplicated_publish="{Date}2023-09-14T14:33:06.042Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
         cq:lastReplicationAction="Activate"
@@ -15,18 +15,18 @@
         cq:template="/conf/menarini-ch/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Product Category Area XF"
-        jcr:uuid="1149d3d1-62c7-46fd-8a7f-a2521fe40f46"
+        jcr:uuid="bdb96108-7045-497f-9dd5-4aa50f76d50f"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="menarinimaster/components/container"
             layout="responsiveGrid">
             <productcategoryarea
-                jcr:lastModified="{Date}2022-07-15T09:59:05.091+02:00"
-                jcr:lastModifiedBy="admin"
+                jcr:lastModified="{Date}2023-09-14T12:27:15.177Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="menarinimaster/components/productcategoryarea">
                 <categoryareas jcr:primaryType="nt:unstructured">

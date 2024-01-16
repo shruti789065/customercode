@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-07-15T09:59:05.381+02:00"
-        cq:lastModifiedBy="admin"
+        cq:lastModified="{Date}2023-06-09T10:07:32.740Z"
+        cq:lastModifiedBy="reference-adjustment-service"
         cq:tags="[experience-fragments:variation/web]"
         cq:template="/conf/menarini-relifede/settings/wcm/templates/xf-web-variation"
         cq:xfMasterVariation="{Boolean}true"
@@ -16,8 +16,6 @@
             sling:resourceType="menarinimaster/components/container"
             layout="responsiveGrid">
             <productcategoryarea
-                jcr:created="{Date}2022-07-15T09:47:53.457+02:00"
-                jcr:createdBy="admin"
                 jcr:lastModified="{Date}2022-07-15T09:59:05.091+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
@@ -25,12 +23,12 @@
                 <categoryareas jcr:primaryType="nt:unstructured">
                     <item0
                         jcr:primaryType="nt:unstructured"
-                        icon="/content/dam/menarini-relifede/assets/ico_health_productcategory.svg"
+                        icon="/content/dam/menarini-relifede/assets/icons/ico_health_productcategory.svg"
                         label="Consumer Healthcare"
                         template="/conf/menarini-relifede/settings/wcm/templates/menarini---product-list-healthcare"/>
                     <item1
                         jcr:primaryType="nt:unstructured"
-                        icon="/content/dam/menarini-relifede/assets/ico_pharma_productcategory.svg"
+                        icon="/content/dam/menarini-relifede/assets/icons/ico_pharma_productcategory.svg"
                         label="Pharmaceuticals"
                         template="/conf/menarini-relifede/settings/wcm/templates/menarini---product-list-pharmaceutical"/>
                 </categoryareas>

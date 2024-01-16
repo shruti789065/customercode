@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-12-05T09:21:00.918Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-12-05T09:21:18.553Z"
+        cq:lastReplicated_publish="{Date}2023-12-05T09:21:18.553Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-apac/settings/wcm/templates/xf-web-variation"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="therapeutical-area-pharmaceuticals"
+        jcr:uuid="8a9c27c5-f1d6-4cda-846e-b2a98dc6f278"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <spacer_copy_copy
+                jcr:lastModified="{Date}2023-11-08T16:12:08.570Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/spacer"
+                spacer="40"/>
+            <title
+                cq:styleIds="[1678463398786]"
+                jcr:created="{Date}2023-11-08T15:51:02.253Z"
+                jcr:createdBy="d.mariotti@adiacent.com"
+                jcr:lastModified="{Date}2023-12-05T09:20:52.631Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Our Therapeutical Area Focus"
+                sling:resourceType="menarinimaster/components/title"
+                linkTarget="_self"
+                type="h3"/>
+            <master_carousel_copy
+                jcr:created="{Date}2023-10-24T10:01:27.114Z"
+                jcr:createdBy="d.mariotti@adiacent.com"
+                jcr:lastModified="{Date}2023-11-08T16:10:20.334Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/master-carousel"
+                itemNumbers="3"
+                layout="carousel">
+                <item_1699458704002
+                    cq:panelTitle="Cardiology"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>Treating&amp;nbsp;some of the most widespread diseases of the cardiovascular area&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-12-05T09:09:31.148Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Cardiometabolic"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/cardiology.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/cardiometabolic"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/cardiometabolic"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002>
+                <item_1699458704002_c_1016266305
+                    cq:panelTitle="Men's Health"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>Alleviating the burden of male diseases&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-12-04T21:32:13.936Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/mens-health.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/men-s-health"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/men-s-health"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002_c_1016266305>
+                <item_1699458704002_c
+                    cq:panelTitle="Pain"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>Treatment solutions for different painful conditions&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-12-04T21:28:44.674Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/pain.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/pain"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/pain"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002_c>
+                <item_1699458704002_c_1540730458
+                    cq:panelTitle="Aesthetic Medicine"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>Holistic solutions to enhance the appearance of every individual&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-11-21T15:41:22.084Z"
+                    jcr:lastModifiedBy="f.marrucci@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Aesthetic Medicine"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/aesthetic-medicine.jpg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/aesthetic-medicine"
+                    textIsRich="true"
+                    titleFromPage="false">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/aesthetic-medicine"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002_c_1540730458>
+                <item_1699458704002_c_1618046590
+                    cq:panelTitle="Dermatology"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>Specifically formulated products for a wide range of skin conditions&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-11-08T16:03:58.089Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/dermatology.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/dermatology"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/dermatology"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002_c_1618046590>
+                <item_1699458704002_c_895843500
+                    cq:panelTitle="Gastroenterology"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>Targeting gastrointestinal disorders to improve quality of life&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-12-01T16:20:22.453Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/gastrointestinal.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/gastroenterology"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/gastroenterology"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002_c_895843500>
+                <item_1699458704002_c_1010062501
+                    cq:panelTitle="Allergy &amp; Respiratory"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>High-quality therapeutic solutions for respiratory health&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-11-08T16:05:45.517Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/allergology.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/allergy-respiratory"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/allergy-respiratory"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002_c_1010062501>
+                <item_1699458704002_c_410177892
+                    cq:panelTitle="Oncology"
+                    cq:styleIds="[1699026277438]"
+                    jcr:description="&lt;p>Making a difference in the lives of cancer patients&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2023-11-08T16:06:40.944Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/oncology.jpg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals/oncology"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/oncology"
+                            linkTarget="_self"
+                            text="READ MORE"/>
+                    </actions>
+                </item_1699458704002_c_410177892>
+            </master_carousel_copy>
+        </root>
+    </jcr:content>
+</jcr:root>
