@@ -86,6 +86,8 @@ const NavbarMenu = (() => {
       if (dataIndex !== currentContainerIndex) {
         currentContainerIndex = dataIndex;
 
+        const body = document.body;
+
         if (_isDesktop()) {
           const displayStyle = navbarSection.style.display;
           navbarSection.style.display =
@@ -108,6 +110,10 @@ const NavbarMenu = (() => {
         if (dataLogoValue !== null) {
           setNavbarBackgroundImage(dataLogoValue);
         }
+
+        // Aggiungi gestione dell'overflow del body
+        body.style.overflow =
+          navbarSection.style.display === "none" ? "auto" : "hidden";
       }
     }
   }
