@@ -3,12 +3,19 @@ package com.adiacent.menarini.menarinimaster.core.services;
 
 import com.adiacent.menarini.menarinimaster.core.models.RssItemModel;
 import com.adiacent.menarini.menarinimaster.core.models.RssNewModel;
+
+import com.day.cq.commons.jcr.JcrUtil;
+import com.day.cq.dam.api.AssetManager;
 import com.day.cq.mailer.MailService;
 import com.day.cq.replication.Replicator;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.framework.Constants;
@@ -19,6 +26,10 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.jcr.Node;
+import javax.jcr.Session;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -26,9 +37,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Designate(ocd = RssNewsImporter.Config.class)
@@ -107,24 +116,150 @@ public class RssNewsImporter implements Cloneable{
             }
         }
 
+        //deserializzazione feed
         RssNewModel data = getRssNewsData();
+        ResourceResolver resolver = getResourceResolver();
+        Session session = resolver.adaptTo(Session.class);
         if(data != null){
+            //recupero immagini delle news
             List<RssItemModel> items = data.getChannel().getItems();
             if( items!= null){
-                items.stream().forEach(i-> {
+                items.stream().limit(2).forEach(i-> {
                     try {
                         if(i.getEnclosure() != null && StringUtils.isNotBlank(i.getEnclosure().getUrl()))
                             i.setImage(recoverImageFromUrl(i.getEnclosure().getUrl()));
+
+                        //creazione pagina news
+                        createPage(resolver,session, i);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                     logger.info(i.getTitle());
+
+
                 });
+
+
             }
 
 
         }
 
+
+
+    }
+    public ResourceResolver getResourceResolver() {
+        ResourceResolver resolver = null;
+        Map<String, Object> param = new HashMap<>();
+        param.put(ResourceResolverFactory.SUBSERVICE,  "menarinimaster");
+        try {
+            resolver = resolverFactory.getServiceResourceResolver(param);
+        } catch (Exception e) {
+            logger.error("Error retrieving resolver with system user", e);
+
+        }
+        return resolver;
+    }
+
+    private void createPage(ResourceResolver resolver, Session session, RssItemModel item) throws Exception {
+
+
+        String damImgPath;
+        if(item.getImage() != null){
+            damImgPath = addImage(resolver, session, item);
+        }
+        String path      = serviceConfig.getNewsRootPath();
+
+        String pageName  = getNodeName(item.getTitle());
+
+        String pageTitle = item.getTitle();
+
+        String template  = "/conf/menarini-berlinchemie/settings/wcm/templates/menarini---content-news";
+
+
+        Page newsPage = null;
+
+        PageManager pageManager = resolver.adaptTo(PageManager.class);
+
+        newsPage = pageManager.create(path, pageName, template, pageTitle);
+
+        Node pageNode = newsPage.adaptTo(Node.class);
+
+        Node jcrNode = null;
+
+        if (newsPage.hasContent()) {
+
+            jcrNode = newsPage.getContentResource().adaptTo(Node.class);
+
+        } else {
+
+            jcrNode = pageNode.addNode("jcr:content", "cq:PageContent");
+
+        }
+
+        jcrNode.setProperty("sling:resourceType", "menarinimaster/components/page");
+
+    }
+
+    private String getNodeName(String label){
+        if(StringUtils.isBlank(label))
+            return null;
+        label = label.trim().toLowerCase().replaceAll("[\\(\\)\\[\\]\\']","");
+        label = label.replaceAll("[\\s:]","-");
+        label = label.replaceAll("[\\?]","-");
+        label = label.replaceAll("[\\%]","-");
+        return JcrUtil.escapeIllegalJcrChars(label);
+    }
+
+    @SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
+    //private String addImage(ResourceResolver resolver, Session session, String imagePath, String imageType, long newsId) throws Exception {
+    private String addImage(ResourceResolver resolver, Session session, RssItemModel item) throws Exception {
+        String addedImagePath = null;
+
+        String imageType = "main";
+        if (item.getEnclosure()!= null && StringUtils.isNotBlank(item.getEnclosure().getType())) {
+            imageType = item.getEnclosure().getType();
+        }
+
+        logger.debug("addImage:{}", item.getEnclosure().getUrl());
+        String mimeType = "image/jpeg";
+
+        // detect image mime type
+        byte[] imgData = item.getImage();
+        if (imgData != null) {
+            InputStream iis = new ByteArrayInputStream(imgData);
+            try {
+                Iterator<ImageReader> imageReaders = ImageIO.getImageReaders(ImageIO.createImageInputStream(new ByteArrayInputStream(imgData)));
+                while (imageReaders.hasNext()) {
+                    ImageReader reader = imageReaders.next();
+                    mimeType = "image/" + reader.getFormatName().toLowerCase();
+                    break;
+                }
+                logger.debug("detected image mimeType:{}", mimeType);
+
+                AssetManager assetManager = resolver.adaptTo(AssetManager.class);
+                if (assetManager != null) {
+                    String imgName = "main".equals(imageType) ? null : FilenameUtils.getName( item.getEnclosure().getUrl());
+                    String imgPath = serviceConfig.getNewsImagesDAMFolder();
+                    String imgPathName = (imgName != null) ? ( imgPath + "/" + imgName ) : imgPath;
+
+                    logger.debug("creating product image into DAM:{}", imgPathName);
+                    if (assetManager.createAsset(imgPathName, iis, mimeType, true) != null) {
+                        addedImagePath = imgPathName;
+
+                        //replicateNode(session, addedImagePath);
+                    } else {
+                        logger.error("Cannot add image into DAM:{}", imgPathName);
+                    }
+                } else {
+                    logger.error("Cannot add image into DAM, AssetManager null");
+                }
+            } finally {
+                iis.close();
+            }
+        }
+
+        return addedImagePath;
     }
 
     private RssNewModel getRssNewsData() {
