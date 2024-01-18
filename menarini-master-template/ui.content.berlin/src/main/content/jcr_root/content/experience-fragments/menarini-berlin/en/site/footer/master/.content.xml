@@ -3,33 +3,36 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-13T13:08:14.329+02:00"
-        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastModified="{Date}2023-12-06T11:38:34.684Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-12-06T11:38:41.073Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-09T12:21:09.067Z"
+        cq:lastReplicated_publish="{Date}2023-12-06T11:38:41.073Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
-        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_preview="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:tags="[experience-fragments:variation/web]"
         cq:template="/conf/menarini-berlin/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Footer"
-        jcr:uuid="a762db6c-2e76-4ff2-9252-73a12037b62b"
+        jcr:uuid="9b3fcb7f-0fc0-4aa7-84bd-807f74f84653"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="menarinimaster/components/container"
             layout="responsiveGrid">
             <section_copy
-                jcr:lastModified="{Date}2023-05-24T11:20:18.854Z"
+                jcr:lastModified="{Date}2023-12-06T11:38:31.339Z"
                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="menarinimaster/components/section"
-                backgroundColor="#143F59">
+                backgroundColor="#143f59">
                 <wrapper
                     cq:styleIds="[1684741727110]"
                     jcr:lastModified="{Date}2023-05-24T11:19:27.171Z"
@@ -38,7 +41,7 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <list
-                        jcr:lastModified="{Date}2023-06-09T08:28:11.982Z"
+                        jcr:lastModified="{Date}2023-08-09T15:40:04.646Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/list"
@@ -46,8 +49,8 @@
                         displayItemAsTeaser="false"
                         linkItems="true"
                         listFrom="static"
-                        pages="[/content/menarini-berlin/en/terms-and-conditions,/content/menarini-berlin/en/data-privacy,/content/menarini-berlin/en/contact-us]"
-                        parentPage="/content/menarini-berlin/en"
+                        pages="[/content/menarini-berlin/de/terms-and-conditions,/content/menarini-berlin/de/informationen/impressum,/content/menarini-berlin/de/informationen/disclaimer,/content/menarini-berlin/de/informationen/datenschutz,/content/menarini-berlin/de/informationen/einkaufsbestimmungen]"
+                        parentPage="/content/menarini-berlin/de"
                         showDescription="false"
                         showModificationDate="false"
                         sortOrder="asc"
@@ -67,27 +70,27 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Careers"
-                                linkURL="/content/menarini-berlin/en/careers"/>
+                                linkURL="/content/menarini-berlin/de/careers"/>
                             <item1
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Privacy Policy"
-                                linkURL="/content/menarini-berlin/en/data-privacy/privacy-policy"/>
+                                linkURL="/content/menarini-berlin/de/informationen/privacy-policy"/>
                             <item2
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="About us"
-                                linkURL="/content/menarini-berlin/en/sobre-nos"/>
+                                linkURL="/content/menarini-berlin/de/sobre-nos"/>
                             <item3
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Terms and Conditions"
-                                linkURL="/content/menarini-berlin/en/termos-e-condicoes-gerais"/>
+                                linkURL="/content/menarini-berlin/de/termos-e-condicoes-gerais"/>
                             <item4
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Cookie Policy"
-                                linkURL="/content/menarini-berlin/en/data-privacy/cookie-policy"/>
+                                linkURL="/content/menarini-berlin/de/informationen/cookie-policy"/>
                             <item5
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_blank"
@@ -111,8 +114,8 @@
                                 width="12"/>
                         </cq:responsive>
                         <title
-                            jcr:lastModified="{Date}2023-02-21T17:04:07.453Z"
-                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:lastModified="{Date}2023-09-26T13:15:11.244Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Follow Us"
                             sling:resourceType="menarinimaster/components/title"
@@ -131,13 +134,13 @@
                             jcr:title="Buttons"
                             sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
                             <item1220828444730600
-                                jcr:lastModified="{Date}2023-05-31T12:58:36.771Z"
+                                jcr:lastModified="{Date}2023-08-08T12:50:26.346Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="menarinimaster/components/button"
                                 icon="linkedin"
                                 linkTarget="_blank"
-                                linkURL="https://www.linkedin.com/company/menarini-berlin-farmac-utica/?originalSubdomain=it">
+                                linkURL="https://www.linkedin.com/company/berlinchemie/">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
                                         jcr:primaryType="nt:unstructured"
@@ -184,11 +187,11 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <text_copy
-                        jcr:lastModified="{Date}2023-06-07T14:48:49.166Z"
+                        jcr:lastModified="{Date}2023-08-08T12:49:23.728Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
-                        text="&lt;p>&lt;b>A.Menarini ##### ##### #####&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>VAT number and registration number in the Company House: #####&lt;br>&#xd;&#xa;Office of the Companies House: #####&lt;br>&#xd;&#xa;Share Capital: #####&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>&lt;b>A. Menarini Research &amp;amp; Business Service GmbH&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>Glienicker Weg 125&lt;br>&#xd;&#xa;12489 Berlin&lt;br>&#xd;&#xa;Deutschland&lt;br>&#xd;&#xa;Telefon: +49 / 30 / 6707-1000&lt;br>&#xd;&#xa;Fax: +49 / 30 / 6707-151515&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default

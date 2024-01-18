@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-11-09T13:59:35.702Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-11-10T14:00:06.206Z"
+        cq:lastReplicated_publish="{Date}2023-11-10T14:00:06.206Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-apac/settings/wcm/templates/xf-web-variation"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="career-banner"
+        jcr:uuid="893ea07e-02e9-49ab-8734-87776882fb93"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <spacer_copy
+                jcr:lastModified="{Date}2023-04-04T16:09:59.627Z"
+                jcr:lastModifiedBy="m.papini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/spacer"
+                spacer="50"/>
+            <banner_v2
+                cq:styleIds="[1699026166251]"
+                jcr:created="{Date}2023-11-09T13:54:15.913Z"
+                jcr:createdBy="d.mariotti@adiacent.com"
+                jcr:description="&lt;p>加入我们，开启激动人心、意义非凡的职业生涯，在亚太各地缔造健康生活。&lt;/p>&#xd;&#xa;"
+                jcr:lastModified="{Date}2023-11-09T13:59:27.585Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="职业发展"
+                sling:resourceType="menarinimaster/components/banner_v2"
+                alignItems="flex-start"
+                bannerType="overlay"
+                descriptionFromPage="false"
+                fileReference="/content/dam/menarini-apac/assets/home/banner/banner-career.jpg"
+                imageFromPageImage="false"
+                imagePosition="row-reverse"
+                isDecorative="true"
+                justifyContent="flex-start"
+                linkTarget="_self"
+                linkURL="/content/menarini-apac/zh/careers/open-positions"
+                textIsRich="true"
+                titleFromPage="false">
+                <actions jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        link="/content/menarini-apac/zh/careers/open-positions"
+                        linkTarget="_self"
+                        text="了解更多"/>
+                </actions>
+            </banner_v2>
+        </root>
+        <cq:metadata jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

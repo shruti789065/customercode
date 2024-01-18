@@ -3,11 +3,11 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-30T07:53:29.597Z"
-        cq:lastModifiedBy="a.messori@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-13T11:14:42.572Z"
+        cq:lastModified="{Date}2024-01-15T15:42:18.789Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-01-15T15:42:29.873Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-13T11:14:42.572Z"
+        cq:lastReplicated_publish="{Date}2024-01-15T15:42:29.873Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
         cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
@@ -18,10 +18,10 @@
         cq:template="/conf/menarini-be/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Footer"
-        jcr:uuid="0627af2f-e182-4370-b57c-f448ff101209"
+        jcr:uuid="bfa3b315-212a-475c-88c3-30b65288bdd6"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
@@ -41,7 +41,7 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <list
-                        jcr:lastModified="{Date}2023-06-06T10:56:48.554Z"
+                        jcr:lastModified="{Date}2024-01-15T15:34:09.682Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/list"
@@ -49,7 +49,7 @@
                         displayItemAsTeaser="false"
                         linkItems="true"
                         listFrom="static"
-                        pages="[/content/menarini-be/nl/about-us,/content/menarini-be/nl/careers,/content/menarini-be/nl/terms-and-conditions,/content/menarini-be/nl/data-privacy/privacy-policy,/content/menarini-be/nl/data-privacy/cookie-policy,/content/menarini-be/nl/about-us/business-ethics-and-compliance,/content/menarini-be/nl/sitemap]"
+                        pages="[/content/menarini-be/nl/about-us,/content/menarini-be/nl/careers,/content/menarini-be/nl/transparency,/content/menarini-be/nl/terms-and-conditions,/content/menarini-be/nl/data-privacy,/content/menarini-be/nl/data-privacy/cookie-beleid,/content/menarini-be/nl/about-us/business-ethics-and-compliance,https://www.menarini.com/en-us/contact-us/pharmacovigilance,/content/menarini-be/nl/sitemap]"
                         parentPage="/content/menarini-be/nl"
                         showDescription="false"
                         showModificationDate="false"
@@ -75,7 +75,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Privacy Policy"
-                                linkURL="/content/menarini-be/nl/data-privacy/privacy-policy"/>
+                                linkURL="/content/menarini-be/nl/data-privacy/privacy-beleid"/>
                             <item2
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
@@ -90,7 +90,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Cookie Policy"
-                                linkURL="/content/menarini-be/nl/data-privacy/cookie-policy"/>
+                                linkURL="/content/menarini-be/nl/data-privacy/cookie-beleid"/>
                             <item5
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_blank"
@@ -114,10 +114,10 @@
                                 width="12"/>
                         </cq:responsive>
                         <title
-                            jcr:lastModified="{Date}2023-02-21T17:04:07.453Z"
-                            jcr:lastModifiedBy="m.papini@adiacent.com"
+                            jcr:lastModified="{Date}2024-01-15T15:42:18.208Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Follow Us"
+                            jcr:title="Volg ons"
                             sling:resourceType="menarinimaster/components/title"
                             linkTarget="_self"
                             type="h2">
@@ -176,11 +176,11 @@
                         </button>
                     </container_615222622>
                     <script
-                        jcr:lastModified="{Date}2023-06-01T08:32:52.545Z"
+                        jcr:lastModified="{Date}2023-12-15T15:37:55.750Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/script"
-                        genericScript="&lt;!-- Google tag (gtag.js) -->&#xd;&#xa;&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-5CLGPZD0XL&quot;>&lt;/script>&#xd;&#xa;&lt;script>&#xd;&#xa;  window.dataLayer = window.dataLayer || [];&#xd;&#xa;  function gtag(){dataLayer.push(arguments);}&#xd;&#xa;  gtag('js', new Date());&#xd;&#xa;&#xd;&#xa;  gtag('config', 'G-5CLGPZD0XL');&#xd;&#xa;&lt;/script>"/>
+                        genericScript="&lt;!-- Google tag (gtag.js) -->&#xd;&#xa;&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-9PRS7CKR4N&quot;>&lt;/script>&#xd;&#xa;&lt;script>&#xd;&#xa;  window.dataLayer = window.dataLayer || [];&#xd;&#xa;  function gtag(){dataLayer.push(arguments);}&#xd;&#xa;  gtag('js', new Date());&#xd;&#xa;&#xd;&#xa;  gtag('config', 'G-9PRS7CKR4N');&#xd;&#xa;&lt;/script>"/>
                 </wrapper>
             </section_copy>
             <section
@@ -195,28 +195,20 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
-                    <text
-                        jcr:lastModified="{Date}2023-06-07T14:48:49.166Z"
+                    <text_1904139055_copy
+                        jcr:lastModified="{Date}2024-01-15T15:36:20.435Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
-                        text="&lt;p>&lt;b>A.Menarini ##### ##### #####&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>VAT number and registration number in the Company House: #####&lt;br>&#xd;&#xa;Office of the Companies House: #####&lt;br>&#xd;&#xa;Share Capital: #####&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>Menarini Benelux N.V./S.A., De Kleetlaan 3, B-1831 Machelen&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>&lt;br>&#xd;&#xa;© 2023 The Menarini Group - Alle rechten voorbehouden&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
-                                width="6"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="7"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="12"/>
+                                width="5"/>
                         </cq:responsive>
-                    </text>
+                    </text_1904139055_copy>
                     <image
                         jcr:lastModified="{Date}2023-05-31T16:04:20.126Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -233,8 +225,8 @@
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
-                                offset="3"
-                                width="3"/>
+                                offset="5"
+                                width="2"/>
                             <tablet
                                 jcr:primaryType="nt:unstructured"
                                 offset="2"
@@ -245,29 +237,6 @@
                                 width="6"/>
                         </cq:responsive>
                     </image>
-                    <text_1904139055
-                        jcr:lastModified="{Date}2023-06-07T14:49:03.194Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="menarinimaster/components/text"
-                        text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>© 2023 The Menarini Group - All rights reserved&lt;/p>&#xd;&#xa;"
-                        textIsRich="true">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                behavior="newline"
-                                offset="0"
-                                width="6"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="6"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="12"/>
-                        </cq:responsive>
-                    </text_1904139055>
                 </wrapper>
             </section>
         </root>

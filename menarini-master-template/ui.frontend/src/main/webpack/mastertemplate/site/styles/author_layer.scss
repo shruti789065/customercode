@@ -23,7 +23,7 @@
     .cmp-container {
       display: inline;
       .image {
-		    width: 200px;
+        width: 200px;
         display: inline-flex;
         align-items: center;
         flex-direction: row;
@@ -97,6 +97,24 @@
         #marketCountriesClose {
           position: relative;
           height: 50px;
+        }
+      }
+    }
+  }
+  .section {
+    #navbarMenuSection {
+      position: relative;
+      display: block;
+      left: 0;
+      height: 100%;
+      max-height: 2000px;
+      .cmp-container:not(.cmp-container ~ *) {
+        .button {
+          height: 50px;
+          #navbarMenuClose {
+            position: relative;
+            height: 50px;
+          }
         }
       }
     }

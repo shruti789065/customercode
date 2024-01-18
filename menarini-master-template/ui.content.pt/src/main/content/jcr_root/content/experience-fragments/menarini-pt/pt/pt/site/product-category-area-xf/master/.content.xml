@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-07-15T09:59:05.381+02:00"
-        cq:lastModifiedBy="admin"
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-06-05T12:48:22.057Z"
+        cq:lastModifiedBy="m.papini@adiacent.com"
+        cq:lastReplicated="{Date}2023-06-05T12:48:28.551Z"
+        cq:lastReplicated_publish="{Date}2023-06-05T12:48:28.551Z"
+        cq:lastReplicatedBy="m.papini@adiacent.com"
+        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:tags="[experience-fragments:variation/web]"
         cq:template="/conf/menarini-pt/settings/wcm/templates/xf-web-variation"
         cq:xfMasterVariation="{Boolean}true"
         cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Product Category Area XF"
+        jcr:uuid="a8b60b63-15cc-4640-9c75-c335245fd74b"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="menarinimaster/components/container"
             layout="responsiveGrid">
             <productcategoryarea
-                jcr:created="{Date}2022-07-15T09:47:53.457+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2022-07-15T09:59:05.091+02:00"
-                jcr:lastModifiedBy="admin"
+                jcr:lastModified="{Date}2023-06-05T12:48:21.060Z"
+                jcr:lastModifiedBy="m.papini@adiacent.com"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="menarinimaster/components/productcategoryarea">
                 <categoryareas jcr:primaryType="nt:unstructured">
                     <item0
                         jcr:primaryType="nt:unstructured"
-                        icon="/content/dam/menarini-pt/assets/ico_health_productcategory.svg"
+                        icon="/content/dam/menarini-pt/icons/ico_health_productcategory.svg"
                         label="Consumer Healthcare"
                         template="/conf/menarini-pt/settings/wcm/templates/menarini---product-list-healthcare"/>
                     <item1
                         jcr:primaryType="nt:unstructured"
-                        icon="/content/dam/menarini-pt/assets/ico_pharma_productcategory.svg"
-                        label="Pharmaceuticals"
+                        icon="/content/dam/menarini-pt/icons/ico_pharma_productcategory.svg"
+                        label="Área Médica"
                         template="/conf/menarini-pt/settings/wcm/templates/menarini---product-list-pharmaceutical"/>
                 </categoryareas>
             </productcategoryarea>

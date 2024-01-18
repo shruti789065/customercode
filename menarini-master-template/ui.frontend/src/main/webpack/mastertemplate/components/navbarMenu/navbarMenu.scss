@@ -1,0 +1,102 @@
+#navbarMenuSection {
+  display: none;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  z-index: 100;
+  top: 40px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  padding: 0 25px;
+  .wrapper {
+	.cmp-container{
+		position: relative;
+	}
+    .cmp-container:not(.cmp-container ~ *) {
+      .cmp-image__image {
+        max-width: 165px;
+      }
+      .text {
+        visibility: hidden;
+      }
+      #navbarMenuClose {
+        background-color: #3b627c;
+        position: absolute;
+        right: 0;
+        height: 50px;
+        width: 50px;
+        z-index: 3000;
+        cursor: pointer;
+        background-image: url("/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/market-close.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: 50%;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  #navbarMenuSection {
+    left: 100%;
+    display: block;
+    top: 115px;
+    -webkit-margin-before: 0;
+    margin-block-start: 0;
+    width: 100%;
+    height: 100vh;
+    -webkit-transition: left 0.8s ease-in;
+    transition: left 0.8s ease-in;
+    padding: 0;
+    display: block;
+    overflow-y: auto;
+    text-align: center;
+    .wrapper {
+      > .cmp-container {
+        padding: 30px;
+      }
+      .cmp-container:not(.cmp-container ~ *) {
+        .image {
+          display: none;
+        }
+        .button {
+          margin-left: 0;
+          position: absolute;
+          #navbarMenuClose {
+            background-color: transparent;
+            transform: translate(-25%, -25%);
+            position: absolute;
+            width: 60px;
+            height: 60px;
+          }
+        }
+        .text {
+          display: block;
+          visibility: visible;
+          margin: 0 auto;
+          width: 100%;
+          .cmp-text {
+            font-size: 24px;
+            font-family: $font-family-oswald;
+            font-weight: 200;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.6;
+            margin: 0px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  #navbarMenuSection {
+    padding: 25px 0;
+  }
+}

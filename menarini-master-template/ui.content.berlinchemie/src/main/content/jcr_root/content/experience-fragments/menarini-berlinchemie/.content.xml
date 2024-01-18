@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
-    cq:adobeTargetExportFormat="html"
-    cq:allowedTemplates="[/conf/menarini-berlinchemie/settings/wcm/templates/(?!page-).*]"
-    cq:conf="/conf/menarini-berlinchemie"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    cq:allowedTemplates="/conf/menarini-berlinchemie/settings/wcm/templates/(?!page-).*"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="sling:OrderedFolder"
-    jcr:title="Menarini Berlin Chemie Fragments"
-    sling:configRef="/conf/menarini-berlinchemie">
-    <en/>
+    jcr:title="Menarini Berlin Chemie Fragments">
+    <de/>
+    <jcr:content jcr:primaryType="nt:unstructured"/>
 </jcr:root>
