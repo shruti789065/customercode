@@ -115,6 +115,9 @@ const NavbarMenu = (() => {
         body.style.overflow =
           navbarSection.style.display === "none" ? "auto" : "hidden";
       }
+	  else{
+		currentContainerIndex = -1;
+	  }
     }
   }
 
