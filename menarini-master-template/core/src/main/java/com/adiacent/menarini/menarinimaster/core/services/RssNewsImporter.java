@@ -144,7 +144,7 @@ public class RssNewsImporter implements Cloneable{
 
 
 
-                String newsIds = items.stream().limit(2).map(i-> {
+                String newsIds = items.stream().map(i-> {
                     if(i != null){
                         //Si controlla l'eventuale pregressa importazione della news
                         if(StringUtils.contains(previousImportedNewsIds.get(), i.getIdentifier())){
@@ -464,12 +464,12 @@ public class RssNewsImporter implements Cloneable{
 
         if(newsCreated != null  && newsCreated.size() > 0){
             String resultOK = newsCreated.stream().collect(Collectors.joining("\n"));
-            result+="\n\nNews create:\n\n"+resultOK;
+            result+="\n\nNews create:"+ newsCreated.size()+" \n\n"+resultOK;
         }
 
         if(newsDiscarded != null  && newsDiscarded.size() > 0){
             String resultDis = newsDiscarded.stream().collect(Collectors.joining("\n"));
-            result+="\n\nNews scartate :\n\n"+resultDis;
+            result+="\n\nNews scartate :"+ newsDiscarded.size()+"\n\n"+resultDis;
         }
 
 

@@ -37,6 +37,28 @@ public class ModelUtils {
 		label = label.replaceAll("[\\?]","-");
 		label = label.replaceAll("[\\%]","-");
 		label = label.replaceAll("[\\®]","");
+		label = label.replaceAll("[\\/]","-");
+		label = label.replaceAll("[\\:]","-");
+		label = label.replaceAll("[\\']","-");
+		label = label.replaceAll("[\\’]","-");
+		label = label.replaceAll("[\\“]","-");
+		label = label.replaceAll("[\\”]","-");
+		label = label.replaceAll("[\\,]","-");
+		label = label.replaceAll("[\\?]","-");
+		label = label.replaceAll("[\\‘]","-");
+		label = label.replaceAll("[\\’]","-");
+		label = label.replaceAll("[\\™]","-");
+		label = label.replaceAll("[\\.]","-");
+		label = label.replaceAll("[\\\"]","-");
+		label = label.replaceAll("[\\!]","-");
+		label = label.replaceAll("[\\à]","a");
+		label = label.replaceAll("[\\è]","e");
+		label = label.replaceAll("[\\é]","e");
+		label = label.replaceAll("[\\ì]","i");
+		label = label.replaceAll("[\\ò]","o");
+		label = label.replaceAll("[\\ù]","u");
+		label = label.replaceAll("[\\…]","-");
+		label = label.replaceAll("[\\–]","-");
 		return JcrUtil.escapeIllegalJcrChars(label);
 	}
 
