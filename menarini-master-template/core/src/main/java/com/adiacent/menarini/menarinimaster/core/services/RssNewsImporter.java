@@ -133,7 +133,7 @@ public class RssNewsImporter implements Cloneable{
                 if(newsRootPage!= null){
                     newsRootJcrNode = newsRootPage.getContentResource().adaptTo(Node.class);
                     try {
-                        if(newsRootJcrNode.hasNode("rssNewsImported"))
+                        if(newsRootJcrNode.hasProperty("rssNewsImported"))
                             previousImportedNewsIds.set(newsRootJcrNode.getProperty("rssNewsImported").getString());
                     } catch (RepositoryException e) {
                         e.printStackTrace();
@@ -253,7 +253,7 @@ public class RssNewsImporter implements Cloneable{
                                 node.setProperty("jcr:lastModified", Instant.now().toEpochMilli());
                                 node.setProperty("jcr:lastModifiedBy", IMPORTER_USER);
                                 node.setProperty("fileReference", imgPath);
-
+                                node.setProperty("imageFromPageImage", false);
                             }
 
                         }
