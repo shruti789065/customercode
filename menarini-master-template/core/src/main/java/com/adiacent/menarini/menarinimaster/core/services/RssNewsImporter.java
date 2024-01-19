@@ -4,12 +4,15 @@ package com.adiacent.menarini.menarinimaster.core.services;
 import com.adiacent.menarini.menarinimaster.core.models.RssItemModel;
 import com.adiacent.menarini.menarinimaster.core.models.RssNewModel;
 
-import com.day.cq.commons.jcr.JcrUtil;
+import com.adiacent.menarini.menarinimaster.core.utils.ImageUtils;
+import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
+
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.mailer.MailService;
-import com.day.cq.replication.Replicator;
+
 import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
+
+import com.day.cq.wcm.api.WCMException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -29,6 +32,7 @@ import org.slf4j.LoggerFactory;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -37,7 +41,10 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 @Designate(ocd = RssNewsImporter.Config.class)
@@ -52,16 +59,12 @@ import java.util.stream.Collectors;
 public class RssNewsImporter implements Cloneable{
     private static final Logger logger = LoggerFactory.getLogger(RssNewsImporter.class);
 
-    private static final String RSS_NEWS_IMPORTER_SUBSERVICE = "menarini-user";
-
     private static final String IMPORTER_USER = "Importer";
     private static final String LAST_IMPORT = "last_import";
     private static final String LAST_PRODUCT = "last_product";
-
-
-
-
-    private SimpleDateFormat DF = new SimpleDateFormat("yyyyMMdd");
+    private static final String DEFAULT_IMAGE_TYPE = "main";
+    private static final String PAGE_RESOURCE_TYPE = "menarinimaster/components/page";
+    private static final CharSequence NEWS_SEPARATOR = "|";
 
     @Reference
     private SlingSettingsService settingsService;
@@ -72,13 +75,10 @@ public class RssNewsImporter implements Cloneable{
     @Reference(policy = ReferencePolicy.DYNAMIC, cardinality = ReferenceCardinality.OPTIONAL)
     protected volatile MailService mailService;
     private Config serviceConfig;
-
-
-    boolean limitedImport;
-
-    long lastRunningImport;
-
     private List<String> errors;
+    private List<String> newsCreated;
+
+    private List<String> newsDiscarded;
 
     @Activate
     @Modified
@@ -98,10 +98,10 @@ public class RssNewsImporter implements Cloneable{
     }
 
     public void start() {
-        logger.info("start rss feed importer ");
+        logger.info("**************** Start RSS Feed NEWS Importer **************************");
         //Si controlla che l'importer sia abilitato all'esecuzione
         if(serviceConfig.isNewsImportDisabled()){
-            addErrors("Procedure not enabled ");
+            addErrors("Procedure not enabled");
             if(errors != null && errors.size() > 0){
                 sendResult();
                 return;
@@ -109,159 +109,235 @@ public class RssNewsImporter implements Cloneable{
         }
 
         if(StringUtils.isBlank(serviceConfig.getRssFeedUrl())){
-            addErrors("Rss Feed file Url is missing ");
+            addErrors("Missing URL for RSS Feed NEWS ");
             if(errors != null && errors.size() > 0){
                 sendResult();
                 return;
             }
         }
 
-        //deserializzazione feed
+        //Ottenimento dati dal feed e deserializzazione
         RssNewModel data = getRssNewsData();
         ResourceResolver resolver = getResourceResolver();
         Session session = resolver.adaptTo(Session.class);
         if(data != null){
             //recupero immagini delle news
             List<RssItemModel> items = data.getChannel().getItems();
-            if( items!= null){
-                items.stream().limit(2).forEach(i-> {
+
+            if(items!= null){
+
+                //recupero proprietà di log relativa alle news importate in precedenza
+                AtomicReference<String> previousImportedNewsIds = new AtomicReference<>("");
+                Node newsRootJcrNode = null;
+                Page newsRootPage = (resolver.getResource(serviceConfig.getNewsRootPath())).adaptTo(Page.class);
+                if(newsRootPage!= null){
+                    newsRootJcrNode = newsRootPage.getContentResource().adaptTo(Node.class);
                     try {
-                        if(i.getEnclosure() != null && StringUtils.isNotBlank(i.getEnclosure().getUrl()))
-                            i.setImage(recoverImageFromUrl(i.getEnclosure().getUrl()));
-
-                        //creazione pagina news
-                        createPage(resolver,session, i);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
+                        if(newsRootJcrNode.hasNode("rssNewsImported"))
+                            previousImportedNewsIds.set(newsRootJcrNode.getProperty("rssNewsImported").getString());
+                    } catch (RepositoryException e) {
+                        e.printStackTrace();
+                        addErrors("Error getting rssNewsImported property from " + serviceConfig.getNewsRootPath() );
+                        return;
                     }
-                    logger.info(i.getTitle());
+                }
 
 
-                });
+
+                String newsIds = items.stream().limit(2).map(i-> {
+                    if(i != null){
+                        //Si controlla l'eventuale pregressa importazione della news
+                        if(StringUtils.contains(previousImportedNewsIds.get(), i.getIdentifier())){
+                            addNewsDiscarded(i.getIdentifier() + " - " + i.getTitle());
+                            return null;
+                        }
+
+                        try {
+                            String imageDAMPath = null;
+                            //Si controlla se la news nel feed ha un'immagine
+                            if(i.getEnclosure() != null && StringUtils.isNotBlank(i.getEnclosure().getUrl())) {
+                                //salvataggio immagine del feed nel DAM
+                                imageDAMPath = addImage(resolver, session, i);
+                                if(StringUtils.isBlank(imageDAMPath))
+                                    return null;//c'è stato un errore nel recupero dell'immagine o nel suo salvataggio su dam
+                            }
+
+                            //creazione pagina news
+                            Page p = createNewsPage(resolver, session, i, imageDAMPath);
+                            if(p != null) {
+                                addNewsCreated(p.getPath());
+                                return  i.getIdentifier();
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            addErrors("Exception managing news " + i.getTitle() + " : " + e.getMessage());
+                            return null;
+                        }
+                    }
+
+                   return null;
+                }).filter(entry->entry!=null).collect(Collectors.joining(NEWS_SEPARATOR));
+
+                //scrittura proprietà di log
+                try {
+                    newsRootJcrNode.setProperty("rssNewsImported", previousImportedNewsIds.get()+NEWS_SEPARATOR+newsIds );
+                    session.save();
+                } catch (RepositoryException e) {
+                    e.printStackTrace();
+                    addErrors("Error setting dnn news id in page property rssNewsImported");
+                }
+
 
 
             }
-
-
         }
 
-
+        sendResult();
 
     }
-    public ResourceResolver getResourceResolver() {
-        ResourceResolver resolver = null;
-        Map<String, Object> param = new HashMap<>();
-        param.put(ResourceResolverFactory.SUBSERVICE,  "menarinimaster");
-        try {
-            resolver = resolverFactory.getServiceResourceResolver(param);
-        } catch (Exception e) {
-            logger.error("Error retrieving resolver with system user", e);
-
-        }
-        return resolver;
-    }
-
-    private void createPage(ResourceResolver resolver, Session session, RssItemModel item) throws Exception {
 
 
-        String damImgPath;
-        if(item.getImage() != null){
-            damImgPath = addImage(resolver, session, item);
-        }
-        String path      = serviceConfig.getNewsRootPath();
+    private Page createNewsPage(ResourceResolver resolver, Session session, RssItemModel item,String imgPath)  {
 
-        String pageName  = getNodeName(item.getTitle());
-
-        String pageTitle = item.getTitle();
-
-        String template  = "/conf/menarini-berlinchemie/settings/wcm/templates/menarini---content-news";
-
-
+        Page yearPage = null;
         Page newsPage = null;
 
-        PageManager pageManager = resolver.adaptTo(PageManager.class);
-
-        newsPage = pageManager.create(path, pageName, template, pageTitle);
-
-        Node pageNode = newsPage.adaptTo(Node.class);
-
-        Node jcrNode = null;
-
-        if (newsPage.hasContent()) {
-
-            jcrNode = newsPage.getContentResource().adaptTo(Node.class);
-
-        } else {
-
-            jcrNode = pageNode.addNode("jcr:content", "cq:PageContent");
-
+        //get pubdate
+        int year = 0;
+        if(item.getPubDate() != null) {
+            Calendar pubblicationDate = Calendar.getInstance();
+            pubblicationDate.setTime(item.getPubDate());
+            year = pubblicationDate.get(Calendar.YEAR);
         }
 
-        jcrNode.setProperty("sling:resourceType", "menarinimaster/components/page");
+        //verifico se esiste la pagina corrispondente all'anno della pubblicazione
+        if(year != 0){
+            try {
+                String yPagePath = serviceConfig.getNewsRootPath() + "/" + year;
+                if (session.nodeExists(yPagePath)) {
+                    Node yPageNode = session.getNode(yPagePath);
+                    /*if (yPageNode.hasProperty("jcr:primaryType") &&
+                            com.adiacent.menarini.menarinimaster.core.utils.Constants.PAGE_PROPERTY_NAME.equals(yPageNode.getProperty("jcr:primaryType"))) */
+                        yearPage = resolver.getResource(yPagePath).adaptTo(Page.class);
 
-    }
 
-    private String getNodeName(String label){
-        if(StringUtils.isBlank(label))
-            return null;
-        label = label.trim().toLowerCase().replaceAll("[\\(\\)\\[\\]\\']","");
-        label = label.replaceAll("[\\s:]","-");
-        label = label.replaceAll("[\\?]","-");
-        label = label.replaceAll("[\\%]","-");
-        return JcrUtil.escapeIllegalJcrChars(label);
+                }
+
+                //se la pagina dell'anno non esiste, si crea
+                if (yearPage == null)
+                    yearPage = ModelUtils.createPage(resolver, session, serviceConfig.getNewsRootPath(), "" + year, "" + year, serviceConfig.getYearPageTemplate(), PAGE_RESOURCE_TYPE);
+
+                if (yearPage != null) {
+                    //si crea la pagina della news
+                    String pageName = ModelUtils.getNodeName(item.getTitle());
+
+                    String pageTitle = item.getTitle();
+
+                    String template = serviceConfig.getNewsPageTemplate();
+
+                    newsPage = ModelUtils.createPage(resolver, session, yearPage.getPath(), pageName, pageTitle, template, PAGE_RESOURCE_TYPE);
+
+                    if (newsPage != null) {
+
+                        //inserimento proprietà id news da dnn
+                        Node jcrNode = newsPage.getContentResource().adaptTo(Node.class);
+                        jcrNode.setProperty("dnnNewsIdentifier", item.getIdentifier());
+
+
+                        //settagio riferimento imgpath in componente image
+                        if (StringUtils.isNotBlank(imgPath)) {
+                            String imgNodePath = yearPage.getPath() + "/" + pageName + "/jcr:content/root/container/container/container/image";
+                            if (session.nodeExists(imgNodePath)) {
+                                Node node = session.getNode(imgNodePath);
+                                node.setProperty("jcr:lastModified", Instant.now().toEpochMilli());
+                                node.setProperty("jcr:lastModifiedBy", IMPORTER_USER);
+                                node.setProperty("fileReference", imgPath);
+
+                            }
+
+                        }
+
+                        //settagio testo news
+                        if (StringUtils.isNotBlank(item.getDescription())) {
+                            String textNodePath = yearPage.getPath() + "/" + pageName + "/jcr:content/root/container/container/container/text";
+                            if (session.nodeExists(textNodePath)) {
+                                Node node = session.getNode(textNodePath);
+                                node.setProperty("jcr:lastModified", Instant.now().toEpochMilli());
+                                node.setProperty("jcr:lastModifiedBy", IMPORTER_USER);
+                                node.setProperty("text", item.getDescription());
+
+                            }
+
+                        }
+                        session.save();
+
+                    }
+                }
+            }catch(RepositoryException | WCMException e){
+                e.printStackTrace();
+                addErrors("Error creating page for news " + item.getTitle() + " " + e.getMessage());
+                return null;
+            }
+
+        }
+        return newsPage;
     }
 
     @SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
-    //private String addImage(ResourceResolver resolver, Session session, String imagePath, String imageType, long newsId) throws Exception {
     private String addImage(ResourceResolver resolver, Session session, RssItemModel item) throws Exception {
         String addedImagePath = null;
 
-        String imageType = "main";
-        if (item.getEnclosure()!= null && StringUtils.isNotBlank(item.getEnclosure().getType())) {
+        String imageType = DEFAULT_IMAGE_TYPE;
+        if (item.getEnclosure()!= null && StringUtils.isNotBlank(item.getEnclosure().getType()))
             imageType = item.getEnclosure().getType();
-        }
 
-        logger.debug("addImage:{}", item.getEnclosure().getUrl());
+        logger.debug("processing image at url: {}", item.getEnclosure().getUrl());
         String mimeType = "image/jpeg";
 
         // detect image mime type
-        byte[] imgData = item.getImage();
-        if (imgData != null) {
-            InputStream iis = new ByteArrayInputStream(imgData);
-            try {
-                Iterator<ImageReader> imageReaders = ImageIO.getImageReaders(ImageIO.createImageInputStream(new ByteArrayInputStream(imgData)));
-                while (imageReaders.hasNext()) {
-                    ImageReader reader = imageReaders.next();
-                    mimeType = "image/" + reader.getFormatName().toLowerCase();
-                    break;
-                }
-                logger.debug("detected image mimeType:{}", mimeType);
-
-                AssetManager assetManager = resolver.adaptTo(AssetManager.class);
-                if (assetManager != null) {
-                    String imgName = "main".equals(imageType) ? null : FilenameUtils.getName( item.getEnclosure().getUrl());
-                    String imgPath = serviceConfig.getNewsImagesDAMFolder();
-                    String imgPathName = (imgName != null) ? ( imgPath + "/" + imgName ) : imgPath;
-
-                    logger.debug("creating product image into DAM:{}", imgPathName);
-                    if (assetManager.createAsset(imgPathName, iis, mimeType, true) != null) {
-                        addedImagePath = imgPathName;
-
-                        //replicateNode(session, addedImagePath);
-                    } else {
-                        logger.error("Cannot add image into DAM:{}", imgPathName);
-                    }
-                } else {
-                    logger.error("Cannot add image into DAM, AssetManager null");
-                }
-            } finally {
-                iis.close();
-            }
+        byte[] imgData = ImageUtils.recoverImageFromUrl(item.getEnclosure().getUrl());
+        if (imgData == null) {
+            addErrors("Error getting img for  " + item.getTitle() + " at " + item.getEnclosure().getUrl());
+            return null;
         }
+
+        InputStream iis = new ByteArrayInputStream(imgData);
+        try {
+            Iterator<ImageReader> imageReaders = ImageIO.getImageReaders(ImageIO.createImageInputStream(new ByteArrayInputStream(imgData)));
+            while (imageReaders.hasNext()) {
+                ImageReader reader = imageReaders.next();
+                mimeType = "image/" + reader.getFormatName().toLowerCase();
+                break;
+            }
+            logger.debug("detected image mimeType:{}", mimeType);
+
+            AssetManager assetManager = resolver.adaptTo(AssetManager.class);
+            if (assetManager != null) {
+                String imgName = DEFAULT_IMAGE_TYPE.equals(imageType) ? null : FilenameUtils.getName( item.getEnclosure().getUrl());
+                String imgPath = serviceConfig.getNewsImagesDAMFolder();
+                String imgPathName = (imgName != null) ? ( imgPath + "/" + imgName ) : imgPath;
+
+                logger.debug("creating product image into DAM:{}", imgPathName);
+                if (assetManager.createAsset(imgPathName, iis, mimeType, true) != null) {
+                    addedImagePath = imgPathName;
+
+                } else {
+                    addErrors("Cannot add image into DAM: " + imgPathName);
+                }
+            } else {
+
+                addErrors("Cannot add image into DAM: AssetManager null");
+            }
+        } finally {
+            iis.close();
+        }
+
 
         return addedImagePath;
     }
 
+    //Deserializzazione news da feed DNN
     private RssNewModel getRssNewsData() {
         URL url = null;
         try {
@@ -299,30 +375,11 @@ public class RssNewsImporter implements Cloneable{
             addErrors(e.getMessage());
             return null;
         }
-
     }
 
-
-    public byte[] recoverImageFromUrl(String urlText) throws Exception {
-        URL url = new URL(urlText);
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-
-        try (InputStream inputStream = url.openStream()) {
-            int n = 0;
-            byte [] buffer = new byte[ 1024 ];
-            while (-1 != (n = inputStream.read(buffer))) {
-                output.write(buffer, 0, n);
-            }
-            if(inputStream != null)
-                inputStream.close();
-        }
-        finally{
-            if(output != null)
-                output.close();
-        }
-        return output.toByteArray();
+    protected MailService getMailService() {
+        return mailService;
     }
-
     public List<String> getErrors() {
         if(errors == null)
             return null;
@@ -340,10 +397,6 @@ public class RssNewsImporter implements Cloneable{
         }
     }
 
-    protected MailService getMailService() {
-        return mailService;
-    }
-
     public void addErrors(String txt){
         if(StringUtils.isNotBlank(txt)) {
             if (this.getErrors() == null)
@@ -352,23 +405,85 @@ public class RssNewsImporter implements Cloneable{
         }
     }
 
-    protected void sendResult() {
-        String result = "Result : Ok";
-        if(errors != null  && errors.size() > 0){
-            result = errors.stream().collect(Collectors.joining("\n"));
+    public List<String> getNewsCreated() {
+        if(newsCreated == null)
+            return null;
+        String[] array = newsCreated.toArray(new String[newsCreated.size()]);
+        String[] clone = array.clone();
+        return Arrays.asList(clone);
+    }
+    public void setNewsCreated(List<String> newsCreated) {
+        if(newsCreated== null)
+            this.newsCreated = null;
+        else {
+            String[] array = newsCreated.toArray(new String[newsCreated.size()]);
+            String[] clone = array.clone();
+            this.newsCreated = Arrays.asList(clone);
         }
+    }
+
+    public void addNewsCreated(String txt){
+        if(StringUtils.isNotBlank(txt)) {
+            if (this.getNewsCreated() == null)
+                this.newsCreated = new ArrayList<String>();
+            this.newsCreated.add(txt);
+        }
+    }
+
+    public List<String> getNewsDiscarded() {
+        if(newsDiscarded == null)
+            return null;
+        String[] array = newsDiscarded.toArray(new String[newsDiscarded.size()]);
+        String[] clone = array.clone();
+        return Arrays.asList(clone);
+    }
+    public void setNewsDiscarded(List<String> newsDiscarded) {
+        if(newsDiscarded== null)
+            this.newsDiscarded = null;
+        else {
+            String[] array = newsDiscarded.toArray(new String[newsDiscarded.size()]);
+            String[] clone = array.clone();
+            this.newsDiscarded = Arrays.asList(clone);
+        }
+    }
+
+    public void addNewsDiscarded(String txt){
+        if(StringUtils.isNotBlank(txt)) {
+            if (this.getNewsDiscarded() == null)
+                this.newsDiscarded = new ArrayList<String>();
+            this.newsDiscarded.add(txt);
+        }
+    }
+
+    protected void sendResult() {
+        String result = "Esito operazione  : Ok";
+        if(errors != null  && errors.size() > 0){
+            String resultKO = errors.stream().collect(Collectors.joining("\n"));
+            result="Esito operazione : Ko\n\n"+resultKO;
+        }
+
+        if(newsCreated != null  && newsCreated.size() > 0){
+            String resultOK = newsCreated.stream().collect(Collectors.joining("\n"));
+            result+="\n\nNews create:\n\n"+resultOK;
+        }
+
+        if(newsDiscarded != null  && newsDiscarded.size() > 0){
+            String resultDis = newsDiscarded.stream().collect(Collectors.joining("\n"));
+            result+="\n\nNews scartate :\n\n"+resultDis;
+        }
+
 
         Email mail = new HtmlEmail();
         try {
             mail.setMsg(result);
-            mail.setSubject("Fine importazione dnn library ");
+            mail.setSubject("Fine importazione dnn RSS Feed news ");
             mail.addTo(serviceConfig.getDebugReportRecipient());
-        /*for (String copyto : config.getDebugReportRecipientCopyTo()) {
-            if (org.apache.commons.lang.StringUtils.isNotEmpty(copyto)) {
-                logger.info("sendEmail Send Copy To " + copyto);
-                mail.addCc(copyto);
+            for (String copyto : serviceConfig.getDebugReportRecipientCopyTo()) {
+                if (StringUtils.isNotEmpty(copyto)) {
+                    logger.info("sendEmail Send Copy To " + copyto);
+                    mail.addCc(copyto);
+                }
             }
-        }*/
             mail.setCharset("UTF-8");
             getMailService().send(mail);
         } catch (Exception e) {
@@ -380,8 +495,23 @@ public class RssNewsImporter implements Cloneable{
 
     }
 
+    public ResourceResolver getResourceResolver() {
+        ResourceResolver resolver = null;
+        Map<String, Object> param = new HashMap<>();
+        param.put(ResourceResolverFactory.SUBSERVICE, com.adiacent.menarini.menarinimaster.core.utils.Constants.SERVICE_NAME);
+        try {
+            resolver = resolverFactory.getServiceResourceResolver(param);
+        } catch (Exception e) {
+            logger.error("Error retrieving resolver with system user", e);
+        }
+        return resolver;
+    }
+
     @ObjectClassDefinition(name = "RSS News Importer", description = "RSS News  Importer")
     public static @interface Config {
+
+        @AttributeDefinition(name = "Disable News Import", description = "Disable News Import")
+        boolean isNewsImportDisabled() default false;
 
         @AttributeDefinition(name = "News Root Path", description = "Imported news root path")
         String getNewsRootPath() default "/content/menarini-berlinchemie/de/news";
@@ -391,6 +521,13 @@ public class RssNewsImporter implements Cloneable{
 
         @AttributeDefinition(name = "DAM News Images Root Folder", description = "DAM root folder where imported news images will be placed")
         String getNewsImagesDAMFolder() default "/content/dam/menarini-berlinchemie/assets/news";
+
+        @AttributeDefinition(name = "AEM page template for page news", description = "AEM page template for page news")
+        String getNewsPageTemplate() default "/conf/menarini-berlinchemie/settings/wcm/templates/menarini---details-news";
+
+        @AttributeDefinition(name = "AEM page template for year page", description = "AEM page template for year page")
+        String getYearPageTemplate() default "menarini---news-year";
+
 
         @AttributeDefinition(name = "Debug Report Enabled", description = "Enable debug report email")
         boolean isDebugReportEnabled() default false;
@@ -404,10 +541,7 @@ public class RssNewsImporter implements Cloneable{
         @AttributeDefinition(name = "Debug Report Recipient Copyto", description = "Debug email report recipient Copyto")
         String[] getDebugReportRecipientCopyTo() default {};
 
-        @AttributeDefinition(name = "Number of last days to import news data from", description = "Number of last days to import news data from")
-        int getImportNewsDays() default 1;
 
-        @AttributeDefinition(name = "Disable News Import", description = "Disable News Import")
-        boolean isNewsImportDisabled() default false;
+
     }
 }
