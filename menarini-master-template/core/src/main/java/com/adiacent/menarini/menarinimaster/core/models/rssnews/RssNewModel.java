@@ -1,7 +1,7 @@
-package com.adiacent.menarini.menarinimaster.core.models;
+package com.adiacent.menarini.menarinimaster.core.models.rssnews;
 
+import com.adiacent.menarini.menarinimaster.core.models.rssnews.ChannelModel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName("rss")

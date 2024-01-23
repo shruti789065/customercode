@@ -80,7 +80,7 @@ public class RssNewsImporterServlet extends BaseJsonServlet{
                         result = KO_RESULT;
                     }
                 } catch (CloneNotSupportedException e) {
-                    logger.error("Library Import Servlet Error:" + e.getMessage(), e);
+                    logger.error("RSS News Import Servlet Error:" + e.getMessage(), e);
                     result = KO_RESULT;
                 }
 

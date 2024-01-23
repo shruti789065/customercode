@@ -1,8 +1,8 @@
 package com.adiacent.menarini.menarinimaster.core.services;
 
 
-import com.adiacent.menarini.menarinimaster.core.models.RssItemModel;
-import com.adiacent.menarini.menarinimaster.core.models.RssNewModel;
+import com.adiacent.menarini.menarinimaster.core.models.rssnews.RssItemModel;
+import com.adiacent.menarini.menarinimaster.core.models.rssnews.RssNewModel;
 
 import com.adiacent.menarini.menarinimaster.core.utils.ImageUtils;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
@@ -20,7 +20,6 @@ import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.*;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
@@ -40,7 +39,6 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 
 import java.util.*;
@@ -60,14 +58,11 @@ public class RssNewsImporter implements Cloneable{
     private static final Logger logger = LoggerFactory.getLogger(RssNewsImporter.class);
 
     private static final String IMPORTER_USER = "Importer";
-    private static final String LAST_IMPORT = "last_import";
-    private static final String LAST_PRODUCT = "last_product";
+
     private static final String DEFAULT_IMAGE_TYPE = "main";
     private static final String PAGE_RESOURCE_TYPE = "menarinimaster/components/page";
     private static final CharSequence NEWS_SEPARATOR = "|";
 
-    @Reference
-    private SlingSettingsService settingsService;
 
     @Reference
     private ResourceResolverFactory resolverFactory;
@@ -98,7 +93,7 @@ public class RssNewsImporter implements Cloneable{
     }
 
     public void start() {
-        logger.info("**************** Start RSS Feed NEWS Importer **************************");
+        logger.info("**************** Start RSS Feed NEWS Importer by bean with id " + this.toString() +" **************************");
         //Si controlla che l'importer sia abilitato all'esecuzione
         if(serviceConfig.isNewsImportDisabled()){
             addErrors("Procedure not enabled");
@@ -195,6 +190,7 @@ public class RssNewsImporter implements Cloneable{
 
         sendResult();
 
+        logger.info("**************** End RSS Feed NEWS Importer by bean with id " + this.toString() +" **************************");
     }
 
 
@@ -285,7 +281,11 @@ public class RssNewsImporter implements Cloneable{
     }
 
     @SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
-    private String addImage(ResourceResolver resolver, Session session, RssItemModel item) throws Exception {
+    public String addImage(ResourceResolver resolver, Session session, RssItemModel item) throws Exception {
+
+        if(item == null)
+            return null;
+
         String addedImagePath = null;
 
         String imageType = DEFAULT_IMAGE_TYPE;
@@ -338,7 +338,7 @@ public class RssNewsImporter implements Cloneable{
     }
 
     //Deserializzazione news da feed DNN
-    private RssNewModel getRssNewsData() {
+    public RssNewModel getRssNewsData() {
         URL url = null;
         try {
             url = new URL(serviceConfig.getRssFeedUrl());

@@ -1,9 +1,9 @@
-package com.adiacent.menarini.menarinimaster.core.models;
+package com.adiacent.menarini.menarinimaster.core.models.rssnews;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -14,7 +14,7 @@ public class ChannelModel {
 
     private String description;
 
-    private  RssItemModel  item;
+    private RssItemModel item;
     private List<RssItemModel> items = new ArrayList<RssItemModel>();
 
 
@@ -52,10 +52,21 @@ public class ChannelModel {
     }
 
     public List<RssItemModel> getItems() {
-        return items;
+        if(items == null)
+            return null;
+        RssItemModel[] array = items.toArray(new RssItemModel[items.size()]);
+        RssItemModel[] clone = array.clone();
+        return Arrays.asList(clone);
     }
 
     public void setItems(List<RssItemModel> items) {
-        this.items = items;
+
+        if(items== null)
+            this.items = null;
+        else {
+            RssItemModel[] array = items.toArray(new RssItemModel[items.size()]);
+            RssItemModel[] clone = array.clone();
+            this.items = Arrays.asList(clone);
+        }
     }
 }
