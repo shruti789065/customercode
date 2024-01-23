@@ -72,11 +72,11 @@ public class RssItemModel {
     }
 
     public Date getPubDate() {
-        return pubDate;
+        return (Date) pubDate.clone();
     }
 
     public void setPubDate(Date pubDate) {
-        this.pubDate = pubDate;
+        this.pubDate = (Date) pubDate.clone();
     }
 
     public String getLink() {
@@ -88,10 +88,10 @@ public class RssItemModel {
     }
 
     public byte[] getImage() {
-        return image;
+        return image.clone();
     }
 
     public void setImage(byte[] image) {
-        this.image = image;
+        this.image = image.clone();
     }
 }
