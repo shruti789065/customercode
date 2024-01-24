@@ -21,19 +21,22 @@
             </div>
             <!-- start mappa berlino -->
 
-            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM9iSDW65pPL21Leu2EUQaOLoO1M0NhU4&callback=initMap&libraries=&v=weekly" defer></script>
+
+
 
 
             <!-- div 1  con filtri -->
-            <div class="map_search_container" >
-                <div id="mapWithFilterView" class="map_search_map" >
-                </div>
+                <div id="mapWithFilterView"></div>
+                <div class="currentNodeMap" value="pippo"></div>
+
+                <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM9iSDW65pPL21Leu2EUQaOLoO1M0NhU4&libraries=&v=weekly" defer></script>
+
                 <div class="map_search_categories" >
 
                     <div class="map_search_category">
                         <label>
-                            <input type="checkbox" id="checkML" onclick='setMarks(map.getZoom(), GetFilters());'>
+                            <input type="checkbox" id="checkML" >
                             <span class="checkbox"></span>
                             <img src="https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ml.svg">
                             <span class="text">MainLocationsText</span>
@@ -42,7 +45,7 @@
 
                     <div class="map_search_category">
                         <label>
-                            <input type="checkbox" id="checkMS" onclick='setMarks(map.getZoom(), GetFilters());'>
+                            <input type="checkbox" id="checkMS" >
                             <span class="checkbox"></span>
                             <img src="https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ms.svg">
                             <span class="text">ManufacturingSiteText</span>
@@ -51,7 +54,7 @@
 
                     <div class="map_search_category">
                         <label>
-                            <input type="checkbox" id="checkRC" onclick='setMarks(map.getZoom(), GetFilters());'>
+                            <input type="checkbox" id="checkRC" >
                             <span class="checkbox"></span>
                             <img src="https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-rc.svg">
                             <span class="text">ResearchCenterText</span>
@@ -60,7 +63,7 @@
 
                     <div class="map_search_category">
                         <label>
-                            <input type="checkbox" id="checkLO" onclick='setMarks(map.getZoom(), GetFilters());'>
+                            <input type="checkbox" id="checkLO" >
                             <span class="checkbox"></span>
                             <img src="https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-lo.svg">
                             <span class="text">LocalOfficesText</span>
@@ -69,39 +72,13 @@
 
                     <div class="map_search_category">
                         <label>
-                            <input type="checkbox" id="checkDS" onclick='setMarks(map.getZoom(), GetFilters());'>
+                            <input type="checkbox" id="checkDS" >
                             <span class="checkbox"></span>
                             <img src="https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ds.svg">
                             <span class="text">DistributesText</span>
                         </label>
                     </div>
                 </div>
-            </div>
-            <script>
-                function initMap() {
-                        map = new google.maps.Map(document.getElementById("mapWithFilterView"), {
-                            center: { lat: 33.37754075, lng: 54.4043076 },
-                            zoom: 3,
-                        });
-                        google.maps.event.addListener(map, 'zoom_changed', function () {
-                            console.log("ZOOM: " + map.getZoom());
-                            setMarks(map.getZoom(), GetFilters());
-                        });
-                        setMarks(map.getZoom(), GetFilters());
-                    }
-            </script>
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- end mappa berlino -->
         </div>
 
