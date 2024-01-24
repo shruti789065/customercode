@@ -1,0 +1,139 @@
+
+                /*----- mapWithSearch MENARINI -----*/
+                .full_size_pane .ModVGMenariniCorporateSearchInMapViewC .map_search_container .map_search_form {
+                    padding-left: 10%;
+                    padding-right:10%;
+                }
+                .full_size_pane .ModVGMenariniCorporateSearchInMapViewC .map_search_container .map_search_form .form_container {
+                    max-width: 66%;
+                }
+                /*----- mapWithFilterView MENARINI -----*/
+                #mapWithFilterView {
+                    height: 28vw;
+                }
+                @media (max-width: 992px) {
+                    #mapWithFilterView {
+                        height: 100vw;
+                    }
+                }
+                .map_search_container .country {
+                    border-bottom: 1px solid #A8A8A8;
+                    padding-bottom: 40px;
+                }
+                .map_search_container .dxeButton.dxeButtonEditButton {
+                    display: none !important;
+                }
+                .DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-22818,
+                .DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-24100 {
+                    margin-left: -13%;
+                    margin-right: -13%;
+                }
+                @media (max-width: 992px) {
+                    .DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-22818,
+                    .DnnModule-VGMenariniCorporateSearchInMapView.DnnModule-24100 {
+                        margin-left: -5%;
+                        margin-right: -5%;
+                    }
+                }
+                .map_search_container .map_search_categories,
+                .searchMapResults {
+                    padding-left: 10% !important;
+                    padding-right: 10% !important;
+                }
+                .SharedRow .searchMapResults {
+                    text-align: left;
+                }
+                /*----- mapWhithPicker MENARINI -----*/
+                .picker .companyName {
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: #143f59 !important;
+                    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+                    line-height: 20px;
+                }
+                .picker .cityName {
+                    font-family: 'Arimo', sans-serif;
+                    color: #484542;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 15px;
+                    margin-bottom: 5px;
+                }
+                .picker .websiteName,
+                .picker .websiteName a {
+                    font-family: 'Arimo', sans-serif;
+                    color: #0783ff;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 15px;
+                    margin-bottom: 5px;
+                }
+
+                /**** categorie punti mappa ****/
+                .map_search_container .map_search_categories{
+                    background-color: #F7F6F4;
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    padding-left: 6%;
+                    padding-right: 6%;
+                }
+                .map_search_container .map_search_category{
+                    text-align: left;
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                }
+                .map_search_container .map_search_category label{
+                    font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: #143F59;
+                    text-transform: uppercase;
+                }
+                .map_search_container .map_search_category label input {
+                    display: none; /* Hide the default checkbox */
+                }
+                .map_search_container .map_search_category label img {
+                    width: 41px;
+                    max-width: 41px;
+                    margin-right: 10px;
+                }
+                .map_search_container .map_search_category label span.checkbox,
+                .map_search_container .map_search_category label img,
+                .map_search_container .map_search_category label span.text{
+                    float: left;
+                }
+                /* Style the artificial checkbox */
+                .map_search_container .map_search_category label span.checkbox {
+                    margin-top: 10px;
+                    margin-right: 20px;
+                    height: 20px;
+                    width: 20px;
+                    border: 1px solid #3C3A37;
+                    display: inline-block;
+                    position: relative;
+                }
+                /* Style its checked state...with a ticked icon */
+                .map_search_container .map_search_category label input[type=checkbox]:checked + span.checkbox:before {
+                    content: '\2714';
+                    position: absolute;
+                    top: -2px;
+                    left: 0;
+                    font-size: 20px;
+                    color: #F5333F;
+                }
+                .map_search_container .map_search_category label span.text{
+                    margin-top: 10px;
+                    font-size: 1.133vw;
+                    text-transform: uppercase;
+                }
+
+                @media (max-width: 991px){
+                    .map_search_container .map_search_category label span.text{
+                        font-size: 2vw;
+                    }
+                }
+                @media (max-width: 575px){
+                    .map_search_container .map_search_category label span.text{
+                        font-size: 20px;
+                    }
+                }
