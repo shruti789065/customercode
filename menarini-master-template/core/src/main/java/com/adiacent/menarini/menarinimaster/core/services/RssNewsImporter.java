@@ -128,7 +128,7 @@ public class RssNewsImporter implements Cloneable{
         Session session = resolver.adaptTo(Session.class);
 
         WorkflowModel wfModel = null;
-        WorkflowSession wfSession = getWorkflowSession();
+        WorkflowSession wfSession =  getWorkflowSession(session);
         if(!serviceConfig.isApprovalWorkflowDisabled() ){
             if(StringUtils.isBlank(serviceConfig.getApprovalWorkflowModelPath())){
                 addErrors("Missing approval workflow model path  for RSS Feed NEWS ");
@@ -203,7 +203,7 @@ public class RssNewsImporter implements Cloneable{
                             if(p != null) {
 
                                 //trigger processo approvativo
-                                if(referenceWfmodel.get() != null) {
+                                if( referenceWfmodel.get() != null) {
                                     WorkflowData payload = wfSession.newWorkflowData("JCR_PATH", p.getPath());
                                     try {
                                         wfSession.startWorkflow(referenceWfmodel.get(), payload);
@@ -564,15 +564,18 @@ public class RssNewsImporter implements Cloneable{
         return resolver;
     }
 
-    public WorkflowSession getWorkflowSession() {
-        //return getResourceResolver().adaptTo(WorkflowSession.class);
-        ResourceResolver resolver1 = resolverFactory.getThreadResourceResolver();
-        if(resolver1 != null) {
-            Session session1 = resolver1.adaptTo(Session.class);
-            if(session1 != null)
-                return workflowService.getWorkflowSession(session1);
+    public WorkflowSession getWorkflowSession(Session session) {
+        if(session != null) {
+            return workflowService.getWorkflowSession(session);
+            /*ResourceResolver resolver1 = getResourceResolver();
+            if(resolver1 != null) {
+                Session session1 = resolver1.adaptTo(Session.class);
+                if(session1 != null)
+                    return workflowService.getWorkflowSession(session1);
+            }*/
         }
         return null;
+
     }
 
     @ObjectClassDefinition(name = "RSS News Importer", description = "RSS News  Importer")
@@ -609,7 +612,7 @@ public class RssNewsImporter implements Cloneable{
         @AttributeDefinition(name = "Debug Report Recipient Copyto", description = "Debug email report recipient Copyto")
         String[] getDebugReportRecipientCopyTo() default {};
 
-        @AttributeDefinition(name = "News Approval Workflow Enabled", description = "News Approval Workflow Enabled")
+        @AttributeDefinition(name = "News Approval Workflow Disabled", description = "News Approval Workflow Disabled")
         boolean isApprovalWorkflowDisabled() default false;
         @AttributeDefinition(name = "Approval Workfloew Identifier", description = "Approval Workfloew Identifier")
         String getApprovalWorkflowModelPath() default "/var/workflow/models/publish-approval-for-menarini-berlinchemie";

@@ -21,6 +21,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
+import javax.jcr.Session;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,7 +57,8 @@ class RssNewsImporterTest {
         importer = spy(s);
 
         WorkflowSession mockWorkflowSession = mock(WorkflowSession.class);
-        when(importer.getWorkflowSession()).thenReturn(mockWorkflowSession);
+        //when(importer.getWorkflowSession(any(Session.class))).thenReturn(mockWorkflowSession);
+        doReturn(mockWorkflowSession).when(importer).getWorkflowSession(any(Session.class));
 
         importer.start();
         assertNotNull(importer.getErrors());
@@ -82,7 +84,7 @@ class RssNewsImporterTest {
         importer.start();
         assertTrue(importer.getErrors().size()>0);
     }
-    @Test
+   @Test
     void testNoError() {
 
         Map<String,Object> configAttributes = new HashMap<>();
@@ -108,7 +110,8 @@ class RssNewsImporterTest {
         } catch (WorkflowException e) {
             throw new RuntimeException(e);
         }
-        when(importer.getWorkflowSession()).thenReturn(mockWorkflowSession);
+        //when(importer.getWorkflowSession(any(Session.class))).thenReturn(mockWorkflowSession);
+        doReturn(mockWorkflowSession).when(importer).getWorkflowSession(any(Session.class));
 
         RssNewModel rssDataModel = new RssNewModel();
         ChannelModel channel = new ChannelModel();
