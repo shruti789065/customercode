@@ -12,7 +12,7 @@ import com.day.cq.workflow.exec.WorkflowData;
 import com.day.cq.workflow.model.WorkflowModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-import org.apache.sling.api.resource.ResourceResolverFactory;
+
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.jcr.Session;
+
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,23 +39,20 @@ class RssNewsImporterTest {
 
     @BeforeEach
     void setUp() {
-
         aemContext.load().json("/com/adiacent/menarini/menarinimaster/core/models/RssNewsImporterContentData.json", "/content/menarini-berlinchemie/de/news");
         aemContext.registerService(WorkflowService.class, wfService);
         aemContext.addModelsForClasses(RssNewsImporter.class);
     }
 
     @Test
-    void testNoWorkFlowModelSpecified() {
+    void testNoWorkFlowModelSpecifiedError() {
         Map<String,Object> configAttributes = new HashMap<>();
         configAttributes.put("getNewsRootPath","/content/menarini-berlinchemie/de/news");
         configAttributes.put("getRssFeedUrl","https://www.menarini.com/en-us/news/mid/19455/ctl/rss");
         configAttributes.put("isNewsImportDisabled","false");
         configAttributes.put("isApprovalWorkflowDisabled","false");
         configAttributes.put("getApprovalWorkflowModelPath","");
-
         RssNewsImporter s = aemContext.registerInjectActivateService(new RssNewsImporter(), configAttributes);
-
         importer = spy(s);
 
         WorkflowSession mockWorkflowSession = mock(WorkflowSession.class);
@@ -63,6 +60,27 @@ class RssNewsImporterTest {
 
         importer.start();
         assertNotNull(importer.getErrors());
+    }
+
+
+    @Test
+    void testDisabledImporterError() {
+        Map<String,Object> configAttributes = new HashMap<>();
+        configAttributes.put("isNewsImportDisabled","true");
+        RssNewsImporter s = aemContext.registerInjectActivateService(new RssNewsImporter(), configAttributes);
+        importer = spy(s);
+        importer.start();
+        assertNotNull(importer.getErrors());
+    }
+
+    @Test
+    void testNoRssFeedUrlError() {
+        Map<String,Object> configAttributes = new HashMap<>();
+        configAttributes.put("isNewsImportDisabled","false");
+        RssNewsImporter s = aemContext.registerInjectActivateService(new RssNewsImporter(), configAttributes);
+        importer = spy(s);
+        importer.start();
+        assertTrue(importer.getErrors().size()>0);
     }
     @Test
     void testNoError() {
@@ -124,13 +142,6 @@ class RssNewsImporterTest {
 
     }
 
-    @Test
-    void testError() {
-        Map<String,Object> configAttributes = new HashMap<>();
-        RssNewsImporter s = aemContext.registerInjectActivateService(new RssNewsImporter(), configAttributes);
-        importer = spy(s);
-        importer.start();
-        assertTrue(importer.getErrors().size()>0);
-    }
+
 
 }

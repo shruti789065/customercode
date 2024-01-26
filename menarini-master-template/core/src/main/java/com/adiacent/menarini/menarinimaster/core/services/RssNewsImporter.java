@@ -150,13 +150,6 @@ public class RssNewsImporter implements Cloneable{
         }
 
 
-
-
-
-
-
-
-
         //Ottenimento dati dal feed e deserializzazione
         RssNewModel data = getRssNewsData();
        
@@ -256,16 +249,6 @@ public class RssNewsImporter implements Cloneable{
         logger.info("**************** End RSS Feed NEWS Importer by bean with id " + this.toString() +" **************************");
     }
 
-    public WorkflowSession getWorkflowSession() {
-        //return getResourceResolver().adaptTo(WorkflowSession.class);
-        ResourceResolver resolver1 = resolverFactory.getThreadResourceResolver();
-        if(resolver1 != null) {
-            Session session1 = resolver1.adaptTo(Session.class);
-            if(session1 != null)
-                return workflowService.getWorkflowSession(session1);
-        }
-        return null;
-    }
 
 
     private Page createNewsPage(ResourceResolver resolver, Session session, RssItemModel item,String imgPath)  {
@@ -579,6 +562,17 @@ public class RssNewsImporter implements Cloneable{
             logger.error("Error retrieving resolver with system user", e);
         }
         return resolver;
+    }
+
+    public WorkflowSession getWorkflowSession() {
+        //return getResourceResolver().adaptTo(WorkflowSession.class);
+        ResourceResolver resolver1 = resolverFactory.getThreadResourceResolver();
+        if(resolver1 != null) {
+            Session session1 = resolver1.adaptTo(Session.class);
+            if(session1 != null)
+                return workflowService.getWorkflowSession(session1);
+        }
+        return null;
     }
 
     @ObjectClassDefinition(name = "RSS News Importer", description = "RSS News  Importer")
