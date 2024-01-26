@@ -7,17 +7,25 @@ import com.adiacent.menarini.menarinimaster.core.models.rssnews.RssNewModel;
 import com.adiacent.menarini.menarinimaster.core.utils.ImageUtils;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 
+
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.mailer.MailService;
 
 import com.day.cq.wcm.api.Page;
 
+
 import com.day.cq.wcm.api.WCMException;
+import com.day.cq.workflow.WorkflowException;
+import com.day.cq.workflow.WorkflowService;
+import com.day.cq.workflow.WorkflowSession;
+import com.day.cq.workflow.exec.WorkflowData;
+import com.day.cq.workflow.model.WorkflowModel;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.framework.Constants;
@@ -75,6 +83,9 @@ public class RssNewsImporter implements Cloneable{
 
     private List<String> newsDiscarded;
 
+    @Reference
+    private WorkflowService workflowService;
+
     @Activate
     @Modified
     protected void activate(final Config config) {
@@ -95,6 +106,7 @@ public class RssNewsImporter implements Cloneable{
     public void start() {
         logger.info("**************** Start RSS Feed NEWS Importer by bean with id " + this.toString() +" **************************");
         //Si controlla che l'importer sia abilitato all'esecuzione
+
         if(serviceConfig.isNewsImportDisabled()){
             addErrors("Procedure not enabled");
             if(errors != null && errors.size() > 0){
@@ -111,10 +123,43 @@ public class RssNewsImporter implements Cloneable{
             }
         }
 
-        //Ottenimento dati dal feed e deserializzazione
-        RssNewModel data = getRssNewsData();
+
         ResourceResolver resolver = getResourceResolver();
         Session session = resolver.adaptTo(Session.class);
+
+        WorkflowModel wfModel = null;
+        WorkflowSession wfSession = getWorkflowSession();
+        if(!serviceConfig.isApprovalWorkflowDisabled() ){
+            if(StringUtils.isBlank(serviceConfig.getApprovalWorkflowModelPath())){
+                addErrors("Missing approval workflow model path  for RSS Feed NEWS ");
+                if(errors != null && errors.size() > 0){
+                    sendResult();
+                    return;
+                }
+            }
+
+            try {
+                wfModel = wfSession.getModel(serviceConfig.getApprovalWorkflowModelPath());
+            } catch (WorkflowException e) {
+                addErrors("Approval workflow model doesn't exist for RSS Feed NEWS " + serviceConfig.getApprovalWorkflowModelPath() );
+                if(errors != null && errors.size() > 0){
+                    sendResult();
+                    return;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+        //Ottenimento dati dal feed e deserializzazione
+        RssNewModel data = getRssNewsData();
+       
         if(data != null){
             //recupero immagini delle news
             List<RssItemModel> items = data.getChannel().getItems();
@@ -139,6 +184,9 @@ public class RssNewsImporter implements Cloneable{
 
 
 
+                AtomicReference<WorkflowModel> referenceWfmodel = new AtomicReference<>();
+                referenceWfmodel.set(wfModel);
+
                 String newsIds = items.stream().map(i-> {
                     if(i != null){
                         //Si controlla l'eventuale pregressa importazione della news
@@ -160,6 +208,19 @@ public class RssNewsImporter implements Cloneable{
                             //creazione pagina news
                             Page p = createNewsPage(resolver, session, i, imageDAMPath);
                             if(p != null) {
+
+                                //trigger processo approvativo
+                                if(referenceWfmodel.get() != null) {
+                                    WorkflowData payload = wfSession.newWorkflowData("JCR_PATH", p.getPath());
+                                    try {
+                                        wfSession.startWorkflow(referenceWfmodel.get(), payload);
+                                    }catch(WorkflowException wf){
+                                        wf.printStackTrace();
+                                        addErrors("Exception starting approval workflow for page  " + p.getTitle() + " : " + wf.getMessage());
+                                        return null;
+                                    }
+                                }
+
                                 addNewsCreated(p.getPath());
                                 return  i.getIdentifier();
                             }
@@ -176,8 +237,10 @@ public class RssNewsImporter implements Cloneable{
 
                 //scrittura proprietà di log
                 try {
-                    newsRootJcrNode.setProperty("rssNewsImported", previousImportedNewsIds.get()+NEWS_SEPARATOR+newsIds );
-                    session.save();
+                    if(StringUtils.isNotBlank(newsIds)) {
+                        newsRootJcrNode.setProperty("rssNewsImported", previousImportedNewsIds.get() + NEWS_SEPARATOR + newsIds);
+                        session.save();
+                    }
                 } catch (RepositoryException e) {
                     e.printStackTrace();
                     addErrors("Error setting dnn news id in page property rssNewsImported");
@@ -191,6 +254,17 @@ public class RssNewsImporter implements Cloneable{
         sendResult();
 
         logger.info("**************** End RSS Feed NEWS Importer by bean with id " + this.toString() +" **************************");
+    }
+
+    public WorkflowSession getWorkflowSession() {
+        //return getResourceResolver().adaptTo(WorkflowSession.class);
+        ResourceResolver resolver1 = resolverFactory.getThreadResourceResolver();
+        if(resolver1 != null) {
+            Session session1 = resolver1.adaptTo(Session.class);
+            if(session1 != null)
+                return workflowService.getWorkflowSession(session1);
+        }
+        return null;
     }
 
 
@@ -541,6 +615,10 @@ public class RssNewsImporter implements Cloneable{
         @AttributeDefinition(name = "Debug Report Recipient Copyto", description = "Debug email report recipient Copyto")
         String[] getDebugReportRecipientCopyTo() default {};
 
+        @AttributeDefinition(name = "News Approval Workflow Enabled", description = "News Approval Workflow Enabled")
+        boolean isApprovalWorkflowDisabled() default false;
+        @AttributeDefinition(name = "Approval Workfloew Identifier", description = "Approval Workfloew Identifier")
+        String getApprovalWorkflowModelPath() default "/var/workflow/models/publish-approval-for-menarini-berlinchemie";
 
 
     }
