@@ -41,35 +41,85 @@ function initMap() {
     copyDataFromJson();
 }
 
+/*
 function copyDataFromJson() {
-    const currentNodeMap = document.querySelector(".currentNodeMap").value;
+    const lang = document.documentElement.getAttribute('lang');
 
     const url =
       domainName === "localhost" && port === "4502"
-        ? `${protocol}//${domainName}:${port}${currentNodeMap}.mapresults.json`
+        ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/locale;locale=${lang}`
         : domainName === "localhost"
         ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/countriesMap/AllVenues.json"
-        : `${protocol}//${domainName}${currentNodeMap}.mapresults.json`;
+        : `${protocol}//${domainName}/graphql/execute.json/global/locale;locale=${lang}`;
 
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        // Accedi all'array di dati desiderato
-        const items = data.data.testMapList.items;
+        const items = data.data.venuesList.items;
 
-        // Converti le stringhe numeriche in numeri effettivi
         items.forEach((item) => {
           item.Coord.lat = parseFloat(item.Coord.lat);
           item.Coord.lng = parseFloat(item.Coord.lng);
         });
 
-        // Salva nel localStorage
+        localStorage.setItem("mapResults", JSON.stringify(items));
+      })
+      .catch((error) => {
+        console.error("Error copying data to local storage:", error);
+      });
+}*/
+
+function copyDataFromJson() {
+    const lang = document.documentElement.getAttribute('lang');
+
+    const url =
+      domainName === "localhost" && port === "4502"
+        ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/locale;locale=${lang}`
+        : domainName === "localhost"
+        ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/countriesMap/AllVenues.json"
+        : `${protocol}//${domainName}/graphql/execute.json/global/locale;locale=${lang}`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+
+        const items = data.data.venuesList.items;
+
+        items.forEach((item) => {
+          item.Coord.lat = parseFloat(item.Coord.lat);
+          item.Coord.lng = parseFloat(item.Coord.lng);
+
+          switch (item.Type) {
+            case "DS":
+              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ds.svg";
+              break;
+            case "LO":
+              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-lo.svg";
+              break;
+            case "ML":
+              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ml.svg";
+              break;
+            case "MS":
+              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ms.svg";
+              break;
+            case "RC":
+              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-rc.svg";
+              break;
+            default:
+              // Set a default icon URL if the Type doesn't match any specific case
+              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg";
+              break;
+          }
+        });
+
+        // Save to localStorage
         localStorage.setItem("mapResults", JSON.stringify(items));
       })
       .catch((error) => {
         console.error("Error copying data to local storage:", error);
       });
 }
+
 
 let AllVenues = JSON.parse(localStorage.getItem("mapResults")) || [];
 
@@ -140,7 +190,8 @@ let AllContinents = [
         }
     }
 ];
-let AllCountries = [{
+let AllCountries = [
+    {
         "Continent": "Europe",
         "Country": "Albania",
         "Name": "",
