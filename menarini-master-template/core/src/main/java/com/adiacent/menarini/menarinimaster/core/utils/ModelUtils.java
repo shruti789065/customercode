@@ -59,6 +59,9 @@ public class ModelUtils {
 		label = label.replaceAll("[\\ù]","u");
 		label = label.replaceAll("[\\…]","-");
 		label = label.replaceAll("[\\–]","-");
+		label = label.replaceAll("[\\<]","-");
+		label = label.replaceAll("[\\>]","-");
+		label = label.replaceAll("[\\+]","-");
 		return JcrUtil.escapeIllegalJcrChars(label);
 	}
 
