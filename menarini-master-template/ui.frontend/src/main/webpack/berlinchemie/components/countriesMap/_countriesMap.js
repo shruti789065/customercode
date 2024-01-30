@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
   var mapContainer = document.getElementById("mapWithFilterView");
   if (mapContainer) {
     initMap();
-  }
+  } else {
+        console.log("No mapWithFilterView");
+      }
 
   var checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach(function(checkbox) {
@@ -41,34 +43,6 @@ function initMap() {
     copyDataFromJson();
 }
 
-/*
-function copyDataFromJson() {
-    const lang = document.documentElement.getAttribute('lang');
-
-    const url =
-      domainName === "localhost" && port === "4502"
-        ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/locale;locale=${lang}`
-        : domainName === "localhost"
-        ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/countriesMap/AllVenues.json"
-        : `${protocol}//${domainName}/graphql/execute.json/global/locale;locale=${lang}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const items = data.data.venuesList.items;
-
-        items.forEach((item) => {
-          item.Coord.lat = parseFloat(item.Coord.lat);
-          item.Coord.lng = parseFloat(item.Coord.lng);
-        });
-
-        localStorage.setItem("mapResults", JSON.stringify(items));
-      })
-      .catch((error) => {
-        console.error("Error copying data to local storage:", error);
-      });
-}*/
-
 function copyDataFromJson() {
     const lang = document.documentElement.getAttribute('lang');
 
@@ -91,23 +65,23 @@ function copyDataFromJson() {
 
           switch (item.Type) {
             case "DS":
-              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ds.svg";
+              item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-ds.svg";
               break;
             case "LO":
-              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-lo.svg";
+              item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-lo.svg";
               break;
             case "ML":
-              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ml.svg";
+              item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-ml.svg";
               break;
             case "MS":
-              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-ms.svg";
+              item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-ms.svg";
               break;
             case "RC":
-              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-rc.svg";
+              item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-rc.svg";
               break;
             default:
               // Set a default icon URL if the Type doesn't match any specific case
-              item.Icon = "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg";
+              item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg";
               break;
           }
         });
@@ -118,6 +92,7 @@ function copyDataFromJson() {
       .catch((error) => {
         console.error("Error copying data to local storage:", error);
       });
+
 }
 
 
@@ -133,7 +108,7 @@ let AllContinents = [
         "Continent": "Europe",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 48.341646,
             lng: 11.014086
@@ -143,7 +118,7 @@ let AllContinents = [
         "Continent": "Asia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 54.977614,
             lng: 79.842848
@@ -153,7 +128,7 @@ let AllContinents = [
         "Continent": "Africa",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 8.407168,
             lng: 24.876509
@@ -163,7 +138,7 @@ let AllContinents = [
         "Continent": "North-America",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 44.087585,
             lng: -100.363308
@@ -173,7 +148,7 @@ let AllContinents = [
         "Continent": "South-America",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: -17.978733,
             lng: -53.926073
@@ -183,7 +158,7 @@ let AllContinents = [
         "Continent": "Oceania",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: -29.53523,
             lng: 137.451626
@@ -196,7 +171,7 @@ let AllCountries = [
         "Country": "Albania",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 41.3275489807129,
             lng: 19.8187007904053
@@ -207,7 +182,7 @@ let AllCountries = [
         "Country": "Armenia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 40.1791801452637,
             lng: 44.4990997314453
@@ -218,7 +193,7 @@ let AllCountries = [
         "Country": "Azerbaijan",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 40.1431007385254,
             lng: 47.5769309997559
@@ -229,7 +204,7 @@ let AllCountries = [
         "Country": "Bulgaria",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 42.6977081298828,
             lng: 23.321870803833
@@ -240,7 +215,7 @@ let AllCountries = [
         "Country": "Bosnia and Herzegovina",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 43.856258392334,
             lng: 18.4130802154541
@@ -251,7 +226,7 @@ let AllCountries = [
         "Country": "Belarus",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 53.904541015625,
             lng: 27.5615291595459
@@ -262,7 +237,7 @@ let AllCountries = [
         "Country": "Czech Republic",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 50.0755386352539,
             lng: 14.4378004074097
@@ -273,7 +248,7 @@ let AllCountries = [
         "Country": "Germany",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 52.5200119018555,
             lng: 13.4049501419067
@@ -284,7 +259,7 @@ let AllCountries = [
         "Country": "Estonia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 59.4369583129883,
             lng: 24.7535705566406
@@ -295,7 +270,7 @@ let AllCountries = [
         "Country": "Finland",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 60.1698608398438,
             lng: 24.9383792877197
@@ -306,7 +281,7 @@ let AllCountries = [
         "Country": "Georgia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 41.7151412963867,
             lng: 44.8270988464355
@@ -317,7 +292,7 @@ let AllCountries = [
         "Country": "Croatia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 45.8150100708008,
             lng: 15.9819202423096
@@ -328,7 +303,7 @@ let AllCountries = [
         "Country": "Hungary",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 47.4979095458984,
             lng: 19.0402393341064
@@ -339,7 +314,7 @@ let AllCountries = [
         "Country": "Kazakhstan",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 48.0195693969727,
             lng: 66.9236831665039
@@ -350,7 +325,7 @@ let AllCountries = [
         "Country": "Kyrgyzstan",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 42.8746185302734,
             lng: 74.5697631835938
@@ -361,7 +336,7 @@ let AllCountries = [
         "Country": "Lithuania",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 54.6871604919434,
             lng: 25.2796497344971
@@ -372,7 +347,7 @@ let AllCountries = [
         "Country": "Latvia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 56.949649810791,
             lng: 24.1051902770996
@@ -383,7 +358,7 @@ let AllCountries = [
         "Country": "Moldova",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 47.0104484558105,
             lng: 28.8638095855713
@@ -394,7 +369,7 @@ let AllCountries = [
         "Country": "Montenegro",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 42.430419921875,
             lng: 19.259370803833
@@ -405,7 +380,7 @@ let AllCountries = [
         "Country": "Mongolia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 47.8863983154297,
             lng: 106.905700683594
@@ -416,7 +391,7 @@ let AllCountries = [
         "Country": "Poland",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 52.229679107666,
             lng: 21.0122299194336
@@ -427,7 +402,7 @@ let AllCountries = [
         "Country": "Romania",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 44.4267692565918,
             lng: 26.1025390625
@@ -438,7 +413,7 @@ let AllCountries = [
         "Country": "Russia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 55.7558288574219,
             lng: 37.6172981262207
@@ -449,7 +424,7 @@ let AllCountries = [
         "Country": "Serbia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 44.7865715026855,
             lng: 20.4489192962646
@@ -460,7 +435,7 @@ let AllCountries = [
         "Country": "Slovakia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 48.163332397922,
             lng: 17.1775930116079
@@ -471,7 +446,7 @@ let AllCountries = [
         "Country": "Slovenia",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 46.0569496154785,
             lng: 14.5057497024536
@@ -482,7 +457,7 @@ let AllCountries = [
         "Country": "Turkmenistan",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 37.9600791931152,
             lng: 58.3260612487793
@@ -493,7 +468,7 @@ let AllCountries = [
         "Country": "Ukraine",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 50.4500999450684,
             lng: 30.5233993530273
@@ -504,7 +479,7 @@ let AllCountries = [
         "Country": "Uzbekistan",
         "Name": "",
         "Type": "all",
-        "Icon": "https://www.menarini.com/portals/31/Images/menarini_in_the_world/marker-all.svg",
+        "Icon": "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg",
         "Coord": {
             lat: 41.2994995117188,
             lng: 69.2400665283203
