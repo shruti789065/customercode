@@ -1,0 +1,112 @@
+/*----- mapWithFilterView MENARINI -----*/
+#mapWithFilterView {
+  height: 28vw;
+}
+@media (max-width: 992px) {
+  #mapWithFilterView {
+    height: 100vw;
+  }
+}
+
+/*----- mapWhithPicker MENARINI -----*/
+.picker {
+  .companyName {
+    font-size: $title-extra-small-font-size;
+    font-weight: $font-regular;
+    color: $color-corporate !important;
+    font-family: $font-family-oswald;
+    line-height: $font-height;
+  }
+  .cityName {
+    font-family: $font-family-arimo;
+    color: $color-text;
+    font-size: $font-size-small;
+    font-weight: $font-medium;
+    line-height: $font-height;
+    margin-bottom: 5px;
+  }
+  .websiteName {
+    a {
+      font-family: $font-family-arimo;
+      color: $color-primary;
+      font-size: $font-size-small;
+      font-weight: $font-medium;
+      line-height: $font-height;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+/**** categorie punti mappa ****/
+.map_search_categories {
+  padding: 30px 6%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .map_search_category {
+    margin: 12px 0px;
+
+    width: 100%;
+    label {
+      font-family: $font-family-oswald;
+      font-weight: $font-regular;
+      font-size: $title-extra-small-font-size;
+      color: $color-corporate;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      input {
+        display: none;
+      }
+      & input[type="checkbox"]:checked + span.checkbox:before {
+        content: "\2714";
+        position: relative;
+        font-size: $title-extra-small-font-size;
+        color: $color-primary;
+      }
+      img {
+        width: 41px;
+        max-width: 41px;
+        margin-right: 10px;
+        float: left;
+      }
+      span {
+        &.checkbox {
+          float: left;
+          margin-right: 20px;
+          height: 20px;
+          width: 20px;
+          border: 1px solid $color-primary;
+          display: flex;
+          position: relative;
+          align-items: center;
+          position: relative;
+        }
+        &.text {
+          float: left;
+          font-size: $title-extra-small-font-size;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .map_search_categories {
+    flex-direction: row;
+    .map_search_category {
+      width: 50%;
+    }
+  }
+}
+@media (min-width: 1366px) {
+  .map_search_categories {
+    flex-direction: row;
+    .map_search_category {
+      width: 33%;
+    }
+  }
+}
