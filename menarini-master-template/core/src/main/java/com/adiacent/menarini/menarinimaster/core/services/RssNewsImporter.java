@@ -26,6 +26,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.framework.Constants;
@@ -53,6 +54,8 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
+import static com.adiacent.menarini.menarinimaster.core.models.NewsListModel.NEWSDATA_RESOURCE_TYPE;
+
 @Designate(ocd = RssNewsImporter.Config.class)
 @Component(
         service = RssNewsImporter.class,
@@ -71,7 +74,8 @@ public class RssNewsImporter implements Cloneable{
     private static final String PAGE_RESOURCE_TYPE = "menarinimaster/components/page";
     private static final CharSequence NEWS_SEPARATOR = "|";
 
-
+    public static final String NEWSDATA_RESOURCE_TYPE = "menarinimaster/components/news_data";
+    private static final String NEWSDATA_DATE_PROPERTY_NAME = "newsDate";
     @Reference
     private ResourceResolverFactory resolverFactory;
 
@@ -255,11 +259,11 @@ public class RssNewsImporter implements Cloneable{
 
         Page yearPage = null;
         Page newsPage = null;
-
+        Calendar pubblicationDate = null;
         //get pubdate
         int year = 0;
         if(item.getPubDate() != null) {
-            Calendar pubblicationDate = Calendar.getInstance();
+            pubblicationDate = Calendar.getInstance();
             pubblicationDate.setTime(item.getPubDate());
             year = pubblicationDate.get(Calendar.YEAR);
         }
@@ -322,6 +326,14 @@ public class RssNewsImporter implements Cloneable{
 
                             }
 
+                        }
+
+                        //settaggio data pubblicazione
+                        Resource newsDataCmp = ModelUtils.findChildComponentByResourceType(newsPage.getContentResource(), NEWSDATA_RESOURCE_TYPE);
+                        if(newsDataCmp != null){
+                            Node ndNode = newsDataCmp.adaptTo(Node.class);
+                            ndNode.setProperty(NEWSDATA_DATE_PROPERTY_NAME,pubblicationDate );
+                            newsDataCmp.getValueMap();
                         }
                         session.save();
 
