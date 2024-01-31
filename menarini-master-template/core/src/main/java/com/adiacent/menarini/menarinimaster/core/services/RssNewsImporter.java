@@ -8,6 +8,7 @@ import com.adiacent.menarini.menarinimaster.core.utils.ImageUtils;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 
 
+import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.mailer.MailService;
 
@@ -75,6 +76,7 @@ public class RssNewsImporter implements Cloneable{
     private static final CharSequence NEWS_SEPARATOR = "|";
 
     public static final String NEWSDATA_RESOURCE_TYPE = "menarinimaster/components/news_data";
+    public static final String INTERNAL_HEADER_RESOURCE_TYPE = "menarinimaster/components/internalheader";
     private static final String NEWSDATA_DATE_PROPERTY_NAME = "newsDate";
     @Reference
     private ResourceResolverFactory resolverFactory;
@@ -166,12 +168,15 @@ public class RssNewsImporter implements Cloneable{
                 //recupero proprietà di log relativa alle news importate in precedenza
                 AtomicReference<String> previousImportedNewsIds = new AtomicReference<>("");
                 Node newsRootJcrNode = null;
+                String newsRootTitle = null;
                 Page newsRootPage = (resolver.getResource(serviceConfig.getNewsRootPath())).adaptTo(Page.class);
                 if(newsRootPage!= null){
                     newsRootJcrNode = newsRootPage.getContentResource().adaptTo(Node.class);
                     try {
                         if(newsRootJcrNode.hasProperty("rssNewsImported"))
                             previousImportedNewsIds.set(newsRootJcrNode.getProperty("rssNewsImported").getString());
+                        if(newsRootJcrNode.hasProperty("jcr:title"))
+                            newsRootTitle = newsRootJcrNode.getProperty("jcr:title").getString();
                     } catch (RepositoryException e) {
                         e.printStackTrace();
                         addErrors("Error getting rssNewsImported property from " + serviceConfig.getNewsRootPath() );
@@ -183,6 +188,9 @@ public class RssNewsImporter implements Cloneable{
 
                 AtomicReference<WorkflowModel> referenceWfmodel = new AtomicReference<>();
                 referenceWfmodel.set(wfModel);
+
+                AtomicReference<String> referencePageTitle = new AtomicReference<String>();
+                referencePageTitle.set(newsRootTitle);
 
                 String newsIds = items.stream().map(i-> {
                     if(i != null){
@@ -203,7 +211,7 @@ public class RssNewsImporter implements Cloneable{
                             }
 
                             //creazione pagina news
-                            Page p = createNewsPage(resolver, session, i, imageDAMPath);
+                            Page p = createNewsPage(resolver, session, i, imageDAMPath, referencePageTitle.get());
                             if(p != null) {
 
                                 //trigger processo approvativo
@@ -255,7 +263,7 @@ public class RssNewsImporter implements Cloneable{
 
 
 
-    private Page createNewsPage(ResourceResolver resolver, Session session, RssItemModel item,String imgPath)  {
+    private Page createNewsPage(ResourceResolver resolver, Session session, RssItemModel item,String imgPath, String defaultPageTitle)  {
 
         Page yearPage = null;
         Page newsPage = null;
@@ -312,6 +320,12 @@ public class RssNewsImporter implements Cloneable{
                                 node.setProperty("fileReference", imgPath);
                                 node.setProperty("imageFromPageImage", false);
                             }
+                            String thumbnailNodePath = yearPage.getPath() + "/" + pageName + "/jcr:content/cq:featuredimage";
+                            Node thumbnail = ModelUtils.createNode(thumbnailNodePath,"nt:unstructured",session);
+                            thumbnail.setProperty("sling:resourceType", "core/wcm/components/image/v3/image");
+                            thumbnail.setProperty("fileReference", imgPath);
+                            thumbnail.setProperty("altValueFromDAM", false);
+
 
                         }
 
@@ -333,7 +347,14 @@ public class RssNewsImporter implements Cloneable{
                         if(newsDataCmp != null){
                             Node ndNode = newsDataCmp.adaptTo(Node.class);
                             ndNode.setProperty(NEWSDATA_DATE_PROPERTY_NAME,pubblicationDate );
-                            newsDataCmp.getValueMap();
+                        }
+                        //Settaggio titolo di pagina in componente internalheader
+                        Resource internalHeaderCmp = ModelUtils.findChildComponentByResourceType(newsPage.getContentResource(), INTERNAL_HEADER_RESOURCE_TYPE);
+                        if(internalHeaderCmp != null && StringUtils.isNotBlank(defaultPageTitle)){
+                            Node ihNode = internalHeaderCmp.adaptTo(Node.class);
+                            ihNode.setProperty("jcr:title",defaultPageTitle );
+                            ihNode.setProperty("titleFromPage",false );
+
                         }
                         session.save();
 

@@ -304,4 +304,9 @@ public class ModelUtils {
 		return email.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
 	}
 
+	public static Node createNode(String path, String type, Session session) throws RepositoryException {
+		if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
+				return JcrUtil.createPath(path, type, session);
+		return null;
+	}
 }
