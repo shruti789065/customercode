@@ -96,6 +96,12 @@ module.exports = env => {
 				chunks: ['site', 'berlinchemie']
 			}),
 			new HtmlWebpackPlugin({
+            	inject: true,
+            	template: path.resolve(__dirname, SOURCE_ROOT + '/berlinchemie/static/map.html'),
+            	filename: 'berlinchemieMap.html',
+            	chunks: ['site', 'berlinchemie']
+            }),
+			new HtmlWebpackPlugin({
 				inject: true,
 				template: path.resolve(__dirname, SOURCE_ROOT + '/apac/static/index.html'),
 				filename: 'apac.html',
