@@ -354,6 +354,8 @@ public class RssNewsImporter implements Cloneable{
                             Node ihNode = internalHeaderCmp.adaptTo(Node.class);
                             ihNode.setProperty("jcr:title",defaultPageTitle );
                             ihNode.setProperty("titleFromPage",false );
+                            ihNode.setProperty("altValueFromDAM", false);
+                            ihNode.setProperty("imageFromPageImage", false);
 
                         }
                         session.save();
