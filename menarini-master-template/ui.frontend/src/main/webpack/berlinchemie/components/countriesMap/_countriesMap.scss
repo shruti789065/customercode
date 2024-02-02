@@ -11,19 +11,19 @@
 /*----- mapWhithPicker MENARINI -----*/
 .picker {
   .companyName {
-    font-size: $title-extra-small-font-size;
-    font-weight: $font-regular;
-    color: $color-corporate !important;
-    font-family: $font-family-oswald;
-    line-height: $font-height;
-  }
-  .cityName {
     font-family: $font-family-arimo;
     color: $color-text;
     font-size: $font-size-small;
     font-weight: $font-medium;
     line-height: $font-height;
     margin-bottom: 5px;
+  }
+  .cityName {
+    font-size: $title-extra-small-font-size;
+    font-weight: $font-regular;
+    color: $color-corporate !important;
+    font-family: $font-family-oswald;
+    line-height: $font-height;
   }
   .websiteName {
     a {
