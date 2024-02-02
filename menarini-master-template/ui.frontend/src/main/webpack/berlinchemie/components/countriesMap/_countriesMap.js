@@ -79,6 +79,9 @@ function copyDataFromJson() {
             case "RC":
               item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-rc.svg";
               break;
+            case "LS":
+              item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-ls.svg";
+              break;
             default:
               // Set a default icon URL if the Type doesn't match any specific case
               item.Icon = "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-all.svg";
@@ -615,7 +618,7 @@ function setCountriesMarkers(zoomLevel, filters) {
 function setVenuesMarkers(zoomLevel, filters) {
     if (zoomLevel > CONSTANT_COUNTRY) {
         console.log('setVenuesMarkers');
-        var template = '<div class="picker"><h2 class="companyName">{NAME}</h2><p class="cityName">{CITY}</p><p class="websiteName"><a href="{LINK}" target="_blank">{WEB}</a></p></div>';
+        var template = '<div class="picker"><h2 class="cityName">{CITY}</h2><p class="companyName">{NAME}</p><p class="websiteName"><a href="{LINK}" target="_blank">{WEB}</a></p></div>';
         for (var i = 0; i < AllVenues.length; i++) {
 
             console.log('countrySelected:' + countrySelectedId);
