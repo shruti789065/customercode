@@ -14,6 +14,7 @@ const SITE_stemline = '/stemline';
 const SITE_relifede = '/relifede';
 const SITE_biotech = '/biotech';
 const SITE_berlin = '/berlin';
+const SITE_berlinchemie = '/berlinchemie';
 const SITE_apac = '/apac';
 
 const resolve = {
@@ -31,6 +32,7 @@ module.exports = {
 		relifede: SOURCE_ROOT + SITE_relifede + '/site/main.ts',
 		biotech: SOURCE_ROOT + SITE_biotech + '/site/main.ts',
 		berlin: SOURCE_ROOT + SITE_berlin + '/site/main.ts',
+		berlinchemie: SOURCE_ROOT + SITE_berlinchemie + '/site/main.ts',
 		apac: SOURCE_ROOT + SITE_apac + '/site/main.ts'
 	},
 	output: {
@@ -117,6 +119,7 @@ module.exports = {
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_relifede + '/resources/'), to: './clientlib-relifede' },
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_biotech + '/resources/'), to: './clientlib-biotech' },
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_berlin + '/resources/'), to: './clientlib-berlin' },
+				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_berlinchemie + '/resources/'), to: './clientlib-berlinchemie' },
 				{ from: path.resolve(__dirname, SOURCE_ROOT + SITE_apac + '/resources/'), to: './clientlib-apac' }
 			]
 		})
