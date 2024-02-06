@@ -143,7 +143,11 @@ import $ from "jquery";
       });
 
       // Verifica se il genitore diretto della select è un fieldset con la classe "cmp-connected-options"
-      if (!select.parentElement.closest("fieldset.cmp-connected-options")) {
+      if (
+        !select
+          .closest("fieldset")
+          .parentElement.classList.contains("cmp-connected-options")
+      ) {
         select.style.display = "none";
         select.parentNode.insertBefore(customSelect, select.nextSibling);
       }
