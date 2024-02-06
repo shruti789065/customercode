@@ -43,14 +43,6 @@ import $ from "jquery";
       return optionsList;
     }
 
-    /* function createSelectedValue(select) {
-      const selectedValueSpan = document.createElement("span");
-      let selectedValue = selectedValue.textContent;
-      selectedValueSpan.classList.add("cmp--selected-value");
-      selectedValue = select[0].text;
-      //select.value = selectedValue;
-      return selectedValueSpan;
-    } */
     function createSelectedValue(select) {
       const selectedValueSpan = document.createElement("span");
       let selectedValue = select[0].text; // Inizializza selectedValue con il valore desiderato
@@ -150,8 +142,11 @@ import $ from "jquery";
         handleInputFilterInput(inputFilter, optionsList);
       });
 
-      select.style.display = "none";
-      select.parentNode.insertBefore(customSelect, select.nextSibling);
+      // Verifica se il genitore diretto della select è un fieldset con la classe "cmp-connected-options"
+      if (!select.parentElement.closest("fieldset.cmp-connected-options")) {
+        select.style.display = "none";
+        select.parentNode.insertBefore(customSelect, select.nextSibling);
+      }
     }
 
     return {
