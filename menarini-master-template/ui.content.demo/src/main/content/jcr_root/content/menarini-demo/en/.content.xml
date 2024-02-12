@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[granite:AuthenticationRequired,rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-06-13T11:07:16.089Z"
-        cq:lastModifiedBy="reference-adjustment-service"
-        cq:lastReplicated="{Date}2023-06-14T07:51:29.733Z"
-        cq:lastReplicated_publish="{Date}2023-06-14T07:51:29.733Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-11-08T14:06:21.770Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-10-16T08:14:48.785Z"
+        cq:lastReplicated_publish="{Date}2023-10-16T08:14:48.785Z"
+        cq:lastReplicatedBy="L.ambrosini@adiacent.com"
+        cq:lastReplicatedBy_publish="L.ambrosini@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-demo/settings/wcm/templates/menarini---homepage"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Home"
         jcr:uuid="d9ea29d7-f6d7-46cb-956d-86792970a961"
@@ -175,22 +177,27 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/wrapper"
                         layout="responsiveGrid">
-                        <cardhover_copy
-                            cq:styleIds="[1654760974554,1684752176188]"
-                            jcr:description="&lt;p>Quality comes first&lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-07T08:18:00.388Z"
+                        <card_v2_copy
+                            cq:styleIds="[1699444242445]"
+                            jcr:created="{Date}2023-11-08T11:54:48.603Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>&lt;i>Quality comes first&lt;/i>&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T12:04:44.088Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="PHARMACEUTICALS"
-                            sling:resourceType="menarinimaster/components/cardHover"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="center"
+                            cardType="hover"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/home/cardhover_pharmaceutical.jpg"
-                            icon="/content/dam/menarini-demo/assets/icons/pharmaceutical.svg"
+                            hoverColor="primary"
+                            iconHover="/content/dam/menarini-demo/assets/icons/pharmaceutical.svg"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="center"
                             linkTarget="_self"
-                            linkURL="/content/menarini-demo/en/therapeutic-areas222"
+                            linkURL="/content/menarini-demo/en/pharmaceutical"
                             textIsRich="true"
                             titleFromPage="false">
                             <cq:responsive jcr:primaryType="nt:unstructured">
@@ -203,23 +210,28 @@
                                     offset="0"
                                     width="12"/>
                             </cq:responsive>
-                        </cardhover_copy>
-                        <cardhover_319877496_
-                            cq:styleIds="[1654760980212,1684752172948]"
-                            jcr:description="&lt;p>Quality &amp;amp; Innovation are the drivers of our Consumer Healthcare activities&lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T10:38:18.829Z"
+                        </card_v2_copy>
+                        <card_v2
+                            cq:styleIds="[1699444241844]"
+                            jcr:created="{Date}2023-11-08T11:54:48.603Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>&lt;i>Quality &amp;amp; Innovation are the drivers of our Consumer Healthcare activities&lt;/i>&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T12:13:21.480Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="CONSUMER HEALTHCARE"
-                            sling:resourceType="menarinimaster/components/cardHover"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="center"
+                            cardType="hover"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/home/cardhover_consumerhelthcare.jpg"
-                            icon="/content/dam/menarini-demo/assets/icons/consumerhelthcare.svg"
+                            hoverColor="secondary"
+                            iconHover="/content/dam/menarini-demo/assets/icons/consumerhelthcare.svg"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="center"
                             linkTarget="_self"
-                            linkURL="/content/menarini-demo/en/therapeutic-areas222"
+                            linkURL="/content/menarini-demo/en/consumer-healthcare"
                             textIsRich="true"
                             titleFromPage="false">
                             <cq:responsive jcr:primaryType="nt:unstructured">
@@ -232,7 +244,7 @@
                                     offset="0"
                                     width="12"/>
                             </cq:responsive>
-                        </cardhover_319877496_>
+                        </card_v2>
                         <spacer_copy_copy
                             jcr:lastModified="{Date}2023-06-06T10:25:17.956Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -252,22 +264,27 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/wrapper"
                         layout="responsiveGrid">
-                        <cardhover_copy
-                            cq:styleIds="[1654760974554,1684752176188]"
-                            jcr:description="&lt;p>Sample description 1&lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T10:38:58.325Z"
+                        <card_v2_copy_copy
+                            cq:styleIds="[1699444242445]"
+                            jcr:created="{Date}2023-11-08T11:54:48.603Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>&lt;i>Lorem Ipsum&lt;/i>&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T13:03:38.863Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Sample Title 1"
-                            sling:resourceType="menarinimaster/components/cardHover"
+                            jcr:title="LOREM IPSUM"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="center"
+                            cardType="hover"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/home/cardhover_diagnostics.jpg"
-                            icon="/content/dam/menarini-demo/assets/icons/pharmaceutical.svg"
+                            hoverColor="primary"
+                            iconHover="/content/dam/menarini-demo/assets/icons/pharmaceutical.svg"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="center"
                             linkTarget="_self"
-                            linkURL="/content/menarini-demo/en/therapeutic-areas222"
+                            linkURL="/content/menarini-demo/en/therapeutic-areas"
                             textIsRich="true"
                             titleFromPage="false">
                             <cq:responsive jcr:primaryType="nt:unstructured">
@@ -280,23 +297,28 @@
                                     offset="0"
                                     width="12"/>
                             </cq:responsive>
-                        </cardhover_copy>
-                        <cardhover_319877496_
-                            cq:styleIds="[1654760980212,1684752172948]"
-                            jcr:description="&lt;p>Sample description 2&lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T10:46:21.992Z"
+                        </card_v2_copy_copy>
+                        <card_v2_copy
+                            cq:styleIds="[1699444241844]"
+                            jcr:created="{Date}2023-11-08T11:54:48.603Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:description="&lt;p>&lt;i>Click below to contact us&lt;/i>&lt;/p>&#xd;&#xa;"
+                            jcr:lastModified="{Date}2023-11-08T13:05:47.702Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Sample title 2"
-                            sling:resourceType="menarinimaster/components/cardHover"
+                            jcr:title="CONTACT US"
+                            sling:resourceType="menarinimaster/components/card_v2"
+                            alignItems="center"
+                            cardType="hover"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/home/cardhover_contact-us.jpg"
-                            icon="/content/dam/menarini-demo/assets/icons/consumerhelthcare.svg"
+                            hoverColor="secondary"
+                            iconHover="/content/dam/menarini-demo/assets/icons/contact-us.svg"
                             imageFromPageImage="false"
                             isDecorative="true"
+                            justifyContent="center"
                             linkTarget="_self"
-                            linkURL="/content/menarini-demo/en/therapeutic-areas222"
+                            linkURL="/content/menarini-demo/en/contact-us"
                             textIsRich="true"
                             titleFromPage="false">
                             <cq:responsive jcr:primaryType="nt:unstructured">
@@ -309,7 +331,7 @@
                                     offset="0"
                                     width="12"/>
                             </cq:responsive>
-                        </cardhover_319877496_>
+                        </card_v2_copy>
                         <spacer_copy_copy
                             jcr:lastModified="{Date}2023-06-06T10:25:17.956Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -329,20 +351,25 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/wrapper"
                         layout="responsiveGrid">
-                        <banner_copy
-                            cq:styleIds="[1655107234107]"
+                        <banner_v2_copy
+                            cq:styleIds="[1699444166802]"
+                            jcr:created="{Date}2023-11-08T08:20:22.777Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
                             jcr:description="&lt;p>The Menarini Group was founded in 1886 in Italy and is now present in 140 countries around the world.&lt;/p>&#xd;&#xa;"
-                            jcr:lastModified="{Date}2023-06-06T10:46:37.734Z"
+                            jcr:lastModified="{Date}2023-11-08T14:06:10.961Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Menarini Group"
-                            sling:resourceType="menarinimaster/components/banner"
+                            jcr:title="MENARINI GROUP"
+                            sling:resourceType="menarinimaster/components/banner_v2"
+                            alignItems="flex-start"
+                            bannerType="overlay"
                             descriptionFromPage="false"
-                            disableLazyLoading="false"
                             fileReference="/content/dam/menarini-demo/assets/home/banner/banner-menarini-group.jpg"
                             imageFromPageImage="false"
+                            imagePosition="row-reverse"
                             isDecorative="true"
-                            linkTarget="_self"
+                            justifyContent="flex-start"
+                            linkTarget="_blank"
                             linkURL="https://www.menarini.com/en-us/about-us"
                             textIsRich="true"
                             titleFromPage="false">
@@ -350,17 +377,17 @@
                                 <item0
                                     jcr:primaryType="nt:unstructured"
                                     link="https://www.menarini.com/en-us/about-us"
-                                    linkTarget="_self"
-                                    text="READ MORE"/>
+                                    linkTarget="_blank"
+                                    text="READ MORE ON OUR GLOBAL WEBSITE"/>
                             </actions>
-                        </banner_copy>
+                        </banner_v2_copy>
                     </wrapper>
                 </section_copy_copy_co>
             </container>
         </root>
         <cq:featuredimage
-            jcr:lastModified="{Date}2023-06-09T14:11:45.130Z"
-            jcr:lastModifiedBy="a.messori@adiacent.com"
+            jcr:lastModified="{Date}2023-10-16T08:14:40.935Z"
+            jcr:lastModifiedBy="L.ambrosini@adiacent.com"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="core/wcm/components/image/v3/image"
             altValueFromDAM="false"/>
@@ -375,5 +402,9 @@
     <transparency/>
     <sitemap/>
     <search/>
+    <rep:policy/>
+    <pharmaceutical/>
+    <consumer-healthcare/>
+    <apac-diagnostics-bck/>
     <test/>
 </jcr:root>

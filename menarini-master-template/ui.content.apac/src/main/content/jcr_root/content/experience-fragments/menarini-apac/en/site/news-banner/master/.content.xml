@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-11-21T15:28:48.272Z"
+        cq:lastModifiedBy="f.marrucci@adiacent.com"
+        cq:lastReplicated="{Date}2023-11-22T11:37:41.478Z"
+        cq:lastReplicated_publish="{Date}2023-11-22T11:37:41.478Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-apac/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="news-banner"
+        jcr:uuid="15de96d8-e7a1-417b-8bd4-9f7c96216322"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <spacer_copy
+                jcr:lastModified="{Date}2023-04-04T16:09:59.627Z"
+                jcr:lastModifiedBy="m.papini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/spacer"
+                spacer="50"/>
+            <banner_copy
+                cq:styleIds="[1655107234107]"
+                jcr:description="&lt;p>Discover more about Menarini&lt;/p>&#xd;&#xa;"
+                jcr:lastModified="{Date}2023-11-21T15:28:43.192Z"
+                jcr:lastModifiedBy="f.marrucci@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="MENARINI BLOG"
+                sling:resourceType="menarinimaster/components/banner"
+                descriptionFromPage="false"
+                fileReference="/content/dam/menarini-apac/assets/home/banner/Img_cta_apac_blog.png"
+                imageFromPageImage="false"
+                isDecorative="true"
+                linkTarget="_blank"
+                linkURL="https://www.menariniblog.com/"
+                textIsRich="true"
+                titleFromPage="false">
+                <actions jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        link="https://www.menariniblog.com/"
+                        linkTarget="_self"
+                        text="READ MORE"/>
+                </actions>
+            </banner_copy>
+        </root>
+    </jcr:content>
+</jcr:root>
