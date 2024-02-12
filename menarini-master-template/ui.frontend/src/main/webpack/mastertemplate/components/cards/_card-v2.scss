@@ -1,7 +1,30 @@
 .card_v2 {
+
+  &.cmp-fullDescription{
+    
+    >.cmp-card--avatar{
+
+      >.cmp-teaser__content{
+
+        .cmp-teaser__action-container{
+          display: none !important;
+        }
+  
+        .cmp-teaser__description{
+          display: block !important;
+        }
+
+      }
+
+    }
+
+  }
+
+
   .cmp-card {
     .cmp-teaser__content,
     .cmp-teaser__link {
+      
       position: absolute;
       top: 0;
       padding: 20px;
@@ -100,6 +123,9 @@
         background-color: $color-primary-hover;
       }
     }
+
+    
+
   }
   .cmp-card--standard {
     position: relative;
@@ -296,6 +322,7 @@
       }
     }
   }
+
   .cmp-card--avatar {
     display: flex;
     align-items: center;
@@ -349,6 +376,9 @@
       }
     }
   }
+
+  
+
   .cmp-card--round {
     position: relative;
     border-radius: 50%;
@@ -631,3 +661,4 @@
     padding-right: 0px !important;
   }
 }
+/*--- fix card ---*/
