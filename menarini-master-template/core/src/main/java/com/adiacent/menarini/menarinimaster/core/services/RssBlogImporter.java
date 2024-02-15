@@ -13,6 +13,11 @@ import com.adobe.dam.print.ids.StringConstants;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.mailer.MailService;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.Hit;
+import com.day.cq.search.result.SearchResult;
 import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
@@ -55,8 +60,6 @@ public class RssBlogImporter implements Cloneable{
 
     private static final String IMPORTER_USER = "Importer";
 
-    private static final CharSequence BLOG_SEPARATOR = "|";
-
     private static String TAG_RESOURCE_TYPE = "cq/tagging/components/tag";
     @Reference
     private ResourceResolverFactory resolverFactory;
@@ -66,9 +69,9 @@ public class RssBlogImporter implements Cloneable{
     private Config serviceConfig;
     private List<String> errors;
 
-    private List<String> blogItemCreated;
+    private List<String> importedItems;
 
-    private List<String> blogItemDiscarded;
+    private List<String> cancelledItems;
 
     private transient ContentFragmentApi cfApi = null;
 
@@ -92,7 +95,6 @@ public class RssBlogImporter implements Cloneable{
     public void start() {
         logger.info("**************** Start RSS Feed BLOG Importer by bean with id " + this.toString() +" **************************");
 
-
         if(StringUtils.isBlank(serviceConfig.getRssBlogUrl())){
             addErrors("Missing URL for RSS Feed BLOG ");
             if(errors != null && errors.size() > 0){
@@ -101,13 +103,17 @@ public class RssBlogImporter implements Cloneable{
             }
         }
 
-
         ResourceResolver resolver = getResourceResolver();
         Session session = resolver.adaptTo(Session.class);
 
         //Ottenimento dati dal feed e deserializzazione
         RssBlogModel data = getRssBlogData();
-       
+        if(errors != null && errors.size() > 0){
+            sendResult();
+            return;
+        }
+
+
         if(data != null){
 
             //Elenco item del blog rss
@@ -115,33 +121,52 @@ public class RssBlogImporter implements Cloneable{
 
             //- IMPORT TAG CATEGORIE
             if(!serviceConfig.isCategoryImportDisabled()){
-                //TagManager tagManager = resolver.adaptTo(TagManager.class);
+
+                logger.info("**************** Category Tag import started **************************");
+
+                if(StringUtils.isBlank(serviceConfig.getTagsRootPath())){
+                    addErrors("Missing configuration path of root TAGS ");
+                    if(errors != null && errors.size() > 0){
+                        sendResult();
+                        return;
+                    }
+                }
+
+                if( resolver.getResource(serviceConfig.getTagsRootPath()) == null ){
+                    addErrors("Missing resource node at  " + serviceConfig.getTagsRootPath());
+                    if(errors != null && errors.size() > 0){
+                        sendResult();
+                        return;
+                    }
+                }
+
                 // per ogni item del blog si recupera la categoria: se esiste il tag non si fa nulla, se non esiste lo si crea
-
                 if(items!= null){
-                    //si controlla se esiste la folder parent che contiene i tag della categoria
-                    String parentTagName = ModelUtils.getNodeName(serviceConfig.getCategoryParentTag());
-                    //check tag parent with name "parentTagName"
-                    Resource parentRc = resolver.getResource(serviceConfig.getTagsRootPath()+"/"+parentTagName);
-                    Node parentTagNode = parentRc != null ? parentRc.adaptTo(Node.class):null;
+                    Node parentTagNode = null;
+                    String parentTagName = null;
+                    if(StringUtils.isNotBlank(serviceConfig.getCategoryParentTag())){
+                        //si controlla se esiste la folder parent che contiene i tag della categoria
+                        parentTagName = ModelUtils.getNodeName(serviceConfig.getCategoryParentTag());
 
-                    //Eventuale creazione deil tag "parent" se non esiste su crx ( menarini-berlin-blog-tag)
-                    if(parentTagNode == null){
-                        HashMap properties = new HashMap();
-                        properties.put(JcrConstants.JCR_TITLE, serviceConfig.getCategoryParentTag());
-                        properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
+                        //check tag parent with name "parentTagName"
+                        Resource parentRc = resolver.getResource(StringUtils.appendIfMissing(serviceConfig.getTagsRootPath(),"/")+parentTagName );
+                        parentTagNode = parentRc != null ? parentRc.adaptTo(Node.class):null;
+                        //Eventuale creazione dei tag "parent" se non esiste su crx ( menarini-berlin-blog-tag)
+                        if(parentTagNode == null){
+                            HashMap properties = new HashMap();
+                            properties.put(JcrConstants.JCR_TITLE, serviceConfig.getCategoryParentTag());
+                            properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
 
-                        Tag t = createTag(serviceConfig.getTagNamespace(), null, serviceConfig.getCategoryParentTag() ,properties, session );
-                        if(t != null) {
-                            parentTagNode = t.adaptTo(Node.class);
-
-
+                            Tag t = createTag(serviceConfig.getTagNamespace(), null, serviceConfig.getCategoryParentTag() ,properties, session );
+                            if(t != null) {
+                                parentTagNode = t.adaptTo(Node.class);
+                            }
 
                         }
-
                     }
+
                     if(parentTagNode!= null){
-                        Node finalParentTagNode = parentTagNode;
+                        String finalParentTagName = parentTagName;
                         items.stream().forEach(item -> {
 
                             if(item!= null){
@@ -152,7 +177,7 @@ public class RssBlogImporter implements Cloneable{
                                     properties.put(JcrConstants.JCR_TITLE, c);
                                     properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
 
-                                    createTag(serviceConfig.getTagNamespace(), parentTagName , c, properties, session);
+                                    createTag(serviceConfig.getTagNamespace(), finalParentTagName, c, properties, session);
                                 });
                             }
                         }
@@ -163,7 +188,7 @@ public class RssBlogImporter implements Cloneable{
 
                 }
 
-
+                logger.info("**************** Category Tag import ended **************************");
             }
             //- FINE IMPORT TAG CATEGORIE
 
@@ -171,177 +196,145 @@ public class RssBlogImporter implements Cloneable{
             //+IMPORT CONTENT FRAGMENT
             if(!serviceConfig.isBlogImportDisabled()){
 
-                Externalizer externalizer = resolver.adaptTo(Externalizer.class);
-                String hostname =  externalizer.authorLink(resolver, "/");
+                logger.info("**************** Blog Item import started **************************");
 
-                if(StringUtils.isBlank(serviceConfig.getBlogItemRootPath())){
-                    addErrors("Missing Blog item folder ");
+                if(StringUtils.isBlank(serviceConfig.getImportUsername()) ||
+                        StringUtils.isBlank(serviceConfig.getImportPwd())){
+                    addErrors("Missing credential for connection to Asset REST API");
                     if(errors != null && errors.size() > 0){
                         sendResult();
                         return;
                     }
                 }
 
+                if(StringUtils.isBlank(serviceConfig.getContentFragmentModel())){
+                    addErrors("Missing path of content fragment model");
+                    if(errors != null && errors.size() > 0){
+                        sendResult();
+                        return;
+                    }
+                }
+
+                if(StringUtils.isBlank(serviceConfig.getDamRootPath())){
+                    addErrors("Missing path of AEM DAM");
+                    if(errors != null && errors.size() > 0){
+                        sendResult();
+                        return;
+                    }
+                }
+
+                Externalizer externalizer = resolver.adaptTo(Externalizer.class);
+                String hostname =  externalizer.authorLink(resolver, "/");
+
                 ContentFragmentApi.Config apiConfig = new ContentFragmentApi.Config();
                 apiConfig.setUsername(serviceConfig.getImportUsername());
                 apiConfig.setPwd(serviceConfig.getImportPwd());
                 cfApi = new ContentFragmentApi(apiConfig);
 
-                //+CANCELLAZIONE MASSIVA DI TUTTI I CONTENT FRAGMENT
-                //chidere luca se ok o se invece ci posson oesser edegli item inseriti a manella che poi la delete massiva toglierebbe definitivamente di mezzo
-
-                //-FINE CANCELLAZIONE MASSIVA DI TUTTI I CONTENT FRAGMENT
-
-                //si controlla se esite il path sotto al quale storicizzare i blog item ///content/dam/menarini-berlinchemie/area-content-fragments/blog-items
-
-                Resource folder = resolver.getResource(serviceConfig.getBlogItemRootPath());
-                if (folder == null) {
-
-                    try {
-                        ModelUtils.createNode(serviceConfig.getBlogItemRootPath(), "sling:Folder", session);
-                        session.refresh(true);
-                        session.save();
-                    } catch (RepositoryException e) {
-                        e.printStackTrace();
-                        addErrors("Error creating blog item folder at  " + serviceConfig.getBlogItemRootPath());
-                        if(errors != null && errors.size() > 0){
-                            sendResult();
-                            return;
-                        }
-                    }
-
-                }
-
-
-
-
-                if(items!= null){
-                    items.stream().limit(6).forEach(item -> {
-                        ContentFragmentM<ContentFragmentBlogItemElements> cf = ContentFragmentFactory.generate("blog", item, resolver, serviceConfig.getTagNamespace(), ModelUtils.getNodeName(serviceConfig.getCategoryParentTag()));
-                        if(cf != null){
-                            String cfName = ModelUtils.getNodeName(cf.getProperties().getTitle());// usare l'id per nome nodo!!!!!se possibile'
-                            //se esiste aggiorno,                         //se non esiste creo
-                            String  cfResourcePath = serviceConfig.getBlogItemRootPath()+"/"+cfName;
-                            //Get the resource of content fragment as below.
-                            Resource fragmentResource = resolver.getResource(cfResourcePath);
-                            ContentFragment fragment = null;
-                            if(fragmentResource != null)
-                                fragment = fragmentResource.adaptTo(ContentFragment.class);
-
-                            //Node n = rCF != null ? rCF.adaptTo(Node.class) : null;
-                            String targetPath = StringUtils.replace(cfResourcePath, serviceConfig.getDamRootPath() + "/", "");
-                            boolean operationSuccess = storeContentFragment(fragment==null,  hostname, targetPath, cf);
-                            if(operationSuccess) {
-                                try {
-                                    session.refresh(true);
-                                } catch (RepositoryException e) {
-                                    e.printStackTrace();
-                                    addErrors(e.getMessage());
-                                    return;
-                                }
-                                //associo  un tag per ogni categoria del blog item
-                                // 1.per ogni categoria presente nel blogitem recupero il tagID
-                                if(item.getCategories() != null){
-                                    List<Tag> tags = item.getCategories().stream()
-                                            .map(c->{ Tag t = findTag(serviceConfig.getTagNamespace(),
-                                                    ModelUtils.getNodeName(serviceConfig.getCategoryParentTag()),
-                                                    ModelUtils.getNodeName(c));
-                                                return t != null ? t: null;})
-                                            .filter(e->e!=null)
-                                            .collect(Collectors.toList());
-
-                                    if(tags != null && tags.size() >0) {
-                                        //2.si recuperano tutti gli elementi di tipo Tag sulla base del TagId
-                                        Tag[] allTags = tags.toArray(new Tag[tags.size()]);
-                                        //3.si recupera il content fragment appena creato/modificato
-                                        Resource masterNodeResource = resolver.getResource(cfResourcePath+"/jcr:content/data/master");
-                                        //4. si associano i tags al content fragment
-                                        if(masterNodeResource != null)
-                                            getTagManager().setTags(masterNodeResource, allTags);
-                                        else
-                                            addErrors("Impostare cq:tags per "+cfResourcePath);
-                                    }
-                                }
-
-
-                            }
-
-                        }
-
-                    });
-
-                }
-
-
-
-
-            }
-
-
-            //- FINE IMPORT CONTENT FRAGMENT
-
-            /*
-            //recupero immagini delle news
-            List<RssItemModel> items = data.getChannel().getItems();
-
-            if(items!= null){
-
-
-
-
-
-                String newsIds = items.stream().map(i-> {
-                    if(i != null){
-                        //Si controlla l'eventuale pregressa importazione della news
-                        if(StringUtils.contains(previousImportedNewsIds.get(), i.getIdentifier())){
-                            addNewsDiscarded(i.getIdentifier() + " - " + i.getTitle());
-                            return null;
-                        }
-
+                //se impostato, si controlla l'esistenza della folder/nodo sotto la quale storicizzare i blog item (es: /content/dam/menarini-berlinchemie/area-content-fragments/blog-items)
+                if(StringUtils.isNotBlank(serviceConfig.getBlogItemRootPath())){
+                    Resource folder = resolver.getResource(serviceConfig.getBlogItemRootPath());
+                    if (folder == null) {
                         try {
-                            String imageDAMPath = null;
-                            //Si controlla se la news nel feed ha un'immagine
-                            if(i.getEnclosure() != null && StringUtils.isNotBlank(i.getEnclosure().getUrl())) {
-                                //salvataggio immagine del feed nel DAM
-                                imageDAMPath = addImage(resolver, session, i);
-                                if(StringUtils.isBlank(imageDAMPath))
-                                    return null;//c'è stato un errore nel recupero dell'immagine o nel suo salvataggio su dam
-                            }
-
-                            //creazione pagina news
-                            Page p = createNewsPage(resolver, session, i, imageDAMPath, referencePageTitle.get());
-                            if(p != null) {
-
-
-                                addNewsCreated(p.getPath());
-                                return  i.getIdentifier();
-                            }
-
-                        } catch (Exception e) {
+                            ModelUtils.createNode(serviceConfig.getBlogItemRootPath(), "sling:Folder", session);
+                            session.refresh(true);
+                            session.save();
+                        } catch (RepositoryException e) {
                             e.printStackTrace();
-                            addErrors("Exception managing news " + i.getTitle() + " : " + e.getMessage());
-                            return null;
+                            addErrors("Error creating node at  " + serviceConfig.getBlogItemRootPath());
+                            if(errors != null && errors.size() > 0){
+                                sendResult();
+                                return;
+                            }
                         }
-                    }
 
-                   return null;
-                }).filter(entry->entry!=null).collect(Collectors.joining(NEWS_SEPARATOR));
-
-                //scrittura proprietà di log
-                try {
-                    if(StringUtils.isNotBlank(newsIds)) {
-                        newsRootJcrNode.setProperty("rssNewsImported", previousImportedNewsIds.get() + NEWS_SEPARATOR + newsIds);
-                        session.save();
                     }
-                } catch (RepositoryException e) {
-                    e.printStackTrace();
-                    addErrors("Error setting dnn news id in page property rssNewsImported");
                 }
 
+                List<String> importedCFs = new ArrayList<String>(); //contiene i nomi dei nodi dei content fragment oggetto di importazione
+                if(items!= null){
+                    items.stream().forEach(item -> {
+                        if(item != null) {
+                            ContentFragmentM<ContentFragmentBlogItemElements> cf = ContentFragmentFactory.generate("blog", item, resolver, serviceConfig.getTagNamespace(), ModelUtils.getNodeName(serviceConfig.getCategoryParentTag()), serviceConfig.getContentFragmentModel());
+                            if (cf != null) {
+                                String cfName = calculateBlogItemContentFragmentName(cf);
+                                //se esiste il content fragment con quel nome, lo aggiorno, altrimenti si crea
+                                String cfResourcePath = serviceConfig.getBlogItemRootPath() + "/" + cfName;
+                                //Get the resource of content fragment as below.
+                                ContentFragment fragment = getBlogItemContentFragmentByPath(cfResourcePath, resolver);
 
+                                String targetContentFragmentPath = StringUtils.replace(cfResourcePath, StringUtils.appendIfMissing(serviceConfig.getDamRootPath(),  "/"), "");
+                                boolean operationSuccess = storeContentFragment(fragment == null, hostname, targetContentFragmentPath, cf);
+                                if (operationSuccess) {
+                                    try {
+                                        importedCFs.add(cfName);
+                                        session.refresh(true);
+                                    } catch (RepositoryException e) {
+                                        e.printStackTrace();
+                                        addErrors(e.getMessage());
+                                        return;
+                                    }
+                                    //associo  un tag per ogni categoria del blog item
+                                    // 1.per ogni categoria presente nel blogitem recupero il tagID
+                                    if (item.getCategories() != null) {
+                                        List<Tag> tags = item.getCategories().stream()
+                                                .map(c -> {
+                                                    Tag t = findTag(serviceConfig.getTagNamespace(),
+                                                            ModelUtils.getNodeName(serviceConfig.getCategoryParentTag()),
+                                                            ModelUtils.getNodeName(c));
+                                                    return t != null ? t : null;
+                                                })
+                                                .filter(e -> e != null)
+                                                .collect(Collectors.toList());
+
+                                        if (tags != null && tags.size() > 0) {
+                                            //2.si recuperano tutti gli elementi di tipo Tag sulla base del TagId
+                                            Tag[] allTags = tags.toArray(new Tag[tags.size()]);
+                                            //3.si recupera il content fragment appena creato/modificato
+                                            Resource masterNodeResource = resolver.getResource(cfResourcePath + "/jcr:content/data/master");
+                                            //4. si associano i tags al content fragment
+                                            if (masterNodeResource != null)
+                                                getTagManager().setTags(masterNodeResource, allTags);
+                                            else
+                                                addErrors("Impostare cq:tags per " + cfResourcePath);
+                                        }
+                                    }
+
+
+                                }
+
+                            }
+                        }
+                    });
+                    logger.info("**************** Blog Item Tag import ended **************************");
+                }
+                //- FINE IMPORT CONTENT FRAGMENT
+
+                //+CANCELLAZIONE CONTENT FRAGMENT NON OGGETTO DI IMPORTAZIONE CORRENTE
+                if(!serviceConfig.isBlogItemDeletionDisabled()){
+
+                    logger.info("**************** Blog Item Cancellation started **************************");
+
+                    //recupero id dei content fragment nel crx
+                    List<ContentFragment> cfList = listRssBlogItem(resolver);
+                    //si cancellano i CF NON oggetto di importazione corrente
+                    if(cfList!=null){
+                        cfList.stream().forEach(cfToCheck->{
+                            String cfname = cfToCheck.getName();
+                            if( importedCFs == null || importedCFs.size() == 0  || !importedCFs.contains(cfname)) {
+                                String cfResourcePath = StringUtils.appendIfMissing(serviceConfig.getBlogItemRootPath(),"/")+cfname;
+                                String targetPath = StringUtils.replace(cfResourcePath, StringUtils.appendIfMissing(serviceConfig.getDamRootPath(), "/"), "");
+                                cfApi.delete(hostname, targetPath);
+                            }
+                        });
+                    }
+                    logger.info("**************** Blog Item Cancellation ended **************************");
+                }
+
+                //-FINE CANCELLAZIONE   CONTENT FRAGMENT
 
             }
-            */
+
         }
 
         sendResult();
@@ -349,6 +342,57 @@ public class RssBlogImporter implements Cloneable{
         logger.info("**************** End RSS Feed BLOG Importer by bean with id " + this.toString() +" **************************");
     }
 
+    private ContentFragment getBlogItemContentFragmentByPath(String cfResourcePath, ResourceResolver resolver) {
+        Resource resource = resolver.getResource(cfResourcePath);
+        ContentFragment fragment = null;
+        if (resource != null)
+            fragment = resource.adaptTo(ContentFragment.class);
+        return fragment;
+    }
+
+    private String calculateBlogItemContentFragmentName(ContentFragmentM<ContentFragmentBlogItemElements> cf) {
+        if(cf == null)
+            return null;
+        return ModelUtils.getNodeName(cf.getProperties().getTitle());// usare l'id per nome nodo!!!!!se possibile'
+    }
+
+    private List<ContentFragment> listRssBlogItem(ResourceResolver resolver) {
+
+        List<ContentFragment> res = new ArrayList<ContentFragment>();
+        Map<String, String> map = new HashMap<>();
+        map.put("type", "dam:Asset");
+        map.put("path", serviceConfig.getBlogItemRootPath());
+        map.put("First_property", "jcr:content/contentFragment");
+        map.put("First_property.value", "true");
+        map.put("Second_property", "jcr:content/data/cq:model");
+        map.put("Second_property.value", serviceConfig.getContentFragmentModel());
+        map.put("property.and", "true");
+        map.put("p.limit", "-1");
+
+        QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
+        Query query = queryBuilder.createQuery(PredicateGroup.create(map),  resolver.adaptTo(Session.class));
+        final SearchResult result = query.getResult();
+        for (Hit hit : result.getHits()) {
+            ContentFragment cf = null;
+            try {
+                cf = hit.getResource().adaptTo(ContentFragment.class);
+                res.add(cf);
+            } catch (RepositoryException e) {
+                addErrors(e.getMessage());
+                e.printStackTrace();
+                return null;
+            }
+            /* String contentFragmentName = cf.getName();
+            Iterator<ContentElement> contentElement = cf.getElements();
+            while (contentElement.hasNext()) {
+                ContentElement contentElementObject = contentElement.next();
+                String tagElement = contentElementObject.getName().toString();
+                String elementContent = contentElementObject.getContent();
+            }
+            */
+        }
+        return res;
+    }
 
 
     public boolean storeContentFragment(boolean isNew, String hostname, String targetPath,  ContentFragmentM cf) {
@@ -365,7 +409,9 @@ public class RssBlogImporter implements Cloneable{
     private Tag findTag(String namespace, String nestedTagPath, String tagName) {
         Tag tag = null;
         if(StringUtils.isNotBlank(tagName))
-            tag = getTagManager().resolve(namespace+(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath+"/":"")+tagName);
+            tag = getTagManager().resolve( (StringUtils.isNotBlank(namespace) ? namespace:"" ) +
+                    (StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath+"/":"") +
+                    tagName);
         return tag;
     }
 
@@ -461,53 +507,53 @@ public class RssBlogImporter implements Cloneable{
         }
     }
 
-    public List<String> getBlogItemCreated() {
-        if(blogItemCreated == null)
+    public List<String> getImportedItems() {
+        if(importedItems == null)
             return null;
-        String[] array = blogItemCreated.toArray(new String[blogItemCreated.size()]);
+        String[] array = importedItems.toArray(new String[importedItems.size()]);
         String[] clone = array.clone();
         return Arrays.asList(clone);
     }
-    public void setBlogItemCreated(List<String> blogItemCreated) {
-        if(blogItemCreated== null)
-            this.blogItemCreated = null;
+    public void setImportedItems(List<String> items) {
+        if(items == null)
+            this.importedItems = null;
         else {
-            String[] array = blogItemCreated.toArray(new String[blogItemCreated.size()]);
+            String[] array = importedItems.toArray(new String[importedItems.size()]);
             String[] clone = array.clone();
-            this.blogItemCreated = Arrays.asList(clone);
+            this.importedItems = Arrays.asList(clone);
         }
     }
 
-    public void addBlogItemCreated(String txt){
+    public void addImportedItem(String txt){
         if(StringUtils.isNotBlank(txt)) {
-            if (this.getBlogItemCreated() == null)
-                this.blogItemCreated = new ArrayList<String>();
-            this.blogItemCreated.add(txt);
+            if (this.getImportedItems() == null)
+                this.importedItems = new ArrayList<String>();
+            this.importedItems.add(txt);
         }
     }
 
-    public List<String> getBlogItemDiscarded() {
-        if(blogItemDiscarded == null)
+    public List<String> getCancelledItems() {
+        if(cancelledItems == null)
             return null;
-        String[] array = blogItemDiscarded.toArray(new String[blogItemDiscarded.size()]);
+        String[] array = cancelledItems.toArray(new String[cancelledItems.size()]);
         String[] clone = array.clone();
         return Arrays.asList(clone);
     }
-    public void setBlogItemDiscarded(List<String> blogItemDiscarded) {
-        if(blogItemDiscarded== null)
-            this.blogItemDiscarded = null;
+    public void setCancelledItems(List<String> items) {
+        if(items== null)
+            this.cancelledItems = null;
         else {
-            String[] array = blogItemDiscarded.toArray(new String[blogItemDiscarded.size()]);
+            String[] array = cancelledItems.toArray(new String[items.size()]);
             String[] clone = array.clone();
-            this.blogItemDiscarded = Arrays.asList(clone);
+            this.cancelledItems = Arrays.asList(clone);
         }
     }
 
-    public void addNewsDiscarded(String txt){
+    public void addCancelledItem(String txt){
         if(StringUtils.isNotBlank(txt)) {
-            if (this.getBlogItemDiscarded() == null)
-                this.blogItemDiscarded = new ArrayList<String>();
-            this.blogItemDiscarded.add(txt);
+            if (this.cancelledItems == null)
+                this.cancelledItems = new ArrayList<String>();
+            this.cancelledItems.add(txt);
         }
     }
 
@@ -518,14 +564,14 @@ public class RssBlogImporter implements Cloneable{
             result="Esito operazione : Ko\n\n"+resultKO;
         }
 
-        if(blogItemCreated != null  && blogItemCreated.size() > 0){
-            String resultOK = blogItemCreated.stream().collect(Collectors.joining("\n"));
-            result+="\n\nitem create:"+ blogItemCreated.size()+" \n\n"+resultOK;
+        if(importedItems != null  && importedItems.size() > 0){
+            String resultOK = importedItems.stream().collect(Collectors.joining("\n"));
+            result+="\n\nitems created:"+ importedItems.size()+" \n\n"+resultOK;
         }
 
-        if(blogItemDiscarded != null  && blogItemDiscarded.size() > 0){
-            String resultDis = blogItemDiscarded.stream().collect(Collectors.joining("\n"));
-            result+="\n\nitem scartate :"+ blogItemDiscarded.size()+"\n\n"+resultDis;
+        if(cancelledItems != null  && cancelledItems.size() > 0){
+            String resultDis = cancelledItems.stream().collect(Collectors.joining("\n"));
+            result+="\n\nitems cancelled :"+ cancelledItems.size()+"\n\n"+resultDis;
         }
 
 
@@ -585,6 +631,12 @@ public class RssBlogImporter implements Cloneable{
         @AttributeDefinition(name = "Disable category tag import", description = "Disable category tag import")
         boolean isCategoryImportDisabled() default true;
 
+        @AttributeDefinition(name = "Delete old blog items before new import", description = "Delete old blog items before new import")
+        boolean isBlogItemDeletionDisabled() default true;
+
+        @AttributeDefinition(name = "Content fragment model", description = "Path to the content fragment model")
+        String getContentFragmentModel() default "";
+
         @AttributeDefinition(name = "Category parent tag", description = "Category parent tag")
         String getCategoryParentTag() default "Menarini-berlin Blog Tag";
 
@@ -604,6 +656,7 @@ public class RssBlogImporter implements Cloneable{
 
         @AttributeDefinition(name = "Debug Report Enabled", description = "Enable debug report email")
         boolean isDebugReportEnabled() default false;
+
 
         @AttributeDefinition(name = "Debug Report Subject", description = "Debug email report subject")
         String getDebugReportSubject() default "[MTT] RSS Blog Import Procedure";

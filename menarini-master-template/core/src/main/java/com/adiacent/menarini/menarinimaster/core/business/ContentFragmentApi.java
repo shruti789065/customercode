@@ -249,6 +249,23 @@ public class ContentFragmentApi {
         return response != null && response.getProperties()!= null && Integer.valueOf(200).compareTo(response.getProperties().getStatusCode()) == 0;
     }
 
+    public boolean delete(String hostname, String uri) {
+
+        // String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
+        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : hostname ) + ENDPOINT_PREFIX + uri ;
+
+        HashMap<String,String> headers = new HashMap<String,String>();
+        headers.put("Content-Type", "application/json");
+
+
+        String res = performOperation(DELETE_TYPE, endpoint, headers,  null, null ,0, null);
+
+        ContentFragmentResponseModel response = new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
+
+        return response != null && response.getProperties()!= null && Integer.valueOf(200).compareTo(response.getProperties().getStatusCode()) == 0;
+    }
+
+
     public static class Config {
 
        private String username;

@@ -21,7 +21,7 @@ public class ContentFragmentFactory {
         return null;
     }
 
-    public static ContentFragmentM generate(String type, Object dataSource, ResourceResolver resolver, String tagNamespace, String tagCategoryParent) {
+    public static ContentFragmentM generate(String type, Object dataSource, ResourceResolver resolver, String tagNamespace, String tagCategoryParent, String fragmentModel) {
         if(StringUtils.isBlank(type))
             return null;
         if(dataSource == null)
@@ -29,20 +29,20 @@ public class ContentFragmentFactory {
         ContentFragmentM res = null;
         switch(type){
             case "blog":{
-                res = createFromRssBlogItem((RssBlogItemModel)dataSource, getTagManager(resolver), tagNamespace, tagCategoryParent);
+                res = createFromRssBlogItem((RssBlogItemModel)dataSource, getTagManager(resolver), tagNamespace, tagCategoryParent, fragmentModel);
                 break;
             }
         }
         return res;
     }
 
-    private static ContentFragmentM createFromRssBlogItem(RssBlogItemModel dataSource, TagManager tagManager,String tagNamespace, String tagCategoryParent) {
+    private static ContentFragmentM createFromRssBlogItem(RssBlogItemModel dataSource, TagManager tagManager,String tagNamespace, String tagCategoryParent, String fragmentModel) {
         //si recupera l'id del blog item dal guid ex: https://menariniblog.it/?p=8755
         //dataSource.getGuid()to doooooooooo
         ContentFragmentM<ContentFragmentBlogItemElements> cf = new ContentFragmentM<ContentFragmentBlogItemElements>();
 
         ContentFragmentPropertiesM<ContentFragmentBlogItemElements> properties = new ContentFragmentPropertiesM<ContentFragmentBlogItemElements>();
-        properties.setCqModel("/conf/menarini-berlinchemie/settings/dam/cfm/models/blog-item");
+        properties.setCqModel(fragmentModel);
         properties.setTitle(dataSource.getTitle());
 
         ContentFragmentBlogItemElements elements = new ContentFragmentBlogItemElements();
@@ -77,7 +77,9 @@ public class ContentFragmentFactory {
                 if(c!= null){
                     //si recupera il tag id associato a quella categoria
                     String tagName = ModelUtils.getNodeName(c);
-                    Tag tag =tagManager.resolve(tagNamespace+(StringUtils.isNotBlank(tagCategoryParent) ?tagCategoryParent+"/":"")+tagName);
+                    Tag tag =tagManager.resolve((StringUtils.isNotBlank(tagNamespace)?tagNamespace:"" ) +
+                            (StringUtils.isNotBlank(tagCategoryParent) ?tagCategoryParent+"/":"")+
+                            tagName);
                     return tag != null ? tag.getTagID() : null;
                 }
                 return null;
