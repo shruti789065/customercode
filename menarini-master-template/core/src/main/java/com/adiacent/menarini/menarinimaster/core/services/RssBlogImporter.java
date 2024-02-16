@@ -157,12 +157,24 @@ public class RssBlogImporter implements Cloneable{
                             properties.put(JcrConstants.JCR_TITLE, serviceConfig.getCategoryParentTag());
                             properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
 
-                            Tag t = createTag(serviceConfig.getTagNamespace(), null, serviceConfig.getCategoryParentTag() ,properties, session );
+                            Tag t = null;
+                            try {
+                                t = ModelUtils.createTag(serviceConfig.getTagNamespace(), null, serviceConfig.getCategoryParentTag() ,properties, session, resolver );
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                addErrors(e.getMessage());
+                            }
                             if(t != null) {
                                 parentTagNode = t.adaptTo(Node.class);
                             }
 
                         }
+                    }
+
+                    //Ci sono stati errori in fase di creazione del tag parent per le categorie
+                    if(errors != null && errors.size() > 0){
+                        sendResult();
+                        return;
                     }
 
                     if(parentTagNode!= null){
@@ -177,7 +189,12 @@ public class RssBlogImporter implements Cloneable{
                                     properties.put(JcrConstants.JCR_TITLE, c);
                                     properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
 
-                                    createTag(serviceConfig.getTagNamespace(), finalParentTagName, c, properties, session);
+                                    try {
+                                        ModelUtils.createTag(serviceConfig.getTagNamespace(), finalParentTagName, c, properties, session, resolver);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        addErrors(e.getMessage());
+                                    }
                                 });
                             }
                         }
@@ -279,9 +296,9 @@ public class RssBlogImporter implements Cloneable{
                                     if (item.getCategories() != null) {
                                         List<Tag> tags = item.getCategories().stream()
                                                 .map(c -> {
-                                                    Tag t = findTag(serviceConfig.getTagNamespace(),
+                                                    Tag t = ModelUtils.findTag(serviceConfig.getTagNamespace(),
                                                             ModelUtils.getNodeName(serviceConfig.getCategoryParentTag()),
-                                                            ModelUtils.getNodeName(c));
+                                                            ModelUtils.getNodeName(c), resolver);
                                                     return t != null ? t : null;
                                                 })
                                                 .filter(e -> e != null)
@@ -405,7 +422,7 @@ public class RssBlogImporter implements Cloneable{
         }
         return res;
     }
-
+/*
     private Tag findTag(String namespace, String nestedTagPath, String tagName) {
         Tag tag = null;
         if(StringUtils.isNotBlank(tagName))
@@ -438,7 +455,7 @@ public class RssBlogImporter implements Cloneable{
         }
         return null;
     }
-
+*/
     //Deserializzazione news da feed DNN
     public RssBlogModel getRssBlogData() {
         URL url = null;
