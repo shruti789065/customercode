@@ -1,6 +1,8 @@
 /*----- mapWithFilterView MENARINI -----*/
 #mapWithFilterView {
   height: 28vw;
+  position: relative;
+  overflow: hidden;
 }
 @media (max-width: 992px) {
   #mapWithFilterView {
@@ -44,6 +46,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
+  background-color: #f7f6f4;
 
   .map_search_category {
     margin: 12px 0px;
