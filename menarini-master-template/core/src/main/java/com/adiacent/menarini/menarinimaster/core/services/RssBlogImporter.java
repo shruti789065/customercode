@@ -22,6 +22,7 @@ import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
@@ -74,6 +75,7 @@ public class RssBlogImporter implements Cloneable{
     private List<String> cancelledItems;
 
     private transient ContentFragmentApi cfApi = null;
+
 
     @Activate
     @Modified
@@ -253,7 +255,7 @@ public class RssBlogImporter implements Cloneable{
                     Resource folder = resolver.getResource(serviceConfig.getBlogItemRootPath());
                     if (folder == null) {
                         try {
-                            ModelUtils.createNode(serviceConfig.getBlogItemRootPath(), "sling:Folder", session);
+                            generateNode(serviceConfig.getBlogItemRootPath(), "sling:Folder", session);
                             session.refresh(true);
                             session.save();
                         } catch (RepositoryException e) {
@@ -341,7 +343,8 @@ public class RssBlogImporter implements Cloneable{
                             if( importedCFs == null || importedCFs.size() == 0  || !importedCFs.contains(cfname)) {
                                 String cfResourcePath = StringUtils.appendIfMissing(serviceConfig.getBlogItemRootPath(),"/")+cfname;
                                 String targetPath = StringUtils.replace(cfResourcePath, StringUtils.appendIfMissing(serviceConfig.getDamRootPath(), "/"), "");
-                                cfApi.delete(hostname, targetPath);
+                                deleteContentFragment(hostname, targetPath);
+
                             }
                         });
                     }
@@ -357,6 +360,15 @@ public class RssBlogImporter implements Cloneable{
         sendResult();
 
         logger.info("**************** End RSS Feed BLOG Importer by bean with id " + this.toString() +" **************************");
+    }
+
+    public void deleteContentFragment(String hostname, String targetPath) {
+        if(StringUtils.isNotBlank(hostname)  && StringUtils.isNotBlank(targetPath))
+            cfApi.delete(hostname, targetPath);
+    }
+
+    public void generateNode(String blogItemRootPath, String s, Session session) throws RepositoryException {
+        ModelUtils.createNode(serviceConfig.getBlogItemRootPath(), "sling:Folder", session);
     }
 
     private ContentFragment getBlogItemContentFragmentByPath(String cfResourcePath, ResourceResolver resolver) {
@@ -575,6 +587,9 @@ public class RssBlogImporter implements Cloneable{
     }
 
     protected void sendResult() {
+        if(!serviceConfig.isDebugReportEnabled())
+            return;
+
         String result = "Esito operazione  : Ok";
         if(errors != null  && errors.size() > 0){
             String resultKO = errors.stream().collect(Collectors.joining("\n"));
@@ -615,7 +630,7 @@ public class RssBlogImporter implements Cloneable{
     }
 
     public ResourceResolver getResourceResolver() {
-        ResourceResolver resolver = null;
+         ResourceResolver resolver = null;
         Map<String, Object> param = new HashMap<>();
         param.put(ResourceResolverFactory.SUBSERVICE, com.adiacent.menarini.menarinimaster.core.utils.Constants.SERVICE_NAME);
         try {
@@ -624,6 +639,8 @@ public class RssBlogImporter implements Cloneable{
             logger.error("Error retrieving resolver with system user", e);
         }
         return resolver;
+
+
     }
 
     public TagManager getTagManager() {
