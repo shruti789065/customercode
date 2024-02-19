@@ -548,6 +548,8 @@ public class RssNewsImporter implements Cloneable{
     }
 
     protected void sendResult() {
+        if(!serviceConfig.isDebugReportEnabled())
+            return;
         String result = "Esito operazione  : Ok";
         if(errors != null  && errors.size() > 0){
             String resultKO = errors.stream().collect(Collectors.joining("\n"));

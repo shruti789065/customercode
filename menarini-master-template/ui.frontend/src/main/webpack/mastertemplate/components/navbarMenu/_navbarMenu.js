@@ -87,6 +87,7 @@ const NavbarMenu = (() => {
         currentContainerIndex = dataIndex;
 
         const body = document.body;
+		const HTML = document.documentElement;
 
         if (_isDesktop()) {
           const displayStyle = navbarSection.style.display;
@@ -112,8 +113,9 @@ const NavbarMenu = (() => {
         }
 
         // Aggiungi gestione dell'overflow del body
-        body.style.overflow =
-          navbarSection.style.display === "none" ? "auto" : "hidden";
+        //body.style.overflow =  navbarSection.style.display === "none" ? "auto" : "hidden";
+
+		HTML.style.overflow =  navbarSection.style.display === "none" ? "auto" : "hidden";
       }
 	  else{
 		currentContainerIndex = -1;
