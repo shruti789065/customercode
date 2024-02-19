@@ -121,6 +121,14 @@ public class RssBlogImporter implements Cloneable{
             //Elenco item del blog rss
             List<RssBlogItemModel> items = data.getChannel()!= null ? data.getChannel().getItems() : null;
 
+            if(items == null || items.size() == 0){
+                addErrors("No blog items to import. Procedure stopped ");
+                if(errors != null && errors.size() > 0){
+                    sendResult();
+                    return;
+                }
+            }
+
             //- IMPORT TAG CATEGORIE
             if(!serviceConfig.isCategoryImportDisabled()){
 
@@ -286,8 +294,10 @@ public class RssBlogImporter implements Cloneable{
                                 boolean operationSuccess = storeContentFragment(fragment == null, hostname, targetContentFragmentPath, cf);
                                 if (operationSuccess) {
                                     try {
+
                                         importedCFs.add(cfName);
                                         session.refresh(true);
+                                        addImportedItem(item.getTitle());
                                     } catch (RepositoryException e) {
                                         e.printStackTrace();
                                         addErrors(e.getMessage());
@@ -344,7 +354,7 @@ public class RssBlogImporter implements Cloneable{
                                 String cfResourcePath = StringUtils.appendIfMissing(serviceConfig.getBlogItemRootPath(),"/")+cfname;
                                 String targetPath = StringUtils.replace(cfResourcePath, StringUtils.appendIfMissing(serviceConfig.getDamRootPath(), "/"), "");
                                 deleteContentFragment(hostname, targetPath);
-
+                                addCancelledItem(cfname);
                             }
                         });
                     }
@@ -598,12 +608,12 @@ public class RssBlogImporter implements Cloneable{
 
         if(importedItems != null  && importedItems.size() > 0){
             String resultOK = importedItems.stream().collect(Collectors.joining("\n"));
-            result+="\n\nitems created:"+ importedItems.size()+" \n\n"+resultOK;
+            result+="\n\nBlog items created:"+ importedItems.size()+" \n\n"+resultOK;
         }
 
         if(cancelledItems != null  && cancelledItems.size() > 0){
             String resultDis = cancelledItems.stream().collect(Collectors.joining("\n"));
-            result+="\n\nitems cancelled :"+ cancelledItems.size()+"\n\n"+resultDis;
+            result+="\n\nContent fragments cancelled :"+ cancelledItems.size()+"\n\n"+resultDis;
         }
 
 
@@ -657,10 +667,10 @@ public class RssBlogImporter implements Cloneable{
         boolean isBlogImportDisabled() default true;
 
         @AttributeDefinition(name = "Blog item Root Path", description = "Imported blog item root path")
-        String getBlogItemRootPath() default "/content/dam/menarini-berlinchemie/area-content-fragments/blog-items";
+        String getBlogItemRootPath() default "";
 
         @AttributeDefinition(name = "Rss feed url", description = "RSS Feed url")
-        String getRssBlogUrl() default "https://menariniblog.com/feed";
+        String getRssBlogUrl() default "";
 
         @AttributeDefinition(name = "Disable category tag import", description = "Disable category tag import")
         boolean isCategoryImportDisabled() default true;
