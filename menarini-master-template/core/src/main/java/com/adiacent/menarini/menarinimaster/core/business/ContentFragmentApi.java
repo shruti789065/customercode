@@ -2,8 +2,8 @@ package com.adiacent.menarini.menarinimaster.core.business;
 
 
 
-import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentM;
-import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentResponseModel;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.ContentFragmentM;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.ContentFragmentResponseModel;
 import com.adiacent.menarini.menarinimaster.core.utils.SlingSettingsUtils;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

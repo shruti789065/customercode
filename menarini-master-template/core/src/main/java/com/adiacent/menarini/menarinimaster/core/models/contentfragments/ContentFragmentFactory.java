@@ -1,4 +1,4 @@
-package com.adiacent.menarini.menarinimaster.core.models;
+package com.adiacent.menarini.menarinimaster.core.models.contentfragments;
 
 
 import com.adiacent.menarini.menarinimaster.core.models.rss.BlogItemModel;

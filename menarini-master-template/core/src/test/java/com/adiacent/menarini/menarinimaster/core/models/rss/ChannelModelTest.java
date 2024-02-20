@@ -1,6 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.models.rss;
 
-import com.adiacent.menarini.menarinimaster.core.models.EnclosureModel;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.EnclosureModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextBuilder;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;

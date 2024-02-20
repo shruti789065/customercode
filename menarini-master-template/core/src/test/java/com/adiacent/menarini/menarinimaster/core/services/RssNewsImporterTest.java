@@ -1,7 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.services;
 
 
-import com.adiacent.menarini.menarinimaster.core.models.EnclosureModel;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.EnclosureModel;
 
 import com.adiacent.menarini.menarinimaster.core.models.rss.ChannelModel;
 import com.adiacent.menarini.menarinimaster.core.models.rss.NewsItemModel;

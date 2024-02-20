@@ -2,9 +2,9 @@ package com.adiacent.menarini.menarinimaster.core.services;
 
 
 import com.adiacent.menarini.menarinimaster.core.business.ContentFragmentApi;
-import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentBlogItemElements;
-import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentFactory;
-import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentM;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.ContentFragmentBlogItemElements;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.ContentFragmentFactory;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.ContentFragmentM;
 
 
 import com.adiacent.menarini.menarinimaster.core.models.rss.BlogItemModel;
@@ -74,6 +74,8 @@ public class RssBlogImporter implements Cloneable{
     private List<String> errors;
 
     private List<String> importedItems;
+
+    private List<String> importedTags;
 
     private List<String> cancelledItems;
 
@@ -204,7 +206,9 @@ public class RssBlogImporter implements Cloneable{
                                     properties.put(StringConstants.SLING_RESOURCE_TYPE, TAG_RESOURCE_TYPE);
 
                                     try {
-                                        ModelUtils.createTag(serviceConfig.getTagNamespace(), finalParentTagName, c, properties, session, resolver);
+                                        Tag ctag = ModelUtils.createTag(serviceConfig.getTagNamespace(), finalParentTagName, c, properties, session, resolver);
+                                        if(ctag != null)
+                                            addImportedTag(ctag.getTagID());
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                         addErrors(e.getMessage());
@@ -575,6 +579,31 @@ public class RssBlogImporter implements Cloneable{
         }
     }
 
+    public List<String> getImportedTags() {
+        if(importedTags == null)
+            return null;
+        String[] array = importedTags.toArray(new String[importedTags.size()]);
+        String[] clone = array.clone();
+        return Arrays.asList(clone);
+    }
+    public void setImportedTags(List<String> items) {
+        if(items == null)
+            this.importedTags = null;
+        else {
+            String[] array = importedItems.toArray(new String[importedTags.size()]);
+            String[] clone = array.clone();
+            this.importedTags = Arrays.asList(clone);
+        }
+    }
+
+    public void addImportedTag(String txt){
+        if(StringUtils.isNotBlank(txt)) {
+            if (this.getImportedTags() == null)
+                this.importedTags = new ArrayList<String>();
+            this.importedTags.add(txt);
+        }
+    }
+
     public List<String> getCancelledItems() {
         if(cancelledItems == null)
             return null;
@@ -613,6 +642,11 @@ public class RssBlogImporter implements Cloneable{
         if(importedItems != null  && importedItems.size() > 0){
             String resultOK = importedItems.stream().collect(Collectors.joining("\n"));
             result+="\n\nBlog items created:"+ importedItems.size()+" \n\n"+resultOK;
+        }
+
+        if(importedTags != null  && importedTags.size() > 0){
+            String resultOK = importedTags.stream().collect(Collectors.joining("\n"));
+            result+="\n\nCategory Tags created:"+ importedTags.size()+" \n\n"+resultOK;
         }
 
         if(cancelledItems != null  && cancelledItems.size() > 0){

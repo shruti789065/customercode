@@ -1,6 +1,6 @@
 package com.adiacent.menarini.menarinimaster.core.models.rss;
 
-import com.adiacent.menarini.menarinimaster.core.models.EnclosureModel;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.EnclosureModel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

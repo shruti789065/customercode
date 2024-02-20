@@ -1,7 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.services;
 
 
-import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentM;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.ContentFragmentM;
 
 import com.adiacent.menarini.menarinimaster.core.models.rss.BlogItemModel;
 import com.adiacent.menarini.menarinimaster.core.models.rss.ChannelModel;
@@ -121,14 +121,22 @@ class RssBlogImporterTest {
     void testFullImport(){
 
         //override mock instance tagmanager
-        Tag mockedTag = mock(Tag.class);
-        Node mockedNode = mock(Node.class);
-        when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);
+        Tag mockedTag = null; //mock(Tag.class);
+        TagManager tManager = aemContext.resourceResolver().adaptTo(TagManager.class);
         try {
+            mockedTag = tManager.createTag("tag1", "Tag 1 title", "Tag 1 desc");
+        } catch (InvalidTagFormatException e) {
+            e.printStackTrace();
+        }
+        /*Tag mockedTag = mock(Tag.class);
+        Node mockedNode = mock(Node.class);
+        when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);*/
+        try {
+            Tag finalMockedTag = mockedTag;
             lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(true))).thenAnswer(new Answer<Tag>() {
                 @Override
                 public Tag answer(InvocationOnMock invocation) throws Throwable {
-                    return mockedTag;
+                    return finalMockedTag;
                 }}
             );
         } catch (InvalidTagFormatException e) {
@@ -197,7 +205,7 @@ class RssBlogImporterTest {
         assertNull(importer.getErrors());
         assertTrue(importer.getImportedItems().size()> 0);
         assertTrue(importer.getCancelledItems().size()> 0);
-
+        assertTrue(importer.getImportedTags().size()> 0);
 
     }
 }
