@@ -1,4 +1,4 @@
-package com.adiacent.menarini.menarinimaster.core.models.rssnews;
+package com.adiacent.menarini.menarinimaster.core.models.rss;
 
 import com.adiacent.menarini.menarinimaster.core.models.EnclosureModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -14,6 +14,7 @@ import java.util.List;
 
 import static com.adobe.cq.wcm.core.components.testing.mock.ContextPlugins.CORE_COMPONENTS;
 import static org.junit.jupiter.api.Assertions.*;
+
 @ExtendWith({AemContextExtension.class})
 class ChannelModelTest {
 
@@ -42,7 +43,7 @@ class ChannelModelTest {
     @Test
     public void testGetItem() {
         ChannelModel model = new ChannelModel();
-        RssItemModel item = new RssItemModel();
+        NewsItemModel item = new NewsItemModel();
         item.setDescription("item_descr");
         item.setGuid("guid");
         item.setCreator("author");
@@ -52,18 +53,18 @@ class ChannelModelTest {
         item.setEnclosure(new EnclosureModel());
 
         model.setItem(item);
-        List<RssItemModel> listItem = new ArrayList<>();
+        List<NewsItemModel> listItem = new ArrayList<>();
         listItem.add(item);
         model.setItems(listItem);
         assertNotNull(model.getItem());
-        assertNotNull(model.getItem().getEnclosure());
-        assertNotNull(model.getItem().getPubDate());
-        assertEquals(0, model.getItem().getTitle().compareTo("item_title"));
-        assertEquals(0, model.getItem().getDescription().compareTo("item_descr"));
-        assertEquals(0, model.getItem().getCreator().compareTo("author"));
-        assertEquals(0, model.getItem().getLink().compareTo("item_link"));
+        assertNotNull(((NewsItemModel)model.getItem()).getEnclosure());
+        assertNotNull(((NewsItemModel)model.getItem()).getPubDate());
+        assertEquals(0, ((NewsItemModel)model.getItem()).getTitle().compareTo("item_title"));
+        assertEquals(0, ((NewsItemModel)model.getItem()).getDescription().compareTo("item_descr"));
+        assertEquals(0, ((NewsItemModel)model.getItem()).getCreator().compareTo("author"));
+        assertEquals(0, ((NewsItemModel)model.getItem()).getLink().compareTo("item_link"));
         assertEquals(1, model.getItems().size());
-        assertEquals(0, model.getItem().getGuid().compareTo("guid"));
+        assertEquals(0, ((NewsItemModel)model.getItem()).getGuid().compareTo("guid"));
     }
 
 

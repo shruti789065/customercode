@@ -1,6 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.models;
 
-import com.adiacent.menarini.menarinimaster.core.models.rssblog.RssBlogItemModel;
+
+import com.adiacent.menarini.menarinimaster.core.models.rss.BlogItemModel;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
@@ -29,14 +30,14 @@ public class ContentFragmentFactory {
         ContentFragmentM res = null;
         switch(type){
             case "blog":{
-                res = createFromRssBlogItem((RssBlogItemModel)dataSource, getTagManager(resolver), tagNamespace, tagCategoryParent, fragmentModel);
+                res = createFromRssBlogItem((BlogItemModel)dataSource, getTagManager(resolver), tagNamespace, tagCategoryParent, fragmentModel);
                 break;
             }
         }
         return res;
     }
 
-    private static ContentFragmentM createFromRssBlogItem(RssBlogItemModel dataSource, TagManager tagManager,String tagNamespace, String tagCategoryParent, String fragmentModel) {
+    private static ContentFragmentM createFromRssBlogItem(BlogItemModel dataSource, TagManager tagManager, String tagNamespace, String tagCategoryParent, String fragmentModel) {
         //si recupera l'id del blog item dal guid ex: https://menariniblog.it/?p=8755
         //dataSource.getGuid()to doooooooooo
         ContentFragmentM<ContentFragmentBlogItemElements> cf = new ContentFragmentM<ContentFragmentBlogItemElements>();

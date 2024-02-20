@@ -5,8 +5,10 @@ import com.adiacent.menarini.menarinimaster.core.business.ContentFragmentApi;
 import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentBlogItemElements;
 import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentFactory;
 import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentM;
-import com.adiacent.menarini.menarinimaster.core.models.rssblog.RssBlogModel;
-import com.adiacent.menarini.menarinimaster.core.models.rssblog.RssBlogItemModel;
+
+
+import com.adiacent.menarini.menarinimaster.core.models.rss.BlogItemModel;
+import com.adiacent.menarini.menarinimaster.core.models.rss.RssModel;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.dam.print.ids.StringConstants;
@@ -18,9 +20,10 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-import com.day.cq.tagging.InvalidTagFormatException;
+
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import org.apache.commons.lang3.StringUtils;
@@ -109,7 +112,7 @@ public class RssBlogImporter implements Cloneable{
         Session session = resolver.adaptTo(Session.class);
 
         //Ottenimento dati dal feed e deserializzazione
-        RssBlogModel data = getRssBlogData();
+        RssModel data = getRssBlogData();
         if(errors != null && errors.size() > 0){
             sendResult();
             return;
@@ -119,7 +122,7 @@ public class RssBlogImporter implements Cloneable{
         if(data != null){
 
             //Elenco item del blog rss
-            List<RssBlogItemModel> items = data.getChannel()!= null ? data.getChannel().getItems() : null;
+            List<BlogItemModel> items = data.getChannel()!= null ? data.getChannel().getItems() : null;
 
             if(items == null || items.size() == 0){
                 addErrors("No blog items to import. Procedure stopped ");
@@ -192,6 +195,7 @@ public class RssBlogImporter implements Cloneable{
                         items.stream().forEach(item -> {
 
                             if(item!= null){
+
                                 item.getCategories().forEach(c->{
                                     if(StringUtils.isBlank(c))
                                         return;
@@ -479,7 +483,7 @@ public class RssBlogImporter implements Cloneable{
     }
 */
     //Deserializzazione news da feed DNN
-    public RssBlogModel getRssBlogData() {
+    public RssModel getRssBlogData() {
         URL url = null;
         try {
             url = new URL(serviceConfig.getRssBlogUrl());
@@ -504,7 +508,7 @@ public class RssBlogImporter implements Cloneable{
             XmlMapper xmlMapper = new XmlMapper();
             return  xmlMapper.readValue(
                     txt,
-                    RssBlogModel.class);
+                    new TypeReference<RssModel<BlogItemModel>>(){});
 
         } catch (MalformedURLException e) {
             addErrors(e.getMessage());

@@ -2,10 +2,11 @@ package com.adiacent.menarini.menarinimaster.core.services;
 
 
 import com.adiacent.menarini.menarinimaster.core.models.ContentFragmentM;
-import com.adiacent.menarini.menarinimaster.core.models.rssblog.ChannelModel;
-import com.adiacent.menarini.menarinimaster.core.models.rssblog.RssBlogModel;
+
+import com.adiacent.menarini.menarinimaster.core.models.rss.BlogItemModel;
+import com.adiacent.menarini.menarinimaster.core.models.rss.ChannelModel;
+import com.adiacent.menarini.menarinimaster.core.models.rss.RssModel;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.adobe.cq.dam.cfm.ContentFragmentException;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -31,7 +32,6 @@ import org.mockito.stubbing.Answer;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,10 +86,10 @@ class RssBlogImporterTest {
         configAttributes.put("getRssBlogUrl","https://menariniblog.com/feed");
         importer = spy(aemContext.registerInjectActivateService(new RssBlogImporter(), configAttributes));
         when(importer.getResourceResolver()).thenReturn(resolver);
-        when(importer.getRssBlogData()).then(new Answer<RssBlogModel>() {
+        when(importer.getRssBlogData()).then(new Answer<RssModel<BlogItemModel>>() {
             @Override
-            public RssBlogModel answer(InvocationOnMock invocationOnMock) throws Throwable {
-                RssBlogModel model = new RssBlogModel();
+            public RssModel<BlogItemModel> answer(InvocationOnMock invocationOnMock) throws Throwable {
+                RssModel<BlogItemModel> model = new RssModel<BlogItemModel>();
                 ChannelModel channel = new ChannelModel();
                 channel.setItems(new ArrayList<>());
                 model.setChannel(channel);
@@ -122,6 +122,8 @@ class RssBlogImporterTest {
 
         //override mock instance tagmanager
         Tag mockedTag = mock(Tag.class);
+        Node mockedNode = mock(Node.class);
+        when(mockedTag.adaptTo(Node.class)).thenReturn(mockedNode);
         try {
             lenient().when(tagManager.createTag(any(String.class),any(String.class),eq(null),eq(true))).thenAnswer(new Answer<Tag>() {
                 @Override

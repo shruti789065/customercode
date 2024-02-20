@@ -1,14 +1,15 @@
 package com.adiacent.menarini.menarinimaster.core.services;
 
 
-import com.adiacent.menarini.menarinimaster.core.models.rssnews.RssItemModel;
-import com.adiacent.menarini.menarinimaster.core.models.rssnews.RssNewModel;
 
+
+import com.adiacent.menarini.menarinimaster.core.models.rss.NewsItemModel;
+import com.adiacent.menarini.menarinimaster.core.models.rss.RssModel;
 import com.adiacent.menarini.menarinimaster.core.utils.ImageUtils;
 import com.adiacent.menarini.menarinimaster.core.utils.ModelUtils;
 
 
-import com.day.cq.commons.jcr.JcrUtil;
+
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.mailer.MailService;
 
@@ -21,12 +22,13 @@ import com.day.cq.workflow.WorkflowService;
 import com.day.cq.workflow.WorkflowSession;
 import com.day.cq.workflow.exec.WorkflowData;
 import com.day.cq.workflow.model.WorkflowModel;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
-import org.apache.sling.api.resource.LoginException;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -157,11 +159,11 @@ public class RssNewsImporter implements Cloneable{
 
 
         //Ottenimento dati dal feed e deserializzazione
-        RssNewModel data = getRssNewsData();
+        RssModel data = getRssNewsData();
        
         if(data != null){
             //recupero immagini delle news
-            List<RssItemModel> items = data.getChannel().getItems();
+            List<NewsItemModel> items = data.getChannel().getItems();
 
             if(items!= null){
 
@@ -263,7 +265,7 @@ public class RssNewsImporter implements Cloneable{
 
 
 
-    private Page createNewsPage(ResourceResolver resolver, Session session, RssItemModel item,String imgPath, String defaultPageTitle)  {
+    private Page createNewsPage(ResourceResolver resolver, Session session, NewsItemModel item,String imgPath, String defaultPageTitle)  {
 
         Page yearPage = null;
         Page newsPage = null;
@@ -373,7 +375,7 @@ public class RssNewsImporter implements Cloneable{
     }
 
     @SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
-    public String addImage(ResourceResolver resolver, Session session, RssItemModel item) throws Exception {
+    public String addImage(ResourceResolver resolver, Session session, NewsItemModel item) throws Exception {
 
         if(item == null)
             return null;
@@ -430,7 +432,7 @@ public class RssNewsImporter implements Cloneable{
     }
 
     //Deserializzazione news da feed DNN
-    public RssNewModel getRssNewsData() {
+    public RssModel getRssNewsData() {
         URL url = null;
         try {
             url = new URL(serviceConfig.getRssFeedUrl());
@@ -455,7 +457,7 @@ public class RssNewsImporter implements Cloneable{
             XmlMapper xmlMapper = new XmlMapper();
             return  xmlMapper.readValue(
                     txt,
-                    RssNewModel.class);
+                    new TypeReference<RssModel<NewsItemModel>>(){});
 
         } catch (MalformedURLException e) {
             addErrors(e.getMessage());
