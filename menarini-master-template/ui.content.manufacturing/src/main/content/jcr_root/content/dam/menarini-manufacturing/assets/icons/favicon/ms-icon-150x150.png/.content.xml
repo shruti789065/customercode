@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="803f1952-8b2f-48af-aa49-8840e9e4a693">
+    <jcr:content
+        dam:assetState="processed"
+        dam:jobId="98c900a6-3ddc-43a5-8e26-d0c3c62a0c69"
+        dam:processingId="a7fa52d3-f1e7-47b3-9775-a51c9365ddb3"
+        dam:processingRenditions="[cq5dam.thumbnail.140.100.png,cqdam.metadata.xml,cqdam.text.txt,cq5dam.preview.pdf,cqdam.machine.metadata.colors.json,cq5dam.zoom.2048.2048.jpeg,cq5dam.thumbnail.319.319.png,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.tags.json,cqdam.machine.metadata.features.json,cq5dam.thumbnail.48.48.png]"
+        dam:processingRequestedDate="{Date}2023-06-09T13:32:34.518Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for png files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for png files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}32"
+            dam:Comments="Software: Adobe ImageReady XML:com.adobe.xmp: &lt;?xpacket begin=&quot;﻿&quot; id=&quot;W5M0MpCehiHzreSzNTczkc9d&quot;?> &lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;Adobe XMP Core 9.1-c001 79.a8d475349, 2023/03/23-13:05:45        &quot;> &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;> &lt;rdf:Description rdf:about=&quot;&quot; xmlns:xmp=&quot;http://ns.adobe.com/xap/1.0/&quot; xmlns:xmpMM=&quot;http://ns.adobe.com/xap/1.0/mm/&quot; xmlns:stRef=&quot;http://ns.adobe.com/xap/1.0/sType/ResourceRef#&quot; xmp:CreatorTool=&quot;Adobe Photoshop 24.6 (20230603.m.2196 77b00e0)  (Windows)&quot; xmpMM:InstanceID=&quot;xmp.iid:30A2D836053D11EE9A618B366E932AC2&quot; xmpMM:DocumentID=&quot;xmp.did:30A2D837053D11EE9A618B366E932AC2&quot;> &lt;xmpMM:DerivedFrom stRef:instanceID=&quot;xmp.iid:30A2D834053D11EE9A618B366E932AC2&quot; stRef:documentID=&quot;xmp.did:30A2D835053D11EE9A618B366E932AC2&quot;/> &lt;/rdf:Description> &lt;/rdf:RDF> &lt;/x:xmpmeta> &lt;?xpacket end=&quot;r&quot;?> "
+            dam:extracted="{Date}2023-06-09T13:32:50.110Z"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}2"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:predictedColors="{Long}[13048,12040,1012]"
+            dam:Progressive="no"
+            dam:sha1="34c93cad1c73e47c852b1e2f6ae44c3995f819ba"
+            dam:size="{Long}6989"
+            dc:format="image/png"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            photoshop:ColorMode="{Long}3"
+            tiff:BitsPerSample="{Long}[8,8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}150"
+            tiff:ImageWidth="{Long}150"
+            xmp:CreatorTool="Adobe Photoshop 24.6 (20230603.m.2196 77b00e0)  (Windows)"
+            xmpMM:DocumentID="xmp.did:30A2D837053D11EE9A618B366E932AC2"
+            xmpMM:InstanceID="xmp.iid:30A2D836053D11EE9A618B366E932AC2">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="xmp.did:30A2D835053D11EE9A618B366E932AC2"
+                stRef:instanceID="xmp.iid:30A2D834053D11EE9A618B366E932AC2"
+                xmpNodeType="xmpStruct"/>
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.4835"
+                    name="WHITE"
+                    rank="{Long}1"
+                    rgb="{Long}[251,251,251]"/>
+                <color2
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.3956"
+                    name="BLACK"
+                    rank="{Long}2"
+                    rgb="{Long}[1,1,1]"/>
+                <color3
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.1208"
+                    name="RED"
+                    rank="{Long}3"
+                    rgb="{Long}[244,52,64]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
