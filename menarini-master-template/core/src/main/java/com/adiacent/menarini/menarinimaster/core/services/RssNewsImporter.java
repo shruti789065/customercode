@@ -283,8 +283,8 @@ public class RssNewsImporter implements Cloneable{
             try {
                 String yPagePath = serviceConfig.getNewsRootPath() + "/" + year;
                 if (session.nodeExists(yPagePath)) {
-                    Node yPageNode = session.getNode(yPagePath);
-                    /*if (yPageNode.hasProperty("jcr:primaryType") &&
+                    /* Node yPageNode = session.getNode(yPagePath);
+                    if (yPageNode.hasProperty("jcr:primaryType") &&
                             com.adiacent.menarini.menarinimaster.core.utils.Constants.PAGE_PROPERTY_NAME.equals(yPageNode.getProperty("jcr:primaryType"))) */
                         yearPage = resolver.getResource(yPagePath).adaptTo(Page.class);
 

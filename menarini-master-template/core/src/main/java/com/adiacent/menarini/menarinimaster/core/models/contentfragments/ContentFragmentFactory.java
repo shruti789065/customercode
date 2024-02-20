@@ -33,6 +33,7 @@ public class ContentFragmentFactory {
                 res = createFromRssBlogItem((BlogItemModel)dataSource, getTagManager(resolver), tagNamespace, tagCategoryParent, fragmentModel);
                 break;
             }
+            default: break;
         }
         return res;
     }
