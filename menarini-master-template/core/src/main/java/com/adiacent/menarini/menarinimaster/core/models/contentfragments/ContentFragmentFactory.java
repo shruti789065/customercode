@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class ContentFragmentFactory {
 
-    private static SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T00:00:00.000Z'");
+
 
     public static TagManager getTagManager(ResourceResolver resolver) {
         if(resolver!= null)
@@ -40,6 +40,8 @@ public class ContentFragmentFactory {
     private static ContentFragmentM createFromRssBlogItem(BlogItemModel dataSource, TagManager tagManager, String tagNamespace, String tagCategoryParent, String fragmentModel) {
         //si recupera l'id del blog item dal guid ex: https://menariniblog.it/?p=8755
         //dataSource.getGuid()to doooooooooo
+        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T00:00:00.000Z'");
+
         ContentFragmentM<ContentFragmentBlogItemElements> cf = new ContentFragmentM<ContentFragmentBlogItemElements>();
 
         ContentFragmentPropertiesM<ContentFragmentBlogItemElements> properties = new ContentFragmentPropertiesM<ContentFragmentBlogItemElements>();

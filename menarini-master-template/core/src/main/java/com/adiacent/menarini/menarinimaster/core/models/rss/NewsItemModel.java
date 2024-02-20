@@ -7,10 +7,10 @@ public class NewsItemModel extends RssItemModel{
     private byte[] image;
 
     public byte[] getImage() {
-        return image;
+        return image.clone();
     }
 
     public void setImage(byte[] image) {
-        this.image = image;
+        this.image = image.clone();
     }
 }
