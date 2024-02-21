@@ -162,11 +162,12 @@ public class RssNewsImporter implements Cloneable{
         RssModel data = getRssNewsData();
        
         if(data != null){
+            logger.info("Obtained data from rss news url");
             //recupero immagini delle news
             List<NewsItemModel> items = data.getChannel().getItems();
 
             if(items!= null){
-
+                logger.info("There are" + items.size() + " news to handle");
                 //recupero proprietà di log relativa alle news importate in precedenza
                 AtomicReference<String> previousImportedNewsIds = new AtomicReference<>("");
                 Node newsRootJcrNode = null;
