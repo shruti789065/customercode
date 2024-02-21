@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/menarini-codifi/settings/wcm/templates/menarini---homepage"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="menarinimaster/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader_copy
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/internalheader"/>
+                <section_1473771530_c
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper">
+                        <title
+                            cq:styleIds="[1678463398786]"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Lorem Ipsum"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h3"/>
+                    </wrapper>
+                </section_1473771530_c>
+                <section_copy_copy_co
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper"
+                        layout="responsiveGrid">
+                        <cardhover_copy
+                            cq:styleIds="[1654760974554,1684752113465]"
+                            jcr:description="&lt;p>Sample description 1&lt;/p>&#xd;&#xa;"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Sample Title 1"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-codifi/assets/home/cardhover_diagnostics.jpg"
+                            icon="/content/dam/menarini-codifi/assets/icons/consumerhelthcare.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_blank"
+                            linkURL="/content/dam/menarini-codifi/assets/documents.pdf"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover_copy>
+                        <cardhover_319877496_
+                            cq:styleIds="[1654760980212,1684752109907]"
+                            jcr:description="&lt;p>Sample description 2&lt;/p>&#xd;&#xa;"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Sample title 2"
+                            sling:resourceType="menarinimaster/components/cardHover"
+                            descriptionFromPage="false"
+                            disableLazyLoading="false"
+                            fileReference="/content/dam/menarini-codifi/assets/home/cardhover_contact-us.jpg"
+                            icon="/content/dam/menarini-codifi/assets/icons/consumerhelthcare.svg"
+                            imageFromPageImage="false"
+                            isDecorative="true"
+                            linkTarget="_blank"
+                            linkURL="/content/dam/menarini-codifi/assets/documents.pdf"
+                            textIsRich="true"
+                            titleFromPage="false">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="6"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </cardhover_319877496_>
+                        <spacer_copy_copyF
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/spacer"
+                            spacer="40"/>
+                    </wrapper>
+                </section_copy_copy_co>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>
