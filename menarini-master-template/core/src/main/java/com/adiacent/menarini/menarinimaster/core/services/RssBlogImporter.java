@@ -304,7 +304,7 @@ public class RssBlogImporter implements Cloneable{
                                     try {
 
                                         importedCFs.add(cfName);
-                                        session.refresh(true);
+                                        session.save();
                                         addImportedItem(item.getTitle());
                                     } catch (RepositoryException e) {
                                         e.printStackTrace();
