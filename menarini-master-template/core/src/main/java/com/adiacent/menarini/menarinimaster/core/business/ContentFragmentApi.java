@@ -47,7 +47,7 @@ public class ContentFragmentApi {
     private static final String PUT_TYPE = "PUT";
     private static final String ENDPOINT_PREFIX = "/api/assets/";
     private final Config apiConfig;
-
+    private static final Integer MAX_ITERATION = 5;
 
     public ContentFragmentApi(Config apiConfig) {
         this.apiConfig = apiConfig;
@@ -197,13 +197,17 @@ public class ContentFragmentApi {
        String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : hostname ) + ENDPOINT_PREFIX + jsonPath ;
 
 
-       String res = performOperation(GET_TYPE, endpoint, null,  null, null ,0, null);
-
+       String res = null;
+       int currentIteration = 0;
+       do{
+           logger.info("currentIteration # " + currentIteration);
+           res = performOperation(GET_TYPE, endpoint, null,  null, null ,0, null);
+       }while((MAX_ITERATION == null || currentIteration <MAX_ITERATION.intValue() ) && res == null);
         // ContentFragmentWrapper w = getGson().fromJson(res, ContentFragmentWrapper.class);
 
        Type collectionType = TypeToken.getParameterized(ContentFragmentM.class, type).getType();
 
-        ContentFragmentM response = new GsonBuilder().create().fromJson(res, collectionType);
+        ContentFragmentM response =  res == null ? null : new GsonBuilder().create().fromJson(res, collectionType);
 
         return response;
     }
@@ -211,6 +215,7 @@ public class ContentFragmentApi {
 
     public boolean create(String hostname, String uri, ContentFragmentM obj, Class type) {
 
+        logger.info("Creazione content fragment " + uri);
        // String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
         String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : hostname ) + ENDPOINT_PREFIX + uri ;
 
@@ -220,16 +225,22 @@ public class ContentFragmentApi {
         Type collectionType = TypeToken.getParameterized(ContentFragmentM.class, type).getType();
         String payload = new GsonBuilder().create().toJson(obj, collectionType);
 
-        String res = performOperation(POST_TYPE, endpoint, headers,  null, payload ,0, null);
+        String res = null;
+        int currentIteration = 0;
+        do{
+            logger.info("currentIteration # " + currentIteration);
+            res = performOperation(POST_TYPE, endpoint, headers,  null, payload ,0, null);
+        }while((MAX_ITERATION == null || currentIteration <MAX_ITERATION.intValue() ) && res == null);
 
-        ContentFragmentResponseModel response = new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
+        ContentFragmentResponseModel response =  res == null ? null : new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
 
+        logger.info("Fine Creazione content fragment " + uri + " con response " + response);
         return response != null && response.getProperties()!= null && response.getProperties().isCreate();
     }
 
 
     public boolean put(String hostname, String uri, ContentFragmentM obj, Class type) {
-
+        logger.info("Aggiornamento content fragment " + uri);
         //String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : "https://"+serverName+":"+serverPort ) + "/" + ENDPOINT_PREFIX + pathFolder + "/"+StringUtils.replace(obj.getProperties().getTitle().toLowerCase()," ","-") ;
 
         String endpoint = ( isLocalRunModeEnabled() ? "http://localhost:4502" : hostname ) + ENDPOINT_PREFIX + uri ;
@@ -242,10 +253,17 @@ public class ContentFragmentApi {
 
         String payload = new GsonBuilder().create().toJson(obj, collectionType);
 
-        String res = performOperation(PUT_TYPE, endpoint, headers,  null, payload ,0, null);
+        String res = null;
+        int currentIteration = 0;
+        do{
+            logger.info("currentIteration # " + currentIteration);
+            res = performOperation(PUT_TYPE, endpoint, headers,  null, payload ,0, null);
+        }while((MAX_ITERATION == null || currentIteration <MAX_ITERATION.intValue() ) && res == null);
 
-        ContentFragmentResponseModel response = new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
 
+        ContentFragmentResponseModel response = res == null ? null : new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
+
+        logger.info("Fine Aggiornamento content fragment " + uri + " con response " + response);
         return response != null && response.getProperties()!= null && Integer.valueOf(200).compareTo(response.getProperties().getStatusCode()) == 0;
     }
 
@@ -258,9 +276,14 @@ public class ContentFragmentApi {
         headers.put("Content-Type", "application/json");
 
 
-        String res = performOperation(DELETE_TYPE, endpoint, headers,  null, null ,0, null);
+        String res = null;
+        int currentIteration = 0;
+        do{
+            logger.info("currentIteration # " + currentIteration);
+            res = performOperation(DELETE_TYPE, endpoint, headers,  null, null ,0, null);
+        }while((MAX_ITERATION == null || currentIteration <MAX_ITERATION.intValue() ) && res == null);
 
-        ContentFragmentResponseModel response = new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
+        ContentFragmentResponseModel response =  res == null ? null : new GsonBuilder().create().fromJson(res, ContentFragmentResponseModel.class);
 
         return response != null && response.getProperties()!= null && Integer.valueOf(200).compareTo(response.getProperties().getStatusCode()) == 0;
     }
