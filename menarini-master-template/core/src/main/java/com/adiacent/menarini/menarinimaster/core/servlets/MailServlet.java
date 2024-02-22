@@ -315,12 +315,12 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 		if (errors.isEmpty()) {
 
 			//email per cliente
-			status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle,true);
+			status = sendEmail(request, clientText, new String[]{emailValue}, fromAddress, null, null, subject, namesList, resBundle,true,null);
 			//email per admin
 			if(getEncryptedEmail(String.valueOf(encryptedMail)) != null && !getEncryptedEmail(String.valueOf(encryptedMail)).isEmpty()){
 				mailTo = new String[]{getEncryptedEmail(String.valueOf(encryptedMail))};
 			}
-			sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, fromAddress, ccRecs, bccRecs, subject, namesList, resBundle,false);
+			sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, fromAddress, ccRecs, bccRecs, subject, namesList, resBundle,false,new String[]{emailValue});
 		}
 
 
@@ -346,7 +346,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 	}
 
 
-	private int sendEmail(SlingHttpServletRequest request, String mailText, String[] mailTo, String fromAddress, String[] ccRecs, String[] bccRecs, String subject, List<String> namesList, ResourceBundle resBundle, Boolean removeFormLink) {
+	private int sendEmail(SlingHttpServletRequest request, String mailText, String[] mailTo, String fromAddress, String[] ccRecs, String[] bccRecs, String subject, List<String> namesList, ResourceBundle resBundle, Boolean removeFormLink,String[] replyTo) {
 		int status = 200;
 		try {
 			final StringBuilder builder = new StringBuilder();
@@ -427,6 +427,13 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 			for (final String rec : mailTo) {
 				email.addTo(rec);
 			}
+			//reply-to
+			if(replyTo != null){
+				for (final String rep : replyTo) {
+					email.addReplyTo(rep);
+				}
+			}
+
 			// cc
 			if (ccRecs != null) {
 				for (final String rec : ccRecs) {

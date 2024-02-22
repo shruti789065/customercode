@@ -1,12 +1,18 @@
 package com.adiacent.menarini.menarinimaster.core.utils;
 
+import com.adobe.cq.dam.cfm.ContentFragment;
+import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.day.cq.tagging.InvalidTagFormatException;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import com.day.cq.wcm.api.WCMException;
 import com.google.gson.JsonObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
@@ -26,6 +32,67 @@ import java.util.regex.Pattern;
 
 
 public class ModelUtils {
+
+	public static String getNodeName(String label){
+		if(StringUtils.isBlank(label))
+			return null;
+		label = label.trim().toLowerCase().replaceAll("[\\(\\)\\[\\]\\']","");
+		label = label.replaceAll("[\\s:]","-");
+		label = label.replaceAll("[\\?]","-");
+		label = label.replaceAll("[\\%]","-");
+		label = label.replaceAll("[\\®]","");
+		label = label.replaceAll("[\\/]","-");
+		label = label.replaceAll("[\\:]","-");
+		label = label.replaceAll("[\\']","-");
+		label = label.replaceAll("[\\’]","-");
+		label = label.replaceAll("[\\“]","-");
+		label = label.replaceAll("[\\”]","-");
+		label = label.replaceAll("[\\,]","-");
+		label = label.replaceAll("[\\?]","-");
+		label = label.replaceAll("[\\‘]","-");
+		label = label.replaceAll("[\\’]","-");
+		label = label.replaceAll("[\\™]","-");
+		label = label.replaceAll("[\\.]","-");
+		label = label.replaceAll("[\\\"]","-");
+		label = label.replaceAll("[\\!]","-");
+		label = label.replaceAll("[\\à]","a");
+		label = label.replaceAll("[\\è]","e");
+		label = label.replaceAll("[\\é]","e");
+		label = label.replaceAll("[\\ì]","i");
+		label = label.replaceAll("[\\ò]","o");
+		label = label.replaceAll("[\\ù]","u");
+		label = label.replaceAll("[\\…]","-");
+		label = label.replaceAll("[\\–]","-");
+		label = label.replaceAll("[\\<]","-");
+		label = label.replaceAll("[\\>]","-");
+		label = label.replaceAll("[\\+]","-");
+		label = label.replaceAll("[\\ñ]","n");
+		return JcrUtil.escapeIllegalJcrChars(label);
+	}
+
+	public static Page createPage(ResourceResolver resolver, Session session, String prefixPath, String name, String title, String template, String resourceType ) throws WCMException, RepositoryException {
+		if(resolver == null || session == null || StringUtils.isBlank(prefixPath) || StringUtils.isBlank(name) || StringUtils.isBlank(title) ||
+				StringUtils.isBlank(template))
+			return null;
+
+		PageManager pageManager = resolver.adaptTo(PageManager.class);
+		Page page = pageManager.create(prefixPath, name, template, title);
+
+
+		Node pageNode = page.adaptTo(Node.class);
+		Node jcrNode = null;
+
+		if (page.hasContent()) {
+			jcrNode = page.getContentResource().adaptTo(Node.class);
+		} else {
+			jcrNode = pageNode.addNode("jcr:content", "cq:PageContent");
+
+		}
+		if(StringUtils.isNotBlank(resourceType))
+			jcrNode.setProperty("sling:resourceType", resourceType);
+
+		return page;
+	}
 
 	public static Page findPageByParentTemplate(Page currentPage, String templateName) {
 
@@ -241,5 +308,48 @@ public class ModelUtils {
 		// Qui viene fornito solo un esempio di base
 		return email.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
 	}
+
+	public static Node createNode(String path, String type, Session session) throws RepositoryException {
+		if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
+				return JcrUtil.createPath(path, type, session);
+		return null;
+	}
+
+	public static Tag findTag(String namespace, String nestedTagPath, String tagName, ResourceResolver resolver) {
+		Tag tag = null;
+		if(StringUtils.isNotBlank(tagName)) {
+			TagManager tagManager =  resolver.adaptTo(TagManager.class);
+			tag = tagManager.resolve((StringUtils.isNotBlank(namespace) ? namespace : "") +
+					(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath + "/" : "") +
+					tagName);
+		}
+		return tag;
+	}
+
+	public static Tag createTag(String namespace, String nestedTagPath, String title, HashMap properties, Session session, ResourceResolver resolver) throws Exception {
+
+
+		if(StringUtils.isNotBlank(title)){
+			String tagName = ModelUtils.getNodeName(title);
+			Tag tag = ModelUtils.findTag(namespace, nestedTagPath, tagName, resolver);
+			TagManager tagManager =  resolver.adaptTo(TagManager.class);
+			if(tag == null){
+				try{
+					tag = tagManager.createTag(namespace+(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath+"/":"")+tagName, title, null,true);
+					if(tag == null){
+						throw new Exception("Error in creating tag " + title);
+					}
+					else
+						session.save();
+				} catch (InvalidTagFormatException | RepositoryException e) {
+					e.printStackTrace();
+					throw new Exception("Error in creating tag " + tag);
+				}
+			}
+			return tag;
+		}
+		return null;
+	}
+
 
 }
