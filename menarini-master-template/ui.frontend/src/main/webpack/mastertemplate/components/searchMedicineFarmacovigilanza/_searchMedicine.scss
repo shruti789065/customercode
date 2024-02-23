@@ -1,0 +1,105 @@
+.searchMedicineFarmacovigilanza {
+    display: flex;
+    flex-direction: column;
+    .searchInputConatiner{
+      display: inline-flex;
+      flex-direction: row;
+      width: 50%;
+      justify-content: flex-start;
+	  @media (max-width: 768px) {
+		width: 100%;
+	  }
+	  @media (max-width: 1199px) {
+		width: 60%;
+	  }
+    }
+    .title{
+        width: 100%;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+		font-family: $font-family-arimo;
+        .asterisco{
+            color: #d32d39;
+        }
+    }
+  
+    #search-medicine-input {
+		display: block;
+		width: 80%;
+		padding: 6px 12px;
+		line-height: 1.42857143;
+		background-color: $white;
+		background-image: none;
+		font-family: $font-family-oswald;
+		font-size: 20px;
+		font-weight: $font-light;
+		color: $color-text;
+		border: 0px;
+		background: $white;
+		box-shadow: none;
+		height: 65px;
+		padding-left: 20px;
+    }
+  
+    #search-medicine-button {
+      width: -moz-fit-content;
+      width: fit-content;
+      box-sizing: border-box;
+      margin: 0px;
+      background: unset;
+      border: unset;
+      cursor: pointer;
+      background-color: $color-primary;
+      text-transform: uppercase;
+      font-family: $font-family-oswald;
+      font-weight: $font-medium;
+      padding: 10px 40px;
+      color: $white;
+      text-decoration: none;
+      transition: 0.5s;
+      display: flex;
+      align-items: center;
+  
+      &:hover {
+        background-color: $color-primary-hover;
+      }
+      &:disabled {
+        background-color: lightgray;
+        cursor: not-allowed;
+      }
+	  @media (max-width: 768px) {
+		padding: 10px 20px;
+	  }
+    }
+  }
+  .resultTitle{
+    width: 100%;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    display: none;
+	font-family: $font-family-arimo;
+  }
+  #farmacovigilanzaForm{
+    display: none;
+  }
+  .cq-Editable-dom{
+    #farmacovigilanzaForm{
+      display: block;
+    }
+  }
+  
+.farmacovigilanzaResult{
+    label{
+        cursor: pointer;
+    }
+}
+.farmacovigilanzaError{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    display: none;
+	font-family: $font-family-arimo;
+}
+  
+  
