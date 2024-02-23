@@ -322,7 +322,6 @@
       }
     }
   }
-
   .cmp-card--avatar {
     display: flex;
     align-items: center;
@@ -376,9 +375,6 @@
       }
     }
   }
-
-  
-
   .cmp-card--round {
     position: relative;
     border-radius: 50%;
@@ -471,7 +467,8 @@
   }
   &.cmp-fullTitle {
     .cmp-card--standard,
-    .cmp-card--hover {
+    .cmp-card--hover,
+    .cmp-card--label {
       .cmp-teaser__content,
       .cmp-teaser__link {
         .cmp-teaser__title {
@@ -486,7 +483,8 @@
   }
   &.cmp-fullDescription {
     .cmp-card--standard,
-    .cmp-card--hover {
+    .cmp-card--hover,
+    .cmp-card--label {
       .cmp-teaser__content,
       .cmp-teaser__link {
         .cmp-teaser__description {
@@ -507,9 +505,14 @@
       justify-content: center;
       position: relative;
       padding: inherit;
+      background: unset;
       .cmp-teaser__content {
         padding: inherit;
         position: relative;
+        .cmp-teaser__title {
+          margin-bottom: 0px;
+          text-align: center;
+        }
       }
     }
     &-negative {
