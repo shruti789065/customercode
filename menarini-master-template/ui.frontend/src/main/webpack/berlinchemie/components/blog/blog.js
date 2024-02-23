@@ -2,22 +2,27 @@ import $ from "jquery";
 
 const blog = (() => {
   function copyDataFromJson() {
-    const tag = document.querySelector(".cmp-bloglist").dataset.category || '';
+    const tag = document.querySelector(".cmp-bloglist").dataset.category || "";
     const domainName = window.location.hostname;
     const port = window.location.port;
     const protocol = window.location.protocol;
+    let graphqlQuery;
 
-	/*
+    /*
 	https://author-p100658-e925061.adobeaemcloud.com/graphql/execute.json/global/blog-filtered;category=menarini-berlinchemie:menarini-berlin-blog-tag/menarini-art 
 	*/
 
+    if (!tag) {
+      graphqlQuery = `/graphql/execute.json/global/blog-all`;
+    } else {
+      graphqlQuery = `/graphql/execute.json/global/blog-filtered;category=${tag}`;
+    }
     const url =
       domainName === "localhost" && port === "4502"
-        ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/blog-filtered;category=${tag}`
+        ? `${protocol}//${domainName}:${port}${graphqlQuery}`
         : domainName === "localhost"
         ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/blogFeedMT/blogFeed.json"
-        : `${protocol}//${domainName}/graphql/execute.json/global/blog-filtered;category=${tag}`;
-		
+        : `${protocol}//${domainName}${graphqlQuery}`;
 
     fetch(url)
       .then((response) => {
@@ -28,12 +33,16 @@ const blog = (() => {
       })
       .then((data) => {
         const blogElement = document.querySelector(".blog-list");
-        if (!blogElement) {return;}
+        if (!blogElement) {
+          return;
+        }
 
         const articles = blogElement.getElementsByTagName("article");
         for (const [i, article] of Object.entries(articles)) {
           const item = data.items[i];
-          if (!item) {break;}
+          if (!item) {
+            break;
+          }
 
           const category = document.createElement("div");
           category.setAttribute("class", "category");
