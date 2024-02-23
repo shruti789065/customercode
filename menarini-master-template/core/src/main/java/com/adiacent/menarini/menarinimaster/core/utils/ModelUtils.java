@@ -6,6 +6,8 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.WCMException;
@@ -308,5 +310,19 @@ public class ModelUtils {
 		if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
 				return JcrUtil.createPath(path, type, session);
 		return null;
+	}
+
+	public static List<String> getPageTags(ResourceResolver resourceResolver, String pagePath) {
+		List<String> tags = new ArrayList<String>();
+		TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+		Resource pageContentResource = resourceResolver.getResource(pagePath + "/jcr:content");
+
+		if (tagManager != null && pageContentResource != null) {
+			Tag[] pageTags = tagManager.getTags(pageContentResource);
+			for (Tag tag : pageTags) {
+				tags.add(tag.getTagID());
+			}
+		}
+		return tags;
 	}
 }
