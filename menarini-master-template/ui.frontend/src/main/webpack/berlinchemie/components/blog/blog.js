@@ -2,7 +2,7 @@ import $ from "jquery";
 
 const blog = (() => {
   function copyDataFromJson() {
-    const tag = document.querySelector(".cmp-bloglist").dataset.category;
+    const tag = document.querySelector(".cmp-bloglist").dataset.category || '';
     const domainName = window.location.hostname;
     const port = window.location.port;
     const protocol = window.location.protocol;
@@ -12,7 +12,7 @@ const blog = (() => {
 	*/
 
     const url =
-      domainName === "localhost" && port === "4552"
+      domainName === "localhost" && port === "4502"
         ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/blog-filtered;category=${tag}`
         : domainName === "localhost"
         ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/blogFeedMT/blogFeed.json"
