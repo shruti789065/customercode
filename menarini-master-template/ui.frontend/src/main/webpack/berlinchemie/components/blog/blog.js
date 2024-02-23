@@ -2,17 +2,22 @@ import $ from "jquery";
 
 const blog = (() => {
   function copyDataFromJson() {
-    const lang = document.documentElement.getAttribute("lang");
+    const tag = document.querySelector(".cmp-bloglist").dataset.category;
     const domainName = window.location.hostname;
     const port = window.location.port;
     const protocol = window.location.protocol;
 
+	/*
+	https://author-p100658-e925061.adobeaemcloud.com/graphql/execute.json/global/blog-filtered;category=menarini-berlinchemie:menarini-berlin-blog-tag/menarini-art 
+	*/
+
     const url =
-      domainName === "localhost" && port === "4502"
-        ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/locale;locale=${lang}`
+      domainName === "localhost" && port === "4552"
+        ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/blog-filtered;category=${tag}`
         : domainName === "localhost"
         ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/blogFeedMT/blogFeed.json"
-        : `${protocol}//${domainName}/graphql/execute.json/global/locale;locale=${lang}`;
+        : `${protocol}//${domainName}/graphql/execute.json/global/blog-filtered;category=${tag}`;
+		
 
     fetch(url)
       .then((response) => {

@@ -18,7 +18,7 @@
      data-sly-use.fragmentTemplate="core/wcm/components/contentfragment/v1/contentfragment/templates.html">
 	<section data-sly-list.fragment="${list.listItems}"
 	         id="${list.id}"
-	         class="cmp-contentfragmentlist cmp-bloglist">
+	         class="cmp-contentfragmentlist cmp-bloglist" data-category="${properties.tagSelected}">
 		<sly data-sly-call="${fragmentTemplate.contentFragment @ fragment=fragment, wcmmode=wcmmode}"></sly>
 	</section>
 </sly>
