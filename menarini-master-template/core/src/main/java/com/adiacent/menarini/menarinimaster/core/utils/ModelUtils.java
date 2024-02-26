@@ -315,6 +315,19 @@ public class ModelUtils {
 		return null;
 	}
 
+    public static List<String> getPageTags(ResourceResolver resourceResolver, String pagePath) {
+        List<String> tags = new ArrayList<String>();
+        TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+        Resource pageContentResource = resourceResolver.getResource(pagePath + "/jcr:content");
+
+        if (tagManager != null && pageContentResource != null) {
+            Tag[] pageTags = tagManager.getTags(pageContentResource);
+            for (Tag tag : pageTags) {
+                tags.add(tag.getTagID());
+            }
+        }
+        return tags;
+    }
 	public static Tag findTag(String namespace, String nestedTagPath, String tagName, ResourceResolver resolver) {
 		Tag tag = null;
 		if(StringUtils.isNotBlank(tagName)) {
