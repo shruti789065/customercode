@@ -6,11 +6,11 @@
       flex-direction: row;
       width: 50%;
       justify-content: flex-start;
+      @media (max-width: 1199px) {
+		width: 60%;
+	  }
 	  @media (max-width: 768px) {
 		width: 100%;
-	  }
-	  @media (max-width: 1199px) {
-		width: 60%;
 	  }
     }
     .title{
