@@ -68,7 +68,7 @@ $(function () {
 
 					let radioBtn = "";
 					radioBtn = data.name.map(
-							(result, index) => ` <input type="radio" name="prodotto" value="${result}" ${index === 0 ? 'checked': ''}>
+							(result, index) => ` <input type="radio" name="product" value="${result}" ${index === 0 ? 'checked': ''}>
 							  <label for="${result}">${result}</label><br>`
 						)
 						.join("");
