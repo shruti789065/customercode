@@ -1,0 +1,12 @@
+<div class="searchMedicineFarmacovigilanza">
+	<input type="hidden" value="${currentPage.path}" class="currentPageSearchMedicine">
+
+	<span class="title">${properties.title ? properties.title : 'arzneimittel'}</span>
+	<div class="searchInputConatiner">
+		<input type="text" id="search-medicine-input">
+		<p id="search-medicine-button">${properties.labelPulsante ? properties.labelPulsante : 'Suche'}</p>
+	</div>
+</div>
+<span class="resultTitle">BITTE WÄHLEN SIE DAS BETROFFENE PRODUKT:</span>
+<div class="farmacovigilanzaResult" style="display:none;"></div>
+<div class="farmacovigilanzaError" style="display:none;">${properties.errorMsg}</div>
