@@ -75,56 +75,61 @@ public class FarmacovigilanzaServlet extends SlingSafeMethodsServlet {
         RequestConfig config = RequestConfig.custom().setConnectTimeout(timeout).setSocketTimeout(timeout).build();
         CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
 
-        String endpointLogin = endpoint+"/auth";
+        try{
+            String endpointLogin = endpoint+"/auth";
 
-        HttpRequestBase request = new HttpPost(endpointLogin);
+            HttpRequestBase request = new HttpPost(endpointLogin);
 
-        URI uri = null;
-        URIBuilder uriBuilder = new URIBuilder(request.getURI());
-        uriBuilder.addParameter("username", username);
-        uriBuilder.addParameter("password", password);
-        uri = uriBuilder.build();
-        request.setURI(uri);
-        request.addHeader("x-api-key",token);
-        request.setHeader("content-type", "application/json");
-        HttpResponse response = client.execute(request);
-        String result = EntityUtils.toString(response.getEntity(), UTF8_CHARSET);
-        JsonObject jsonObject = JsonParser.parseString(result).getAsJsonObject();
+            URI uri = null;
+            URIBuilder uriBuilder = new URIBuilder(request.getURI());
+            uriBuilder.addParameter("username", username);
+            uriBuilder.addParameter("password", password);
+            uri = uriBuilder.build();
+            request.setURI(uri);
+            request.addHeader("x-api-key",token);
+            request.setHeader("content-type", "application/json");
+            HttpResponse response = client.execute(request);
+            String result = EntityUtils.toString(response.getEntity(), UTF8_CHARSET);
+            JsonObject jsonObject = JsonParser.parseString(result).getAsJsonObject();
 
-        if(jsonObject.has("success")){
-            boolean isLogedin = jsonObject.get("success").getAsBoolean();
-            if(isLogedin){
-                HttpRequestBase requestAvailableSyncs = new HttpGet(endpoint+"/find-products");
-                URI uriProducts = null;
-                URIBuilder uriBuilderProducts = new URIBuilder(requestAvailableSyncs.getURI());
-                uriBuilderProducts.addParameter("searchItem", medicineName);
-                uriBuilderProducts.addParameter("searchType", "2");
-                uriBuilderProducts.addParameter("searchOutput","short");
-                uriProducts = uriBuilderProducts.build();
-                requestAvailableSyncs.setURI(uriProducts);
+            if(jsonObject.has("success")){
+                boolean isLogedin = jsonObject.get("success").getAsBoolean();
+                if(isLogedin){
+                    HttpRequestBase requestAvailableSyncs = new HttpGet(endpoint+"/find-products");
+                    URI uriProducts = null;
+                    URIBuilder uriBuilderProducts = new URIBuilder(requestAvailableSyncs.getURI());
+                    uriBuilderProducts.addParameter("searchItem", medicineName);
+                    uriBuilderProducts.addParameter("searchType", "2");
+                    uriBuilderProducts.addParameter("searchOutput","short");
+                    uriProducts = uriBuilderProducts.build();
+                    requestAvailableSyncs.setURI(uriProducts);
 
-                requestAvailableSyncs.addHeader("x-api-key",token);
-                requestAvailableSyncs.setHeader("content-type", "application/json");
+                    requestAvailableSyncs.addHeader("x-api-key",token);
+                    requestAvailableSyncs.setHeader("content-type", "application/json");
 
-                HttpResponse responseFindProducts = client.execute(requestAvailableSyncs);
-                if(responseFindProducts.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-                    String responseResult = EntityUtils.toString(responseFindProducts.getEntity(), UTF8_CHARSET);
-                    JsonObject jsonProducts = JsonParser.parseString(responseResult).getAsJsonObject();
-                    if(jsonProducts.has("pharmaceutical-forms")){
-                        JsonArray pharma = jsonProducts.get("pharmaceutical-forms").getAsJsonArray();
-                        JsonObject pharmaName = new JsonObject();
-                        JsonArray jsonArray = new JsonArray();
-                        for (int i = 0; i < pharma.size(); i++) {
-                            JsonObject jo =  pharma.get(i).getAsJsonObject();
-                            String internalName = jo.get("internalName").getAsString();
-                            jsonArray.add(internalName);
+                    HttpResponse responseFindProducts = client.execute(requestAvailableSyncs);
+                    if(responseFindProducts.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
+                        String responseResult = EntityUtils.toString(responseFindProducts.getEntity(), UTF8_CHARSET);
+                        JsonObject jsonProducts = JsonParser.parseString(responseResult).getAsJsonObject();
+                        if(jsonProducts.has("pharmaceutical-forms")){
+                            JsonArray pharma = jsonProducts.get("pharmaceutical-forms").getAsJsonArray();
+                            JsonObject pharmaName = new JsonObject();
+                            JsonArray jsonArray = new JsonArray();
+                            for (int i = 0; i < pharma.size(); i++) {
+                                JsonObject jo =  pharma.get(i).getAsJsonObject();
+                                String internalName = jo.get("internalName").getAsString();
+                                jsonArray.add(internalName);
+                            }
+                            pharmaName.add("name",jsonArray);
+                            res = pharmaName;
                         }
-                        pharmaName.add("name",jsonArray);
-                        res = pharmaName;
                     }
                 }
             }
+            return res;
+        } finally {
+            client.close();
         }
-        return res;
+
     }
 }
