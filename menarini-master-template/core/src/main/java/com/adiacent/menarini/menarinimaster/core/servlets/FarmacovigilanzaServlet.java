@@ -133,4 +133,3 @@ public class FarmacovigilanzaServlet extends SlingSafeMethodsServlet {
 
     }
 }
-
