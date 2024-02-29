@@ -15,6 +15,7 @@ import com.adobe.dam.print.ids.StringConstants;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.mailer.MailService;
+import com.day.cq.replication.*;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -32,6 +33,10 @@ import org.apache.commons.mail.HtmlEmail;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.distribution.DistributionRequest;
+import org.apache.sling.distribution.DistributionRequestType;
+import org.apache.sling.distribution.Distributor;
+import org.apache.sling.distribution.SimpleDistributionRequest;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.*;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
@@ -84,6 +89,13 @@ public class RssBlogImporter implements Cloneable{
 
     HashMap<String, ContentFragmentM<ContentFragmentBlogItemElements>> cfMap = new HashMap<String, ContentFragmentM<ContentFragmentBlogItemElements>>();
 
+    @Reference
+    Replicator replicator;
+
+    @Reference
+    Distributor distributor;
+
+    String agentName = "publish";    // the name of the agent used to distribute the request
 
     @Activate
     @Modified
@@ -161,10 +173,18 @@ public class RssBlogImporter implements Cloneable{
                 importCategoryTags(items, resolver, session);
 
 
+                publishNodesByParent( StringUtils.appendIfMissing(serviceConfig.getTagsRootPath(), "/") +
+                        ModelUtils.getNodeName(serviceConfig.getCategoryParentTag()), resolver, session);
+
                 logger.info("**************** Category Tag import ended **************************");
             }
             //- FINE IMPORT TAG CATEGORIE
 
+
+            if (errors != null && errors.size() > 0) {
+                sendResult();
+                return;
+            }
 
             //+IMPORT CONTENT FRAGMENT
             if (!serviceConfig.isBlogImportDisabled()) {
@@ -202,6 +222,8 @@ public class RssBlogImporter implements Cloneable{
                 importBlogItems(items, hostname, resolver, session );
 
 
+                publishNodesByParent(serviceConfig.getBlogItemRootPath(), resolver, session);
+
                 logger.info("**************** Blog Item Tag import ended **************************");
                 //- FINE IMPORT CONTENT FRAGMENT
 
@@ -238,8 +260,17 @@ public class RssBlogImporter implements Cloneable{
                 if (cfMap != null && cfMap.size() > 0 && cfMap.get(cfResourcePath) == null) {
                     //String cfResourcePath = StringUtils.appendIfMissing(serviceConfig.getBlogItemRootPath(), "/") + cfname;
                     String targetPath = StringUtils.replace(cfResourcePath, StringUtils.appendIfMissing(serviceConfig.getDamRootPath(), "/"), "");
-                    deleteContentFragment(hostname, targetPath);
-                    addCancelledItem(cfname);
+                    boolean success = deleteContentFragment(hostname, targetPath);
+                    if(success){
+                        String pathToInvalidate = cfResourcePath;
+                        DistributionRequest distributionRequest = new SimpleDistributionRequest(DistributionRequestType.INVALIDATE, false, pathToInvalidate);
+                        if(getDistributor() != null)
+                            getDistributor().distribute(agentName, resolver, distributionRequest);
+
+                        addCancelledItem(cfname);
+                    }
+
+
                 }
             });
         }
@@ -337,44 +368,6 @@ public class RssBlogImporter implements Cloneable{
 
                 });
             }
-                        /* items.stream().forEach(item -> {
-                            if (item != null) {
-                                //se l'item si riferisce a content fragment gestito allo step sopra
-                                String cfName = ModelUtils.getNodeName(item.getTitle());
-                                if (importedCFs.contains(cfName)) {
-                                    //associo  un tag per ogni categoria del blog item
-                                    // 1.per ogni categoria presente nel blogitem recupero il tagID
-                                    if (item.getCategories() != null) {
-                                        List<Tag> tags = item.getCategories().stream()
-                                                .map(c -> {
-                                                    Tag t = ModelUtils.findTag(serviceConfig.getTagNamespace(),
-                                                            ModelUtils.getNodeName(serviceConfig.getCategoryParentTag()),
-                                                            ModelUtils.getNodeName(c), resolver);
-                                                    return t != null ? t : null;
-                                                })
-                                                .filter(e -> e != null)
-                                                .collect(Collectors.toList());
-
-                                        if (tags != null && tags.size() > 0) {
-                                            //2.si recuperano tutti gli elementi di tipo Tag sulla base del TagId
-                                            Tag[] allTags = tags.toArray(new Tag[tags.size()]);
-                                            //3.si recupera il content fragment appena creato/modificato
-                                            String cfResourcePath = serviceConfig.getBlogItemRootPath() + "/" + cfName;
-                                            Resource masterNodeResource = resolver.getResource(cfResourcePath + "/jcr:content/data/master");
-                                            //4. si associano i tags al content fragment
-                                            if (masterNodeResource != null)
-                                                getTagManager().setTags(masterNodeResource, allTags);
-                                            else
-                                                addErrors("Impostare cq:tags per " + cfResourcePath);
-                                        }
-                                    }
-                                }
-                            }
-                        });
-
-                         */
-
-
 
         }
     }
@@ -448,13 +441,56 @@ public class RssBlogImporter implements Cloneable{
 
         }
     }
-    public void deleteContentFragment(String hostname, String targetPath) {
+
+    public void publishNodesByParent(String parentPath, ResourceResolver resolver, Session session){
+       Resource r = resolver.getResource(parentPath);
+        if(r == null)
+            return;
+        Node n = r.adaptTo(Node.class);
+        boolean success = replicateNode(n,resolver, session);
+        if(!success) {
+            addErrors("Error in publishing node at path " + r.getPath());
+            return;
+        }
+        if (r.hasChildren()) {
+            for (Resource child : r.getChildren()) {
+                success = replicateNode(child.adaptTo(Node.class),resolver, session);
+                if(!success)
+                    addErrors("Error in publishing node at path " + child.getPath());
+            }
+        }
+
+    }
+    public boolean replicateNode(Node n, ResourceResolver resolver, Session session){
+        String publishingPath = null;
+        try {
+            publishingPath = n.getPath();
+        } catch (RepositoryException e) {
+            e.printStackTrace();
+
+        }
+        if (replicator != null) {
+            try {
+                replicator.replicate(session, ReplicationActionType.ACTIVATE, publishingPath);
+            } catch (ReplicationException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        logger.info("Publication of {} started", publishingPath);
+        Resource res = resolver.getResource(publishingPath);
+        ReplicationStatus resStatus = res.adaptTo(ReplicationStatus.class);
+        logger.info("Replication status for resource {} is: {}", publishingPath, resStatus);
+        return true;
+    }
+    public boolean deleteContentFragment(String hostname, String targetPath) {
         if(StringUtils.isNotBlank(hostname)  && StringUtils.isNotBlank(targetPath))
-            cfApi.delete(hostname, targetPath);
+            return cfApi.delete(hostname, targetPath);
+        return false;
     }
 
-    public void generateNode(String blogItemRootPath, String s, Session session) throws RepositoryException {
-        ModelUtils.createNode(serviceConfig.getBlogItemRootPath(), "sling:Folder", session);
+    public Node generateNode(String blogItemRootPath, String s, Session session) throws RepositoryException {
+        return ModelUtils.createNode(serviceConfig.getBlogItemRootPath(), "sling:Folder", session);
     }
 
     private ContentFragment getBlogItemContentFragmentByPath(String cfResourcePath, ResourceResolver resolver) {
@@ -745,6 +781,10 @@ public class RssBlogImporter implements Cloneable{
 
     }
 
+    public Distributor getDistributor(){
+        return distributor;
+
+    }
     public ResourceResolver getResourceResolver() {
          ResourceResolver resolver = null;
         Map<String, Object> param = new HashMap<>();

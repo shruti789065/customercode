@@ -8,6 +8,7 @@ import com.adiacent.menarini.menarinimaster.core.models.rss.ChannelModel;
 import com.adiacent.menarini.menarinimaster.core.models.rss.RssModel;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.day.cq.commons.Externalizer;
+import com.day.cq.replication.Replicator;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -20,6 +21,7 @@ import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.distribution.Distributor;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -60,11 +62,20 @@ class RssBlogImporterTest {
     @Mock
     QueryBuilder qBuilder;
 
+    @Mock
+    Replicator replicator;
+    @Mock
+    Distributor distributor;
+
     @BeforeEach
     void setUp() {
         aemContext.load().json("/com/adiacent/menarini/menarinimaster/core/models/RssBlogImporterDamData.json", "/content/dam/menarini-berlinchemie");
         aemContext.load().json("/com/adiacent/menarini/menarinimaster/core/models/RssBlogImporterTagsData.json", "/content/cq:tags/menarini-berlinchemie");
+        aemContext.registerService(Replicator.class, replicator);
+        aemContext.registerService(Distributor.class, distributor);
+
         aemContext.addModelsForClasses(RssBlogImporter.class);
+
     }
 
     @Test
@@ -193,13 +204,19 @@ class RssBlogImporterTest {
         configAttributes.put("getDebugReportRecipient","f.mancini@adiacent.com");
         importer = spy(aemContext.registerInjectActivateService(new RssBlogImporter(), configAttributes));
         doReturn(true).when(importer).storeContentFragment(anyBoolean(), eq("http://example-hostname.com"), anyString(),any(ContentFragmentM.class));
-        doNothing().when(importer).deleteContentFragment(anyString(), anyString());
+       //doNothing().when(importer).deleteContentFragment(anyString(), anyString());
+        doReturn(true).when(importer).deleteContentFragment(anyString(), anyString());
         when(importer.getResourceResolver()).thenReturn(resolver);
         try {
-            lenient().doNothing().when(importer).generateNode(anyString(),anyString(),any(Session.class));
+            //lenient().doNothing().when(importer).generateNode(anyString(),anyString(),any(Session.class));
+            Node createdNode = mock(Node.class);
+            lenient().doReturn(createdNode).when(importer).generateNode(anyString(),anyString(),any(Session.class));
         } catch (RepositoryException e) {
             e.printStackTrace();
         }
+
+        when(importer.getDistributor()).thenReturn(distributor);
+
         importer.start();
 
         assertNull(importer.getErrors());
