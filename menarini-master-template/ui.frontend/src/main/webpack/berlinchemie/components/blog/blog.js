@@ -51,12 +51,19 @@ const blog = (() => {
             return;
           }
 
-          const category = document.createElement("div");
+          
+          if(item.category != null){
+            item.category.forEach((singleCat,index) => {
+              item.category[index] = singleCat.substr(singleCat.lastIndexOf('/')+1).replaceAll('-'," ");
+            });
+			const category = document.createElement("div");
           category.setAttribute("class", "category");
-          category.innerHTML = item.category.join(", ");
+
+            category.innerHTML = item.category.join(", ");
           article
             .querySelector(".cmp-contentfragment__element--category")
             .append(category);
+          }
 
           const title = document.createElement("div");
           title.setAttribute("class", "title");
@@ -65,6 +72,15 @@ const blog = (() => {
             .querySelector(".cmp-contentfragment__element--title")
             .append(title);
 
+		if(item.date != null){
+			const date = document.createElement("div");
+			date.setAttribute("class","date");
+			date.innerHTML =  item.date;
+		  article
+            .querySelector(".cmp-contentfragment__element--date")
+            .append(date);
+		}	
+		  
           const image = document.createElement("div");
           image.setAttribute("class", "image");
           const imageContent = `
