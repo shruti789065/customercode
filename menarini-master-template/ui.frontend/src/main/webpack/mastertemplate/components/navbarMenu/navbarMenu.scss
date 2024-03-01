@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
-  padding: 0 25px;
+  padding: 0px;
   overflow-y: auto;
   .wrapper {
 	.cmp-container{
@@ -38,6 +38,11 @@
         padding: 0;
       }
     }
+  }
+  #openTopMenuFull{
+    height: 80px;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -97,7 +102,7 @@
 }
 
 @media (min-width: 1440px) {
-  #navbarMenuSection {
-    padding: 25px 0;
-  }
+  /*#navbarMenuSection {
+    padding: 0px;
+  }*/
 }
