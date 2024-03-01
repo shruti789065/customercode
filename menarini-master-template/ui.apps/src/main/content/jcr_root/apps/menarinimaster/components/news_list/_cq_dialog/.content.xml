@@ -115,6 +115,30 @@
                                                                     name="./childDepth"
                                                                     step="1"
                                                                     value="1"/>
+
+                                                            <denyTags
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                                    fieldLabel="Tags for deny"
+                                                                    multiple="{Boolean}true"
+                                                                    name="./denyTags"/>
+                                                            <denyMatch
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                    fieldLabel="Match"
+                                                                    name="./denyTagsMatch">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <any
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Any tag"
+                                                                            value="any"/>
+                                                                    <all
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="All tags"
+                                                                            value="all"/>
+                                                                </items>
+                                                            </denyMatch>
+
                                                         </items>
                                                     </well>
                                                 </items>
@@ -220,7 +244,7 @@
                                                             <tags
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="cq/gui/components/coral/common/form/tagfield"
-                                                                    fieldLabel="Tags"
+                                                                    fieldLabel="Tags for match"
                                                                     multiple="{Boolean}true"
                                                                     name="./tags"/>
                                                             <match

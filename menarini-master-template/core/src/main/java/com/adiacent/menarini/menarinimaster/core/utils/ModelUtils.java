@@ -1,11 +1,15 @@
 package com.adiacent.menarini.menarinimaster.core.utils;
 
+import com.adobe.cq.dam.cfm.ContentFragment;
 import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.day.cq.tagging.InvalidTagFormatException;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.WCMException;
@@ -62,6 +66,7 @@ public class ModelUtils {
 		label = label.replaceAll("[\\<]","-");
 		label = label.replaceAll("[\\>]","-");
 		label = label.replaceAll("[\\+]","-");
+		label = label.replaceAll("[\\ñ]","n");
 		return JcrUtil.escapeIllegalJcrChars(label);
 	}
 
@@ -309,4 +314,55 @@ public class ModelUtils {
 				return JcrUtil.createPath(path, type, session);
 		return null;
 	}
+
+    public static List<String> getPageTags(ResourceResolver resourceResolver, String pagePath) {
+        List<String> tags = new ArrayList<String>();
+        TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+        Resource pageContentResource = resourceResolver.getResource(pagePath + "/jcr:content");
+
+        if (tagManager != null && pageContentResource != null) {
+            Tag[] pageTags = tagManager.getTags(pageContentResource);
+            for (Tag tag : pageTags) {
+                tags.add(tag.getTagID());
+            }
+        }
+        return tags;
+    }
+	public static Tag findTag(String namespace, String nestedTagPath, String tagName, ResourceResolver resolver) {
+		Tag tag = null;
+		if(StringUtils.isNotBlank(tagName)) {
+			TagManager tagManager =  resolver.adaptTo(TagManager.class);
+			tag = tagManager.resolve((StringUtils.isNotBlank(namespace) ? namespace : "") +
+					(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath + "/" : "") +
+					tagName);
+		}
+		return tag;
+	}
+
+	public static Tag createTag(String namespace, String nestedTagPath, String title, HashMap properties, Session session, ResourceResolver resolver) throws Exception {
+
+
+		if(StringUtils.isNotBlank(title)){
+			String tagName = ModelUtils.getNodeName(title);
+			Tag tag = ModelUtils.findTag(namespace, nestedTagPath, tagName, resolver);
+			TagManager tagManager =  resolver.adaptTo(TagManager.class);
+			if(tag == null){
+				try{
+					tag = tagManager.createTag(namespace+(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath+"/":"")+tagName, title, null,true);
+					if(tag == null){
+						throw new Exception("Error in creating tag " + title);
+					}
+					else
+						session.save();
+				} catch (InvalidTagFormatException | RepositoryException e) {
+					e.printStackTrace();
+					throw new Exception("Error in creating tag " + tag);
+				}
+			}
+			return tag;
+		}
+		return null;
+	}
+
+
 }

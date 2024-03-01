@@ -1,9 +1,11 @@
 package com.adiacent.menarini.menarinimaster.core.services;
 
-import com.adiacent.menarini.menarinimaster.core.models.rssnews.ChannelModel;
-import com.adiacent.menarini.menarinimaster.core.models.EnclosureModel;
-import com.adiacent.menarini.menarinimaster.core.models.rssnews.RssItemModel;
-import com.adiacent.menarini.menarinimaster.core.models.rssnews.RssNewModel;
+
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.EnclosureModel;
+
+import com.adiacent.menarini.menarinimaster.core.models.rss.ChannelModel;
+import com.adiacent.menarini.menarinimaster.core.models.rss.NewsItemModel;
+import com.adiacent.menarini.menarinimaster.core.models.rss.RssModel;
 import com.day.cq.workflow.WorkflowException;
 import com.day.cq.workflow.WorkflowService;
 import com.day.cq.workflow.WorkflowSession;
@@ -113,13 +115,13 @@ class RssNewsImporterTest {
         //when(importer.getWorkflowSession(any(Session.class))).thenReturn(mockWorkflowSession);
         doReturn(mockWorkflowSession).when(importer).getWorkflowSession(any(Session.class));
 
-        RssNewModel rssDataModel = new RssNewModel();
+        RssModel<NewsItemModel> rssDataModel = new RssModel<NewsItemModel>();
         ChannelModel channel = new ChannelModel();
         EnclosureModel enclosure = new EnclosureModel();
         enclosure.setType("type");
         enclosure.setUrl("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png");
-        List<RssItemModel> items = new ArrayList<RssItemModel>();
-        RssItemModel item =  new RssItemModel();
+        List<NewsItemModel> items = new ArrayList<NewsItemModel>();
+        NewsItemModel item =  new NewsItemModel();
         item.setTitle("title");
         item.setDescription("desc");
         item.setCreator("author");

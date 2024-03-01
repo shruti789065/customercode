@@ -1,17 +1,16 @@
-package com.adiacent.menarini.menarinimaster.core.models.rssnews;
+package com.adiacent.menarini.menarinimaster.core.models.rss;
 
-import com.adiacent.menarini.menarinimaster.core.models.EnclosureModel;
+import com.adiacent.menarini.menarinimaster.core.models.contentfragments.EnclosureModel;
 import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RssItemModelTest {
-
+class NewsItemModelTest {
     @Test
     void testFull() {
-        RssItemModel item = new RssItemModel();
+        NewsItemModel item = new NewsItemModel();
         item.setDescription("item_descr");
         item.setGuid("guid");
         item.setCreator("author");
@@ -36,6 +35,4 @@ class RssItemModelTest {
         assertEquals(0, item.getGuid().compareTo("guid"));
         assertEquals(0, item.getImage().length);
     }
-
-
 }

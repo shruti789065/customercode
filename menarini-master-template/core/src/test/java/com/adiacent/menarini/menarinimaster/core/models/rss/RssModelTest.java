@@ -1,15 +1,16 @@
-package com.adiacent.menarini.menarinimaster.core.models.rssnews;
+package com.adiacent.menarini.menarinimaster.core.models.rss;
 
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @ExtendWith({AemContextExtension.class})
-class RssNewModelTest {
+public class RssModelTest {
     @Test
     void testChannelModel() {
-        RssNewModel model = new RssNewModel();
+        RssModel model = new RssModel<BlogItemModel>();
         ChannelModel ch = new ChannelModel();
         model.setChannel(ch);
         assertNotNull(model.getChannel());

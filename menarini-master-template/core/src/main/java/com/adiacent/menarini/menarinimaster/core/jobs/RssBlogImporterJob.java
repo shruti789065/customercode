@@ -1,7 +1,7 @@
 package com.adiacent.menarini.menarinimaster.core.jobs;
 
+import com.adiacent.menarini.menarinimaster.core.services.RssBlogImporter;
 import com.adiacent.menarini.menarinimaster.core.services.RssNewsImporter;
-
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -13,11 +13,11 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Designate(ocd = RssNewsImporterJob.Config.class)
+@Designate(ocd = RssBlogImporterJob.Config.class)
 @Component(
         service = Runnable.class,
         property = {
-                Constants.SERVICE_DESCRIPTION + "=Menarini RSS Feed News Importer Job",
+                Constants.SERVICE_DESCRIPTION + "=Menarini RSS Feed Blog Importer Job",
                 Constants.SERVICE_VENDOR + "=Adiacent"
         },
         immediate = true
@@ -25,30 +25,30 @@ import org.slf4j.LoggerFactory;
 /**
  * Cron Job service to import product definition into jcr.
  */
-public class RssNewsImporterJob implements Runnable, Cloneable{
+public class RssBlogImporterJob implements Runnable, Cloneable{
 
-    private static final Logger logger = LoggerFactory.getLogger(RssNewsImporterJob.class);
+    private static final Logger logger = LoggerFactory.getLogger(RssBlogImporterJob.class);
 
 
     @Reference
-    private RssNewsImporter instance;
+    private RssBlogImporter instance;
 
 
     @Activate
     @Modified
     protected void activate(final Config config) {
-        logger.info("Activating Menarini RSS Feed News Importer  Cron Job");
-        logger.info("RSS Feed News Importer instance is null {}",(instance==null));
+        logger.info("Activating Menarini RSS Blog News Importer  Cron Job");
+        logger.info("RSS Feed Blog Importer instance is null {}",(instance==null));
     }
 
-    public RssNewsImporter getImporterIstance(){
+    public RssBlogImporter getImporterIstance(){
         return instance;
     }
     @Override
     public void run() {
         try {
-            logger.info("Starting Menarini RSS Feed News Importer...");
-            RssNewsImporter importerClone = (RssNewsImporter) getImporterIstance().clone();
+            logger.info("Starting Menarini RSS Feed Blog Importer...");
+            RssBlogImporter importerClone = (RssBlogImporter) getImporterIstance().clone();
             importerClone.start();
         } catch (CloneNotSupportedException e) {
             logger.error(e.getMessage(),e);
@@ -58,7 +58,7 @@ public class RssNewsImporterJob implements Runnable, Cloneable{
     /**
      * Configuration class
      */
-    @ObjectClassDefinition(name = "Menarini RSS Feed News Importer Job", description = "Menarini RSS Feed News Importer Cron Job")
+    @ObjectClassDefinition(name = "Menarini RSS Feed Blog Importer Job", description = "Menarini RSS Feed Blog Importer Cron Job")
     public static @interface Config {
 
         @AttributeDefinition(name = "Cron expression", description = "Job Cron expression")
