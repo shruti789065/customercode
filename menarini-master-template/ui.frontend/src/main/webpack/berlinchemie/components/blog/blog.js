@@ -72,7 +72,7 @@ const blog = (() => {
 						article
 							.querySelector(".cmp-contentfragment__element--title")
 							.append(title);
-
+					}
 
 					if (item.date != null) {
 						const date = document.createElement("div");
@@ -96,18 +96,19 @@ const blog = (() => {
 							.append(image);
 					}
 
-					
-					const link = document.createElement("div");
-					link.setAttribute("class", "link");
-					const linkReadMore = `
-					<a class="cmp-link cmp-link--arrow" href="${item.pageLink ? item.pageLink : "#"}" target="_blank">
-					<i class="cmp-link__icon-asset"></i>
-					<span class="cmp-link--text">READ MORE</span>
-					</a>`;
-					link.innerHTML = linkReadMore;
-					article
-						.querySelector(".cmp-contentfragment__element--pageLink")
-						.append(link);
+					if(item.pageLink != null){
+						const link = document.createElement("div");
+						link.setAttribute("class", "link");
+						const linkReadMore = `
+						<a class="cmp-link cmp-link--arrow" href="${item.pageLink}" target="_blank">
+						<i class="cmp-link__icon-asset"></i>
+						<span class="cmp-link--text">READ MORE</span>
+						</a>`;
+						link.innerHTML = linkReadMore;
+						article
+							.querySelector(".cmp-contentfragment__element--pageLink")
+							.append(link);
+					}
 				});
 			})
 			.catch((error) => {
