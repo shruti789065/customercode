@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
-    cq:adobeTargetExportFormat="html"
-    cq:allowedTemplates="[/conf/menarini-be/settings/wcm/templates/(?!page-).*]"
-    cq:conf="/conf/menarini-be"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    cq:allowedTemplates="/conf/menarini-be/settings/wcm/templates/(?!page-).*"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="sling:OrderedFolder"
-    jcr:title="Menarini Belgium Fragments"
-    sling:configRef="/conf/menarini-be">
+    jcr:title="Menarini Belgium Fragments">
+    <nl/>
     <en/>
+    <fr/>
+    <jcr:content jcr:primaryType="nt:unstructured"/>
 </jcr:root>

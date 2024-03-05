@@ -3,14 +3,14 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-30T07:53:29.597Z"
-        cq:lastModifiedBy="a.messori@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-13T11:14:42.572Z"
+        cq:lastModified="{Date}2024-01-10T14:06:58.880Z"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastReplicated="{Date}2024-01-10T14:07:00.574Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-13T11:14:42.572Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated_publish="{Date}2024-01-10T14:07:00.574Z"
+        cq:lastReplicatedBy="f.marrucci@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="f.marrucci@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_preview="Activate"
         cq:lastReplicationAction_publish="Activate"
@@ -18,10 +18,10 @@
         cq:template="/conf/menarini-berlinchemie/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Footer"
-        jcr:uuid="0627af2f-e182-4370-b57c-f448ff101209"
+        jcr:uuid="fd3d5dcd-504c-4cec-80ba-938be2dd0f6f"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
@@ -41,15 +41,15 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <list
-                        jcr:lastModified="{Date}2023-06-06T10:56:48.554Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:lastModified="{Date}2024-01-09T15:47:31.281Z"
+                        jcr:lastModifiedBy="f.marrucci@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/list"
                         childDepth="1"
                         displayItemAsTeaser="false"
                         linkItems="true"
                         listFrom="static"
-                        pages="[/content/menarini-berlinchemie/de/about-us,/content/menarini-berlinchemie/de/careers,/content/menarini-berlinchemie/de/terms-and-conditions,/content/menarini-berlinchemie/de/data-privacy/privacy-policy,/content/menarini-berlinchemie/de/data-privacy/cookie-policy,/content/menarini-berlinchemie/de/about-us/business-ethics-and-compliance,/content/menarini-berlinchemie/de/sitemap]"
+                        pages="[/content/menarini-berlinchemie/de/ueber-uns,/content/menarini-berlinchemie/de/careers,/content/menarini-berlinchemie/de/algemene-voorwaarden,/content/menarini-berlinchemie/de/dantenschutz/privacy-policy,/content/menarini-berlinchemie/de/dantenschutz/cookie-policy,/content/menarini-berlinchemie/de/ueber-uns/business-ethics-and-compliance,/content/menarini-berlinchemie/de/sitemap]"
                         parentPage="/content/menarini-berlinchemie/de"
                         showDescription="false"
                         showModificationDate="false"
@@ -75,7 +75,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Privacy Policy"
-                                linkURL="/content/menarini-berlinchemie/de/data-privacy/privacy-policy"/>
+                                linkURL="/content/menarini-berlinchemie/de/dantenschutz/privacy-policy"/>
                             <item2
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
@@ -90,7 +90,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Cookie Policy"
-                                linkURL="/content/menarini-berlinchemie/de/data-privacy/cookie-policy"/>
+                                linkURL="/content/menarini-berlinchemie/de/dantenschutz/cookie-policy"/>
                             <item5
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_blank"

@@ -21,7 +21,9 @@ import org.apache.sling.models.annotations.via.ResourceSuperType;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Model(
 		adaptables = {Resource.class, SlingHttpServletRequest.class},
@@ -34,6 +36,10 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 	public static final String NEWSDATA_RESOURCE_TYPE = "menarinimaster/components/news_data";
 	private static final String NEWSDATA_DATE_PROPERTY_NAME = "newsDate";
 
+	private static final String TAGS_DENY_PROPERTY_NAME = "denyTags";
+    private static final String MATCH_TAGS_DENY_PROPERTY_NAME = "denyTagsMatch";
+    private static final String TAGS_MATCH_ANY_VALUE = "any";
+
 
 	private static final String ASC_SORT_ORDER = "asc";
 	private static final String PN_LIMIT = "limit";
@@ -44,20 +50,52 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 	// Delegate all our methods to the CC List except those defined below
 	private List delegate;
 
-	private ArrayList tmp;
+	private ArrayList<ListItem> tmp;
 
 	@PostConstruct
 	protected void init() {
 
+        //si recupera l'elenco delle pagine da componente originale ( delegate )
+		this.tmp = (ArrayList) delegate.getListItems();
+
 		ValueMap vm = this.currentResource.adaptTo(ValueMap.class);
+		String[] denyTagsProperty = vm.get(TAGS_DENY_PROPERTY_NAME, String[].class);
+        String matchDenyTagsProperty = vm.get(MATCH_TAGS_DENY_PROPERTY_NAME, String.class);
+
+        //Se è stata configurata la proprietà TAGS_DENY, occorre filtratre dall'elenco delle pagine quelle
+        //i cui tags corrispondono completamente ( match == all ) o parzialmente ( match == any ) a quelli elencati
+        //nella proprietà denyTags
+        if(denyTagsProperty != null && denyTagsProperty.length > 0){
+			 // Stream tagsToExclude = Arrays.stream(denyTagsProperty);
+			Supplier<Stream<String>> streamSupplier	= () -> Arrays.stream(denyTagsProperty);
+			//per ogni pagina recuperata dal componente delegate
+			if(this.tmp != null){
+                boolean matchAny = matchDenyTagsProperty.equals(TAGS_MATCH_ANY_VALUE);
+				java.util.List<ListItem> filteredPageList = this.tmp.stream().filter(pageListItem -> {
+                    //tag Ids della pagina corrente
+					java.util.List<String> pageTagIds = ModelUtils.getPageTags(resourceResolver, pageListItem.getPath());
+					// ci sono dei tag sulla pagina da controllare per l'esclusione
+					if (pageTagIds != null && pageTagIds.size() > 0) {
+                        if(matchAny)
+                            return !streamSupplier.get().anyMatch(pageTagIds::contains);
+                        else
+                           return !streamSupplier.get().allMatch(pageTagIds::contains);
+					} else return true;
+				}).collect(Collectors.toList());
+
+				this.tmp = (ArrayList<ListItem>) filteredPageList;
+			}
+
+		}
+
+
 		String orderByProperty = (String) vm.get(PN_ORDER_BY);
 		String sortOrderProperty = (String) vm.get(PN_SORT_ORDER);
 		if (StringUtils.isNotBlank(orderByProperty) && NEWSDATA_DATE_PROPERTY_NAME.equals(orderByProperty)) {
 			orderByNewsDateValue(sortOrderProperty);
 		}
 
-		else
-			this.tmp = (ArrayList) delegate.getListItems();
+
 		//filtraggio numerico degli articoli
 		String limitProperty =  (String)vm.get(PN_LIMIT);
 		if (StringUtils.isNotBlank(limitProperty)){
@@ -73,9 +111,9 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 	}
 
 	private void orderByNewsDateValue(String sortOrderProperty) {
-		if (delegate.getListItems() != null && delegate.getListItems().size() > 0) {
+		if (tmp != null && tmp.size() > 0) {
 			//si controlla che sia un elenco di pagine ( non ho accesso alleproprietà PN_XXX di https://github.com/adobe/aem-core-wcm-components/blob/main/bundles/core/src/main/java/com/adobe/cq/wcm/core/components/models/List.java)
-			tmp = new ArrayList(delegate.getListItems());
+			// tmp = new ArrayList(delegate.getListItems());
 			Optional opt = tmp.stream().findFirst();
 			if (opt.isPresent() && opt.get() != null) {
 				Collections.sort(tmp, new Comparator<ListItem>() {
@@ -139,6 +177,7 @@ public class NewsListModel extends GenericBaseModel implements NewsListI {
 		ListItem[] clone = array.clone();
 		return Arrays.asList(clone);
 	}
+
 
 
 	private interface DelegationExclusion { // Here we define the methods we want to override

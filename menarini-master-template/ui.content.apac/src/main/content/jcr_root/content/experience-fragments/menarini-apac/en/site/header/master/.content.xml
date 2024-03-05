@@ -3,11 +3,11 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-10-05T15:55:21.393+02:00"
-        cq:lastModifiedBy="admin"
-        cq:lastReplicated="{Date}2023-06-13T11:14:17.091Z"
+        cq:lastModified="{Date}2023-12-11T08:28:43.769Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2023-12-11T08:29:11.184Z"
         cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2023-06-13T11:14:17.091Z"
+        cq:lastReplicated_publish="{Date}2023-12-11T08:29:11.184Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
         cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
@@ -17,10 +17,10 @@
         cq:template="/conf/menarini-apac/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Header"
-        jcr:uuid="14c25b93-e5d0-408b-a14d-d38235691819"
+        jcr:uuid="0783372f-9c74-4da1-839a-abffbc514fd0"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:lastModified="{Date}2022-06-08T11:59:04.155+02:00"
@@ -42,12 +42,12 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <text_quality
-                        jcr:lastModified="{Date}2023-10-03T16:03:13.141+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2023-06-12T15:52:30.359Z"
+                        jcr:lastModifiedBy="L.ambrosini@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
                         id="qualitycomesfirst"
-                        text="&lt;p>&lt;a href=&quot;https://www.menarini.it/en-us/quality-comes-first&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>&lt;i>Quality Comes First&lt;/i>&lt;/a>&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>&lt;a href=&quot;http://www.menarini.it/en-us/quality-comes-first&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>&lt;i>Quality Comes First&lt;/i>&lt;/a>&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
@@ -71,26 +71,28 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="GLOBAL"
                         sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
-                        <text_discover
-                            jcr:lastModified="{Date}2023-05-31T13:47:04.376Z"
+                        <countries_copy
+                            jcr:created="{Date}2023-11-07T15:48:03.607Z"
+                            jcr:createdBy="a.messori@adiacent.com"
+                            jcr:lastModified="{Date}2023-12-07T07:48:35.445Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="menarinimaster/components/text"
-                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;i>Discover Our Group:&lt;/i>&lt;/p>&#xd;&#xa;"
+                            sling:resourceType="menarinimaster/components/header/countries"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p>&#xd;&#xa;"
                             textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="2"/>
+                                    width="1"/>
                             </cq:responsive>
-                        </text_discover>
+                        </countries_copy>
                         <text_globalwebsite
-                            jcr:lastModified="{Date}2023-05-26T12:36:02.520Z"
+                            jcr:lastModified="{Date}2023-12-07T07:44:32.387Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/text"
-                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.com&quot; target=&quot;_blank&quot;>MENARINI.COM&lt;/a>&lt;/p>&#xd;&#xa;"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>GLOBAL&lt;/a>&lt;/p>&#xd;&#xa;"
                             textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
@@ -123,13 +125,13 @@
                                 width="2"/>
                         </cq:responsive>
                         <countries
-                            jcr:created="{Date}2023-10-02T11:21:49.603+02:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2023-10-02T11:27:13.531+02:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:created="{Date}2023-11-07T15:48:03.607Z"
+                            jcr:createdBy="a.messori@adiacent.com"
+                            jcr:lastModified="{Date}2023-11-07T15:52:33.054Z"
+                            jcr:lastModifiedBy="a.messori@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/header/countries"
-                            text="&lt;p style=&quot;text-align: right;&quot;>MARKETS&lt;/p>&#xd;&#xa;"
+                            text="&lt;p style=&quot;text-align: right;&quot;>APAC MARKETS&lt;/p>&#xd;&#xa;"
                             textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
@@ -138,13 +140,30 @@
                                     width="1"/>
                             </cq:responsive>
                         </countries>
+                        <button
+                            jcr:created="{Date}2023-12-01T09:50:04.822Z"
+                            jcr:createdBy="d.mariotti@adiacent.com"
+                            jcr:lastModified="{Date}2023-12-01T09:51:46.469Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/button"
+                            icon="search"
+                            linkTarget="_self"
+                            linkURL="/content/menarini-apac/en/search-results">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="1"/>
+                            </cq:responsive>
+                        </button>
                     </text_block>
                     <languagenavigation
-                        jcr:lastModified="{Date}2022-06-07T15:26:05.751+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2023-11-07T16:16:37.809Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/languagenavigation"
-                        navigationRoot="/content/menarini-apac/gb"
+                        navigationRoot="/content/menarini-apac/"
                         structureDepth="1">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
@@ -176,19 +195,22 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     id="wrapper-menu">
                     <megamenu
-                        jcr:lastModified="{Date}2023-06-09T13:33:47.340Z"
-                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:lastModified="{Date}2023-11-29T08:49:46.522Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/header/megamenu"
                         alt="menarini logo"
                         altValueFromDAM="false"
                         altValueFromPageImage="false"
                         disableLazyLoading="false"
+                        facebookLink="https://www.facebook.com/sharer.php?u="
                         fileReference="/content/dam/menarini-apac/assets/placeholders/logo_menarini_group.svg"
                         imageFromPageImage="false"
                         isDecorative="false"
+                        linkedinLink="https://www.linkedin.com/sharing/share-offsite/?url="
                         logoFolder="/content/dam/logo/menarini-apac"
-                        logoUrl="/content/menarini-apac/en">
+                        logoUrl="/content/menarini-apac/en"
+                        xLink="https://twitter.com/intent/tweet?url=">
                         <share jcr:primaryType="nt:unstructured"/>
                         <item_aboutus
                             cq:panelTitle="About Us"
@@ -198,7 +220,1002 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/container"
                             layout="responsiveGrid">
-                            <container_1702028982
+                            <container_copy
+                                cq:styleIds="[1685354945533,1685355347992]"
+                                jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <container
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-09-27T14:13:21.670Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="About Menarini"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_about-us-menarini.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/about-us"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <link
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T13:57:52.387Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="About"
+                                        link="/content/menarini-apac/en/about-us"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_660448462_
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-11-21T13:26:50.973Z"
+                                        jcr:lastModifiedBy="f.marrucci@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Board of Directors"
+                                        link="/content/menarini-apac/en/about-us/board-of-director"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_675427674
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:03:18.920Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Regional Leadership"
+                                        link="/content/menarini-apac/en/about-us/regional-leadership"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_660448462__117499385
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-10-04T08:50:45.273Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Menarini Group"
+                                        link="https://www.menarini.com"
+                                        linkType="menu-list"
+                                        target="_blank"/>
+                                    <link_copy_660448462__187019550
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-06T09:29:02.222Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Vision &amp; Values"
+                                        link="/content/menarini-apac/en/about-us/vision-e-values"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                </container>
+                                <container_copy_copy
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-11-13T13:37:42.295Z"
+                                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Key Principles"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_key-principles.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/about-us/ethics-e-compliance"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <link_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-11-13T13:37:53.401Z"
+                                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Ethics &amp; Compliance"
+                                        link="/content/menarini-apac/en/about-us/ethics-e-compliance"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_660448462
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:01:25.998Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Sustainability"
+                                        link="/content/menarini-apac/en/about-us/sustainability"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                </container_copy_copy>
+                            </container_copy>
+                            <container_781062112
+                                cq:styleIds="[1685355346503]"
+                                jcr:lastModified="{Date}2023-05-26T12:47:23.602Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <container_1230078590
+                                    jcr:lastModified="{Date}2023-02-27T14:08:36.343Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <title
+                                        cq:styleIds="[1653552493699]"
+                                        jcr:lastModified="{Date}2023-05-26T13:02:49.671Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Discover more about Menarini Group"
+                                        sling:resourceType="menarinimaster/components/title"
+                                        linkTarget="_self"
+                                        type="h2"/>
+                                    <spacer
+                                        jcr:lastModified="{Date}2023-06-06T09:48:42.882Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="20">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                behavior="hide"/>
+                                        </cq:responsive>
+                                    </spacer>
+                                    <container_1594684410_1848327348
+                                        cq:styleIds="[1655115743785]"
+                                        jcr:lastModified="{Date}2023-05-26T13:01:35.939Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/container">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                        <link_copy
+                                            jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                            jcr:createdBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2023-09-29T14:05:54.978Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/link"
+                                            label="OUR GROUP"
+                                            link="https://www.menarini.com/en-us/about-us"
+                                            linkType="menu-list"
+                                            target="_blank"/>
+                                        <link_copy_copy_copy
+                                            jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                            jcr:createdBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2023-09-29T14:06:13.497Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/link"
+                                            label="OUR HISTORY"
+                                            link="https://www.menarini.com/en-us/about-us/our-history"
+                                            linkType="menu-list"
+                                            target="_blank"/>
+                                        <link_copy_660448462_
+                                            jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                            jcr:createdBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2023-09-29T14:06:32.496Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/link"
+                                            label="OUR VALUES"
+                                            link="https://www.menarini.com/en-us/our-values"
+                                            linkType="menu-list"
+                                            target="_blank"/>
+                                    </container_1594684410_1848327348>
+                                    <container_1594684410
+                                        cq:styleIds="[1655115743785]"
+                                        jcr:lastModified="{Date}2023-05-26T13:01:35.939Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/container">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                        <link_copy
+                                            jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                            jcr:createdBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2023-09-29T14:07:20.145Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/link"
+                                            label="RESPONSIBILITY"
+                                            link="https://www.menarini.com/en-us/Responsibility"
+                                            linkType="menu-list"
+                                            target="_blank"/>
+                                        <link_copy_copy_copy
+                                            jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                            jcr:createdBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2023-09-29T14:07:34.417Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/link"
+                                            label="PARTNERING"
+                                            link="https://www.menarini.com/en-us/Partnering"
+                                            linkType="menu-list"
+                                            target="_blank"/>
+                                    </container_1594684410>
+                                </container_1230078590>
+                            </container_781062112>
+                        </item_aboutus>
+                        <item_therapeuticAreas
+                            cq:panelTitle="Key Areas"
+                            jcr:lastModified="{Date}2022-06-09T17:16:49.659+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <container
+                                cq:styleIds="[1685354945533,1685355347992]"
+                                jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="9"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <container
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-09-29T14:44:49.793Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Pharmaceuticals"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_pharmaceuticals.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/key-business-areas/pharmaceuticals"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <link_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-11-03T09:37:54.942Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="CARDIOMETABOLIC"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/cardiometabolic"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:54:50.982Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="MEN’S HEALTH"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/men-s-health"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy__1115641055
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-11-03T09:40:05.743Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="PAIN"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/pain"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:56:11.268Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="AESTHETIC MEDICINE"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/aesthetic-medicine"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy_
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:56:28.205Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="DERMATOLOGY"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/dermatology"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy__867602749
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:57:08.876Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="GASTROENTEROLOGY"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/gastroenterology"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy_1857249610
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:57:27.968Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="ALLERGY &amp; RESPIRATORY"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/allergy-respiratory"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_1546132534
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:56:48.800Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="ONCOLOGY"
+                                        link="/content/menarini-apac/en/key-business-areas/pharmaceuticals/oncology"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                </container>
+                                <container_copy_copy
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-09-29T14:44:16.696Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Consumer Health"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_consumer-health.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/key-business-areas/consumer-healthcare"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <link_copy_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-07T07:45:37.518Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Dermatology"
+                                        link="/content/menarini-apac/en/key-business-areas/consumer-healthcare/dermatology"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:59:10.856Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="RESPIRATORY HEALTH"
+                                        link="/content/menarini-apac/en/key-business-areas/consumer-healthcare/respiratory-health"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy_456235312
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T14:59:49.254Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="ACTIVE AGING"
+                                        link="/content/menarini-apac/en/key-business-areas/consumer-healthcare/active-aging"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy_
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T15:00:08.380Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="OVERALL WELLBEING"
+                                        link="/content/menarini-apac/en/key-business-areas/consumer-healthcare/overall-well-being"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                </container_copy_copy>
+                                <container_copy
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-12-06T15:09:09.846Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Diagnostics"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/maninmenu-diagnostics-small.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/key-business-areas/diagnostics"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <link_copy_copy_copy_
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-08T14:42:43.232Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="LABORATORY DIAGNOSTICS"
+                                        link="/content/menarini-apac/en/key-business-areas/diagnostics/laboratory-diagnostics"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy__766332201
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-08T14:46:38.621Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="ADVANCED DIAGNOSTICS"
+                                        link="/content/menarini-apac/en/key-business-areas/diagnostics/advanced-diagnostics"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                </container_copy>
+                            </container>
+                            <container_781062112_
+                                cq:styleIds="[1685355346503]"
+                                jcr:lastModified="{Date}2022-06-10T14:54:02.248+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <title
+                                    cq:styleIds="[1653552493699]"
+                                    jcr:lastModified="{Date}2023-09-29T15:01:46.897Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Sharing your partnering idea"
+                                    sling:resourceType="menarinimaster/components/title"
+                                    linkTarget="_self"
+                                    type="h2"/>
+                                <spacer_copy_copy
+                                    jcr:lastModified="{Date}2023-05-24T14:36:21.419Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/spacer"
+                                    spacer="40"/>
+                                <text
+                                    jcr:lastModified="{Date}2023-09-29T15:02:04.233Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/text"
+                                    text="&lt;p>Leverage our omni-channel approach to grow your brand across Asia Pacific.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <button
+                                    cq:styleIds="[1653579684271,1653579730618]"
+                                    jcr:lastModified="{Date}2023-12-01T14:11:35.771Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="CONTACT US"
+                                    sling:resourceType="menarinimaster/components/button"
+                                    linkTarget="_self"
+                                    linkURL="/content/menarini-apac/en/contact-us"/>
+                                <list_copy
+                                    jcr:lastModified="{Date}2023-02-08T15:43:12.847Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/list"
+                                    childDepth="1"
+                                    displayItemAsTeaser="false"
+                                    linkItems="true"
+                                    listFrom="children"
+                                    pages="/content/menarini-apac/en"
+                                    parentPage="/content/menarini-apac/en/menu-theraputic-area"
+                                    showDescription="false"
+                                    showModificationDate="false"
+                                    sortOrder="asc"
+                                    tagsMatch="any"/>
+                            </container_781062112_>
+                        </item_therapeuticAreas>
+                        <item_1695996705813
+                            cq:panelTitle="Innovation &amp; Research"
+                            jcr:lastModified="{Date}2023-09-29T15:05:33.665Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <container_copy_copy
+                                cq:styleIds="[1685354945533,1685355347992]"
+                                jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <container
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-09-29T15:15:13.067Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Innovation &amp; Research"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_innovation-e-research.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/innovation--research"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <text
+                                        jcr:created="{Date}2023-09-29T15:18:50.593Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T15:19:14.045Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/text"
+                                        text="&lt;p>We seek to advance highly specialised and scientifically valuable fields to elevate the standard of healthcare.&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                </container>
+                                <container_copy
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-09-29T15:16:20.956Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Our Project"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_our-project.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/innovation--research"
+                                        textIsRich="true"
+                                        titleFromPage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <link_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T15:18:35.916Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Menarini Biomarkers Singapore"
+                                        link="/content/menarini-apac/en/innovation--research/menarini-biomarkers-singapore"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                </container_copy>
+                            </container_copy_copy>
+                            <container_781062112_
+                                cq:styleIds="[1685355346503]"
+                                jcr:lastModified="{Date}2023-05-26T12:47:23.602Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="6"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <container_1230078590
+                                    jcr:lastModified="{Date}2023-02-27T14:08:36.343Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <title
+                                        cq:styleIds="[1653552493699]"
+                                        jcr:lastModified="{Date}2023-05-26T13:02:49.671Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Discover more about Menarini Group"
+                                        sling:resourceType="menarinimaster/components/title"
+                                        linkTarget="_self"
+                                        type="h2"/>
+                                    <spacer
+                                        jcr:lastModified="{Date}2023-06-06T09:48:42.882Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="20">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                behavior="hide"/>
+                                        </cq:responsive>
+                                    </spacer>
+                                    <text
+                                        jcr:created="{Date}2023-09-29T15:21:31.941Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T15:21:54.952Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/text"
+                                        text="&lt;p>For over 30 years, Menarini has been driving research and development to deliver innovative and effective medicines and healthcare solutions for patients affected by serious health conditions.&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <button
+                                        cq:styleIds="[1653579684271,1653579730618]"
+                                        jcr:created="{Date}2023-09-29T15:20:14.952Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-09-29T15:21:11.291Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="READ MORE"
+                                        sling:resourceType="menarinimaster/components/button"
+                                        accessibilityLabel="READ MORE"
+                                        linkTarget="_blank"
+                                        linkURL="https://www.menarini.com/en-us/innovation-research"/>
+                                </container_1230078590>
+                            </container_781062112_>
+                        </item_1695996705813>
+                        <item_1695996714245
+                            cq:panelTitle="Partnering"
+                            jcr:lastModified="{Date}2023-09-29T15:25:16.681Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <container_1702028982_1178437225
                                 cq:styleIds="[1685355347992,1685354945533]"
                                 jcr:lastModified="{Date}2023-05-24T13:58:55.725Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -221,20 +1238,19 @@
                                         width="12"/>
                                 </cq:responsive>
                                 <teaser
-                                    jcr:lastModified="{Date}2023-06-06T09:43:15.107Z"
+                                    jcr:lastModified="{Date}2023-09-29T15:33:27.889Z"
                                     jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
-                                    jcr:title="About Us"
+                                    jcr:title="Partnering"
                                     sling:resourceType="menarinimaster/components/teaser"
                                     alt="pharmaceuticals banner image"
                                     altValueFromDAM="false"
                                     descriptionFromPage="false"
-                                    disableLazyLoading="false"
-                                    fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_about-us.jpg"
+                                    fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_partnering.jpg"
                                     imageFromPageImage="false"
                                     isDecorative="false"
                                     linkTarget="_self"
-                                    linkURL="/content/menarini-apac/en/about-us"
+                                    linkURL="/content/menarini-apac/en/partnering"
                                     textIsRich="true"
                                     titleFromPage="false">
                                     <cq:responsive jcr:primaryType="nt:unstructured">
@@ -276,11 +1292,12 @@
                                                 width="12"/>
                                         </cq:responsive>
                                         <text
-                                            jcr:lastModified="{Date}2023-06-06T09:44:01.304Z"
+                                            cq:styleIds="[1686561136649]"
+                                            jcr:lastModified="{Date}2023-09-29T15:32:25.897Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/text"
-                                            text="&lt;p>Lorem Ipsum Lorem Ipsum&amp;nbsp;Lorem Ipsum Lorem Ipsum&amp;nbsp;Lorem Ipsum Lorem Ipsum ...&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Gain a single point of entry to all major APAC markets with a direct presence in 13 key markets.&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </container>
                                     <container_copy
@@ -299,45 +1316,36 @@
                                                 width="12"/>
                                         </cq:responsive>
                                         <link_copy_copy_copy
-                                            jcr:lastModified="{Date}2023-06-06T09:46:03.827Z"
+                                            jcr:lastModified="{Date}2023-09-29T15:36:08.304Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/link"
-                                            label="Who we are"
-                                            link="/content/menarini-apac/en/about-us/who-we-are"
+                                            label="PARTNERING APPROACH"
+                                            link="/content/menarini-apac/en/partnering/partnering-approach"
                                             linkType="menu-list"
                                             target="_self"/>
                                         <link_copy_copy_copy__1452147345
-                                            jcr:lastModified="{Date}2023-06-06T09:46:56.439Z"
+                                            jcr:lastModified="{Date}2023-09-29T15:36:39.930Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/link"
-                                            label="History"
-                                            link="/content/menarini-apac/en/about-us/history"
+                                            label="ALLIANCE MANAGEMENT"
+                                            link="/content/menarini-apac/en/partnering/alliance-management"
                                             linkType="menu-list"
                                             target="_self"/>
                                         <link_copy_copy_copy__900213588
-                                            jcr:lastModified="{Date}2023-06-06T09:47:26.227Z"
+                                            jcr:lastModified="{Date}2023-09-29T15:37:09.305Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/link"
-                                            label="Where we are"
-                                            link="/content/menarini-apac/en/about-us/where-we-are"
-                                            linkType="menu-list"
-                                            target="_self"/>
-                                        <link_copy_copy_copy__523821988
-                                            jcr:lastModified="{Date}2023-06-06T09:47:57.862Z"
-                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="menarinimaster/components/link"
-                                            label="Business Ethics and Compliance"
-                                            link="/content/menarini-apac/en/about-us/business-ethics-and-compliance"
+                                            label="ACQUISITION &amp; COLLABORATION WITH STRATEGIC PARTNERS"
+                                            link="/content/menarini-apac/en/partnering/acquisition-collaboration-with-strategic-partners"
                                             linkType="menu-list"
                                             target="_self"/>
                                     </container_copy>
                                 </container>
-                            </container_1702028982>
-                            <container_781062112
+                            </container_1702028982_1178437225>
+                            <container_781062112_
                                 cq:styleIds="[1685355346503]"
                                 jcr:lastModified="{Date}2023-05-26T12:47:23.602Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
@@ -372,14 +1380,25 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="menarinimaster/components/container"
                                         layout="responsiveGrid">
+                                        <spacer_copy
+                                            jcr:lastModified="{Date}2023-09-29T15:45:01.557Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/spacer"
+                                            spacer="50">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    behavior="hide"/>
+                                            </cq:responsive>
+                                        </spacer_copy>
                                         <image
-                                            jcr:lastModified="{Date}2023-06-06T09:48:24.164Z"
+                                            jcr:lastModified="{Date}2023-09-29T15:43:30.765Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/image"
-                                            disableLazyLoading="false"
                                             displayPopupTitle="true"
-                                            fileReference="/content/dam/menarini-apac/assets/menu/globalmenu_about-us.jpg"
+                                            fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_partnering2.jpg"
                                             imageFromPageImage="false"
                                             isDecorative="true"
                                             linkTarget="_self"
@@ -410,10 +1429,10 @@
                                         sling:resourceType="menarinimaster/components/container">
                                         <title
                                             cq:styleIds="[1653552493699]"
-                                            jcr:lastModified="{Date}2023-05-26T13:02:49.671Z"
+                                            jcr:lastModified="{Date}2023-09-29T15:41:56.581Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
-                                            jcr:title="Discover more about Menarini Group"
+                                            jcr:title="Sharing your partnering idea"
                                             sling:resourceType="menarinimaster/components/title"
                                             linkTarget="_self"
                                             type="h2"/>
@@ -430,11 +1449,11 @@
                                             </cq:responsive>
                                         </spacer>
                                         <text
-                                            jcr:lastModified="{Date}2023-05-26T13:03:22.348Z"
+                                            jcr:lastModified="{Date}2023-09-29T15:42:12.163Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="menarinimaster/components/text"
-                                            text="&lt;p>High quality therapeutics and diagnostics solutions for patients.&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Leverage our omni-channel approach to grow your brand across Asia Pacific.&lt;/p>&#xd;&#xa;"
                                             textIsRich="true">
                                             <cq:responsive jcr:primaryType="nt:unstructured">
                                                 <phone
@@ -444,13 +1463,13 @@
                                         </text>
                                         <button
                                             cq:styleIds="[1653579684271,1653579730618]"
-                                            jcr:lastModified="{Date}2023-05-26T13:04:15.603Z"
+                                            jcr:lastModified="{Date}2023-09-29T15:43:08.043Z"
                                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
-                                            jcr:title="READ MORE"
+                                            jcr:title="Contact Us"
                                             sling:resourceType="menarinimaster/components/button"
-                                            linkTarget="_blank"
-                                            linkURL="https://www.menarini.com/en-us/"/>
+                                            linkTarget="_self"
+                                            linkURL="/content/menarini-apac/en/contact-us"/>
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
                                                 jcr:primaryType="nt:unstructured"
@@ -463,17 +1482,82 @@
                                         </cq:responsive>
                                     </container_1594684410>
                                 </container_1230078590>
-                            </container_781062112>
-                        </item_aboutus>
-                        <item_therapeuticAreas
-                            cq:panelTitle="Therapeutic Area"
-                            jcr:lastModified="{Date}2022-06-09T17:16:49.659+02:00"
-                            jcr:lastModifiedBy="admin"
+                            </container_781062112_>
+                        </item_1695996714245>
+                        <item_1695996721498
+                            cq:panelTitle="Responsibility"
+                            jcr:lastModified="{Date}2023-09-29T15:46:33.037Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/container"
                             layout="responsiveGrid">
-                            <container
-                                jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
+                            <container_copy
+                                cq:styleIds="[1684742010090]"
+                                jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="5"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <teaser
+                                    jcr:lastModified="{Date}2023-09-29T15:59:43.115Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Responsibility"
+                                    sling:resourceType="menarinimaster/components/teaser"
+                                    descriptionFromPage="true"
+                                    fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_responsibility.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    linkURL="/content/menarini-apac/en/responsibility"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </teaser>
+                                <spacer_copy_copy
+                                    jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/spacer"
+                                    spacer="15"/>
+                                <link
+                                    jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2023-11-03T08:56:04.187Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="WORLD VISION"
+                                    link="/content/menarini-apac/en/responsibility/world-vision"
+                                    linkType="menu-list"
+                                    target="_self"/>
+                            </container_copy>
+                            <container_copy_copy
+                                cq:styleIds="[1685354945533,1655115743785,1684742010090]"
+                                jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="menarinimaster/components/container"
@@ -486,6 +1570,354 @@
                                     <tablet
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
+                                        width="5"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <teaser
+                                    jcr:lastModified="{Date}2023-11-03T09:03:29.348Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Our Projects"
+                                    sling:resourceType="menarinimaster/components/teaser"
+                                    descriptionFromPage="true"
+                                    fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_our-project.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    linkURL="/content/menarini-apac/en/responsibility/our-projects"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </teaser>
+                                <spacer_copy_copy
+                                    jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/spacer"
+                                    spacer="15"/>
+                                <link_copy_copy
+                                    jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2023-11-13T13:39:30.932Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="My Voice, Your World − Caring for Blind Children"
+                                    link="/content/menarini-apac/en/responsibility/our-projects.html#china"
+                                    linkType="menu-list"
+                                    target="_self"/>
+                                <link_copy_copy_1148811918
+                                    jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2023-11-13T13:39:48.894Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="#42MinutesRunForChildren"
+                                    link="/content/menarini-apac/en/responsibility/our-projects.html#malaysia"
+                                    linkType="menu-list"
+                                    target="_self"/>
+                                <link_copy_copy_1983529970
+                                    jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2023-11-13T13:40:04.999Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="Food Donation and Distribution Drive"
+                                    link="/content/menarini-apac/en/responsibility/our-projects.html#regional"
+                                    linkType="menu-list"
+                                    target="_self"/>
+                                <link_copy_copy_226747423
+                                    jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2023-11-13T13:40:25.226Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="Run Inspired 2021"
+                                    link="/content/menarini-apac/en/responsibility/our-projects.html#singapore"
+                                    linkType="menu-list"
+                                    target="_self"/>
+                                <link_copy_copy_1354056804
+                                    jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2023-11-13T13:40:41.404Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="Willing Hearts"
+                                    link="/content/menarini-apac/en/responsibility/our-projects.html#singapore2"
+                                    linkType="menu-list"
+                                    target="_self"/>
+                                <link_copy
+                                    jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2023-11-13T13:46:07.452Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/link"
+                                    label="Green Nudge"
+                                    link="/content/menarini-apac/en/responsibility/our-projects.html#singapore3"
+                                    linkType="menu-list"
+                                    target="_self"/>
+                            </container_copy_copy>
+                            <container_781062112_
+                                cq:styleIds="[1685355346503]"
+                                jcr:lastModified="{Date}2023-05-26T12:47:23.602Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        behavior="newline"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <container_1230078590
+                                    jcr:lastModified="{Date}2023-02-27T14:08:36.343Z"
+                                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <container_1393164775
+                                        jcr:lastModified="{Date}2023-06-09T07:16:49.144Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/container"
+                                        layout="responsiveGrid">
+                                        <image
+                                            jcr:lastModified="{Date}2023-09-29T16:08:09.999Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/image"
+                                            displayPopupTitle="true"
+                                            fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_responsibility2.jpg"
+                                            imageFromPageImage="false"
+                                            isDecorative="true"
+                                            linkTarget="_self"
+                                            titleValueFromDAM="true">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    offset="2"
+                                                    width="8"/>
+                                                <default
+                                                    jcr:primaryType="nt:unstructured"
+                                                    offset="0"
+                                                    width="3"/>
+                                            </cq:responsive>
+                                        </image>
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </container_1393164775>
+                                    <container_1594684410
+                                        cq:styleIds="[1655115743785]"
+                                        jcr:lastModified="{Date}2023-05-26T13:01:35.939Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/container">
+                                        <title
+                                            cq:styleIds="[1653552493699]"
+                                            jcr:lastModified="{Date}2023-09-29T15:52:00.234Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Global Responsibility"
+                                            sling:resourceType="menarinimaster/components/title"
+                                            linkTarget="_self"
+                                            type="h2"/>
+                                        <spacer
+                                            jcr:lastModified="{Date}2023-06-06T09:48:42.882Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/spacer"
+                                            spacer="20">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    behavior="hide"/>
+                                            </cq:responsive>
+                                        </spacer>
+                                        <button
+                                            cq:styleIds="[1653579684271,1653579730618]"
+                                            jcr:lastModified="{Date}2023-09-29T16:01:48.836Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="READ MORE"
+                                            sling:resourceType="menarinimaster/components/button"
+                                            linkTarget="_blank"
+                                            linkURL="https://www.menarini.com/en-us/responsibility"/>
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="4"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                        <container
+                                            jcr:created="{Date}2023-11-03T09:04:23.677Z"
+                                            jcr:createdBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2023-11-03T09:06:04.996Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/container"
+                                            layout="responsiveGrid">
+                                            <spacer
+                                                jcr:created="{Date}2023-11-03T09:12:35.859Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-11-03T09:12:49.451Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/spacer"
+                                                spacer="20"/>
+                                            <text
+                                                jcr:created="{Date}2023-11-03T09:23:06.840Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-11-03T09:30:56.229Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/text"
+                                                text="&lt;h5 style=&quot;font-size: 16.0px; font-weight: 500; color: rgb(20,63,89); font-family: Oswald , Tahoma , Arial , Helvetica , sans-serif; margin-top: 13px;&quot;>FOLLOW US&lt;/h5>&#xd;&#xa;"
+                                                textIsRich="true">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </text>
+                                            <image_copy
+                                                cq:styleIds="[1684752172948,1684752176188]"
+                                                jcr:created="{Date}2023-11-03T09:06:46.330Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-12-07T07:32:57.289Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/image"
+                                                altValueFromDAM="false"
+                                                displayPopupTitle="false"
+                                                fileReference="/content/dam/menarini-apac/assets/icons/icon_linkedin.svg"
+                                                imageFromPageImage="false"
+                                                isDecorative="false"
+                                                linkTarget="_blank"
+                                                linkURL="https://www.linkedin.com/company/menarini-asia-pacific/mycompany/verification/?viewAsMember=true"
+                                                titleValueFromDAM="false">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </image_copy>
+                                            <image_copy_889847894
+                                                cq:styleIds="[1684752172948,1684752176188]"
+                                                jcr:created="{Date}2023-11-03T09:06:46.330Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-12-07T07:52:44.507Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/image"
+                                                alt="youtube"
+                                                altValueFromDAM="false"
+                                                displayPopupTitle="false"
+                                                fileReference="/content/dam/menarini-apac/assets/icons/icon_youtube.svg"
+                                                imageFromPageImage="false"
+                                                isDecorative="false"
+                                                linkTarget="_blank"
+                                                linkURL="https://www.youtube.com/channel/UC6MvpVAvfIFtTm5Nnu2K0XQ"
+                                                titleValueFromDAM="false">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </image_copy_889847894>
+                                            <image
+                                                cq:styleIds="[1684752172948,1684752176188]"
+                                                jcr:created="{Date}2023-11-03T09:06:46.330Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-12-07T07:53:14.609Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/image"
+                                                alt="instagram"
+                                                altValueFromDAM="false"
+                                                displayPopupTitle="false"
+                                                fileReference="/content/dam/menarini-apac/assets/icons/icon_instagram.svg"
+                                                imageFromPageImage="false"
+                                                isDecorative="false"
+                                                linkTarget="_blank"
+                                                linkURL="https://www.instagram.com/menarini_ap"
+                                                titleValueFromDAM="false">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </image>
+                                        </container>
+                                    </container_1594684410>
+                                </container_1230078590>
+                            </container_781062112_>
+                        </item_1695996721498>
+                        <item_1695996729103
+                            cq:panelTitle="News &amp; More"
+                            jcr:lastModified="{Date}2023-11-03T10:04:08.289Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/container"
+                            layout="responsiveGrid">
+                            <container_copy
+                                cq:styleIds="[1685354945533]"
+                                jcr:lastModified="{Date}2022-07-29T16:50:31.514+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="9"/>
+                                    <tablet
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
                                         width="12"/>
                                     <phone
                                         jcr:primaryType="nt:unstructured"
@@ -493,7 +1925,7 @@
                                         width="12"/>
                                 </cq:responsive>
                                 <container
-                                    cq:styleIds="[1684742010090,1685354945533]"
+                                    cq:styleIds="[1684742010090]"
                                     jcr:lastModified="{Date}2022-07-29T16:51:41.183+02:00"
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
@@ -514,18 +1946,17 @@
                                             width="12"/>
                                     </cq:responsive>
                                     <teaser
-                                        jcr:lastModified="{Date}2023-06-07T13:10:06.089Z"
+                                        jcr:lastModified="{Date}2023-11-03T11:05:25.163Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Pharmaceutical"
+                                        jcr:title="News"
                                         sling:resourceType="menarinimaster/components/teaser"
                                         descriptionFromPage="true"
-                                        disableLazyLoading="false"
-                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_pharmaceutical-small.jpg"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_news-small.jpg"
                                         imageFromPageImage="false"
                                         isDecorative="true"
                                         linkTarget="_self"
-                                        linkURL="/content/menarini-apac/en/therapeutic-areas"
+                                        linkURL="/content/menarini-apac/en/news"
                                         textIsRich="true"
                                         titleFromPage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
@@ -545,31 +1976,31 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="menarinimaster/components/spacer"
                                         spacer="15"/>
-                                    <list
-                                        jcr:lastModified="{Date}2023-06-07T13:08:55.238Z"
+                                    <link_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-11-03T11:22:04.599Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="menarinimaster/components/list"
-                                        childDepth="1"
-                                        displayItemAsTeaser="false"
-                                        linkItems="true"
-                                        listFrom="tags"
-                                        showDescription="false"
-                                        showModificationDate="false"
-                                        sortOrder="asc"
-                                        tags="[menarini-apac:menarinimaster-area-tag/pharmaceutical-area,menarini-apac:menarini-apac-area-tag/pharmaceutical-area]"
-                                        tagsMatch="any"
-                                        tagsSearchRoot="/content/menarini-apac/en/therapeutic-areas">
-                                        <cq:responsive jcr:primaryType="nt:unstructured">
-                                            <default
-                                                jcr:primaryType="nt:unstructured"
-                                                offset="0"
-                                                width="3"/>
-                                        </cq:responsive>
-                                    </list>
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="LATEST NEWS"
+                                        link="/content/menarini-apac/en/news"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-11-03T11:39:37.848Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="ARCHIVE NEWS"
+                                        link="/content/menarini-apac/en/news/archive-news"
+                                        linkType="menu-list"
+                                        target="_self"/>
                                 </container>
-                                <container_copy
-                                    cq:styleIds="[1685354945533,1655115743785,1685355347992]"
+                                <container_copy_copy
+                                    cq:styleIds="[1684742010090]"
                                     jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
@@ -590,18 +2021,17 @@
                                             width="12"/>
                                     </cq:responsive>
                                     <teaser
-                                        jcr:lastModified="{Date}2023-06-07T13:10:17.262Z"
+                                        jcr:lastModified="{Date}2023-11-03T10:13:48.007Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Consumer Healthcare"
+                                        jcr:title="Blog"
                                         sling:resourceType="menarinimaster/components/teaser"
                                         descriptionFromPage="true"
-                                        disableLazyLoading="false"
-                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_consumer-healthcare-small.jpg"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_blog-small.jpg"
                                         imageFromPageImage="false"
                                         isDecorative="true"
-                                        linkTarget="_self"
-                                        linkURL="/content/menarini-apac/en/therapeutic-areas"
+                                        linkTarget="_blank"
+                                        linkURL="https://www.menariniblog.com/"
                                         textIsRich="true"
                                         titleFromPage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
@@ -621,47 +2051,128 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="menarinimaster/components/spacer"
                                         spacer="15"/>
-                                    <list
-                                        jcr:lastModified="{Date}2023-06-07T13:09:09.249Z"
+                                    <link_copy_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-11-22T09:35:49.416Z"
+                                        jcr:lastModifiedBy="f.marrucci@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Menarini Blog"
+                                        link="https://www.menariniblog.com/"
+                                        linkType="menu-list"
+                                        target="_blank"/>
+                                </container_copy_copy>
+                                <container_copy
+                                    cq:styleIds="[1684742010090]"
+                                    jcr:lastModified="{Date}2022-07-29T16:50:50.534+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="5"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <teaser
+                                        jcr:lastModified="{Date}2023-12-07T09:00:05.714Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="menarinimaster/components/list"
-                                        childDepth="1"
-                                        displayItemAsTeaser="false"
-                                        linkItems="true"
-                                        listFrom="tags"
-                                        showDescription="false"
-                                        showModificationDate="false"
-                                        sortOrder="asc"
-                                        tags="[menarini-apac:menarini-apac-area-tag/consumer-healtcare-area]"
-                                        tagsMatch="any"
-                                        tagsSearchRoot="/content/menarini-apac/en/therapeutic-areas">
+                                        jcr:title="Menarini Awards"
+                                        sling:resourceType="menarinimaster/components/teaser"
+                                        descriptionFromPage="true"
+                                        fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_awards.jpg"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        linkURL="/content/menarini-apac/en/awards"
+                                        textIsRich="true"
+                                        titleFromPage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
                                                 jcr:primaryType="nt:unstructured"
                                                 offset="0"
                                                 width="3"/>
-                                        </cq:responsive>
-                                        <static jcr:primaryType="nt:unstructured">
-                                            <item0
+                                            <phone
                                                 jcr:primaryType="nt:unstructured"
-                                                linkTarget="_self"
-                                                linkURL="/content/menarini-apac/en/therapeutic-area"/>
-                                        </static>
-                                    </list>
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </teaser>
+                                    <spacer_copy_copy
+                                        jcr:lastModified="{Date}2023-05-03T13:27:47.928Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/spacer"
+                                        spacer="15"/>
+                                    <link_copy_copy_copy_
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-07T09:00:20.689Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Champions of good"
+                                        link="/content/menarini-apac/en/awards.html#championofgood"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-07T09:00:34.003Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Golden deer award"
+                                        link="/content/menarini-apac/en/awards.html#goldendeeraward"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy__1959706381
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-07T09:00:47.794Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Executive of the year"
+                                        link="/content/menarini-apac/en/awards.html#executiveoftheyear"
+                                        linkType="menu-list"
+                                        target="_self"/>
+                                    <link_copy_copy_copy__1441752430
+                                        jcr:created="{Date}2023-09-29T13:57:00.961Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2023-12-07T09:01:04.818Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/link"
+                                        label="Team of the year"
+                                        link="/content/menarini-apac/en/awards.html#teamoftheyear"
+                                        linkType="menu-list"
+                                        target="_self"/>
                                 </container_copy>
-                            </container>
+                            </container_copy>
                             <container_781062112_
                                 cq:styleIds="[1685355346503]"
-                                jcr:lastModified="{Date}2022-06-10T14:54:02.248+02:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-05-26T12:47:23.602Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="menarinimaster/components/container">
+                                sling:resourceType="menarinimaster/components/container"
+                                layout="responsiveGrid">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
-                                        width="6"/>
+                                        width="3"/>
                                     <tablet
                                         jcr:primaryType="nt:unstructured"
                                         behavior="newline"
@@ -673,54 +2184,206 @@
                                         offset="0"
                                         width="12"/>
                                 </cq:responsive>
-                                <title
-                                    cq:styleIds="[1653552493699]"
-                                    jcr:lastModified="{Date}2022-07-29T15:32:14.448+02:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="Discover more about Menarini Group"
-                                    sling:resourceType="menarinimaster/components/title"
-                                    linkTarget="_self"
-                                    type="h2"/>
-                                <spacer_copy_copy
-                                    jcr:lastModified="{Date}2023-05-24T14:36:21.419Z"
-                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="menarinimaster/components/spacer"
-                                    spacer="40"/>
-                                <text
-                                    jcr:lastModified="{Date}2023-05-26T13:17:26.325Z"
-                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="menarinimaster/components/text"
-                                    text="&lt;p>All company structures are involved at different levels in the drug manufacturing process...&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <button
-                                    cq:styleIds="[1653579684271,1653579730618]"
-                                    jcr:lastModified="{Date}2023-05-26T13:17:57.449Z"
-                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="READ MORE"
-                                    sling:resourceType="menarinimaster/components/button"
-                                    linkTarget="_blank"
-                                    linkURL="https://www.menarini.com/en-us/pharmaceuticals"/>
-                                <list_copy
-                                    jcr:lastModified="{Date}2023-02-08T15:43:12.847Z"
+                                <container_1230078590
+                                    jcr:lastModified="{Date}2023-02-27T14:08:36.343Z"
                                     jcr:lastModifiedBy="m.papini@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="menarinimaster/components/list"
-                                    childDepth="1"
-                                    displayItemAsTeaser="false"
-                                    linkItems="true"
-                                    listFrom="children"
-                                    pages="/content/menarini-apac/en"
-                                    parentPage="/content/menarini-apac/en/menu-theraputic-area"
-                                    showDescription="false"
-                                    showModificationDate="false"
-                                    sortOrder="asc"
-                                    tagsMatch="any"/>
+                                    sling:resourceType="menarinimaster/components/container"
+                                    layout="responsiveGrid">
+                                    <container_1393164775
+                                        jcr:lastModified="{Date}2023-06-09T07:16:49.144Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/container"
+                                        layout="responsiveGrid">
+                                        <image
+                                            jcr:lastModified="{Date}2023-11-03T10:09:19.743Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/image"
+                                            displayPopupTitle="true"
+                                            fileReference="/content/dam/menarini-apac/assets/menu/mainmenu_news-small.jpg"
+                                            imageFromPageImage="false"
+                                            isDecorative="true"
+                                            linkTarget="_self"
+                                            titleValueFromDAM="true">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    offset="2"
+                                                    width="8"/>
+                                                <default
+                                                    jcr:primaryType="nt:unstructured"
+                                                    offset="0"
+                                                    width="3"/>
+                                            </cq:responsive>
+                                        </image>
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="3"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                    </container_1393164775>
+                                    <container_1594684410
+                                        cq:styleIds="[1655115743785]"
+                                        jcr:lastModified="{Date}2023-05-26T13:01:35.939Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="menarinimaster/components/container">
+                                        <title
+                                            cq:styleIds="[1653552493699]"
+                                            jcr:lastModified="{Date}2023-11-03T10:09:47.728Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Global Press Releases"
+                                            sling:resourceType="menarinimaster/components/title"
+                                            linkTarget="_self"
+                                            type="h2"/>
+                                        <spacer
+                                            jcr:lastModified="{Date}2023-06-06T09:48:42.882Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/spacer"
+                                            spacer="20">
+                                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                                <phone
+                                                    jcr:primaryType="nt:unstructured"
+                                                    behavior="hide"/>
+                                            </cq:responsive>
+                                        </spacer>
+                                        <button
+                                            cq:styleIds="[1653579684271,1653579730618]"
+                                            jcr:lastModified="{Date}2023-11-03T10:10:22.917Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="READ MORE"
+                                            sling:resourceType="menarinimaster/components/button"
+                                            linkTarget="_blank"
+                                            linkURL="https://www.menarini.com/en-us/news"/>
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="4"/>
+                                            <phone
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="0"
+                                                width="12"/>
+                                        </cq:responsive>
+                                        <container
+                                            jcr:created="{Date}2023-11-03T09:04:23.677Z"
+                                            jcr:createdBy="d.mariotti@adiacent.com"
+                                            jcr:lastModified="{Date}2023-11-03T09:06:04.996Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="menarinimaster/components/container"
+                                            layout="responsiveGrid">
+                                            <spacer
+                                                jcr:created="{Date}2023-11-03T09:12:35.859Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-11-03T09:12:49.451Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/spacer"
+                                                spacer="20"/>
+                                            <text
+                                                jcr:created="{Date}2023-11-03T09:23:06.840Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-11-03T09:30:56.229Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/text"
+                                                text="&lt;h5 style=&quot;font-size: 16.0px; font-weight: 500; color: rgb(20,63,89); font-family: Oswald , Tahoma , Arial , Helvetica , sans-serif; margin-top: 13px;&quot;>FOLLOW US&lt;/h5>&#xd;&#xa;"
+                                                textIsRich="true">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </text>
+                                            <image_copy
+                                                cq:styleIds="[1684752172948,1684752176188]"
+                                                jcr:created="{Date}2023-11-03T09:06:46.330Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-12-07T07:53:55.932Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/image"
+                                                alt="linkedin"
+                                                altValueFromDAM="false"
+                                                displayPopupTitle="false"
+                                                fileReference="/content/dam/menarini-apac/assets/icons/icon_linkedin.svg"
+                                                imageFromPageImage="false"
+                                                isDecorative="false"
+                                                linkTarget="_blank"
+                                                linkURL="https://www.linkedin.com/company/menarini-asia-pacific/mycompany/verification/?viewAsMember=true"
+                                                titleValueFromDAM="false">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </image_copy>
+                                            <image_copy_889847894
+                                                cq:styleIds="[1684752172948,1684752176188]"
+                                                jcr:created="{Date}2023-11-03T09:06:46.330Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-12-07T07:54:17.335Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/image"
+                                                alt="youtube"
+                                                altValueFromDAM="false"
+                                                displayPopupTitle="false"
+                                                fileReference="/content/dam/menarini-apac/assets/icons/icon_youtube.svg"
+                                                imageFromPageImage="false"
+                                                isDecorative="false"
+                                                linkTarget="_blank"
+                                                linkURL="https://www.youtube.com/channel/UC6MvpVAvfIFtTm5Nnu2K0XQ"
+                                                titleValueFromDAM="false">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </image_copy_889847894>
+                                            <image
+                                                cq:styleIds="[1684752172948,1684752176188]"
+                                                jcr:created="{Date}2023-11-03T09:06:46.330Z"
+                                                jcr:createdBy="d.mariotti@adiacent.com"
+                                                jcr:lastModified="{Date}2023-12-07T07:54:32.120Z"
+                                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="menarinimaster/components/image"
+                                                alt="instagram"
+                                                altValueFromDAM="false"
+                                                displayPopupTitle="false"
+                                                fileReference="/content/dam/menarini-apac/assets/icons/icon_instagram.svg"
+                                                imageFromPageImage="false"
+                                                isDecorative="false"
+                                                linkTarget="_blank"
+                                                linkURL="https://www.instagram.com/menarini_ap"
+                                                titleValueFromDAM="false">
+                                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        offset="0"
+                                                        width="1"/>
+                                                </cq:responsive>
+                                            </image>
+                                        </container>
+                                    </container_1594684410>
+                                </container_1230078590>
                             </container_781062112_>
-                        </item_therapeuticAreas>
+                        </item_1695996729103>
                         <item_linkcareers
                             cq:panelTitle="Careers"
                             jcr:lastModified="{Date}2023-05-31T12:43:06.834Z"
@@ -731,45 +2394,27 @@
                             link="/content/menarini-apac/en/careers"
                             linkType="standard"
                             target="_self"/>
-                        <link_linknews
-                            cq:panelTitle="News"
-                            jcr:lastModified="{Date}2023-06-12T16:51:09.165+02:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="menarinimaster/components/link"
-                            label="News"
-                            link="/content/menarini-apac/en/news"
-                            linkType="standard"
-                            target="_self"/>
                         <item_linkcontactus
-                            cq:panelTitle="Contacts"
-                            jcr:lastModified="{Date}2023-06-12T16:51:32.564+02:00"
-                            jcr:lastModifiedBy="admin"
+                            cq:panelTitle="Contact Us"
+                            jcr:lastModified="{Date}2023-11-28T20:28:16.032Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/link"
-                            label="Contacts"
+                            label="Contact Us"
                             link="/content/menarini-apac/en/contact-us"
                             linkType="standard"
                             target="_self"/>
                     </megamenu>
                 </wrapper>
             </section_megamenu>
-            <logo/>
-            <section
-                jcr:created="{Date}2023-10-03T14:52:51.870+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2023-10-03T16:54:42.309+02:00"
-                jcr:lastModifiedBy="admin"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="menarinimaster/components/section"/>
             <market_countries_con
                 jcr:created="{Date}2023-10-03T16:16:31.326+02:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2023-10-04T14:15:07.716+02:00"
-                jcr:lastModifiedBy="admin"
+                jcr:lastModified="{Date}2023-11-07T15:55:33.435Z"
+                jcr:lastModifiedBy="a.messori@adiacent.com"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="menarinimaster/components/header/market-countries-container"
-                backImg="/content/dam/menarini-apac/assets/menu/contries_background.jpg">
+                backImg="/content/dam/menarini-apac/assets/menu/countries_background.jpg">
                 <wrapper_54523298
                     cq:styleIds="[1684741727110]"
                     jcr:created="{Date}2023-10-02T14:18:30.297+02:00"
@@ -791,15 +2436,18 @@
                         <image_924198876
                             jcr:created="{Date}2023-10-03T16:56:24.515+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2023-10-05T15:53:11.217+02:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:lastModified="{Date}2023-12-11T08:27:47.491Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="menarinimaster/components/image"
+                            alt="menarini apac logo"
+                            altValueFromDAM="false"
                             displayPopupTitle="false"
-                            fileReference="/content/dam/logo/menarini-demo/logo-neg.svg"
+                            fileReference="/content/dam/logo/menarini-apac/logo-neg.svg"
                             imageFromPageImage="false"
-                            isDecorative="true"
+                            isDecorative="false"
                             linkTarget="_self"
+                            linkURL="/content/menarini-apac/en"
                             titleValueFromDAM="false">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
@@ -892,17 +2540,18 @@
                                 linkTarget="_self"
                                 type="h2"/>
                             <list
+                                cq:styleIds="[1700223224384]"
                                 jcr:created="{Date}2023-10-03T16:17:36.798+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2023-10-03T16:18:27.463+02:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-11-14T13:12:53.202Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="menarinimaster/components/list"
                                 childDepth="1"
                                 displayItemAsTeaser="false"
-                                linkItems="false"
+                                linkItems="true"
                                 listFrom="children"
-                                parentPage="/content/menarini-apac/en/therapeutic-areas"
+                                parentPage="/content/menarini-apac/en/apac-markets"
                                 showDescription="false"
                                 showModificationDate="false"
                                 sortOrder="asc"
@@ -939,14 +2588,14 @@
                                 sling:resourceType="menarinimaster/components/spacer"
                                 spacer="40"/>
                             <text
-                                cq:styleIds="[1696341422476]"
+                                cq:styleIds="[1699372405110]"
                                 jcr:created="{Date}2023-10-03T15:45:38.867+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2023-10-04T11:15:30.604+02:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-11-07T16:04:35.438Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="menarinimaster/components/text"
-                                text="&lt;p>The healthcare sector in Asia Pacific is rapidly growing. As part of the world’s leading Italian biopharmaceutical company, Menarini AP has a strong presence in 13 key markets across the region. &lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>As a partner of choice for numerous global healthcare companies, we engage in the entire pharmaceutical development lifecycle to tap growth opportunities and grow their brand footprint. In doing so, we also support healthcare professionals and patients with quality medical products and technology to raise standards and invigorate lives for tomorrow.&lt;/p>&#xd;&#xa;"
+                                text="&lt;p>The healthcare sector in Asia Pacific is rapidly growing. As part of the world’s leading Italian biopharmaceutical company, Menarini AP has a strong presence in 13 key markets across the region.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;As a partner of choice for numerous global healthcare companies, we engage in the entire pharmaceutical development lifecycle to tap growth opportunities and grow their brand footprint. In doing so, we also support healthcare professionals and patients with quality medical products and technology to raise standards and invigorate lives for tomorrow.&lt;/p>&#xd;&#xa;"
                                 textIsRich="true">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <tablet
@@ -990,21 +2639,32 @@
                                 cq:styleIds="[1684743270559]"
                                 jcr:created="{Date}2023-10-03T15:44:43.424+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2023-10-03T15:45:23.117+02:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-11-07T16:05:09.820Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
+                                jcr:title="Our APAC Headquarters"
                                 sling:resourceType="menarinimaster/components/title"
                                 linkTarget="_self"
                                 type="h2"/>
-                            <text
-                                cq:styleIds="[1696341422476]"
+                            <text_copy
+                                cq:styleIds="[1699372405110]"
                                 jcr:created="{Date}2023-10-03T15:44:05.174+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2023-10-03T15:44:59.115+02:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2023-11-07T16:09:46.645Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="menarinimaster/components/text"
-                                text="&lt;p>A. MENARINI ASIA-PACIFIC HOLDINGS PTE LTD A. MENARINI ASIA-PACIFIC PRIVATE LIMITED A. MENARINI SINGAPORE PTE LTD A. MENARINI BIOMARKERS SINGAPORE PTE LTD 30 Pasir Panjang Road, Mapletree Business City, #08-32Singapore 117440 Tel: +65-6494-7200 Fax: +65-6777-1787&lt;/p>&#xd;&#xa;"
+                                text="&lt;p>&lt;b>A. MENARINI ASIA-PACIFIC HOLDINGS PTE LTD&lt;br>&#xd;&#xa;A. MENARINI ASIA-PACIFIC PRIVATE LIMITED&lt;br>&#xd;&#xa;A. MENARINI SINGAPORE PTE LTD&lt;br>&#xd;&#xa;A. MENARINI BIOMARKERS SINGAPORE PTE LTD&lt;/b>&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
+                            <text
+                                cq:styleIds="[1699372405110]"
+                                jcr:created="{Date}2023-10-03T15:44:05.174+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2023-12-11T08:28:30.594Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="menarinimaster/components/text"
+                                text="&lt;p>30 Pasir Panjang Road,&lt;br>&#xd;&#xa;Mapletree Business City,&lt;br>&#xd;&#xa;#08-32 Singapore 117440&lt;br>&#xd;&#xa;Tel: +65-6494-7200&lt;br>&#xd;&#xa;Fax: +65-6999-1787&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
                                 textIsRich="true"/>
                             <spacer_copy
                                 jcr:created="{Date}2023-10-05T10:16:48.801+02:00"
@@ -1026,6 +2686,7 @@
                     sling:resourceType="menarinimaster/components/spacer"
                     spacer="50"/>
             </market_countries_con>
+            <logo/>
         </root>
         <cq:metadata jcr:primaryType="nt:unstructured"/>
     </jcr:content>

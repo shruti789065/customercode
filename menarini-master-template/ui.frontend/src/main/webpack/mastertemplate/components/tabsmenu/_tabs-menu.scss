@@ -278,10 +278,16 @@
 			border: 0px !important;
 		  }
 		}
-  
-		ul {
-		  column-count: 2;
-		}
+        .list{
+            ul {
+                column-count: 2;
+            }
+            &.cmp-oneColumn{
+                ul {
+                    column-count: 1;
+                }
+            }
+        }
 	  }
 	}
   

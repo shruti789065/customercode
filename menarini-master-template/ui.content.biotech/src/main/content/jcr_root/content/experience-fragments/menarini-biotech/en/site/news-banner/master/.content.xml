@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-06-09T10:17:39.760Z"
+        cq:lastModifiedBy="reference-adjustment-service"
+        cq:lastReplicated="{Date}2023-06-09T10:17:42.191Z"
+        cq:lastReplicated_publish="{Date}2023-06-09T10:17:42.191Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-biotech/settings/wcm/templates/xf-web-variation"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="News Banner"
+        jcr:uuid="aadb5f22-ea46-4151-ba94-62e7cf073ef1"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                cq:styleIds="[1653644898118]"
+                jcr:lastModified="{Date}2023-04-04T15:56:11.703Z"
+                jcr:lastModifiedBy="m.papini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container">
+                <container
+                    jcr:lastModified="{Date}2023-04-04T15:59:38.204Z"
+                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/container"
+                    layout="responsiveGrid">
+                    <spacer
+                        jcr:lastModified="{Date}2023-04-04T16:09:59.627Z"
+                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/spacer"
+                        spacer="50"/>
+                    <banner
+                        cq:styleIds="[1655107229265]"
+                        jcr:description="&lt;p>Would you like to attend at one of this events?&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2023-05-11T07:13:57.949Z"
+                        jcr:lastModifiedBy="m.papini@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="MEET US"
+                        sling:resourceType="menarinimaster/components/banner"
+                        descriptionFromPage="false"
+                        disableLazyLoading="false"
+                        fileReference="/content/dam/menarini-biotech/assets/home/banner/background_banner_event.jpg"
+                        imageFromPageImage="false"
+                        isDecorative="true"
+                        linkTarget="_self"
+                        linkURL="/content/menarini-biotech/en/meet-us"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="/content/menarini-biotech/en/meet-us"
+                                linkTarget="_self"
+                                text="READ MORE"/>
+                        </actions>
+                    </banner>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>
