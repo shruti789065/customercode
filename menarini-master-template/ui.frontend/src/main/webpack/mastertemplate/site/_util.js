@@ -80,13 +80,16 @@ export function hideOverlayAndLoader(item) {
   item.removeClass("loading");
 }
 
-export function getUrl(endpoint, JSONmock) {
-  const domainName = window.location.hostname;
-  const port = window.location.port;
-  const protocol = window.location.protocol;
-  return domainName === "localhost" && port === "4502"
-    ? `${protocol}//${domainName}:${port}${endpoint}`
-    : domainName === "localhost"
-    ? JSONmock
-    : `${protocol}//${domainName}${endpoint}`;
+export function getUrl(endpoint, JSONmock = "") {
+  const { hostname, port, protocol } = window.location;
+
+  if (hostname === "localhost") {
+    if (port === "4502") {
+      return `${protocol}//${hostname}:${port}${endpoint}`;
+    } else {
+      return JSONmock;
+    }
+  } else {
+    return `${protocol}//${hostname}${endpoint}`;
+  }
 }
