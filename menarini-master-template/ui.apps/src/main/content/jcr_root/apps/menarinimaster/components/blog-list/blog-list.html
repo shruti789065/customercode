@@ -20,6 +20,7 @@
 	         id="${list.id}"
 	         class="cmp-contentfragmentlist cmp-bloglist" data-category="${properties.tagSelected}">
 		<sly data-sly-call="${fragmentTemplate.contentFragment @ fragment=fragment, wcmmode=wcmmode}"></sly>
+		<input type="hidden" value="${'read more' @ i18n}" class="cmp-link--translation">
 	</section>
 </sly>
 
