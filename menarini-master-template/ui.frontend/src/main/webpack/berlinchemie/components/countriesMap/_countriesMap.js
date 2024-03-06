@@ -150,7 +150,7 @@ function setCountriesMarkers(filters) {
       countrySelected != "" &&
       country.Name !== countrySelected
     )
-      return;
+      {return;}
     const numberOfChildren = AllVenues.filter(
       (venue) =>
         venue.Country === country.Country &&
@@ -178,9 +178,11 @@ function setVenuesMarkers(filters) {
       countrySelectedId != "" &&
       venue.Country !== countrySelectedId
     )
-      return;
+      {return;}
     if (filters.length === 0 || filters.includes(venue.Type)) {
-      const template = `<div class="picker"><h2 class="cityName">${venue.City}</h2><p class="companyName">${venue.Name}</p><p class="websiteName"><a href="${venue.Link}" target="_blank">${venue.Link}</a></p></div>`;
+      const template = `<div class="picker"><h2 class="cityName">${venue.City}</h2>
+	  <p class="companyName">${venue.Name}</p>
+	  <p class="websiteName"><a href="${venue.Link}" target="_blank">${venue.Link}</a></p></div>`;
       const html = template
         .replace("{NAME}", venue.Name)
         .replace("{CITY}", venue.City)

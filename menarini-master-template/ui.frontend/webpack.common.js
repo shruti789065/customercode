@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/no-var-requires */
 'use strict';
 
 const path = require('path');
@@ -37,7 +39,8 @@ module.exports = {
 	},
 	output: {
 		filename: (chunkData) => {
-			return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-[name]/[name].js';
+			return chunkData.chunk.name === 
+			'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-[name]/[name].js';
 		},
 		path: path.resolve(__dirname, 'dist')
 	},
