@@ -79,3 +79,14 @@ export function hideOverlayAndLoader(item) {
   }
   item.removeClass("loading");
 }
+
+export function getUrl(endpoint, JSONmock) {
+  const domainName = window.location.hostname;
+  const port = window.location.port;
+  const protocol = window.location.protocol;
+  return domainName === "localhost" && port === "4502"
+    ? `${protocol}//${domainName}:${port}${endpoint}`
+    : domainName === "localhost"
+    ? JSONmock
+    : `${protocol}//${domainName}${endpoint}`;
+}

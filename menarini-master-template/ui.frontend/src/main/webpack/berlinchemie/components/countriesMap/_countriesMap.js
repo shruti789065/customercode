@@ -1,8 +1,11 @@
 import { AllContinents } from "./continents.js";
 import { AllCountries } from "./countries.js";
+import { getUrl } from "../../../mastertemplate/site/_util.js";
 
 const BASE_ICON_URL =
   "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/";
+const JSONmock =
+  "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/mock/AllVenues.json";
 const ZOOM = {
   DEFAULT: 3,
   CONTINENT_THRESHOLD: 3,
@@ -50,8 +53,8 @@ function initMap() {
 
 function copyDataFromJson() {
   const lang = document.documentElement.getAttribute("lang");
-  const url = getUrl(lang);
-  fetch(url)
+  const graphqlQuery = `/graphql/execute.json/global/locale;locale=${lang}`;
+  fetch(getUrl(graphqlQuery, JSONmock))
     .then((response) => response.json())
     .then((data) => {
       AllVenues = data.data.venuesList.items.map((item) => ({
@@ -67,17 +70,6 @@ function copyDataFromJson() {
     .catch((error) => {
       console.error("Error copying data to local storage:", error);
     });
-}
-
-function getUrl(lang) {
-  const domainName = window.location.hostname;
-  const port = window.location.port;
-  const protocol = window.location.protocol;
-  return domainName === "localhost" && port === "4552"
-    ? `${protocol}//${domainName}:${port}/graphql/execute.json/global/locale;locale=${lang}`
-    : domainName === "localhost"
-    ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/countriesMap/AllVenues.json"
-    : `${protocol}//${domainName}/graphql/execute.json/global/locale;locale=${lang}`;
 }
 
 function getIconUrl(type) {
@@ -103,7 +95,10 @@ function setMarks(zoomLevel, filters) {
   resetMarkers();
   if (zoomLevel <= ZOOM.CONTINENT_THRESHOLD) {
     setContinentMarkers(filters);
-  } else if (zoomLevel > ZOOM.CONTINENT_THRESHOLD && zoomLevel <= ZOOM.COUNTRY_THRESHOLD) {
+  } else if (
+    zoomLevel > ZOOM.CONTINENT_THRESHOLD &&
+    zoomLevel <= ZOOM.COUNTRY_THRESHOLD
+  ) {
     setCountriesMarkers(filters);
   } else {
     setVenuesMarkers(filters);
@@ -248,7 +243,9 @@ function ASPxComboBoxCountrySearch_SelectedIndexChanged(s, e) {
 }
 
 function setFocusOnMapByVenueId(id) {
-  if (id == null || id == "") {return;}
+  if (id == null || id == "") {
+    return;
+  }
   setVenuesMarkers(ZOOM.VENUE, []);
   const venue = AllVenues.find((v) => v.Id === id);
   if (venue) {
