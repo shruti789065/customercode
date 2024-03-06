@@ -85,8 +85,6 @@ const NavbarMenu = (() => {
     if (navbarSection !== null) {
       if (dataIndex !== currentContainerIndex) {
         currentContainerIndex = dataIndex;
-
-        const body = document.body;
 		const HTML = document.documentElement;
 
         if (_isDesktop()) {
