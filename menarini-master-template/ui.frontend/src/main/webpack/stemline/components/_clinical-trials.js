@@ -1,29 +1,23 @@
+import { getUrl } from "../../mastertemplate/site/_util";
 /* eslint-disable max-len */
 const copyDataFromJsonCompound = () => {
-  const domainName = window.location.hostname;
-  const port = window.location.port;
-  const protocol = window.location.protocol;
-  const currentNodePipeline = document.querySelector('.currentNodeClinicalTrials').value;
-  let url;
-
+  const currentNodePipeline = document.querySelector(
+    ".currentNodeClinicalTrials"
+  ).value;
   const loadingSpinner = document.createElement("div");
+  const JSONmock =
+    "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/mock/clinicaltrials.json";
+  const endpoint = `${currentNodePipeline}.pipeline.json?type=compound`;
+
   loadingSpinner.classList.add("loading-spinner");
   document.body.appendChild(loadingSpinner);
 
-  if (domainName === 'localhost' && port === '4502') {
-    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
-  } else if (domainName === 'localhost') {
-    url = 'https://raw.githubusercontent.com/davide-mariotti/JSON/main/clinicaltrialST/clinicaltrials.json';
-  } else {
-    url = `${protocol}//${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
-  }
-
-  fetch(url)
+  fetch(getUrl(endpoint, JSONmock))
     .then((response) => response.json())
     .then((data) => {
-      localStorage.setItem('clinicalTrials', JSON.stringify(data));
-       // Hide loading spinner
-       loadingSpinner.remove();
+      localStorage.setItem("clinicalTrials", JSON.stringify(data));
+      // Hide loading spinner
+      loadingSpinner.remove();
     })
     .catch((error) => {
       console.error("Error copying data to local storage:", error);
@@ -55,8 +49,20 @@ function displayDataCompound() {
         <div class="rowPipeline compounds">
             <div class="compoundPipeline">${compound.compound}<br>
               <div class="popUpPipeline">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${compound.compound.replace(/[^a-zA-Z0-9]/g, "")}${compound.indication.replace(/[^a-zA-Z0-9]/g, "")}">Read More</button>
-                <div class="modal fade" id="${compound.compound.replace(/[^a-zA-Z0-9]/g, "")}${compound.indication.replace(/[^a-zA-Z0-9]/g, "")}" tabindex="-1" aria-hidden="true">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${compound.compound.replace(
+                  /[^a-zA-Z0-9]/g,
+                  ""
+                )}${compound.indication.replace(
+              /[^a-zA-Z0-9]/g,
+              ""
+            )}">Read More</button>
+                <div class="modal fade" id="${compound.compound.replace(
+                  /[^a-zA-Z0-9]/g,
+                  ""
+                )}${compound.indication.replace(
+              /[^a-zA-Z0-9]/g,
+              ""
+            )}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">${compound.compound}
@@ -73,7 +79,9 @@ function displayDataCompound() {
             <div class="indicationPipeline">${compound["indication"]}</div>
             <div class="statusPipeline">${compound.status}</div>
             <div class="detailPipeline">
-                <a href="${compound.clinicaltrials}" target="${compound.targetclinicaltrials}">${compound.labelclinicaltrials}</a>
+                <a href="${compound.clinicaltrials}" target="${
+              compound.targetclinicaltrials
+            }">${compound.labelclinicaltrials}</a>
             </div>
         </div>
         `

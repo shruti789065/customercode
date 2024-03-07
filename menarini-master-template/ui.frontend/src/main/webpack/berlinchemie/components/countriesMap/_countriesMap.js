@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { AllContinents } from "./continents.js";
 import { AllCountries } from "./countries.js";
-import { getUrl } from "../../../mastertemplate/site/_util.js";
+import { getUrl } from "../../../mastertemplate/site/_util";
 
 const BASE_ICON_URL =
   "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/";

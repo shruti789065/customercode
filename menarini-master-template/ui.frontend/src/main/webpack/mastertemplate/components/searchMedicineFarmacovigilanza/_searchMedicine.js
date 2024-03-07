@@ -143,3 +143,4 @@ $(function () {
 	SearchMedicine.init();
 });
 /* eslint-disable max-len */
+

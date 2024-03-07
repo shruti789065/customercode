@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { getUrl } from "../../../mastertemplate/site/_util.js";
+import { getUrl } from "../../../mastertemplate/site/_util";
 
 const blog = (() => {
   function copyDataFromJson() {

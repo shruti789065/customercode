@@ -1,4 +1,4 @@
-import { getUrl } from "../../../mastertemplate/site/_util.js";
+import { getUrl } from "../../../mastertemplate/site/_util";
 /* eslint-disable max-len */
 
 const JSONmock =

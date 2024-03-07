@@ -111,7 +111,8 @@ function setVenuesMarkers(zoomLevel, filters) {
   if (zoomLevel > CONSTANT.COUNTRY) {
     console.log("setVenuesMarkers");
     let template =
-      '<div class="picker"><h2 class="cityName">{CITY}</h2><p class="companyName">{NAME}</p><p class="websiteName"><a href="{LINK}" target="_blank">{WEB}</a></p></div>';
+      '<div class="picker"><h2 class="cityName">{CITY}</h2><p class="companyName">{NAME}</p>
+	  <p class="websiteName"><a href="{LINK}" target="_blank">{WEB}</a></p></div>';
     for (let i = 0; i < AllVenues.length; i++) {
       console.log("countrySelected:" + countrySelectedId);
       if (
@@ -276,3 +277,5 @@ export function setMarks(zoomLevel, filters) {
   UpdateListOfVenues(filters);
 }
 */
+
+
