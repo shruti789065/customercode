@@ -1,16 +1,15 @@
 import $ from "jquery";
-import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
+import {
+  _getJsonProperty,
+  _generateUniqueValue,
+  getUrl,
+} from "../../site/_util.js";
 
 (function () {
   "use strict";
 
   var ConnectedOptions = (function () {
-    const domainName = window.location.hostname;
-    const port = window.location.port;
-    const protocol = window.location.protocol;
-
     var connectedContainer,
-      url,
       currentNodePath,
       jsonSelector,
       jsonArray,
@@ -82,14 +81,8 @@ import { _getJsonProperty, _generateUniqueValue } from "../../site/_util.js";
 
     async function callServlet(node, _customSelector) {
       let jsonArray;
-
-      if (domainName === "localhost" && port === "4502") {
-        url = `${protocol}//${domainName}:${port}${node}.${_customSelector}.json`;
-      } else {
-        url = `${protocol}//${domainName}${node}.${_customSelector}.json`;
-      }
-
-      await fetch(url)
+      const endpoint = `${node}.${_customSelector}.json`;
+      await fetch(getUrl(endpoint))
         .then((response) => response.json())
         .then((data) => {
           jsonArray = data;

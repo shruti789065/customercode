@@ -1,20 +1,17 @@
 /* eslint-disable max-len */
 import $ from "jquery";
-
+import { getUrl } from "../../site/_util.js";
 (function () {
   "use strict";
 
   var Positions = (function () {
-    var dropdown, url, currentNodeCountry, resultsContainer;
+    var dropdown, currentNodeCountry, resultsContainer;
     /**
      * Initializes the job positions
      *
      * @public
      */
     function init() {
-      const domainName = window.location.hostname;
-      const port = window.location.port;
-      const protocol = window.location.protocol;
       dropdown = document.querySelector("#dropdownCountries");
       if (document.querySelector(".currentNodeCountry") !== null) {
         currentNodeCountry = document.querySelector(".currentNodeCountry")
@@ -27,14 +24,9 @@ import $ from "jquery";
       }
 
       function callServlet(selectedCountry) {
-        if (domainName === "localhost" && port === "4502") {
-          // eslint-disable-next-line max-len
-          url = `${protocol}//${domainName}:${port}${currentNodeCountry}.searchJobPosition.json?country=${selectedCountry}`;
-        } else {
-          url = `${protocol}//${domainName}${currentNodeCountry}.searchJobPosition.json?country=${selectedCountry}`;
-        }
+        const endpoint = `${currentNodeCountry}.searchJobPosition.json?country=${selectedCountry}`;
 
-        fetch(url)
+        fetch(getUrl(endpoint))
           .then((response) => response.json())
           .then((data) => {
             //console.log("Data copied to local storage!", data);
