@@ -335,5 +335,53 @@ module.exports = {
         },
       },
     },
+	// site berlinchemie
+    {
+		...libsBaseConfig,
+		name: "clientlib-dependencies-berlinchemie",
+		categories: ["menariniberlinchemie.dependencies"],
+		assets: {
+		  // Copy entrypoint scripts and stylesheets into the respective ClientLib
+		  // directories
+		  js: {
+			cwd: "clientlib-dependencies-berlinchemie",
+			files: ["**/*.js"],
+			flatten: false,
+		  },
+		  css: {
+			cwd: "clientlib-dependencies-berlinchemie",
+			files: ["**/*.css"],
+			flatten: false,
+		  },
+		},
+	  },
+	  {
+		...libsBaseConfig,
+		name: "clientlib-berlinchemie",
+		categories: ["menariniberlinchemie.site"],
+		dependencies: ["menariniberlinchemie.dependencies"],
+		assets: {
+		  // Copy entrypoint scripts and stylesheets into the respective ClientLib
+		  // directories
+		  js: {
+			cwd: "clientlib-berlinchemie",
+			files: ["**/*.js"],
+			flatten: false,
+		  },
+		  css: {
+			cwd: "clientlib-berlinchemie",
+			files: ["**/*.css"],
+			flatten: false,
+		  },
+  
+		  // Copy all other files into the `resources` ClientLib directory
+		  resources: {
+			cwd: "clientlib-berlinchemie",
+			files: ["**/*.*"],
+			flatten: false,
+			ignore: ["**/*.js", "**/*.css"],
+		  },
+		},
+	  },
   ],
 };

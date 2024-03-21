@@ -1,7 +1,30 @@
 .card_v2 {
+
+  &.cmp-fullDescription{
+    
+    >.cmp-card--avatar{
+
+      >.cmp-teaser__content{
+
+        .cmp-teaser__action-container{
+          display: none !important;
+        }
+  
+        .cmp-teaser__description{
+          display: block !important;
+        }
+
+      }
+
+    }
+
+  }
+
+
   .cmp-card {
     .cmp-teaser__content,
     .cmp-teaser__link {
+      
       position: absolute;
       top: 0;
       padding: 20px;
@@ -100,6 +123,9 @@
         background-color: $color-primary-hover;
       }
     }
+
+    
+
   }
   .cmp-card--standard {
     position: relative;
@@ -134,13 +160,13 @@
         width: 100%;
         .cmp-image {
           height: 100%;
-  
+
           .cmp-image__image {
             width: 100%;
           }
         }
       }
-  
+
       .cmp-teaser__content,
       .cmp-teaser__link {
         display: flex;
@@ -153,8 +179,8 @@
         padding: 80px 0px;
         background: rgba(0, 0, 0, 0.35);
         transition: 0.5s;
-        min-height: 305px;  
-        
+        min-height: 305px;
+
         .cmp-teaser__title {
           font-size: $title-font-size;
           font-weight: $font-regular;
@@ -164,7 +190,7 @@
           color: $white;
           text-align: center;
         }
-    
+
         .cmp-teaser__description {
           font-style: italic;
           font-family: georgia;
@@ -173,7 +199,7 @@
           line-height: 22px;
           color: $white;
           padding: 0 20px;
-    
+
           p {
             min-height: 44px;
             text-align: center;
@@ -187,7 +213,7 @@
           left: unset;
           top: unset;
           transform: unset;
-  
+
           .cmp-image__image {
             background-color: $white;
             border-radius: 50%;
@@ -195,21 +221,17 @@
           }
         }
       }
-  
-      
-      
     }
     &.cmp-teaser--background_primary .cmp-teaser__content:hover,
     &.cmp-teaser--background_primary .cmp-teaser__link:hover {
-        background-color: $color-primary;
-        opacity: 0.7;
+      background-color: $color-primary;
+      opacity: 0.7;
     }
     &.cmp-teaser--background_secondary .cmp-teaser__content:hover,
     &.cmp-teaser--background_secondary .cmp-teaser__link:hover {
-        background-color: $color-secondary;
-        opacity: 0.7;
+      background-color: $color-secondary;
+      opacity: 0.7;
     }
-
   }
   .cmp-card--news {
     margin: 15px;
@@ -375,82 +397,81 @@
       }
     }
   }
-  &.cmp-card--regular{
-	.cmp-card{
-		.cmp-teaser__content{
-			font-family: $font-family-oswald;
-			padding: 40px;
-			.cmp-teaser__pretitle{
-
-			}
-			.cmp-teaser__title{
-				font-size: 50px;
-				font-weight: 400;
-			}
-			.cmp-teaser__description{
-				font-weight: 300;
-				font-size: 30px;
-				-webkit-line-clamp: 2;
-				line-height: 40px;
-        margin-bottom: 20px;
-			}
-		}
-	}
+  &.cmp-card--regular {
+    .cmp-card {
+      .cmp-teaser__content {
+        font-family: $font-family-oswald;
+        padding: 40px;
+        .cmp-teaser__pretitle {
+        }
+        .cmp-teaser__title {
+          font-size: 50px;
+          font-weight: 400;
+        }
+        .cmp-teaser__description {
+          font-weight: 300;
+          font-size: 30px;
+          -webkit-line-clamp: 2;
+          line-height: 40px;
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
-  &.cmp-card--extralight{
-	.cmp-card{
-		.cmp-teaser__content{
-			font-family: $font-family-oswald;
-			padding: 40px;
-			.cmp-teaser__pretitle{
-
-			}
-			.cmp-teaser__title{
-				font-size: 30px;
-				font-weight: 200;
-			}
-			.cmp-teaser__description{
-				font-weight: 300;
-				font-size: 14px;
-			}
-		}
-	}
+  &.cmp-card--extralight {
+    .cmp-card {
+      .cmp-teaser__content {
+        font-family: $font-family-oswald;
+        padding: 40px;
+        .cmp-teaser__pretitle {
+        }
+        .cmp-teaser__title {
+          font-size: 30px;
+          font-weight: 200;
+        }
+        .cmp-teaser__description {
+          font-weight: 300;
+          font-size: 14px;
+        }
+      }
+    }
   }
-  &.cmp-titleColor{
-    &-primary{
-      .cmp-card--avatar{
-        .cmp-teaser__content{
-          .cmp-teaser__pretitle{
-              color: $color-primary;
+  &.cmp-titleColor {
+    &-primary {
+      .cmp-card--avatar {
+        .cmp-teaser__content {
+          .cmp-teaser__pretitle {
+            color: $color-primary;
           }
         }
       }
     }
-    &-secondary{
-      .cmp-card--avatar{
-        .cmp-teaser__content{
-          .cmp-teaser__pretitle{
-              color: $color-secondary;
+    &-secondary {
+      .cmp-card--avatar {
+        .cmp-teaser__content {
+          .cmp-teaser__pretitle {
+            color: $color-secondary;
           }
         }
       }
     }
-    &-corporate{
-      .cmp-card--avatar{
-        .cmp-teaser__content{
-          .cmp-teaser__pretitle{
-              color: $color-corporate;
+    &-corporate {
+      .cmp-card--avatar {
+        .cmp-teaser__content {
+          .cmp-teaser__pretitle {
+            color: $color-corporate;
           }
         }
       }
     }
   }
-  &.cmp-fullTitle{
+  &.cmp-fullTitle {
     .cmp-card--standard,
-    .cmp-card--hover {
+    .cmp-card--hover,
+    .cmp-card--label {
       .cmp-teaser__content,
       .cmp-teaser__link {
-        .cmp-teaser__title{
+        .cmp-teaser__title {
           display: -webkit-box;
           -webkit-line-clamp: unset;
           -webkit-box-orient: vertical;
@@ -460,18 +481,58 @@
       }
     }
   }
-  &.cmp-fullDescription{
+  &.cmp-fullDescription {
     .cmp-card--standard,
-    .cmp-card--hover{
+    .cmp-card--hover,
+    .cmp-card--label {
       .cmp-teaser__content,
       .cmp-teaser__link {
-        .cmp-teaser__description{
+        .cmp-teaser__description {
           display: -webkit-box;
           -webkit-line-clamp: unset;
           -webkit-box-orient: vertical;
           width: 100%;
           overflow: unset;
         }
+      }
+    }
+  }
+  .cmp-card--label {
+    .cmp-teaser__link {
+      padding: 30px;
+      min-height: 180px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding: inherit;
+      background: unset;
+      .cmp-teaser__content {
+        padding: inherit;
+        position: relative;
+        background: unset;
+        .cmp-teaser__title {
+          margin-bottom: 0px;
+          text-align: center;
+        }
+      }
+    }
+    &-negative {
+      border: 1px solid $white;
+      .cmp-teaser__title {
+        color: $white;
+        font-size: 30px;
+        font-weight: $font-extra-light;
+      }
+    }
+    &-positive {
+      .cmp-teaser__content,
+	  .cmp-teaser__link {
+        background: $white;
+      }
+      .cmp-teaser__title {
+        color: $color-corporate;
+        font-size: 30px;
+        font-weight: $font-extra-light;
       }
     }
   }
@@ -604,3 +665,4 @@
     padding-right: 0px !important;
   }
 }
+/*--- fix card ---*/

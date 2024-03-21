@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:crx="http://www.day.com/crx/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:ACL">
+    <deny
+        jcr:primaryType="rep:DenyACE"
+        rep:principalName="sites-viewer-stage"
+        rep:privileges="{Name}[jcr:versionManagement,rep:write,crx:replicate,jcr:lockManagement]"/>
+    <allow1
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="sites-viewer-stage"
+        rep:privileges="{Name}[jcr:read]"/>
+    <deny2
+        jcr:primaryType="rep:DenyACE"
+        rep:principalName="sites-viewer-stage"
+        rep:privileges="{Name}[jcr:removeNode,jcr:nodeTypeManagement,jcr:removeChildNodes,jcr:addChildNodes]">
+        <rep:restrictions
+            jcr:primaryType="rep:Restrictions"
+            rep:glob="*/jcr:content*"/>
+    </deny2>
+</jcr:root>

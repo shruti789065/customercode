@@ -17,7 +17,7 @@ jQuery(function ($) {
 
 	// Get all the progress bars
 		// Pause all videos except the first one
-		allVids.each(function (index, el) {
+		allVids.each(function (index) {
 			if (index !== 0) {
 				$(this).find('video')[0].pause();
 			}
@@ -37,7 +37,7 @@ jQuery(function ($) {
 		}
 
 		// Add title and subtitle text to the progress bars
-		allVids.each(function (index, el) {
+		allVids.each(function (index) {
 			let title = $(this).find('input.title').val();
 			let subtitle = $(this).find('input.subtitle').val();
 			let slideButton = $("#slideshowCarousel").find('.slidebutton');
@@ -59,7 +59,7 @@ jQuery(function ($) {
 			// Get the index of the active slide
 			let activeSlideIndex = document.querySelector('.slidebutton.active').dataset.bsSlideTo;
 			// Get the animation time for the current active slide
-			let animationTime = durations[activeSlideIndex] + "s";
+			//let animationTime = durations[activeSlideIndex] + "s";
 			//console.log("activeSlideIndex", activeSlideIndex, "animationTime", animationTime);
 			// Select all carousel items
 			let slides = $(this).find('.carousel-item');

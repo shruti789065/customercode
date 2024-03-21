@@ -1,0 +1,31 @@
+/* Stili di base per dispositivi desktop */
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Stili per dispositivi mobili */
+@media only screen and (max-width: 600px) {
+  .table-container {
+    overflow-x: scroll; /* Aggiungi uno scroll orizzontale al container */
+  }
+
+  .table th,
+  .table td {
+    padding: 8px; /* Mantieni il padding originale */
+    display: table-cell; /* Mantieni il display originale */
+    width: auto; /* Imposta la larghezza su auto */
+    text-align: center;
+  }
+}

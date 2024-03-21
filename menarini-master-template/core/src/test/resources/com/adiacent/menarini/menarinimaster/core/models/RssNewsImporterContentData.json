@@ -1,0 +1,53 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Thu Jan 18 2024 13:18:51 GMT+0100",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:mixinTypes": [
+      "cq:ReplicationStatus2",
+      "mix:versionable"
+    ],
+    "jcr:createdBy": "admin",
+    "jcr:title": "News & Medien",
+    "cq:lastReplicatedBy_publish": "d.mariotti@adiacent.com",
+    "cq:isDelivered": true,
+    "cq:lastReplicationAction": "Activate",
+    "jcr:versionHistory": "fe6b0962-7ba2-496f-ad39-f2f07054d4ba",
+    "pwaOrientation": "any",
+    "cq:template": "/conf/menarini-berlinchemie/settings/wcm/templates/menarini---content-news",
+    "cq:lastReplicatedBy": "d.mariotti@adiacent.com",
+    "cq:lastReplicationAction_publish": "Activate",
+    "jcr:predecessors": [
+      "562b5878-2348-4fc6-aa22-ace1f72c9cbf"
+    ],
+    "jcr:created": "Thu Jan 18 2024 13:18:51 GMT+0100",
+    "pwaDisplay": "standalone",
+    "cq:lastReplicated": "Fri Oct 27 2023 09:37:19 GMT+0000",
+    "cq:lastModified": "Tue Jan 09 2024 15:03:44 GMT+0000",
+    "pwaCachestrategy": "staleWhileRevalidate",
+    "jcr:baseVersion": "562b5878-2348-4fc6-aa22-ace1f72c9cbf",
+    "jcr:isCheckedOut": true,
+    "jcr:uuid": "3f2dd3a1-fd48-46cc-ad2a-2bc679745bfe",
+    "sling:resourceType": "menarinimaster/components/page",
+    "cq:lastReplicated_publish": "Fri Oct 27 2023 09:37:19 GMT+0000",
+    "cq:lastModifiedBy": "f.marrucci@adiacent.com",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "menarinimaster/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "menarinimaster/components/container"
+      }
+    },
+    "cq:featuredimage": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:lastModifiedBy": "f.marrucci@adiacent.com",
+      "jcr:lastModified": "Tue Jan 09 2024 15:03:44 GMT+0000",
+      "sling:resourceType": "core/wcm/components/image/v3/image",
+      "altValueFromDAM": "false"
+    }
+  }
+}

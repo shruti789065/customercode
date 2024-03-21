@@ -1,19 +1,16 @@
 import $ from "jquery";
-
+import { getUrl } from "../../site/_util.js";
 (function () {
   "use strict";
 
   var Positions = (function () {
-    var dropdownMarketList, url, currentNodeCountry, resultsContainer;
+    var dropdownMarketList, currentNodeCountry, resultsContainer;
     /**
      * Initializes the job positions
      *
      * @public
      */
     function init() {
-      const domainName = window.location.hostname;
-      const port = window.location.port;
-      const protocol = window.location.protocol;
       dropdownMarketList = document.querySelector("#marketListDropdown");
       if (document.querySelector(".currentNodeCountry") !== null) {
         currentNodeCountry = document.querySelector(".currentNodeCountry")
@@ -26,13 +23,9 @@ import $ from "jquery";
       }
 
       function callServletMarketList(selectedCountry) {
-        if (domainName === "localhost" && port === "4502") {
-          url = `${protocol}//${domainName}:${port}${currentNodeCountry}.marketList.json?country=${selectedCountry}`;
-        } else {
-          url = `${protocol}//${domainName}${currentNodeCountry}.marketList.json?country=${selectedCountry}`;
-        }
+        const endpoint = `${currentNodeCountry}.marketList.json?country=${selectedCountry}`;
 
-        fetch(url)
+        fetch(getUrl(endpoint))
           .then((response) => response.json())
           .then((data) => {
             //console.log("Data copied to local storage!", data);

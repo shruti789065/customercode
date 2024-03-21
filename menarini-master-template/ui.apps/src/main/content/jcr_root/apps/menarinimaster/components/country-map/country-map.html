@@ -1,0 +1,41 @@
+
+<div id="mapWithFilterView" class="cmp-container" ></div>
+<div class="cmp-container">
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=${properties.googleKey}&amp;libraries=&amp;v=weekly"
+			defer=""></script>
+	<div class="map_search_categories">
+		<div class="map_search_category">
+			<label>
+				<input type="checkbox" id="checkML"/> <span class="checkbox"></span>
+				<img src="/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-ml.svg" alt=""/>
+				<span class="text">${properties.locationLabel}</span>
+			</label>
+		</div>
+
+		<div class="map_search_category">
+			<label>
+				<input type="checkbox" id="checkMS"/> <span class="checkbox"></span>
+				<img src="/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-ms.svg" alt=""/>
+				<span class="text">${properties.manufacturingLabel}</span>
+			</label>
+		</div>
+
+		<div class="map_search_category">
+			<label>
+				<input type="checkbox" id="checkLO"/> <span class="checkbox"></span>
+				<img src="/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-lo.svg" alt=""/>
+				<span class="text">${properties.localOfficesLabel}</span>
+			</label>
+		</div>
+		<div class="map_search_category">
+			<label>
+				<input type="checkbox" id="checkLS"/> <span class="checkbox"></span>
+				<img src="/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/marker-ls.svg" alt=""/>
+				<span class="text">${properties.logisticsLabel}</span>
+			</label>
+		</div>
+	</div>
+</div>
+
