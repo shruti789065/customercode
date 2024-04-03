@@ -52,7 +52,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2023.11.14227.20231108T162349Z-231000</aem.sdk.api>
+        <aem.sdk.api>2023.12.14697.20231215T125030Z-231200</aem.sdk.api>
         <aemanalyser.version>1.5.8</aemanalyser.version>
         <componentGroupName>Menarini House Of Science</componentGroupName>
     </properties>
@@ -127,8 +127,8 @@
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${frontend-maven-plugin.version}</version>
                     <configuration>
-                        <nodeVersion>v16.17.0</nodeVersion>
-                        <npmVersion>8.15.0</npmVersion>
+                        <nodeVersion>v20.11.1</nodeVersion>
+                        <npmVersion>10.2.4</npmVersion>
                     </configuration>
                     <executions>
                         <execution>
