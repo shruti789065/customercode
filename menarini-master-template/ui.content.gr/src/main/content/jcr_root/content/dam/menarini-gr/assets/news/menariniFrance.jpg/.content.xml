@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="0d9c8cad-6111-481c-84d2-2319e0f2f277">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-11-24T09:24:30.896Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated_publish="{Date}2023-11-16T12:01:49.656Z"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction_publish="Activate"
+        dam:assetState="processed"
+        dam:jobId="e79c20a3-3292-4a18-854d-966f1d6e166c"
+        dam:processingId="cded3319-ae8e-4eff-90a1-2a5d8688aad6"
+        dam:processingRenditions="[cqdam.text.txt,cqdam.machine.metadata.tags.json,cq5dam.thumbnail.319.319.png,cq5dam.thumbnail.48.48.png,cq5dam.zoom.2048.2048.jpeg,cqdam.machine.metadata.colors.json,cq5dam.web.1280.1280.jpeg,cqdam.metadata.xml,cqdam.machine.metadata.features.json,cq5dam.thumbnail.140.100.png,cq5dam.preview.pdf]"
+        dam:processingRequestedDate="{Date}2023-11-16T11:59:23.792Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2023-11-16T11:59:40.142Z"
+        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2023-11-16T11:59:34.040Z"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:predictedColors="{Long}[13100]"
+            dam:Progressive="no"
+            dam:sha1="79a732eae698897314ed1da579022d65d7f5d6ba"
+            dam:size="{Long}29295"
+            dc:format="image/jpeg"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}450"
+            tiff:ImageWidth="{Long}800"
+            xmp:CreatorTool="Adobe Photoshop 25.1 (Windows)"
+            xmpMM:DocumentID="xmp.did:62AEEC3F847711EE9A01FF0F20B51022"
+            xmpMM:InstanceID="xmp.iid:62AEEC3E847711EE9A01FF0F20B51022">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="xmp.did:62AEEC3D847711EE9A01FF0F20B51022"
+                stRef:instanceID="xmp.iid:62AEEC3C847711EE9A01FF0F20B51022"
+                xmpNodeType="xmpStruct"/>
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:lastModified="{Date}2023-11-16T11:59:40.104Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}1.0"
+                    name="WHITE"
+                    rank="{Long}1"
+                    rgb="{Long}[251,251,251]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,30 @@
+.cmp-navbar-menu--item {
+  .cmp-text {
+    cursor: pointer;
+    p {
+      display: block;
+      margin: 0;
+      font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      color: $white;
+      font-style: normal;
+      text-decoration: none;
+      font-size: 13px;
+      margin: 6px 0px;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .cmp-navbar-menu--item {
+    width: 100% !important;
+    .cmp-text {
+      p {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: Oswald, Tahoma, Arial, Helvetica, sans-serif;
+        color: $color-text !important;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:exif="http://ns.adobe.com/exif/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="aa34551d-c3bd-46de-bcd3-caff3adb628e">
+    <jcr:content
+        dam:assetState="processed"
+        dam:jobId="c6cd6d4c-ac1a-49d2-894f-1abc5feaa3cd"
+        dam:processingId="25b1e9b2-ac20-440d-b0cc-593cbe4973f6"
+        dam:processingRenditions="[cqdam.metadata.xml,cq5dam.thumbnail.140.100.png,cqdam.machine.metadata.tags.json,cq5dam.thumbnail.319.319.png,cq5dam.zoom.2048.2048.jpeg,cqdam.machine.metadata.features.json,cq5dam.web.1280.1280.jpeg,cq5dam.thumbnail.48.48.png,cqdam.machine.metadata.colors.json,cqdam.text.txt,cq5dam.preview.pdf]"
+        dam:processingRequestedDate="{Date}2023-11-24T09:26:53.102Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2023-11-24T09:27:10.045Z"
+        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2023-11-24T09:27:09.670Z"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}72"
+            dam:Physicalheightininches="{Decimal}6.25"
+            dam:Physicalwidthindpi="{Long}72"
+            dam:Physicalwidthininches="{Decimal}11.11111068725586"
+            dam:predictedColors="{Long}[13100]"
+            dam:Progressive="no"
+            dam:sha1="5d09083cd1c679a23e717819feba2598d13760f4"
+            dam:size="{Long}91501"
+            dc:format="image/jpeg"
+            exif:ColorSpace="{Long}65535"
+            exif:PixelXDimension="{Long}800"
+            exif:PixelYDimension="{Long}450"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            photoshop:ColorMode="{Long}3"
+            photoshop:DocumentAncestors="[4FFD072889330B349D4C7201162B5962,E446D2847C92D49B7CF748A83FB393A9]"
+            photoshop:DocumentAncestors_xmpArrayType="rdf:Bag"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}450"
+            tiff:ImageWidth="{Long}800"
+            tiff:Orientation="{Long}1"
+            tiff:ResolutionUnit="{Long}2"
+            tiff:XResolution="720000/10000"
+            tiff:YResolution="720000/10000"
+            xmp:CreateDate="{Date}2022-01-17T11:48:52.000+01:00"
+            xmp:CreatorTool="Adobe Photoshop CC 2019 (Windows)"
+            xmp:MetadataDate="{Date}2022-01-17T11:48:52.000+01:00"
+            xmpMM:DocumentID="adobe:docid:photoshop:326b922c-d52d-9b4e-ae6c-97c5ad28d904"
+            xmpMM:InstanceID="xmp.iid:44453f0d-c313-ab49-9f9b-8e94aecc576e"
+            xmpMM:OriginalDocumentID="xmp.did:25fee50d-e281-ce4f-9f78-39778168d054"
+            xmp:ModifyDate="{Date}2022-01-17T11:48:52.000+01:00">
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:lastModified="{Date}2023-11-24T09:27:09.964Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}1.0"
+                    name="WHITE"
+                    rank="{Long}1"
+                    rgb="{Long}[251,251,251]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

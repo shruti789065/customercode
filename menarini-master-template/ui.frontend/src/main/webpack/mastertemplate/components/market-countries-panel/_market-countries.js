@@ -59,7 +59,9 @@ const MarketCountries = (() => {
             ".cmp-button--mobile__toggler_close"
           );
           menuCloseButton.addEventListener("click", () => {
-            marketCountriesContainer.style.left = "100%";
+			if(marketCountriesContainer!==null){
+				marketCountriesContainer.style.left = "100%";
+			}
           });
         }
       }

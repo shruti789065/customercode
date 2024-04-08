@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="57e25cc3-782c-48ec-bafd-74f685199880">
+    <jcr:content
+        dam:assetState="processed"
+        dam:jobId="76096fa7-914a-4b03-b9e1-3b246b9484cd"
+        dam:processingId="2dba9d15-76da-4593-9545-055bccdbe345"
+        dam:processingRenditions="[cq5dam.thumbnail.319.319.png,cq5dam.web.1280.1280.jpeg,cqdam.metadata.xml,cq5dam.thumbnail.48.48.png,cq5dam.preview.pdf,cqdam.machine.metadata.tags.json,cqdam.text.txt,cqdam.machine.metadata.colors.json,cqdam.machine.metadata.features.json,cq5dam.zoom.2048.2048.jpeg,cq5dam.thumbnail.140.100.png]"
+        dam:processingRequestedDate="{Date}2023-12-15T16:32:50.511Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2023-12-15T16:33:34.983Z"
+        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2023-12-15T16:33:11.185Z"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:predictedColors="{Long}[9073,11011,12010,8007]"
+            dam:Progressive="no"
+            dam:sha1="e3bcb31cfb3caab59b8cfc8522cead6136abab61"
+            dam:size="{Long}356031"
+            dc:format="image/jpeg"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            photoshop:ColorMode="{Long}3"
+            photoshop:ICCProfile="sRGB"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}737"
+            tiff:ImageWidth="{Long}801">
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:lastModified="{Date}2023-12-15T16:33:11.692Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.7269"
+                    name="DARK_BLUE"
+                    rank="{Long}1"
+                    rgb="{Long}[2,35,61]"/>
+                <color2
+                    jcr:lastModified="{Date}2023-12-15T16:33:11.692Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.1053"
+                    name="ROYAL_BLUE"
+                    rank="{Long}2"
+                    rgb="{Long}[7,90,144]"/>
+                <color3
+                    jcr:lastModified="{Date}2023-12-15T16:33:11.693Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.1013"
+                    name="BLACK"
+                    rank="{Long}3"
+                    rgb="{Long}[1,8,14]"/>
+                <color4
+                    jcr:lastModified="{Date}2023-12-15T16:33:11.694Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.0664"
+                    name="BLUE"
+                    rank="{Long}4"
+                    rgb="{Long}[3,104,184]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

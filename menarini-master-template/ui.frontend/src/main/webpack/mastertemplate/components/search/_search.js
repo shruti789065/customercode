@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable max-len */
 import $ from "jquery";
-import { showOverlayAndLoader, hideOverlayAndLoader } from "../../site/_util";
+import {
+  showOverlayAndLoader,
+  hideOverlayAndLoader,
+  getUrl,
+} from "../../site/_util";
 
 $(function () {
   const Search = {
@@ -19,10 +23,6 @@ $(function () {
     },
 
     initializeVariables() {
-      const domainName = window.location.hostname;
-      const port = window.location.port;
-      const protocol = window.location.protocol;
-
       this.currentNodeSearch = $(".currentNodeSearch").val();
       this.input = $("#search-input");
       this.resultsContainer = $("#search-results");
@@ -30,15 +30,12 @@ $(function () {
       this.searchButton.prop("disabled", true);
     },
 
-    copyDataFromJson(query, domainName, port, protocol, currentNodeSearch) {
-      const url =
-        domainName === "localhost" && port === "4502"
-          ? `${protocol}//${domainName}:${port}${currentNodeSearch}.searchresult.json?fulltext=${query}`
-          : domainName === "localhost"
-          ? "https://raw.githubusercontent.com/davide-mariotti/JSON/main/searchMT/search.json"
-          : `${protocol}//${domainName}${currentNodeSearch}.searchresult.json?fulltext=${query}`;
+    copyDataFromJson(query, currentNodeSearch) {
+      const JSONmock =
+        "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/mock/search.json";
+      const endpoint = `${currentNodeSearch}.searchresult.json?fulltext=${query}`;
 
-      fetch(url)
+      fetch(getUrl(endpoint, JSONmock))
         .then((response) => response.json())
         .then((data) => {
           localStorage.setItem("searchResults", JSON.stringify(data));
@@ -82,13 +79,7 @@ $(function () {
     performSearch() {
       this.query = this.input.val().toLowerCase().trim();
       showOverlayAndLoader(this.resultsContainer, false);
-      this.copyDataFromJson(
-        this.query,
-        window.location.hostname,
-        window.location.port,
-        window.location.protocol,
-        this.currentNodeSearch
-      );
+      this.copyDataFromJson(this.query, this.currentNodeSearch);
       setTimeout(() => {
         this.searchResults = JSON.parse(localStorage.getItem("searchResults"));
         if (this.searchResults !== null) {
