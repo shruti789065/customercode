@@ -1,0 +1,23 @@
+.cmp-navbar-menu--container {
+  .title {
+    .cmp-title__text {
+      font-size: 30px;
+    }
+  }
+  .cmp-text {
+    visibility: visible;
+    color: $white;
+    font-family: $font-family-arimo;
+    font-size: 18px;
+  }
+  .cmp-list {
+    list-style-type: none;
+    padding-left: 0;
+    .cmp-list__item {
+      font-size: 20px;
+      font-family: $font-family-oswald;
+      color: $white;
+      text-transform: uppercase;
+    }
+  }
+}

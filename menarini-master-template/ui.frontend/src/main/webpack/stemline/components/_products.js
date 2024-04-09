@@ -1,23 +1,14 @@
+import { getUrl } from "../../mastertemplate/site/_util";
 /* eslint-disable max-len */
 const copyDataFromJson = () => {
-  const domainName = window.location.hostname;
-  const port = window.location.port;
-  const protocol = window.location.protocol;
+	const JSONmock =
+	"/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/mock/productsStemline.json";
   const currentNodePipeline = document.querySelector(
     ".currentNodeProducts"
   ).value;
-  let url;
+  const endpoint = `${currentNodePipeline}.products.json`;
 
-  if (domainName === "localhost" && port === "4502") {
-    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.products.json`;
-  } else if (domainName === "localhost") {
-    url =
-      "https://raw.githubusercontent.com/davide-mariotti/JSON/main/productsST/productsStemline.json";
-  } else {
-    url = `${protocol}//${domainName}${currentNodePipeline}.products.json`;
-  }
-
-  fetch(url)
+  fetch(getUrl(endpoint, JSONmock))
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem("productsStemline", JSON.stringify(data));

@@ -48,7 +48,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2023.11.14227.20231108T162349Z-231000</aem.sdk.api>
+        <aem.sdk.api>2024.3.15575.20240318T214814Z-231200</aem.sdk.api>
         <aemanalyser.version>1.5.8</aemanalyser.version>
         <componentGroupName>Menarini Adobe Cloud</componentGroupName>
     </properties>
@@ -123,8 +123,8 @@
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${frontend-maven-plugin.version}</version>
                     <configuration>
-                        <nodeVersion>v12.22.7</nodeVersion>
-                        <npmVersion>6.14.0</npmVersion>
+                        <nodeVersion>v20.11.1</nodeVersion>
+                        <npmVersion>10.2.4</npmVersion>
                     </configuration>
                     <executions>
                         <execution>
