@@ -2,20 +2,21 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:isDelivered="{Boolean}true"
         cq:lastModified="{Date}2023-06-07T14:29:50.130Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2023-06-14T07:51:40.503Z"
-        cq:lastReplicated_publish="{Date}2023-06-14T07:51:40.503Z"
+        cq:lastReplicated="{Date}2024-01-29T09:02:05.869Z"
+        cq:lastReplicated_publish="{Date}2024-01-29T09:02:05.869Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/menarini-berlinchemie/settings/wcm/templates/menarini---content-page"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Transparency"
-        jcr:uuid="ac3295c6-e082-4a32-bf56-409c87a9bd43"
+        jcr:uuid="3a0b1111-5599-49ed-8f8c-b64067284e96"
         sling:resourceType="menarinimaster/components/page">
         <root
             jcr:primaryType="nt:unstructured"

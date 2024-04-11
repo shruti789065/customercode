@@ -23,6 +23,19 @@
 		}
 	}
 }
+.cmp-button--navbar{
+	.cmp-button {
+		padding: 10px 30px;
+		font-size: 15px;
+		border: 1px solid $white;
+		max-width: 200px;
+		margin: 0 auto;
+		&:hover{
+			color: $white;
+			cursor: pointer;
+		}
+	}
+}
 
 .cmp-button--small {
 	.cmp-button {

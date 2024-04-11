@@ -1,32 +1,23 @@
+import { getUrl } from "../../mastertemplate/site/_util";
 /* eslint-disable max-len */
 const copyDataFromJsonCompound = () => {
-  const domainName = window.location.hostname;
-  const port = window.location.port;
-  const protocol = window.location.protocol;
-  const currentNodePipeline = document.querySelector(
-    ".currentNodePipeline"
-  ).value;
-  let url;
+  const currentNodePipeline = document.querySelector(".currentNodePipeline")
+    .value;
+  const JSONmockCompound =
+    "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/mock/compound.json";
 
   const loadingSpinner = document.createElement("div");
   loadingSpinner.classList.add("loading-spinner");
   document.body.appendChild(loadingSpinner);
 
-  if (domainName === "localhost" && port === "4502") {
-    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.pipeline.json?type=compound`;
-  } else if (domainName === "localhost") {
-    url =
-      "https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/compound.json";
-  } else {
-    url = `${protocol}//${domainName}${currentNodePipeline}.pipeline.json?type=compound`;
-  }
+  const endpointCompound = `${currentNodePipeline}.pipeline.json?type=compound`;
 
-  fetch(url)
+  fetch(getUrl(endpointCompound, JSONmockCompound))
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem("compoundData", JSON.stringify(data));
-       // Hide loading spinner
-       loadingSpinner.remove();
+      // Hide loading spinner
+      loadingSpinner.remove();
     })
     .catch((error) => {
       console.error("Error copying data to local storage:", error);
@@ -35,33 +26,23 @@ const copyDataFromJsonCompound = () => {
 };
 
 const copyDataFromJsonIndication = () => {
-  const domainName = window.location.hostname;
-  const port = window.location.port;
-  const protocol = window.location.protocol;
-  const currentNodePipeline = document.querySelector(
-    ".currentNodePipeline"
-  ).value;
-  let url;
-
+  const currentNodePipeline = document.querySelector(".currentNodePipeline")
+    .value;
+  const JSONmock =
+    "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/mock/indication.json";
   const loadingSpinner = document.createElement("div");
+
   loadingSpinner.classList.add("loading-spinner");
   document.body.appendChild(loadingSpinner);
 
-  if (domainName === "localhost" && port === "4502") {
-    url = `${protocol}//${domainName}:${port}${currentNodePipeline}.pipeline.json?type=indication`;
-  } else if (domainName === "localhost") {
-    url =
-      "https://raw.githubusercontent.com/davide-mariotti/JSON/main/pipelineST/indication.json";
-  } else {
-    url = `${protocol}//${domainName}${currentNodePipeline}.pipeline.json?type=indication`;
-  }
+  const endpoint = `${currentNodePipeline}.pipeline.json?type=indication`;
 
-  fetch(url)
+  fetch(getUrl(endpoint, JSONmock))
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem("indicationData", JSON.stringify(data));
-       // Hide loading spinner
-       loadingSpinner.remove();
+      // Hide loading spinner
+      loadingSpinner.remove();
     })
     .catch((error) => {
       console.error("Error copying data to local storage:", error);
