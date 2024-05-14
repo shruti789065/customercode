@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/conf/laboratorio-guidotti" mode="merge"/>
     <filter root="/content/laboratorio-guidotti" mode="merge"/>
-    <filter root="/content/dam/laboratorio-guidotti" mode="merge">
-        <exclude pattern="/content/dam/laboratorio-guidotti(/.*)?"/>
-        <include pattern="/content/dam/laboratorio-guidotti/jcr:content(/.*)?"/>
-    </filter>
-    <filter root="/content/dam/laboratorio-guidotti/asset.jpg" mode="merge"/>
+    <filter root="/content/dam/laboratorio-guidotti" mode="merge"/>
     <filter root="/content/experience-fragments/laboratorio-guidotti" mode="merge"/>
+    <filter root="/conf/laboratorio-guidotti" mode="merge"/>
+    <filter root="/content/cq:tags/laboratorio-guidotti" mode="merge"/>
+    <filter root="/conf/global" mode="merge"/>
+    <filter root="/var/workflow" mode="merge"/>
 </workspaceFilter>
