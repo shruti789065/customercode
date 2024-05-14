@@ -332,12 +332,38 @@
             <page jcr:primaryType="nt:unstructured">
                 <policy
                     jcr:description="Includes the required client libraries."
+                    jcr:lastModified="{Date}2024-05-14T17:16:36.525+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
                     clientlibs="[laboratorio-guidotti.dependencies,laboratorio-guidotti.site]"
+                    clientlibsAsync="false"
                     clientlibsJsHead="laboratorio-guidotti.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Layout"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="page-style--one"
+                                    cq:styleId="1715699719961"
+                                    cq:styleLabel="Style 1"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="page-style--two"
+                                    cq:styleId="1715699746961"
+                                    cq:styleLabel="Style 2"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="page-style--three"
+                                    cq:styleId="1715699751948"
+                                    cq:styleLabel="Style 3"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy>
             </page>
             <containers jcr:primaryType="nt:unstructured">
@@ -352,6 +378,16 @@
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_1715698026050>
+                    <policy_720308196812800
+                        jcr:lastModified="{Date}2024-05-14T17:28:51.237+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="XF policies "
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Structure]"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_720308196812800>
                 </container>
             </containers>
         </components>
