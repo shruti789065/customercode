@@ -13,14 +13,14 @@
         <root
             jcr:primaryType="nt:unstructured"
             jcr:mixinTypes="[cq:LiveRelationship]"
-            sling:resourceType="laboratorio-guidotti/components/container"
+            sling:resourceType="laboratorio-guidotti/components/containers/container"
             layout="responsiveGrid">
             <container jcr:primaryType="nt:unstructured"
                 jcr:mixinTypes="[cq:LiveRelationship]"
-                sling:resourceType="laboratorio-guidotti/components/container">
+                sling:resourceType="laboratorio-guidotti/components/containers/container">
                 <container jcr:primaryType="nt:unstructured"
                     jcr:mixinTypes="[cq:LiveRelationship]"
-                    sling:resourceType="laboratorio-guidotti/components/container"
+                    sling:resourceType="laboratorio-guidotti/components/containers/container"
                     layout="responsiveGrid">
                     <productlist cq:styleIds="[1570700958199]" 
                         jcr:primaryType="nt:unstructured"
