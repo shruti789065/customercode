@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2023-06-13T11:14:27.757Z"
+        cq:lastModified="{Date}2024-02-14T08:26:55.386Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
         cq:tags="[]"
         cq:template="/libs/cq/experience-fragments/components/experiencefragment/template"
-        jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Header"
-        jcr:uuid="51355e78-157d-4388-8436-81b5c7bab426"
+        jcr:title="Berlin Chemie News Archive"
         sling:resourceType="cq/experience-fragments/components/experiencefragment"/>
     <master/>
-    <master1/>
 </jcr:root>
