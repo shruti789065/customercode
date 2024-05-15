@@ -4,3 +4,41 @@
 main.container {
     padding: .5em 1em;
 }
+
+.section{
+	container-type: inline-size;
+	container-name: section-container;
+}
+
+.wrapper{
+	width: clamp(20rem, 100%, 90rem);
+	margin: 0 auto;
+	container-type: inline-size;
+	container-name: wrapper-container;
+
+	/*
+	TODO cancellare esempio	sotto
+	*/
+		background-color: lightgray;
+	
+		@include respond-to(small-devices) {
+			background-color: lightblue;
+		}
+	
+		@include respond-to(mobile) {
+			background-color: lightgreen;
+		}
+	
+		@include respond-to(tablet) {
+			background-color: lightcoral;
+		}
+	
+		@include respond-to(laptop) {
+			background-color: lightpink;
+		}
+	
+		@include respond-to(desktop) {
+			background-color: lightgray;
+		}
+	
+}
