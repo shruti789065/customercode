@@ -1,7 +1,7 @@
 
 //== XF Footer style, used on page template
 
-footer.experiencefragment {
+.cmp-experiencefragment--footer {
     padding: .5em 1em;
     border-top: 1px solid $color-foreground;
 
@@ -13,4 +13,16 @@ footer.experiencefragment {
         margin: 0;
         border: 0;
     }
+	#footer-mobile{
+		display: none;
+	}
+
+	@media (max-width: 48rem){
+		#footer-mobile{
+			display: block;
+		}
+		#footer-desktop{
+			display: none;
+		}
+	}
 }
