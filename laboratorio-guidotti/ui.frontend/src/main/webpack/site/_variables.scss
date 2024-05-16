@@ -6,19 +6,24 @@ $font-size:             16px;
 $font-height:           1.5;
 
 //== Color
+$black: #000000;
+$white: #FFFFFF;
+$deep-blue: #38344D;
+$vibrant-azure: #00ADF2;
 
 // Normal mode
-$color-foreground:      #202020;
-$color-background:      #FFF;
-$color-link:            #2020E0;
+$color-background:      $white;
+$color-text: $black; 
+
+
 
 // Dark mode
-$color-foreground-dark: invert($color-foreground);
+/* $color-foreground-dark: invert($color-foreground);
 $color-background-dark: invert($color-background);
-$color-link-dark:       invert($color-link);
+$color-link-dark:       invert($color-link); */
 
 //Media Queries
-$breakpoint-small-devices: 320px;
+$breakpoint-small-devices: 320px; 
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-laptop: 1200px;
