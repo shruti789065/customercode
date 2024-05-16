@@ -15,30 +15,21 @@ main.container {
 	margin: 0 auto;
 	container-type: inline-size;
 	container-name: wrapper-container;
-
-	/*
-	TODO cancellare esempio	sotto
-	*/
-		background-color: lightgray;
-	
-		@include respond-to(small-devices) {
-			background-color: lightblue;
-		}
-	
-		@include respond-to(mobile) {
-			background-color: lightgreen;
-		}
-	
-		@include respond-to(tablet) {
-			background-color: lightcoral;
-		}
-	
-		@include respond-to(laptop) {
-			background-color: lightpink;
-		}
-	
-		@include respond-to(desktop) {
-			background-color: lightgray;
-		}
-	
 }
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/

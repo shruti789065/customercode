@@ -56,10 +56,6 @@ ecco un esempio:
         background-color: lightcoral;
     }
 
-    @include respond-to(devices-hr) {
-        background-color: lightgoldenrodyellow;
-    }
-
     @include respond-to(laptop) {
         background-color: lightpink;
     }

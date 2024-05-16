@@ -1,23 +1,34 @@
-
 //== XF Footer style, used on page template
 
 .cmp-experiencefragment--footer {
-    padding: .5em 1em;
-    
-    .cmp-separator__horizontal-rule {
-        margin: 0;
-        border: 0;
-    }
-	#footer-mobile{
-		display: none;
-	}
-
-	@media (max-width: 48rem){
-		#footer-mobile{
-			display: block;
-		}
-		#footer-desktop{
-			display: none;
-		}
-	}
+  padding: 0.5em 1em;
 }
+
+.footer-desktop {
+  display: none;
+}
+@include respond-to(tablet) {
+  .footer-mobile {
+    display: none;
+  }
+  .footer-desktop {
+    display: block;
+  }
+}
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/

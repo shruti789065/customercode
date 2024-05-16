@@ -129,3 +129,16 @@ header.experiencefragment {
         height: 26px;
     }
 }
+
+
+.header-desktop {
+	display: none;
+  }
+  @include respond-to(tablet) {
+	.header-mobile {
+	  display: none;
+	}
+	.header-desktop {
+	  display: block;
+	}
+  }
