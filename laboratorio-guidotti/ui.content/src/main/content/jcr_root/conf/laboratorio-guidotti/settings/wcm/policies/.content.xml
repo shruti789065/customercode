@@ -180,32 +180,104 @@
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
+                    jcr:lastModified="{Date}2024-05-16T16:04:10.824+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Title"
+                    jcr:title="Title policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="[h2,h3,h4,h5,h6]"
+                    allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="false"
                     type="h2">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-color--azure"
+                                    cq:styleId="1715868173423"
+                                    cq:styleLabel="Azure"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-color--blue"
+                                    cq:styleId="1715868178818"
+                                    cq:styleLabel="Blue"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-color--default"
+                                    cq:styleId="1715868182256"
+                                    cq:styleLabel="Default"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Weight"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-font-weight--light"
+                                    cq:styleId="1715868241176"
+                                    cq:styleLabel="Light"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
                 </policy_641528232375303>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
                 <policy_header
+                    cq:styleDefaultClasses="header-desktop"
                     cq:styleDefaultElement="header"
                     jcr:description="Sets a &lt;header> element on the page header experience fragment."
+                    jcr:lastModified="{Date}2024-05-16T10:14:17.135+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Header"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_header>
                 <policy_footer
+                    cq:styleDefaultClasses="footer-desktop"
                     cq:styleDefaultElement="footer"
                     jcr:description="Sets a &lt;footer> element on the page footer experience fragment."
+                    jcr:lastModified="{Date}2024-05-16T10:14:23.726+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Footer"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_footer>
+                <policy_1715847064586
+                    cq:styleDefaultClasses="footer-mobile"
+                    cq:styleDefaultElement="footer"
+                    jcr:description="Sets a &lt;footer> element on the page footer experience fragment."
+                    jcr:lastModified="{Date}2024-05-16T10:14:29.989+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Footer Mobile"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1715847064586>
+                <policy_1715847204876
+                    cq:styleDefaultClasses="header-mobile"
+                    cq:styleDefaultElement="header"
+                    jcr:description="Sets a &lt;header> element on the page header experience fragment."
+                    jcr:lastModified="{Date}2024-05-16T10:49:15.510+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Header Mobile"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1715847204876>
+                <policy_1715847224626
+                    jcr:lastModified="{Date}2024-05-16T10:13:56.997+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Lightbox Policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1715847224626>
             </experiencefragment>
             <container jcr:primaryType="nt:unstructured">
                 <policy_1574694950110
@@ -392,6 +464,63 @@
                     </policy_720308196812800>
                 </container>
             </containers>
+            <xfpage jcr:primaryType="nt:unstructured">
+                <policy_1715765371909
+                    jcr:lastModified="{Date}2024-05-15T11:30:33.797+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Footer policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[laboratorio-guidotti.dependencies,laboratorio-guidotti.site]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-footer--desktop"
+                                    cq:styleId="1715699719961"
+                                    cq:styleLabel="Desktop"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-footer--mobile"
+                                    cq:styleId="1715699746961"
+                                    cq:styleLabel="Mobile"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1715765371909>
+            </xfpage>
+            <button jcr:primaryType="nt:unstructured">
+                <policy_1715873438168
+                    jcr:lastModified="{Date}2024-05-16T17:33:09.746+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Button policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Styles"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-button--first-style"
+                                    cq:styleId="1715873454853"
+                                    cq:styleLabel="Style 1"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-button--second-style"
+                                    cq:styleId="1715873459918"
+                                    cq:styleLabel="Style 2"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1715873438168>
+            </button>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">

@@ -133,6 +133,9 @@ header.experiencefragment {
 
 .header-desktop {
 	display: none;
+	.cmp-button {
+		border-color: $white;
+	}
   }
   @include respond-to(tablet) {
 	.header-mobile {
