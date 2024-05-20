@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/menarini-pefs/settings/wcm/templates/menarini---content-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Data Privacy"
+        jcr:uuid="0f74e983-5b7a-4d6f-a3a9-6512736b81f8"
+        sling:resourceType="menarinimaster/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/container"
+                layout="responsiveGrid">
+                <internalheader
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/internalheader"/>
+                <section
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper">
+                        <breadcrumb
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/breadcrumb"/>
+                    </wrapper>
+                </section>
+                <section_1473771530
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/section">
+                    <wrapper
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/wrapper">
+                        <title
+                            cq:styleIds="[1653552493699]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/title"
+                            linkTarget="_self"
+                            type="h2"/>
+                        <link_copy_copy
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Privacy Policy"
+                            link="/content/menarini-pefs/en/data-privacy/privacy-policy"
+                            linkType="arrow"
+                            target="_self"/>
+                        <link_copy_1406870148
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Cookie Policy"
+                            link="/content/menarini-pefs/en/data-privacy/cookie-policy"
+                            linkType="arrow"
+                            target="_self"/>
+                    </wrapper>
+                </section_1473771530>
+            </container>
+        </root>
+    </jcr:content>
+    <privacy-policy/>
+    <cookie-policy/>
+</jcr:root>

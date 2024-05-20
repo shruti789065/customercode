@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:template="/conf/menarini-pefs/settings/wcm/templates/xf-web-variation"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Header"
+        jcr:uuid="8bb91a83-11dc-4089-8627-90359aba2dea"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <section_navbar
+                cq:styleIds="[1684741843688]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/section">
+                <wrapper
+                    cq:styleIds="[1684741727110]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/wrapper"
+                    layout="responsiveGrid">
+                    <text_quality
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/text"
+                        id="qualitycomesfirst"
+                        text="&lt;p>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.it/en-us/quality-comes-first&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>&lt;i>Quality Comes First&lt;/i>&lt;/a>&lt;/p>&#xd;&#xa;"
+                        textIsRich="true">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="5"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="9"/>
+                        </cq:responsive>
+                    </text_quality>
+                    <text_block
+                        cq:masterBuildingBlock="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="GLOBAL"
+                        sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
+                        <text_discover
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;i>Discover Our Group:&lt;/i>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                            </cq:responsive>
+                        </text_discover>
+                        <text_globalwebsite
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a title=&quot;www.menarini.com&quot; href=&quot;https://www.menarini.com&quot; target=&quot;_blank&quot;>MENARINI.COM&lt;/a>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="1"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="12"/>
+                            </cq:responsive>
+                        </text_globalwebsite>
+                        <text_country
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/text"
+                            text="&lt;p style=&quot;text-align: right;&quot;>&lt;a href=&quot;https://www.menarini.com/en-us/country&quot; target=&quot;_blank&quot; title=&quot;www.menarini.com&quot;>COUNTRY&lt;/a>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="1"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                            </cq:responsive>
+                        </text_country>
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="2"
+                                width="4"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                behavior="hide"
+                                offset="0"
+                                width="2"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                behavior="hide"
+                                offset="&#xa;0"
+                                width="2"/>
+                        </cq:responsive>
+                    </text_block>
+                    <languagenavigation
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/languagenavigation"
+                        navigationRoot="/content/menarini-pefs/gb"
+                        structureDepth="1">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="1"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                offset="8"
+                                width="3"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                offset="2"
+                                width="3"/>
+                        </cq:responsive>
+                    </languagenavigation>
+                </wrapper>
+            </section_navbar>
+            <section_megamenu
+                cq:styleIds="[1684741856631]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/section">
+                <wrapper
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/wrapper"
+                    id="wrapper-menu">
+                    <megamenu
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="menarinimaster/components/header/megamenu"
+                        alt="menarini logo"
+                        altValueFromDAM="false"
+                        altValueFromPageImage="false"
+                        disableLazyLoading="false"
+                        fileReference="/content/dam/menarini-pefs/assets/placeholders/logo_menarini_group.svg"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        logoFolder="/content/dam/logo/menarini-pefs/"
+                        logoUrl="/content/menarini-pefs/en/">
+                        <share jcr:primaryType="nt:unstructured"/>
+                        <link_1383470917
+                            cq:panelTitle="Terms and Conditions"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Terms and Conditions"
+                            link="/content/menarini-pefs/en/terms-and-conditions"
+                            linkType="standard"
+                            target="_self"/>
+                        <item_1685536909724
+                            cq:panelTitle="Privacy Policy"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Privacy Policy"
+                            link="/content/menarini-pefs/en/data-privacy/privacy-policy"
+                            linkType="standard"
+                            target="_self"/>
+                        <item_1689844203050
+                            cq:panelTitle="Cookie Policy"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Cookie Policy"
+                            link="/content/menarini-pefs/en/data-privacy/cookie-policy"
+                            linkType="standard"
+                            target="_self"/>
+                        <item_1677144146087
+                            cq:panelTitle="Contact Us"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="menarinimaster/components/link"
+                            label="Contact Us"
+                            link="/content/menarini-pefs/en/contact-us"
+                            linkType="standard"
+                            target="_self"/>
+                    </megamenu>
+                </wrapper>
+            </section_megamenu>
+            <logo/>
+        </root>
+        <cq:metadata jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

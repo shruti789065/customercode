@@ -2,17 +2,17 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
     jcr:mixinTypes="[mix:referenceable]"
     jcr:primaryType="dam:Asset"
-    jcr:uuid="281b0324-f94c-4327-b6d1-f4c404a85d5f">
+    jcr:uuid="87c3b34e-69eb-4824-88c4-0d4bf37147bd">
     <jcr:content
-        dam:assetState="processed"
+        dam:assetState="processing"
         dam:jobId="e90c6307-12a8-4ae8-a242-ece46c52a621"
         dam:processingId="24c7dec3-5d2c-4c96-a6ab-8505753d8051"
         dam:processingRenditions="[cqdam.text.txt,cq5dam.thumbnail.48.48.png,cqdam.metadata.xml,cq5dam.thumbnail.319.319.png,cqdam.machine.metadata.tags.json,cqdam.machine.metadata.features.json,cq5dam.thumbnail.140.100.png,cq5dam.preview.pdf,cq5dam.zoom.2048.2048.jpeg,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.colors.json]"
         dam:processingRequestedDate="{Date}2023-09-20T09:40:18.898Z"
         dam:runDMProcess="{Boolean}true"
         dam:runPostProcess="{Boolean}true"
-        jcr:lastModified="{Date}2023-09-20T09:40:32.693Z"
-        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:lastModified="{Date}2024-04-08T14:37:19.760+02:00"
+        jcr:lastModifiedBy="workflow-process-service"
         jcr:primaryType="dam:AssetContent">
         <dam:failedRenditions jcr:primaryType="nt:unstructured">
             <cq5dam.preview.pdf
@@ -25,9 +25,9 @@
                 reason="RenditionFormatUnsupported"/>
         </dam:failedRenditions>
         <metadata
-            dam:extracted="{Date}2023-09-20T09:40:26.451Z"
-            dam:sha1="38ba27ef11edb422761e4ebd3d787846e443f56b"
-            dam:size="{Long}6008"
+            dam:extracted="{Date}2024-04-08T14:37:18.742+02:00"
+            dam:sha1="20a9df428c192c16543b4e19d9e98410f58fb2d9"
+            dam:size="{Long}6044"
             dc:format="image/svg+xml"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"/>

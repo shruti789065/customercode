@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-ricerche/settings/wcm/templates/xf-web-variation"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Product Category Area XF"
+        jcr:uuid="654b691e-7eb2-420f-adac-a99c604941a6"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <productcategoryarea
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/productcategoryarea">
+                <categoryareas jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        icon="/content/dam/menarini-ricerche/icons/ico_health_productcategory.svg"
+                        label="Consumer Healthcare"
+                        template="/conf/menarini-ricerche/settings/wcm/templates/menarini---product-list-healthcare"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        icon="/content/dam/menarini-ricerche/icons/ico_pharma_productcategory.svg"
+                        label="Pharmaceuticals"
+                        template="/conf/menarini-ricerche/settings/wcm/templates/menarini---product-list-pharmaceutical"/>
+                </categoryareas>
+            </productcategoryarea>
+        </root>
+    </jcr:content>
+</jcr:root>

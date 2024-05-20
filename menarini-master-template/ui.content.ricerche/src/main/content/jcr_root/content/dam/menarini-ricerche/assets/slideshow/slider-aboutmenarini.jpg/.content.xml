@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="16ab006d-60cd-4f35-b545-859a1644a9c7">
+    <jcr:content
+        dam:assetState="processed"
+        dam:jobId="9bcc72c6-9dc1-4ab5-846e-508b343c6db0"
+        dam:processingId="dd40718f-6ada-4231-a95e-1eb43324cc64"
+        dam:processingRenditions="[cqdam.text.txt,cq5dam.thumbnail.319.319.png,cqdam.machine.metadata.tags.json,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.colors.json,cqdam.machine.metadata.features.json,cqdam.metadata.xml,cq5dam.thumbnail.48.48.png,cq5dam.zoom.2048.2048.jpeg,cq5dam.preview.pdf,cq5dam.thumbnail.140.100.png]"
+        dam:processingRequestedDate="{Date}2023-06-06T10:09:49.824Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2023-06-06T10:10:02.351Z"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:predictedColors="{Long}[40051,6035,36009,3006]"
+            dam:Progressive="yes"
+            dam:sha1="a3f3025087c4b7e63e7f1ed0a9ab2e31af431628"
+            dam:size="{Long}425474"
+            dc:format="image/jpeg"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}1080"
+            tiff:ImageWidth="{Long}2000">
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.5064"
+                    name="OLIVE"
+                    rank="{Long}1"
+                    rgb="{Long}[134,153,92]"/>
+                <color2
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.346"
+                    name="LIGHT_GREEN"
+                    rank="{Long}2"
+                    rgb="{Long}[146,170,108]"/>
+                <color3
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.0876"
+                    name="EMERALD"
+                    rank="{Long}3"
+                    rgb="{Long}[128,154,98]"/>
+                <color4
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.06"
+                    name="GREEN"
+                    rank="{Long}4"
+                    rgb="{Long}[135,168,75]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
