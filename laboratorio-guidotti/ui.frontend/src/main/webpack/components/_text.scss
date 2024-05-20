@@ -1,4 +1,9 @@
-.cmp-text {}
+.cmp-text {
+	font-family: $font-family-arimo;
+	font-weight: $arimo-weight-regular;
+	font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+	color: $black;
+}
 .cmp-text__paragraph {}
 
 /*
