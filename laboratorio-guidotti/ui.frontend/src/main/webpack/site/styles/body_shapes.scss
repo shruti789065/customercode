@@ -1,0 +1,199 @@
+body {
+  position: relative;
+  min-height: 100vh;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/top-right-wave.svg');
+    width: clamp(115px, calc(115px + (500 - 115) * ((100vw - 390px) / (1980 - 390))), 500px);
+    height: clamp(160px, calc(160px + (705 - 160) * ((100vw - 390px) / (1980 - 390))), 705px);
+  }
+  #lower-shape {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      background-size: cover;
+      bottom: 0;
+      left: 0;
+      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/bottom-left-wave.svg');
+      width: clamp(0px, calc(182px + (455 - 182) * ((100vw - 768px) / (1920 - 768))), 455px);
+      height: clamp(0px, calc(648px + (1620 - 648) * ((100vw - 768px) / (1920 - 768))), 1620px);
+      opacity: 0;
+      transition: opacity 0.5s ease;      
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-size: cover;
+      bottom: 0;
+      right: 0;      
+      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/bottom-right-wave-small.svg');
+      transition: background-image 0.5s ease; 
+      width: 120px;
+      height: 160px;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  body {
+    #lower-shape {
+      &::before {
+        opacity: 1;    
+      }
+      &::after {
+        background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/bottom-right-wave.svg');
+        width: clamp(0px, calc(180px + (450 - 180) * ((100vw - 768px) / (1920 - 768))), 450px);
+        height: clamp(0px, calc(170px + (425 - 170) * ((100vw - 768px) / (1920 - 768))), 425px); 
+      }
+    }
+  }  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+body {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-size: cover;
+    width: 115px;
+    height: 165px;
+    top: 0;
+    right: 0;
+    clip-path: path("M115.121 161.524V0.229437C79.8644 0.152958 7.56115 0 0.40271 0C0.40271 19.2727 14.1689 36.4805 21.9698 44.9697C34.1059 57.1057 35.9297 70.215 37.5058 81.5439C39.6395 96.8801 41.3192 108.954 67.5131 110.933C88.0687 113.656 92.0938 124.26 96.5151 135.908C99.9156 144.866 103.55 154.442 115.121 161.524Z");
+    background: rgb(19, 64, 91);
+    background: linear-gradient(90deg, rgba(19, 64, 91, 1) 15%, rgba(7, 130, 253, 1) 100%);
+  }
+}
+
+#lower-shape {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-size: cover;
+  }
+
+  &::before {
+    width: 455px;
+    height: 1620px;
+    bottom: 0;
+    left: 0;
+    clip-path: path("M449.5 1616.5H0V0C0.773721 0.80348 1.80957 1.83721 3.07361 3.09865C23.0478 23.0319 100 99.8265 100 223.5C100 289.693 84.0368 354.493 68.1814 418.856C52.5383 482.357 37 545.432 37 609C37 686.129 58.217 744.163 76.4073 793.918C90.0556 831.25 102 863.921 102 896.5C102.702 943.74 91.8085 978.511 80.0134 1016.16C66.5907 1059.01 52 1105.58 52 1178.5C52 1203.5 86.5 1596 449.5 1616.5Z");
+    background: rgb(17, 76, 121);
+    background: linear-gradient(180deg, rgba(17, 76, 121, 1) 0%, rgba(7, 126, 242, 1) 100%);
+  }
+
+  &::after {
+    width: 425px;
+    height: 450px;
+    bottom: 0;
+    right: 0;
+    clip-path: path("M0 449H422V0C388 0 344 36.0004 319 68C272.105 135.868 231.319 143.428 199.886 149.255C164.627 155.791 141.137 160.145 134 245C127.661 343.54 100.236 358.066 68.8502 374.689C45.7714 386.912 20.5515 400.27 0 449Z");
+    background: rgb(19, 64, 91);
+    background: linear-gradient(180deg, rgba(19, 64, 91, 1) 0%, rgba(7, 130, 253, 1) 100%);
+  }
+
+}
+
+
+
+
+
+
+@include respond-to(small-devices) {
+  body {
+    &::after {
+      width: 115px;
+      height: 165px;
+      clip-path: path("M115.121 161.524V0.229437C79.8644 0.152958 7.56115 0 0.40271 0C0.40271 19.2727 14.1689 36.4805 21.9698 44.9697C34.1059 57.1057 35.9297 70.215 37.5058 81.5439C39.6395 96.8801 41.3192 108.954 67.5131 110.933C88.0687 113.656 92.0938 124.26 96.5151 135.908C99.9156 144.866 103.55 154.442 115.121 161.524Z");
+    }
+  }
+}
+
+
+@include respond-to(mobile) {
+  body {
+    &::after {
+      width: 166px;
+      height: 233px;
+      clip-path: path("M166.364 233.779V0.332072C115.336 0.221381 10.689 0 0.328369 0C0.328369 27.894 20.2527 52.7994 31.5431 65.0861C49.108 82.651 51.7477 101.624 54.0289 118.021C57.1171 140.218 59.5482 157.692 97.4594 160.557C127.21 164.499 133.036 179.846 139.435 196.703C144.357 209.669 149.617 223.528 166.364 233.779Z");
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  body {
+    &::after {
+      width: 266px;
+      height: 376px;
+      clip-path: path("M267.79 376.034V0.534139C185.711 0.356092 17.3863 0 0.721191 0C0.721191 44.8676 32.7695 84.928 50.9302 104.691C79.1834 132.944 83.4294 163.463 87.0987 189.837C92.0659 225.54 95.9764 253.648 156.957 258.256C204.811 264.596 214.182 289.282 224.474 316.398C232.391 337.253 240.853 359.546 267.79 376.034Z");
+    }
+  }
+}
+
+@include respond-to(laptop) {
+  body {
+    &::after {
+      width: 416px;
+      height: 585px;
+      clip-path: path("M416.184 585.923V0.832277C288.29 0.554851 26.0124 0 0.0454102 0C0.0454102 69.9112 49.982 132.332 78.2794 163.126C122.303 207.149 128.919 254.703 134.636 295.798C142.376 351.43 148.469 395.226 243.486 402.406C318.051 412.285 332.652 450.75 348.69 493.001C361.025 525.497 374.211 560.232 416.184 585.923Z");
+    }
+  }
+}
+
+
+@include respond-to(desktop) {
+  body {
+    &::after {
+      width: 500px;
+      height: 705px;
+      clip-path: path("M500 704V1C346.333 0.666667 31.2 0 0 0C0 84 60 159 94 196C146.895 248.895 154.844 306.032 161.714 355.408C171.013 422.251 178.334 474.873 292.5 483.5C382.092 495.37 399.635 541.587 418.905 592.352C433.726 631.397 449.569 673.133 500 704Z");
+    }
+  }
+}
+*/
