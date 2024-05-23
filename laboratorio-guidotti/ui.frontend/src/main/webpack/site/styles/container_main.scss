@@ -1,35 +1,76 @@
-
 //== Container main content style, used on page template
 
 main.container {
-    padding: .5em 1em;
+  padding: 0.5em 1em;
 }
 
-.section{
-	container-type: inline-size;
-	container-name: section-container;
+.section {
+  container-type: inline-size;
+  container-name: section-container;
 }
 
-.wrapper{
-	width: clamp(18.75rem, 80%, 90rem);
-	margin: 0 auto;
-	container-type: inline-size;
-	container-name: wrapper-container;
+.wrapper {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  container-type: inline-size;
+  container-name: wrapper-container;
 }
 
-/*
+@container wrapper-container (min-width: 600px) {
+  .wrapper {
+    max-width: 720px;
+  }
+}
 
-**MEDIA QUERIES DA UTILIZZARE**
+@container wrapper-container (min-width: 768px) {
+  .wrapper {
+    max-width: 960px;
+  }
+}
 
+@container wrapper-container (min-width: 1024px) {
+  .wrapper {
+    max-width: 1140px;
+  }
+}
 
-@include respond-to(small-devices) {}
+@container wrapper-container (min-width: 1440px) {
+  .wrapper {
+    max-width: 1440px;
+  }
+}
 
-@include respond-to(mobile) {}
+@container wrapper-container (min-width: 1920px) {
+  .wrapper {
+    max-width: 1600px;
+  }
+}
 
-@include respond-to(tablet) {}
+/***MEDIA QUERIES DA UTILIZZARE***/
 
-@include respond-to(laptop) {}
+/* Media Queries */
 
-@include respond-to(desktop) {}
+@include respond-to(mobile) {
+  .wrapper {
+    max-width: 37.5rem;
+  }
+}
 
-*/
+@include respond-to(tablet) {
+  .wrapper {
+    max-width: 60rem;
+  }
+}
+
+@include respond-to(laptop) {
+  .wrapper {
+    max-width: 71.25rem;
+  }
+}
+
+@include respond-to(desktop) {
+  .wrapper {
+    max-width: 90rem;
+  }
+}

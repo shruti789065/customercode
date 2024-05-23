@@ -11,7 +11,8 @@ body {
     background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/top-right-wave.svg');
     width: clamp(115px, calc(115px + (500 - 115) * ((100vw - 390px) / (1980 - 390))), 500px);
     height: clamp(160px, calc(160px + (705 - 160) * ((100vw - 390px) / (1980 - 390))), 705px);
-  }
+	z-index: 0;
+}
   #lower-shape {
     position: relative;
     &::before {

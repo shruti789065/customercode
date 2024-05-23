@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-05-16T17:33:09.754+02:00"
+        cq:lastModified="{Date}2024-05-22T15:43:03.109+02:00"
         cq:lastModifiedBy="admin"
         cq:policy="laboratorio-guidotti/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -63,6 +63,16 @@
                                 cq:policy="laboratorio-guidotti/components/button/policy_1715873438168"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <containers jcr:primaryType="nt:unstructured">
+                                <wrapper
+                                    cq:policy="laboratorio-guidotti/components/containers/wrapper/policy_1716385274999"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <section
+                                    cq:policy="laboratorio-guidotti/components/containers/section/policy_1716385346770"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </containers>
                         </components>
                     </laboratorio-guidotti>
                 </container>
