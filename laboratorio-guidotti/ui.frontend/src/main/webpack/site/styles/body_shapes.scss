@@ -2,19 +2,25 @@ body {
   position: relative;
   min-height: 100vh;
 
-  &::after {
-    content: '';
-    position: absolute;
-    background-size: cover;
-    top: 0;
-    right: 0;
-    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/top-right-wave.svg');
-    width: clamp(115px, calc(115px + (500 - 115) * ((100vw - 390px) / (1980 - 390))), 500px);
-    height: clamp(160px, calc(160px + (705 - 160) * ((100vw - 390px) / (1980 - 390))), 705px);
-	z-index: 0;
-}
+  #upper-shape {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      background-size: cover;
+      top: 0;
+      right: 0;
+      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/top-right-wave.svg');
+      width: clamp(115px, calc(115px + (500 - 115) * ((100vw - 390px) / (1980 - 390))), 500px);
+      height: clamp(160px, calc(160px + (705 - 160) * ((100vw - 390px) / (1980 - 390))), 705px);
+    }
+  }
+  
   #lower-shape {
     position: relative;
+    background-color: #00ADF2;
+    height: 2px;
+    transition: height 0.5s ease;
     &::before {
       content: '';
       position: absolute;
@@ -39,11 +45,23 @@ body {
       height: 160px;
     }
   }
+
+  
+  &::after{
+      content: '';
+      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/right-boubble.svg');
+      transition: background-image 0.5s ease;
+      background-position-y: center;
+      background-position-x: right;
+      background-size: 500px;
+      background-repeat: no-repeat;
+    }
 }
 
 @include respond-to(tablet) {
   body {
     #lower-shape {
+      height: 0px;
       &::before {
         opacity: 1;    
       }
