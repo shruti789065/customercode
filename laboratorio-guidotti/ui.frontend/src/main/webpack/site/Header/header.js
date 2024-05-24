@@ -40,7 +40,7 @@
 
   HEADER.toggleButton.addEventListener("click", (e) => {
     e.preventDefault();
-    e.stopPropagation(); // Prevent click from bubbling to body
+    e.stopPropagation(); 
     toggleNavbar();
   });
 
