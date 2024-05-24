@@ -462,7 +462,48 @@
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_720308196812800>
+                    <policy_453888387334500
+                        jcr:lastModified="{Date}2024-05-23T10:08:49.150+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Container XF policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedColorSwatches="#00adf2"
+                        backgroundColorEnabled="true"
+                        layout="responsiveGrid"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_453888387334500>
                 </container>
+                <wrapper jcr:primaryType="nt:unstructured">
+                    <policy_1716385274999
+                        jcr:lastModified="{Date}2024-05-22T15:44:09.572+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Wrapper policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        backgroundColorEnabled="true"
+                        backgroundImageEnabled="true"
+                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Form,group:Menarini Laboratorio Guidotti - Structure]"
+                        layout="responsiveGrid"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1716385274999>
+                </wrapper>
+                <section jcr:primaryType="nt:unstructured">
+                    <policy_1716385346770
+                        jcr:lastModified="{Date}2024-05-22T15:44:29.469+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Section policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        backgroundColorEnabled="true"
+                        backgroundImageEnabled="true"
+                        components="/apps/laboratorio-guidotti/components/containers/wrapper"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1716385346770>
+                </section>
             </containers>
             <xfpage jcr:primaryType="nt:unstructured">
                 <policy_1715765371909
