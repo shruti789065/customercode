@@ -22,8 +22,23 @@
    */
   function init() {
     HEADER.menuItemsFirstLevel.forEach(function (el) {
-      if (el.querySelector(".cmp-navigation__group")) {
-        // Add any initialization logic here if needed
+      const group = el.querySelector(".cmp-navigation__group");
+      if (group) {
+        const link = el.querySelector(".cmp-navigation__item-link");
+
+        // Create the toggle icon element
+        const toggleIcon = document.createElement("span");
+        toggleIcon.classList.add("toggle-icon");
+
+        // Append the toggle icon to the link
+        link.appendChild(toggleIcon);
+
+        toggleIcon.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation(); // Prevent the click from bubbling up to the link
+          group.classList.toggle("is-visible");
+          link.classList.toggle("is-open");
+        });
       }
     });
   }
@@ -40,12 +55,13 @@
 
   HEADER.toggleButton.addEventListener("click", (e) => {
     e.preventDefault();
-    e.stopPropagation(); 
+    e.stopPropagation();
     toggleNavbar();
   });
 
   document.body.addEventListener("click", (e) => {
     if (
+      HEADER.navbarMobile &&
       !HEADER.mobile.contains(e.target) &&
       HEADER.navbarMobile.style.display === "block"
     ) {
