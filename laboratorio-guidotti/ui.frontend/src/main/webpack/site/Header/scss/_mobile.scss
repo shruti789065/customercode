@@ -5,6 +5,13 @@
   display: block;
 }
 .header-mobile {
+  a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
   .cmp-experiencefragment--header {
     z-index: 2;
     .cmp-navigation__group {
@@ -20,9 +27,9 @@
       text-align: center;
       display: grid;
     }
-	.cmp-navigation__item-link {
-		justify-content: center;
-	}
+    .cmp-navigation__item-link {
+      justify-content: center;
+    }
     .cmp-navigation__item--level-1 {
       border-top: 0.25rem solid $vibrant-azure;
 

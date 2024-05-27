@@ -6,11 +6,25 @@
     display: block;
   }
   header.experiencefragment {
-    position: fixed;
+    &.scrolled {
+      #navbar {
+        transform: scale(0.9);
+      }
+      .container.responsivegrid:nth-child(2) {
+        .cmp-navigation {
+          > .cmp-navigation__group {
+            transition: all 0.3s ease-in;
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+
     .cmp-experiencefragment--header {
       position: relative;
       z-index: 2;
       #navbar {
+        transition: all 0.3s ease;
         > div {
           display: flex;
           align-items: center;
@@ -54,15 +68,12 @@
       flex-direction: row;
       border: none;
       margin: 0;
-	  max-height: 5rem;
+      max-height: 5rem;
     }
     .cmp-navigation__item-link {
       color: $deep-blue;
       font-size: 1.188rem;
       padding: 1.625rem 1rem;
-	  &:hover{
-		color: darken($color: $deep-blue, $amount: 15%);
-	  }
     }
 
     .cmp-navigation__item--level-0 {
@@ -75,36 +86,33 @@
               center center no-repeat;
           }
         }
-		.cmp-navigation__group{
-			&.is-visible{
-				position: relative;
-				display: flex;
-				flex-direction: column;
-				width: 100%;
-				gap: .3rem;
-				padding: 0;
-			}
-		}
+        .cmp-navigation__group {
+          &.is-visible {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 0.3rem;
+            padding: 0;
+          }
+        }
       }
     }
-	.cmp-navigation__item--level-1{
-		background-color: $vibrant-azure;
-		.cmp-navigation__item-link{
-			color: $white;
-			font-size: 0.938rem;
-			padding: .3rem;
-
-		}
-		
-	}
+    .cmp-navigation__item--level-1 {
+      background-color: $vibrant-azure;
+      .cmp-navigation__item-link {
+        color: $white;
+        font-size: 0.938rem;
+        padding: 0.3rem;
+      }
+    }
 
     //== Language Navigation
 
     .cmp-languagenavigation {
       position: relative;
-
       &::after {
-        content: "LANGUAGE:  ";
+        content: "";
         color: $white;
         display: block;
         width: 1.25rem;
