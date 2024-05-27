@@ -3,6 +3,7 @@
   "use strict";
 
   const HEADER = {
+    allHeaders: document.querySelectorAll("header"),
     mobile: document.querySelector(".header-mobile"),
     desktop: document.querySelector(".header-desktop"),
     toggleButton: document.getElementById("btnMenuMobile"),
@@ -21,6 +22,16 @@
    * @public
    */
   function init() {
+    window.addEventListener("scroll", function () {
+      HEADER.allHeaders.forEach((el) => {
+        if (window.scrollY > 0) {
+          el.classList.add("scrolled");
+        } else {
+          el.classList.remove("scrolled");
+        }
+      });
+    });
+
     HEADER.menuItemsFirstLevel.forEach(function (el) {
       const group = el.querySelector(".cmp-navigation__group");
       if (group) {

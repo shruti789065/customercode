@@ -24,6 +24,19 @@ header.experiencefragment {
 		color: $color-link-dark;
     } */
     }
+    .cmp-experiencefragment--header {
+      .container.responsivegrid:nth-child(1) {
+        #navbar {
+          transition: transform 0.3s ease;
+        }
+      }
+      .container.responsivegrid:nth-child(2) {
+        .cmp-navigation {
+          > .cmp-navigation__group {
+          }
+        }
+      }
+    }
   }
 
   //== Grid layout
@@ -33,7 +46,7 @@ header.experiencefragment {
   }
   .cmp-navigation__item-link {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     font-size: 1rem;
     padding: 1rem;
@@ -52,11 +65,6 @@ header.experiencefragment {
 
   .cmp-navigation__item--level-0 {
     font-size: 1.25rem;
-    border-top: $borderHeader;
-
-    &:first-of-type {
-      border-top: none;
-    }
 
     &:has(.cmp-navigation__group) {
       .cmp-navigation__group {
@@ -99,7 +107,38 @@ header.experiencefragment {
     }
   }
 
-  //== Navigation
+  //== Scrolled part
+
+  &.scrolled {
+    .cmp-experiencefragment--header {
+      .container.responsivegrid:nth-child(1) {
+        background-color: $white;
+        padding: clamp(1rem, 3vw, 2rem);
+        #navbar {
+          transition: all 0.3s ease-in;
+          transform: scale(0.8);
+        }
+        .cmp-image {
+        }
+        .button {
+          .cmp-button {
+            border-color: $black;
+            .cmp-button__text {
+              color: $black;
+            }
+          }
+        }
+      }
+      .container.responsivegrid:nth-child(2) {
+        .cmp-navigation {
+          > .cmp-navigation__group {
+            transition: all 0.3s ease-in;
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+  }
 }
 
 .header-desktop {
