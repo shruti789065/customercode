@@ -1,0 +1,61 @@
+.cmp-languagenavigation {
+}
+//.cmp-languagenavigation--countrycode-US
+//.cmp-languagenavigation--langcode-en-US
+.cmp-languagenavigation__label {
+  display: flex;
+  text-transform: uppercase;
+  gap: 0.3rem;
+  .cmp-languagenavigation__label-text {
+    color: $grey;
+  }
+  &.is-open {
+    .toggle-icon {
+      transform: rotate(180deg); /* Rotate arrow when open */
+    }
+	.cmp-languagenavigation__group{
+		visibility: visible;
+	}
+  }
+}
+.toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-grey.svg")
+    center center no-repeat;
+}
+.cmp-languagenavigation__group {
+}
+.cmp-languagenavigation__item {
+}
+.cmp-languagenavigation__item--active {
+}
+//.cmp-languagenavigation__item--level-0 {}
+.cmp-languagenavigation__item-link {
+}
+.cmp-languagenavigation__item-title {
+}
+
+.cmp-languagenavigation__item--level-0{
+	.cmp-languagenavigation__item-link{
+		color: $black;
+	}
+
+}
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/

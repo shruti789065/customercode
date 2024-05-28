@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-05-24T17:15:00.693+02:00"
+        cq:lastModified="{Date}2024-05-28T16:02:44.389+02:00"
         cq:lastModifiedBy="admin"
         cq:tags="[]"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/xf-web-variation"
@@ -49,36 +49,51 @@
                     </cq:responsive>
                 </image>
                 <button
+                    cq:masterBuildingBlock="{Boolean}true"
                     jcr:created="{Date}2024-05-14T17:33:43.698+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-05-14T17:34:44.457+02:00"
+                    jcr:lastModified="{Date}2024-05-28T15:58:02.158+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="SCOPRI IL GRUPPO MENARINI"
-                    sling:resourceType="laboratorio-guidotti/components/button"
-                    linkTarget="_self"
-                    linkURL="/content/menarini-demo/gb/en">
-                    <cq:responsive jcr:primaryType="nt:unstructured">
-                        <default
-                            jcr:primaryType="nt:unstructured"
-                            offset="6"
-                            width="2"/>
-                    </cq:responsive>
-                </button>
-                <languagenavigation
-                    jcr:lastModified="{Date}2024-05-14T17:40:54.381+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="laboratorio-guidotti/components/languagenavigation"
-                    navigationRoot="/content/laboratorio-guidotti"
-                    structureDepth="1">
+                    jcr:title="Navbar right"
+                    sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
+                    <button973163576644800
+                        jcr:lastModified="{Date}2024-05-14T17:34:44.457+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="SCOPRI IL GRUPPO MENARINI"
+                        sling:resourceType="laboratorio-guidotti/components/button"
+                        linkTarget="_self"
+                        linkURL="/content/menarini-demo/gb/en">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="0"/>
+                        </cq:responsive>
+                    </button973163576644800>
+                    <item973163579812100
+                        jcr:lastModified="{Date}2024-05-28T15:22:07.573+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="laboratorio-guidotti/components/languagenavigation"
+                        label="LANGUAGE:"
+                        navigationRoot="/content/laboratorio-guidotti"
+                        structureDepth="1">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="0"/>
+                        </cq:responsive>
+                    </item973163579812100>
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
                             jcr:primaryType="nt:unstructured"
                             offset="0"
-                            width="1"/>
+                            width="9"/>
                     </cq:responsive>
-                </languagenavigation>
+                </button>
             </container>
             <container_183085773
                 jcr:created="{Date}2024-05-14T17:46:58.106+02:00"
