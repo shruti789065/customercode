@@ -40,27 +40,17 @@
             e.preventDefault();
             e.stopPropagation();
 
-            // Remove 'is-open' class from all other language nav labels
+            // Remove 'is-open' class from all other language nav elements
             document
               .querySelectorAll(LANGUAGE_NAVIGATION.NAV)
               .forEach((otherNav) => {
                 if (otherNav !== navElement) {
-                  const otherLabel = otherNav.querySelector(
-                    LANGUAGE_NAVIGATION.CMP_LANGUAGE_NAV_LABEL
-                  );
-                  if (otherLabel) {
-                    otherLabel.classList.remove("is-open");
-                  }
+                  otherNav.classList.remove("is-open");
                 }
               });
 
-            // Toggle 'is-open' class on the current language nav label
-            const labelElement = navElement.querySelector(
-              LANGUAGE_NAVIGATION.CMP_LANGUAGE_NAV_LABEL
-            );
-            if (labelElement) {
-              labelElement.classList.toggle("is-open");
-            }
+            // Toggle 'is-open' class on the current language nav element
+            navElement.classList.toggle("is-open");
           });
         }
       }
@@ -72,12 +62,7 @@
         .querySelectorAll(LANGUAGE_NAVIGATION.NAV)
         .forEach((navElement) => {
           if (!navElement.contains(e.target)) {
-            const labelElement = navElement.querySelector(
-              LANGUAGE_NAVIGATION.CMP_LANGUAGE_NAV_LABEL
-            );
-            if (labelElement) {
-              labelElement.classList.remove("is-open");
-            }
+            navElement.classList.remove("is-open");
           }
         });
     });

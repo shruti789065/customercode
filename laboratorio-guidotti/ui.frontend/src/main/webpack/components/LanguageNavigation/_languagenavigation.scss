@@ -1,4 +1,14 @@
 .cmp-languagenavigation {
+  &.is-open {
+    .toggle-icon {
+      transform: rotate(180deg);
+      transition: all 0.3s ease-in;
+    }
+    .cmp-languagenavigation__group {
+      visibility: visible;
+      transition: all 0.3s ease-in;
+    }
+  }
 }
 //.cmp-languagenavigation--countrycode-US
 //.cmp-languagenavigation--langcode-en-US
@@ -6,16 +16,9 @@
   display: flex;
   text-transform: uppercase;
   gap: 0.3rem;
+  align-items: center;
   .cmp-languagenavigation__label-text {
     color: $grey;
-  }
-  &.is-open {
-    .toggle-icon {
-      transform: rotate(180deg); /* Rotate arrow when open */
-    }
-	.cmp-languagenavigation__group{
-		visibility: visible;
-	}
   }
 }
 .toggle-icon {
@@ -32,15 +35,15 @@
 }
 //.cmp-languagenavigation__item--level-0 {}
 .cmp-languagenavigation__item-link {
+	text-transform: uppercase;
 }
 .cmp-languagenavigation__item-title {
 }
 
-.cmp-languagenavigation__item--level-0{
-	.cmp-languagenavigation__item-link{
-		color: $black;
-	}
-
+.cmp-languagenavigation__item--level-0 {
+  .cmp-languagenavigation__item-link {
+    color: $black;
+  }
 }
 
 /*

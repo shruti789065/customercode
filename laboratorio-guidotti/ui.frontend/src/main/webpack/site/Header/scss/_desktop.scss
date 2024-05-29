@@ -48,11 +48,33 @@
         }
       }
       .languagenavigation {
-        .cmp-languagenavigation__label {
-          color: $black;
-          .cmp-languagenavigation__label-text {
+        .cmp-languagenavigation {
+          .cmp-languagenavigation__label {
             color: $black;
+            .cmp-languagenavigation__label-text {
+              color: $black;
+              transition: all 0.3s ease-in;
+            }
+            .toggle-icon {
+              width: 1rem;
+              height: 1rem;
+              cursor: pointer;
+              background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-black.svg")
+                center center no-repeat;
+            }
+          }
+          & > .cmp-languagenavigation__group {
+            transform: scale(0.9);
             transition: all 0.3s ease-in;
+            top: unset;
+            .cmp-languagenavigation__item--level-0 {
+              &:hover {
+                background-color: darken($color: $white, $amount: 20%);
+              }
+              .cmp-languagenavigation__item-link {
+                color: $black;
+              }
+            }
           }
         }
       }
@@ -109,7 +131,7 @@
     }
     .cmp-navigation__item-link {
       color: $deep-blue;
-      font-size: clamp(.7rem,1vw,1.188rem);
+      font-size: clamp(0.7rem, 1vw, 1.188rem);
       padding: 1.625rem 1rem;
     }
 
@@ -117,8 +139,8 @@
       &:has(.cmp-navigation__group) {
         .cmp-navigation__item-link {
           .toggle-icon {
-            width: clamp(1rem,1vw,1.5rem);
-            height: clamp(1rem,1vw,1.5rem);
+            width: clamp(1rem, 1vw, 1.5rem);
+            height: clamp(1rem, 1vw, 1.5rem);
             background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-black.svg")
               center center no-repeat;
           }
@@ -170,18 +192,26 @@
         padding: 0 8px;
         border-top: 0;
         background-color: transparent;
-		text-align: end;
-		.cmp-languagenavigation__item--level-0{
-			.cmp-languagenavigation__item-link{
-				color: $white;
+        text-align: end;
+        .cmp-languagenavigation__item--level-0 {
+          .cmp-languagenavigation__item-link {
+            color: $white;
+			&:hover{
+				color:darken($color: $white, $amount: 20%) ;
 			}
-
-		}
+          }
+        }
 
         /* @media (prefers-color-scheme: dark) {
 						border-color: $black;
 						background: $color-background-dark;
 					} */
+      }
+      &.is-open {
+        .cmp-languagenavigation__group {
+          visibility: visible;
+          transition: all 0.3s ease-in;
+        }
       }
       /* &:hover > .cmp-languagenavigation__group {
 				visibility: visible;
