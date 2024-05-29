@@ -7,11 +7,13 @@
     .cmp-languagenavigation__group {
       visibility: visible;
       transition: all 0.3s ease-in;
+	  position: absolute;
+	  top: 2rem;
     }
   }
   & > .cmp-languagenavigation__group {
     visibility: hidden;
-    transition-delay: 0.5s;
+    transition-delay: 0.3s;
     width: 100%;
     padding: 0 .5rem;
     border-top: 0;
