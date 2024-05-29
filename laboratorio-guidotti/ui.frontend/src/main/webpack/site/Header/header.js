@@ -46,7 +46,7 @@
   
 		  toggleIcon.addEventListener("click", (e) => {
 			e.preventDefault();
-			e.stopPropagation(); // Prevent the click from bubbling up to the link
+			e.stopPropagation(); 
   
 			// Check if the clicked menu is already open
 			const isOpen = group.classList.contains("is-visible");

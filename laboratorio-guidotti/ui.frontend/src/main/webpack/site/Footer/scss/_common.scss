@@ -9,14 +9,7 @@ footer{
 .footer-desktop {
   display: none;
 }
-@include respond-to(tablet) {
-  .footer-mobile {
-    display: none;
-  }
-  .footer-desktop {
-    display: block;
-  }
-}
+
 
 /*
 

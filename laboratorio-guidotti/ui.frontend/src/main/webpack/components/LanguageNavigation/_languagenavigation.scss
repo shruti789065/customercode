@@ -9,6 +9,24 @@
       transition: all 0.3s ease-in;
     }
   }
+  & > .cmp-languagenavigation__group {
+    visibility: hidden;
+    transition-delay: 0.5s;
+    width: 100%;
+    padding: 0 .5rem;
+    border-top: 0;
+    background-color: transparent;
+    text-align: end;
+    .cmp-languagenavigation__item--level-0 {
+      .cmp-languagenavigation__item-link {
+        color: $black;
+		text-decoration: none;
+        &:hover {
+          color: darken($deep-blue, 20%);
+        }
+      }
+    }
+  }
 }
 //.cmp-languagenavigation--countrycode-US
 //.cmp-languagenavigation--langcode-en-US
@@ -28,6 +46,9 @@
     center center no-repeat;
 }
 .cmp-languagenavigation__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .cmp-languagenavigation__item {
 }
@@ -35,14 +56,18 @@
 }
 //.cmp-languagenavigation__item--level-0 {}
 .cmp-languagenavigation__item-link {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .cmp-languagenavigation__item-title {
+  text-transform: uppercase;
 }
 
 .cmp-languagenavigation__item--level-0 {
   .cmp-languagenavigation__item-link {
     color: $black;
+  }
+  .cmp-languagenavigation__item--level-1 {
+    display: inline;
   }
 }
 
