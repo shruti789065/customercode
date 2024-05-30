@@ -29,7 +29,7 @@
     border: 0.125rem solid $vibrant-azure;
     &:hover {
       background-color: $vibrant-azure;
-      color: $white;
+      color: $color-background;
     }
     &:active {
       background-color: darken($vibrant-azure, 20%);
@@ -41,7 +41,7 @@
 }
 
 .cmp-button__text {
-  color: $white;
+  color: $color-background;
 }
 .cmp-button__icon {
   display: block;

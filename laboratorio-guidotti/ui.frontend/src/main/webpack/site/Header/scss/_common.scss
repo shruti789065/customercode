@@ -1,4 +1,4 @@
-$borderHeader: 0.125rem solid $white;
+$borderHeader: 0.125rem solid $color-background;
 
 header.experiencefragment {
   position: relative;
@@ -53,7 +53,7 @@ header.experiencefragment {
     font-weight: $oswald-weight-bold;
     align-items: center;
     text-decoration: none;
-    color: $white;
+    color: $color-background;
   }
   .cmp-navigation__group {
     list-style: none;
@@ -112,7 +112,7 @@ header.experiencefragment {
     .cmp-experiencefragment--header {
       .container.responsivegrid:nth-child(1) {
         transition: all 0.3s ease-in;
-        background-color: $white;
+        background-color: $color-background;
         .cmp-image {
         }
         .button {

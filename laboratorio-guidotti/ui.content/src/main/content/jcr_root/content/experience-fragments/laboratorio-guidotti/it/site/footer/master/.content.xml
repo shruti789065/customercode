@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-05-29T12:26:47.863+02:00"
+        cq:lastModified="{Date}2024-05-30T16:26:16.152+02:00"
         cq:lastModifiedBy="admin"
         cq:tags="[]"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/xf-web-variation"
@@ -34,10 +34,11 @@
                     <container
                         jcr:created="{Date}2024-05-15T10:06:55.688+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-05-15T10:34:45.054+02:00"
+                        jcr:lastModified="{Date}2024-05-30T11:06:46.747+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="laboratorio-guidotti/components/containers/container"
+                        id="footerFirstContainer"
                         layout="responsiveGrid">
                         <container
                             cq:masterBuildingBlock="{Boolean}true"
@@ -130,8 +131,8 @@
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="6"/>
+                                    offset="1"
+                                    width="5"/>
                             </cq:responsive>
                             <container_2868416704105130585300
                                 jcr:lastModified="{Date}2024-05-15T10:39:42.350+02:00"
@@ -142,29 +143,41 @@
                                 <image
                                     jcr:created="{Date}2024-05-15T10:38:59.058+02:00"
                                     jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2024-05-15T10:38:59.058+02:00"
+                                    jcr:lastModified="{Date}2024-05-30T10:14:05.760+02:00"
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="laboratorio-guidotti/components/image">
+                                    sling:resourceType="laboratorio-guidotti/components/image"
+                                    displayPopupTitle="true"
+                                    fileReference="/content/dam/laboratorio-guidotti/logo/logo-certification.svg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    titleValueFromDAM="true">
                                     <cq:responsive jcr:primaryType="nt:unstructured">
                                         <default
                                             jcr:primaryType="nt:unstructured"
-                                            offset="4"
+                                            offset="1"
                                             width="1"/>
                                     </cq:responsive>
                                 </image>
                                 <image_1627022168
                                     jcr:created="{Date}2024-05-15T10:39:16.167+02:00"
                                     jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2024-05-15T10:39:16.167+02:00"
+                                    jcr:lastModified="{Date}2024-05-30T10:14:20.654+02:00"
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="laboratorio-guidotti/components/image">
+                                    sling:resourceType="laboratorio-guidotti/components/image"
+                                    displayPopupTitle="true"
+                                    fileReference="/content/dam/laboratorio-guidotti/logo/logo-menarini.svg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    titleValueFromDAM="true">
                                     <cq:responsive jcr:primaryType="nt:unstructured">
                                         <default
                                             jcr:primaryType="nt:unstructured"
                                             offset="0"
-                                            width="1"/>
+                                            width="2"/>
                                     </cq:responsive>
                                 </image_1627022168>
                             </container_2868416704105130585300>
@@ -209,6 +222,23 @@
                                     text="&lt;p>&lt;a href=&quot;#&quot;>Privacy&lt;/a>&lt;/p>&#xd;&#xa;"
                                     textIsRich="true"/>
                             </container>
+                            <languagenavigation
+                                jcr:created="{Date}2024-05-15T11:02:40.565+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-05-29T12:14:02.230+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="laboratorio-guidotti/components/languagenavigation"
+                                label="LANGUAGE:"
+                                navigationRoot="/content/laboratorio-guidotti"
+                                structureDepth="1">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="1"
+                                        width="3"/>
+                                </cq:responsive>
+                            </languagenavigation>
                             <container_630280591
                                 jcr:created="{Date}2024-05-15T10:59:51.999+02:00"
                                 jcr:createdBy="admin"
@@ -220,19 +250,9 @@
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
                                         jcr:primaryType="nt:unstructured"
-                                        offset="3"
+                                        offset="2"
                                         width="2"/>
                                 </cq:responsive>
-                                <languagenavigation
-                                    jcr:created="{Date}2024-05-15T11:02:40.565+02:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2024-05-29T12:14:02.230+02:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="laboratorio-guidotti/components/languagenavigation"
-                                    label="LANGUAGE:"
-                                    navigationRoot="/content/laboratorio-guidotti"
-                                    structureDepth="1"/>
                                 <button
                                     jcr:created="{Date}2024-05-15T11:03:00.005+02:00"
                                     jcr:createdBy="admin"
@@ -280,21 +300,22 @@
                     <container_1289330524
                         jcr:created="{Date}2024-05-15T10:07:20.627+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-05-15T10:07:31.986+02:00"
+                        jcr:lastModified="{Date}2024-05-30T11:07:30.336+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="laboratorio-guidotti/components/containers/container"
+                        id="footerSecondContainer"
                         layout="responsiveGrid">
                         <list
                             jcr:created="{Date}2024-05-15T10:08:13.416+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-05-15T10:32:14.298+02:00"
+                            jcr:lastModified="{Date}2024-05-30T10:36:07.565+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="laboratorio-guidotti/components/list"
                             childDepth="1"
                             displayItemAsTeaser="false"
-                            linkItems="false"
+                            linkItems="true"
                             listFrom="static"
                             pages="[/content/laboratorio-guidotti/it/chi-siamo/business-ethics-and-compliance,/content/laboratorio-guidotti/it/termini-e-condizioni,/content/laboratorio-guidotti/it/farmacovigilanza,/content/laboratorio-guidotti/it/transparency]"
                             showDescription="false"
@@ -305,21 +326,21 @@
                                 <default
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="8"/>
+                                    width="7"/>
                             </cq:responsive>
                         </list>
                         <text
-                            jcr:lastModified="{Date}2024-05-15T10:27:35.275+02:00"
+                            jcr:lastModified="{Date}2024-05-30T10:35:01.747+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="laboratorio-guidotti/components/text"
-                            text="&lt;p style=&quot;text-align: right;&quot;>2024&amp;nbsp; Laboratorio Guidotti - All rights reserved.&lt;/p>&#xd;&#xa;"
+                            text="&lt;p style=&quot;text-align: right;&quot;>© 2024 &lt;span style=&quot;color: rgb(0,173,242);&quot;>Laboratorio Guidotti&lt;/span> - All Rights Reserved.&amp;nbsp;&lt;/p>&#xd;&#xa;"
                             textIsRich="true">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="4"/>
+                                    width="5"/>
                             </cq:responsive>
                         </text>
                     </container_1289330524>

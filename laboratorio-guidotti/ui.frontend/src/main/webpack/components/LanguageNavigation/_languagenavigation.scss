@@ -7,8 +7,8 @@
     .cmp-languagenavigation__group {
       visibility: visible;
       transition: all 0.3s ease-in;
-	  position: absolute;
-	  top: 2rem;
+	  position: relative;
+	  //top: 2rem;
     }
   }
   & > .cmp-languagenavigation__group {
@@ -24,7 +24,7 @@
         color: $black;
 		text-decoration: none;
         &:hover {
-          color: darken($deep-blue, 20%);
+          color: $color-hover;
         }
       }
     }
@@ -38,7 +38,7 @@
   gap: 0.3rem;
   align-items: center;
   .cmp-languagenavigation__label-text {
-    color: $grey;
+    color: $color-text-grey
   }
 }
 .toggle-icon {

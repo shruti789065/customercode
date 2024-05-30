@@ -9,7 +9,7 @@
     text-decoration: none;
     &:hover,
     &:focus {
-      color: $white;
+      color: $color-background;
     }
   }
   &.scrolled {
@@ -32,7 +32,7 @@
       align-items: center;
     }
     .cmp-navigation__item {
-      border-top: 0.125rem solid $white;
+      border-top: 0.125rem solid $color-background;
       width: 100%;
       text-align: center;
       display: grid;
@@ -44,7 +44,7 @@
       border-top: 0.25rem solid $vibrant-azure;
 
       .cmp-navigation__item-link {
-        background-color: $white;
+        background-color: $color-background;
         color: $vibrant-azure;
       }
     }
@@ -78,9 +78,9 @@
     .container.responsivegrid:nth-child(2) {
       position: fixed;
       .button {
-        border-top: 0.125rem solid $white;
+        border-top: 0.125rem solid $color-background;
         .cmp-button {
-          border: 0.063rem solid $white;
+          border: 0.063rem solid $color-background;
           margin: 1.25rem auto;
         }
       }
