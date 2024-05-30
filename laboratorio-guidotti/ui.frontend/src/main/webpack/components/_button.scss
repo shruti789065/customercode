@@ -47,13 +47,22 @@
   display: block;
   width: 2rem;
   height: 2rem;
+  transition: $standard-transition;
   &--facebook {
     background: url(/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-facebook.svg) center center
       no-repeat;
+	  &:hover{
+		background: url(/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-facebook-black.svg) center center
+      no-repeat;
+	  }
   }
   &--linkedin {
     background: url(/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-linkedin.svg) center center
       no-repeat;
+	  &:hover{
+		background: url(/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-linkedin-black.svg) center center
+      no-repeat;
+	  }
   }
   &--hamburger {
     background: url(/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-hamburger.svg) center center

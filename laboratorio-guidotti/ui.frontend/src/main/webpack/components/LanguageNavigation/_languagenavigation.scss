@@ -2,11 +2,11 @@
   &.is-open {
     .toggle-icon {
       transform: rotate(180deg);
-      transition: all 0.3s ease-in;
+      transition: $standard-transition;;
     }
     .cmp-languagenavigation__group {
       visibility: visible;
-      transition: all 0.3s ease-in;
+      transition: $standard-transition;;
 	  position: relative;
 	  //top: 2rem;
     }

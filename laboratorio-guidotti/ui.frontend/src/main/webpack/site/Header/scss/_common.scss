@@ -27,7 +27,7 @@ header.experiencefragment {
   }
   .cmp-experiencefragment--header {
     .container.responsivegrid:nth-child(1) {
-      transition: all 0.3s ease-in;
+      transition: $standard-transition;;
       background-color: transparent;
     }
     .container.responsivegrid:nth-child(2) {
@@ -111,7 +111,7 @@ header.experiencefragment {
   &.scrolled {
     .cmp-experiencefragment--header {
       .container.responsivegrid:nth-child(1) {
-        transition: all 0.3s ease-in;
+        transition: $standard-transition;;
         background-color: $color-background;
         .cmp-image {
         }

@@ -31,11 +31,11 @@
                 .image {
                   max-height: 6rem;
                   max-width: 10rem;
-				  &:first-of-type{
-					.cmp-image__image{
-						max-width: 6rem;
-					}
-				  }
+                  &:first-of-type {
+                    .cmp-image__image {
+                      max-width: 6rem;
+                    }
+                  }
                 }
               }
             }
@@ -44,8 +44,10 @@
           .container:nth-child(2) {
             .cmp-text {
               P {
-                &:hover {
-                  color: $color-hover;
+                a {
+                  &:hover {
+                    color: $color-hover;
+                  }
                 }
               }
             }

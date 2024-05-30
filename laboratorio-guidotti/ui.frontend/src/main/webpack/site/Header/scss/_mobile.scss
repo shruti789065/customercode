@@ -16,7 +16,7 @@
     #btnMenuMobile {
       padding: clamp(1rem, 1vw + 0.5rem, 1.5rem) clamp(0.25rem, 1vw + 0.25rem, 2rem);
       .cmp-button__icon--hamburger {
-        transition: all 0.3s ease-in;
+        transition: $standard-transition;;
         background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-hamburger-deep-blue.svg")
           center center no-repeat;
       }
