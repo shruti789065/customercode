@@ -12,13 +12,12 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
-    
+
     &.show {
         opacity: 1;
         visibility: visible;
         display: flex;
-      }
-      
+    }
 
     .cmp-container {
         background-color: $white;
@@ -53,6 +52,18 @@
         }
     }
 }
+
 html.no-scroll {
     overflow: hidden;
-  }
+}
+
+.aem-AuthorLayer-Edit,
+.cq-Editable-dom {
+    &.no-scroll {
+        overflow: auto;
+    }
+    .cmp-popup {
+        background-color: unset !important;
+        align-items: end !important;
+    }
+}
