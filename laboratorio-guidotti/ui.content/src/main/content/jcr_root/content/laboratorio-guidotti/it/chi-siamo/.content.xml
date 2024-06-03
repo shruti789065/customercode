@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-05-14T17:11:02.007+02:00"
+        cq:lastModified="{Date}2024-05-17T17:23:03.929+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
@@ -40,17 +40,74 @@
                         <wrapper
                             jcr:created="{Date}2024-05-14T16:48:29.934+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-05-14T16:48:29.934+02:00"
+                            jcr:lastModified="{Date}2024-05-17T11:35:16.807+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="laboratorio-guidotti/components/containers/wrapper">
+                            sling:resourceType="laboratorio-guidotti/components/containers/wrapper"
+                            layout="responsiveGrid">
                             <title
+                                cq:styleIds="[1715868173423]"
                                 jcr:created="{Date}2024-05-14T17:10:00.452+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-05-14T17:10:00.452+02:00"
+                                jcr:lastModified="{Date}2024-05-16T16:05:14.784+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="laboratorio-guidotti/components/title"/>
+                                sling:resourceType="laboratorio-guidotti/components/title"
+                                linkTarget="_self"
+                                type="h2"/>
+                            <button
+                                cq:styleIds="[1715873454853]"
+                                jcr:created="{Date}2024-05-16T17:28:01.443+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-05-17T16:50:47.927+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="INVIA SEGNALAZIONE"
+                                sling:resourceType="laboratorio-guidotti/components/button"
+                                linkTarget="_blank"
+                                linkURL="/content/menarini-biotech/en">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="3"
+                                        width="6"/>
+                                </cq:responsive>
+                            </button>
+                            <button_copy
+                                cq:styleIds="[1715873459918]"
+                                jcr:created="{Date}2024-05-16T17:28:01.443+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-05-17T16:50:54.511+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="CANCELLA"
+                                sling:resourceType="laboratorio-guidotti/components/button"
+                                linkTarget="_blank"
+                                linkURL="/content/menarini-biotech/en">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="4"
+                                        width="4"/>
+                                </cq:responsive>
+                            </button_copy>
+                            <text
+                                jcr:created="{Date}2024-05-17T17:22:55.548+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-05-17T17:23:03.916+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="laboratorio-guidotti/components/text"
+                                text="&lt;p>È autorizzato a trattare i dati dell’utente il personale della Società appartenente alle categorie degli amministrativi, tecnici IT, manager di prodotto, ecc. ed altri soggetti che necessitino di trattarli nello svolgimento delle relative mansioni.&lt;/p>&#xd;&#xa;&lt;p>I Dati potranno essere comunicati, anche in Paesi extra-UE (“Paesi Terzi”), alle altre aziende del Gruppo Menarini per i medesimi fini e/o per finalità amministrativo-contabili ai sensi dell’art. 6.1.(f) e del Considerando 48 del Regolamento.&lt;/p>&#xd;&#xa;&lt;p>Inoltre, i dati possono essere comunicati, anche in Paesi Terzi, a: (i) istituzioni, autorità, enti pubblici per i loro fini istituzionali; (ii) professionisti, collaboratori autonomi, anche in forma associata; soggetti terzi e fornitori di cui il Titolare si serve per la prestazione di servizi di natura commerciale, professionale e tecnica funzionali alla gestione del Sito e relative funzionalità (ad es. fornitori di servizi informatici e Cloud Computing), al perseguimento delle finalità sopra specificate e ai servizi richiesti dall’utente; (iii) terzi in caso di fusioni, acquisizioni, cessione di azienda o ramo di azienda, audit od altre operazioni straordinarie; (iv) l’OdV aziendale, domiciliato presso il Titolare, per il perseguimento delle proprie attività di vigilanza e di applicazione del Codice di Condotta del Gruppo Menarini. Tali soggetti riceveranno solo i dati necessari alle relative funzioni e si impegneranno a usarli solo per le finalità sopra indicate ed a trattarli nel rispetto della normativa privacy applicabile. I dati possono inoltre essere comunicati ai legittimi destinatari ai sensi della normativa applicabile. Fatta eccezione per quanto precede, i dati non sono condivisi con terzi, persone fisiche o giuridiche, che non svolgono per il Titolare alcuna funzione di carattere commerciale, professionale e tecnico, e non saranno diffusi. I soggetti che ricevono i dati li trattano quali Titolari, Responsabili o autorizzati al trattamento, a seconda del caso, per le finalità sopra indicate e nel rispetto della legge privacy applicabile.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Per quanto concerne l’eventuale trasferimento dei dati verso Paesi Terzi, tra cui Paesi che potrebbero non garantire il medesimo livello di tutela previsto dalla Normativa Privacy, il Titolare rende noto che il trattamento avverrà comunque secondo una delle modalità consentite dal Regolamento, quali ad esempio il consenso dell’utente, l’adozione di Clausole Standard approvate dalla Commissione Europea, la selezione di soggetti aderenti a programmi internazionali per la libera circolazione dei dati o operanti in Paesi considerati sicuri dalla Commissione Europea.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
                         </wrapper>
                     </section>
                 </container>

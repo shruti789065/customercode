@@ -2,12 +2,16 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-05-14T16:49:19.268+02:00"
+        cq:lastModified="{Date}2024-06-03T11:26:14.077+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="Home"
-        sling:resourceType="laboratorio-guidotti/components/page">
+        sling:resourceType="laboratorio-guidotti/components/page"
+        navTitle="Italiano"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="laboratorio-guidotti/components/containers/container"
@@ -26,10 +30,18 @@
                     <hero
                         jcr:created="{Date}2024-05-14T16:48:14.849+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-05-14T16:48:14.849+02:00"
+                        jcr:lastModified="{Date}2024-05-24T18:02:24.684+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="laboratorio-guidotti/components/hero"/>
+                        sling:resourceType="laboratorio-guidotti/components/hero"
+                        descriptionFromPage="true"
+                        fileReference="/content/dam/laboratorio-guidotti/diffusione-del-sapere/DiffusioneDelSapere_Header.jpg"
+                        imageFromPageImage="false"
+                        isDecorative="true"
+                        linkTarget="_self"
+                        linkURL="#"
+                        textIsRich="true"
+                        titleFromPage="true"/>
                     <section
                         jcr:created="{Date}2024-05-14T16:48:23.442+02:00"
                         jcr:createdBy="admin"
@@ -43,11 +55,160 @@
                             jcr:lastModified="{Date}2024-05-14T16:48:29.934+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="laboratorio-guidotti/components/containers/wrapper"/>
+                            sling:resourceType="laboratorio-guidotti/components/containers/wrapper">
+                            <title
+                                cq:styleIds="[1715868182256,1715868241176]"
+                                jcr:created="{Date}2024-06-03T10:18:12.241+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-06-03T10:18:45.709+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Aree Terapeutiche"
+                                sling:resourceType="laboratorio-guidotti/components/title"
+                                linkTarget="_self"
+                                type="h2"/>
+                            <container
+                                jcr:created="{Date}2024-06-03T10:18:05.905+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-06-03T10:19:14.217+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="laboratorio-guidotti/components/containers/container"
+                                layout="responsiveGrid">
+                                <card
+                                    jcr:created="{Date}2024-06-03T10:18:56.901+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-06-03T10:36:19.843+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="laboratorio-guidotti/components/card"
+                                    alt="icona area respiratioria"
+                                    altValueFromDAM="false"
+                                    altValueFromPageImage="false"
+                                    descriptionFromPage="true"
+                                    imageFromPageImage="true"
+                                    isDecorative="false"
+                                    linkTarget="_self"
+                                    linkURL="/content/laboratorio-guidotti/it/aree-terapeutiche/area-respiratoria"
+                                    textIsRich="true"
+                                    titleFromPage="true">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="6"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </card>
+                                <card_copy_1830784673
+                                    jcr:created="{Date}2024-06-03T10:18:56.901+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-06-03T10:40:50.532+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="laboratorio-guidotti/components/card"
+                                    altValueFromPageImage="true"
+                                    descriptionFromPage="true"
+                                    imageFromPageImage="true"
+                                    isDecorative="false"
+                                    linkTarget="_self"
+                                    linkURL="/content/laboratorio-guidotti/it/aree-terapeutiche/area-ipertensione"
+                                    textIsRich="true"
+                                    titleFromPage="true">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="6"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </card_copy_1830784673>
+                                <card_copy_69818697
+                                    jcr:created="{Date}2024-06-03T10:18:56.901+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-06-03T10:41:09.285+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="laboratorio-guidotti/components/card"
+                                    altValueFromPageImage="true"
+                                    descriptionFromPage="true"
+                                    imageFromPageImage="true"
+                                    isDecorative="false"
+                                    linkTarget="_self"
+                                    linkURL="/content/laboratorio-guidotti/it/aree-terapeutiche/area-diabetologia"
+                                    textIsRich="true"
+                                    titleFromPage="true">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="6"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </card_copy_69818697>
+                                <card_copy
+                                    jcr:created="{Date}2024-06-03T10:18:56.901+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-06-03T10:41:23.935+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="laboratorio-guidotti/components/card"
+                                    altValueFromPageImage="true"
+                                    descriptionFromPage="true"
+                                    imageFromPageImage="true"
+                                    isDecorative="false"
+                                    linkTarget="_self"
+                                    linkURL="/content/laboratorio-guidotti/it/aree-terapeutiche/area-dislipidemia"
+                                    textIsRich="true"
+                                    titleFromPage="true">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="3"/>
+                                        <tablet
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="6"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </card_copy>
+                            </container>
+                        </wrapper>
                     </section>
                 </container>
             </container>
         </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-05-28T10:41:12.273+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
     <chi-siamo/>
     <aree-terapeutiche/>

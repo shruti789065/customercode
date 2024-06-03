@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-06-03T10:38:13.382+02:00"
+        cq:lastModified="{Date}2024-06-03T10:38:41.567+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/page-content"
-        jcr:description="Siamo attivi nel trattamento di due importanti malattie respiratorie croniche: la broncopneumopatia cronica ostruttiva (BPCO) e l’asma bronchiale."
+        jcr:description="Puntiamo a migliorare la qualità di vita delle persone affette da diabete mellito con opzioni di trattamento sicure e all’avanguardia. "
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Area Respiratoria"
+        jcr:title="Area Diabetologia"
+        jcr:uuid="116873a6-280d-49ba-b11e-be49eaf335f1"
         sling:resourceType="laboratorio-guidotti/components/page"
         pwaCachestrategy="staleWhileRevalidate"
         pwaDisplay="standalone"
@@ -61,12 +64,12 @@
             </container>
         </root>
         <cq:featuredimage
-            jcr:lastModified="{Date}2024-06-03T10:38:13.368+02:00"
+            jcr:lastModified="{Date}2024-06-03T10:38:41.560+02:00"
             jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="core/wcm/components/image/v3/image"
-            alt="icona area respiratoria"
+            alt="icona area diabetologia"
             altValueFromDAM="false"
-            fileReference="/content/dam/laboratorio-guidotti/icons/icon-heartbeat.svg"/>
+            fileReference="/content/dam/laboratorio-guidotti/icons/icon-drugs.svg"/>
     </jcr:content>
 </jcr:root>
