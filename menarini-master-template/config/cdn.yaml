@@ -1,0 +1,41 @@
+kind: CDN
+version: '1'
+metadata:
+  envTypes:
+    - dev
+    - stage
+    - prod
+data:
+  trafficFilters:
+    rules:
+    ...
+    #  Prevent attack at edge by blocking client for 5 minutes if they make more than 500 requests per second on average
+    - name: prevent-dos-attacks-edge
+      when:
+        reqProperty: tier
+        in: ["author","publish"]
+      rateLimit:
+        limit: 500 # replace with the appropriate value
+        window: 10 # compute the average over 10s
+        penalty: 300 # block IP for 5 minutes
+        count: all # count all requests
+        groupBy:
+          - reqProperty: clientIp
+      action:
+        type: log
+        experimental_alert: true
+    #  Prevent attack at origin by blocking client for 5 minutes if they make more than 100 requests per second on average
+    - name: prevent-dos-attacks-origin
+      when:
+        reqProperty: tier
+        in: ["author","publish"]
+      rateLimit:
+        limit: 100 # replace with the appropriate value
+        window: 10 # compute the average over 10s
+        penalty: 300 # block IP for 5 minutes
+        count: fetches # count only fetches
+        groupBy:
+          - reqProperty: clientIp
+      action:
+        type: log
+        experimental_alert: true
