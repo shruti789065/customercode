@@ -8,7 +8,6 @@ metadata:
 data:
   trafficFilters:
     rules:
-    ...
     #  Prevent attack at edge by blocking client for 5 minutes if they make more than 500 requests per second on average
     - name: prevent-dos-attacks-edge
       when:
