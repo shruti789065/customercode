@@ -1,0 +1,13 @@
+<sly data-sly-test="${properties.cardType == 'essential'}"
+     data-sly-use.cardEssentialTemplate="essential.html"
+     data-sly-call="${cardEssentialTemplate.cardEssential}"></sly>
+<sly data-sly-test="${properties.cardType == 'event'}"
+     data-sly-use.cardEventTemplate="event.html"
+     data-sly-call="${cardEventTemplate.cardEvent}"></sly>
+<sly data-sly-test="${properties.cardType == 'download'}"
+     data-sly-use.cardDownloadTemplate="download.html"
+     data-sly-call="${cardDownloadTemplate.cardDownload}"></sly>
+
+
+<div data-sly-test="${!properties.cardType}" data-emptytext="Business Card" class="cq-placeholder"></div>
+
