@@ -406,10 +406,10 @@
             <page jcr:primaryType="nt:unstructured">
                 <policy
                     jcr:description="Includes the required client libraries."
-                    jcr:lastModified="{Date}2024-05-14T17:16:36.525+02:00"
+                    jcr:lastModified="{Date}2024-06-04T10:55:49.604+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Generic Page"
+                    jcr:title="Shapes Page"
                     sling:resourceType="wcm/core/components/policy/policy"
                     clientlibs="[laboratorio-guidotti.dependencies,laboratorio-guidotti.site]"
                     clientlibsAsync="false"
@@ -417,26 +417,47 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
-                            cq:styleGroupLabel="Layout"
+                            cq:styleGroupLabel="Right Shapes"
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleClasses="page-style--one"
+                                    cq:styleClasses="shape-right--one"
                                     cq:styleId="1715699719961"
-                                    cq:styleLabel="Style 1"
+                                    cq:styleLabel="shape 1"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="page-style--two"
+                                    cq:styleClasses="shape-right--two"
                                     cq:styleId="1715699746961"
-                                    cq:styleLabel="Style 2"
+                                    cq:styleLabel="shape 2"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item2
-                                    cq:styleClasses="page-style--three"
+                                    cq:styleClasses="shape-right--three"
                                     cq:styleId="1715699751948"
-                                    cq:styleLabel="Style 3"
+                                    cq:styleLabel="shape 3"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
+                        <item1
+                            cq:styleGroupLabel="Left Shapes"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="shape-left--one"
+                                    cq:styleId="1717491109625"
+                                    cq:styleLabel="shape 1"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="shape-left--two"
+                                    cq:styleId="1717491110437"
+                                    cq:styleLabel="shape 2"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="shape-left--three"
+                                    cq:styleId="1717491111192"
+                                    cq:styleLabel="shape 3"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
                     </cq:styleGroups>
                 </policy>
             </page>
@@ -562,6 +583,57 @@
                     </cq:styleGroups>
                 </policy_1715873438168>
             </button>
+            <hero jcr:primaryType="nt:unstructured">
+                <policy_1717487352842
+                    jcr:lastModified="{Date}2024-06-04T09:52:17.849+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="header shaper guidotti"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Tipology"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-shape cmp-shape-header"
+                                    cq:styleId="1717487375684"
+                                    cq:styleLabel="shape header"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-shape cmp-shape-one"
+                                    cq:styleId="1717487377935"
+                                    cq:styleLabel="shape 1"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-shape cmp-shape-two"
+                                    cq:styleId="1717487378562"
+                                    cq:styleLabel="shape 2"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-shape cmp-shape-three"
+                                    cq:styleId="1717487379117"
+                                    cq:styleLabel="shape 3"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item4
+                                    cq:styleClasses="cmp-shape cmp-shape-four"
+                                    cq:styleId="1717487379664"
+                                    cq:styleLabel="shape 4"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item5
+                                    cq:styleClasses="cmp-shape cmp-shape-five"
+                                    cq:styleId="1717487380505"
+                                    cq:styleLabel="shape 5"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1717487352842>
+            </hero>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">
