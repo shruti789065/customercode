@@ -14,29 +14,30 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <template data-sly-template.cardDownload="">
-   <div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
-        data-sly-test.hasContent="${properties.icon || properties.title > 0}"
-        class="cmp-business_card cmp-business_card--${properties.cardType} ">
+	<div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+	     data-sly-test.hasContent="${properties.icon || properties.title > 0}"
+	     id="${properties.id}"
+	     class="cmp-business_card cmp-business_card--${properties.cardType} ">
 
-      <div class="cmp-business_card--icon">
+		<div class="cmp-business_card--icon">
+			<a class="cmp-link" href="${properties.document}">
+				<div class="cmp-image">
+					<img srcset="${properties.icon}" class="cmp-image__image">
+				</div>
 
-         <div class="cmp-image">
-            <img srcset="${properties.icon}" class="cmp-image__image">
-         </div>
+				<div class="cmp-business_card--title">
+					<div class="cmp-title">
+						<h3 class="cmp-title__text">${properties.title}</h3>
+					</div>
+				</div>
 
-         <div class="cmp-business_card--title">
-            <div class="cmp-title">
-               <h3 class="cmp-title__text">${properties.title}</h3>
-            </div>
-         </div>
-
-         <div class="cmp-business_card--title">
-            <div class="cmp-text">
-               <p>${properties.text}</p>
-            </div>
-         </div>
-
-      </div>
-   </div>
-   <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
+				<div class="cmp-business_card--text">
+					<div class="cmp-text">
+						<p>${properties.description}</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
 </template>

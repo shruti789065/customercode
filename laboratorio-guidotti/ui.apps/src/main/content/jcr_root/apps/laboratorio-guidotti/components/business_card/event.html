@@ -16,29 +16,30 @@
 <template data-sly-template.cardEvent="">
 	<div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
 	     data-sly-test.hasContent="${properties.icon || properties.title > 0}"
+	     id="${properties.id}"
 	     class="cmp-business_card cmp-business_card--${properties.cardType} ">
 
 		<div class="cmp-business_card--icon">
-
-			<div class="cmp-image">
-				<img srcset="${properties.icon}" class="cmp-image__image">
-			</div>
-
-			<div class="cmp-business_card--title">
-				<div class="cmp-title">
-					<h3 class="cmp-title__text">${properties.title}</h3>
+			<a class="cmp-link">
+				<div class="cmp-image">
+					<img srcset="${properties.icon}" class="cmp-image__image">
 				</div>
-			</div>
 
-			<div class="cmp-business_card--title">
-				<div class="cmp-text">
-					<p>${properties.text}</p>
+				<div class="cmp-business_card--title">
+					<div class="cmp-title">
+						<h3 class="cmp-title__text">${properties.title}</h3>
+					</div>
 				</div>
-			</div>
 
+				<hr>
+				<div>
+					<span><i></i>${properties.location}</span>
+					<span><i></i>${properties.date}</span>
+				</div>
+			</a>
 		</div>
 	</div>
 
 
-	<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
+	<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend=''}"></sly>
 </template>
