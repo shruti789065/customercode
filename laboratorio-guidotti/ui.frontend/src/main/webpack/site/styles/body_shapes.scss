@@ -52,6 +52,7 @@ body {
 
 
   #upper-shape {
+    z-index: 2;
     position: relative;
     &::after {
       content: '';
@@ -66,6 +67,7 @@ body {
   }
   
   #lower-shape {
+    z-index: 2;
     position: relative;
     background-color: #00ADF2;
     height: 2px;

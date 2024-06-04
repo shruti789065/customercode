@@ -1,13 +1,246 @@
-.cmp-teaser {}
-.cmp-teaser__image {}
-.cmp-teaser__content {}
-.cmp-teaser__pretitle {}
-.cmp-teaser__title {}
-.cmp-teaser__title-link {}
-.cmp-teaser__description {}
-.cmp-teaser__action-container {}
-.cmp-teaser__action-link {}
+.hero {
+    display: flex;
+    position: relative;
+    z-index: 1;
 
+    .cmp-teaser {
+        display: flex;
+        flex-direction: column;
+        &__content {
+            order: 2;
+            z-index: 10;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            transition: $standard-transition;
+            .cmp-teaser__pretitle {
+                font-family: $font-family-oswald;
+                font-weight: $oswald-weight-bold;
+                font-size: $title-big;
+                color: $deep-blue;
+                margin: 0px;
+                line-height: 1;
+                letter-spacing: $title-spacing;
+            }
+
+            .cmp-teaser__title {
+                font-family: $font-family-oswald;
+                font-weight: $oswald-weight-bold;
+                font-size: $title-big;
+                color: $vibrant-azure;
+                margin: 0px;
+                line-height: 1;
+                letter-spacing: $title-spacing;
+                &-link {
+                    color: $vibrant-azure;
+                    text-decoration: unset;
+                }
+            }
+
+            .cmp-teaser__description {
+                font-family: $font-family-arimo;
+                font-weight: $oswald-weight-regular;
+                font-size: $font-size;
+                color: $black;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-align: center;
+            }
+
+            .cmp-teaser__action-container {
+                margin-top: 35px;
+                .cmp-teaser__action-link {
+                    font-family: $font-family-oswald;
+                    font-weight: $oswald-weight-regular;
+                    font-size: $button-size;
+                    text-transform: uppercase;
+                    text-decoration: unset;
+                    padding: 20px 60px;
+                    border: 1px solid $vibrant-azure;
+                    border-radius: 40px;
+                    line-height: 1;
+                    transition: $standard-transition;
+                    cursor: pointer;                    
+                    &:hover{
+                        background-color: $vibrant-azure;
+                        color: $white;
+                        box-shadow: 2px 2px 5px lightgray;
+                    }
+                }
+            }
+        }
+
+        &__image {
+            order: 1;
+            .cmp-image {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    z-index: 5;                    
+                  }
+                &__image {
+                    
+                }
+            }
+        }
+    }
+
+    &.cmp-shape {
+        &-header {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-0.png');
+                }
+            }
+        }
+
+        &-one {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-1.png');
+                }
+            }
+        }
+
+        &-two {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-2.png');
+                }
+            }
+        }
+
+        &-three {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-3.png');
+                }
+            }
+        }
+
+        &-four {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-4.png');
+                }
+            }
+        }
+
+        &-five {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-5.png');
+                }
+            }
+        }
+
+        &-six {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-6.png');
+                }
+            }
+        }
+
+        &-seven {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-7.png');
+                }
+            }
+        }
+
+        &-eight {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-8.png');
+                }
+            }
+        }
+
+        &-nine {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-9.png');
+                }
+            }
+        }
+
+        &-ten {
+            .cmp-teaser__image {
+                .cmp-image:after {
+                    background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-10.png');
+                }
+            }
+        }
+    }
+}
+@include respond-to(tablet) {
+    .hero {
+        .cmp-teaser {
+            &__content {
+                position: absolute;
+                left: 45%;
+                top: 55%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                max-width: 60%;
+                align-items: start;
+                text-align: left;
+                .cmp-teaser__pretitle {
+                }
+    
+                .cmp-teaser__title {
+                }
+    
+                .cmp-teaser__description {
+                    text-align: left;
+                    max-width: 750px;
+                }
+    
+                .cmp-teaser__action-container {
+                    margin-top: 25px;
+                    .cmp-teaser__action-link {                   
+                        &:hover{
+                        }
+                    }
+                }
+            }
+    
+            &__image {
+                .cmp-image {
+                    &::after {              
+                      }
+                    &__image {
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+}
+.hero.cmp-shape {    
+    .cmp-teaser__content {
+        display: none;
+    }
+}
+.hero.cmp-shape.cmp-shape-header {    
+    .cmp-teaser__content {
+        display: flex;
+    }
+}
 /*
 
 **MEDIA QUERIES DA UTILIZZARE**

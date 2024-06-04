@@ -31,8 +31,11 @@ $arimo-italic-weight-bold: 700;
 $arimo-italic-weight-extrabold: 800;
 $arimo-italic-weight-black: 900;
 
-$font-size: 16px;
+$font-size: calc(16px + (24 - 16) * ((100vw - 390px) / (1920 - 390)));
+$button-size: calc(17px + (22  - 17) * ((100vw - 390px) / (1920 - 390)));
 $font-height: 1.5;
+$title-big: calc(48px + (100 - 48) * ((100vw - 390px) / (1920 - 390)));
+$title-spacing: -2px;
 
 //== Color
 $black: #000000;
@@ -57,6 +60,6 @@ $color-link-dark:       invert($color-link); */
 //Media Queries
 $breakpoint-small-devices: 320px;
 $breakpoint-mobile: 480px;
-$breakpoint-tablet: 768px;
+$breakpoint-tablet: 992px;
 $breakpoint-laptop: 1200px;
 $breakpoint-desktop: 1440px;
