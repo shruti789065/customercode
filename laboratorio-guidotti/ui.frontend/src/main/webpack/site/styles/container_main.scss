@@ -11,12 +11,13 @@ main.container {
 
 .wrapper {
   width: 100%;
-  padding: 1rem;
+  padding: 0px clamp(1.5rem, 4vw, 2.5rem);
   margin: 0 auto;
   container-type: inline-size;
   container-name: wrapper-container;
+  transition: $standard-transition;
 }
-
+/*
 @container wrapper-container (min-width: 600px) {
   .wrapper {
     max-width: 720px;
@@ -46,31 +47,15 @@ main.container {
     max-width: 1600px;
   }
 }
-
+*/
 /***MEDIA QUERIES DA UTILIZZARE***/
 
 /* Media Queries */
 
-@include respond-to(mobile) {
-  .wrapper {
-    max-width: 37.5rem;
-  }
-}
-
 @include respond-to(tablet) {
   .wrapper {
-    max-width: 60rem;
+    max-width: 1400px;
+    padding: 0 4rem;
   }
 }
 
-@include respond-to(laptop) {
-  .wrapper {
-    max-width: 71.25rem;
-  }
-}
-
-@include respond-to(desktop) {
-  .wrapper {
-    max-width: 90rem;
-  }
-}

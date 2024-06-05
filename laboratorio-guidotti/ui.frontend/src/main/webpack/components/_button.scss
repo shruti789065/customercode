@@ -12,9 +12,13 @@
   font-size: clamp(1rem, 1.5vw + 0.5rem, 1.375rem);
   width: clamp(16.875rem, 1.5vw + 0.5rem, 23rem);
   margin: 1rem 0;
+  &:hover {
+    box-shadow: 2px 2px 5px lightgray;
+  }
 }
 .cmp-button--first-style {
   .cmp-button {
+    transform: $standard-transition;
     background-color: $vibrant-azure;
     &:hover {
       background-color: darken($vibrant-azure, 10%);
@@ -27,9 +31,13 @@
 .cmp-button--second-style {
   .cmp-button {
     border: 0.125rem solid $vibrant-azure;
+    transform: $standard-transition;
     &:hover {
       background-color: $vibrant-azure;
       color: $color-background;
+      .cmp-button__text {
+        color: $white;
+      }
     }
     &:active {
       background-color: darken($vibrant-azure, 20%);

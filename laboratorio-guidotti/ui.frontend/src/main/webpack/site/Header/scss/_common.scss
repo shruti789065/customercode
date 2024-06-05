@@ -76,6 +76,8 @@ header.experiencefragment {
       .cmp-navigation__item-link {
         gap: 0.5rem;
         position: relative; /* Needed for absolute positioning of toggle icon */
+        font-family: $font-family-oswald;
+        font-weight: $oswald-weight-regular;
 
         .toggle-icon {
           content: " ";

@@ -31,13 +31,19 @@ $arimo-italic-weight-bold: 700;
 $arimo-italic-weight-extrabold: 800;
 $arimo-italic-weight-black: 900;
 
+// Font size
+$font-size-min: 17px;
 $font-size: calc(16px + (24 - 16) * ((100vw - 390px) / (1920 - 390)));
+$font-size-max: 24px;
 $button-size: calc(17px + (22  - 17) * ((100vw - 390px) / (1920 - 390)));
 $font-height: 1.5;
-$title-big: calc(48px + (100 - 48) * ((100vw - 390px) / (1920 - 390)));
+
+$title-size-min: 48px;
+$title-size: calc(48px + (100 - 48) * ((100vw - 390px) / (1920 - 390)));
+$title-size-max: 100px;
 $title-spacing: -2px;
 
-//== Color
+// Color
 $black: #000000;
 $white: #ffffff;
 $deep-blue: #38344d;

@@ -7,7 +7,7 @@
 html,
 body {
   margin: 0;
-  font-size: $font-size;
+  font-size: $font-size-min;
   font-family: $font-family-arimo;
   line-height: $font-height;
   color: $color-text;
@@ -55,8 +55,16 @@ textarea {
 .cmp-font-weight--light {
   font-weight: $oswald-weight-light;
 }
-
-
+@include respond-to(small-devices) {
+  body {
+    font-size: $font-size;
+  }
+}
+@include respond-to(desktop) {
+  body {
+    font-size: $font-size-max;
+  }
+}
 
 /*
 
@@ -71,6 +79,6 @@ textarea {
 
 @include respond-to(laptop) {}
 
-@include respond-to(desktop) {}
+
 
 */

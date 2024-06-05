@@ -1,9 +1,44 @@
-.cmp-title {
-	font-family: $font-family-oswald;
-	font-weight: $oswald-weight-bold;
-}
+
 .cmp-title__text {}
 .cmp-title__link {}
+.title {
+	.cmp-title {
+		font-family: $font-family-oswald;
+		font-weight: $oswald-weight-bold;
+		h1 { font-size: 48px; margin: auto;}
+		h2 { font-size: 30px; margin: auto; }
+		h3 { font-size: 24px; margin: auto; }
+		h4 { font-size: 18px; margin: auto; }
+		h5 { font-size: 15px; margin: auto; }
+		h6 { font-size: 15px; margin: auto; }
+	}
+}
+
+@include respond-to(small-devices) {
+	.title {
+		.cmp-title {
+			h1 { font-size: calc(48px + (100 - 48) * ((100vw - 390px) / (1920 - 390))); }
+			h2 { font-size: calc(30px + (60 - 30) * ((100vw - 390px) / (1920 - 390))); }
+			h3 { font-size: calc(24px + (42 - 24) * ((100vw - 390px) / (1920 - 390))); }
+			h4 { font-size: calc(18px + (35 - 18) * ((100vw - 390px) / (1920 - 390))); }
+			h5 { font-size: calc(15px + (25 - 15) * ((100vw - 390px) / (1920 - 390))); }
+			h6 { font-size: calc(15px + (20 - 15) * ((100vw - 390px) / (1920 - 390))); }
+		}
+	}
+}
+
+@include respond-to(desktop) {
+	.title {
+		.cmp-title {
+			h1 { font-size: 100px; }
+			h2 { font-size: 60px; }
+			h3 { font-size: 42px; }
+			h4 { font-size: 35px; }
+			h5 { font-size: 25px; }
+			h6 { font-size: 20px; }
+		}
+	}
+}
 
 /*
 
