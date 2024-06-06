@@ -78,7 +78,7 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2024-05-29T15:44:44.555+02:00"
+                    jcr:lastModified="{Date}2024-05-29T14:42:28.604+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text"
@@ -142,7 +142,7 @@
                             features="*"/>
                         <spellcheck
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                         <image
                             jcr:primaryType="nt:unstructured"
                             features="*"/>
@@ -180,7 +180,7 @@
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:lastModified="{Date}2024-05-16T16:04:10.824+02:00"
+                    jcr:lastModified="{Date}2024-06-06T10:53:20.383+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Title policy"
@@ -219,6 +219,11 @@
                                     cq:styleClasses="cmp-font-weight--light"
                                     cq:styleId="1715868241176"
                                     cq:styleLabel="Light"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-font-weight--regular"
+                                    cq:styleId="1717663988602"
+                                    cq:styleLabel="Regular"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
@@ -464,7 +469,7 @@
             <containers jcr:primaryType="nt:unstructured">
                 <container jcr:primaryType="nt:unstructured">
                     <policy_1715698026050
-                        jcr:lastModified="{Date}2024-06-06T11:43:23.303+02:00"
+                        jcr:lastModified="{Date}2024-05-14T16:47:37.505+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content Page Policy"
@@ -634,6 +639,57 @@
                     </cq:styleGroups>
                 </policy_1717487352842>
             </hero>
+            <accordion jcr:primaryType="nt:unstructured">
+                <policy_1717664755116
+                    jcr:lastModified="{Date}2024-06-06T11:51:47.465+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Accordion Policy Guidotti"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="h2"
+                    headingElement="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Tipology"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-accordion--tipology-one"
+                                    cq:styleId="1717664777725"
+                                    cq:styleLabel="Style 1"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-accordion--tipology-two"
+                                    cq:styleId="1717664778603"
+                                    cq:styleLabel="Style 2"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-accordion--color-primary"
+                                    cq:styleId="1717667458141"
+                                    cq:styleLabel="Primary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-accordion--color-secondary"
+                                    cq:styleId="1717667458924"
+                                    cq:styleLabel="Secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-accordion--color-default"
+                                    cq:styleId="1717667460046"
+                                    cq:styleLabel="Default"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
+                </policy_1717664755116>
+            </accordion>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">
