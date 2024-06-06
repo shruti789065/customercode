@@ -10,63 +10,261 @@
 .cmp-accordion__panel--hidden {}
 
 .accordion {
-    .cmp-accordion {
-        &__item {
-            &__header {
-                &__button {
-                    background-color: unset;
-                    border: 0px;
-                    &__title {
-                        font-family: $font-family-oswald;
-                        font-size: 30px;
+    &.cmp-accordion--tipology-one { 
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        cursor: pointer;
+                        .cmp-accordion__button {
+                                background-color: unset;
+                                border: 0px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                cursor: pointer;
+                                border-bottom: 2px solid $black;
+                                padding: 1rem 0;
+                            .cmp-accordion__title { 
+                                font-family: $font-family-oswald;
+                                font-size: 30px;
+                                font-weight: $oswald-weight-bold;
+                                color: $black; 
+                            }
+                            .cmp-accordion__icon {                                        
+                                width: 2rem;
+                                height: 2rem;
+                                rotate: 180deg;
+                                cursor: pointer;
+                                background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-black.svg") center center no-repeat;
+                                transition: $standard-transition;
+                                background-size: contain;
+                            }
+                            &--expanded{
+                                .cmp-accordion__icon{
+                                    rotate: 0deg;  
+                                }
+                            }
+                        }
                     }
-                    &__icon {}
+                    .cmp-accordion__panel {
+                        transition: $standard-transition;
+                        padding-top: 1rem;
+                    }
                 }
             }
-            &__panel {}
+        &.cmp-accordion--color-primary {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        .cmp-accordion__button {                        
+                            border-bottom: 2px solid $vibrant-azure;
+                            .cmp-accordion__title { color: $vibrant-azure; }
+                            .cmp-accordion__icon {
+                                background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-azure.svg") center center no-repeat;
+                            }
+                        }
+                    }
+                }
+            }
         }
+        &.cmp-accordion--color-secondary {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        .cmp-accordion__button {
+                            border-bottom: 2px solid $deep-blue;
+                            .cmp-accordion__title { color: $deep-blue; }
+                            .cmp-accordion__icon {
+                                background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-deep-blue.svg") center center no-repeat;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.cmp-accordion--color-default {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        .cmp-accordion__button {                        
+                            border-bottom: 2px solid $lightGray;
+                            .cmp-accordion__title { color: $lightGray; }
+                            .cmp-accordion__icon {
+                                background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-grey.svg") center center no-repeat;
+                            }
+                        }
+                    }
+                }
+            }
+        }      
+     }
+    &.cmp-accordion--tipology-two {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        cursor: pointer;
+                        .cmp-accordion__button {
+                                background-color: unset;
+                                border: 0px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                cursor: pointer;
+                                border-bottom: 2px solid $black;
+                                padding: 1rem 0;
+                            .cmp-accordion__title {
+                                font-size: 24px;
+                                font-family: $font-family-oswald;
+                                font-weight: $oswald-weight-light;
+                                color: $black; 
+                            }
+                            .cmp-accordion__icon {
+                                width: 1rem;
+                                height: 1rem;
+                                rotate: 180deg;
+                                cursor: pointer;
+                                background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v2-black.svg") center center no-repeat;
+                                transition: $standard-transition;
+                                background-size: contain;
+                            }
+                            &--expanded{
+                                .cmp-accordion__icon{
+                                    rotate: 0deg;  
+                                }
+                            }
+                        }
+                    }
+                    .cmp-accordion__panel {}
+                }
+            }
+            &.cmp-accordion--color-primary {
+                .cmp-accordion {
+                    &__item {
+                        .cmp-accordion__header {
+                            .cmp-accordion__button {
+                                border-bottom: 2px solid $vibrant-azure;
+                                .cmp-accordion__title { color: $vibrant-azure; }
+                                .cmp-accordion__icon {
+                                    background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v2-azure.svg") center center no-repeat;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.cmp-accordion--color-secondary {
+                .cmp-accordion {
+                    &__item {
+                        .cmp-accordion__header {
+                            .cmp-accordion__button {
+                                border-bottom: 2px solid $deep-blue;
+                                .cmp-accordion__title { color: $deep-blue; }
+                                .cmp-accordion__icon {
+                                    background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v2-deep-blue.svg") center center no-repeat;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.cmp-accordion--color-default {
+                .cmp-accordion {
+                    &__item {
+                        .cmp-accordion__header {
+                            .cmp-accordion__button {
+                                border-bottom: 2px solid $lightGray;
+                                .cmp-accordion__title {color: $lightGray;}
+                                .cmp-accordion__icon {
+                                    background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v2-grey.svg") center center no-repeat;
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
     }
-    &.cmp-accordion--tipology-one {}
-    &.cmp-accordion--tipology-two {}
+    
 }
 
 @include respond-to(small-devices) {
-    .accordion {
-        .cmp-accordion {
-            &__item {
-                &__header {
-                    &__button {
-                        &__title {
-                            font-size: calc(30px + (60 - 30) * ((100vw - 390px) / (1920 - 390)));
+    .accordion {        
+        &.cmp-accordion--tipology-one {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        .cmp-accordion__button {
+                            .cmp-accordion__title {
+                                font-size: calc(30px + (60 - 30) * ((100vw - 390px) / (1920 - 390)));
+                            }
+                            .cmp-accordion__icon {
+                                height: calc(30px + (60 - 30) * ((100vw - 390px) / (1920 - 390)));
+                                width: calc(30px + (60 - 30) * ((100vw - 390px) / (1920 - 390)));
+                            }
                         }
-                        &__icon {}
                     }
+                    .cmp-accordion__panel {}
                 }
-                &__panel {}
             }
         }
-        &.cmp-accordion--tipology-one {}
-        &.cmp-accordion--tipology-two {}
+        &.cmp-accordion--tipology-two {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        .cmp-accordion__button {
+                            .cmp-accordion__title {
+                                font-size: calc(24px + (42 - 24) * ((100vw - 390px) / (1920 - 390)));
+                            }
+                            .cmp-accordion__icon {
+                            }
+                        }
+                    }
+                    .cmp-accordion__panel {}
+                }
+            }
+        }
     }
 }
 
 @include respond-to(desktop) {
-    .accordion {
-        .cmp-accordion {
-            &__item {
-                &__header {
-                    &__button {
-                        &__title {
-                            font-size: 60px;
+    .accordion {        
+        &.cmp-accordion--tipology-one {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        .cmp-accordion__button {
+                            .cmp-accordion__title {
+                                font-size: 60px;
+                            }
+                            .cmp-accordion__icon {
+                                height: 3.5rem;
+                                width: 3.5rem;
+                            }
                         }
-                        &__icon {}
                     }
+                    .cmp-accordion__panel {}
                 }
-                &__panel {}
             }
         }
-        &.cmp-accordion--tipology-one {}
-        &.cmp-accordion--tipology-two {}
+        &.cmp-accordion--tipology-two {
+            .cmp-accordion {
+                &__item {
+                    .cmp-accordion__header {
+                        .cmp-accordion__button {
+                            .cmp-accordion__title {
+                                font-size: 42px;
+                            }
+                            .cmp-accordion__icon {
+                                height: 3.5rem;
+                                width: 3.5rem;
+                            }
+                        }
+                    }
+                    .cmp-accordion__panel {}
+                }
+            }
+        }
     }
 }
 
