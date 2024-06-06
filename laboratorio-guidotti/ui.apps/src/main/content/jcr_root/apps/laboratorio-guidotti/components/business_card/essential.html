@@ -22,8 +22,12 @@
 		<div class="cmp-business_card--icon">
 
 			<div class="cmp-image">
-				<img srcset="${properties.icon}" class="cmp-image__image">
+				<img alt="" srcset="${properties.icon}" class="cmp-image__image">
 			</div>
+
+		</div>
+
+		<div class="cmp-business_card--content">
 
 			<div class="cmp-business_card--title">
 				<div class="cmp-title">
@@ -33,10 +37,9 @@
 
 			<div class="cmp-business_card--text">
 				<div class="cmp-text">
-					<p>${properties.description}</p>
+					${properties.descriptionEvent @ context='html'}
 				</div>
 			</div>
-
 		</div>
 	</div>
 

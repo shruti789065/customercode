@@ -19,12 +19,14 @@
 	     id="${properties.id}"
 	     class="cmp-business_card cmp-business_card--${properties.cardType} ">
 
-		<div class="cmp-business_card--icon">
-			<a class="cmp-link">
-				<div class="cmp-image">
-					<img srcset="${properties.icon}" class="cmp-image__image">
-				</div>
 
+		<a class="cmp-link">
+			<div class="cmp-business_card--icon">
+				<div class="cmp-image">
+					<img alt="" srcset="${properties.icon}" class="cmp-image__image">
+				</div>
+			</div>
+			<div class="cmp-business_card--content">
 				<div class="cmp-business_card--title">
 					<div class="cmp-title">
 						<h3 class="cmp-title__text">${properties.title}</h3>
@@ -33,11 +35,12 @@
 
 				<hr>
 				<div>
-					<span><i></i>${properties.location}</span>
-					<span><i></i>${properties.date}</span>
+					<span><i class="cmp-icon cmp-icon__pin"></i>${properties.location}</span>
+					<span><i class="cmp-icon cmp-icon__calendar"></i>${properties.datepicker}</span>
 				</div>
-			</a>
-		</div>
+			</div>
+		</a>
+
 	</div>
 
 
