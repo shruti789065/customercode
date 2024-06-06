@@ -5,12 +5,19 @@
 	.cmp-title {
 		font-family: $font-family-oswald;
 		font-weight: $oswald-weight-bold;
-		h1 { font-size: 48px; margin: auto;}
-		h2 { font-size: 30px; margin: auto; }
-		h3 { font-size: 24px; margin: auto; }
-		h4 { font-size: 18px; margin: auto; }
-		h5 { font-size: 15px; margin: auto; }
-		h6 { font-size: 15px; margin: auto; }
+		h1 { font-size: 48px; }
+		h2 { font-size: 30px; }
+		h3 { font-size: 24px; }
+		h4 { font-size: 18px; }
+		h5 { font-size: 15px; }
+		h6 { font-size: 15px; }
+		h1,h2,h3,h4,h5,h6 {margin: auto;}
+	}
+	&.cmp-font-weight--regular {
+		.cmp-title .cmp-title__text { font-weight: $oswald-weight-regular; }
+	}
+	&.cmp-font-weight--light {
+		.cmp-title .cmp-title__text { font-weight: $oswald-weight-light; }
 	}
 }
 

@@ -1,4 +1,4 @@
-.cmp-accordion {}
+
 .cmp-accordion__item {}
 .cmp-accordion__header {}
 .cmp-accordion__button {}
@@ -9,12 +9,75 @@
 .cmp-accordion__panel--expanded {}
 .cmp-accordion__panel--hidden {}
 
+.accordion {
+    .cmp-accordion {
+        &__item {
+            &__header {
+                &__button {
+                    background-color: unset;
+                    border: 0px;
+                    &__title {
+                        font-family: $font-family-oswald;
+                        font-size: 30px;
+                    }
+                    &__icon {}
+                }
+            }
+            &__panel {}
+        }
+    }
+    &.cmp-accordion--tipology-one {}
+    &.cmp-accordion--tipology-two {}
+}
+
+@include respond-to(small-devices) {
+    .accordion {
+        .cmp-accordion {
+            &__item {
+                &__header {
+                    &__button {
+                        &__title {
+                            font-size: calc(30px + (60 - 30) * ((100vw - 390px) / (1920 - 390)));
+                        }
+                        &__icon {}
+                    }
+                }
+                &__panel {}
+            }
+        }
+        &.cmp-accordion--tipology-one {}
+        &.cmp-accordion--tipology-two {}
+    }
+}
+
+@include respond-to(desktop) {
+    .accordion {
+        .cmp-accordion {
+            &__item {
+                &__header {
+                    &__button {
+                        &__title {
+                            font-size: 60px;
+                        }
+                        &__icon {}
+                    }
+                }
+                &__panel {}
+            }
+        }
+        &.cmp-accordion--tipology-one {}
+        &.cmp-accordion--tipology-two {}
+    }
+}
+
+
+
 /*
 
 **MEDIA QUERIES DA UTILIZZARE**
 
 
-@include respond-to(small-devices) {}
+
 
 @include respond-to(mobile) {}
 
@@ -22,6 +85,6 @@
 
 @include respond-to(laptop) {}
 
-@include respond-to(desktop) {}
+
 
 */
