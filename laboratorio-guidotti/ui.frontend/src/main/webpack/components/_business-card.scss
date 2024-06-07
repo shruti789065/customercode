@@ -6,9 +6,9 @@
   border-radius: 1rem;
   display: flex;
   align-items: center;
-  padding-left:clamp(2.75rem, 1vw, 3.75rem);
+  padding-left: clamp(2.75rem, 1vw, 3.75rem);
   height: clamp(6rem, 1vw, 8.125rem);
-  width: clamp(17.5rem, 1vw, 28rem);
+  width: clamp(17.5rem, 1vw, 25rem);
   margin: 1rem auto;
 }
 .cmp-business_card--icon {
@@ -20,6 +20,7 @@
 .cmp-business_card--content {
   display: flex;
   flex-direction: column;
+  gap: .5rem;
   .cmp-business_card--title {
     .cmp-title {
       .cmp-title__text {
@@ -43,6 +44,16 @@
   }
 }
 
+@include respond-to(high-definition) {
+  .cmp-business_card {
+    width: clamp(22rem, 60%, 28rem);
+	height: clamp(6rem, 5vw, 8.125rem);
+	padding-left: clamp(2.75rem, 100%, 3.75rem);
+  }
+  .cmp-business_card--icon {
+    max-width: clamp(3.75rem, 70%, 6rem);
+  }
+}
 /*
 
 **MEDIA QUERIES DA UTILIZZARE**
@@ -55,7 +66,5 @@
 @include respond-to(tablet) {}
 
 @include respond-to(laptop) {}
-
-@include respond-to(desktop) {}
 
 */

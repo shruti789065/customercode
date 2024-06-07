@@ -78,7 +78,11 @@
   }
 }
 
-
+@include respond-to(high-definition) {
+	.cmp-button{
+		width: clamp(16.875rem, 100%, 23rem);
+	}
+}
 //.cmp-button__icon--myIcon {}
 
 /*
