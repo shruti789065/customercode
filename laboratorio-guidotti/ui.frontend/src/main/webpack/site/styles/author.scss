@@ -1,0 +1,58 @@
+.cq-Editable-dom {
+  &.newpar {
+    display: block;
+  }
+}
+/* Edit Mode */
+.aem-AuthorLayer-Edit {
+  /*  body {
+    background: red;
+  } */
+}
+
+/* Preview Mode */
+.aem-AuthorLayer-Preview {
+  /* body {
+    background: blue;
+  } */
+}
+
+/* Layout Mode */
+.aem-AuthorLayer-Layouting {
+  /* body {
+    background: green;
+  } */
+}
+
+/* Developer Mode */
+.aem-AuthorLayer-Developer {
+  /* body {
+    background: yellow;
+  } */
+}
+/* Structure Mode */
+.aem-AuthorLayer-structure {
+  #lower-shape {
+    display: none;
+  }
+  header.experiencefragment {
+    position: relative;
+  }
+  .cmp-experiencefragment--shape {
+    display: block;
+    position: relative;
+    z-index: 0;
+  }
+}
+/* Initial Content Mode */
+.aem-AuthorLayer-initial {
+  /* body {
+    background: purple;
+  } */
+}
+/* Container Experience Fragment*/
+.xf-web-container {
+ /*  body {
+    background: chocolate;
+  } */
+}

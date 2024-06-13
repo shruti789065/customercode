@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2024-02-15T09:25:41.325Z"
+        cq:lastModifiedBy="l.giuntini@adiacent.com"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-berlinchemie/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Menarini Group News Archive"
+        jcr:uuid="f7f99662-a783-40e9-8184-1fd273764e09"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <title_copy_copy
+                cq:styleIds="[1653552493699]"
+                jcr:created="{Date}2023-10-18T15:53:49.171+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-02-15T09:14:32.163Z"
+                jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="News Archiv"
+                sling:resourceType="menarinimaster/components/title"
+                linkTarget="_self"
+                type="h2"/>
+            <news_archive_copy_co
+                jcr:created="{Date}2023-10-18T15:54:03.098+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-02-15T09:20:02.066Z"
+                jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/news-archive"
+                childDepth="1"
+                displayItemAsTeaser="false"
+                linkItems="true"
+                listFrom="children"
+                parentPage="/content/menarini-berlinchemie/de/news-medien/menarini-group-news"
+                showDescription="false"
+                showModificationDate="false"
+                sortOrder="asc"
+                tagsMatch="any"/>
+            <button_copy_copy
+                cq:styleIds="[1653579684271,1653579730618]"
+                jcr:created="{Date}2023-10-18T15:54:10.140+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-02-15T09:25:36.414Z"
+                jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="NACHRICHTENARCHIV"
+                sling:resourceType="menarinimaster/components/button"
+                linkTarget="_self"
+                linkURL="/content/menarini-berlinchemie/de/news-medien/menarini-group-news-archiv"/>
+        </root>
+    </jcr:content>
+</jcr:root>

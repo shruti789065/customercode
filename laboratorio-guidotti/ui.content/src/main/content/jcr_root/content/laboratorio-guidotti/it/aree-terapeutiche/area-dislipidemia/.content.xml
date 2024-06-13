@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-06-03T10:39:06.158+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/page-content"
+        jcr:description="Lavoriamo per contrastare le alterazioni della quantità di lipidi nel sangue, come trigliceridi e colesterolo."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Area Dislipidemia"
+        sling:resourceType="laboratorio-guidotti/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="laboratorio-guidotti/components/containers/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="laboratorio-guidotti/components/containers/container"
+                layout="responsiveGrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="laboratorio-guidotti/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="laboratorio-guidotti/components/containers/container"
+                    layout="responsiveGrid">
+                    <hero
+                        jcr:created="{Date}2024-05-14T16:48:14.849+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-05-14T16:48:14.849+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="laboratorio-guidotti/components/hero"/>
+                    <section
+                        jcr:created="{Date}2024-05-14T16:48:23.442+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-05-14T16:48:23.442+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="laboratorio-guidotti/components/containers/section">
+                        <wrapper
+                            jcr:created="{Date}2024-05-14T16:48:29.934+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-05-14T16:48:29.934+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="laboratorio-guidotti/components/containers/wrapper"/>
+                    </section>
+                </container>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-06-03T10:39:06.153+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            alt="icona area dislipidemia"
+            altValueFromDAM="false"
+            fileReference="/content/dam/laboratorio-guidotti/icons/icon-intestine.svg"/>
+    </jcr:content>
+</jcr:root>

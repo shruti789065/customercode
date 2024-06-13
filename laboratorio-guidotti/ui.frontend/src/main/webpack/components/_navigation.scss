@@ -1,0 +1,25 @@
+.cmp-navigation {}
+.cmp-navigation__group {}
+.cmp-navigation__item {}
+.cmp-navigation__item--active {}
+// .cmp-navigation__item--level-0 {}
+.cmp-navigation__item--level-0:hover > .cmp-navigation__group {
+}
+.cmp-navigation__item-link {}
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/

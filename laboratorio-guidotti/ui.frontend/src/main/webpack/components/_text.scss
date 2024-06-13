@@ -1,0 +1,43 @@
+.cmp-text {
+  font-family: $font-family-arimo;
+  font-weight: $arimo-weight-regular;
+  font-size: $font-size-min;
+  color: $black;
+  p {
+    a {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.cmp-text__paragraph {
+}
+
+@include respond-to(small-devices) {
+  .cmp-text {
+    font-size: $font-size;
+  }
+}
+@include respond-to(desktop) {
+  .cmp-text {
+    font-size: $font-size-max;
+  }
+}
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/
