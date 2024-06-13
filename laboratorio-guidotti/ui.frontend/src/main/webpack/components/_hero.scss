@@ -1,7 +1,7 @@
 .hero {
     display: flex;
     position: relative;
-    z-index: 1;
+    z-index: 1;    
 
     .cmp-teaser {
         display: flex;
@@ -77,6 +77,8 @@
 
         &__image {
             order: 1;
+            overflow: hidden;
+            aspect-ratio: 2.26 / 1;
             .cmp-image {
                 &::after {
                     content: "";
@@ -97,15 +99,16 @@
     }
 
     &.cmp-shape {
-        &-header {
+        &-header {            
             .cmp-teaser__image {
+                aspect-ratio: 1.92 / 1;
                 .cmp-image:after {
                     background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-0.png');
                 }
             }
         }
 
-        &-one {
+        &-one {            
             .cmp-teaser__image {
                 .cmp-image:after {
                     background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-1.png');
