@@ -180,7 +180,7 @@
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:lastModified="{Date}2024-06-06T10:53:20.383+02:00"
+                    jcr:lastModified="{Date}2024-06-13T15:25:57.770+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Title policy"
@@ -690,6 +690,74 @@
                     </cq:styleGroups>
                 </policy_1717664755116>
             </accordion>
+            <separator jcr:primaryType="nt:unstructured">
+                <policy_1717685925905
+                    jcr:lastModified="{Date}2024-06-06T17:00:25.625+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Separator Guidotti policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    isDecorative="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-separator--primary"
+                                    cq:styleId="1717685955560"
+                                    cq:styleLabel="Primary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-separator--secondary"
+                                    cq:styleId="1717685956186"
+                                    cq:styleLabel="Secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-separator--default"
+                                    cq:styleId="1717685966033"
+                                    cq:styleLabel="Default"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1717685925905>
+            </separator>
+            <popup jcr:primaryType="nt:unstructured">
+                <policy_1718284883118
+                    jcr:lastModified="{Date}2024-06-13T15:38:17.852+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="POPUP policy Guidotti"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Tipology"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-popup cmp-popup--persistance"
+                                    cq:styleId="1718285062030"
+                                    cq:styleLabel="persistance"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-popup cmp-popup--session"
+                                    cq:styleId="1718285062540"
+                                    cq:styleLabel="session"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-popup cmp-popup--cookie"
+                                    cq:styleId="1718285063065"
+                                    cq:styleLabel="cookie"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1718284883118>
+            </popup>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">
