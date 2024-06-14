@@ -1,21 +1,21 @@
 'use strict';
-
+ 
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-
+ 
 const SOURCE_ROOT = __dirname + '/src/main/webpack';
-
+ 
 const resolve = {
     extensions: ['.js', '.ts'],
     plugins: [new TSConfigPathsPlugin({
         configFile: './tsconfig.json'
     })]
 };
-
+ 
 module.exports = {
     resolve: resolve,
     entry: {
@@ -61,7 +61,7 @@ module.exports = {
 							plugins: [require("autoprefixer")],
 						  },
 						},
-					  },,
+					  },
                     {
                         loader: 'sass-loader',
                     },
@@ -71,6 +71,13 @@ module.exports = {
                             resolve: resolve
                         }
                     }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
                 ]
             }
         ]
