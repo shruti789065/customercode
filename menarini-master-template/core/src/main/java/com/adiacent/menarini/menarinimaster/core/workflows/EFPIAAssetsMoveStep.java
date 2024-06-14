@@ -13,7 +13,6 @@ import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationStatus;
 import com.day.cq.replication.ReplicationStatusProvider;
 import com.day.cq.replication.Replicator;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.framework.Constants;
@@ -22,7 +21,6 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
 import javax.jcr.Session;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
