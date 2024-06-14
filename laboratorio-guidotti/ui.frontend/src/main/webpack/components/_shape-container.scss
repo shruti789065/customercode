@@ -1,91 +1,66 @@
 .shape_container {
-  &.cmp-shape--container-big {
-    .cmp-shape--container {
-      transform: scale(1.2);
-    }
+	&.cmp-shape--container-big {
+	  .cmp-shape--container {
+		transform: scale(1.2);
+	  }
+	}
+  
+	&.cmp-shape--container-regular {
+	  .cmp-shape--container {
+		transform: scale(1);
+	  }
+	}
+  
+	&.cmp-shape--container-small {
+	  .cmp-shape--container {
+		transform: scale(0.5);
+	  }
+	}
+  
+	max-width: fit-content;
+	min-width: 8rem;
+	height: 36.75rem;
+	.cmp-shape--container {
+	  width: 100%;
+	  height: 100%;
+	  overflow: hidden;
+	  -webkit-mask-repeat: no-repeat;
+	  mask-repeat: no-repeat;
+	  -webkit-mask-position: center;
+	  mask-position: center;
+  
+	  .cmp-container {
+		height: 100%;
+	  }
+  
+	  .image {
+		height: inherit;
+  
+		.cmp-image {
+		  height: inherit;
+  
+		  .cmp-image__image {
+			object-fit: cover;
+			height: 100%;
+		  }
+		}
+	  }
+  
+	  svg {
+		width: 100%;
+		height: 100%;
+		display: block;
+	  }
+	}
+  
+	// Uso di un selettore comune per le varie maschere
+	@for $i from 1 through 7 {
+	  &.cmp-shape--style-#{$i} {
+		.cmp-shape--container {
+		  -webkit-mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
+		  mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
+		}
+	  }
+	}
   }
-  &.cmp-shape--container-regular {
-    .cmp-shape--container {
-      transform: scale(1);
-    }
-  }
-  &.cmp-shape--container-small {
-    .cmp-shape--container {
-      transform: scale(0.5);
-    }
-  }
-
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  height: 36.75rem;
-  aspect-ratio: 1 / 1;
-  .cmp-shape--container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-
-    .cmp-container {
-      height: 100%;
-    }
-    .image {
-      height: inherit;
-      .cmp-image {
-        height: inherit;
-        .cmp-image__image {
-          object-fit: cover;
-          height: 100%;
-        }
-      }
-    }
-    svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-  }
-  &.cmp-shape--style-one {
-    .cmp-shape--container {
-      -webkit-mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-1.svg#shapeStyle1");
-      mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-1.svg#shapeStyle1");
-    }
-  }
-  &.cmp-shape--style-two {
-    //max-width: 780px;
-    .cmp-shape--container {
-      -webkit-mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-2.svg#shapeStyle2");
-      mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-2.svg#shapeStyle2");
-    }
-  }
-  &.cmp-shape--style-three {
-    .cmp-shape--container {
-      -webkit-mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-3.svg#shapeStyle3");
-      mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-3.svg#shapeStyle3");
-    }
-  }
-  &.cmp-shape--style-four {
-    .cmp-shape--container {
-      -webkit-mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-4.svg#shapeStyle4");
-      mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-4.svg#shapeStyle4");
-    }
-  }
-  &.cmp-shape--style-five {
-    .cmp-shape--container {
-      -webkit-mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-5.svg#shapeStyle5");
-      mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-5.svg#shapeStyle5");
-    }
-  }
-  &.cmp-shape--style-six {
-    .cmp-shape--container {
-      -webkit-mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-6.svg#shapeStyle6");
-      mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-6.svg#shapeStyle6");
-    }
-  }
-  &.cmp-shape--style-seven {
-    .cmp-shape--container {
-      -webkit-mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-7.svg#shapeStyle7");
-      mask: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-7.svg#shapeStyle7");
-    }
-  }
-}
+  

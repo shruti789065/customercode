@@ -141,8 +141,8 @@ module.exports = {
         {
           from: path.resolve(
             __dirname,
-          ),
             SOURCE_ROOT + SITE_relifede + "/resources/"
+          ),
           to: "./clientlib-relifede",
         },
         {
