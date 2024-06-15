@@ -31,10 +31,10 @@ const MenuTabs = (() => {
     window.addEventListener("resize", _isMobileWindowSize);
 
     if (!_isDesktop() || _isMobileWindowSize()) {
-      setupMobileMenu();
     } else {
-      setupDesktopMenu();
     }
+    setupDesktopMenu();
+    setupMobileMenu();
     setShareHref(elementsWithClass, currentUrl);
   }
 
