@@ -32,8 +32,13 @@
       }
     }
   }
-  .shape_container{
-	padding: 1rem;
+  .shape_container {
+    padding: 1rem;
+    .cmp-shape--container {
+      .cmp-container {
+        display: block;
+      }
+    }
   }
 }
 

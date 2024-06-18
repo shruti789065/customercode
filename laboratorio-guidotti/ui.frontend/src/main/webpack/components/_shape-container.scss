@@ -1,73 +1,49 @@
 .shape_container {
   position: relative;
-  //container-type: inline-size;
-  &.cmp-shape--container-big {
+  overflow: visible;
+  padding: 0.2rem;
+}
+
+.cmp-shape--container {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  .cmp-container {
+    height: 100%;
+    min-height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Uso di un selettore comune per le varie maschere
+@for $i from 1 through 7 {
+  .cmp-shape--style-#{$i} {
     .cmp-shape--container {
-      transform: scale(1.2);
+      -webkit-mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
+      mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
     }
   }
+}
 
-  &.cmp-shape--container-regular {
-    .cmp-shape--container {
-      transform: scale(1);
-    }
-  }
-
-  &.cmp-shape--container-small {
-    .cmp-shape--container {
-      transform: scale(0.5);
-    }
-  }
-
-  /* max-width: fit-content;
-	min-width: clamp(15rem, 1vw, 30rem);
-	height: 36.75rem; */
+.cmp-shape--container-big {
   .cmp-shape--container {
-    /* min-width: fit-content;
-	  min-width: 20rem; */
-    //min-height: 30rem;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    object-fit: contain;
-
-    .cmp-container {
-      height: 100%;
-      min-height: 20rem;
-    }
-
-    /* .image {
-      height: inherit;
-
-      .cmp-image {
-        height: inherit;
-
-        .cmp-image__image {
-          object-fit: cover;
-          height: 100%;
-        }
-      }
-    } */
-
-    /* svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    } */
+    transform: scale(1.2);
   }
+}
 
-  // Uso di un selettore comune per le varie maschere
-  @for $i from 1 through 7 {
-    &.cmp-shape--style-#{$i} {
-      .cmp-shape--container {
-        -webkit-mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
-        mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
-      }
-    }
+.cmp-shape--container-regular {
+  .cmp-shape--container {
+    transform: scale(1);
   }
+}
 
-  .cmp-shape--style-1 {
+.cmp-shape--container-small {
+  .cmp-shape--container {
+    transform: scale(0.5);
   }
 }
 

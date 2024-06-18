@@ -1,0 +1,19 @@
+.wrapper-banner{
+}
+.cmp-wrapper_banner--container{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.cmp-banner--content{
+	display: flex;
+	&.cmp-banner--content--typo{
+		flex-direction: column;
+		align-content: center;
+		//align-items: center;
+		justify-content: center;
+	}
+	&.cmp-banner--content--shapes{
+
+	}
+}
