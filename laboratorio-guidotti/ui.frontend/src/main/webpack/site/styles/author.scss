@@ -33,11 +33,13 @@
     }
   }
   .shape_container {
-    padding: 1rem;
-    .cmp-shape--container {
-      .cmp-container {
-        display: block;
-      }
+    padding: 1.5rem;
+	height: fit-content;
+  }
+  .cmp-shape--container {
+	display: block;
+    .cmp-container {
+      display: block;
     }
   }
 }

@@ -2,9 +2,11 @@
   position: relative;
   overflow: visible;
   padding: 0.2rem;
+  height: 20rem;
 }
 
 .cmp-shape--container {
+  position: relative;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -12,7 +14,7 @@
 
   .cmp-container {
     height: 100%;
-    min-height: 20rem;
+    //min-height: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +28,48 @@
       -webkit-mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
       mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
     }
+  }
+}
+.cmp-shape--style-1 {
+  .cmp-shape--container {
+    height: clamp(18.125rem, 60vw, 32.5rem);
+    width: clamp(15.125rem, 60vw, 27rem);
+  }
+}
+.cmp-shape--style-2 {
+  .cmp-shape--container {
+    height: clamp(22.5rem, 60vw, 36.625rem);
+    width: clamp(29.375rem, 60vw, 46.75rem);
+  }
+}
+.cmp-shape--style-3 {
+  .cmp-shape--container {
+    height: clamp(17.5rem, 60vw, 29rem);
+    width: clamp(23.125rem, 60vw, 38.75rem);
+  }
+}
+.cmp-shape--style-4 {
+  .cmp-shape--container {
+    height: clamp(22.5rem, 60vw, 40rem);
+    width: clamp(17.375rem, 60vw, 30.625rem);
+  }
+}
+.cmp-shape--style-5 {
+  .cmp-shape--container {
+    height: clamp(21.75rem, 60vw, 32.5rem);
+    width: clamp(20rem, 60vw, 29.875rem);
+  }
+}
+.cmp-shape--style-6 {
+  .cmp-shape--container {
+    height: clamp(18.375rem, 60vw, 32.5rem);
+    width: clamp(22rem, 60vw, 30rem);
+  }
+}
+.cmp-shape--style-7 {
+  .cmp-shape--container {
+    height: clamp(22.5rem, 60vw, 47rem);
+    width: clamp(16.5rem, 60vw, 34.375rem);
   }
 }
 
