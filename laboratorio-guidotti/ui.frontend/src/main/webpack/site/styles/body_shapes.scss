@@ -101,6 +101,7 @@ body {
 @include respond-to(tablet) {
   body {
     #lower-shape {
+      margin-top: 12.5rem;
       height: 0px;
       &::before {
         opacity: 1;    

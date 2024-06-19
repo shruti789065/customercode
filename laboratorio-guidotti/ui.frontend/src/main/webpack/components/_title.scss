@@ -19,6 +19,12 @@
 	&.cmp-font-weight--light {
 		.cmp-title .cmp-title__text { font-weight: $oswald-weight-light; }
 	}
+	&.text-center {
+		.cmp-title .cmp-title__text { text-align: center; }
+	}
+	&.text-right {
+		.cmp-title .cmp-title__text { text-align: right; }
+	}
 }
 
 @include respond-to(small-devices) {

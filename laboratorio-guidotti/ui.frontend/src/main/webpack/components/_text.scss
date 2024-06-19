@@ -1,18 +1,80 @@
-.cmp-text {
-  font-family: $font-family-arimo;
-  font-weight: $arimo-weight-regular;
-  font-size: $font-size-min;
-  color: $black;
-  p {
-    a {
-      &:hover {
-        transform: scale(1.1);
+.text {
+  .cmp-text {
+    font-family: $font-family-arimo;
+    font-weight: $arimo-weight-regular;
+    font-size: $font-size-min;
+    color: $black;
+    p {
+      a {
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
+  &.text-center {
+    .cmp-text {
+      text-align: center;
+    }
+  }
+  &.text-right {
+    .cmp-text {
+      text-align: right;
+    }
+  }
+  &.cmp-color--white {
+    .cmp-text {
+      color: $white;
+    } 
+  }
+  &.cmp-color--azure {
+    .cmp-text {
+      color: $vibrant-azure;
+    } 
+  }
+  &.cmp-color--blue {
+    .cmp-text {
+      color: $deep-blue;
+    } 
+  }
+  &.cmp-color--gray {
+    .cmp-text {
+      color: $lightGray;
+    } 
+  }
+  &.cmp-cut {
+    .cmp-text{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }    
+    &.cmp-cut--1-row {
+      .cmp-text {
+        -webkit-line-clamp: 1;      
+      }     
+    }
+    &.cmp-cut--2-row {
+      .cmp-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+      }     
+    }
+    &.cmp-cut--3-row {
+      .cmp-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+      }     
+    }
+    &.cmp-cut--4-row {
+      .cmp-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+      }     
+    }
+  }  
 }
-.cmp-text__paragraph {
-}
+
+
 
 @include respond-to(small-devices) {
   .cmp-text {

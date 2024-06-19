@@ -1,3 +1,15 @@
+.button {
+  &.cmp-text-center {
+    display: flex;
+    justify-content: center;
+  }
+  &.cmp-button--small {
+    .cmp-button {
+      scale: 0.6;
+    }
+  }
+}
+
 .cmp-button {
   display: block;
   text-align: center;
@@ -47,7 +59,32 @@
     }
   }
 }
-
+.cmp-button--link-style {
+  .cmp-button {
+    border: unset;
+    background-color: unset;
+    color: $vibrant-azure;
+    transform: $standard-transition;
+    width: fit-content;
+    padding: 0;
+    .cmp-button__text {
+      color: $vibrant-azure;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: unset;
+      color: darken($vibrant-azure, 20%);
+      box-shadow: unset;
+      .cmp-button__text {
+        color: darken($vibrant-azure, 20%);
+      }
+    }
+    &:active {
+      color: darken($vibrant-azure, 20%);
+    }
+  }
+}
 .cmp-button__text {
   color: $color-background;
 }

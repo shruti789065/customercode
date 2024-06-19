@@ -66,6 +66,36 @@
       max-width: clamp(4.5rem, 1vw, 5rem);
     }
   }
+  &.cmp-cut {
+    .cmp-teaser__description{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }    
+    &.cmp-cut--1-row {
+      .cmp-teaser__description {
+        -webkit-line-clamp: 1;      
+      }     
+    }
+    &.cmp-cut--2-row {
+      .cmp-teaser__description {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+      }     
+    }
+    &.cmp-cut--3-row {
+      .cmp-teaser__description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+      }     
+    }
+    &.cmp-cut--4-row {
+      .cmp-teaser__description {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+      }     
+    }
+  }  
 }
 @include respond-to(tablet) {
   .card {
