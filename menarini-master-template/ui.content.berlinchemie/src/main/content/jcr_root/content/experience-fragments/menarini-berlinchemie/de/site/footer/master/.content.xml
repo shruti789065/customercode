@@ -3,17 +3,8 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}true"
-        cq:lastModified="{Date}2024-01-10T14:06:58.880Z"
+        cq:lastModified="{Date}2024-02-29T15:12:23.607Z"
         cq:lastModifiedBy="reference-adjustment-service"
-        cq:lastReplicated="{Date}2024-01-10T14:07:00.574Z"
-        cq:lastReplicated_preview="{Date}2022-12-21T09:45:52.291Z"
-        cq:lastReplicated_publish="{Date}2024-01-10T14:07:00.574Z"
-        cq:lastReplicatedBy="f.marrucci@adiacent.com"
-        cq:lastReplicatedBy_preview="L.ambrosini@adiacent.com"
-        cq:lastReplicatedBy_publish="f.marrucci@adiacent.com"
-        cq:lastReplicationAction="Activate"
-        cq:lastReplicationAction_preview="Activate"
-        cq:lastReplicationAction_publish="Activate"
         cq:tags="[experience-fragments:variation/web]"
         cq:template="/conf/menarini-berlinchemie/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
@@ -21,7 +12,7 @@
         jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Footer"
-        jcr:uuid="fd3d5dcd-504c-4cec-80ba-938be2dd0f6f"
+        jcr:uuid="6e93f66f-e5fb-48c7-86b9-243a4fae87f5"
         sling:resourceType="menarinimaster/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
@@ -41,15 +32,16 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <list
-                        jcr:lastModified="{Date}2024-01-09T15:47:31.281Z"
-                        jcr:lastModifiedBy="f.marrucci@adiacent.com"
+                        cq:styleIds="[1705488848609]"
+                        jcr:lastModified="{Date}2024-02-01T13:40:02.440Z"
+                        jcr:lastModifiedBy="l.giuntini@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/list"
                         childDepth="1"
                         displayItemAsTeaser="false"
                         linkItems="true"
                         listFrom="static"
-                        pages="[/content/menarini-berlinchemie/de/ueber-uns,/content/menarini-berlinchemie/de/careers,/content/menarini-berlinchemie/de/algemene-voorwaarden,/content/menarini-berlinchemie/de/dantenschutz/privacy-policy,/content/menarini-berlinchemie/de/dantenschutz/cookie-policy,/content/menarini-berlinchemie/de/ueber-uns/business-ethics-and-compliance,/content/menarini-berlinchemie/de/sitemap]"
+                        pages="[/content/menarini-berlinchemie/de/ueber-uns,/content/menarini-berlinchemie/de/karriere,/content/menarini-berlinchemie/de/agb-einkaufsbedinungen,/content/menarini-berlinchemie/de/datenschutz,/content/menarini-berlinchemie/de/eine-nebenwirkung-melden,/content/menarini-berlinchemie/de/liefer-und-rahmenbedinungen,/content/menarini-berlinchemie/de/qualitatsanforderungen-api-exc,/content/menarini-berlinchemie/de/cookie-einstellungen,/content/menarini-berlinchemie/de/sitemap,/content/menarini-berlinchemie/de/impressum]"
                         parentPage="/content/menarini-berlinchemie/de"
                         showDescription="false"
                         showModificationDate="false"
@@ -70,12 +62,12 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Careers"
-                                linkURL="/content/menarini-berlinchemie/de/careers"/>
+                                linkURL="/content/menarini-berlinchemie/de/karriere"/>
                             <item1
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Privacy Policy"
-                                linkURL="/content/menarini-berlinchemie/de/dantenschutz/privacy-policy"/>
+                                linkURL="/content/menarini-berlinchemie/de/datenschutz/privacy-policy"/>
                             <item2
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
@@ -90,7 +82,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_self"
                                 linkText="Cookie Policy"
-                                linkURL="/content/menarini-berlinchemie/de/dantenschutz/cookie-policy"/>
+                                linkURL="/content/menarini-berlinchemie/de/datenschutz/cookie-policy"/>
                             <item5
                                 jcr:primaryType="nt:unstructured"
                                 linkTarget="_blank"
@@ -196,11 +188,11 @@
                     sling:resourceType="menarinimaster/components/wrapper"
                     layout="responsiveGrid">
                     <text
-                        jcr:lastModified="{Date}2023-06-07T14:48:49.166Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:lastModified="{Date}2024-01-18T10:17:13.909Z"
+                        jcr:lastModifiedBy="m.papini@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="menarinimaster/components/text"
-                        text="&lt;p>&lt;b>A.Menarini ##### ##### #####&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>VAT number and registration number in the Company House: #####&lt;br>&#xd;&#xa;Office of the Companies House: #####&lt;br>&#xd;&#xa;Share Capital: #####&lt;/p>&#xd;&#xa;"
+                        text="&lt;p>&lt;b>BERLIN-CHEMIE AG&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>Glienicker Weg 125&lt;br>&#xd;&#xa;12489 Berlin, Deutschland&lt;br>&#xd;&#xa;Telefon: +49 (0)30 6707-0&lt;/p>&#xd;&#xa;"
                         textIsRich="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
@@ -245,29 +237,15 @@
                                 width="6"/>
                         </cq:responsive>
                     </image>
-                    <text_1904139055
-                        jcr:lastModified="{Date}2023-06-07T14:49:03.194Z"
+                    <embed_copy_copy
+                        jcr:created="{Date}2024-02-09T15:32:36.123Z"
+                        jcr:createdBy="d.mariotti@adiacent.com"
+                        jcr:lastModified="{Date}2024-02-09T15:39:05.118Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="menarinimaster/components/text"
-                        text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>© 2023 The Menarini Group - All rights reserved&lt;/p>&#xd;&#xa;"
-                        textIsRich="true">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                behavior="newline"
-                                offset="0"
-                                width="6"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="6"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="12"/>
-                        </cq:responsive>
-                    </text_1904139055>
+                        sling:resourceType="menarinimaster/components/embed"
+                        html="&lt;p class=&quot;cmp-text&quot;>©&lt;span id=&quot;copyrightYear&quot;>&lt;/span> BERLIN-CHEMIE AG – Alle Rechte vorbehalten&lt;/p>&#xd;&#xa;&lt;script>&#xd;&#xa;document.addEventListener(&quot;DOMContentLoaded&quot;, function() {&#xd;&#xa;    var currentYear = new Date().getFullYear();&#xd;&#xa;    var copyrightYearElement = document.getElementById(&quot;copyrightYear&quot;);&#xd;&#xa;    if (copyrightYearElement) {&#xd;&#xa;        copyrightYearElement.textContent = currentYear;&#xd;&#xa;    }&#xd;&#xa;});&#xd;&#xa;&lt;/script>"
+                        type="html"/>
                 </wrapper>
             </section>
         </root>

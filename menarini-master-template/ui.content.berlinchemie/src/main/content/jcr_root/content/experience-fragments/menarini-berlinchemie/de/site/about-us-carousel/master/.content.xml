@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2024-02-29T15:16:43.772Z"
+        cq:lastModifiedBy="m.papini@adiacent.com"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/menarini-berlinchemie/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="About Us Carousel"
+        jcr:uuid="52c85417-fd45-44e3-b431-43ad74bfbc8e"
+        sling:resourceType="menarinimaster/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="menarinimaster/components/container"
+            layout="responsiveGrid">
+            <spacer_copy_copy_cop
+                jcr:lastModified="{Date}2023-11-08T16:12:08.570Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/spacer"
+                spacer="40"/>
+            <master_carousel_copy
+                jcr:created="{Date}2023-10-24T10:01:27.114Z"
+                jcr:createdBy="d.mariotti@adiacent.com"
+                jcr:lastModified="{Date}2023-11-08T16:10:20.334Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="menarinimaster/components/master-carousel"
+                itemNumbers="3"
+                layout="carousel">
+                <item_1699458704002
+                    cq:panelTitle="Cardiology"
+                    jcr:description="&lt;p>Text&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2024-02-02T10:48:51.766Z"
+                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Unsere Geschichte"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/mens-health.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-berlinchemie/de/ueber-uns/unternehmensgeschichte"
+                    textIsRich="true"
+                    titleFromPage="false">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-berlinchemie/de/ueber-uns/unternehmensgeschichte"
+                            linkTarget="_self"
+                            text="MEHR LESEN"/>
+                    </actions>
+                </item_1699458704002>
+                <item_1699458704002_c_1016266305
+                    cq:panelTitle="Men's Health"
+                    jcr:description="&lt;p>Text&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2024-02-02T10:46:36.367Z"
+                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/mens-health.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-berlinchemie/de/ueber-uns/vision-werte"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-berlinchemie/de/ueber-uns/vision-werte"
+                            linkTarget="_self"
+                            text="MEHR LESEN"/>
+                    </actions>
+                </item_1699458704002_c_1016266305>
+                <item_1699458704002_c
+                    cq:panelTitle="Pain"
+                    jcr:description="&lt;p>Text&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2024-02-29T15:16:36.993Z"
+                    jcr:lastModifiedBy="m.papini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-berlinchemie/assets/about-us/BerlinChemie_Britz_Manufacturing_corridor.jpg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-berlinchemie/de/ueber-uns/produktionsstandorte"
+                    textIsRich="true"
+                    titleFromPage="true">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-berlinchemie/de/ueber-uns/produktionsstandorte"
+                            linkTarget="_self"
+                            text="MEHR LESEN"/>
+                    </actions>
+                </item_1699458704002_c>
+                <item_1699458704002_c_1540730458
+                    cq:panelTitle="Aesthetic Medicine"
+                    jcr:description="&lt;p>Text&lt;/p>&#xd;&#xa;"
+                    jcr:lastModified="{Date}2024-02-02T10:56:11.158Z"
+                    jcr:lastModifiedBy="l.giuntini@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Vorstand"
+                    sling:resourceType="menarinimaster/components/card_v2"
+                    alignItems="flex-start"
+                    cardType="standard"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/menarini-apac/assets/therapeutic-area/category/mens-health.jpeg"
+                    hoverColor="primary"
+                    imageFromPageImage="false"
+                    isDecorative="true"
+                    justifyContent="space-between"
+                    linkTarget="_self"
+                    linkURL="/content/menarini-berlinchemie/de/ueber-uns/vorstand"
+                    textIsRich="true"
+                    titleFromPage="false">
+                    <actions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            link="/content/menarini-berlinchemie/de/ueber-uns/vorstand"
+                            linkTarget="_self"
+                            text="MEHR LESEN"/>
+                    </actions>
+                </item_1699458704002_c_1540730458>
+            </master_carousel_copy>
+        </root>
+    </jcr:content>
+</jcr:root>

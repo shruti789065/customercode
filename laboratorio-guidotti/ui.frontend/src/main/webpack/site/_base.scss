@@ -1,0 +1,84 @@
+//== Base
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-size: $font-size-min;
+  font-family: $font-family-arimo;
+  line-height: $font-height;
+  color: $color-text;
+  background: $color-background;
+
+  /* @media (prefers-color-scheme: dark) {
+        color:       $color-foreground-dark;
+        background:  $color-background-dark;
+    } */
+}
+
+a {
+  color: $color-text;
+
+  /*  @media (prefers-color-scheme: dark) {
+        color: $color-link-dark;
+    } */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+}
+
+.cmp-link__screen-reader-only {
+  position: absolute;
+  width: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cmp-color--azure {
+  color: $vibrant-azure;
+}
+.cmp-color--blue {
+  color: $deep-blue;
+}
+.cmp-color--default {
+  color: $black;
+}
+.cmp-font-weight--light {
+  font-weight: $oswald-weight-light;
+}
+@include respond-to(small-devices) {
+  body {
+    font-size: $font-size;
+  }
+}
+@include respond-to(desktop) {
+  body {
+    font-size: $font-size-max;
+  }
+}
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+
+
+*/

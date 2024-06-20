@@ -1,0 +1,61 @@
+.business_card {
+}
+.cmp-business_card {
+  position: relative;
+  border: 0.19rem solid $vibrant-azure;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  padding-left:clamp(2.75rem, 1vw, 3.75rem);
+  height: clamp(6rem, 1vw, 8.125rem);
+  width: clamp(17.5rem, 1vw, 28rem);
+  margin: 1rem auto;
+}
+.cmp-business_card--icon {
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+  max-width: clamp(3.75rem, 1vw, 6rem);
+}
+.cmp-business_card--content {
+  display: flex;
+  flex-direction: column;
+  .cmp-business_card--title {
+    .cmp-title {
+      .cmp-title__text {
+        color: $teal-blue;
+        font-size: clamp(1.5rem, 1vw, 2rem);
+        font-family: $font-family-oswald;
+        font-weight: $oswald-weight-medium;
+        text-transform: uppercase;
+        margin: 0;
+      }
+    }
+  }
+  .cmp-business_card--text {
+    .cmp-text {
+      font-family: $font-family-arimo;
+      font-size: clamp(1rem, 1vw, 1.5rem);
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/

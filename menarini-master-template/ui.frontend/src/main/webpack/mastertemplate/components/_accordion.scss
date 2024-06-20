@@ -89,6 +89,19 @@
             }
         }
     }
+    &.default {
+        .cmp-accordion {
+            .cmp-accordion__item{
+                .cmp-accordion__header {
+                    .cmp-accordion__button {
+                        .cmp-accordion__title {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     
     
