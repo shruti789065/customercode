@@ -65,12 +65,12 @@
                             <artifactId>laboratorio-guidotti.core</artifactId>
                             <target>/apps/laboratorio-guidotti-packages/application/install</target>
                         </embedded>
-                        <embedded>
+                       <!-- <embedded>
                             <groupId>com.adiacent.menarini.guidotti.lab</groupId>
                             <artifactId>laboratorio-guidotti.ui.content</artifactId>
                             <type>zip</type>
                             <target>/apps/laboratorio-guidotti-packages/content/install</target>
-                        </embedded>
+                        </embedded>--->
                         <embedded>
                             <groupId>com.adiacent.menarini.guidotti.lab</groupId>
                             <artifactId>laboratorio-guidotti.ui.config</artifactId>
@@ -89,12 +89,12 @@
                             <type>zip</type>
                             <target>/apps/laboratorio-guidotti-vendor-packages/application/install</target>
                         </embedded>
-                        <embedded>
+                       <!-- <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.examples.ui.content</artifactId>
                             <type>zip</type>
                             <target>/apps/laboratorio-guidotti-vendor-packages/content/install</target>
-                        </embedded>
+                        </embedded>-->
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -202,12 +202,12 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.adiacent.menarini.guidotti.lab</groupId>
             <artifactId>laboratorio-guidotti.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.adiacent.menarini.guidotti.lab</groupId>
             <artifactId>laboratorio-guidotti.ui.config</artifactId>
@@ -225,10 +225,10 @@
             <artifactId>core.wcm.components.examples.ui.apps</artifactId>
             <type>zip</type>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples.ui.content</artifactId>
             <type>zip</type>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>
