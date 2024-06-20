@@ -1,50 +1,91 @@
 .upload-file {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .cq-placeholder {
+    display: none;
+  }
   .cmp-form-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 70%;
     label {
-      margin-bottom: 0px;
+      display: flex;
+      margin: 0px;
+      font-size: $font-size-min;
+      order: 1;
     }
     .buttonText {
-      background-color: $vibrant-azure;
-      color: $white;
+      background-color: rgba(125, 125, 125, 0.2);
+      color: $darkGray;
       cursor: pointer;
       font-family: $font-family-oswald;
       font-size: 16px;
       text-transform: uppercase;
-      font-weight: $oswald-weight-bold;
-      padding: 19px 36px;
+      font-weight: $oswald-weight-regular;
+      padding: 1rem 2rem;;
       text-align: center;
-      display: inline-block;
-      border-radius: 10px;
-      border: 1px solid transparent;
+      display: flex;
+      order: 2;
+      border-radius: 5rem 0 0 5rem;
+      border: 1px solid $darkGray;
       line-height: 20px;
-      margin-top: 70px;
+      width: fit-content;
+      margin-left: 1rem;
       span {
-        font-size: 36px;
-        padding: 0;
-        margin: 0;
-        line-height: inherit;
-        vertical-align: top;
-        margin-right: -1px;
-        font-weight: 100;
+        margin-right: 0.3rem;
       }
+    }
+    .label-info {
+      display: flex;
+      order: 4;
+      width: 30%;
+      font-size: $font-size-min;
     }
 
     #myfile {
       visibility: hidden;
+      display: none;
     }
     #myFiles {
       display: flex;
       justify-content: space-between;
-
+      background-color:  $white;
+      order: 3;
+      width: fit-content;
+      overflow-x: auto;
+      font-family: $font-family-arimo;
+      font-weight: $arimo-weight-medium;
+      font-size: $font-size-min;
+      color: $black;
+      padding: 1rem 2.5rem 1rem 2rem;
+      border: 1px solid $darkGray;
+      border-left: 0px;
+      border-radius: 0 5rem 5rem 0;
+      height: 56px;
+      margin: 0 1rem 0 0;
+      position: relative;
+      &.empty {
+        color: rgba(125, 125, 125, 0.2);
+      }
       .cmp-close__icon {
-        margin-right: 15px;
+        position: absolute;
+        right: 10%;
+        top: 55%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
 
         &::after {
           content: "X";
-          font-size: 18px;
+          font-size: 15px;
           font-weight: $arimo-weight-bold;
-          color: darken($vibrant-azure, 10%);
+          color: $deep-blue;
           cursor: pointer;
+          font-style: normal;
         }
       }
     }

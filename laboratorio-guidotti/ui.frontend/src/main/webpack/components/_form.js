@@ -51,14 +51,18 @@ $(function () {
       const file = this.files[0];
       if (file) {
         validateFile(this, file, $filesContainer);
+        $filesContainer.html(file.name + '<i class="cmp-close__icon"></i>');
+      } else {
+        $filesContainer.html('No file selected');
       }
+      updateFileSpan();
     });
 
     $filesContainer.on("click", ".cmp-close__icon", function (event) {
       event.stopPropagation();
       $fileInput.val("");
-      $filesContainer.text("");
-      $(this).remove();
+      $filesContainer.text("No file selected");
+      updateFileSpan();
     });
   }
 
@@ -77,4 +81,19 @@ $(function () {
       validateRadios($form) && validateInputs($form) && validateRecaptcha()
     );
   }
+
+  function updateFileSpan() {
+    const $filesContainer = $("#myFiles");
+    if ($filesContainer.find('.cmp-close__icon').length > 0) {
+      $filesContainer.removeClass('empty').addClass('has-icon');
+    } else {
+      $filesContainer.removeClass('has-icon').addClass('empty');
+      if ($filesContainer.text().trim() === '') {
+        $filesContainer.text('No file selected...');
+      }
+    }
+  }
+
+  // Chiamare updateFileSpan all'onload
+  updateFileSpan();
 });
