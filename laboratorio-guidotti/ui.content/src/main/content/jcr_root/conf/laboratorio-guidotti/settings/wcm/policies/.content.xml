@@ -1154,14 +1154,43 @@
             <tables jcr:primaryType="nt:unstructured">
                 <table jcr:primaryType="nt:unstructured">
                     <policy_1718805503049
-                        jcr:lastModified="{Date}2024-06-19T16:00:28.281+02:00"
+                        cq:styleDefaultClasses="cmp-table"
+                        jcr:lastModified="{Date}2024-06-20T09:33:41.390+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Table container Guidotti policy"
+                        jcr:title="Table container Guidotti Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="/apps/laboratorio-guidotti/components/tables/table_row"
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Tipology"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-table cmp-table--2-column"
+                                        cq:styleId="1718868747798"
+                                        cq:styleLabel="2 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-table cmp-table--3-column"
+                                        cq:styleId="1718868748405"
+                                        cq:styleLabel="3 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="cmp-table cmp-table--4-column"
+                                        cq:styleId="1718868757639"
+                                        cq:styleLabel="4 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="cmp-table cmp-table--5-column"
+                                        cq:styleId="1718868763501"
+                                        cq:styleLabel="5 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
                     </policy_1718805503049>
                 </table>
                 <table_row jcr:primaryType="nt:unstructured">
