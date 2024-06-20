@@ -1,0 +1,56 @@
+.upload-file {
+  .cmp-form-text {
+    label {
+      margin-bottom: 0px;
+    }
+    .buttonText {
+      background-color: $vibrant-azure;
+      color: $white;
+      cursor: pointer;
+      font-family: $font-family-oswald;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: $oswald-weight-bold;
+      padding: 19px 36px;
+      text-align: center;
+      display: inline-block;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      line-height: 20px;
+      margin-top: 70px;
+      span {
+        font-size: 36px;
+        padding: 0;
+        margin: 0;
+        line-height: inherit;
+        vertical-align: top;
+        margin-right: -1px;
+        font-weight: 100;
+      }
+    }
+
+    #myfile {
+      visibility: hidden;
+    }
+    #myFiles {
+      display: flex;
+      justify-content: space-between;
+
+      .cmp-close__icon {
+        margin-right: 15px;
+
+        &::after {
+          content: "X";
+          font-size: 18px;
+          font-weight: $arimo-weight-bold;
+          color: darken($vibrant-azure, 10%);
+          cursor: pointer;
+        }
+      }
+    }
+
+    .buttonText:after {
+      content: none;
+    }
+  }
+}

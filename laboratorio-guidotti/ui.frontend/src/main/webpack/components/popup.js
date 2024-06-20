@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import $ from "jquery";
 
 // Funzione per ottenere il dominio del sito

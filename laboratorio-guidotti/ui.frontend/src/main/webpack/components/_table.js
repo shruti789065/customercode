@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 document.addEventListener("DOMContentLoaded", function () {
     function checkTables() {
         var cmpTables = document.querySelectorAll(".cmp-table");

@@ -30,7 +30,7 @@
 }
 .cmp-button--first-style {
   .cmp-button {
-    transform: $standard-transition;
+    transition: $standard-transition;
     background-color: $vibrant-azure;
     &:hover {
       background-color: darken($vibrant-azure, 10%);
@@ -43,7 +43,7 @@
 .cmp-button--second-style {
   .cmp-button {
     border: 0.125rem solid $vibrant-azure;
-    transform: $standard-transition;
+    transition: $standard-transition;
     &:hover {
       background-color: $vibrant-azure;
       color: $color-background;
@@ -64,7 +64,7 @@
     border: unset;
     background-color: unset;
     color: $vibrant-azure;
-    transform: $standard-transition;
+    transition: $standard-transition;
     width: fit-content;
     padding: 0;
     .cmp-button__text {
