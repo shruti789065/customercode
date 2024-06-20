@@ -35,6 +35,7 @@ const MenuTabs = (() => {
     }
     setupDesktopMenu();
     setupMobileMenu();
+    _isMobileWindowSize();
     setShareHref(elementsWithClass, currentUrl);
   }
 
