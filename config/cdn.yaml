@@ -22,7 +22,6 @@ data:
           - reqProperty: clientIp
       action:
         type: log
-        experimental_alert: true
     #  Prevent attack at origin by blocking client for 5 minutes if they make more than 100 requests per second on average
     - name: prevent-dos-attacks-origin
       when:
@@ -37,4 +36,3 @@ data:
           - reqProperty: clientIp
       action:
         type: log
-        experimental_alert: true

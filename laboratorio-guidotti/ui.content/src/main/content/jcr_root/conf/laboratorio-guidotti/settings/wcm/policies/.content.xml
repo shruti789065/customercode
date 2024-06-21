@@ -464,11 +464,12 @@
             <containers jcr:primaryType="nt:unstructured">
                 <container jcr:primaryType="nt:unstructured">
                     <policy_14028679973100
-                        jcr:lastModified="{Date}2024-06-12T16:24:28.481+02:00"
+                        jcr:lastModified="{Date}2024-06-21T15:41:29.846+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Container policy"
                         sling:resourceType="wcm/core/components/policy/policy"
+                        allowedColorSwatches="[#00adf2,#EBEBEB,#EEEEE4]"
                         backgroundColorEnabled="true"
                         backgroundImageEnabled="true"
                         layoutDisabled="false">
@@ -666,7 +667,6 @@
                     </cq:styleGroups>
                 </policy_1717487352842>
             </hero>
-            <shape-container jcr:primaryType="nt:unstructured"/>
             <shape_container jcr:primaryType="nt:unstructured">
                 <policy_1718265530169
                     jcr:lastModified="{Date}2024-06-18T12:24:36.447+02:00"
@@ -744,6 +744,197 @@
                     </cq:styleGroups>
                 </policy_1718265530169>
             </shape_container>
+            <separator jcr:primaryType="nt:unstructured">
+                <policy_1717685925905
+                    jcr:lastModified="{Date}2024-06-06T17:00:25.625+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Separator Guidotti policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    isDecorative="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-separator--primary"
+                                    cq:styleId="1717685955560"
+                                    cq:styleLabel="Primary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-separator--secondary"
+                                    cq:styleId="1717685956186"
+                                    cq:styleLabel="Secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-separator--default"
+                                    cq:styleId="1717685966033"
+                                    cq:styleLabel="Default"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1717685925905>
+            </separator>
+            <popup jcr:primaryType="nt:unstructured">
+                <policy_1718284883118
+                    jcr:lastModified="{Date}2024-06-13T15:38:17.852+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="POPUP policy Guidotti"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Tipology"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-popup cmp-popup--persistance"
+                                    cq:styleId="1718285062030"
+                                    cq:styleLabel="persistance"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-popup cmp-popup--session"
+                                    cq:styleId="1718285062540"
+                                    cq:styleLabel="session"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-popup cmp-popup--cookie"
+                                    cq:styleId="1718285063065"
+                                    cq:styleLabel="cookie"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1718284883118>
+            </popup>
+            <tables jcr:primaryType="nt:unstructured">
+                <table jcr:primaryType="nt:unstructured">
+                    <policy_1718805503049
+                        cq:styleDefaultClasses="cmp-table"
+                        jcr:lastModified="{Date}2024-06-20T09:33:41.390+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Table container Guidotti Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/laboratorio-guidotti/components/tables/table_row"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Tipology"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-table cmp-table--2-column"
+                                        cq:styleId="1718868747798"
+                                        cq:styleLabel="2 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-table cmp-table--3-column"
+                                        cq:styleId="1718868748405"
+                                        cq:styleLabel="3 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="cmp-table cmp-table--4-column"
+                                        cq:styleId="1718868757639"
+                                        cq:styleLabel="4 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="cmp-table cmp-table--5-column"
+                                        cq:styleId="1718868763501"
+                                        cq:styleLabel="5 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1718805503049>
+                </table>
+                <table_row jcr:primaryType="nt:unstructured">
+                    <policy_1718805530037
+                        cq:styleDefaultClasses="cmp-table--row"
+                        jcr:lastModified="{Date}2024-06-19T16:00:15.271+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Table row guidotti policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/laboratorio-guidotti/components/tables/table_cell"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Tipology"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-table--row-header"
+                                        cq:styleId="1718805589228"
+                                        cq:styleLabel="Table Header"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1718805530037>
+                </table_row>
+                <table_cell jcr:primaryType="nt:unstructured">
+                    <policy_1718805636225
+                        cq:styleDefaultClasses="cmp-table--cell"
+                        jcr:lastModified="{Date}2024-06-19T16:01:20.418+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Table cell Guidotti policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/laboratorio-guidotti/components/text,/apps/laboratorio-guidotti/components/title]"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1718805636225>
+                </table_cell>
+            </tables>
+            <card jcr:primaryType="nt:unstructured">
+                <policy_1718808670395
+                    jcr:lastModified="{Date}2024-06-19T16:53:39.683+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="card Guidotti Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Text cut"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-cut cmp-cut--1-row"
+                                    cq:styleId="1718808694389"
+                                    cq:styleLabel="cut 1 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-cut cmp-cut--2-row"
+                                    cq:styleId="1718808695129"
+                                    cq:styleLabel="cut 2 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-cut cmp-cut--3-row"
+                                    cq:styleId="1718808695761"
+                                    cq:styleLabel="cut 3 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-cut cmp-cut--4-row"
+                                    cq:styleId="1718808726045"
+                                    cq:styleLabel="cut 4 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1718808670395>
+            </card>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">
