@@ -13,6 +13,10 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<template data-sly-template.bannerCentralShape="">
-	<h1>CENTRAL SHAPE</h1>
+<template data-sly-template.bannerCentralShape=""><div class="cmp-wrapper_banner--container">
+	<div class="cmp-banner--content cmp-banner--content--shapes cmp-banner--content--central">
+		<sly data-sly-resource="${ 'shape_container_1' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }" data-sly-unwrap></sly>
+		<sly data-sly-resource="${ 'shape_container_2' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }" data-sly-unwrap></sly>
+	</div>
+</div>
 </template>

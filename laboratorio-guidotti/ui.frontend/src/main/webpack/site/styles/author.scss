@@ -34,12 +34,27 @@
   }
   .shape_container {
     padding: 1.5rem;
-	height: fit-content;
+    height: fit-content;
   }
   .cmp-shape--container {
-	display: block;
+    display: block;
     .cmp-container {
       display: block;
+    }
+  }
+  .cmp-wrapper_banner--container {
+    //display: inline-block;
+    .cmp-banner--content {
+      display: block;
+      width: 50%;
+      &.cmp-banner--content--shapes {
+        .cmp-shape--container {
+          transform: none;
+          top: auto;
+          left: auto;
+          position: relative;
+        }
+      }
     }
   }
 }

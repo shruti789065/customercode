@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-06-19T16:53:39.689+02:00"
+        cq:lastModified="{Date}2024-06-21T15:41:29.862+02:00"
         cq:lastModifiedBy="admin"
         cq:policy="laboratorio-guidotti/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -73,7 +73,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                                 <container
-                                    cq:policy="laboratorio-guidotti/components/containers/container/policy_787266077077700"
+                                    cq:policy="laboratorio-guidotti/components/containers/container/policy_14028679973100"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </containers>
@@ -81,34 +81,8 @@
                                 cq:policy="laboratorio-guidotti/components/hero/policy_1717487352842"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
-                            <accordion
-                                cq:policy="laboratorio-guidotti/components/accordion/policy_1717664755116"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="wcm/core/components/policies/mapping"/>
-                            <separator
-                                cq:policy="laboratorio-guidotti/components/separator/policy_1717685925905"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="wcm/core/components/policies/mapping"/>
-                            <popup
-                                cq:policy="laboratorio-guidotti/components/popup/policy_1718284883118"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="wcm/core/components/policies/mapping"/>
-                            <tables jcr:primaryType="nt:unstructured">
-                                <table
-                                    cq:policy="laboratorio-guidotti/components/tables/table/policy_1718805503049"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/core/components/policies/mapping"/>
-                                <table_row
-                                    cq:policy="laboratorio-guidotti/components/tables/table_row/policy_1718805530037"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/core/components/policies/mapping"/>
-                                <table_cell
-                                    cq:policy="laboratorio-guidotti/components/tables/table_cell/policy_1718805636225"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/core/components/policies/mapping"/>
-                            </tables>
-                            <card
-                                cq:policy="laboratorio-guidotti/components/card/policy_1718808670395"
+                            <shape_container
+                                cq:policy="laboratorio-guidotti/components/shape_container/policy_1718265530169"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                         </components>

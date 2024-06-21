@@ -14,5 +14,13 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <template data-sly-template.bannerTriShape="">
-	<h1>TREBLE SHAPE</h1>
+	<div class="cmp-wrapper_banner--container">
+		<sly data-sly-resource="${ 'container_typo' @ resourceType='laboratorio-guidotti/components/banners/wrapper-banner/container_typo', decorationTagName='div', cssClassName='cmp-banner--content cmp-banner--content--typo' }"
+		     data-sly-unwrap></sly>
+		<div class="cmp-banner--content cmp-banner--content--shapes cmp-banner--content--shapes-tri">
+			<sly data-sly-resource="${ 'shape_container_1' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }" data-sly-unwrap></sly>
+			<sly data-sly-resource="${ 'shape_container_2' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }" data-sly-unwrap></sly>
+			<sly data-sly-resource="${ 'shape_container_3' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }" data-sly-unwrap></sly>
+		</div>
+	</div>
 </template>
