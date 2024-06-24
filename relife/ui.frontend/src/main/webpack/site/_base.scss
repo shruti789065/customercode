@@ -1,0 +1,33 @@
+//== Base
+
+html,
+body {
+    margin: 0;
+    font-size:   $font-size;
+    font-family: "roboto";
+    line-height: $font-height;
+    color:       $color-text-grey;
+    background:  $color-background;
+
+    /* @media (prefers-color-scheme: dark) {
+        color:       $color-text-grey;
+        background:  $color-background;
+    } */
+}
+
+
+a {
+    color: $color-hover;
+
+    /* @media (prefers-color-scheme: dark) {
+        color: $color-link-dark;
+    } */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: inherit;
+}
