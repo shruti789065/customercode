@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Wrapper Banner"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+	<content
+			granite:class="cmp-teaser__editor cmp-image__editor"
+			jcr:primaryType="nt:unstructured"
+			sling:resourceType="granite/ui/components/coral/foundation/container">
+		<items jcr:primaryType="nt:unstructured">
+			<tabs
+					jcr:primaryType="nt:unstructured"
+					sling:resourceType="granite/ui/components/coral/foundation/tabs">
+				<items jcr:primaryType="nt:unstructured">
+					<type
+							jcr:primaryType="nt:unstructured"
+							jcr:title="Type of banner"
+							sling:resourceType="granite/ui/components/coral/foundation/container"
+							margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<columns
+									jcr:primaryType="nt:unstructured"
+									sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+									margin="{Boolean}true">
+								<items jcr:primaryType="nt:unstructured">
+									<column
+											jcr:primaryType="nt:unstructured"
+											sling:resourceType="granite/ui/components/coral/foundation/container">
+										<items jcr:primaryType="nt:unstructured">
+											<bannerType
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/select"
+													granite:class="cq-dialog-dropdown-showhide"
+													cq-dialog-dropdown-showhide-target=".banner-options-showhide-target"
+													fieldLabel="Banner Layout"
+													name="./bannerType">
+												<granite:data
+														jcr:primaryType="nt:unstructured"
+												        cq-dialog-dropdown-showhide-target=".banner-options-showhide-target"/>
+												<items jcr:primaryType="nt:unstructured">
+													<monoShape jcr:primaryType="nt:unstructured"
+													          text="Mono Shape"
+													          value="mono-shape"
+													          selected="{Boolean}true"/>
+													<biShape jcr:primaryType="nt:unstructured"
+													       text="Double Shape"
+													       value="bi-shape"/>
+													<triShape jcr:primaryType="nt:unstructured"
+													        text="Treble Shape"
+													        value="tri-shape"/>
+													<centralShape jcr:primaryType="nt:unstructured"
+													     text="Central Shape"
+													     value="central-shape"/>
+												</items>
+											</bannerType>
+										</items>
+									</column>
+								</items>
+							</columns>
+						</items>
+					</type>
+				</items>
+			</tabs>
+		</items>
+	</content>
+</jcr:root>

@@ -5,9 +5,58 @@
 }
 /* Edit Mode */
 .aem-AuthorLayer-Edit {
-  /*  body {
-    background: red;
-  } */
+  .cmp-experiencefragment--footer {
+    #footerFirstContainer {
+      .buildingblock:nth-child(2) {
+        .xf-master-building-block {
+          .container:nth-child(1) {
+            .cmp-container {
+              > div:first-of-type {
+                display: block;
+              }
+            }
+          }
+
+          .container:last-child {
+            .cmp-container {
+              > div:first-of-type {
+                display: block;
+              }
+            }
+          }
+          .cmp-languagenavigation {
+            .cmp-languagenavigation__label {
+            }
+          }
+        }
+      }
+    }
+  }
+  .shape_container {
+    padding: 1.5rem;
+    height: fit-content;
+  }
+  .cmp-shape--container {
+    display: block;
+    .cmp-container {
+      display: block;
+    }
+  }
+  .cmp-wrapper_banner--container {
+    //display: inline-block;
+    .cmp-banner--content {
+      display: block;
+      width: 50%;
+      &.cmp-banner--content--shapes {
+        .cmp-shape--container {
+          transform: none;
+          top: auto;
+          left: auto;
+          position: relative;
+        }
+      }
+    }
+  }
 }
 
 /* Preview Mode */
@@ -52,7 +101,7 @@
 }
 /* Container Experience Fragment*/
 .xf-web-container {
- /*  body {
+  /*  body {
     background: chocolate;
   } */
 }

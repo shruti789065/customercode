@@ -1,18 +1,25 @@
-.cmp-form {}
-
-/*
-
-**MEDIA QUERIES DA UTILIZZARE**
-
-
-@include respond-to(small-devices) {}
-
-@include respond-to(mobile) {}
-
-@include respond-to(tablet) {}
-
-@include respond-to(laptop) {}
-
-@include respond-to(desktop) {}
-
-*/
+.cmp-form {
+    margin: 0 auto;
+    .required-field {
+      &:after {
+        content: " *";
+        margin: 0 7px;
+        color: $red;
+        font-family: $font-family-oswald;
+        font-weight: $oswald-weight-medium;
+      }
+    }
+    input {
+      &:focus {
+        border-color: darken($vibrant-azure, 10%);
+        outline: 0;
+      }
+    }
+    span.text-danger {
+      font-size: 16px;
+      color: $vibrant-azure;
+      display: block;
+    }
+  }
+  
+  
