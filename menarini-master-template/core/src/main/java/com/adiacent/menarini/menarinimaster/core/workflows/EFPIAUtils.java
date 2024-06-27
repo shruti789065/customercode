@@ -12,10 +12,10 @@ public class EFPIAUtils {
     private static final List<String> ACCEPTED_RESOURCE_TYPES = List.of("dam:asset");
     private static final List<String> ACCEPTED_FILE_EXT = List.of("jpg", "jpeg", "png");
     private static final String FILE_NAME_PATTERN = "^[0-9]{3}";
-    private static final String PATH_PATTERN = "^\\/content\\/dam\\/([\\w-]+)\\/efpia\\/[0-9]{4}";
+    private static final String PATH_PATTERN = "^\\/content\\/dam\\/([\\w-]+)\\/efpia\\/[\\w-]+\\/[0-9]{4}";
 
-    private static final String DRAFT_PATH = "/content/dam/${siteName}/efpia/${year}";
-    private static final String PUBLISH_PATH = "/content/dam/efpia/${siteName}/${year}";
+    private static final String DRAFT_PATH = "/content/dam/${siteName}/efpia/${reportName}/${year}";
+    private static final String PUBLISH_PATH = "/content/dam/efpia/${siteName}/${reportName}/${year}";
 
     public static boolean isPathValid(String path) {
         if (path != null)
@@ -28,10 +28,19 @@ public class EFPIAUtils {
             return StringUtils.substringBefore(StringUtils.substringAfter(path, "/content/dam/"), "/");
         return null;
     }
+    public static String reportNameFromPath(String path) {
+        if (isPathValid(path)){
+            String[] parts = StringUtils.split(path,"/");
+            return parts[parts.length-2];
+        }
+        return null;
+    }
 
     public static Integer yearFromPath(String path) {
-        if (isPathValid(path))
-            return Integer.parseInt(StringUtils.substringAfter(path, "/efpia/"));
+        if (isPathValid(path)){
+            String[] parts = StringUtils.split(path,"/");
+            return Integer.parseInt(parts[parts.length-1]);
+        }
         return null;
     }
 
@@ -65,12 +74,12 @@ public class EFPIAUtils {
         }
     }
 
-    public static String getDraftPath(String siteName, String year) {
-        return StringSubstitutor.replace(DRAFT_PATH, Map.of("siteName", siteName, "year", year));
+    public static String getDraftPath(String siteName, String reportName, String year) {
+        return StringSubstitutor.replace(DRAFT_PATH, Map.of("siteName", siteName,"reportName",reportName, "year", year));
     }
 
-    public static String getPublishPath(String siteName, Integer year) {
-        return StringSubstitutor.replace(PUBLISH_PATH, Map.of("siteName", siteName, "year", year));
+    public static String getPublishPath(String siteName,String reportName, Integer year) {
+        return StringSubstitutor.replace(PUBLISH_PATH, Map.of("siteName", siteName,"reportName",reportName, "year", year));
     }
 
     public static class EFPIABlockingValidationException extends Throwable {
