@@ -30,15 +30,17 @@ public class EFPIAValidationStep implements WorkflowProcess {
         try(ResourceResolver resourceResolver =  workflowSession.adaptTo(ResourceResolver.class))
         {
             String siteName;
+            String reportName;
             Integer year;
             if (EFPIAUtils.isPathValid(path)) {
                 siteName = EFPIAUtils.siteNameFromPath(path);
+                reportName = EFPIAUtils.reportNameFromPath(path);
                 year = EFPIAUtils.yearFromPath(path);
             } else {
                 log.error("Invalid path: {}", path);
                 return;
             }
-            logger = EFPIAXLSXLogger.getLogger(siteName, workItem, workflowSession);
+            logger = EFPIAXLSXLogger.getLogger(siteName,reportName, workItem, workflowSession);
             workflowData.getMetaDataMap().put("isValid", false);
             Resource resource = resourceResolver.getResource(path);
             //workItem.getMetaDataMap().put("comment", "<h4>Workflow comment</h4>");
