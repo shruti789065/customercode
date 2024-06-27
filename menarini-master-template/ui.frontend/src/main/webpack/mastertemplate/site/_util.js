@@ -1,5 +1,5 @@
 export function _isDesktop() {
-  if (window.innerWidth < 1200) {
+  if (window.innerWidth <= 1200) {
     return false;
   } else {
     return true;
