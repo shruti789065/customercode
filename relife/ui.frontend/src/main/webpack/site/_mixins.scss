@@ -1,0 +1,28 @@
+// Mixin per Media Queries
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == small-devices {
+    @media (min-width: #{$breakpoint-small-devices}) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media (min-width: #{$breakpoint-mobile}) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  } @else if $breakpoint == laptop {
+    @media (min-width: #{$breakpoint-laptop}) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  } @else if $breakpoint == high-definition {
+    @media (min-width: #{$breakpoint-high-definition}) {
+      @content;
+    }
+  }
+}

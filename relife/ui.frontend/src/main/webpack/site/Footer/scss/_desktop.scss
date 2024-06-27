@@ -1,0 +1,114 @@
+/* @include respond-to(tablet) {
+  .footer-mobile {
+    display: none;
+  }
+  .footer-desktop {
+    display: block;
+    margin-top: 3rem;
+  }
+  .cmp-experiencefragment--footer {
+    #footerFirstContainer {
+      .buildingblock:first-child .xf-master-building-block {
+        .image {
+          margin-bottom: 2.5rem;
+        }
+        .text:nth-child(2) {
+          .cmp-text {
+            p {
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+      .buildingblock:nth-child(2) {
+        .xf-master-building-block {
+          .container:nth-child(1) {
+            .cmp-container {
+              > div:first-of-type {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                .image {
+                  max-height: 6rem;
+                  max-width: 10rem;
+                  &:first-of-type {
+                    .cmp-image__image {
+                      max-width: 6rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .container:nth-child(2) {
+            .cmp-text {
+              P {
+                a {
+                  &:hover {
+                    color: $color-hover;
+                  }
+                }
+              }
+            }
+          }
+          .container:last-child {
+            .cmp-container {
+              > div:first-of-type {
+                display: flex;
+                justify-content: flex-end;
+                gap: 0.5rem;
+                .button {
+                  max-width: 3rem;
+                  .cmp-button {
+                    margin: 0;
+                    padding: 0;
+                    .cmp-button__icon {
+                      width: 3rem;
+                      height: 3rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .cmp-languagenavigation {
+            position: relative;
+            .cmp-languagenavigation__label {
+              justify-content: flex-end;
+              font-size: clamp(0.8rem, 1vw, 1rem);
+              .toggle-icon {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #footerSecondContainer {
+      margin: 2rem auto;
+      .cmp-container {
+        div:first-of-type {
+          display: flex;
+          align-items: center;
+        }
+      }
+      .cmp-list {
+        display: flex;
+        gap: clamp(1rem, 1vw, 3.5rem);
+        padding: 0;
+        margin: 0;
+        padding-right: 0.5rem;
+        .cmp-list__item-link {
+          text-decoration: none;
+          font-size: clamp(0.8rem, 1vw, 1rem);
+          &:hover {
+            color: $color-hover;
+          }
+        }
+      }
+    }
+  }
+}
+ */
