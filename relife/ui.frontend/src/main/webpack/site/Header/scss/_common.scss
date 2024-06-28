@@ -1,0 +1,136 @@
+/* $borderHeader: 0.125rem solid $color-background;
+
+header.experiencefragment {
+  position: relative;
+  z-index: 5;
+  position: fixed;
+  /* @media (prefers-color-scheme: dark) {
+        border-bottom-color: $color-foreground-dark;
+    } 
+
+  a {
+    text-decoration: none;
+
+
+    &:hover,
+    &:focus {
+      color: darken($color: $deep-blue, $amount: 15%);
+      text-decoration: none;
+
+   
+    }
+  }
+  .cmp-experiencefragment--header {
+    .container.responsivegrid:nth-child(1) {
+      transition: $standard-transition;;
+      background-color: transparent;
+    }
+    .container.responsivegrid:nth-child(2) {
+      .cmp-navigation {
+        > .cmp-navigation__group {
+        }
+      }
+    }
+  }
+
+  //== Grid layout
+
+  .cmp-container {
+    display: grid;
+  }
+  .cmp-navigation__item-link {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: $oswald-weight-bold;
+    align-items: center;
+    text-decoration: none;
+    color: $color-background;
+  }
+  .cmp-navigation__group {
+    list-style: none;
+  }
+  .cmp-navigation__item--active > .cmp-navigation__item-link {
+    font-weight: bold;
+  }
+
+  .cmp-navigation__item--level-0 {
+    font-size: 1.25rem;
+
+    &:has(.cmp-navigation__group) {
+      .cmp-navigation__group {
+        display: none;
+        &.is-visible {
+          display: block; 
+        }
+      }
+      .cmp-navigation__item-link {
+        gap: 0.5rem;
+        position: relative;
+        font-family: $font-family-oswald;
+        font-weight: $oswald-weight-regular;
+
+        .toggle-icon {
+          content: " ";
+          display: block;
+          width: 1.25rem;
+          height: 1.25rem;
+          background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-white.svg")
+            center center no-repeat;
+          background-size: contain;
+          transition: transform 0.3s ease;
+        }
+
+        &.is-open {
+          .toggle-icon {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .cmp-navigation__item--level-1 {
+        .cmp-navigation__item-link {
+          &::after {
+            content: " ";
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  
+
+  &.scrolled {
+    .cmp-experiencefragment--header {
+      .container.responsivegrid:nth-child(1) {
+        transition: $standard-transition;;
+        background-color: $color-background;
+        .cmp-image {
+        }
+        .button {
+          .cmp-button {
+            border-color: $black;
+            .cmp-button__text {
+              color: $black;
+            }
+          }
+        }
+      }
+      .container.responsivegrid:nth-child(2) {
+        .cmp-navigation {
+          > .cmp-navigation__group {
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-desktop {
+  display: none;
+}
+ */
