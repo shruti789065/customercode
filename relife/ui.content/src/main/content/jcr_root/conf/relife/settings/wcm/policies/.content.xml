@@ -340,6 +340,42 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>
+            <containers jcr:primaryType="nt:unstructured">
+                <container jcr:primaryType="nt:unstructured">
+                    <policy_1719582995958
+                        jcr:lastModified="{Date}2024-06-28T15:57:10.681+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Content page policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:Relife - Content,/apps/relife/components/form/container]"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <mapping_1575030255082
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="relife/components/image"/>
+                                <mapping_1575030260142
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
+                                    droptarget="experiencefragment"
+                                    resourceType="relife/components/experiencefragment"/>
+                                <mapping_1575030269139
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                    droptarget="contentfragment"
+                                    resourceType="relife/components/contentfragment"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
+                    </policy_1719582995958>
+                </container>
+            </containers>
         </components>
     </relife>
     <wcm jcr:primaryType="nt:unstructured">
