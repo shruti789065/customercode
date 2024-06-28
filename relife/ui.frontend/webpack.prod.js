@@ -1,7 +1,9 @@
-const {merge} = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const common = require('./webpack.common.js');
+
+console.log('Loading production configuration');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -12,17 +14,9 @@ module.exports = merge(common, {
             new CssMinimizerPlugin({
                 minimizerOptions: {
                     preset: ['default', {
-                        calc: true,
-                        convertValues: true,
                         discardComments: {
                             removeAll: true
-                        },
-                        discardDuplicates: true,
-                        discardEmpty: true,
-                        mergeRules: true,
-                        normalizeCharset: true,
-                        reduceInitial: true, // This is since IE11 does not support the value Initial
-                        svgo: true
+                        }
                     }],
                 }
             }),
@@ -32,11 +26,13 @@ module.exports = merge(common, {
                 main: {
                     chunks: 'all',
                     name: 'site',
-                    test: 'main',
+                    test: /[\\/]src[\\/]/,
                     enforce: true
                 }
             }
         }
     },
-    performance: {hints: false}
+    performance: { hints: false }
 });
+
+console.log('Production configuration loaded');
