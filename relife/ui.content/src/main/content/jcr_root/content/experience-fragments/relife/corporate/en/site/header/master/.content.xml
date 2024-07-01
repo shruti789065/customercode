@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2024-07-01T11:01:50.412+02:00"
+        cq:lastModifiedBy="admin"
         cq:tags="[]"
         cq:template="/conf/relife/settings/wcm/templates/xf-web-variation"
         cq:xfMasterVariation="{Boolean}true"
@@ -10,25 +12,111 @@
         jcr:title="Header"
         sling:resourceType="relife/components/xfpage">
         <root
+            jcr:lastModified="{Date}2024-07-01T10:57:23.838+02:00"
+            jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="relife/components/container"
             layout="simple">
-            <navigation
+            <logo/>
+            <section
+                jcr:created="{Date}2024-07-01T10:55:48.247+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-07-01T10:55:48.247+02:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="relife/components/navigation"
-                collectAllPages="false"
-                navigationRoot="/content/relife/corporate/en"
-                skipNavigationRoot="false"
-                structureDepth="1"/>
-            <languagenavigation
+                sling:resourceType="relife/components/containers/section">
+                <wrapper
+                    jcr:created="{Date}2024-07-01T10:56:01.925+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-07-01T11:01:50.331+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="relife/components/containers/wrapper"
+                    layout="responsiveGrid">
+                    <languagenavigation35
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="relife/components/languagenavigation"
+                        navigationRoot="/content/relife/corporate"
+                        structureDepth="2">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="8"
+                                width="2"/>
+                        </cq:responsive>
+                    </languagenavigation35>
+                    <button
+                        jcr:created="{Date}2024-07-01T10:46:11.032+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-07-01T10:46:11.032+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="relife/components/button">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="2"/>
+                        </cq:responsive>
+                    </button>
+                </wrapper>
+            </section>
+            <section_2075109203
+                jcr:created="{Date}2024-07-01T10:56:48.957+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-07-01T10:56:48.957+02:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="relife/components/languagenavigation"
-                navigationRoot="/content/relife/corporate"
-                structureDepth="2"/>
-            <search
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="relife/components/search"
-                searchRoot="/content/relife/corporate"/>
+                sling:resourceType="relife/components/containers/section">
+                <wrapper
+                    jcr:created="{Date}2024-07-01T10:56:52.573+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-07-01T11:00:30.713+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="relife/components/containers/wrapper"
+                    layout="responsiveGrid">
+                    <image
+                        jcr:created="{Date}2024-07-01T10:42:36.570+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-07-01T10:42:36.570+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="relife/components/image">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="2"/>
+                        </cq:responsive>
+                    </image>
+                    <navigation
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="relife/components/navigation"
+                        collectAllPages="false"
+                        navigationRoot="/content/relife/corporate/en"
+                        skipNavigationRoot="false"
+                        structureDepth="1">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="8"/>
+                        </cq:responsive>
+                    </navigation>
+                    <search
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="relife/components/search"
+                        searchRoot="/content/relife/corporate">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="2"/>
+                        </cq:responsive>
+                    </search>
+                </wrapper>
+            </section_2075109203>
         </root>
     </jcr:content>
 </jcr:root>

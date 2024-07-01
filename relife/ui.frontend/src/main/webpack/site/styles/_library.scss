@@ -1,0 +1,125 @@
+.library{
+	position: relative;
+	width: 100%;
+	margin: 5% auto;
+	max-width: 90rem;
+}
+
+.maximum-heigth {
+	height: 100%;
+}
+.maximum-width {
+	width: 100%;
+}
+
+img.cq-LinkChecker.cq-LinkChecker--invalid{
+	height: auto!important;
+}
+.maindocs {
+	header.cmp-experiencefragment--header {
+		
+		position: relative;
+		.cmp-navbar{
+			padding: 0 1em;
+		}
+	}
+	height: inherit;
+	.library {
+		max-width: 1500px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		padding: 0 4%;
+	}
+	.cmp-accordion--docs{
+		display: block;
+		margin: 0;
+		padding: 0;
+	} 
+	.cmp-accordion {
+			&__item {
+				position: relative;
+			}
+			&__button {
+				position: relative;
+				border: 0;
+				border-bottom: 0.0625rem solid;
+				padding: 0.5rem 0;
+				background: 0;
+				border-color: $color-text;
+				color: $color-text;
+				font: inherit;
+				cursor: pointer;
+				&--disabled {
+					cursor: default;
+				}
+				&--expanded {
+					color: $color-text-grey;
+				}
+				&:hover {
+					color: #a26c6c;
+				}
+				&:not(.cmp-accordion__button--expanded) {
+					.cmp-accordion__icon {
+						&:before {
+							content: "\002B";
+						}
+					}
+				}
+				.cmp-accordion__icon {
+					position: absolute;
+					top: 0.625rem;
+					right: 0.5rem;
+					width: 18px;
+					height: 18px;
+					font-size: 20px;
+					&:before {
+						content: "\002D";
+					}
+				}
+			}
+			&__panel {
+				padding: 0.75rem 0;
+				position: relative;
+			}
+		
+	}
+	.footer-docs {
+		position: relative;
+		bottom: 0;
+		margin-top: 2rem;
+		max-width: inherit;
+		align-items: flex-end;
+	}
+	.cmp-accordion--custom-style{
+		.cmp-accordion{
+			.cmp-accordion__item{
+				.cmp-accordion__button{
+					position: unset;
+					&:not(.cmp-accordion__button--expanded) {
+						.cmp-accordion__icon {
+							&:before {
+								content: unset;
+							}
+						}
+					}
+					.cmp-accordion__icon{
+						top: unset;
+						right: unset;
+						&::before{
+							content: unset;
+						}
+					}
+				}
+				.cmp-accordion__panel--expanded{
+					.container{
+						padding: unset;
+					}
+				}
+			}
+			
+		}
+		
+		
+	}
+}
