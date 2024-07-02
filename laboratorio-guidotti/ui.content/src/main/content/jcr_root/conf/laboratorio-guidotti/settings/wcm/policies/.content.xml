@@ -721,11 +721,13 @@
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_453888387334500>
                     <policy_787266077077700
-                        jcr:lastModified="{Date}2024-06-19T16:48:56.274+02:00"
+                        jcr:lastModified="{Date}2024-07-02T16:33:20.450+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Guidotti container policy"
                         sling:resourceType="wcm/core/components/policy/policy"
+                        backgroundColorEnabled="true"
+                        backgroundImageEnabled="true"
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -1274,6 +1276,84 @@
                     </cq:styleGroups>
                 </policy_1718808670395>
             </card>
+            <shape_container jcr:primaryType="nt:unstructured">
+                <policy_1718265530169
+                    jcr:lastModified="{Date}2024-07-02T16:29:23.881+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Shape Container Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="[/apps/laboratorio-guidotti/components/containers/container,/apps/laboratorio-guidotti/components/banners/wrapper-banner/container_typo,/apps/laboratorio-guidotti/components/image,/apps/laboratorio-guidotti/components/separator,/apps/laboratorio-guidotti/components/teaser,/apps/laboratorio-guidotti/components/text,/apps/laboratorio-guidotti/components/title]"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Shape Style"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-shape--style-1"
+                                    cq:styleId="1718272106764"
+                                    cq:styleLabel="Style 1"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-shape--style-2"
+                                    cq:styleId="1718272114156"
+                                    cq:styleLabel="Style 2"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-shape--style-3"
+                                    cq:styleId="1718272116561"
+                                    cq:styleLabel="Style 3"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-shape--style-4"
+                                    cq:styleId="1718272118098"
+                                    cq:styleLabel="Style 4"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item4
+                                    cq:styleClasses="cmp-shape--style-5"
+                                    cq:styleId="1718272130523"
+                                    cq:styleLabel="Style 5"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item5
+                                    cq:styleClasses="cmp-shape--style-6"
+                                    cq:styleId="1718272132409"
+                                    cq:styleLabel="Style 6"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item6
+                                    cq:styleClasses="cmp-shape--style-7"
+                                    cq:styleId="1718272141380"
+                                    cq:styleLabel="Style 7"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Size"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-shape--container-big"
+                                    cq:styleId="1718265626464"
+                                    cq:styleLabel="Big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-shape--container-regular"
+                                    cq:styleId="1718265630605"
+                                    cq:styleLabel="Regular"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-shape--container-small"
+                                    cq:styleId="1718265636534"
+                                    cq:styleLabel="Small"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
+                </policy_1718265530169>
+            </shape_container>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">

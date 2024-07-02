@@ -1,0 +1,73 @@
+@import 'wrapper-banner';
+
+.cmp-wrapper_banner--container-tri{
+.cmp-banner--content {
+
+  &.cmp-banner--content--shapes {
+    .shape_container_1 {
+      .cmp-shape--container {
+        transform: translate(-50%, -50%);
+      }
+    }
+    .shape_container_2 {
+      .cmp-shape--container {
+        transform: translate(0, -80%);
+      }
+    }
+    .shape_container_3 {
+      .cmp-shape--container {
+        transform: translate(30%, -70%);
+      }
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  
+  .cmp-banner--content {
+    &.cmp-banner--content--shapes {
+      .shape_container_1 {
+        .cmp-shape--container {
+          transform: translate(-50%, -50%);
+        }
+      }
+      .shape_container_2 {
+        .cmp-shape--container {
+          transform: translate(20%, -80%);
+        }
+      }
+      .shape_container_3 {
+        .cmp-shape--container {
+          transform: translate(60%, -60%);
+        }
+      }
+    }
+  }
+}
+@include respond-to(laptop) {
+  .cmp-banner--content {
+    
+  }
+}
+
+@include respond-to(desktop) {
+  .cmp-banner--content {
+  }
+}
+}
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/
