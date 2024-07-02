@@ -12,19 +12,10 @@
 	line-height: $font-height;
 	color: $color-text;
 	background: $color-background;
-  
-	/* @media (prefers-color-scheme: dark) {
-		  color:       $color-foreground-dark;
-		  background:  $color-background-dark;
-	  } */
   }
   
   a {
 	color: $color-text;
-  
-	/*  @media (prefers-color-scheme: dark) {
-		  color: $color-link-dark;
-	  } */
   }
   
   button,
@@ -42,19 +33,7 @@
 	overflow: hidden;
 	white-space: nowrap;
   }
-  
-  .cmp-color--azure {
-	color: $vibrant-azure;
-  }
-  .cmp-color--blue {
-	color: $deep-blue;
-  }
-  .cmp-color--default {
-	color: $black;
-  }
-  .cmp-font-weight--light {
-	font-weight: $oswald-weight-light;
-  }
+
   @include respond-to(small-devices) {
 	body {
 	  font-size: $font-size;
