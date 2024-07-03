@@ -42,6 +42,9 @@ $darkCyanBlue: #0b1d2c;
 $charcoal:#1C1D1D;
 $deepTeal: #031D2D;  
 $white: #ffffff;
+$lightGrey: #E6E9EA;
+$grey: #CDD2D5;
+$mediumGrey: #6B6C6C;
 $standard-transition: all 0.3s ease-in;
 
 // Normal mode
@@ -57,3 +60,32 @@ $breakpoint-tablet: 992px;
 $breakpoint-laptop: 1200px;
 $breakpoint-desktop: 1440px;
 $breakpoint-high-definition: 1920px;
+
+
+/*BUTTON STYLES*/
+
+// Type primary or secondary
+$font-size-btn-min: 0.786rem;
+$font-size-btn-max: 1rem;
+$font-size-btn: clamp($font-size-btn-min, 0.188vw + 0.743rem, $font-size-btn-max);
+$btn-border-size: 1px;
+$btn-border-style: solid;
+$btn-line-height: 22px;
+$btn-padding: 0 16px;
+$width-btn-min: 10.714rem;
+$width-btn-max: 17.143rem;
+$btn-width: clamp($width-btn-min, 5.625vw + 9.429rem, $width-btn-max);
+$heigh-btn-min: 2.429rem;
+$heigh-btn-max: 3.429rem;
+$btn-height: clamp($heigh-btn-min, 0.875vw + 2.229rem, $heigh-btn-max);
+
+// Type topic
+$font-size-topic-min: 11px;
+$font-size-topic-max: 12px;
+$font-size-topic: clamp($font-size-topic-min, 0.188vw + 0.743rem, $font-size-topic-max);
+$width-topic-min: 7.714rem;
+$width-topic-max: 10.643rem;
+$topic-width: clamp($width-topic-min, 2.563vw + 7.129rem, $width-topic-max);
+$heigh-topic-min: 2.286rem;
+$heigh-topic-max: 2.786rem;
+$topic-height: clamp($heigh-topic-min, 0.438vw + 2.186rem, $heigh-topic-max);

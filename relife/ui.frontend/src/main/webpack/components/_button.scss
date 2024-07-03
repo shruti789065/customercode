@@ -1,4 +1,61 @@
-.cmp-button {}
-.cmp-button__text {}
-.cmp-button__icon {}
-//.cmp-button__icon--myIcon {}
+.cmp-button-primary a,  .cmp-button-secondary a{
+    border: $btn-border-style $btn-border-size;
+    width: $btn-width;
+    height: $btn-height;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: $btn-height;
+    display: inline-block;
+    padding: $btn-padding;
+    .cmp-button__text {
+        font-family: $font-family-text;
+        font-size: $font-size-btn;
+    }
+}
+
+.cmp-button-primary a {
+    color: $white;
+    border-color: $white;
+    &:hover {
+        color: $charcoal;
+        background-color: $white;
+    }
+}
+
+.cmp-button-secondary a {
+    color: $charcoal;
+    border-color: $charcoal;
+    background-color: $white;    
+    &:hover {
+        color: $white;
+        background-color: $charcoal;
+    }
+}
+
+.cmp-button-topic a {
+    border: $btn-border-style $btn-border-size;
+    width: $topic-width;
+    height: $topic-height;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: $topic-height;
+    display: inline-block;
+    padding: $btn-padding;
+    color: $mediumGrey;
+    background-color: $white;
+    border-color: $grey;
+    border-radius: 32px;
+
+    &:hover {
+        color: $charcoal;
+        background-color: $lightGrey;
+        border-color: $lightGrey;
+    }
+
+    .cmp-button__text {
+        font-family: $font-family-text;
+        font-size: $font-size-topic;
+    }
+}
