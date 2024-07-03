@@ -21,6 +21,10 @@
   }
 
   @include respond-to(tablet) {
+	.cmp-wrapper_banner--container {
+		flex-direction: row;
+		flex-wrap: nowrap;
+	  }
     .cmp-banner--content {
       &.cmp-banner--content--typo {
         order: 1;
@@ -62,12 +66,12 @@
       &.cmp-banner--content--shapes {
         .shape_container_1 {
           .cmp-shape--container {
-            transform: translate(-50%, -50%);
+            transform: translate(-30%, -50%);
           }
         }
         .shape_container_2 {
           .cmp-shape--container {
-            transform: translate(0, -80%);
+            transform: translate(50%, -80%);
           }
         }
       }

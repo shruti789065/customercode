@@ -1,29 +1,6 @@
-@import 'wrapper-banner';
+@import "wrapper-banner";
 
-.cmp-wrapper_banner--container-tri{
-.cmp-banner--content {
-
-  &.cmp-banner--content--shapes {
-    .shape_container_1 {
-      .cmp-shape--container {
-        transform: translate(-50%, -50%);
-      }
-    }
-    .shape_container_2 {
-      .cmp-shape--container {
-        transform: translate(0, -80%);
-      }
-    }
-    .shape_container_3 {
-      .cmp-shape--container {
-        transform: translate(30%, -70%);
-      }
-    }
-  }
-}
-
-@include respond-to(tablet) {
-  
+.cmp-wrapper_banner--container-tri {
   .cmp-banner--content {
     &.cmp-banner--content--shapes {
       .shape_container_1 {
@@ -33,27 +10,51 @@
       }
       .shape_container_2 {
         .cmp-shape--container {
-          transform: translate(20%, -80%);
+          transform: translate(0, -80%);
         }
       }
       .shape_container_3 {
         .cmp-shape--container {
-          transform: translate(60%, -60%);
+          transform: translate(30%, -70%);
         }
       }
     }
   }
-}
-@include respond-to(laptop) {
-  .cmp-banner--content {
-    
-  }
-}
 
-@include respond-to(desktop) {
-  .cmp-banner--content {
+  @include respond-to(tablet) {
+    .cmp-wrapper_banner--container {
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .cmp-banner--content {
+      &.cmp-banner--content--shapes {
+        .shape_container_1 {
+          .cmp-shape--container {
+            transform: translate(-50%, -50%);
+          }
+        }
+        .shape_container_2 {
+          .cmp-shape--container {
+            transform: translate(20%, -80%);
+          }
+        }
+        .shape_container_3 {
+          .cmp-shape--container {
+            transform: translate(60%, -60%);
+          }
+        }
+      }
+    }
   }
-}
+  @include respond-to(laptop) {
+    .cmp-banner--content {
+    }
+  }
+
+  @include respond-to(desktop) {
+    .cmp-banner--content {
+    }
+  }
 }
 /*
 
