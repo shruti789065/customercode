@@ -1,5 +1,18 @@
 .button {
-	display: flex;
+    display: flex;
+
+    &.justify-content-right {
+        .cmp-button {
+            justify-content: end;
+            margin-right: 1rem;
+        }
+    }
+    &.justify-content-left {
+        .cmp-button {
+            justify-content: start;
+            margin-left: 1rem;
+        }
+    }
 }
 
 .cmp-title--primary {
