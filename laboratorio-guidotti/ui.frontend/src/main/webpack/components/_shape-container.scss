@@ -22,7 +22,7 @@
 }
 
 // Uso di un selettore comune per le varie maschere
-@for $i from 1 through 7 {
+@for $i from 1 through 8 {
   .cmp-shape--style-#{$i} {
     .cmp-shape--container {
       -webkit-mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
@@ -70,6 +70,12 @@
   .cmp-shape--container {
     height: clamp(22.5rem, 40vw, 47rem);
     width: clamp(16.5rem, 40vw, 34.375rem);
+  }
+}
+.cmp-shape--style-8 {
+  .cmp-shape--container {
+    height: clamp(38.125rem, 7.5vw + 36.625rem, 45.625rem);
+    width: clamp(51.5rem, 9.75vw + 49.55rem, 61.25rem);
   }
 }
 
