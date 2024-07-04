@@ -694,12 +694,12 @@
             <containers jcr:primaryType="nt:unstructured">
                 <container jcr:primaryType="nt:unstructured">
                     <policy_1715698026050
-                        jcr:lastModified="{Date}2024-07-03T15:28:51.443+02:00"
+                        jcr:lastModified="{Date}2024-07-04T16:50:27.860+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content Page Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Structure]"
+                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Structure,group:Menarini Laboratorio Guidotti - Timeline]"
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_1715698026050>
@@ -804,14 +804,14 @@
                 </container>
                 <wrapper jcr:primaryType="nt:unstructured">
                     <policy_1716385274999
-                        jcr:lastModified="{Date}2024-05-22T15:44:09.572+02:00"
+                        jcr:lastModified="{Date}2024-07-04T16:56:14.267+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Wrapper policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         backgroundColorEnabled="true"
                         backgroundImageEnabled="true"
-                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Form,group:Menarini Laboratorio Guidotti - Structure]"
+                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Form,group:Menarini Laboratorio Guidotti - Structure,/apps/laboratorio-guidotti/components/timeline]"
                         layout="responsiveGrid"
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
@@ -1364,6 +1364,42 @@
                     </cq:styleGroups>
                 </policy_1718265530169>
             </shape_container>
+            <timeline jcr:primaryType="nt:unstructured">
+                <policy_1720102217417
+                    jcr:lastModified="{Date}2024-07-04T16:49:48.550+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Timeline policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/laboratorio-guidotti/components/timeline_row"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1720102217417>
+            </timeline>
+            <timeline_row jcr:primaryType="nt:unstructured">
+                <policy_1720102217528
+                    jcr:lastModified="{Date}2024-07-04T16:50:09.337+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Timeline Row policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/laboratorio-guidotti/components/timeline_object"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1720102217528>
+            </timeline_row>
+            <timeline_object jcr:primaryType="nt:unstructured">
+                <policy_1720102217639
+                    jcr:lastModified="{Date}2024-07-04T16:47:04.334+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Timeline Object policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[/apps/laboratorio-guidotti/components/shape_container,/apps/laboratorio-guidotti/components/text,/apps/laboratorio-guidotti/components/title]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1720102217639>
+            </timeline_object>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">
