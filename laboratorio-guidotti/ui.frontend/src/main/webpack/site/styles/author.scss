@@ -43,13 +43,14 @@
     }
   }
   .cmp-wrapper_banner--container {
-    //display: inline-block;
+    display: inline-block;
+	width: 100%;
     .cmp-banner--content {
       display: block;
       width: 50%;
       &.cmp-banner--content--shapes {
         .cmp-shape--container {
-          transform: none;
+          transform: none!important;
           top: auto;
           left: auto;
           position: relative;

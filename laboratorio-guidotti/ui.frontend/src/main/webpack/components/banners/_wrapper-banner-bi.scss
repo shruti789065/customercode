@@ -2,95 +2,145 @@
 
 .cmp-wrapper_banner--container-bi {
   .cmp-banner--content {
+    .text {
+      .cmp-text {
+        p {
+          text-align: center;
+          margin: 0;
+          line-height: 1.2;
+        }
+      }
+    }
     &.cmp-banner--content--typo {
       order: 2;
+      z-index: 9;
+      width: 100%;
+      .title {
+        text-align: center;
+      }
+      .button {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        /* .cmp-button {
+          margin: 1rem auto;
+        } */
+      }
     }
     &.cmp-banner--content--shapes {
       order: 1;
+
       .shape_container_1 {
         .cmp-shape--container {
-          transform: translate(-50%, -50%);
+          transform: translate(-40%, -60%);
         }
       }
       .shape_container_2 {
         .cmp-shape--container {
-          transform: translate(0, -80%);
+          transform: translate(0%, -100%);
         }
       }
     }
   }
-
-  @include respond-to(tablet) {
-	.cmp-wrapper_banner--container {
-		flex-direction: row;
-		flex-wrap: nowrap;
-	  }
-    .cmp-banner--content {
-      &.cmp-banner--content--typo {
-        order: 1;
-      }
-      &.cmp-banner--content--shapes {
-        order: 2;
-        .shape_container_1 {
-          .cmp-shape--container {
-            transform: translate(-50%, -50%);
+}
+@include respond-to(tablet) {
+  .cmp-wrapper_banner--container-bi {
+    &.cmp-wrapper_banner--container {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .cmp-banner--content {
+        &.cmp-banner--content--typo {
+          order: 1;
+          .text {
+            .cmp-text {
+              p {
+                text-align: end;
+              }
+            }
+          }
+          .title {
+            text-align: end;
+          }
+          .button {
+            gap: 1.5rem;
+            justify-content: end;
           }
         }
-        .shape_container_2 {
-          .cmp-shape--container {
-            transform: translate(20%, -80%);
+        &.cmp-banner--content--shapes {
+          order: 2;
+          .shape_container_1 {
+            .cmp-shape--container {
+              transform: translate(-50%, -50%);
+            }
           }
-        }
-      }
-    }
-  }
-  @include respond-to(laptop) {
-    .cmp-banner--content {
-      &.cmp-banner--content--shapes {
-        .shape_container_1 {
-          .cmp-shape--container {
-            transform: translate(-50%, -50%);
-          }
-        }
-        .shape_container_2 {
-          .cmp-shape--container {
-            transform: translate(20%, -80%);
-          }
-        }
-      }
-    }
-  }
-
-  @include respond-to(desktop) {
-    .cmp-banner--content {
-      &.cmp-banner--content--shapes {
-        .shape_container_1 {
-          .cmp-shape--container {
-            transform: translate(-30%, -50%);
-          }
-        }
-        .shape_container_2 {
-          .cmp-shape--container {
-            transform: translate(50%, -80%);
+          .shape_container_2 {
+            .cmp-shape--container {
+              transform: translate(-20%, -70%);
+            }
           }
         }
       }
     }
   }
 }
-/*
+@include respond-to(laptop) {
+  .cmp-wrapper_banner--container-bi {
+    &.cmp-wrapper_banner--container {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container_1 {
+            .cmp-shape--container {
+              //transform: translate(-150%, -100%);
+            }
+          }
+          .shape_container_2 {
+            .cmp-shape--container {
+              //transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
-**MEDIA QUERIES DA UTILIZZARE**
-
-
-@include respond-to(small-devices) {}
-
-@include respond-to(mobile) {}
-
-
-
-@include respond-to(laptop) {}
-
-@include respond-to(desktop) {}
-
-*/
+@include respond-to(desktop) {
+  .cmp-wrapper_banner--container-bi {
+    &.cmp-wrapper_banner--container {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container_1 {
+            .cmp-shape--container {
+              //transform: translate(-150%, -100%);
+            }
+          }
+          .shape_container_2 {
+            .cmp-shape--container {
+              //transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include respond-to(high-definition) {
+  .cmp-wrapper_banner--container-bi {
+    &.cmp-wrapper_banner--container {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container_1 {
+            .cmp-shape--container {
+              //transform: translate(-150%, -100%);
+            }
+          }
+          .shape_container_2 {
+            .cmp-shape--container {
+              //transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

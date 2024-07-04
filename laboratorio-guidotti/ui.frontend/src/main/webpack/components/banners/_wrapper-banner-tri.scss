@@ -117,56 +117,52 @@
 }
 
 @include respond-to(desktop) {
-	.cmp-wrapper_banner--container-tri {
-		&.cmp-wrapper_banner--container {
-		  .cmp-banner--content {
-			&.cmp-banner--content--shapes {
-			  .shape_container_1 {
-				.cmp-shape--container {
-				  transform: translate(-150%, -100%);
-				}
-			  }
-			  .shape_container_2 {
-				.cmp-shape--container {
-				  transform: translate(-50%, -50%);
-				}
-			  }
-			  .shape_container_3 {
-				.cmp-shape--container {
-				  transform: translate(25%, -80%);
-				}
-			  }
-			}
-		  }
-		}
-	  }
+  .cmp-wrapper_banner--container-tri {
+    &.cmp-wrapper_banner--container {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container_1 {
+            .cmp-shape--container {
+              transform: translate(-150%, -100%);
+            }
+          }
+          .shape_container_2 {
+            .cmp-shape--container {
+              transform: translate(-50%, -50%);
+            }
+          }
+          .shape_container_3 {
+            .cmp-shape--container {
+              transform: translate(25%, -80%);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @include respond-to(high-definition) {
-	.cmp-wrapper_banner--container-tri {
-		&.cmp-wrapper_banner--container {
-		  .cmp-banner--content {
-			&.cmp-banner--content--shapes {
-			  .shape_container_1 {
-				.cmp-shape--container {
-				  transform: translate(-150%, -100%);
-				}
-			  }
-			  .shape_container_2 {
-				.cmp-shape--container {
-				  transform: translate(-50%, -50%);
-				}
-			  }
-			  .shape_container_3 {
-				.cmp-shape--container {
-				  transform: translate(50%, -80%);
-				}
-			  }
-			}
-		  }
-		}
-	  }
+  .cmp-wrapper_banner--container-tri {
+    &.cmp-wrapper_banner--container {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container_1 {
+            .cmp-shape--container {
+              transform: translate(-150%, -100%);
+            }
+          }
+          .shape_container_2 {
+            .cmp-shape--container {
+              transform: translate(-50%, -50%);
+            }
+          }
+          .shape_container_3 {
+            .cmp-shape--container {
+              transform: translate(50%, -80%);
+            }
+          }
+        }
+      }
+    }
+  }
 }
-
-/*
-
-

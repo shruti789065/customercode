@@ -17,10 +17,11 @@
       }
       .button {
         display: flex;
+        .cmp-button {
           .cmp-button__text {
             font-family: $font-family-oswald;
-            border: .07rem solid $white;
-            padding: .7vw 1vw;
+            border: 0.07rem solid $white;
+            padding: 0.7vw 1vw;
             text-align: center;
             border-radius: 5rem;
             font-size: $font-size-min;
@@ -32,6 +33,10 @@
               box-shadow: 2px 2px 5px lightgray;
             }
           }
+          &:hover {
+            box-shadow: inherit;
+          }
+        }
       }
     }
 
@@ -56,18 +61,18 @@
         transform: scale(0.95);
         .button {
           display: flex;
-            .cmp-button__text {
-              border: .07rem solid $vibrant-azure;
-              color: $black;
-              &:hover {
-                background-color: $vibrant-azure;
-                color: $white;
-                box-shadow: 2px 2px 5px lightgray;
-              }
+          .cmp-button__text {
+            border: 0.07rem solid $vibrant-azure;
+            color: $black;
+            &:hover {
+              background-color: $vibrant-azure;
+              color: $white;
+              box-shadow: 2px 2px 5px lightgray;
             }
+          }
         }
       }
-      
+
       .container.responsivegrid:nth-child(1) {
         padding: 0px clamp(1rem, 1vw, 2rem) 0px clamp(1rem, 1vw, 2rem);
       }
@@ -81,7 +86,7 @@
           }
         }
       }
-      .languagenavigation {        
+      .languagenavigation {
         .cmp-languagenavigation {
           .cmp-languagenavigation__label {
             color: $black;
@@ -120,7 +125,7 @@
         > div {
           display: flex;
           align-items: center;
-        }        
+        }
       }
       .languagenavigation {
         font-family: $font-family-arimo;
@@ -135,7 +140,7 @@
           .cmp-image__image {
             padding-top: 10px;
           }
-        }        
+        }
       }
       .container.responsivegrid:nth-child(2) {
         position: relative;
@@ -203,7 +208,7 @@
       .cmp-navigation__item-link {
         color: $color-background;
         font-size: $font-size-min;
-        padding: .3rem .5rem;
+        padding: 0.3rem 0.5rem;
       }
     }
 
