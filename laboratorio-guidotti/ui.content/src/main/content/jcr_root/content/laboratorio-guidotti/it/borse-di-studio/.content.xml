@@ -2,11 +2,13 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-05-14T17:12:32.169+02:00"
-        cq:lastModifiedBy="admin"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-06-28T08:43:50.519Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/page-content"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Aree Terapeutiche"
+        jcr:title="Borse di Studio"
         sling:resourceType="laboratorio-guidotti/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -24,12 +26,20 @@
                     sling:resourceType="laboratorio-guidotti/components/containers/container"
                     layout="responsiveGrid">
                     <hero
+                        cq:styleIds="[1717487377935]"
                         jcr:created="{Date}2024-05-14T16:48:14.849+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-05-14T16:48:14.849+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2024-06-28T08:43:28.010Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="laboratorio-guidotti/components/hero"/>
+                        sling:resourceType="laboratorio-guidotti/components/hero"
+                        descriptionFromPage="true"
+                        fileReference="/content/dam/laboratorio-guidotti/assets/header/header-borse-studio.png"
+                        imageFromPageImage="false"
+                        isDecorative="true"
+                        linkTarget="_self"
+                        textIsRich="true"
+                        titleFromPage="true"/>
                     <section
                         jcr:created="{Date}2024-05-14T16:48:23.442+02:00"
                         jcr:createdBy="admin"
@@ -45,22 +55,29 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="laboratorio-guidotti/components/containers/wrapper">
                             <title
-                                jcr:created="{Date}2024-05-14T17:10:00.452+02:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-05-14T17:10:00.452+02:00"
-                                jcr:lastModifiedBy="admin"
+                                cq:styleIds="[1715868178818]"
+                                jcr:created="{Date}2024-06-17T14:08:26.279Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-06-28T08:43:43.722Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="laboratorio-guidotti/components/title"/>
+                                jcr:title="Borse di studio finanziate"
+                                sling:resourceType="laboratorio-guidotti/components/title"
+                                linkTarget="_self"
+                                type="h1"/>
+                            <text
+                                jcr:created="{Date}2024-06-17T14:09:42.800Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-06-28T08:43:50.496Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="laboratorio-guidotti/components/text"
+                                text="&lt;p>Laboratori Guidotti finanzia borse di studio in collaborazione con le principali università italiane.&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                textIsRich="true"/>
                         </wrapper>
                     </section>
                 </container>
             </container>
         </root>
     </jcr:content>
-    <area-respiratoria/>
-    <area-diabetologia/>
-    <area-dislipidemia/>
-    <area-ipertensione/>
-    <diabetologia/>
-    <altre-aree-terapeutiche/>
 </jcr:root>
