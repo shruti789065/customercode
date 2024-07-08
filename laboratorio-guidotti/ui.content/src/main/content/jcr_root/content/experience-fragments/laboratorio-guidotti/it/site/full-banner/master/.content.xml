@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-07-03T13:31:08.563Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Full Banner style 1"
+        jcr:uuid="f84ea89f-1a20-49df-ada4-c312fb3c3423"
+        sling:resourceType="laboratorio-guidotti/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="laboratorio-guidotti/components/containers/container"
+            layout="responsiveGrid">
+            <embed_copy
+                jcr:created="{Date}2024-07-01T12:37:31.260Z"
+                jcr:createdBy="d.mariotti@adiacent.com"
+                jcr:lastModified="{Date}2024-07-03T13:31:05.274Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="laboratorio-guidotti/components/embed"
+                html="&lt;div class=&quot;bg-image&quot;>&#xd;&#xa;&#x9;&lt;div class=&quot;button cmp-button--first-style cmp-button--small&quot; style=&quot;width: fit-content;&quot;>&#xd;&#xa;&#x9;&#x9;&lt;a class=&quot;cmp-button&quot; href=&quot;https://www.menarini.com&quot; target=&quot;_blank&quot;>&#xd;&#xa;&#x9;&#x9;&#x9;&lt;span class=&quot;cmp-button__text&quot;>Scopri di più&lt;/span>&#xd;&#xa;&#x9;&#x9;&lt;/a>&#xd;&#xa;&#x9;&lt;/div>&#xd;&#xa;&lt;/div>&#xd;&#xa;&#xd;&#xa;&lt;style type=&quot;text/css&quot;>&#xd;&#xa;&#x9;&#xd;&#xa;&#x9;.bg-image {&#xd;&#xa;&#x9;&#x9;background-image: url(/content/dam/laboratorio-guidotti/assets/temporary/full-banner.png);&#xd;&#xa;    &#x9;background-size: cover;&#xd;&#xa;    &#x9;background-repeat: no-repeat;&#xd;&#xa;    &#x9;background-position: center;&#xd;&#xa;    &#x9;width: 100%;&#xd;&#xa;    &#x9;height: auto;&#xd;&#xa;    &#x9;min-height: 650px;&#xd;&#xa;    &#x9;position: relative;&#xd;&#xa;    &#x9;text-align: center;&#xd;&#xa;&#x9;}&#xd;&#xa;&#x9;.bg-image .button {&#xd;&#xa;&#x9;&#x9;    margin: 0 auto;&#xd;&#xa;    &#x9;&#x9;width: fit-content;&#xd;&#xa;    &#x9;&#x9;padding-top: 310px;&#xd;&#xa;margin-left:40%;&#xd;&#xa;&#x9;}&#xd;&#xa;@media screen and (max-width: 600px) {&#xd;&#xa;  .bg-image .button{&#xd;&#xa;    margin-left:10%;&#xd;&#xa;  }&#xd;&#xa;}&#xd;&#xa;&lt;/style>"
+                type="html"/>
+        </root>
+        <cq:metadata
+            jcr:primaryType="nt:unstructured"
+            max-cols="1"
+            min-cols="1"/>
+    </jcr:content>
+</jcr:root>
