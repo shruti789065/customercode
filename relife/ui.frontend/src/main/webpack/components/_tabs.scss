@@ -46,6 +46,9 @@
 }
 .cmp-tabs__tabpanel {
     text-align: center;
-    width: $tab-panel-width;
+    width: 100%;
+    @include respond-to(laptop) {
+        max-width: $max-tab-panel-width;
+    }
 }
 .cmp-tabs__tabpanel--active {}
