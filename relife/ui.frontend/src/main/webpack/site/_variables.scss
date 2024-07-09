@@ -89,3 +89,17 @@ $topic-width: clamp($width-topic-min, 2.563vw + 7.129rem, $width-topic-max);
 $heigh-topic-min: 2.286rem;
 $heigh-topic-max: 2.786rem;
 $topic-height: clamp($heigh-topic-min, 0.438vw + 2.186rem, $heigh-topic-max);
+
+
+/* BORDERS */
+$lightgrey-border-color: rgba(11, 29, 44, 0.2);
+$darkgrey-border-color: $deepTeal;
+
+/*TABS STYLES*/
+$tab-font-size: clamp(1rem, 0.25vw + 0.943rem, 1.286rem);
+$tab-width: clamp(14.286rem, 2.5vw + 13.714rem, 17.143rem);
+$tab-height: clamp(3.429rem, 0.5vw + 3.314rem, 4rem);
+$tab-padding-top: clamp(0.286rem, 0.25vw + 0.229rem, 0.571rem);
+$tab-padding-bottom: clamp(1.714rem, -0.25vw + 1.771rem, 1.429rem);
+$tab-padding-lateral: clamp(1.143rem, -0.25vw + 1.2rem, 0.857rem);
+$tab-panel-width:clamp(23.929rem, 60.313vw + 10.143rem, 92.857rem);
