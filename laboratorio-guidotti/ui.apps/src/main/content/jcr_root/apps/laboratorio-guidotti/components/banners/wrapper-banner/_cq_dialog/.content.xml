@@ -55,6 +55,15 @@
 													     value="central-shape"/>
 												</items>
 											</bannerType>
+											<invertPosition
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+													checked="{Boolean}false"
+													fieldDescription="Move shapes on the left of the component"
+													name="./invertPosition"
+													text="Shapes on left"
+													uncheckedValue="false"
+													value="true"/>
 										</items>
 									</column>
 								</items>

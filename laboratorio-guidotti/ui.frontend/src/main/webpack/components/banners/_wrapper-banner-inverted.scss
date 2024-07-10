@@ -1,0 +1,56 @@
+@import "wrapper-banner";
+
+.cmp-wrapper_banner--container {
+  &.cmp-wrapper_banner--inverted-content {
+    .cmp-banner--content--shapes {
+      order: 1 !important;
+    }
+    .cmp-banner--content--typo {
+      order: 2 !important;
+    }
+  }
+}
+
+/* BANNER CENTRAL*/
+.cmp-wrapper_banner--container-central {
+  &.cmp-wrapper_banner--inverted-content {
+  }
+}
+/* BANNER MONO*/
+.cmp-wrapper_banner--container-mono {
+  &.cmp-wrapper_banner--inverted-content {
+  }
+}
+/* BANNER BI*/
+.cmp-wrapper_banner--container-bi {
+  &.cmp-wrapper_banner--inverted-content {
+    .cmp-banner--content {
+      &.cmp-banner--content--typo {
+        .text {
+          .cmp-text {
+            p {
+              text-align: start;
+            }
+          }
+        }
+        .button {
+          justify-content: start;
+        }
+      }
+    }
+  }
+}
+/* BANNER TRI*/
+.cmp-wrapper_banner--container-tri {
+  &.cmp-wrapper_banner--inverted-content {
+    .cmp-banner--content {
+      &.cmp-banner--content--shapes {
+        .shape_container_1 {
+          .cmp-shape--container {
+			transform: translate(-70%, -70%);
+          }
+        }
+      }
+    }
+  }
+}

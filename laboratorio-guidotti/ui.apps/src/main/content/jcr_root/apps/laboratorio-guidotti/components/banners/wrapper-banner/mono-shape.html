@@ -13,8 +13,8 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<template data-sly-template.bannerMonoShape="">
-	<div class="cmp-wrapper_banner--container cmp-wrapper_banner--container-mono">
+<template data-sly-template.bannerMonoShape="${@ isInverted}">
+	<div class="cmp-wrapper_banner--container cmp-wrapper_banner--container-mono ${isInverted ? 'cmp-wrapper_banner--inverted-content' : ''}">
 		<sly data-sly-resource="${ 'container_typo' @ resourceType='laboratorio-guidotti/components/banners/wrapper-banner/container_typo', decorationTagName='div', cssClassName='cmp-banner--content cmp-banner--content--typo' }"
 		     data-sly-unwrap></sly>
 		<div class="cmp-banner--content cmp-banner--content--shapes">
