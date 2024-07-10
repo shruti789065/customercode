@@ -31,10 +31,11 @@ const MenuTabs = (() => {
     window.addEventListener("resize", _isMobileWindowSize);
 
     if (!_isDesktop() || _isMobileWindowSize()) {
-      setupMobileMenu();
     } else {
-      setupDesktopMenu();
     }
+    setupDesktopMenu();
+    setupMobileMenu();
+    _isMobileWindowSize();
     setShareHref(elementsWithClass, currentUrl);
   }
 
@@ -116,8 +117,8 @@ const MenuTabs = (() => {
   function _isMobileWindowSize() {
     const w = document.documentElement.clientWidth;
     const tablist = $(".cmp-tabs__tablist");
-    tablist.toggleClass("cmp-tabs__tablist_mobile", w < 1200);
-    return w < 1200;
+    tablist.toggleClass("cmp-tabs__tablist_mobile", w <= 1200);
+    return w <= 1200;
   }
 
   function _addWhiteMenu() {
