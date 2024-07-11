@@ -62,9 +62,12 @@
 
     .container.responsivegrid:nth-child(1) {
       position: relative;
-      padding: clamp(1.5rem, 4vw, 2.5rem);
+      padding: clamp(0.5rem, 4vw, 2.5rem);
       .cmp-image {
-        width: clamp(11.875rem, 1.5vw, 16.25rem);
+        //width: clamp(11.875rem, 1.5vw, 16.25rem);
+        img {
+          height: 4rem;
+        }
       }
       .button {
         height: 100%;

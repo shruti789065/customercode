@@ -18,6 +18,7 @@
       .button {
         display: flex;
         .cmp-button {
+          padding: 0 2rem 0 0;
           .cmp-button__text {
             font-family: $font-family-oswald;
             border: 0.07rem solid $white;
@@ -136,9 +137,10 @@
       .container.responsivegrid:nth-child(1) {
         position: relative;
         .cmp-image {
-          width: clamp(10rem, 1.5vw, 16.25rem);
+          //width: clamp(10rem, 1.5vw, 16.25rem);
           .cmp-image__image {
             padding-top: 10px;
+            height: 5.5rem;
           }
         }
       }
