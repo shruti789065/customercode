@@ -1,53 +1,140 @@
 @import "wrapper-banner";
-
-.cmp-wrapper_banner--container {
-  &.cmp-wrapper_banner--inverted-content {
-    .cmp-banner--content--shapes {
-      order: 1 !important;
+@include respond-to(tablet) {
+  .cmp-wrapper_banner--container {
+    &.cmp-wrapper_banner--inverted-content {
+      .cmp-banner--content--shapes {
+        order: 1 !important;
+      }
+      .cmp-banner--content--typo {
+        order: 2 !important;
+      }
     }
-    .cmp-banner--content--typo {
-      order: 2 !important;
+  }
+
+  /* BANNER CENTRAL*/
+  .cmp-wrapper_banner--container-central {
+    &.cmp-wrapper_banner--inverted-content {
+      .cmp-banner--content {
+        .shape_container_1 {
+          .cmp-shape--container {
+            transform: translate(-50%, -50%);
+          }
+        }
+        .shape_container_2 {
+          .cmp-shape--container {
+            transform: translate(-100%, -20%);
+          }
+        }
+      }
     }
   }
-}
-
-/* BANNER CENTRAL*/
-.cmp-wrapper_banner--container-central {
-  &.cmp-wrapper_banner--inverted-content {
-  }
-}
-/* BANNER MONO*/
-.cmp-wrapper_banner--container-mono {
-  &.cmp-wrapper_banner--inverted-content {
-  }
-}
-/* BANNER BI*/
-.cmp-wrapper_banner--container-bi {
-  &.cmp-wrapper_banner--inverted-content {
-    .cmp-banner--content {
-      &.cmp-banner--content--typo {
-        .text {
-          .cmp-text {
-            p {
-              text-align: start;
+  /* BANNER MONO*/
+  .cmp-wrapper_banner--container-mono {
+    &.cmp-wrapper_banner--inverted-content {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container {
+            .cmp-shape--container {
+              transform: translate(-50%, -50%);
             }
           }
         }
-        .button {
-          justify-content: start;
+      }
+    }
+  }
+  /* BANNER BI*/
+  .cmp-wrapper_banner--container-bi {
+    &.cmp-wrapper_banner--inverted-content {
+      .cmp-banner--content {
+        .shape_container_1 {
+          .cmp-shape--container {
+            transform: translate(-20%, -70%);
+          }
+        }
+        .shape_container_2 {
+          .cmp-shape--container {
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+  }
+  /* BANNER TRI*/
+  .cmp-wrapper_banner--container-tri {
+    &.cmp-wrapper_banner--inverted-content {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container_1 {
+            .cmp-shape--container {
+              transform: translate(0, -50%);
+            }
+          }
+          .shape_container_2 {
+            .cmp-shape--container {
+              transform: translate(-50%, -50%);
+            }
+          }
+          .shape_container_3 {
+            .cmp-shape--container {
+              transform: translate(-150%, -80%);
+            }
+          }
         }
       }
     }
   }
 }
-/* BANNER TRI*/
-.cmp-wrapper_banner--container-tri {
-  &.cmp-wrapper_banner--inverted-content {
+
+@include respond-to(laptop) {
+  .cmp-wrapper_banner--container-central {
     .cmp-banner--content {
       &.cmp-banner--content--shapes {
         .shape_container_1 {
           .cmp-shape--container {
-			transform: translate(-70%, -70%);
+            transform: translate(-20%, -50%);
+          }
+        }
+        .shape_container_2 {
+          .cmp-shape--container {
+            transform: translate(-110%, -40%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .cmp-wrapper_banner--container-central {
+    .cmp-banner--content {
+      &.cmp-banner--content--shapes {
+        .shape_container_1 {
+          .cmp-shape--container {
+            transform: translate(-20%, -50%);
+          }
+        }
+        .shape_container_2 {
+          .cmp-shape--container {
+            transform: translate(-110%, -30%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(high-definition) {
+  .cmp-wrapper_banner--container-central {
+    .cmp-banner--content {
+      &.cmp-banner--content--shapes {
+        .shape_container_1 {
+          .cmp-shape--container {
+            transform: translate(-20%, -50%);
+          }
+        }
+        .shape_container_2 {
+          .cmp-shape--container {
+            transform: translate(-110%, -30%);
           }
         }
       }

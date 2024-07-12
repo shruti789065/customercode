@@ -13,6 +13,17 @@
   align-content: center;
   order: 1;
   justify-content: center;
+  /*  flex-wrap: wrap;
+  padding: 1rem;
+  width: clamp(18.75rem, 25vw + 13.75rem, 43.75rem); */
+  .text {
+    &.text-left,
+    &.text-right {
+      p {
+        text-align: center !important;
+      }
+    }
+  }
 }
 .cmp-banner--content--text {
   .cmp-text {
@@ -41,6 +52,7 @@
 @include respond-to(tablet) {
   .cmp-banner--content {
     flex: 1;
+	max-width: $breakpoint-tablet;
     &.cmp-banner--content--typo {
       order: 2;
     }
@@ -48,6 +60,23 @@
       order: 2;
       .cmp-shape--container {
         transform: translate(-40%, -50%);
+      }
+    }
+  }
+}
+@include respond-to(laptop) {
+  .cmp-banner--content--typo {
+    flex-wrap: nowrap;
+    .text {
+      &.text-left {
+        p {
+          text-align: left !important;
+        }
+      }
+      &.text-right {
+        p {
+          text-align: right !important;
+        }
       }
     }
   }
