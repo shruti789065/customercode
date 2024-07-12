@@ -78,7 +78,7 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2024-06-19T16:30:37.808+02:00"
+                    jcr:lastModified="{Date}2024-07-09T17:15:25.848+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text Guidotti policy"
@@ -171,11 +171,16 @@
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
+                                    cq:styleClasses="text-left"
+                                    cq:styleId="1720538102456"
+                                    cq:styleLabel="Left"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
                                     cq:styleClasses="text-center"
                                     cq:styleId="1718789060566"
                                     cq:styleLabel="Center"
                                     jcr:primaryType="nt:unstructured"/>
-                                <item1
+                                <item2
                                     cq:styleClasses="text-right"
                                     cq:styleId="1718789061146"
                                     cq:styleLabel="Right"
@@ -726,11 +731,12 @@
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_453888387334500>
                     <policy_787266077077700
-                        jcr:lastModified="{Date}2024-07-02T16:33:20.450+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2024-07-08T14:42:42.299Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Guidotti container policy"
                         sling:resourceType="wcm/core/components/policy/policy"
+                        allowedColorSwatches="[#00adf2,#007fff,#EEEEE4,#EBEBEB]"
                         backgroundColorEnabled="true"
                         backgroundImageEnabled="true"
                         layoutDisabled="false">
@@ -1283,8 +1289,8 @@
             </card>
             <shape_container jcr:primaryType="nt:unstructured">
                 <policy_1718265530169
-                    jcr:lastModified="{Date}2024-07-04T09:57:16.085+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2024-07-08T13:14:16.607Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Shape Container Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
@@ -1400,6 +1406,21 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1720102217639>
             </timeline_object>
+            <banners jcr:primaryType="nt:unstructured">
+                <section_banner jcr:primaryType="nt:unstructured">
+                    <policy_1720801715672
+                        jcr:lastModified="{Date}2024-07-12T18:29:02.170+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Section Banner policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        backgroundColorEnabled="true"
+                        backgroundImageEnabled="true"
+                        layoutDisabled="true">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1720801715672>
+                </section_banner>
+            </banners>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">
