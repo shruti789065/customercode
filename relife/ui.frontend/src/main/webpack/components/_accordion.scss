@@ -3,6 +3,9 @@
     .cmp-accordion__item {}
     .cmp-accordion__header {}
     .cmp-accordion__button {
+        cursor: pointer;
+        background: transparent;
+        border: none;        
         border-bottom: 1px solid;
         border-color: $lightgrey-border-color;
         border-radius: 0px; 
@@ -15,18 +18,29 @@
         padding-top: 1.429rem;        
         line-height: $accordion-button-line-height;
         font-size: $accordion-button-font-size;
-    }
-    .cmp-accordion__button--expanded {}
-    .cmp-accordion__title {
-        font-family: $font-family-title;    
-    }
-    .cmp-accordion__icon {
-        &::before {
+        display: flex;
+        justify-content: space-between;
+
+        .cmp-accordion__title {
+            font-family: $font-family-title;    
+        }
+        .cmp-accordion__icon {
+            position: initial;     
             content: " ";
-            background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/freccia-down.svg") right center no-repeat;
-            width: 20px;
-            height: 20px;            
-        }        
+            background: url("https://www.menarini.pt/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/listMenuBoxRed.svg") center center no-repeat;
+            width: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem);
+            height: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem); 
+            background-size: contain;
+            &::before {
+                display: none;
+            }
+        }
+        &.cmp-accordion__button--expanded {
+            .cmp-accordion__icon {            
+                background: url("https://www.menarini.pt/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/listMenuBoxRed.svg") center center no-repeat;     
+                background-size: contain;                    
+            }       
+        }          
     }
     .cmp-accordion__panel {}
     .cmp-accordion__panel--expanded {}
