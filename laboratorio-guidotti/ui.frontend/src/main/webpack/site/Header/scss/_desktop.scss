@@ -55,7 +55,12 @@
     }
 
     &.scrolled {
-      background-color: white;
+      background: $white;
+      background: linear-gradient(180deg, $white 0%, $white 60%, rgba(255, 255, 255, 0.65) 60%, rgba(255, 255, 255, 0.65) 100%);
+        -webkit-box-shadow: 0 4px 6px -6px $darkgray;
+        -moz-box-shadow: 0 4px 6px -6px $darkgray;
+      box-shadow: 0 1px 6px 0px $darkgray;
+
       #navbar {
         transform: scale(0.95);
         .button {
@@ -66,7 +71,7 @@
             &:hover {
               background-color: $vibrant-azure;
               color: $white;
-              box-shadow: 2px 2px 5px lightgray;
+              box-shadow: 2px 2px 5px $lightgray;
             }
           }
         }
