@@ -9,6 +9,7 @@
   header.experiencefragment {
     #navbar {
       transition: transform 0.3s ease;
+      padding: 0 2rem;
       .xf-master-building-block {
         display: flex;
         justify-content: flex-end;
@@ -39,11 +40,7 @@
           }
         }
       }
-    }
-
-    .container.responsivegrid:nth-child(1) {
-      transition: $standard-transition;
-      padding: 0px clamp(0.7rem, 4vw, 1.7rem) 0px clamp(0.7rem, 4vw, 1.7rem);
+      #logo-guidotti {}
     }
 
     .container.responsivegrid:nth-child(2) {
@@ -58,6 +55,7 @@
     }
 
     &.scrolled {
+      background-color: white;
       #navbar {
         transform: scale(0.95);
         .button {
@@ -72,21 +70,20 @@
             }
           }
         }
-      }
-
-      .container.responsivegrid:nth-child(1) {
-        padding: 0px clamp(1rem, 1vw, 2rem) 0px clamp(1rem, 1vw, 2rem);
-      }
-      .container.responsivegrid:nth-child(2) {
-        .cmp-navigation {
-          > .cmp-navigation__group {
-            transform: scale(0.95);
-            .cmp-navigation__item-link {
-              //padding: 1rem;
+        #logo-guidotti {
+          .image {
+            .cmp-image {
+              .cmp-image__image {
+                height: 4rem;
+              }
             }
           }
         }
+        .cmp-navigation {
+          border-top: 0.063rem solid $vibrant-azure;
+        }
       }
+
       .languagenavigation {
         .cmp-languagenavigation {
           .cmp-languagenavigation__label {
@@ -141,6 +138,7 @@
           .cmp-image__image {
             padding-top: 10px;
             height: 5.5rem;
+            transition: $standard-transition;
           }
         }
       }
@@ -158,6 +156,7 @@
 
     .cmp-navigation {
       background-color: rgba($color-background, 0.7);
+      transition:  $standard-transition;
     }
     .cmp-navigation__group {
       display: flex;
@@ -172,7 +171,7 @@
     .cmp-navigation__item-link {
       color: $deep-blue;
       font-size: 1.12rem;
-      padding: 1.2rem 1rem;
+      padding: 0.8rem 1rem;
       font-weight: $oswald-weight-regular;
     }
 
