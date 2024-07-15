@@ -27,18 +27,20 @@
         .cmp-accordion__icon {
             position: initial;     
             content: " ";
-            background: url("https://www.menarini.pt/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/listMenuBoxRed.svg") center center no-repeat;
+            background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg") center center no-repeat;
             width: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem);
             height: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem); 
             background-size: contain;
+			transition: $standard-transition;
             &::before {
                 display: none;
             }
         }
         &.cmp-accordion__button--expanded {
             .cmp-accordion__icon {            
-                background: url("https://www.menarini.pt/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/images/icons/listMenuBoxRed.svg") center center no-repeat;     
-                background-size: contain;                    
+                background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg") center center no-repeat;     
+                background-size: contain;   
+				transform: rotate(180deg);                 
             }       
         }          
     }

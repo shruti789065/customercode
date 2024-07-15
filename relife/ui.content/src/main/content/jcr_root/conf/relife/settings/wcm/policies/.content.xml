@@ -238,7 +238,7 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2024-07-03T14:51:11.904+02:00"
+                    jcr:lastModified="{Date}2024-07-01T16:21:41.718+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
@@ -279,10 +279,13 @@
                 </policy_649128221558427>
                 <policy_1575040440977
                     jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:lastModified="{Date}2024-07-01T10:47:17.105+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Relife - Content,/apps/relife/components/form/container]">
+                    components="[group:Relife - Content,/apps/relife/components/form/container,/apps/relife/components/search]"
+                    layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -378,13 +381,37 @@
                         </cq:authoring>
                     </policy_1719582995958>
                 </container>
+                <wrapper jcr:primaryType="nt:unstructured">
+                    <policy_1719824277018
+                        jcr:lastModified="{Date}2024-07-01T10:58:23.845+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Wrapper Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:Relife - Content,group:Relife - Form,group:Relife - Structure]"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1719824277018>
+                </wrapper>
+                <section jcr:primaryType="nt:unstructured">
+                    <policy_1719824310667
+                        jcr:lastModified="{Date}2024-07-01T10:58:49.998+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Section Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/relife/components/containers/wrapper"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1719824310667>
+                </section>
             </containers>
             <button jcr:primaryType="nt:unstructured">
-                <policy_1720011126335
-                    jcr:lastModified="{Date}2024-07-03T14:53:58.241+02:00"
+                <policy_1721037206735
+                    jcr:lastModified="{Date}2024-07-15T11:55:00.384+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Button policy"
+                    jcr:title="Button Policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -394,23 +421,23 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="cmp-button-primary"
-                                    cq:styleId="1720011175372"
+                                    cq:styleId="1721037261398"
                                     cq:styleLabel="Primary"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="cmp-button-secondary"
-                                    cq:styleId="1720011210022"
+                                    cq:styleId="1721037271183"
                                     cq:styleLabel="Secondary"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item2
                                     cq:styleClasses="cmp-button-topic"
-                                    cq:styleId="1720011224538"
+                                    cq:styleId="1721037275672"
                                     cq:styleLabel="Topic"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
                     </cq:styleGroups>
-                </policy_1720011126335>
+                </policy_1721037206735>
             </button>
         </components>
     </relife>
