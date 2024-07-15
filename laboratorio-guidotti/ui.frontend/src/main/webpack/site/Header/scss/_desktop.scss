@@ -9,6 +9,7 @@
   header.experiencefragment {
     #navbar {
       transition: transform 0.3s ease;
+      padding: 0 2rem;
       .xf-master-building-block {
         display: flex;
         justify-content: flex-end;
@@ -18,6 +19,7 @@
       .button {
         display: flex;
         .cmp-button {
+          padding: 0 2rem 0 0;
           .cmp-button__text {
             font-family: $font-family-oswald;
             border: 0.07rem solid $white;
@@ -30,7 +32,7 @@
             &:hover {
               background-color: $white;
               color: $vibrant-azure;
-              box-shadow: 2px 2px 5px lightgray;
+              box-shadow: 2px 2px 5px lightGray;
             }
           }
           &:hover {
@@ -38,11 +40,7 @@
           }
         }
       }
-    }
-
-    .container.responsivegrid:nth-child(1) {
-      transition: $standard-transition;
-      padding: 0px clamp(0.7rem, 4vw, 1.7rem) 0px clamp(0.7rem, 4vw, 1.7rem);
+      #logo-guidotti {}
     }
 
     .container.responsivegrid:nth-child(2) {
@@ -57,6 +55,12 @@
     }
 
     &.scrolled {
+      background: $white;
+      background: linear-gradient(180deg, $white 0%, $white 60%, rgba(255, 255, 255, 0.65) 60%, rgba(255, 255, 255, 0.65) 100%);
+        -webkit-box-shadow: 0 4px 6px -6px $darkGray;
+        -moz-box-shadow: 0 4px 6px -6px $darkGray;
+      box-shadow: 0 1px 6px 0px $darkGray;
+
       #navbar {
         transform: scale(0.95);
         .button {
@@ -67,25 +71,24 @@
             &:hover {
               background-color: $vibrant-azure;
               color: $white;
-              box-shadow: 2px 2px 5px lightgray;
+              box-shadow: 2px 2px 5px $lightGray;
             }
           }
+        }
+        #logo-guidotti {
+          .image {
+            .cmp-image {
+              .cmp-image__image {
+                height: 4rem;
+              }
+            }
+          }
+        }
+        .cmp-navigation {
+          border-top: 0.063rem solid $vibrant-azure;
         }
       }
 
-      .container.responsivegrid:nth-child(1) {
-        padding: 0px clamp(1rem, 1vw, 2rem) 0px clamp(1rem, 1vw, 2rem);
-      }
-      .container.responsivegrid:nth-child(2) {
-        .cmp-navigation {
-          > .cmp-navigation__group {
-            transform: scale(0.95);
-            .cmp-navigation__item-link {
-              //padding: 1rem;
-            }
-          }
-        }
-      }
       .languagenavigation {
         .cmp-languagenavigation {
           .cmp-languagenavigation__label {
@@ -136,9 +139,11 @@
       .container.responsivegrid:nth-child(1) {
         position: relative;
         .cmp-image {
-          width: clamp(10rem, 1.5vw, 16.25rem);
+          //width: clamp(10rem, 1.5vw, 16.25rem);
           .cmp-image__image {
             padding-top: 10px;
+            height: 5.5rem;
+            transition: $standard-transition;
           }
         }
       }
@@ -156,6 +161,7 @@
 
     .cmp-navigation {
       background-color: rgba($color-background, 0.7);
+      transition:  $standard-transition;
     }
     .cmp-navigation__group {
       display: flex;
@@ -170,7 +176,7 @@
     .cmp-navigation__item-link {
       color: $deep-blue;
       font-size: 1.12rem;
-      padding: 1.2rem 1rem;
+      padding: 0.8rem 1rem;
       font-weight: $oswald-weight-regular;
     }
 

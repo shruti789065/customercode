@@ -16,76 +16,55 @@
     ),
   };
 
-  /**
-   * Initializes the Header
-   *
-   * @public
-   */
   function init() {
-    if (HEADER.allHeaders) {
-      window.addEventListener("scroll", function () {
-        HEADER.allHeaders.forEach((el) => {
-          if (window.scrollY > 0) {
-            el.classList.add("scrolled");
-          } else {
-            el.classList.remove("scrolled");
-          }
-        });
-      });
+    if (!HEADER.allHeaders) return;
 
-      HEADER.menuItemsFirstLevel.forEach(function (el) {
-        const group = el.querySelector(".cmp-navigation__group");
-        if (group) {
-          const link = el.querySelector(".cmp-navigation__item-link");
+    window.addEventListener("scroll", handleScroll);
+    HEADER.menuItemsFirstLevel.forEach(addToggleFunctionality);
+    HEADER.toggleButton.addEventListener("click", toggleNavbar);
 
-          // Create the toggle icon element
-          const toggleIcon = document.createElement("span");
-          toggleIcon.classList.add("toggle-icon");
+    document.body.addEventListener("click", closeNavbarOnClickOutside);
+  }
 
-          // Append the toggle icon to the link
-          link.appendChild(toggleIcon);
+  function handleScroll() {
+    HEADER.allHeaders.forEach((el) => {
+      el.classList.toggle("scrolled", window.scrollY > 0);
+    });
+  }
 
-          toggleIcon.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+  function addToggleFunctionality(el) {
+    const group = el.querySelector(".cmp-navigation__group");
+    if (!group) return;
 
-            // Check if the clicked menu is already open
-            const isOpen = group.classList.contains("is-visible");
+    const link = el.querySelector(".cmp-navigation__item-link");
+    const toggleIcon = createToggleIcon();
 
-            // Close all other open menus
-            closeAllMenus();
+    link.appendChild(toggleIcon);
 
-            // Toggle the current menu based on its previous state
-            if (!isOpen) {
-              group.classList.add("is-visible");
-              link.classList.add("is-open");
-            }
-          });
+    toggleIcon.addEventListener("click", (e) => toggleMenu(e, group, link));
+    link.addEventListener("click", (e) => toggleMenu(e, group, link));
+  }
 
-          // Also handle clicks on the link itself
-          link.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation(); // Prevent the click from bubbling up
+  function createToggleIcon() {
+    const toggleIcon = document.createElement("span");
+    toggleIcon.classList.add("toggle-icon");
+    return toggleIcon;
+  }
 
-            // Check if the clicked menu is already open
-            const isOpen = group.classList.contains("is-visible");
+  function toggleMenu(e, group, link) {
+    e.preventDefault();
+    e.stopPropagation();
 
-            // Close all other open menus
-            closeAllMenus();
+    const isOpen = group.classList.contains("is-visible");
 
-            // Toggle the current menu based on its previous state
-            if (!isOpen) {
-              group.classList.add("is-visible");
-              link.classList.add("is-open");
-            }
-          });
-        }
-      });
+    closeAllMenus();
+
+    if (!isOpen) {
+      group.classList.add("is-visible");
+      link.classList.add("is-open");
     }
   }
-  /**
-   * Closes all open menus
-   */
+
   function closeAllMenus() {
     HEADER.menuItemsFirstLevel.forEach((el) => {
       const group = el.querySelector(".cmp-navigation__group");
@@ -97,23 +76,17 @@
     });
   }
 
-  function toggleNavbar() {
-    if (HEADER.navbarMobile) {
-      HEADER.navbarMobile.style.display =
-        HEADER.navbarMobile.style.display === "none" ||
-        HEADER.navbarMobile.style.display === ""
-          ? "block"
-          : "none";
-    }
-  }
-
-  HEADER.toggleButton.addEventListener("click", (e) => {
+  function toggleNavbar(e) {
     e.preventDefault();
     e.stopPropagation();
-    toggleNavbar();
-  });
+    HEADER.navbarMobile.style.display =
+      HEADER.navbarMobile.style.display === "none" ||
+      HEADER.navbarMobile.style.display === ""
+        ? "block"
+        : "none";
+  }
 
-  document.body.addEventListener("click", (e) => {
+  function closeNavbarOnClickOutside(e) {
     if (
       HEADER.navbarMobile &&
       !HEADER.mobile.contains(e.target) &&
@@ -122,11 +95,8 @@
       HEADER.navbarMobile.style.display = "none";
       console.log("BODY CLICKED");
     }
-  });
+  }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    init();
-  });
+  document.addEventListener("DOMContentLoaded", init);
 })();
-
 /* eslint-disable max-len */

@@ -1,4 +1,4 @@
-.cmp-wrapper_banner--container {
+.cmp-section_banner--container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -8,23 +8,7 @@
 .cmp-banner--content {
   display: flex;
 }
-.cmp-banner--content--typo {
-  flex-direction: column;
-  align-content: center;
-  order: 1;
-  justify-content: center;
-  /*  flex-wrap: wrap;
-  padding: 1rem;
-  width: clamp(18.75rem, 25vw + 13.75rem, 43.75rem); */
-  .text {
-    &.text-left,
-    &.text-right {
-      p {
-        text-align: center !important;
-      }
-    }
-  }
-}
+
 .cmp-banner--content--text {
   .cmp-text {
     font-size: clamp(1rem, 60vw, 1.5rem);
@@ -52,10 +36,7 @@
 @include respond-to(tablet) {
   .cmp-banner--content {
     flex: 1;
-	max-width: $breakpoint-tablet;
-    &.cmp-banner--content--typo {
-      order: 2;
-    }
+    max-width: $breakpoint-tablet;
     &.cmp-banner--content--shapes {
       order: 2;
       .cmp-shape--container {
@@ -65,21 +46,6 @@
   }
 }
 @include respond-to(laptop) {
-  .cmp-banner--content--typo {
-    flex-wrap: nowrap;
-    .text {
-      &.text-left {
-        p {
-          text-align: left !important;
-        }
-      }
-      &.text-right {
-        p {
-          text-align: right !important;
-        }
-      }
-    }
-  }
 }
 /*
 
