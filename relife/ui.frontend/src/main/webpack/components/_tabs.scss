@@ -25,14 +25,15 @@
     padding-bottom: $tab-padding-bottom;
     padding-left: $tab-padding-lateral;
     padding-right: $tab-padding-lateral;
-    text-align: center;  
-    font-weight: $title-light; 
+    text-align: center;
+    font-family: $title-light;
 }
 
 .cmp-tabs__tab--active {
     position: relative;
     border-bottom: none;
-    font-weight: "GothamMedium";
+    font-family: $title-medium;
+
     &::after {
         height: 4px;
         width:100%;
