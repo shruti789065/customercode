@@ -1,142 +1,111 @@
 @font-face {
-    font-family: 'Vermiglione';
-    src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Vermiglione/vermiglione_it.ttf') format('woff2-variations');
-    font-weight: 200 700; /* Intervallo dei pesi */
+  font-family: "Vermiglione";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Vermiglione/vermiglione_it.ttf")
+    format("woff2-variations");
+  font-weight: 200 700; /* Intervallo dei pesi */
 }
 
+@font-face {
+  font-family: "GothamLight";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLight/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLight/font.woff")
+      format("woff");
+}
 
 @font-face {
-	font-family: "GothamLight";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLight/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLight/font.woff') format('woff');
+  font-family: "GothamMedium";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMedium/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMedium/font.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "GothamBold";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBold/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBold/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamBook";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBook/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBook/font.woff")
+      format("woff");
+}
+
+/*ITALIC*/
+
+@font-face {
+  font-family: "GothamBoldItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBoldItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBoldItalic/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamMediumItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMediumItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMediumItalic/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamBookItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBookItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBookItalic/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamLightItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLightItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLightItalic/font.woff")
+      format("woff");
+}
+
+.cmp-title--light {
+  .cmp-title__text {
+    font-family: "GothamLight";
   }
-  @font-face {
-	font-family: "GothamExtraLightItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamExtraLightItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamExtraLightItalic/font.woff') format('woff');
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamLightItalic";
+    }
   }
-  @font-face {
-	font-family: "GothamThin";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamThin/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamThin/font.woff') format('woff');
+}
+
+.cmp-title--book {
+  .cmp-title__text {
+    font-family: "GothamBook";
   }
-  @font-face {
-	font-family: "GothamLightItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLightItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLightItalic/font.woff') format('woff');
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamBookItalic";
+    }
   }
-  @font-face {
-	font-family: "GothamBoldItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBoldItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBoldItalic/font.woff') format('woff');
+}
+
+.cmp-title--medium {
+  .cmp-title__text {
+    font-family: "GothamMedium";
   }
-  
-  @font-face {
-	font-family: "GothamExtraLight";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamExtraLight/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamExtraLight/font.woff') format('woff');
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamMediumItalic";
+    }
   }
-  @font-face {
-	font-family: "GothamThinItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamThinItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamThinItalic/font.woff') format('woff');
+}
+.cmp-title--bold {
+  .cmp-title__text {
+    font-family: "GothamBold";
   }
-  
-  @font-face {
-	font-family: "GothamUltra";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamUltra/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamUltra/font.woff') format('woff');
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamBoldItalic";
+    }
   }
-  @font-face {
-	font-family: "GothamBlack";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBlack/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBlack/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamUltraItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamUltraItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamUltraItalic/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamMedium";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMedium/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMedium/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamMediumItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMediumItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMediumItalic/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamBlackItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBlackItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBlackItalic/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamBold";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBold/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBold/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedUltra";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedUltra/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedUltra/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedExtraBlackItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraBlackItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraBlackItalic/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedUltraItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedUltraItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedUltraItalic/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedExtraBlack";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraBlack/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraBlack/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedBlackItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBlackItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBlackItalic/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedBlack";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBlack/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBlack/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedBoldItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBoldItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBoldItalic/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedMediumItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedMediumItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedMediumItalic/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedMedium";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedMedium/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedMedium/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedLight";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedLight/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedLight/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedLightItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedLightItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedLightItalic/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedThinItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedThinItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedThinItalic/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedExtraLight";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraLight/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraLight/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedBold";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBold/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedBold/font.woff') format('woff');
-  }
-  @font-face {
-	font-family: "GothamCondensedExtraLightItalic";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraLightItalic/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedExtraLightItalic/font.woff') format('woff');
-  }
-  
-  @font-face {
-	font-family: "GothamCondensedThin";
-	src: url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedThin/font.woff2') format('woff2'), url('/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamCondensedThin/font.woff') format('woff');
-  }
-  
-  
-  
-  
+}
