@@ -1,0 +1,183 @@
+.timeline {
+    .timeline_row {
+        display: flex;
+        flex-direction: column;
+        
+        // Per le righe dispari
+        &:nth-child(odd) {
+            .timeline_object:nth-child(1) {
+                order: 1;
+            }
+            .timeline_object:nth-child(2) {
+                order: 2;
+            }
+            .timeline_object:nth-child(3) {
+                order: 3;
+            }
+        }
+
+        // Per le righe pari
+        &:nth-child(even) {
+            .timeline_object:nth-child(1) {
+                order: 1;
+            }
+            .timeline_object:nth-child(2) {
+                order: 2;
+            }
+            .timeline_object:nth-child(3) {
+                order: 3;
+            }
+        }
+
+        .timeline_object {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // Stili comuni a tutti gli oggetti
+        }
+
+        .timeline_object:nth-child(1) {
+            // Stili specifici per il primo oggetto
+        }
+
+        .timeline_object:nth-child(2) {
+            // Stili specifici per il secondo oggetto
+        }
+
+        .timeline_object:nth-child(3) {
+            // Stili specifici per il terzo oggetto
+        }
+
+    }
+}
+
+@include respond-to(tablet) {
+    .timeline {
+        .timeline_row {
+            display: flex;
+            flex-direction: row;            
+
+            // Per le righe dispari
+            &:nth-child(odd) {
+                .timeline_object:nth-child(1) {
+                    order: 1;
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 3;
+                }
+            }
+
+            // Per le righe pari
+            &:nth-child(even) {
+                .timeline_object:nth-child(1) {
+                    order: 3;
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 1;
+                }
+            }
+
+            .timeline_object {
+                width: 33%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .timeline_object:nth-child(1) {
+                // Stili specifici per il primo oggetto
+            }
+    
+            .timeline_object:nth-child(2) {
+                // Stili specifici per il secondo oggetto
+            }
+    
+            .timeline_object:nth-child(3) {
+                // Stili specifici per il terzo oggetto
+            }
+            
+        }
+    }
+}
+
+@include respond-to(desktop) {
+    .timeline {
+        .timeline_row {
+            display: flex;
+            flex-direction: row;
+
+            // Per le righe dispari
+            &:nth-child(odd) {
+                .timeline_object:nth-child(1) {
+                    order: 1;
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 3;
+                }
+            }
+
+            // Per le righe pari
+            &:nth-child(even) {
+                .timeline_object:nth-child(1) {
+                    order: 3;
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 1;
+                }
+            }
+
+            .timeline_object {
+                width: 33%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .timeline_object:nth-child(1) {
+                // Stili specifici per il primo oggetto
+            }
+    
+            .timeline_object:nth-child(2) {
+                // Stili specifici per il secondo oggetto
+            }
+    
+            .timeline_object:nth-child(3) {
+                // Stili specifici per il terzo oggetto
+            }
+
+        }
+    }
+}
+
+
+
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/

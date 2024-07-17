@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+        cq:lastReplicatedBy="m.papini@adiacent.com"
+        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/xf-web-variation"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
+        jcr:uuid="12074c59-3fa8-49d0-969c-e91868d8483f"
         sling:resourceType="laboratorio-guidotti/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
