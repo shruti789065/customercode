@@ -1,13 +1,14 @@
 //== Font
-$font-family-title: "GothamMedium";
+
 $font-family-text: "Vermiglione", sans-serif;
 
 
 // Font weight variables for Gotham
-$title-light: 300;
-$title-book: 400;
-$title-medium: 500;
-$title-bold: 700;
+$title-light: "GothamLight"; //corrisponde a font-weight: 325
+$title-book: "GothamBook"; //corrisponde a font-weight: 350
+$title-medium: "GothamMedium"; //corrisponde a font-weight: 400
+$title-bold: "GothamBold"; //corrisponde a font-weight: 700
+
 
 // Font weight variables for Vermiglione
 $text-extra-light: 200;
@@ -46,7 +47,6 @@ $standard-transition: all 0.3s ease-in;
 
 // Normal mode
 $color-background: $white;
-//$color-hover: $vibrant-azure;
 $color-title: $midnightBlue;
 $color-text: $darkCyanBlue;
 
