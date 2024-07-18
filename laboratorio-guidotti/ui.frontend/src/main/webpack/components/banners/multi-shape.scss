@@ -1,1 +1,87 @@
-@import 'section-banner';
+@import "section-banner";
+
+.cmp-section_banner--container-multi {
+  .cmp-banner--content {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(4rem, 1fr));
+    gap: 5rem;
+    width: 100%;
+    max-width: 100%;
+    &.cmp-banner--content--shapes {
+      position: relative;
+      overflow: visible;
+      justify-content: center;
+      order: 1;
+      .shape_container {
+        position: relative;
+        height: fit-content;
+        .cmp-shape--container {
+          position: relative;
+          top: 0;
+          left: 0;
+          max-width: clamp(10rem, 10.268vw + 7.946rem, 20rem);
+          max-height: clamp(13.75rem, 13.839vw + 10.982rem, 25rem);
+        }
+      }
+      $translationsX: (
+        -50%,
+        -25%,
+        -15%,
+        10%,
+        30%,
+        25%,
+      ); 
+	  $translationsY: (
+        1rem,
+        -2rem,
+        3rem,
+        -2.5rem,
+        3.5rem,
+        -4rem
+      ); 
+      @for $i from 1 through 6 {
+        .shape_container:nth-child(#{$i}) .cmp-shape--container {
+          transform: translate(
+            nth($translationsX, $i),
+            nth($translationsY, $i)
+          ); /* Applica il valore di translateY basato sull'indice */
+        }
+      }
+    }
+  }
+}
+@include respond-to(mobile) {
+  .cmp-section_banner--container-multi {
+    .cmp-banner--content {
+      gap: 6rem;
+    }
+  }
+}
+@include respond-to(tablet) {
+  .cmp-section_banner--container-multi {
+    .cmp-banner--content {
+      grid-template-columns: repeat(6, minmax(8rem, 1fr));
+    }
+  }
+}
+/* @include respond-to(laptop) {
+  .cmp-section_banner--container-multi {
+    .cmp-banner--content {
+      grid-template-columns: repeat(7, minmax(9rem, 1fr));
+    }
+  }
+}
+@include respond-to(dektop) {
+  .cmp-section_banner--container-multi {
+    .cmp-banner--content {
+      grid-template-columns: repeat(7, minmax(12rem, 1fr));
+    }
+  }
+}
+@include respond-to(high-definition) {
+  .cmp-section_banner--container-multi {
+    .cmp-banner--content {
+    }
+  }
+}
+ */

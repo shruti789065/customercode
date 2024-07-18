@@ -17,21 +17,7 @@
     }
   }
 }
-.cmp-banner--content--shapes {
-  position: relative;
-  overflow: visible;
-  justify-content: center;
-  order: 1;
-  .shape_container {
-    position: relative;
-  }
-  .cmp-shape--container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
+
 
 @include respond-to(tablet) {
   .cmp-banner--content {
