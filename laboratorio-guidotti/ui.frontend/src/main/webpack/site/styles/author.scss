@@ -90,27 +90,29 @@
     }
   }
   .cmp-section_banner--container {
+    .shape_container {
+      border: 0.25rem solid $teal-blue;
+      .cmp-shape--container {
+        display: block;
+        align-items: center;
+        transform: none !important;
+        position: relative;
+        top: unset;
+        left: unset;
+        max-width: 20rem;
+        max-height: 20rem;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+      }
+    }
     &.cmp-section_banner--container-multi {
       .cmp-banner--content {
         grid-template-columns: repeat(3, minmax(16rem, 1fr));
         gap: 1rem;
-        .shape_container {
-          border: 0.25rem solid $teal-blue;
-          .cmp-shape--container {
-            display: block;
-            align-items: center;
-            transform: none !important;
-            position: relative;
-			top: unset;
-			left:unset;
-			max-width: 20rem;
-			max-height: 20rem;
-			width: 100%;
-			height: 100%;
-			padding: 1rem;
-          }
-        }
       }
+    }
+    &.cmp-section_banner--container-wave {
     }
   }
 }

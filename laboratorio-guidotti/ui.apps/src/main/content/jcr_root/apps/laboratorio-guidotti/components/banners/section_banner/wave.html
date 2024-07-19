@@ -13,13 +13,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<template data-sly-template.bannerWave="">
-	<div class="cmp-section_banner--container cmp-section_banner--container-wave">
+<template data-sly-template.bannerWave="${@ background}">
+	<div class="cmp-section_banner--container cmp-section_banner--container-wave" style="background: url('${background @ context='html'}'); background-repeat: no-repeat; background-position: center center;">
 		<div class="cmp-banner--content cmp-banner--content--shapes">
-			<sly data-sly-resource="${ 'shape_container_1' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }"
-			     data-sly-unwrap></sly>
-			<sly data-sly-resource="${ 'shape_container_2' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }"
-			     data-sly-unwrap></sly>
+			<sly data-sly-resource="${ 'shape_container_1' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }" data-sly-unwrap></sly>
+			<sly data-sly-resource="${ 'shape_container_2' @ resourceType='laboratorio-guidotti/components/shape_container', decorationTagName='div', cssClassName='shape_container' }" data-sly-unwrap></sly>
 		</div>
 	</div>
 </template>
+

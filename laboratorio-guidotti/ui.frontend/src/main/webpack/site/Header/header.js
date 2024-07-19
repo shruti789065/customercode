@@ -17,7 +17,7 @@
   };
 
   function init() {
-    if (!HEADER.allHeaders) return;
+    if (!HEADER.allHeaders) {return;}
 
     window.addEventListener("scroll", handleScroll);
     HEADER.menuItemsFirstLevel.forEach(addToggleFunctionality);
@@ -34,7 +34,7 @@
 
   function addToggleFunctionality(el) {
     const group = el.querySelector(".cmp-navigation__group");
-    if (!group) return;
+    if (!group) {return;}
 
     const link = el.querySelector(".cmp-navigation__item-link");
     const toggleIcon = createToggleIcon();

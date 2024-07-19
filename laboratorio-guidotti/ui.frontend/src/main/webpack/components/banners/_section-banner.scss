@@ -1,12 +1,29 @@
 .cmp-section_banner--container {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  flex-direction: column;
-}
-.cmp-banner--content {
-  display: flex;
+  flex-direction: column; */
+  .cmp-banner--content {
+    display: grid;
+	width: 100%;
+    max-width: 100%;
+    &.cmp-banner--content--shapes {
+      position: relative;
+      overflow: visible;
+      .shape_container {
+        position: relative;
+        height: fit-content;
+		width: 100%;
+        .cmp-shape--container {
+          position: absolute;
+          top: 0;
+          left: 0;
+		  transform:translate(0,0) ;
+        }
+      }
+    }
+  }
 }
 
 .cmp-banner--content--text {
@@ -18,18 +35,7 @@
   }
 }
 
-
 @include respond-to(tablet) {
-  .cmp-banner--content {
-    flex: 1;
-    max-width: $breakpoint-tablet;
-    &.cmp-banner--content--shapes {
-      order: 2;
-      .cmp-shape--container {
-        transform: translate(-40%, -50%);
-      }
-    }
-  }
 }
 @include respond-to(laptop) {
 }
