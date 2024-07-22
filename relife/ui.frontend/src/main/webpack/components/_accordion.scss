@@ -10,7 +10,7 @@
         border-color: $lightgrey-border-color;
         border-radius: 0px; 
         color: $midnightBlue;
-        font-family: "GothamBook";        
+        font-family: $title-book;        
         &:hover {
             color: $midnightBlue;
         }
@@ -22,7 +22,7 @@
         justify-content: space-between;
 
         .cmp-accordion__title {
-            font-family: $font-family-title;    
+            font-family: $title-book;    
         }
         .cmp-accordion__icon {
             position: initial;     
