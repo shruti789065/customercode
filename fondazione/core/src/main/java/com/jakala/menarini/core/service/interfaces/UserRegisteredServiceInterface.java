@@ -1,0 +1,11 @@
+package com.jakala.menarini.core.service.interfaces;
+
+import java.util.List;
+
+import com.jakala.menarini.core.entities.RegisteredUser;
+
+public interface UserRegisteredServiceInterface {
+    
+    List<RegisteredUser> getUsers();
+
+}
