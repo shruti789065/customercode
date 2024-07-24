@@ -5,6 +5,16 @@
     <rep:policy/>
     <relife jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
+            <puzzle_carousel jcr:primaryType="nt:unstructured">
+                <policy_1721813534176
+                    jcr:lastModified="{Date}2024-07-24T11:32:34.970+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Puzzle Carousel policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1721813534176>
+            </puzzle_carousel>
             <form jcr:primaryType="nt:unstructured">
                 <container jcr:primaryType="nt:unstructured">
                     <form-container
@@ -299,7 +309,7 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2024-07-01T16:21:41.718+02:00"
+                    jcr:lastModified="{Date}2024-07-24T12:00:58.748+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
@@ -500,6 +510,58 @@
                     </cq:styleGroups>
                 </policy_1721037206735>
             </button>
+            <card jcr:primaryType="nt:unstructured">
+                <policy_1721817427768
+                    jcr:lastModified="{Date}2024-07-24T12:37:22.936+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Cards policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1721817427768>
+            </card>
+            <puzzle jcr:primaryType="nt:unstructured">
+                <puzzle-container jcr:primaryType="nt:unstructured">
+                    <policy_1721819305779
+                        jcr:lastModified="{Date}2024-07-24T13:08:37.665+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Puzzle Carousel Container policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1721819305779>
+                </puzzle-container>
+                <cards-carousel jcr:primaryType="nt:unstructured">
+                    <policy_1721821961573
+                        jcr:lastModified="{Date}2024-07-24T13:53:25.203+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Cards Carousel Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        autopauseDisabled="false"
+                        autoplay="false"
+                        components="/apps/relife/components/card"
+                        controlsPrepended="false"
+                        delay="5000">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1721821961573>
+                </cards-carousel>
+                <images-carousel jcr:primaryType="nt:unstructured">
+                    <policy_1721822020436
+                        jcr:lastModified="{Date}2024-07-24T13:54:17.982+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Images Carousel Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        autopauseDisabled="false"
+                        autoplay="false"
+                        components="[/apps/relife/components/image,/apps/relife/components/teaser]"
+                        controlsPrepended="false"
+                        delay="5000">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1721822020436>
+                </images-carousel>
+            </puzzle>
         </components>
     </relife>
     <wcm jcr:primaryType="nt:unstructured">

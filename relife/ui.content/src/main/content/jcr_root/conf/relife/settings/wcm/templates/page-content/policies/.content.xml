@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-07-17T13:04:49.078+02:00"
+        cq:lastModified="{Date}2024-07-24T13:54:17.993+02:00"
         cq:lastModifiedBy="admin"
         cq:policy="relife/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -59,6 +59,24 @@
                                 cq:policy="relife/components/button/policy_1721037206735"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <card
+                                cq:policy="relife/components/card/policy_1721817427768"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <puzzle jcr:primaryType="nt:unstructured">
+                                <puzzle-container
+                                    cq:policy="relife/components/puzzle/puzzle-container/policy_1721819305779"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <cards-carousel
+                                    cq:policy="relife/components/puzzle/cards-carousel/policy_1721821961573"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <images-carousel
+                                    cq:policy="relife/components/puzzle/images-carousel/policy_1721822020436"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </puzzle>
                         </components>
                     </relife>
                 </container>
