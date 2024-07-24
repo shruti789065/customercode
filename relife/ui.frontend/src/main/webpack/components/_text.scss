@@ -1,5 +1,43 @@
 .cmp-text--gotham{
 	 font-family: $title-light;
 }
-.cmp-text {}
-.cmp-text__paragraph {}
+
+.cmp-button__show-more {
+    display: none;
+    padding: 0;
+}
+@media (max-width: $breakpoint-mobile) {
+    .cmp-text__container {
+        position: relative;
+        z-index: 10;
+        div{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            &.cmp-text__paragraph--visible {
+                -webkit-line-clamp: unset;
+                display: block;
+            }
+        }
+    }
+    .cmp-button__show-more {
+        display: flex;
+        align-items: center;
+        font-weight: $text-bold;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+    .cmp-button__show-more::after{
+        content: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/freccia_down.svg");
+        transition: $standard-transition;
+        height: calc(2rem + 2px);
+        width: calc(2rem + 2px);
+    }
+    .cmp-button__show-more--active::after {
+        -moz-transform:rotate(180deg);
+        -webkit-transform:rotate(180deg);
+    }
+}
