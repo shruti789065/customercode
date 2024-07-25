@@ -7,9 +7,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import com.google.gson.Gson;
-import com.jakala.menarini.core.dto.UserDto;
-import com.jakala.menarini.core.entities.RegisteredUser;
-import com.jakala.menarini.core.service.interfaces.MysqlConnectionInterface;
+import com.jakala.menarini.core.model.RegisteredUser;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
 
 import javax.servlet.Servlet;

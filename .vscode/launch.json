@@ -6,9 +6,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
+            "name": "Debug AEM",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": "5005",
+            "projectName": "fondazione.all"
         }
     ]
 }

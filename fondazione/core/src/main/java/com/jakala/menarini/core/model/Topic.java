@@ -1,41 +1,35 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+
+import org.apache.tika.config.Field;
 
 
 /**
  * The persistent class for the TOPIC database table.
  * 
  */
-@Entity
-@Table(name="TOPIC")
-@NamedQuery(name="Topic.findAll", query="SELECT t FROM Topic t")
 public class Topic implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "TOPIC";
+
 	private long id;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Column(length=255)
 	private String name;
 
 	//bi-directional many-to-one association to EventTopic
-	@OneToMany(mappedBy="topic")
 	private List<EventTopic> eventTopics;
 
 	//bi-directional many-to-one association to RegisteredUserTopic
-	@OneToMany(mappedBy="topic")
 	private List<RegisteredUserTopic> registeredUserTopics;
 
 	public Topic() {

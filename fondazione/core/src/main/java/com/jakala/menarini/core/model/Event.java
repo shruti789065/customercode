@@ -1,80 +1,63 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.util.Date;
 import java.sql.Timestamp;
 import java.util.List;
+
+import org.apache.tika.config.Field;
 
 
 /**
  * The persistent class for the EVENT database table.
  * 
  */
-@Entity
-@Table(name="EVENT")
-@NamedQuery(name="Event.findAll", query="SELECT e FROM Event e")
 public class Event implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "EVENT";
+
 	private long id;
 
-	@Lob
 	private String coordinators;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Lob
 	private String description;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="end_date")
+	@Field(name="end_date")
 	private Date endDate;
 
-	@Column(name="event_type", length=255)
+	@Field(name="event_type")
 	private String eventType;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="start_date")
+	@Field(name="start_date")
 	private Date startDate;
 
-	@Column(length=30)
 	private String subscription;
 
-	@Column(length=255)
 	private String title;
 
 	//bi-directional many-to-one association to Location
-	@ManyToOne
-	@JoinColumn(name="location_id")
 	private Location location;
 
 	//bi-directional many-to-one association to Venue
-	@ManyToOne
-	@JoinColumn(name="venue_id")
 	private Venue venue;
 
 	//bi-directional many-to-one association to EventEnrollment
-	@OneToMany(mappedBy="event")
 	private List<EventEnrollment> eventEnrollments;
 
 	//bi-directional many-to-one association to EventSessionDate
-	@OneToMany(mappedBy="event")
 	private List<EventSessionDate> eventSessionDates;
 
 	//bi-directional many-to-one association to EventSpeaker
-	@OneToMany(mappedBy="event")
 	private List<EventSpeaker> eventSpeakers;
 
 	//bi-directional many-to-one association to EventTopic
-	@OneToMany(mappedBy="event")
 	private List<EventTopic> eventTopics;
 
 	public Event() {

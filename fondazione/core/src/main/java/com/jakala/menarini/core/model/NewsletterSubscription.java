@@ -1,58 +1,49 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.sql.Timestamp;
+
+import org.apache.tika.config.Field;
 
 
 /**
  * The persistent class for the NEWSLETTER_SUBSCRIPTION database table.
  * 
  */
-@Entity
-@Table(name="NEWSLETTER_SUBSCRIPTION")
-@NamedQuery(name="NewsletterSubscription.findAll", query="SELECT n FROM NewsletterSubscription n")
 public class NewsletterSubscription implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "NEWSLETTER_SUBSCRIPTION";
+
 	private long id;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(length=255)
 	private String email;
 
-	@Column(length=255)
 	private String firstname;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Column(length=255)
 	private String lastname;
 
-	@Column(name="newsletter_subscription", length=1)
+	@Field(name="newsletter_subscription")
 	private String newsletterSubscription;
 
-	@Column(name="newsletter_subscription_ts")
+	@Field(name="newsletter_subscription_ts")
 	private Timestamp newsletterSubscriptionTs;
 
-	@Column(length=255)
 	private String occupation;
 
-	@Column(name="personal_data_processing_consent", length=1)
+	@Field(name="personal_data_processing_consent")
 	private String personalDataProcessingConsent;
 
-	@Column(name="personal_data_processing_consent_ts")
+	@Field(name="personal_data_processing_consent_ts")
 	private Timestamp personalDataProcessingConsentTs;
 
 	//bi-directional many-to-one association to RegisteredUser
-	@ManyToOne
-	@JoinColumn(name="registered_user_id")
 	private RegisteredUser registeredUser;
 
 	public NewsletterSubscription() {

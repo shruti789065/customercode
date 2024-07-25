@@ -1,8 +1,10 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.util.Date;
+
+import org.apache.tika.config.Field;
+
 import java.sql.Timestamp;
 
 
@@ -10,46 +12,34 @@ import java.sql.Timestamp;
  * The persistent class for the EVENT_SESSION_DATE database table.
  * 
  */
-@Entity
-@Table(name="EVENT_SESSION_DATE")
-@NamedQuery(name="EventSessionDate.findAll", query="SELECT e FROM EventSessionDate e")
 public class EventSessionDate implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "EVENT_SESSION_DATE";
+
 	private long id;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Column(name="seq_no")
+	@Field(name="seq_no")
 	private int seqNo;
 
-	@Column(length=255)
 	private String session;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="session_date")
+	@Field(name="session_date")
 	private Date sessionDate;
 
 	//bi-directional many-to-one association to Event
-	@ManyToOne
-	@JoinColumn(name="event_id")
 	private Event event;
 
 	//bi-directional many-to-one association to Location
-	@ManyToOne
-	@JoinColumn(name="location_id")
 	private Location location;
 
 	//bi-directional many-to-one association to Venue
-	@ManyToOne
-	@JoinColumn(name="venue_id")
 	private Venue venue;
 
 	public EventSessionDate() {

@@ -1,88 +1,72 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.sql.Timestamp;
+
+import org.apache.tika.config.Field;
 
 
 /**
  * The persistent class for the MAGAZINE_SUBSCRIPTION database table.
  * 
  */
-@Entity
-@Table(name="MAGAZINE_SUBSCRIPTION")
-@NamedQuery(name="MagazineSubscription.findAll", query="SELECT m FROM MagazineSubscription m")
 public class MagazineSubscription implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "MAGAZINE_SUBSCRIPTION";
+
 	private long id;
 
-	@Column(length=2000)
 	private String address1;
 
-	@Column(length=2000)
 	private String address2;
 
-	@Column(name="albo_number")
+	@Field(name="albo_number")
 	private int alboNumber;
 
-	@Column(name="albo_province", length=30)
+	@Field(name="albo_province")
 	private String alboProvince;
 
-	@Column(length=60)
 	private String city;
 
-	@Column(length=30)
 	private String country;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(length=255)
 	private String firstname;
 
-	@Column(name="graduation_year")
+	@Field(name="graduation_year")
 	private int graduationYear;
 
-	@Column(name="have_been_doctor_or_pharmacist", length=1)
+	@Field(name="have_been_doctor_or_pharmacist")
 	private String haveBeenDoctorOrPharmacist;
 
-	@Column(name="house_no", length=10)
+	@Field(name="house_no")
 	private String houseNo;
 
-	@Column(length=10)
 	private String language;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Column(length=255)
 	private String lastname;
 
-	@Column(length=255)
 	private String magazine;
 
-	@Column(length=30)
 	private String phone;
 
-	@Column(length=30)
 	private String province;
 
-	@Column(name="registration_year")
+	@Field(name="registration_year")
 	private int registrationYear;
 
-	@Column(name="tax_id_code", length=30)
+	@Field(name="tax_id_code")
 	private String taxIdCode;
 
-	@Column(length=15)
 	private String zip;
 
 	//bi-directional many-to-one association to RegisteredUser
-	@ManyToOne
-	@JoinColumn(name="registered_user_id")
 	private RegisteredUser registeredUser;
 
 	public MagazineSubscription() {

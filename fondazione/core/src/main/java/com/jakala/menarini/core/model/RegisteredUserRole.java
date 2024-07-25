@@ -1,39 +1,32 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.sql.Timestamp;
+
+import org.apache.tika.config.Field;
 
 
 /**
  * The persistent class for the REGISTERED_USER_ROLE database table.
  * 
  */
-@Entity
-@Table(name="REGISTERED_USER_ROLE")
-@NamedQuery(name="RegisteredUserRole.findAll", query="SELECT r FROM RegisteredUserRole r")
 public class RegisteredUserRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "REGISTERED_USER_ROLE";
+
 	private long id;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
 	//bi-directional many-to-one association to RegisteredUser
-	@ManyToOne
-	@JoinColumn(name="registered_user_id")
 	private RegisteredUser registeredUser;
 
 	//bi-directional many-to-one association to Role
-	@ManyToOne
-	@JoinColumn(name="role_id")
 	private Role role;
 
 	public RegisteredUserRole() {

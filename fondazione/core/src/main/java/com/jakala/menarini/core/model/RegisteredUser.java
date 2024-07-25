@@ -1,106 +1,89 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.util.Date;
 import java.sql.Timestamp;
 import java.util.List;
+
+import org.apache.tika.config.Field;
 
 
 /**
  * The persistent class for the REGISTERED_USER database table.
  * 
  */
-@Entity
-@Table(name="REGISTERED_USER")
-@NamedQuery(name="RegisteredUser.findAll", query="SELECT r FROM RegisteredUser r")
 public class RegisteredUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "REGISTERED_USER";
+	
 	private long id;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="birth_date")
+	@Field(name="birth_date")
 	private Date birthDate;
 
-	@Column(length=30)
 	private String country;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(length=255)
 	private String email;
 
-	@Column(length=255)
 	private String firstname;
 
-	@Column(length=30)
 	private String gender;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Column(length=255)
 	private String lastname;
 
-	@Column(name="legacy_id")
+	@Field(name="legacy_id")
 	private int legacyId;
 
-	@Column(name="linkedin_profile", length=255)
+	@Field(name="linkedin_profile")
 	private String linkedinProfile;
 
-	@Column(name="newsletter_subscription", length=1)
+	@Field(name="newsletter_subscription")
 	private String newsletterSubscription;
 
-	@Column(name="newsletter_subscription_ts")
+	@Field(name="newsletter_subscription_ts")
 	private Timestamp newsletterSubscriptionTs;
 
-	@Column(length=255)
 	private String occupation;
 
-	@Column(name="personal_data_processing_consent", length=1)
+	@Field(name="personal_data_processing_consent")
 	private String personalDataProcessingConsent;
 
-	@Column(name="personal_data_processing_consent_ts")
+	@Field(name="personal_data_processing_consent_ts")
 	private Timestamp personalDataProcessingConsentTs;
 
-	@Column(length=30)
 	private String phone;
 
-	@Column(name="profiling_consent", length=1)
+	@Field(name="profiling_consent")
 	private String profilingConsent;
 
-	@Column(name="profiling_consent_ts")
+	@Field(name="profiling_consent_ts")
 	private Timestamp profilingConsentTs;
 
-	@Column(name="tax_id_code", length=30)
+	@Field(name="tax_id_code")
 	private String taxIdCode;
 
-	@Column(length=255)
 	private String username;
 
 	//bi-directional many-to-one association to EventEnrollment
-	@OneToMany(mappedBy="registeredUser")
 	private List<EventEnrollment> eventEnrollments;
 
 	//bi-directional many-to-one association to MagazineSubscription
-	@OneToMany(mappedBy="registeredUser")
 	private List<MagazineSubscription> magazineSubscriptions;
 
 	//bi-directional many-to-one association to NewsletterSubscription
-	@OneToMany(mappedBy="registeredUser")
 	private List<NewsletterSubscription> newsletterSubscriptions;
 
 	//bi-directional many-to-one association to RegisteredUserRole
-	@OneToMany(mappedBy="registeredUser")
 	private List<RegisteredUserRole> registeredUserRoles;
 
 	//bi-directional many-to-one association to RegisteredUserTopic
-	@OneToMany(mappedBy="registeredUser")
 	private List<RegisteredUserTopic> registeredUserTopics;
 
 	public RegisteredUser() {

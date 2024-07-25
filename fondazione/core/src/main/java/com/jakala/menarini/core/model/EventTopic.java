@@ -1,42 +1,37 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.sql.Timestamp;
+
+import org.apache.tika.config.Field;
 
 
 /**
- * The persistent class for the EVENT_SPEAKER database table.
+ * The persistent class for the EVENT_TOPIC database table.
  * 
  */
-@Entity
-@Table(name="EVENT_SPEAKER")
-@NamedQuery(name="EventSpeaker.findAll", query="SELECT e FROM EventSpeaker e")
-public class EventSpeaker implements Serializable {
+public class EventTopic implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "EVENT_TOPIC";
+
 	private long id;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
+	private int priority;
+
 	//bi-directional many-to-one association to Event
-	@ManyToOne
-	@JoinColumn(name="event_id")
 	private Event event;
 
-	//bi-directional many-to-one association to Speaker
-	@ManyToOne
-	@JoinColumn(name="speaker_id")
-	private Speaker speaker;
+	//bi-directional many-to-one association to Topic
+	private Topic topic;
 
-	public EventSpeaker() {
+	public EventTopic() {
 	}
 
 	public long getId() {
@@ -63,6 +58,14 @@ public class EventSpeaker implements Serializable {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
 
+	public int getPriority() {
+		return this.priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
 	public Event getEvent() {
 		return this.event;
 	}
@@ -71,12 +74,12 @@ public class EventSpeaker implements Serializable {
 		this.event = event;
 	}
 
-	public Speaker getSpeaker() {
-		return this.speaker;
+	public Topic getTopic() {
+		return this.topic;
 	}
 
-	public void setSpeaker(Speaker speaker) {
-		this.speaker = speaker;
+	public void setTopic(Topic topic) {
+		this.topic = topic;
 	}
 
 }

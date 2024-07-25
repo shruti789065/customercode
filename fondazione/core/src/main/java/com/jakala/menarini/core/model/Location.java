@@ -1,51 +1,42 @@
-package com.jakala.menarini.core.entities;
+package com.jakala.menarini.core.model;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+
+import org.apache.tika.config.Field;
 
 
 /**
  * The persistent class for the LOCATION database table.
  * 
  */
-@Entity
-@Table(name="LOCATION")
-@NamedQuery(name="Location.findAll", query="SELECT l FROM Location l")
 public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	public static String table = "LOCATION";
+
 	private long id;
 
-	@Column(length=255)
 	private String city;
 
-	@Column(length=255)
 	private String country;
 
-	@Column(name="created_on")
+	@Field(name="created_on")
 	private Timestamp createdOn;
 
-	@Column(name="last_updated_on")
+	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Lob
 	private String notes;
 
 	//bi-directional many-to-one association to Event
-	@OneToMany(mappedBy="location")
 	private List<Event> events;
 
 	//bi-directional many-to-one association to EventSessionDate
-	@OneToMany(mappedBy="location")
 	private List<EventSessionDate> eventSessionDates;
 
 	//bi-directional many-to-one association to Venue
-	@OneToMany(mappedBy="location")
 	private List<Venue> venues;
 
 	public Location() {
