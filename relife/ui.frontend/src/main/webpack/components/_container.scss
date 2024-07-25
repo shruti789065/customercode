@@ -1,1 +1,21 @@
-.cmp-container {}
+.cmp-container {
+}
+.cmp-container-alignment {
+  display: flex;
+  align-items: stretch;
+}
+.cmp-container--wrap {
+  flex-wrap: wrap;
+}
+.cmp-container--no-wrap {
+  flex-wrap: nowrap;
+}
+.cmp-gap--30 {
+  gap: 30px;
+}
+.cmp-gap--60 {
+  gap: 60px;
+}
+.cmp-gap--120 {
+  gap: 120px;
+}
