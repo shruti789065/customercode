@@ -91,9 +91,15 @@ Import-Package: javax.annotation;version=0.0.0,*
     <dependencies>
 
         <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${dbutils.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>[8.0.30]</version>
+            <version>${mysql.version}</version>
             <scope>provided</scope>
         </dependency>
 

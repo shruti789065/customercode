@@ -1,14 +1,18 @@
 package com.jakala.menarini.core.service;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.dbutils.BeanProcessor;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -28,35 +32,14 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
         String sql = "SELECT * FROM " + RegisteredUser.table;
 
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement ps = connection.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        try (Connection connection = dataSource.getConnection()){
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            BeanProcessor beanProcessor = new BeanProcessor();
 
             while (rs.next()) {
-                RegisteredUser user = new RegisteredUser();
-                user.setId(rs.getLong("id"));
-                user.setBirthDate(rs.getDate("birth_date"));
-                user.setCountry(rs.getString("country"));
-                user.setCreatedOn(rs.getTimestamp("created_on"));
-                user.setEmail(rs.getString("email"));
-                user.setFirstname(rs.getString("firstname"));
-                user.setGender(rs.getString("gender"));
-                user.setLastUpdatedOn(rs.getTimestamp("last_updated_on"));
-                user.setLastname(rs.getString("lastname"));
-                user.setLegacyId(rs.getInt("legacy_id"));
-                user.setLinkedinProfile(rs.getString("linkedin_profile"));
-                user.setNewsletterSubscription(rs.getString("newsletter_subscription"));
-                user.setNewsletterSubscriptionTs(rs.getTimestamp("newsletter_subscription_ts"));
-                user.setOccupation(rs.getString("occupation"));
-                user.setPersonalDataProcessingConsent(rs.getString("personal_data_processing_consent"));
-                user.setPersonalDataProcessingConsentTs(rs.getTimestamp("personal_data_processing_consent_ts"));
-                user.setPhone(rs.getString("phone"));
-                user.setProfilingConsent(rs.getString("profiling_consent"));
-                user.setProfilingConsentTs(rs.getTimestamp("profiling_consent_ts"));
-                user.setTaxIdCode(rs.getString("tax_id_code"));
-                user.setUsername(rs.getString("username"));
-
-                users.add(user);
+                users.add(beanProcessor.toBean(rs, RegisteredUser.class));
             }
 
         } catch (SQLException e) {
@@ -64,5 +47,65 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         }
 
         return users;
+    }
+
+    @Override
+    public boolean addUser(RegisteredUser user) {
+        String sql = "INSERT INTO " + RegisteredUser.table + " (" +
+            "birth_date, country, created_on, email, firstname, gender, last_updated_on, " +
+            "lastname, legacy_id, linkedin_profile, newsletter_subscription, newsletter_subscription_ts, " +
+            "occupation, personal_data_processing_consent, personal_data_processing_consent_ts, phone, " +
+            "profiling_consent, profiling_consent_ts, tax_id_code, username) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = dataSource.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setDate(1, user.getBirthDate() != null ? new java.sql.Date(user.getBirthDate().getTime()) : null);
+            stmt.setString(2, user.getCountry());
+            stmt.setTimestamp(3, user.getCreatedOn());
+            stmt.setString(4, user.getEmail());
+            stmt.setString(5, user.getFirstname());
+            stmt.setString(6, user.getGender());
+            stmt.setTimestamp(7, user.getLastUpdatedOn());
+            stmt.setString(8, user.getLastname());
+            stmt.setInt(9, user.getLegacyId());
+            stmt.setString(10, user.getLinkedinProfile());
+            stmt.setString(11, user.getNewsletterSubscription());
+            stmt.setTimestamp(12, user.getNewsletterSubscriptionTs());
+            stmt.setString(13, user.getOccupation());
+            stmt.setString(14, user.getPersonalDataProcessingConsent());
+            stmt.setTimestamp(15, user.getPersonalDataProcessingConsentTs());
+            stmt.setString(16, user.getPhone());
+            stmt.setString(17, user.getProfilingConsent());
+            stmt.setTimestamp(18, user.getProfilingConsentTs());
+            stmt.setString(19, user.getTaxIdCode());
+            stmt.setString(20, user.getUsername());
+        
+            stmt.executeUpdate();
+
+            // NON FUNZIONA
+            // Field[] fields = RegisteredUser.class.getDeclaredFields();
+            // List<String> EXCLUDED_FIELDS = new ArrayList<>();
+            // EXCLUDED_FIELDS.addAll(Arrays.asList("serialVersionUID", "id", "table"));
+            // int index = 3;
+            // for (Field field : fields) {
+            //     if (EXCLUDED_FIELDS.contains(field.getName())){
+            //         continue;
+            //     }
+            //     field.setAccessible(true);
+            //     ps.setObject(index++, field.get(user));
+            // }
+            // ps.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }

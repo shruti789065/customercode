@@ -8,4 +8,6 @@ public interface UserRegisteredServiceInterface {
     
     List<RegisteredUser> getUsers();
 
+    boolean addUser(RegisteredUser user);
+
 }

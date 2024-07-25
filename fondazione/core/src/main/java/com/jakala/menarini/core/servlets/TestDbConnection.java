@@ -12,6 +12,7 @@ import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterfac
 
 import javax.servlet.Servlet;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,8 @@ import java.util.List;
     service = {Servlet.class},
     property = {
         "sling.servlet.paths=/bin/getUsers",
-        "sling.servlet.methods=get",
+        "sling.servlet.paths=/bin/addUser",
+        "sling.servlet.methods={GET,POST}",
         "sling.servlet.extensions=json"
     }
 )
@@ -27,7 +29,6 @@ public class TestDbConnection  extends SlingAllMethodsServlet {
 
     @Reference
     private UserRegisteredServiceInterface userService;
-
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
@@ -44,5 +45,22 @@ public class TestDbConnection  extends SlingAllMethodsServlet {
         response.getWriter().write(res);
     
        
+    }
+
+    @Override
+    protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+        Gson gson = new Gson();
+        RegisteredUser newUser = gson.fromJson(request.getReader(), RegisteredUser.class);
+
+        boolean success = userService.addUser(newUser);
+
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        if (success) {
+            out.write("{\"status\":\"success\"}");
+        } else {
+            response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            out.write("{\"status\":\"error\"}");
+        }
     }
 }
