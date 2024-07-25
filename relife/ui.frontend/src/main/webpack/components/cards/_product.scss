@@ -1,7 +1,7 @@
 @use 'card' as *;
 
 .product-card {
-  //width: clamp(18.75rem, 6.472vw + 17.233rem, 25rem)!important;
+  
   max-width: 25rem;
   min-width: 16rem;
   width: 100%;
@@ -13,7 +13,7 @@
     gap: 1.25rem;
     .cmp-teaser__image {
       .cmp-image {
-        height: clamp(18.75rem, 6.472vw + 17.233rem, 25rem);
+        height: clamp(21.429rem, 6.25vw + 20rem, 28.571rem);
         .cmp-image__image {
           object-fit: cover;
           height: 100%;

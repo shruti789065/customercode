@@ -13,7 +13,7 @@ main.container {
 
 .wrapper {
   width: 100%;
-  padding: 0px clamp(1.25rem, 1.25vw + 1rem, 2.5rem);
+  padding: 0px clamp(1.429rem, 1.25vw + 1.143rem, 2.857rem);
   margin: 0 auto;
   container-type: inline-size;
   container-name: wrapper-container;
@@ -23,6 +23,5 @@ main.container {
 @include respond-to(tablet) {
   .wrapper {
     max-width: 102.5rem;
-    //padding: 0 4rem;
   }
 }
