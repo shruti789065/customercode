@@ -1,0 +1,198 @@
+.contentcard {
+    .cmp-teaser {
+        display: flex;
+        flex-direction: column;
+
+        .cmp-teaser__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem;
+            .cmp-teaser__title {
+                font-family: $title-bold;
+                font-size: $title-size;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            .cmp-teaser__description {
+                font-family: $title-light;
+            }
+            .cmp-teaser__action-container {
+                .cmp-teaser__action-link {
+                    text-decoration: none;
+                    border: $btn-border-style $btn-border-size;
+                    width: $btn-width;
+                    height: $btn-height;
+                    text-align: center;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    line-height: $btn-height;
+                    display: inline-block;
+                    padding: $btn-padding;
+                    font-family: $font-family-text;
+                    font-size: $font-size-btn;
+                    color: $charcoal;
+
+                    border-color: $charcoal;
+                    background-color: unset;
+
+                    &:hover {
+                        color: $white;
+                        background-color: $charcoal;
+                    }
+                }
+            }
+        }
+
+        .cmp-teaser__image {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            .cmp-image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    
+    
+    &.cmp-imgL {
+        .cmp-teaser {
+            .cmp-teaser__content {
+                order: 2;
+            }
+
+            .cmp-teaser__image {
+                order: 1;
+            }
+        }
+    }
+    &.cmp-imgR {
+        .cmp-teaser {
+            .cmp-teaser__content {
+                order: 1;
+            }
+
+            .cmp-teaser__image {
+                order: 2;
+            }
+        }
+    }
+
+    &.cmp-bg-blue {
+        background-color: $midnightBlue;
+        color: $white
+    }
+    &.cmp-bg-white {
+        background-color: $white;
+        color: $midnightBlue;
+    }
+    &.cmp-bg-grey {
+        background-color: $lightTerracotta;
+        color: $midnightBlue;
+    }
+
+    &.cmp-VA-T {
+        .cmp-teaser__content {
+            justify-content: flex-start;
+        }
+    }
+    &.cmp-VA-M {
+        .cmp-teaser__content {
+            justify-content: center;
+        }
+    }
+    &.cmp-VA-B {
+        .cmp-teaser__content {
+            justify-content: flex-end;
+        }
+    }
+
+    &.cmp-HA-L {
+        .cmp-teaser__content {
+            align-items: flex-start;
+        }
+    }
+    &.cmp-HA-C {
+        .cmp-teaser__content {
+            align-items: center;
+            text-align: center;
+        }
+    }
+    &.cmp-HA-R {
+        .cmp-teaser__content {
+            align-items: flex-end;
+        }
+    }
+
+}
+
+@include respond-to(tablet) {
+    .contentcard {
+        .cmp-teaser {
+            display: flex;
+            flex-direction: row;
+
+            .cmp-teaser__content {
+                width: 50%;
+            }
+
+            .cmp-teaser__image {
+                width: 50%;
+            }
+        }
+    
+        &.cmp-imgL {}
+        &.cmp-imgR {}
+    
+        &.cmp-bg-blue {}
+        &.cmp-bg-white {}
+        &.cmp-bg-grey {}
+    
+        &.cmp-VA-T {}
+        &.cmp-VA-M {}
+        &.cmp-VA-B {}
+    
+        &.cmp-HA-L {}
+        &.cmp-HA-C {}
+        &.cmp-HA-R {}
+    
+    }
+}
+
+@include respond-to(desktop) {
+    .contentcard {
+        
+    
+        &.cmp-imgL {}
+        &.cmp-imgR {}
+    
+        &.cmp-bg-blue {}
+        &.cmp-bg-white {}
+        &.cmp-bg-grey {}
+    
+        &.cmp-VA-T {}
+        &.cmp-VA-M {}
+        &.cmp-VA-B {}
+    
+        &.cmp-HA-L {}
+        &.cmp-HA-C {}
+        &.cmp-HA-R {}
+    
+    }
+}
+
+/*
+@include respond-to(breakpoint-small-devices) {}
+
+@include respond-to(breakpoint-mobile) {}
+
+@include respond-to(breakpoint-tablet) {}
+
+@include respond-to(breakpoint-laptop) {}
+
+@include respond-to(breakpoint-desktop) {}
+
+@include respond-to(breakpoint-high-definition) {}
+*/
