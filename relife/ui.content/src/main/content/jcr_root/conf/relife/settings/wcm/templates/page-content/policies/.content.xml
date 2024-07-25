@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-07-24T13:54:17.993+02:00"
+        cq:lastModified="{Date}2024-07-25T17:22:02.807+02:00"
         cq:lastModifiedBy="admin"
         cq:policy="relife/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -77,6 +77,10 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </puzzle>
+                            <contentcard
+                                cq:policy="relife/components/contentcard/policy_1721920625328"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
                         </components>
                     </relife>
                 </container>
