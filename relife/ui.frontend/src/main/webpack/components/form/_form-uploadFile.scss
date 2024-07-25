@@ -1,16 +1,16 @@
 .upload-file {
   .cmp-form-text {
     label {
-      margin-bottom: 0px;
+      margin-bottom: 0rem;
     }
     .buttonText {
       background-color: $midnightBlue;
       color: $white;
       cursor: pointer;
       font-family: $title-medium;
-      font-size: 16px;
+      font-size: $font-size;
       text-transform: uppercase;
-      padding: 19px 36px;
+      padding: 1.5rem 2.5rem;
       text-align: center;
       display: inline-block;
       border-radius: 0px;
@@ -18,7 +18,7 @@
       line-height: 20px;
       margin-top: 70px;
       span {
-        font-size: 36px;
+        font-size: $title-size;
         padding: 0;
         margin: 0;
         line-height: inherit;
@@ -36,12 +36,12 @@
       justify-content: space-between;
 
       .cmp-close__icon {
-        margin-right: 15px;
+        margin-right: 1rem;
 
         &::after {
           content: "X";
-          font-size: 18px;
-          color: $charcoal;
+          font-size: $font-size;
+          color: $midnightBlue;
           cursor: pointer;
         }
       }

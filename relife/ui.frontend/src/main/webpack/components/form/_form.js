@@ -5,6 +5,8 @@ import {
   validateFile,
 } from "./_form_validation_method";
 
+import $ from "jquery";
+
 import { showOverlayAndLoader } from "../../site/_util";
 
 $(function () {
@@ -15,6 +17,9 @@ $(function () {
   assignTabIndexes($form);
   setupFileInput($fileInput, $filesContainer);
   setupFormSubmit($form);
+  setupInputFocusHandler();
+  setupDropdownHandler();
+  setupCheckboxHandler();
 
   function assignTabIndexes($form) {
     let tabIndex = 1;
@@ -67,7 +72,7 @@ $(function () {
       if (!performAllValidations($form)) {
         event.preventDefault();
       } else {
-        showOverlayAndLoader($form,true);
+        showOverlayAndLoader($form, true);
       }
     });
   }
@@ -76,5 +81,64 @@ $(function () {
     return (
       validateRadios($form) && validateInputs($form) && validateRecaptcha()
     );
+  }
+
+  function setupInputFocusHandler() {
+    const $inputElements = $('.cmp-form-text__text');
+    
+    $inputElements.each(function () {
+      const $inputElement = $(this);
+      const $parentElement = $inputElement.closest('.cmp-form-text');
+      
+      $inputElement.on('focus', function() {
+        $parentElement.addClass('textAdded');
+      });
+
+      $inputElement.on('blur', function() {
+        if ($inputElement.val().trim() === '') {
+          $parentElement.removeClass('textAdded');
+        }
+      });
+    });
+  }
+
+  function setupDropdownHandler() {
+    const $dropdownElements = $('.cmp-form-options__field--drop-down');
+    
+    $dropdownElements.each(function () {
+      const $dropdownElement = $(this);
+      const $parentElement = $dropdownElement.closest('.cmp-form-options');
+      
+      $dropdownElement.on('click', function() {
+        $parentElement.toggleClass('dropdownOpen');
+      });
+
+      $dropdownElement.on('change', function() {
+        $parentElement.removeClass('dropdownOpen');
+      });
+
+      $(document).on('click', function(event) {
+        if (!$dropdownElement.is(event.target) && !$dropdownElement.has(event.target).length) {
+          $parentElement.removeClass('dropdownOpen');
+        }
+      });
+    });
+  }
+
+  function setupCheckboxHandler() {
+    const $checkboxElements = $('.cmp-form-options__field--checkbox');
+    
+    $checkboxElements.each(function () {
+      const $checkboxElement = $(this);
+      const $parentElement = $checkboxElement.closest('.cmp-form-options');
+      
+      $checkboxElement.on('change', function() {
+        if ($checkboxElement.is(':checked')) {
+          $parentElement.addClass('checkboxTrue');
+        } else {
+          $parentElement.removeClass('checkboxTrue');
+        }
+      });
+    });
   }
 });

@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 const ERRORS = {
   CLASS: "label_error",
   MESSAGE: {
@@ -171,7 +173,7 @@ function handleValidationResult(element, isValid, errorMessage) {
   const errorElement = parent.find("." + errorClass);
 
   if (!isValid) {
-    $element.css("border", "3px solid #a94442");
+    $element.css("border-bottom", "3px solid #ff00009a");
     appendErrorMessage(element, errorMessage);
   } else {
     if ($element.is(":radio") || $element.is(":checkbox")) {

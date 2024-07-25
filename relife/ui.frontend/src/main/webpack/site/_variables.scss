@@ -23,7 +23,7 @@ $text-bold: 700;
 $font-height: 1.5;
 $font-size-min: 14px;
 $font-size-max: 18px;
-//$font-size: calc(16px + (24 - 16) * ((100vw - 390px) / (1920 - 390)));
+
 $font-size: clamp($font-size-min, 50vw, $font-size-max);
 
 
@@ -31,7 +31,6 @@ $title-size-min: 26px;
 $title-size-max: 56px;
 $title-size: clamp($title-size-min, 50vw, $title-size-max);
 $title-letter-spacing: 2px;
-//$title-size: calc(48px + (100 - 48) * ((100vw - 390px) / (1920 - 390)));
 
 // Color
 $black: #000000;
@@ -43,6 +42,7 @@ $white: #ffffff;
 $lightGrey: #E6E9EA;
 $grey: #CDD2D5;
 $mediumGrey: #6B6C6C;
+$red: #ff00009a;
 $standard-transition: all 0.3s ease-in;
 
 // Normal mode

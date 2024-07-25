@@ -1,79 +1,137 @@
 .cmp-form-options {
   border: none;
-}
+  height: 5rem;
 
-.cmp-form-options--drop-down {
-  margin-bottom: 27px;
-  padding: 0 15px;
-}
-
-.cmp-form-options__field-label {
-  display: inline-flex;
-  gap: 5px;
-  font-family: $font-family-text;
-  font-size: 18px;
-  color: $black;
-  height: 22px;
-  padding-left: 20px;
-  margin-bottom: 0;
-  cursor: pointer;
-}
-
-.cmp-form-options__field {
-  &:focus {
-    border-color: $midnightBlue;
-    outline: 0;
+  &.cmp-form-options--drop-down {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
   }
-}
 
-.cmp-form-options__field--drop-down {
-  display: block;
-  background-position: right 30px center;
-  background-image: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/images/icons/arrow_down_grey.png");
-  background-repeat: no-repeat;
-  font-family: $title-light;
-  font-size: 20px;
-  color: $black;
-  border: 1px solid $black;
-  box-shadow: none;
-  width: 100%;
-  height: 65px;
-  padding: 6px 12px;
-  border-radius: 0px;
-  transition: $standard-transition;
-  line-height: 1.42857143;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding: 0 15px;
+  &.cmp-form-options--checkbox {
+    input {
+      border: 0.2rem solid $midnightBlue;
+      width: 2rem;
+      height: 2rem;
+      appearance: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+
+      &::before {
+        content: " ";
+        position: absolute;
+        font-size: 3rem;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        transition: $standard-transition;
+    }
+    }
+    &.checkboxTrue {
+      input {
+        &::before {
+          content: "√";
+      }
+      }
+    }
+    
+  }
+  
+
+  .cmp-form-options__label {
+    display: block;
+    font-size: 1.25rem;
+    font-family: $title-light;
+    color: $midnightBlue;
+    margin-bottom: 0rem;    
+		text-transform: uppercase;
+  }
+
+  .cmp-form-options__field {
+
+    &.cmp-form-options__field--drop-down {
+      display: block;
+    
+      background-position: right 2rem center;
+      background-image: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/arrow-down-relife.svg");
+      background-repeat: no-repeat;
+      transition: $standard-transition;
+      
+      &.dropdownOpen {
+        background-position: right 2rem center;
+        background-image: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/arrow-up-relife.svg");
+        background-repeat: no-repeat;
+      }
+
+      width: 100%;
+      height: 3.125rem;
+      padding: .5rem 1rem .5rem 0;
+    
+      font-size: $font-size;
+      font-family: $title-light;
+      color: $midnightBlue;
+      line-height: 1.42857143;
+    
+      background: $white;
+      background-color: $white;
+      background-image: none;
+    
+      border: 0rem;
+      border-bottom: 0.063rem solid $midnightBlue;
+      border-radius: 0rem;
+      box-shadow: none;
+    
+    
+      cursor: pointer;
+    
+      &:focus {
+        border-color: $midnightBlue;
+        outline: 0;
+      }
+    
+    }
+
+    &:focus {
+      border-color: $midnightBlue;
+      outline: 0;
+    }
+
+  }
+
+  .cmp-form-options__field-label {
+    display: inline-flex;
+    gap: 0.313rem;
+    font-family: $font-family-text;
+    font-size: 2rem;
+    color: $midnightBlue;
+    padding-left: 1rem;
+    margin-bottom: 0rem;
+    cursor: pointer;
+  }
+
 }
 
 .form-group {
-  padding: 0 15px;
-}
-
-.cmp-form-options__label {
-  font-family: $title-light;
-  font-size: 30px;
-  color: $black;
-  margin-bottom: 18px;
-  display: block;
+  padding: 0 1rem;
 }
 
 .cmp-options {
-  padding: 0 15px;
+  padding: 0 1rem;
 
   fieldset {
     border: none;
     font-family: $title-light;
     font-size: 18px;
-    color: $black;
+    color: $midnightBlue;
     float: left;
     width: 100%;
   }
 
   legend {
-    margin-bottom: 27px;
+    margin-bottom: 2rem;
   }
 
   .radio-item {

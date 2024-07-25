@@ -1,22 +1,46 @@
 .cmp-form-text {
   display: block;
-  padding: 0 15px;
-  margin-bottom: 27px;
+  height: 5rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+
+  position: relative;
 
   label {
-    font-family: $title-light;
-    font-size: 30px;
-    color: $black;
-    margin-bottom: 18px;
     display: block;
+    margin-bottom: 0rem;
+    position: absolute;
+
+    left: 1rem;
+    bottom: 2.5rem;
+
+    font-size: 1.25rem;
+    font-family: $title-light;
+    color: $midnightBlue;
+    text-transform: uppercase;
+
+    cursor: text;
+
+    transition: $standard-transition;
+  }
+
+  &.textAdded {
+    label {
+      bottom: 4.5rem;
+    }
   }
 }
 
 .cmp-form-text__help-block {}
 
 .cmp-form-text__textarea {
-  max-height: 180px;
+  height: auto;
+  max-height: 100vh;
   width: 100%;
+  margin-top: 5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 0.063rem solid $midnightBlue;
 
   &:focus {
     border-color: $midnightBlue;
@@ -27,16 +51,24 @@
 .cmp-form-text__text {
   display: block;
   width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
+  height: 3.5rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+
+  font-size: $font-size;
+  font-family: $title-light;
+  color: $midnightBlue;
   line-height: 1.42857143;
-  color: $black;
+
+  background: $white;
   background-color: $white;
   background-image: none;
-  border: 1px solid $charcoal;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+
+  border: 0rem;
+  border-bottom: 0.063rem solid $midnightBlue;
+  border-radius: 0rem;
+  box-shadow: none;
+
   transition: $standard-transition;
 
   &:focus {
@@ -44,14 +76,4 @@
     outline: 0;
   }
 
-  font-family: $title-light;
-  font-size: 20px;
-  color: $black;
-  border: 0px;
-  background: $white;
-  box-shadow: none;
-  height: 65px;
-  padding-left: 20px;
-  border-radius: 0px;
-  border: 1px solid $black;
 }

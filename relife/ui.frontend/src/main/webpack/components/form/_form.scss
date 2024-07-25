@@ -2,8 +2,8 @@
   margin: 0 auto;
   .required-field {
     &:after {
-      content: " *";
-      margin: 0 7px;
+      content: "*";
+      margin: 0 .5rem;
       color: $midnightBlue;
     }
   }
@@ -14,7 +14,7 @@
     }
   }
   span.text-danger {
-    font-size: 16px;
+    font-size: 1rem;
     color: $midnightBlue;
     display: block;
   }
