@@ -1,0 +1,12 @@
+<sly data-sly-test="${properties.cardType == 'product'}"
+     data-sly-use.productCardTemplate="product.html"
+     data-sly-call="${productCardTemplate.productCard}"></sly>
+
+<sly data-sly-test="${properties.cardType == 'style'}"
+     data-sly-use.styleCardTemplate="style.html"
+     data-sly-call="${styleCardTemplate.styleCard}"></sly>
+
+
+
+<div data-sly-test="${!properties.cardType}" data-emptytext="Card" class="cq-placeholder"></div>
+
