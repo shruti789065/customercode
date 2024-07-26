@@ -1,0 +1,10 @@
+<sly data-sly-use.teaser="com.adiacent.menarini.relife.core.models.DuplaBanner">
+    <div class="dupla-banner">
+        <sly data-sly-test="${teaser.imagePath1}">
+            <img src="${teaser.imagePath1}" alt="${teaser.imageAlt1}"/>
+        </sly>
+        <sly data-sly-test="${teaser.imagePath2}">
+            <img src="${teaser.imagePath2}" alt="${teaser.imageAlt2}"/>
+        </sly>
+    </div>
+</sly>
