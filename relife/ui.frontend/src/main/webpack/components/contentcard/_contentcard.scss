@@ -2,21 +2,35 @@
     .cmp-teaser {
         display: flex;
         flex-direction: column;
-        height: 35rem;
+        min-height: 40rem;
 
         .cmp-teaser__content {
             width: 100%;
+            min-height: 30rem;
             display: flex;
             flex-direction: column;
             padding: 2.5rem;
             .cmp-teaser__title {
                 font-family: $title-bold;
-                font-size: $title-size;
+                font-size: $h7-title-size;
                 margin: 0;
                 text-transform: uppercase;
             }
             .cmp-teaser__description {
                 font-family: $title-light;
+                b {
+                    font-family: $title-medium;
+                }
+                a {
+                    font-family: $title-medium;
+                    text-decoration: none;
+                    padding-bottom: .2rem;
+                    border-bottom: 0.125rem solid rgba(28, 29, 29, 0.3);
+
+                    &:hover {
+                        border-bottom: 0.125rem solid $charcoal;
+                    }
+                }
             }
             .cmp-teaser__action-container {
                 .cmp-teaser__action-link {
@@ -53,6 +67,7 @@
             overflow: hidden;
             position: relative;
             display: flex;
+            min-height: 30rem;
             .cmp-image {
                 display: flex;
                 justify-content: center;
@@ -63,7 +78,7 @@
                 -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
                 img {
-                    height: 35rem;
+                    min-height: 40rem;
                     width: auto;
                 }
             }
@@ -74,11 +89,11 @@
     &.cmp-imgL {
         .cmp-teaser {
             .cmp-teaser__content {
-                order: 2;
+                order: 1;
             }
 
             .cmp-teaser__image {
-                order: 1;
+                order: 2;
             }
         }
     }
@@ -178,11 +193,32 @@
 
             .cmp-teaser__image {
                 width: 50%;
+                min-height: 40rem;
             }
         }
     
-        &.cmp-imgL {}
-        &.cmp-imgR {}
+        &.cmp-imgL {
+            .cmp-teaser {
+                .cmp-teaser__content {
+                    order: 2;
+                }
+    
+                .cmp-teaser__image {
+                    order: 1;
+                }
+            }
+        }
+        &.cmp-imgR {
+            .cmp-teaser {
+                .cmp-teaser__content {
+                    order: 1;
+                }
+    
+                .cmp-teaser__image {
+                    order: 2;
+                }
+            }
+        }
     
         &.cmp-bg-blue {}
         &.cmp-bg-white {}
