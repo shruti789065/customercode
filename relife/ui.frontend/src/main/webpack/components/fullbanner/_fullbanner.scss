@@ -1,15 +1,23 @@
-.contentcard {
+.fullbanner {
+    * {
+        transition: $standard-transition;
+    }
     .cmp-teaser {
         display: flex;
         flex-direction: column;
-        min-height: 40rem;
+        width: 100%;
+        height: 60rem;
+        position: relative;
+        overflow: hidden;
 
         .cmp-teaser__content {
-            width: 100%;
-            min-height: 30rem;
+            width: calc(100% - 5rem);
             display: flex;
             flex-direction: column;
             padding: 2.5rem;
+            z-index: 10;
+            height: 30rem;
+            margin: auto auto 2.5rem auto;
             .cmp-teaser__title {
                 font-family: $title-bold;
                 font-size: $h7-title-size;
@@ -63,57 +71,50 @@
         }
 
         .cmp-teaser__image {
-            width: 100%;
             overflow: hidden;
-            position: relative;
             display: flex;
-            min-height: 30rem;
+            width: 100%;
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
             .cmp-image {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+                width: 100%;
                 img {
-                    min-height: 40rem;
                     width: auto;
+                    min-height: 60rem;
+                    height: 100%;
                 }
             }
         }
     }
     
     
-    &.cmp-imgL {
+    &.cmp-txL {
         .cmp-teaser {
             .cmp-teaser__content {
-                order: 1;
-            }
-
-            .cmp-teaser__image {
-                order: 2;
+                margin: auto auto auto 5rem;
             }
         }
     }
-    &.cmp-imgR {
+    &.cmp-txtR {
         .cmp-teaser {
             .cmp-teaser__content {
-                order: 1;
-            }
-
-            .cmp-teaser__image {
-                order: 2;
+                margin: auto 5rem auto auto;
             }
         }
     }
 
-    &.cmp-bg-blue {
-        background-color: $midnightBlue;
-        color: $white;
+    &.cmp-bg-blue {        
         .cmp-teaser {
             .cmp-teaser__content {
+                background-color: $midnightBlue30;
+                color: $white;
                 .cmp-teaser__action-container {
                     .cmp-teaser__action-link {
                         color: $white;
@@ -128,12 +129,20 @@
         }
     }
     &.cmp-bg-white {
-        background-color: $white;
-        color: $midnightBlue;
+        .cmp-teaser {
+            .cmp-teaser__content {
+                background-color: $white30;
+                color: $midnightBlue;
+            }}
+        
     }
     &.cmp-bg-grey {
-        background-color: $lightTerracotta;
-        color: $midnightBlue;
+        .cmp-teaser {
+            .cmp-teaser__content {
+                background-color: $lightTerracotta30;
+                color: $midnightBlue;
+            }}
+        
     }
 
     &.cmp-VA-T {
@@ -182,40 +191,38 @@
 }
 
 @include respond-to(tablet) {
-    .contentcard {
+    .fullbanner {
         .cmp-teaser {
             display: flex;
             flex-direction: row;
+            height: 40rem;
 
             .cmp-teaser__content {
-                width: 50%;
+                width: 35rem;
+                height: 30rem;
+                margin: auto 5rem auto 5rem;
             }
 
             .cmp-teaser__image {
-                width: 50%;
-                min-height: 40rem;
-            }
-        }
-    
-        &.cmp-imgL {
-            .cmp-teaser {
-                .cmp-teaser__content {
-                    order: 2;
-                }
-    
-                .cmp-teaser__image {
-                    order: 1;
+                .cmp-image {
+                    img {
+                        width: 100%;
+                        min-height: 40rem;
+                        height: 100%;
+                    }
                 }
             }
         }
-        &.cmp-imgR {
+    
+        &.cmp-txtL {
             .cmp-teaser {
                 .cmp-teaser__content {
-                    order: 1;
                 }
-    
-                .cmp-teaser__image {
-                    order: 2;
+            }
+        }
+        &.cmp-txtR {
+            .cmp-teaser {
+                .cmp-teaser__content {
                 }
             }
         }
@@ -236,11 +243,11 @@
 }
 
 @include respond-to(desktop) {
-    .contentcard {
+    .fullbanner {
         
     
-        &.cmp-imgL {}
-        &.cmp-imgR {}
+        &.cmp-txtL {}
+        &.cmp-txtR {}
     
         &.cmp-bg-blue {}
         &.cmp-bg-white {}

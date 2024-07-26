@@ -562,12 +562,12 @@
                     </policy_1721822020436>
                 </images-carousel>
             </puzzle>
-            <contentcard jcr:primaryType="nt:unstructured">
-                <policy_1721920625328
-                    jcr:lastModified="{Date}2024-07-25T17:22:02.798+02:00"
+            <halfbanner jcr:primaryType="nt:unstructured">
+                <policy_1721985012498
+                    jcr:lastModified="{Date}2024-07-26T11:10:59.310+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Relife Content Card Policy"
+                    jcr:title="Relife Half Banner Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
@@ -654,8 +654,102 @@
                             </cq:styles>
                         </item3>
                     </cq:styleGroups>
-                </policy_1721920625328>
-            </contentcard>
+                </policy_1721985012498>
+            </halfbanner>
+            <fullbanner jcr:primaryType="nt:unstructured">
+                <policy_1721985061821
+                    jcr:lastModified="{Date}2024-07-26T11:11:11.351+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Relife Half Banner Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Tipology"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-imgR"
+                                    cq:styleId="1721920650500"
+                                    cq:styleLabel="Img Right"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-imgL"
+                                    cq:styleId="1721920651574"
+                                    cq:styleLabel="Img Left"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Background Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-bg-blue"
+                                    cq:styleId="1721920693216"
+                                    cq:styleLabel="blue"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-bg-grey"
+                                    cq:styleId="1721920694276"
+                                    cq:styleLabel="grey"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-bg-white"
+                                    cq:styleId="1721920703430"
+                                    cq:styleLabel="white"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                        <item2
+                            cq:styleGroupLabel="Vertical Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-VA-T"
+                                    cq:styleId="1721920838974"
+                                    cq:styleLabel="top"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-VA-M"
+                                    cq:styleId="1721920841536"
+                                    cq:styleLabel="middle"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-VA-B"
+                                    cq:styleId="1721920853885"
+                                    cq:styleLabel="bottom"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
+                        <item3
+                            cq:styleGroupLabel="Horizontal Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-HA-L"
+                                    cq:styleId="1721920857567"
+                                    cq:styleLabel="left"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-HA-C"
+                                    cq:styleId="1721920858587"
+                                    cq:styleLabel="center"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-HA-R"
+                                    cq:styleId="1721920859721"
+                                    cq:styleLabel="right"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item3>
+                    </cq:styleGroups>
+                </policy_1721985061821>
+            </fullbanner>
         </components>
     </relife>
     <wcm jcr:primaryType="nt:unstructured">
