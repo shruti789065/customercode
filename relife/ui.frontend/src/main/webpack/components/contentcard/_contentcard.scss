@@ -2,6 +2,7 @@
     .cmp-teaser {
         display: flex;
         flex-direction: column;
+        height: 35rem;
 
         .cmp-teaser__content {
             width: 100%;
@@ -20,6 +21,7 @@
             .cmp-teaser__action-container {
                 .cmp-teaser__action-link {
                     text-decoration: none;
+                    text-transform: uppercase;
                     border: $btn-border-style $btn-border-size;
                     width: $btn-width;
                     height: $btn-height;
@@ -29,9 +31,11 @@
                     line-height: $btn-height;
                     display: inline-block;
                     padding: $btn-padding;
-                    font-family: $font-family-text;
+                    font-family: $title-light;
                     font-size: $font-size-btn;
                     color: $charcoal;
+
+                    transition: $standard-transition;
 
                     border-color: $charcoal;
                     background-color: unset;
@@ -47,11 +51,21 @@
         .cmp-teaser__image {
             width: 100%;
             overflow: hidden;
+            position: relative;
             display: flex;
             .cmp-image {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                img {
+                    height: 35rem;
+                    width: auto;
+                }
             }
         }
     }
@@ -82,7 +96,21 @@
 
     &.cmp-bg-blue {
         background-color: $midnightBlue;
-        color: $white
+        color: $white;
+        .cmp-teaser {
+            .cmp-teaser__content {
+                .cmp-teaser__action-container {
+                    .cmp-teaser__action-link {
+                        color: $white;
+                        border-color: $white;
+                        &:hover {
+                            color: $midnightBlue;
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+        }
     }
     &.cmp-bg-white {
         background-color: $white;
@@ -112,17 +140,27 @@
     &.cmp-HA-L {
         .cmp-teaser__content {
             align-items: flex-start;
+            text-align: left;
+            .cmp-teaser__description {
+                text-align: left;
+            }
         }
     }
     &.cmp-HA-C {
         .cmp-teaser__content {
             align-items: center;
             text-align: center;
+            .cmp-teaser__description {
+                text-align: center;
+            }
         }
     }
     &.cmp-HA-R {
         .cmp-teaser__content {
             align-items: flex-end;
+            .cmp-teaser__description {
+                text-align: right;
+            }
         }
     }
 
