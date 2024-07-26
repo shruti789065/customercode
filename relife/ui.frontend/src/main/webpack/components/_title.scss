@@ -8,10 +8,10 @@
         font-family: $title-bold;
     }
 
-    h1 { font-size: clamp(1.857rem, calc(26px + (56 - 26) * ((100vw - 320px) / (1920 - 320))), 4rem); }
-    h2 { font-size: clamp(1.714rem, calc(24px + (52 - 24) * ((100vw - 320px) / (1920 - 320))), 3.714rem); }
-    h3 { font-size: clamp(1.571rem, calc(22px + (48 - 22) * ((100vw - 320px) / (1920 - 320))), 3.429rem); }
-    h4 { font-size: clamp(1.429rem, calc(20px + (44 - 20) * ((100vw - 320px) / (1920 - 320))), 3.143rem); }
-    h5 { font-size: clamp(1.286rem, calc(18px + (40 - 18) * ((100vw - 320px) / (1920 - 320))), 2.857rem); }
-    h6 { font-size: clamp(1.143rem, calc(16px + (36 - 16) * ((100vw - 320px) / (1920 - 320))), 2.571rem); }
+    h1 { font-size: $h1-title-size; }
+    h2 { font-size: $h2-title-size; }
+    h3 { font-size: $h3-title-size; }
+    h4 { font-size: $h4-title-size; }
+    h5 { font-size: $h5-title-size; }
+    h6 { font-size: $h6-title-size; }
 }
