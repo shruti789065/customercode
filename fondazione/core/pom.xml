@@ -27,15 +27,8 @@
     <name>Fondazione - Core</name>
     <description>Core bundle for Fondazione</description>
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/java/com/jakala/menarini/core/resources/</directory>
-                <includes>
-                    <include>META-INF/persistence.xml</include>
-                </includes>
-            </resource>
-        </resources>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>sling-maven-plugin</artifactId>
@@ -51,7 +44,13 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: javax.annotation;version=0.0.0,*
+                    Import-Package: javax.annotation;version=0.0.0,*
+                    Export-Package: io.r2dbc.spi,\
+                                    javax.annotation.meta,\
+                                    jakarta.xml.*,\
+                                    jakarta.activation,\
+                                    org.glassfish.hk2.osgiresourcelocator,\
+                                    com.sun.activation.registries
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -91,6 +90,19 @@ Import-Package: javax.annotation;version=0.0.0,*
     <dependencies>
 
         <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-spi</artifactId>
+            <version>${r2dbc.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/r2dbc-spi-${r2dbc.version}.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>${dbutils.version}</version>
@@ -101,6 +113,11 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.reactivestreams</groupId>
+            <artifactId>reactive-streams</artifactId>
+            <version>1.0.3</version>
         </dependency>
 
         <dependency>

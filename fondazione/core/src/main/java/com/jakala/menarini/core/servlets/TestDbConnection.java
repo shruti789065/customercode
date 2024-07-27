@@ -32,19 +32,12 @@ public class TestDbConnection  extends SlingAllMethodsServlet {
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-        /*boolean isAccess = userService.isAccessible();
-        boolean isAcc = false;
-        if(isAccess) {
-        isAcc = userService.isAccessible();
-        }*/
         List<RegisteredUser> users = userService.getUsers();
         
         Gson gson = new Gson();
         String res = gson.toJson(users);
         response.setContentType("application/json");
-        response.getWriter().write(res);
-    
-       
+        response.getWriter().write(res);       
     }
 
     @Override
