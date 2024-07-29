@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,11 +8,7 @@ import java.util.List;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the EVENT database table.
- * 
- */
-public class Event implements Serializable {
+public class EventDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "EVENT";
@@ -43,24 +39,24 @@ public class Event implements Serializable {
 	private String title;
 
 	//bi-directional many-to-one association to Location
-	private Location location;
+	private LocationDto location;
 
 	//bi-directional many-to-one association to Venue
-	private Venue venue;
+	private VenueDto venue;
 
 	//bi-directional many-to-one association to EventEnrollment
 	private List<EventEnrollment> eventEnrollments;
 
 	//bi-directional many-to-one association to EventSessionDate
-	private List<EventSessionDate> eventSessionDates;
+	private List<EventSessionDateDto> eventSessionDates;
 
 	//bi-directional many-to-one association to EventSpeaker
-	private List<EventSpeaker> eventSpeakers;
+	private List<EventSpeakerDto> eventSpeakers;
 
 	//bi-directional many-to-one association to EventTopic
-	private List<EventTopic> eventTopics;
+	private List<EventTopicDto> eventTopics;
 
-	public Event() {
+	public EventDto() {
 	}
 
 	public long getId() {
@@ -143,19 +139,19 @@ public class Event implements Serializable {
 		this.title = title;
 	}
 
-	public Location getLocation() {
+	public LocationDto getLocation() {
 		return this.location;
 	}
 
-	public void setLocation(Location location) {
+	public void setLocation(LocationDto location) {
 		this.location = location;
 	}
 
-	public Venue getVenue() {
+	public VenueDto getVenue() {
 		return this.venue;
 	}
 
-	public void setVenue(Venue venue) {
+	public void setVenue(VenueDto venue) {
 		this.venue = venue;
 	}
 
@@ -181,66 +177,66 @@ public class Event implements Serializable {
 		return eventEnrollment;
 	}
 
-	public List<EventSessionDate> getEventSessionDates() {
+	public List<EventSessionDateDto> getEventSessionDates() {
 		return this.eventSessionDates;
 	}
 
-	public void setEventSessionDates(List<EventSessionDate> eventSessionDates) {
+	public void setEventSessionDates(List<EventSessionDateDto> eventSessionDates) {
 		this.eventSessionDates = eventSessionDates;
 	}
 
-	public EventSessionDate addEventSessionDate(EventSessionDate eventSessionDate) {
+	public EventSessionDateDto addEventSessionDate(EventSessionDateDto eventSessionDate) {
 		getEventSessionDates().add(eventSessionDate);
 		eventSessionDate.setEvent(this);
 
 		return eventSessionDate;
 	}
 
-	public EventSessionDate removeEventSessionDate(EventSessionDate eventSessionDate) {
+	public EventSessionDateDto removeEventSessionDate(EventSessionDateDto eventSessionDate) {
 		getEventSessionDates().remove(eventSessionDate);
 		eventSessionDate.setEvent(null);
 
 		return eventSessionDate;
 	}
 
-	public List<EventSpeaker> getEventSpeakers() {
+	public List<EventSpeakerDto> getEventSpeakers() {
 		return this.eventSpeakers;
 	}
 
-	public void setEventSpeakers(List<EventSpeaker> eventSpeakers) {
+	public void setEventSpeakers(List<EventSpeakerDto> eventSpeakers) {
 		this.eventSpeakers = eventSpeakers;
 	}
 
-	public EventSpeaker addEventSpeaker(EventSpeaker eventSpeaker) {
+	public EventSpeakerDto addEventSpeaker(EventSpeakerDto eventSpeaker) {
 		getEventSpeakers().add(eventSpeaker);
 		eventSpeaker.setEvent(this);
 
 		return eventSpeaker;
 	}
 
-	public EventSpeaker removeEventSpeaker(EventSpeaker eventSpeaker) {
+	public EventSpeakerDto removeEventSpeaker(EventSpeakerDto eventSpeaker) {
 		getEventSpeakers().remove(eventSpeaker);
 		eventSpeaker.setEvent(null);
 
 		return eventSpeaker;
 	}
 
-	public List<EventTopic> getEventTopics() {
+	public List<EventTopicDto> getEventTopics() {
 		return this.eventTopics;
 	}
 
-	public void setEventTopics(List<EventTopic> eventTopics) {
+	public void setEventTopics(List<EventTopicDto> eventTopics) {
 		this.eventTopics = eventTopics;
 	}
 
-	public EventTopic addEventTopic(EventTopic eventTopic) {
+	public EventTopicDto addEventTopic(EventTopicDto eventTopic) {
 		getEventTopics().add(eventTopic);
 		eventTopic.setEvent(this);
 
 		return eventTopic;
 	}
 
-	public EventTopic removeEventTopic(EventTopic eventTopic) {
+	public EventTopicDto removeEventTopic(EventTopicDto eventTopic) {
 		getEventTopics().remove(eventTopic);
 		eventTopic.setEvent(null);
 

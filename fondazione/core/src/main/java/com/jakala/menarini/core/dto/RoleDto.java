@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -7,11 +7,7 @@ import java.util.List;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the ROLE database table.
- * 
- */
-public class Role implements Serializable {
+public class RoleDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "ROLE";
@@ -29,9 +25,9 @@ public class Role implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to RegisteredUserRole
-	private List<RegisteredUserRole> registeredUserRoles;
+	private List<RegisteredUserRoleDto> registeredUserRoles;
 
-	public Role() {
+	public RoleDto() {
 	}
 
 	public long getId() {
@@ -74,22 +70,22 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
-	public List<RegisteredUserRole> getRegisteredUserRoles() {
+	public List<RegisteredUserRoleDto> getRegisteredUserRoles() {
 		return this.registeredUserRoles;
 	}
 
-	public void setRegisteredUserRoles(List<RegisteredUserRole> registeredUserRoles) {
+	public void setRegisteredUserRoles(List<RegisteredUserRoleDto> registeredUserRoles) {
 		this.registeredUserRoles = registeredUserRoles;
 	}
 
-	public RegisteredUserRole addRegisteredUserRole(RegisteredUserRole registeredUserRole) {
+	public RegisteredUserRoleDto addRegisteredUserRole(RegisteredUserRoleDto registeredUserRole) {
 		getRegisteredUserRoles().add(registeredUserRole);
 		registeredUserRole.setRole(this);
 
 		return registeredUserRole;
 	}
 
-	public RegisteredUserRole removeRegisteredUserRole(RegisteredUserRole registeredUserRole) {
+	public RegisteredUserRoleDto removeRegisteredUserRole(RegisteredUserRoleDto registeredUserRole) {
 		getRegisteredUserRoles().remove(registeredUserRole);
 		registeredUserRole.setRole(null);
 

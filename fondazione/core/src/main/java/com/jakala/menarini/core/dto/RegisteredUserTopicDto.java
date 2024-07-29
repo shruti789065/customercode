@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -6,14 +6,10 @@ import java.sql.Timestamp;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the EVENT_TOPIC database table.
- * 
- */
-public class EventTopic implements Serializable {
+public class RegisteredUserTopicDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "EVENT_TOPIC";
+	public static String table = "REGISTERED_USER_TOPIC";
 
 	private long id;
 
@@ -23,15 +19,16 @@ public class EventTopic implements Serializable {
 	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	private int priority;
+	@Field(name="seq_no")
+	private int seqNo;
 
-	//bi-directional many-to-one association to Event
-	private Event event;
+	//bi-directional many-to-one association to RegisteredUser
+	private RegisteredUserDto registeredUser;
 
 	//bi-directional many-to-one association to Topic
-	private Topic topic;
+	private TopicDto topic;
 
-	public EventTopic() {
+	public RegisteredUserTopicDto() {
 	}
 
 	public long getId() {
@@ -58,27 +55,27 @@ public class EventTopic implements Serializable {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
 
-	public int getPriority() {
-		return this.priority;
+	public int getSeqNo() {
+		return this.seqNo;
 	}
 
-	public void setPriority(int priority) {
-		this.priority = priority;
+	public void setSeqNo(int seqNo) {
+		this.seqNo = seqNo;
 	}
 
-	public Event getEvent() {
-		return this.event;
+	public RegisteredUserDto getRegisteredUser() {
+		return this.registeredUser;
 	}
 
-	public void setEvent(Event event) {
-		this.event = event;
+	public void setRegisteredUser(RegisteredUserDto registeredUser) {
+		this.registeredUser = registeredUser;
 	}
 
-	public Topic getTopic() {
+	public TopicDto getTopic() {
 		return this.topic;
 	}
 
-	public void setTopic(Topic topic) {
+	public void setTopic(TopicDto topic) {
 		this.topic = topic;
 	}
 

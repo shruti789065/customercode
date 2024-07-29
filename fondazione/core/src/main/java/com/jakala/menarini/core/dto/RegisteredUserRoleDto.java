@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -6,14 +6,10 @@ import java.sql.Timestamp;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the REGISTERED_USER_TOPIC database table.
- * 
- */
-public class RegisteredUserTopic implements Serializable {
+public class RegisteredUserRoleDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "REGISTERED_USER_TOPIC";
+	public static String table = "REGISTERED_USER_ROLE";
 
 	private long id;
 
@@ -23,16 +19,13 @@ public class RegisteredUserTopic implements Serializable {
 	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	@Field(name="seq_no")
-	private int seqNo;
-
 	//bi-directional many-to-one association to RegisteredUser
-	private RegisteredUser registeredUser;
+	private RegisteredUserDto registeredUser;
 
-	//bi-directional many-to-one association to Topic
-	private Topic topic;
+	//bi-directional many-to-one association to Role
+	private RoleDto role;
 
-	public RegisteredUserTopic() {
+	public RegisteredUserRoleDto() {
 	}
 
 	public long getId() {
@@ -59,28 +52,20 @@ public class RegisteredUserTopic implements Serializable {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
 
-	public int getSeqNo() {
-		return this.seqNo;
-	}
-
-	public void setSeqNo(int seqNo) {
-		this.seqNo = seqNo;
-	}
-
-	public RegisteredUser getRegisteredUser() {
+	public RegisteredUserDto getRegisteredUser() {
 		return this.registeredUser;
 	}
 
-	public void setRegisteredUser(RegisteredUser registeredUser) {
+	public void setRegisteredUser(RegisteredUserDto registeredUser) {
 		this.registeredUser = registeredUser;
 	}
 
-	public Topic getTopic() {
-		return this.topic;
+	public RoleDto getRole() {
+		return this.role;
 	}
 
-	public void setTopic(Topic topic) {
-		this.topic = topic;
+	public void setRole(RoleDto role) {
+		this.role = role;
 	}
 
 }

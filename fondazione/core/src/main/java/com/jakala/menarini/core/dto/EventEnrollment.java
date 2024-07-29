@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -6,10 +6,6 @@ import java.sql.Timestamp;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the EVENT_ENROLLMENT database table.
- * 
- */
 public class EventEnrollment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -39,10 +35,10 @@ public class EventEnrollment implements Serializable {
 	private Timestamp residentialRegistrationTs;
 
 	//bi-directional many-to-one association to Event
-	private Event event;
+	private EventDto event;
 
 	//bi-directional many-to-one association to RegisteredUser
-	private RegisteredUser registeredUser;
+	private RegisteredUserDto registeredUser;
 
 	public EventEnrollment() {
 	}
@@ -111,19 +107,19 @@ public class EventEnrollment implements Serializable {
 		this.residentialRegistrationTs = residentialRegistrationTs;
 	}
 
-	public Event getEvent() {
+	public EventDto getEvent() {
 		return this.event;
 	}
 
-	public void setEvent(Event event) {
+	public void setEvent(EventDto event) {
 		this.event = event;
 	}
 
-	public RegisteredUser getRegisteredUser() {
+	public RegisteredUserDto getRegisteredUser() {
 		return this.registeredUser;
 	}
 
-	public void setRegisteredUser(RegisteredUser registeredUser) {
+	public void setRegisteredUser(RegisteredUserDto registeredUser) {
 		this.registeredUser = registeredUser;
 	}
 

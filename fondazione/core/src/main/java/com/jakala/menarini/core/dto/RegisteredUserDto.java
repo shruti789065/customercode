@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,11 +8,7 @@ import java.util.List;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the REGISTERED_USER database table.
- * 
- */
-public class RegisteredUser implements Serializable {
+public class RegisteredUserDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "REGISTERED_USER";
@@ -75,18 +71,18 @@ public class RegisteredUser implements Serializable {
 	private List<EventEnrollment> eventEnrollments;
 
 	//bi-directional many-to-one association to MagazineSubscription
-	private List<MagazineSubscription> magazineSubscriptions;
+	private List<MagazineSubscriptionDto> magazineSubscriptions;
 
 	//bi-directional many-to-one association to NewsletterSubscription
-	private List<NewsletterSubscription> newsletterSubscriptions;
+	private List<NewsletterSubscriptionDto> newsletterSubscriptions;
 
 	//bi-directional many-to-one association to RegisteredUserRole
-	private List<RegisteredUserRole> registeredUserRoles;
+	private List<RegisteredUserRoleDto> registeredUserRoles;
 
 	//bi-directional many-to-one association to RegisteredUserTopic
-	private List<RegisteredUserTopic> registeredUserTopics;
+	private List<RegisteredUserTopicDto> registeredUserTopics;
 
-	public RegisteredUser() {
+	public RegisteredUserDto() {
 	}
 
 	public long getId() {
@@ -279,88 +275,88 @@ public class RegisteredUser implements Serializable {
 		return eventEnrollment;
 	}
 
-	public List<MagazineSubscription> getMagazineSubscriptions() {
+	public List<MagazineSubscriptionDto> getMagazineSubscriptions() {
 		return this.magazineSubscriptions;
 	}
 
-	public void setMagazineSubscriptions(List<MagazineSubscription> magazineSubscriptions) {
+	public void setMagazineSubscriptions(List<MagazineSubscriptionDto> magazineSubscriptions) {
 		this.magazineSubscriptions = magazineSubscriptions;
 	}
 
-	public MagazineSubscription addMagazineSubscription(MagazineSubscription magazineSubscription) {
+	public MagazineSubscriptionDto addMagazineSubscription(MagazineSubscriptionDto magazineSubscription) {
 		getMagazineSubscriptions().add(magazineSubscription);
 		magazineSubscription.setRegisteredUser(this);
 
 		return magazineSubscription;
 	}
 
-	public MagazineSubscription removeMagazineSubscription(MagazineSubscription magazineSubscription) {
+	public MagazineSubscriptionDto removeMagazineSubscription(MagazineSubscriptionDto magazineSubscription) {
 		getMagazineSubscriptions().remove(magazineSubscription);
 		magazineSubscription.setRegisteredUser(null);
 
 		return magazineSubscription;
 	}
 
-	public List<NewsletterSubscription> getNewsletterSubscriptions() {
+	public List<NewsletterSubscriptionDto> getNewsletterSubscriptions() {
 		return this.newsletterSubscriptions;
 	}
 
-	public void setNewsletterSubscriptions(List<NewsletterSubscription> newsletterSubscriptions) {
+	public void setNewsletterSubscriptions(List<NewsletterSubscriptionDto> newsletterSubscriptions) {
 		this.newsletterSubscriptions = newsletterSubscriptions;
 	}
 
-	public NewsletterSubscription addNewsletterSubscription(NewsletterSubscription newsletterSubscription) {
+	public NewsletterSubscriptionDto addNewsletterSubscription(NewsletterSubscriptionDto newsletterSubscription) {
 		getNewsletterSubscriptions().add(newsletterSubscription);
 		newsletterSubscription.setRegisteredUser(this);
 
 		return newsletterSubscription;
 	}
 
-	public NewsletterSubscription removeNewsletterSubscription(NewsletterSubscription newsletterSubscription) {
+	public NewsletterSubscriptionDto removeNewsletterSubscription(NewsletterSubscriptionDto newsletterSubscription) {
 		getNewsletterSubscriptions().remove(newsletterSubscription);
 		newsletterSubscription.setRegisteredUser(null);
 
 		return newsletterSubscription;
 	}
 
-	public List<RegisteredUserRole> getRegisteredUserRoles() {
+	public List<RegisteredUserRoleDto> getRegisteredUserRoles() {
 		return this.registeredUserRoles;
 	}
 
-	public void setRegisteredUserRoles(List<RegisteredUserRole> registeredUserRoles) {
+	public void setRegisteredUserRoles(List<RegisteredUserRoleDto> registeredUserRoles) {
 		this.registeredUserRoles = registeredUserRoles;
 	}
 
-	public RegisteredUserRole addRegisteredUserRole(RegisteredUserRole registeredUserRole) {
+	public RegisteredUserRoleDto addRegisteredUserRole(RegisteredUserRoleDto registeredUserRole) {
 		getRegisteredUserRoles().add(registeredUserRole);
 		registeredUserRole.setRegisteredUser(this);
 
 		return registeredUserRole;
 	}
 
-	public RegisteredUserRole removeRegisteredUserRole(RegisteredUserRole registeredUserRole) {
+	public RegisteredUserRoleDto removeRegisteredUserRole(RegisteredUserRoleDto registeredUserRole) {
 		getRegisteredUserRoles().remove(registeredUserRole);
 		registeredUserRole.setRegisteredUser(null);
 
 		return registeredUserRole;
 	}
 
-	public List<RegisteredUserTopic> getRegisteredUserTopics() {
+	public List<RegisteredUserTopicDto> getRegisteredUserTopics() {
 		return this.registeredUserTopics;
 	}
 
-	public void setRegisteredUserTopics(List<RegisteredUserTopic> registeredUserTopics) {
+	public void setRegisteredUserTopics(List<RegisteredUserTopicDto> registeredUserTopics) {
 		this.registeredUserTopics = registeredUserTopics;
 	}
 
-	public RegisteredUserTopic addRegisteredUserTopic(RegisteredUserTopic registeredUserTopic) {
+	public RegisteredUserTopicDto addRegisteredUserTopic(RegisteredUserTopicDto registeredUserTopic) {
 		getRegisteredUserTopics().add(registeredUserTopic);
 		registeredUserTopic.setRegisteredUser(this);
 
 		return registeredUserTopic;
 	}
 
-	public RegisteredUserTopic removeRegisteredUserTopic(RegisteredUserTopic registeredUserTopic) {
+	public RegisteredUserTopicDto removeRegisteredUserTopic(RegisteredUserTopicDto registeredUserTopic) {
 		getRegisteredUserTopics().remove(registeredUserTopic);
 		registeredUserTopic.setRegisteredUser(null);
 

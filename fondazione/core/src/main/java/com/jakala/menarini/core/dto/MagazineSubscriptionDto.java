@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -6,11 +6,7 @@ import java.sql.Timestamp;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the MAGAZINE_SUBSCRIPTION database table.
- * 
- */
-public class MagazineSubscription implements Serializable {
+public class MagazineSubscriptionDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "MAGAZINE_SUBSCRIPTION";
@@ -67,9 +63,9 @@ public class MagazineSubscription implements Serializable {
 	private String zip;
 
 	//bi-directional many-to-one association to RegisteredUser
-	private RegisteredUser registeredUser;
+	private RegisteredUserDto registeredUser;
 
-	public MagazineSubscription() {
+	public MagazineSubscriptionDto() {
 	}
 
 	public long getId() {
@@ -240,11 +236,11 @@ public class MagazineSubscription implements Serializable {
 		this.zip = zip;
 	}
 
-	public RegisteredUser getRegisteredUser() {
+	public RegisteredUserDto getRegisteredUser() {
 		return this.registeredUser;
 	}
 
-	public void setRegisteredUser(RegisteredUser registeredUser) {
+	public void setRegisteredUser(RegisteredUserDto registeredUser) {
 		this.registeredUser = registeredUser;
 	}
 

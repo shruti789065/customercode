@@ -13,8 +13,8 @@ import org.jooq.impl.DSL;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
+import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.entities.records.RegisteredUserRecord;
-import com.jakala.menarini.core.model.RegisteredUser;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
 
 
@@ -25,13 +25,13 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
     private DataSource dataSource;
 
     @Override
-    public List<RegisteredUser> getUsers() {
-        List<RegisteredUser> users = new ArrayList<>();
+    public List<RegisteredUserDto> getUsers() {
+        List<RegisteredUserDto> users = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection()) {
 
             DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
-            return create.select().from(RegisteredUser.table).fetch().into(RegisteredUser.class);
+            return create.select().from(RegisteredUserDto.table).fetch().into(RegisteredUserDto.class);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -42,7 +42,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
 
     @Override
-    public boolean addUser(RegisteredUser user) {
+    public boolean addUser(RegisteredUserDto user) {
 
         try (Connection connection = dataSource.getConnection()) {
 

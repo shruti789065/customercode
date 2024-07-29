@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -7,11 +7,7 @@ import java.util.List;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the SPEAKER database table.
- * 
- */
-public class Speaker implements Serializable {
+public class SpeakerDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "SPEAKER";
@@ -33,9 +29,9 @@ public class Speaker implements Serializable {
 	private String lastname;
 
 	//bi-directional many-to-one association to EventSpeaker
-	private List<EventSpeaker> eventSpeakers;
+	private List<EventSpeakerDto> eventSpeakers;
 
-	public Speaker() {
+	public SpeakerDto() {
 	}
 
 	public long getId() {
@@ -94,22 +90,22 @@ public class Speaker implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public List<EventSpeaker> getEventSpeakers() {
+	public List<EventSpeakerDto> getEventSpeakers() {
 		return this.eventSpeakers;
 	}
 
-	public void setEventSpeakers(List<EventSpeaker> eventSpeakers) {
+	public void setEventSpeakers(List<EventSpeakerDto> eventSpeakers) {
 		this.eventSpeakers = eventSpeakers;
 	}
 
-	public EventSpeaker addEventSpeaker(EventSpeaker eventSpeaker) {
+	public EventSpeakerDto addEventSpeaker(EventSpeakerDto eventSpeaker) {
 		getEventSpeakers().add(eventSpeaker);
 		eventSpeaker.setSpeaker(this);
 
 		return eventSpeaker;
 	}
 
-	public EventSpeaker removeEventSpeaker(EventSpeaker eventSpeaker) {
+	public EventSpeakerDto removeEventSpeaker(EventSpeakerDto eventSpeaker) {
 		getEventSpeakers().remove(eventSpeaker);
 		eventSpeaker.setSpeaker(null);
 

@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -7,11 +7,7 @@ import java.util.List;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the LOCATION database table.
- * 
- */
-public class Location implements Serializable {
+public class LocationDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "LOCATION";
@@ -31,15 +27,15 @@ public class Location implements Serializable {
 	private String notes;
 
 	//bi-directional many-to-one association to Event
-	private List<Event> events;
+	private List<EventDto> events;
 
 	//bi-directional many-to-one association to EventSessionDate
-	private List<EventSessionDate> eventSessionDates;
+	private List<EventSessionDateDto> eventSessionDates;
 
 	//bi-directional many-to-one association to Venue
-	private List<Venue> venues;
+	private List<VenueDto> venues;
 
-	public Location() {
+	public LocationDto() {
 	}
 
 	public long getId() {
@@ -90,66 +86,66 @@ public class Location implements Serializable {
 		this.notes = notes;
 	}
 
-	public List<Event> getEvents() {
+	public List<EventDto> getEvents() {
 		return this.events;
 	}
 
-	public void setEvents(List<Event> events) {
+	public void setEvents(List<EventDto> events) {
 		this.events = events;
 	}
 
-	public Event addEvent(Event event) {
+	public EventDto addEvent(EventDto event) {
 		getEvents().add(event);
 		event.setLocation(this);
 
 		return event;
 	}
 
-	public Event removeEvent(Event event) {
+	public EventDto removeEvent(EventDto event) {
 		getEvents().remove(event);
 		event.setLocation(null);
 
 		return event;
 	}
 
-	public List<EventSessionDate> getEventSessionDates() {
+	public List<EventSessionDateDto> getEventSessionDates() {
 		return this.eventSessionDates;
 	}
 
-	public void setEventSessionDates(List<EventSessionDate> eventSessionDates) {
+	public void setEventSessionDates(List<EventSessionDateDto> eventSessionDates) {
 		this.eventSessionDates = eventSessionDates;
 	}
 
-	public EventSessionDate addEventSessionDate(EventSessionDate eventSessionDate) {
+	public EventSessionDateDto addEventSessionDate(EventSessionDateDto eventSessionDate) {
 		getEventSessionDates().add(eventSessionDate);
 		eventSessionDate.setLocation(this);
 
 		return eventSessionDate;
 	}
 
-	public EventSessionDate removeEventSessionDate(EventSessionDate eventSessionDate) {
+	public EventSessionDateDto removeEventSessionDate(EventSessionDateDto eventSessionDate) {
 		getEventSessionDates().remove(eventSessionDate);
 		eventSessionDate.setLocation(null);
 
 		return eventSessionDate;
 	}
 
-	public List<Venue> getVenues() {
+	public List<VenueDto> getVenues() {
 		return this.venues;
 	}
 
-	public void setVenues(List<Venue> venues) {
+	public void setVenues(List<VenueDto> venues) {
 		this.venues = venues;
 	}
 
-	public Venue addVenue(Venue venue) {
+	public VenueDto addVenue(VenueDto venue) {
 		getVenues().add(venue);
 		venue.setLocation(this);
 
 		return venue;
 	}
 
-	public Venue removeVenue(Venue venue) {
+	public VenueDto removeVenue(VenueDto venue) {
 		getVenues().remove(venue);
 		venue.setLocation(null);
 

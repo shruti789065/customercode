@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,11 +8,7 @@ import org.apache.tika.config.Field;
 import java.sql.Timestamp;
 
 
-/**
- * The persistent class for the EVENT_SESSION_DATE database table.
- * 
- */
-public class EventSessionDate implements Serializable {
+public class EventSessionDateDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "EVENT_SESSION_DATE";
@@ -34,15 +30,15 @@ public class EventSessionDate implements Serializable {
 	private Date sessionDate;
 
 	//bi-directional many-to-one association to Event
-	private Event event;
+	private EventDto event;
 
 	//bi-directional many-to-one association to Location
-	private Location location;
+	private LocationDto location;
 
 	//bi-directional many-to-one association to Venue
-	private Venue venue;
+	private VenueDto venue;
 
-	public EventSessionDate() {
+	public EventSessionDateDto() {
 	}
 
 	public long getId() {
@@ -93,27 +89,27 @@ public class EventSessionDate implements Serializable {
 		this.sessionDate = sessionDate;
 	}
 
-	public Event getEvent() {
+	public EventDto getEvent() {
 		return this.event;
 	}
 
-	public void setEvent(Event event) {
+	public void setEvent(EventDto event) {
 		this.event = event;
 	}
 
-	public Location getLocation() {
+	public LocationDto getLocation() {
 		return this.location;
 	}
 
-	public void setLocation(Location location) {
+	public void setLocation(LocationDto location) {
 		this.location = location;
 	}
 
-	public Venue getVenue() {
+	public VenueDto getVenue() {
 		return this.venue;
 	}
 
-	public void setVenue(Venue venue) {
+	public void setVenue(VenueDto venue) {
 		this.venue = venue;
 	}
 

@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -6,14 +6,10 @@ import java.sql.Timestamp;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the REGISTERED_USER_ROLE database table.
- * 
- */
-public class RegisteredUserRole implements Serializable {
+public class EventSpeakerDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "REGISTERED_USER_ROLE";
+	public static String table = "EVENT_SPEAKER";
 
 	private long id;
 
@@ -23,13 +19,13 @@ public class RegisteredUserRole implements Serializable {
 	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
-	//bi-directional many-to-one association to RegisteredUser
-	private RegisteredUser registeredUser;
+	//bi-directional many-to-one association to Event
+	private EventDto event;
 
-	//bi-directional many-to-one association to Role
-	private Role role;
+	//bi-directional many-to-one association to Speaker
+	private SpeakerDto speaker;
 
-	public RegisteredUserRole() {
+	public EventSpeakerDto() {
 	}
 
 	public long getId() {
@@ -56,20 +52,20 @@ public class RegisteredUserRole implements Serializable {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
 
-	public RegisteredUser getRegisteredUser() {
-		return this.registeredUser;
+	public EventDto getEvent() {
+		return this.event;
 	}
 
-	public void setRegisteredUser(RegisteredUser registeredUser) {
-		this.registeredUser = registeredUser;
+	public void setEvent(EventDto event) {
+		this.event = event;
 	}
 
-	public Role getRole() {
-		return this.role;
+	public SpeakerDto getSpeaker() {
+		return this.speaker;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setSpeaker(SpeakerDto speaker) {
+		this.speaker = speaker;
 	}
 
 }

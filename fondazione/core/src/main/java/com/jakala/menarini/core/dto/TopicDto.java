@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -7,11 +7,7 @@ import java.util.List;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the TOPIC database table.
- * 
- */
-public class Topic implements Serializable {
+public class TopicDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static String table = "TOPIC";
@@ -27,12 +23,12 @@ public class Topic implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to EventTopic
-	private List<EventTopic> eventTopics;
+	private List<EventTopicDto> eventTopics;
 
 	//bi-directional many-to-one association to RegisteredUserTopic
-	private List<RegisteredUserTopic> registeredUserTopics;
+	private List<RegisteredUserTopicDto> registeredUserTopics;
 
-	public Topic() {
+	public TopicDto() {
 	}
 
 	public long getId() {
@@ -67,44 +63,44 @@ public class Topic implements Serializable {
 		this.name = name;
 	}
 
-	public List<EventTopic> getEventTopics() {
+	public List<EventTopicDto> getEventTopics() {
 		return this.eventTopics;
 	}
 
-	public void setEventTopics(List<EventTopic> eventTopics) {
+	public void setEventTopics(List<EventTopicDto> eventTopics) {
 		this.eventTopics = eventTopics;
 	}
 
-	public EventTopic addEventTopic(EventTopic eventTopic) {
+	public EventTopicDto addEventTopic(EventTopicDto eventTopic) {
 		getEventTopics().add(eventTopic);
 		eventTopic.setTopic(this);
 
 		return eventTopic;
 	}
 
-	public EventTopic removeEventTopic(EventTopic eventTopic) {
+	public EventTopicDto removeEventTopic(EventTopicDto eventTopic) {
 		getEventTopics().remove(eventTopic);
 		eventTopic.setTopic(null);
 
 		return eventTopic;
 	}
 
-	public List<RegisteredUserTopic> getRegisteredUserTopics() {
+	public List<RegisteredUserTopicDto> getRegisteredUserTopics() {
 		return this.registeredUserTopics;
 	}
 
-	public void setRegisteredUserTopics(List<RegisteredUserTopic> registeredUserTopics) {
+	public void setRegisteredUserTopics(List<RegisteredUserTopicDto> registeredUserTopics) {
 		this.registeredUserTopics = registeredUserTopics;
 	}
 
-	public RegisteredUserTopic addRegisteredUserTopic(RegisteredUserTopic registeredUserTopic) {
+	public RegisteredUserTopicDto addRegisteredUserTopic(RegisteredUserTopicDto registeredUserTopic) {
 		getRegisteredUserTopics().add(registeredUserTopic);
 		registeredUserTopic.setTopic(this);
 
 		return registeredUserTopic;
 	}
 
-	public RegisteredUserTopic removeRegisteredUserTopic(RegisteredUserTopic registeredUserTopic) {
+	public RegisteredUserTopicDto removeRegisteredUserTopic(RegisteredUserTopicDto registeredUserTopic) {
 		getRegisteredUserTopics().remove(registeredUserTopic);
 		registeredUserTopic.setTopic(null);
 

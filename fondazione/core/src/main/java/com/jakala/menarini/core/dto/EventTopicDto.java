@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.model;
+package com.jakala.menarini.core.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -6,14 +6,10 @@ import java.sql.Timestamp;
 import org.apache.tika.config.Field;
 
 
-/**
- * The persistent class for the EVENT_SPEAKER database table.
- * 
- */
-public class EventSpeaker implements Serializable {
+public class EventTopicDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "EVENT_SPEAKER";
+	public static String table = "EVENT_TOPIC";
 
 	private long id;
 
@@ -23,13 +19,15 @@ public class EventSpeaker implements Serializable {
 	@Field(name="last_updated_on")
 	private Timestamp lastUpdatedOn;
 
+	private int priority;
+
 	//bi-directional many-to-one association to Event
-	private Event event;
+	private EventDto event;
 
-	//bi-directional many-to-one association to Speaker
-	private Speaker speaker;
+	//bi-directional many-to-one association to Topic
+	private TopicDto topic;
 
-	public EventSpeaker() {
+	public EventTopicDto() {
 	}
 
 	public long getId() {
@@ -56,20 +54,28 @@ public class EventSpeaker implements Serializable {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
 
-	public Event getEvent() {
+	public int getPriority() {
+		return this.priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
+	public EventDto getEvent() {
 		return this.event;
 	}
 
-	public void setEvent(Event event) {
+	public void setEvent(EventDto event) {
 		this.event = event;
 	}
 
-	public Speaker getSpeaker() {
-		return this.speaker;
+	public TopicDto getTopic() {
+		return this.topic;
 	}
 
-	public void setSpeaker(Speaker speaker) {
-		this.speaker = speaker;
+	public void setTopic(TopicDto topic) {
+		this.topic = topic;
 	}
 
 }
