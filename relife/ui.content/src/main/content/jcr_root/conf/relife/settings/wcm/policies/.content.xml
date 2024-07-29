@@ -512,12 +512,34 @@
             </button>
             <card jcr:primaryType="nt:unstructured">
                 <policy_1721817427768
-                    jcr:lastModified="{Date}2024-07-24T12:37:22.936+02:00"
+                    jcr:lastModified="{Date}2024-07-29T11:09:40.674+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Cards policy"
-                    sling:resourceType="wcm/core/components/policy/policy">
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="h2"
+                    pretitleHidden="true"
+                    showTitleType="false"
+                    titleType="h2">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Type of Card"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-card--product"
+                                    cq:styleId="1722241966600"
+                                    cq:styleLabel="Product"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-card--style"
+                                    cq:styleId="1722241988188"
+                                    cq:styleLabel="Style"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_1721817427768>
             </card>
             <puzzle jcr:primaryType="nt:unstructured">
