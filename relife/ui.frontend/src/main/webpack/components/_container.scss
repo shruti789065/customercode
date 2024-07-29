@@ -10,6 +10,9 @@
 .cmp-container--no-wrap {
   flex-wrap: nowrap;
 }
+.cmp-container--balanced {
+  flex-wrap: wrap;
+}
 .cmp-gap--30 {
   gap: 30px;
 }
@@ -18,4 +21,10 @@
 }
 .cmp-gap--120 {
   gap: 120px;
+}
+
+@include respond-to(laptop) {
+  .cmp-container--balanced {
+    flex-wrap: nowrap;
+  }
 }

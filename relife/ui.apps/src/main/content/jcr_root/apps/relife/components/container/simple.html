@@ -17,7 +17,7 @@
 	<sly data-sly-test="${wcmmode.edit}" data-sly-use.allowed="com.day.cq.wcm.foundation.AllowedComponentList"></sly>
 	<div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
 	     id="${container.id}"
-	     class="cmp-container${wcmmode.edit ? ' {0}': '' @ format=[allowed.cssClass] }  ${properties.alignment ? 'cmp-container-alignment' : ''} cmp-gap--${properties.itemGap} cmp-container--${properties.flexWrap} "
+	     class="cmp-container${wcmmode.edit ? ' {0}': '' @ format=[allowed.cssClass] } ${properties.alignment ? 'cmp-container-alignment' : ''} cmp-gap--${properties.itemGap} cmp-container--${properties.flexWrap} "
 	     aria-label="${container.accessibilityLabel}"
 	     role="${container.roleAttribute}"
 	     style="${container.backgroundStyle @ context='styleString'}">

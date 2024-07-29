@@ -1,0 +1,36 @@
+.cq-Editable-dom {
+  &.newpar {
+    display: block;
+  }
+}
+/* Edit Mode */
+.aem-AuthorLayer-Edit {
+  .cmp-container-alignment {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Preview Mode */
+.aem-AuthorLayer-Preview {
+}
+
+/* Layout Mode */
+.aem-AuthorLayer-Layouting {
+}
+
+/* Developer Mode */
+.aem-AuthorLayer-Developer {
+}
+/* Structure Mode */
+.aem-AuthorLayer-structure {
+  header.experiencefragment {
+    position: relative;
+  }
+}
+/* Initial Content Mode */
+.aem-AuthorLayer-initial {
+}
+/* Container Experience Fragment*/
+.xf-web-container {
+}
