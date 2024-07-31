@@ -1,1 +1,54 @@
 @use 'card' as *;
+
+$font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
+.cmp-card--style {
+	width: 100%;
+  .cmp-teaser {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    .cmp-teaser__image {
+      .cmp-image {
+        .cmp-image__image {
+        }
+      }
+    }
+    .cmp-teaser__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      &:not(:only-child) {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+        min-height: auto;
+        min-width: auto;
+        color: $white;
+		align-items: center;
+      }
+      .cmp-teaser__title {
+		text-transform: uppercase;
+		font-family: $title-medium;
+		font-size: $font-size-style;
+      }
+      .cmp-teaser__description {
+      }
+      .cmp-teaser__action-container {
+        .cmp-teaser__action-link {
+          color: $white;
+		  font-family: $title-light;
+		  text-decoration: none;
+		  font-size: $font-size-style;
+		  &:hover{
+			text-underline-offset: .5rem;
+			text-decoration: underline;
+		  }
+        }
+      }
+    }
+  }
+}
