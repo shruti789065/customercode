@@ -1,8 +1,11 @@
 @import "section-banner";
 
 .cmp-section_banner--container-wave {
+  transition: $standard-transition;
   min-height: clamp(15.625rem, 27.96vw + 9.072rem, 45rem);
-  background-size: contain !important;
+  background-size: cover !important;
+  padding: 0rem 0 0rem 0;
+  height: 40rem;
 
   .cmp-banner--content {
     display: flex;
@@ -52,6 +55,7 @@
 
 @include respond-to(mobile) {
   .cmp-section_banner--container-wave {
+    
     .cmp-banner--content {
       .shape_container {
         &:nth-child(1) {
@@ -104,6 +108,7 @@
 
 @include respond-to(laptop) {
   .cmp-section_banner--container-wave {
+    padding: 2rem 0 2rem 0;
     .cmp-banner--content {
       .shape_container {
         &:nth-child(1) {
@@ -124,6 +129,8 @@
 
 @include respond-to(desktop) {
   .cmp-section_banner--container-wave {
+    padding: 2rem 0 2rem 0;
+    height: unset;
     .cmp-banner--content {
       .shape_container {
         &:nth-child(1) {
@@ -144,6 +151,7 @@
 
 @include respond-to(high-definition) {
   .cmp-section_banner--container-wave {
+    padding: 1rem 0 1rem 0;
     .cmp-banner--content {
       .shape_container {
         &:nth-child(1) {

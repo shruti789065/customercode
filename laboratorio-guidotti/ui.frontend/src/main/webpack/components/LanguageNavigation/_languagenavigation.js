@@ -24,35 +24,44 @@
         LANGUAGE_NAVIGATION.ACTIVE_LINK_SELECTOR
       );
       if (activeLink) {
-        const activeLanguageText = activeLink.innerHTML;
+        const activeLanguageText = activeLink.getAttribute("lang").toUpperCase();
         const labelTextElement = navElement.querySelector(
           LANGUAGE_NAVIGATION.LABEL_TEXT_SELECTOR
         );
         if (labelTextElement) {
-          labelTextElement.insertAdjacentHTML("afterend", activeLanguageText);
+          labelTextElement.textContent = activeLanguageText;
         }
 
-        const toggleIcon = navElement.querySelector(
-          `${LANGUAGE_NAVIGATION.CMP_LANGUAGE_NAV_LABEL} .toggle-icon`
-        );
-        if (toggleIcon) {
-          toggleIcon.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+        // Update the text content of the active link to show the language code
+        activeLink.textContent = activeLanguageText;
+      }
 
-            // Remove 'is-open' class from all other language nav elements
-            document
-              .querySelectorAll(LANGUAGE_NAVIGATION.NAV)
-              .forEach((otherNav) => {
-                if (otherNav !== navElement) {
-                  otherNav.classList.remove("is-open");
-                }
-              });
+      // Update the text content of all language navigation links to show the language code
+      navElement.querySelectorAll(".cmp-languagenavigation__item-link").forEach((link) => {
+        const langCode = link.getAttribute("lang").toUpperCase();
+        link.textContent = langCode;
+      });
 
-            // Toggle 'is-open' class on the current language nav element
-            navElement.classList.toggle("is-open");
-          });
-        }
+      const toggleIcon = navElement.querySelector(
+        `${LANGUAGE_NAVIGATION.CMP_LANGUAGE_NAV_LABEL} .toggle-icon`
+      );
+      if (toggleIcon) {
+        toggleIcon.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Remove 'is-open' class from all other language nav elements
+          document
+            .querySelectorAll(LANGUAGE_NAVIGATION.NAV)
+            .forEach((otherNav) => {
+              if (otherNav !== navElement) {
+                otherNav.classList.remove("is-open");
+              }
+            });
+
+          // Toggle 'is-open' class on the current language nav element
+          navElement.classList.toggle("is-open");
+        });
       }
     });
 

@@ -7,7 +7,7 @@ import {
   validateFile,
 } from "./_form_validation_method";
 
-import { showOverlayAndLoader } from "../site/_util";
+import { showOverlayAndLoader } from "../../site/_util";
 
 $(function () {
   const $form = $("#new_form");

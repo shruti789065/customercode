@@ -147,7 +147,8 @@
 
 @include respond-to(high-definition) {
   .cmp-button {
-    width: clamp(16.875rem, 100%, 23rem);
+    //width: clamp(16.875rem, 100%, 23rem);
+    width: max-content;
   }
 }
 //.cmp-button__icon--myIcon {}

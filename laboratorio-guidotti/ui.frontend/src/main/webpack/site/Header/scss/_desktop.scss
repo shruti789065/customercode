@@ -1,3 +1,5 @@
+
+
 @include respond-to(tablet) {
   .header-mobile {
     display: none;
@@ -7,6 +9,8 @@
   }
 
   header.experiencefragment {
+    height: 5.5rem;
+    
     #navbar {
       transition: transform 0.3s ease;
       padding: 0 2rem;
@@ -19,7 +23,7 @@
       .button {
         display: flex;
         .cmp-button {
-          padding: 0 2rem 0 0;
+          padding: 0 1rem 0 0;
           .cmp-button__text {
             font-family: $font-family-oswald;
             border: 0.07rem solid $white;
@@ -29,10 +33,12 @@
             font-size: $font-size-min;
             cursor: pointer;
             transition: $standard-transition;
+            background-color: $white;
+            color: $vibrant-azure;
             &:hover {
-              background-color: $white;
-              color: $vibrant-azure;
-              box-shadow: 2px 2px 5px lightGray;
+              background-color: $vibrant-azure;
+              color: $white;
+              box-shadow: 2px 2px 3px lightGray;
             }
           }
           &:hover {
@@ -56,13 +62,15 @@
 
     &.scrolled {
       background: $white;
-      background: linear-gradient(180deg, $white 0%, $white 60%, rgba(255, 255, 255, 0.65) 60%, rgba(255, 255, 255, 0.65) 100%);
+      background: linear-gradient(180deg, $white 0%, $white 100%, rgba(255, 255, 255, 0.65) 60%, rgba(255, 255, 255, 0.65) 100%);
         -webkit-box-shadow: 0 4px 6px -6px $darkGray;
         -moz-box-shadow: 0 4px 6px -6px $darkGray;
       box-shadow: 0 1px 6px 0px $darkGray;
 
       #navbar {
+        padding: 0;
         transform: scale(0.95);
+
         .button {
           display: flex;
           .cmp-button__text {
@@ -92,6 +100,7 @@
       .languagenavigation {
         .cmp-languagenavigation {
           .cmp-languagenavigation__label {
+            padding-top: 4.8rem;
             color: $black;
             .cmp-languagenavigation__label-text {
               color: $black;
@@ -118,6 +127,15 @@
             }
           }
         }
+      }
+      nav {
+        margin-top: -5rem;
+        height: 5.5rem;
+        background-color: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0 0 0rem;
       }
     }
 
@@ -272,5 +290,11 @@
     }
     .cmp-languagenavigation__item--active > .cmp-languagenavigation__item-link {
     }
+  }
+}
+
+@include respond-to(laptop) {
+  header.experiencefragment {
+    
   }
 }

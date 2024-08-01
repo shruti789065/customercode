@@ -1,6 +1,8 @@
 @import "wrapper-banner";
 
 .cmp-wrapper_banner--container-bi {
+  transition: $standard-transition;
+  padding: 12rem 0 4rem 0;
   .cmp-banner--content {
     .text {
       .cmp-text {
@@ -45,6 +47,7 @@
 }
 @include respond-to(tablet) {
   .cmp-wrapper_banner--container-bi {
+    padding: 9rem 0 6rem 0;
     &.cmp-wrapper_banner--container {
       flex-direction: row;
       flex-wrap: nowrap;
@@ -85,6 +88,7 @@
 }
 @include respond-to(laptop) {
   .cmp-wrapper_banner--container-bi {
+    padding: 11rem 0 8rem 0;
     &.cmp-wrapper_banner--container {
       .cmp-banner--content {
         &.cmp-banner--content--shapes {
