@@ -82,6 +82,12 @@ Import-Package: javax.annotation;version=0.0.0,*
 
     <dependencies>
         <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.12.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>uk.org.lidalia</groupId>
             <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
