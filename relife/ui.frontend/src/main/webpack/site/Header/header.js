@@ -1,15 +1,66 @@
 /* eslint-disable max-len */
 (function () {
 	"use strict";
-  
+
 	const HEADER = {
 	  allHeaders: document.querySelectorAll("header"),
 	  mobile: document.querySelector(".cmp-experiencefragment--header-mobile"),
 	  desktop: document.querySelector(".cmp-experiencefragment--header-desktop"),
 	  toggleButton: document.getElementById("btnMenuMobile"),
 	  navbar: document.getElementById("navbar"),
+	  headerTablist: document.getElementById("header--tablist"),
+	  desktopMenu: document.querySelector(".menu-desktop"),
+	  activeTabClass: 'cmp-tabs__tab--active'
 	};
-  
+
+	let lastClickedTab = null;
+
+	/**
+	 * Toggles the desktop menu visibility based on the clicked tab
+	 *
+	 * @private
+	 */
+	function handleTabClick(event) {
+	  const clickedTab = event.target.closest('.cmp-tabs__tab');
+	  if (!clickedTab) return;
+
+	  const isAlreadyActive = clickedTab.classList.contains(HEADER.activeTabClass);
+
+	  if (isAlreadyActive && lastClickedTab === clickedTab) {
+		// Close the menu if the same tab is clicked again
+		HEADER.desktopMenu.classList.remove("menu-desktop--opened");
+		lastClickedTab = null;
+	  } else {
+		// Open the menu and activate the clicked tab
+		HEADER.desktopMenu.classList.add("menu-desktop--opened");
+		setActiveTab(clickedTab);
+		lastClickedTab = clickedTab;
+	  }
+	}
+
+	/**
+	 * Sets the given tab as active and removes the active state from others
+	 *
+	 * @private
+	 */
+	function setActiveTab(tab) {
+	  const tabs = HEADER.headerTablist.querySelectorAll('.cmp-tabs__tab');
+	  tabs.forEach(t => t.classList.remove(HEADER.activeTabClass));
+	  tab.classList.add(HEADER.activeTabClass);
+	}
+
+	/**
+	 * Closes the desktop menu if click is outside the desktop header
+	 *
+	 * @private
+	 */
+	function handleOutsideClick(event) {
+	  if (!HEADER.desktop.contains(event.target) && !HEADER.desktopMenu.contains(event.target)) {
+		HEADER.desktopMenu.classList.remove("menu-desktop--opened");
+		lastClickedTab = null;
+	  }
+	}
+
 	/**
 	 * Initializes the Header
 	 *
@@ -26,103 +77,16 @@
 			}
 		  });
 		});
-  
-		/* HEADER.menuItemsFirstLevel.forEach(function (el) {
-		  const group = el.querySelector(".cmp-navigation__group");
-		  if (group) {
-			const link = el.querySelector(".cmp-navigation__item-link");
-  
-			// Create the toggle icon element
-			const toggleIcon = document.createElement("span");
-			toggleIcon.classList.add("toggle-icon");
-  
-			// Append the toggle icon to the link
-			link.appendChild(toggleIcon);
-  
-			toggleIcon.addEventListener("click", (e) => {
-			  e.preventDefault();
-			  e.stopPropagation();
-  
-			  // Check if the clicked menu is already open
-			  const isOpen = group.classList.contains("is-visible");
-  
-			  // Close all other open menus
-			  closeAllMenus();
-  
-			  // Toggle the current menu based on its previous state
-			  if (!isOpen) {
-				group.classList.add("is-visible");
-				link.classList.add("is-open");
-			  }
-			});
-  
-			// Also handle clicks on the link itself
-			link.addEventListener("click", (e) => {
-			  e.preventDefault();
-			  e.stopPropagation(); // Prevent the click from bubbling up
-  
-			  // Check if the clicked menu is already open
-			  const isOpen = group.classList.contains("is-visible");
-  
-			  // Close all other open menus
-			  closeAllMenus();
-  
-			  // Toggle the current menu based on its previous state
-			  if (!isOpen) {
-				group.classList.add("is-visible");
-				link.classList.add("is-open");
-			  }
-			});
-		  }
-		}); */
 	  }
+
+	  if (HEADER.headerTablist) {
+		HEADER.headerTablist.addEventListener("click", handleTabClick);
+	  }
+
+	  document.addEventListener("click", handleOutsideClick);
 	}
-	/**
-	 * Closes all open menus
-	 */
-	/* function closeAllMenus() {
-	  HEADER.menuItemsFirstLevel.forEach((el) => {
-		const group = el.querySelector(".cmp-navigation__group");
-		const link = el.querySelector(".cmp-navigation__item-link");
-		if (group) {
-		  group.classList.remove("is-visible");
-		  link.classList.remove("is-open");
-		}
-	  });
-	} */
-  
-	/* function toggleNavbar() {
-	  if (HEADER.navbarMobile) {
-		HEADER.navbarMobile.style.display =
-		  HEADER.navbarMobile.style.display === "none" ||
-		  HEADER.navbarMobile.style.display === ""
-			? "block"
-			: "none";
-	  }
-	} */
-  
-	/* HEADER.toggleButton.addEventListener("click", (e) => {
-	  e.preventDefault();
-	  e.stopPropagation();
-	  toggleNavbar();
-	}); */
-  
-	/* document.body.addEventListener("click", (e) => {
-	  if (
-		HEADER.navbarMobile &&
-		!HEADER.mobile.contains(e.target) &&
-		HEADER.navbarMobile.style.display === "block"
-	  ) {
-		HEADER.navbarMobile.style.display = "none";
-		console.log("BODY CLICKED");
-	  }
-	}); */
-  
+
 	document.addEventListener("DOMContentLoaded", function () {
 	  init();
 	});
-  })();
-  
-  /* eslint-disable max-len */
-  
-  
+})();

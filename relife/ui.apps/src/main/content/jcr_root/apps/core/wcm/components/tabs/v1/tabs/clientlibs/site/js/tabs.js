@@ -1,21 +1,4 @@
-/*******************************************************************************
- * Copyright 2018 Adobe
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
-/* global
-    CQ
- */
+/* eslint-disable max-len */
 (function() {
     "use strict";
 
@@ -344,6 +327,32 @@
 
         if (tablistContainer && headerTablistContainer) {
             headerTablistContainer.appendChild(tablistContainer);
+        }
+
+        // Copia i link da menu-desktop a header--tablist
+        var tabpanels = document.querySelectorAll('.menu-desktop .cmp-tabs__tabpanel');
+        var tabs = headerTablistContainer.querySelectorAll('.cmp-tabs__tab');
+
+        if (tabpanels.length === tabs.length) {
+            for (var j = 0; j < tabpanels.length; j++) {
+                var link = tabpanels[j].querySelector('.link');
+                if (link) {
+                    // Creare un nuovo link o aggiornare il contenuto del tab
+                    var clonedLink = link.cloneNode(true);
+                    clonedLink.classList.add('header-link'); // Aggiungere una classe specifica se necessario
+                    
+                    // Conserva il testo originale del tab
+                    var originalTabText = tabs[j].textContent;
+                    tabs[j].innerHTML = originalTabText; // Imposta il testo originale
+                    tabs[j].appendChild(clonedLink); // Aggiunge il link duplicato
+
+                    // Assicurarsi che l'intero tab agisca come un link
+                    tabs[j].style.cursor = 'pointer';
+                    tabs[j].onclick = function() {
+                        window.location.href = clonedLink.href;
+                    };
+                }
+            }
         }
     }
 
