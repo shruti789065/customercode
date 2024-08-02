@@ -29,9 +29,25 @@
                 <groupId>org.apache.jackrabbit</groupId>
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <configuration>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
+                        <noIntermediateSaves>true</noIntermediateSaves>
                     </properties>
+                    <validatorsSettings>
+                        <!-- disable nodetype validation as workaround until JCRVLT-463 got fixed -->
+                        <jackrabbit-nodetypes>
+                            <isDisabled>true</isDisabled>
+                        </jackrabbit-nodetypes>
+                        <jackrabbit-packagetype>
+                            <isDisabled>true</isDisabled>
+                        </jackrabbit-packagetype>
+                        <jackrabbit-filter>
+                            <options>
+                                <validRoots>/apps,/libs,/oak:index</validRoots>
+                            </options>
+                        </jackrabbit-filter>
+                    </validatorsSettings>
                     <filters>
                         <!-- /apps root -->
                         <filter><root>/apps</root></filter>

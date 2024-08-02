@@ -1562,53 +1562,38 @@ Bundle-DocURL:
           
           
           <plugins>
-                                                            
-            
-            
+
+
+
+            <!-- Jackrabbit FileVault Package Plugin -->
             <plugin>
-                                                                      
-              
-              
               <groupId>org.apache.jackrabbit</groupId>
-                                                                      
-              
-              
               <artifactId>filevault-package-maven-plugin</artifactId>
-                                                                      
-              
-              
-              <executions>
-                                                                                
-                
-                
-                <execution>
-                                                                                          
-                  
-                  
-                  <id>create-package</id>
-                                                                                          
-                  
-                  
-                  <goals>
-                                                                                                    
-                    
-                    
-                    <goal>package</goal>
-                                                                                                
-                  
-                  
-                  </goals>
-                                                                                      
-                
-                
-                </execution>
-                                                                            
-              
-              
-              </executions>
-                                                                  
-            
-            
+              <extensions>true</extensions>
+              <version>1.1.6</version>
+              <configuration>
+                <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                <validatorsSettings>
+                  <jackrabbit-packagetype>
+                    <options>
+                      <immutableRootNodeNames>apps,libs,oak:index</immutableRootNodeNames>
+                    </options>
+                  </jackrabbit-packagetype>
+                  <jackrabbit-nodetypes>
+                    <options>
+                      <!-- use the nodetypes and namespaces from the aem-nodetypes.jar provided in the plugin dependencies -->
+                      <cnds>tccl:aem.cnd</cnds>
+                    </options>
+                  </jackrabbit-nodetypes>
+                </validatorsSettings>
+              </configuration>
+              <dependencies>
+                <dependency>
+                  <groupId>biz.netcentric.aem</groupId>
+                  <artifactId>aem-nodetypes</artifactId>
+                  <version>6.5.7.0</version>
+                </dependency>
+              </dependencies>
             </plugin>
                                                             
             

@@ -33,7 +33,7 @@ $(function () {
     copyDataFromJson(query, currentNodeSearch) {
       const JSONmock =
         "/etc.clientlibs/menarinimaster/clientlibs/clientlib-site/resources/mock/search.json";
-      const endpoint = `${currentNodeSearch}.searchresult.json?fulltext=${query}`;
+      const endpoint = `${currentNodeSearch}.relifeSearchresult.json?fulltext=${query}`;
 
       fetch(getUrl(endpoint, JSONmock))
         .then((response) => response.json())

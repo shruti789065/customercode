@@ -9,4 +9,8 @@ public class Constants {
     public static final String MP4_FILE_EXT="mp4";
 
     public static final String OGG_FILE_EXT="ogg";
+
+    public static final String JSON = "json";
+
+    public static final String APPLICATION_JSON = "application/json";
 }
