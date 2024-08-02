@@ -2,13 +2,23 @@
   display: block;
   width: 1.5rem;
   height: 1.5rem;
+  background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   &--search {
-	background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/Search.svg);
+    background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/Search.svg);
   }
-  &--external{
-	background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/external-link.svg);
-}
+  &--external {
+    background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/external-link.svg);
+  }
+  &--back {
+    background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-left.svg);
+  }
+  &--menu {
+    background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/hamburger.svg);
+  }
+  &--close {
+    background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/close.svg);
+  }
 }

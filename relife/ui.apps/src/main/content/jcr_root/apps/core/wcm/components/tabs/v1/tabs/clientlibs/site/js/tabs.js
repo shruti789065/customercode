@@ -335,7 +335,7 @@
 
         if (tabpanels.length === tabs.length) {
             for (var j = 0; j < tabpanels.length; j++) {
-                var link = tabpanels[j].querySelector('.link');
+                var link = tabpanels[j].querySelector('.link a');
                 if (link) {
                     // Creare un nuovo link o aggiornare il contenuto del tab
                     var clonedLink = link.cloneNode(true);
