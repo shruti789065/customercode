@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:allowedTemplates="[/conf/relife/settings/wcm/templates/page-content,/conf/relife/settings/wcm/templates/article-page]"
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2024-07-17T15:25:27.917+02:00"
+        cq:lastModified="{Date}2024-08-01T11:20:51.765+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="en"
+        jcr:uuid="e4eb41ab-0a19-402d-bed8-b50e4771b11c"
         sling:resourceType="relife/components/page"
-        pageTitle="Relife">
+        pageTitle="Relife"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="relife/components/container"
@@ -310,12 +317,174 @@
                                 sling:resourceType="relife/components/text"
                                 text="&lt;p style=&quot;text-align: left;&quot;>Enjoy the confidence of alluring defined cheeks and elegant poise by combining both lifting and volumising techniques.&amp;nbsp;&lt;br>&#xd;&#xa;Working together to deliver a seamless and natural result; Definisse™ 3D Lift Threads give your cheeks support by repositioning skin that has begun to sag with gravity, whilst Definisse™ Filler restores hydration, density and volume to the cheekbone area, replacing volume that has diminished overtime.&amp;nbsp;&lt;br>&#xd;&#xa;The result is a refreshed demeanor, defined features and a younger outlook.&lt;/p>&#xd;&#xa;"
                                 textIsRich="true"/>
+                            <relife_cards
+                                jcr:created="{Date}2024-07-26T18:35:50.123+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-07-26T18:36:20.480+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/relife_cards"
+                                cardType="card_style"/>
+                            <container
+                                jcr:created="{Date}2024-07-29T10:49:02.051+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-07-29T10:54:52.505+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/container"
+                                alignment="center"
+                                flexWrap="wrap"
+                                itemGap="30"
+                                layout="simple">
+                                <card
+                                    cq:styleIds="[1722241966600]"
+                                    jcr:created="{Date}2024-07-29T10:37:01.364+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:description="&lt;p>The product of over a century’s pharmaceutical heritage and significant dermatological expertise of Menarini, RELIFE is the innovative aesthetics company harnessing expert precision, progressive technology and timeless Italian style.&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-07-29T11:04:42.935+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="A heritage of excellence"
+                                    sling:resourceType="relife/components/card"
+                                    alt="card 1"
+                                    altValueFromDAM="false"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/Rectangle 124.png"
+                                    imageFromPageImage="false"
+                                    isDecorative="false"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <actions jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            link="#"
+                                            linkTarget="_blank"
+                                            text="Menarini Group"/>
+                                    </actions>
+                                </card>
+                                <card_copy
+                                    cq:styleIds="[1722241966600]"
+                                    jcr:created="{Date}2024-07-29T10:37:01.364+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:description="&lt;p>From Firenze, RELIFE embraces effortless Italian beauty with charisma, quality and style. We develop holistic treatments that, in combination, work in harmony for individualised treatment protocols and timeless beauty.&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-07-29T11:05:33.792+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Timeless Italian Style"
+                                    sling:resourceType="relife/components/card"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/Rectangle 123.png"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <actions jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            link="#"
+                                            linkTarget="_blank"
+                                            text="Timeless beauty"/>
+                                    </actions>
+                                </card_copy>
+                                <card_copy_1178106583
+                                    cq:styleIds="[1722241966600]"
+                                    jcr:created="{Date}2024-07-29T10:37:01.364+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:description="&lt;p>Our unique 5R approach to holistic aesthetic treatments is designed to deliver comprehensive solutions to meet individual patient needs. Developed in partnership with some of the world's top independent aesthetic specialists.&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-07-29T11:06:29.687+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Holistic aesthetic medicine"
+                                    sling:resourceType="relife/components/card"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/Rectangle 138.png"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <actions jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            link="#"
+                                            linkTarget="_blank"
+                                            text="Our holistic treatments"/>
+                                    </actions>
+                                </card_copy_1178106583>
+                            </container>
+                            <container_1275396622
+                                jcr:created="{Date}2024-07-29T10:49:12.134+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-08-01T09:59:43.033+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/container"
+                                alignment="cmp-container-alignment--center"
+                                flexWrap="cmp-container--balanced"
+                                itemGap="cmp-gap--30"
+                                layout="simple">
+                                <card_2029174027
+                                    cq:styleIds="[1722241988188]"
+                                    jcr:created="{Date}2024-07-29T10:37:05.570+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-07-29T11:12:48.130+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="h2 header text"
+                                    sling:resourceType="relife/components/card"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/Rectangle 143.png"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <actions jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            link="#"
+                                            linkTarget="_blank"
+                                            text="Link text"/>
+                                    </actions>
+                                </card_2029174027>
+                                <card_2029174027_copy
+                                    cq:styleIds="[1722241988188]"
+                                    jcr:created="{Date}2024-07-29T10:37:05.570+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-07-29T11:13:57.230+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="h2 header text"
+                                    sling:resourceType="relife/components/card"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/Image.png"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false">
+                                    <actions jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            link="#"
+                                            linkTarget="_blank"
+                                            text="Link text"/>
+                                    </actions>
+                                </card_2029174027_copy>
+                            </container_1275396622>
                         </wrapper>
                     </section>
                 </container>
             </container>
         </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-08-01T11:20:51.737+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
     <about/>
-    <treatments/>
 </jcr:root>

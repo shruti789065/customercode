@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-07-01T11:01:50.412+02:00"
+        cq:lastModified="{Date}2024-08-01T10:46:36.765+02:00"
         cq:lastModifiedBy="admin"
         cq:tags="[]"
         cq:template="/conf/relife/settings/wcm/templates/xf-web-variation"
@@ -17,7 +17,6 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="relife/components/container"
             layout="simple">
-            <logo/>
             <section
                 jcr:created="{Date}2024-07-01T10:55:48.247+02:00"
                 jcr:createdBy="admin"
@@ -26,49 +25,22 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="relife/components/containers/section">
                 <wrapper
-                    jcr:created="{Date}2024-07-01T10:56:01.925+02:00"
+                    jcr:created="{Date}2024-07-31T15:42:23.029+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-07-01T11:01:50.331+02:00"
+                    jcr:lastModified="{Date}2024-07-31T15:42:23.029+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="relife/components/containers/wrapper"
-                    layout="responsiveGrid">
-                    <languagenavigation35
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/languagenavigation"
-                        navigationRoot="/content/relife/corporate"
-                        structureDepth="2">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="8"
-                                width="2"/>
-                        </cq:responsive>
-                    </languagenavigation35>
-                    <button
-                        jcr:created="{Date}2024-07-01T10:46:11.032+02:00"
+                    sling:resourceType="relife/components/containers/wrapper">
+                    <experiencefragment
+                        jcr:created="{Date}2024-07-31T15:17:31.221+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-07-01T10:46:11.032+02:00"
+                        jcr:lastModified="{Date}2024-07-31T15:17:47.582+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/button">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="2"/>
-                        </cq:responsive>
-                    </button>
+                        sling:resourceType="relife/components/experiencefragment"
+                        fragmentVariationPath="/content/experience-fragments/relife/corporate/en/site/header/navbar"/>
                 </wrapper>
-            </section>
-            <section_2075109203
-                jcr:created="{Date}2024-07-01T10:56:48.957+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2024-07-01T10:56:48.957+02:00"
-                jcr:lastModifiedBy="admin"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="relife/components/containers/section">
-                <wrapper
+                <wrapper_776420378
                     jcr:created="{Date}2024-07-01T10:56:52.573+02:00"
                     jcr:createdBy="admin"
                     jcr:lastModified="{Date}2024-07-01T11:00:30.713+02:00"
@@ -79,10 +51,18 @@
                     <image
                         jcr:created="{Date}2024-07-01T10:42:36.570+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-07-01T10:42:36.570+02:00"
+                        jcr:lastModified="{Date}2024-07-31T15:37:51.196+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/image">
+                        sling:resourceType="relife/components/image"
+                        alt="logo relife"
+                        altValueFromDAM="false"
+                        displayPopupTitle="true"
+                        fileReference="/content/dam/logo/relife/Ebene_1.svg"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        linkTarget="_self"
+                        titleValueFromDAM="true">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
@@ -90,33 +70,47 @@
                                 width="2"/>
                         </cq:responsive>
                     </image>
-                    <navigation
+                    <menu_desktop
+                        jcr:created="{Date}2024-08-01T10:46:06.787+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-08-01T10:46:06.787+02:00"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/navigation"
-                        collectAllPages="false"
-                        navigationRoot="/content/relife/corporate/en"
-                        skipNavigationRoot="false"
-                        structureDepth="1">
+                        sling:resourceType="relife/components/menu/menu-desktop">
+                        <item_1
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Tab 1"
+                            sling:resourceType="laboratorio-guidotti/components/containers/container"
+                            layout="responsiveGrid"/>
+                        <item_2
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Tab 2"
+                            sling:resourceType="laboratorio-guidotti/components/containers/container"
+                            layout="responsiveGrid"/>
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
-                                width="8"/>
+                                width="9"/>
                         </cq:responsive>
-                    </navigation>
-                    <search
+                    </menu_desktop>
+                    <button
+                        jcr:created="{Date}2024-08-01T10:44:29.557+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-08-01T10:44:29.557+02:00"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/search"
-                        searchRoot="/content/relife/corporate">
+                        sling:resourceType="relife/components/button">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
                                 offset="0"
-                                width="2"/>
+                                width="1"/>
                         </cq:responsive>
-                    </search>
-                </wrapper>
-            </section_2075109203>
+                    </button>
+                </wrapper_776420378>
+            </section>
+            <logo/>
         </root>
     </jcr:content>
 </jcr:root>

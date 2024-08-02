@@ -48,6 +48,7 @@
 .cmp-tabs__tabpanel {
     text-align: center;
     width: 100%;
+	margin: 0 auto;
     @include respond-to(laptop) {
         max-width: $max-tab-panel-width;
     }

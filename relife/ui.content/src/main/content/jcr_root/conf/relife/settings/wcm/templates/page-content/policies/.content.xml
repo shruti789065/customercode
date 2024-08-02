@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-07-29T11:09:40.684+02:00"
+        cq:lastModified="{Date}2024-07-31T13:04:35.460+02:00"
         cq:lastModifiedBy="admin"
         cq:policy="relife/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -89,10 +89,6 @@
                                 cq:policy="relife/components/fullbanner/policy_1721985061821"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
-                            <duplabanner
-                                cq:policy="relife/components/duplabanner/policy_1722248667985"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="wcm/core/components/policies/mapping"/>
                         </components>
                     </relife>
                 </container>
@@ -101,6 +97,10 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wcm/core/components/policies/mapping"/>
             </container>
+            <experiencefragment
+                cq:policy="relife/components/experiencefragment/policy_header"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
         </root>
     </jcr:content>
 </jcr:root>

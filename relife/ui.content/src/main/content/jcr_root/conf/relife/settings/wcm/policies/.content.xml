@@ -262,10 +262,32 @@
                 <policy_header
                     cq:styleDefaultElement="header"
                     jcr:description="Sets a &lt;header> element on the page header experience fragment."
+                    jcr:lastModified="{Date}2024-07-31T13:04:35.449+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Header"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Header Type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-experiencefragment--header-desktop"
+                                    cq:styleElement="header"
+                                    cq:styleId="1722423846567"
+                                    cq:styleLabel="desktop"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-experiencefragment--header-mobile"
+                                    cq:styleElement="header"
+                                    cq:styleId="1722423629392"
+                                    cq:styleLabel="mobile header"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_header>
                 <policy_footer
                     cq:styleDefaultElement="footer"
@@ -350,12 +372,12 @@
                 </policy_649128221558427>
                 <policy_1575040440977
                     jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2024-07-01T10:47:17.105+02:00"
+                    jcr:lastModified="{Date}2024-07-31T15:21:46.244+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Relife - Content,/apps/relife/components/form/container,/apps/relife/components/search]"
+                    components="[group:Relife - Content,/apps/relife/components/form/container,/apps/relife/components/languagenavigation,/apps/relife/components/search]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -680,10 +702,10 @@
             </halfbanner>
             <fullbanner jcr:primaryType="nt:unstructured">
                 <policy_1721985061821
-                    jcr:lastModified="{Date}2024-07-26T11:23:25.546+02:00"
+                    jcr:lastModified="{Date}2024-07-26T11:11:11.351+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Relife Full Banner Banner Policy"
+                    jcr:title="Relife Half Banner Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
@@ -695,14 +717,14 @@
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleClasses="cmp-txtR"
+                                    cq:styleClasses="cmp-imgR"
                                     cq:styleId="1721920650500"
-                                    cq:styleLabel="Txt Right"
+                                    cq:styleLabel="Img Right"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="cmp-txtL"
+                                    cq:styleClasses="cmp-imgL"
                                     cq:styleId="1721920651574"
-                                    cq:styleLabel="Txt Left"
+                                    cq:styleLabel="Img Left"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -772,104 +794,6 @@
                     </cq:styleGroups>
                 </policy_1721985061821>
             </fullbanner>
-            <duplabanner jcr:primaryType="nt:unstructured">
-                <policy_1722248667985
-                    jcr:lastModified="{Date}2024-07-29T15:28:33.595+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Relife Dupla Banner Image"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/relife/components/duplabanner/duplabanner_image,/apps/relife/components/duplabanner/duplabanner_teaser]"
-                    layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Tipology"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-imgR"
-                                    cq:styleId="1721920650500"
-                                    cq:styleLabel="Img Right"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="cmp-imgL"
-                                    cq:styleId="1721920651574"
-                                    cq:styleLabel="Img Left"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                        <item1
-                            cq:styleGroupLabel="Background Color"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-bg-blue"
-                                    cq:styleId="1721920693216"
-                                    cq:styleLabel="blue"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="cmp-bg-grey"
-                                    cq:styleId="1721920694276"
-                                    cq:styleLabel="grey"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                    cq:styleClasses="cmp-bg-white"
-                                    cq:styleId="1721920703430"
-                                    cq:styleLabel="white"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item3
-                                    cq:styleClasses="cmp-bg-terracotta"
-                                    cq:styleId="1722259683502"
-                                    cq:styleLabel="terracotta"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item1>
-                        <item2
-                            cq:styleGroupLabel="Vertical Alignment"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-VA-T"
-                                    cq:styleId="1721920838974"
-                                    cq:styleLabel="top"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="cmp-VA-M"
-                                    cq:styleId="1721920841536"
-                                    cq:styleLabel="middle"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                    cq:styleClasses="cmp-VA-B"
-                                    cq:styleId="1721920853885"
-                                    cq:styleLabel="bottom"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item2>
-                        <item3
-                            cq:styleGroupLabel="Horizontal Alignment"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-HA-L"
-                                    cq:styleId="1721920857567"
-                                    cq:styleLabel="left"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="cmp-HA-C"
-                                    cq:styleId="1721920858587"
-                                    cq:styleLabel="center"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                    cq:styleClasses="cmp-HA-R"
-                                    cq:styleId="1721920859721"
-                                    cq:styleLabel="right"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item3>
-                    </cq:styleGroups>
-                </policy_1722248667985>
-            </duplabanner>
         </components>
     </relife>
     <wcm jcr:primaryType="nt:unstructured">

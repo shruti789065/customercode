@@ -148,15 +148,15 @@
 																	<start
 																			jcr:primaryType="nt:unstructured"
 																			text="Start"
-																			value="flex-start"/>
-																	<cener
+																			value="cmp-container-alignment--flex-start"/>
+																	<center
 																			jcr:primaryType="nt:unstructured"
 																			text="Center"
-																			value="center"/>
+																			value="cmp-container-alignment--center"/>
 																	<end
 																			jcr:primaryType="nt:unstructured"
 																			text="End"
-																			value="flex-end"/>
+																			value="cmp-container-alignment--flex-end"/>
 																</items>
 
 															</alignment>
@@ -173,17 +173,17 @@
 																		<small
 																				jcr:primaryType="nt:unstructured"
 																				text="Small"
-																				value="30"
+																				value="cmp-gap--30"
 																				checked="{Boolean}true"/>
 																		<standard
 																				jcr:primaryType="nt:unstructured"
 																				text="Standard"
-																				value="60"
+																				value="cmp-gap--60"
 																				checked="{Boolean}false"/>
 																		<big
 																				jcr:primaryType="nt:unstructured"
 																				text="Big"
-																				value="120"
+																				value="cmp-gap--120"
 																				checked="{Boolean}false"/>
 																	</items>
 															</item-gap>
@@ -199,18 +199,18 @@
 																		<wrap
 																				jcr:primaryType="nt:unstructured"
 																				text="Wrap"
-																				value="wrap"
+																				value="cmp-container--wrap"
 																				checked="{Boolean}true"/>
 																		<no-wrap
 																				jcr:primaryType="nt:unstructured"
 																				text="No Wrap"
-																				value="no-wrap"
+																				value="cmp-container--no-wrap"
 																				checked="{Boolean}false"/>
 																		<balanced
 																				jcr:primaryType="nt:unstructured"
 																				fieldDescription="wrapped items on mobile and tablet, no wrap on desktop"
 																				text="Balanced"
-																				value="balanced"
+																				value="cmp-container--balanced"
 																				checked="{Boolean}false"/>
 																	</items>
 																</flex-wrap>

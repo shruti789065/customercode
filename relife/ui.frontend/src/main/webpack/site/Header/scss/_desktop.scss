@@ -1,266 +1,70 @@
-/* @include respond-to(tablet) {
-  .header-mobile {
-    display: none;
+header.cmp-experiencefragment--header-desktop {
+  #logo {
+    .cmp-image__image {
+      max-width: 10.7rem;
+    }
   }
-  .header-desktop {
-    display: block;
-  }
-
-  header.experiencefragment {
-    #navbar {
-      transition: transform 0.3s ease;
-      .xf-master-building-block {
-        display: flex;
-        justify-content: flex-end;
-        gap: 0.5rem;
-        align-items: center;
-      }
-      .button {
-        display: flex;
-          .cmp-button__text {
-            font-family: $font-family-oswald;
-            border: .07rem solid $white;
-            padding: .7vw 1vw;
-            text-align: center;
-            border-radius: 5rem;
-            font-size: $font-size-min;
-            cursor: pointer;
-            transition: $standard-transition;
-            &:hover {
-              background-color: $white;
-              color: $vibrant-azure;
-              box-shadow: 2px 2px 5px lightgray;
-            }
-          }
-      }
-    }
-
-    .container.responsivegrid:nth-child(1) {
-      transition: $standard-transition;
-      padding: 0px clamp(0.7rem, 4vw, 1.7rem) 0px clamp(0.7rem, 4vw, 1.7rem);
-    }
-
-    .container.responsivegrid:nth-child(2) {
-      .cmp-navigation {
-        > .cmp-navigation__group {
-          transition: $standard-transition;
-          .cmp-navigation__item-link {
-            transition: $standard-transition;
-          }
-        }
-      }
-    }
-
-    &.scrolled {
-      #navbar {
-        transform: scale(0.95);
-        .button {
-          display: flex;
-            .cmp-button__text {
-              border: .07rem solid $vibrant-azure;
-              color: $black;
-              &:hover {
-                background-color: $vibrant-azure;
-                color: $white;
-                box-shadow: 2px 2px 5px lightgray;
-              }
-            }
-        }
-      }
-      
-      .container.responsivegrid:nth-child(1) {
-        padding: 0px clamp(1rem, 1vw, 2rem) 0px clamp(1rem, 1vw, 2rem);
-      }
-      .container.responsivegrid:nth-child(2) {
-        .cmp-navigation {
-          > .cmp-navigation__group {
-            transform: scale(0.95);
-            .cmp-navigation__item-link {
-              //padding: 1rem;
-            }
-          }
-        }
-      }
-      .languagenavigation {        
-        .cmp-languagenavigation {
-          .cmp-languagenavigation__label {
-            color: $black;
-            .cmp-languagenavigation__label-text {
-              color: $black;
-              transition: $standard-transition;
-            }
-            .toggle-icon {
-              width: 0.7rem;
-              cursor: pointer;
-              background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-black.svg")
-                center center no-repeat;
-            }
-          }
-          & > .cmp-languagenavigation__group {
-            transform: scale(0.95);
-            transition: $standard-transition;
-            top: unset;
-            .cmp-languagenavigation__item--level-0 {
-              .cmp-languagenavigation__item-link {
-                color: $black;
-                &:hover {
-                  color: $color-hover;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .cmp-experiencefragment--header {
-      position: relative;
-      z-index: 2;
-      #navbar {
-        > div {
-          display: flex;
-          align-items: center;
-        }        
-      }
-      .languagenavigation {
-        font-family: $font-family-arimo;
-        font-size: $font-size-min;
-        font-weight: $arimo-weight-light;
-        letter-spacing: -1px;
-      }
-      .container.responsivegrid:nth-child(1) {
-        position: relative;
-        .cmp-image {
-          width: clamp(10rem, 1.5vw, 16.25rem);
-          .cmp-image__image {
-            padding-top: 10px;
-          }
-        }        
-      }
-      .container.responsivegrid:nth-child(2) {
-        position: relative;
-        .button {
-          border-top: 0.125rem solid $color-background;
-          .cmp-button {
-            border: 0.063rem solid $color-background;
-            margin: 1.25rem auto;
-          }
-        }
-      }
-    }
-
-    .cmp-navigation {
-      background-color: rgba($color-background, 0.7);
-    }
-    .cmp-navigation__group {
-      display: flex;
+  #header--tablist {
+    .cmp-tabs__tablist {
       justify-content: center;
-      flex-direction: row;
-      border: none;
+      flex-wrap: nowrap;
+      border-bottom: 0;
       margin: 0;
-      max-height: 4.5rem;
-      font-family: $font-family-oswald;
-      -webkit-font-smoothing: antialiased;
+      .cmp-tabs__tab {
+        width: -moz-fit-content;
+        width: fit-content;
+        font-size: 1.214rem;
+        text-transform: uppercase;
+        font-family: $title-medium;
+      }
     }
-    .cmp-navigation__item-link {
-      color: $deep-blue;
-      font-size: 1.12rem;
-      padding: 1.2rem 1rem;
-      font-weight: $oswald-weight-regular;
-    }
+  }
+  #navbar {
+    //transition: $standard-transition;
+  }
+  #navigation-menu {
+    margin-top: 2.2rem;
+    border-bottom: 1px solid;
+    border-color: rgba(11, 29, 44, 0.2);
+  }
+  .cmp-button__icon--search {
+    width: 2rem;
+    height: 2rem;
+    margin-left: auto;
+  }
+  .menu-desktop {
+    display: none;
 
-    .cmp-navigation__item--level-0 {
-      position: relative;
-      &:has(.cmp-navigation__group) {
-        .cmp-navigation__item-link {
-          .toggle-icon {
-            width: 0.7rem;
-            background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-black.svg")
-              center center no-repeat;
-          }
-        }
-        .cmp-navigation__group {
-          position: relative;
-          .cmp-navigation__item {
-            position: relative;
-          }
-          &.is-visible {
-            position: absolute;
-            left: 1rem;
-            top: 3.3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            width: max-content;
-            gap: 0.2rem;
-            padding: 0;
-          }
-        }
-      }
+    &.menu-desktop--opened {
+      display: block;
     }
-    .cmp-navigation__item--level-1 {
-      background-color: $vibrant-azure;
-      .cmp-navigation__item-link {
-        color: $color-background;
-        font-size: $font-size-min;
-        padding: .3rem .5rem;
-      }
-    }
-
-    //== Language Navigation
-
-    .cmp-languagenavigation {
-      position: relative;
-      .toggle-icon {
-        width: 0.7rem;
-        cursor: pointer;
-        background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-accordion-arrow-v1-white.svg")
-          center center no-repeat;
-      }
-      .cmp-languagenavigation__label {
-        color: $color-background;
-        .cmp-languagenavigation__label-text {
-          color: $color-background;
-        }
-      }
-      & > .cmp-languagenavigation__group {
-        visibility: hidden;
-        transition-delay: 0.5s;
-        position: absolute;
-        top: 2.125rem;
-        width: 100%;
-        padding: 0 0.5rem;
-        border-top: 0;
-        background-color: transparent;
-        text-align: end;
-        .cmp-languagenavigation__item--level-0 {
-          .cmp-languagenavigation__item-link {
-            color: $color-background;
-            &:hover {
-              color: darken($color-background, 20%);
-            }
-          }
-        }
-      }
-      &.is-open {
-        .cmp-languagenavigation__group {
-          visibility: visible;
-          transition: $standard-transition;
-        }
-      }
-    }
-
-    .cmp-languagenavigation__item-title {
-    }
-    .cmp-languagenavigation__item--level-0 {
-    }
-    .cmp-languagenavigation__item--level-1 {
-      display: inline;
-    }
-    .cmp-languagenavigation__item--level-1:not(:first-child)::before {
-    }
-    .cmp-languagenavigation__item--active > .cmp-languagenavigation__item-link {
+  }
+  &.scrolled {
+    #navbar {
+      opacity: 0;
+      transition: display 300ms;
+      display: none;
+      animation: fadeOut 0.3s ease-in-out;
     }
   }
 }
- */
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    display: flex;
+  }
+
+  33% {
+    opacity: 0.6;
+    display: flex;
+  }
+  66% {
+    opacity: 0.3;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

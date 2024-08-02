@@ -9,6 +9,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+  @include respond-to(tablet) {
+	header.cmp-experiencefragment--header-mobile {
+	  display: block;
+	}
+  }
 }
 
 /* Preview Mode */
