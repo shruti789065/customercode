@@ -305,6 +305,11 @@
 		}
 	  }
 	}
+	.cmp-tabs__tabpanel {
+        .tabs-mobile-panel__title {
+            display: none;
+        }
+    }
   }
   
   @media (max-width: 1200px) {
@@ -502,6 +507,7 @@
 		}
   
 		.tabs-mobile-panel__title {
+			display: block !important;
 		  margin: 5px 0;
   
 		  h3 {

@@ -6,7 +6,6 @@ import com.adobe.granite.workflow.exec.HistoryItem;
 import com.adobe.granite.workflow.exec.WorkItem;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
-import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.workflow.event.WorkflowEvent;
 import com.drew.lang.annotations.NotNull;
@@ -36,12 +35,13 @@ public class EFPIAXLSXLogger {
     private static transient final Logger log = LoggerFactory.getLogger(EFPIAXLSXLogger.class);
 
     private final String siteName;
+    private final String reportName;
 
     private String userId;
     private Session jcrSession;
     private Node jcrNode;
 
-    private static final String ROOT_LOG_PATH_PATTERN = "/content/dam/efpia/{0}/log";
+    private static final String ROOT_LOG_PATH_PATTERN = "/content/dam/efpia/{0}/{1}/log";
 
     private static int IDX_YEAR = 0;
     private static int IDX_VERSION = 1;
@@ -60,8 +60,8 @@ public class EFPIAXLSXLogger {
     private static final String ST_REJECTED = "REJECTED";
     private static final String ST_OUTDATED = "OUTDATED";
 
-    public static EFPIAXLSXLogger getLogger(String siteName, WorkItem workItem, WorkflowSession workflowSession) throws RepositoryException, WorkflowException, PersistenceException {
-        EFPIAXLSXLogger logger = new EFPIAXLSXLogger(siteName);
+    public static EFPIAXLSXLogger getLogger(String siteName,String reportName, WorkItem workItem, WorkflowSession workflowSession) throws RepositoryException, WorkflowException, PersistenceException {
+        EFPIAXLSXLogger logger = new EFPIAXLSXLogger(siteName,reportName);
         logger.jcrSession =  workflowSession.adaptTo(Session.class);
         List<HistoryItem> history = workflowSession.getHistory(workItem.getWorkflow());
         logger.userId = "nobody";
@@ -80,7 +80,7 @@ public class EFPIAXLSXLogger {
         //String instancePath = StringUtils.substringBeforeLast(StringUtils.substringAfter(workItem.getWorkflow().getId(), "/var/workflow/instances"), "/");
         String logFileName = "EFPIA_ReportHeaders.xlsx";
                 //StringUtils.substringAfterLast(workItem.getWorkflow().getId(), "/") + ".log";
-        String path = MessageFormat.format(ROOT_LOG_PATH_PATTERN, siteName);
+        String path = MessageFormat.format(ROOT_LOG_PATH_PATTERN, siteName,reportName);
         String[] nodeNames = StringUtils.split(path, "/");
         path = "";
         for (String nodeName : nodeNames) {
@@ -117,8 +117,9 @@ public class EFPIAXLSXLogger {
         return logger;
     }
 
-    public EFPIAXLSXLogger(String siteName) {
+    public EFPIAXLSXLogger(String siteName,String reportName) {
         this.siteName = siteName;
+        this.reportName = reportName;
     }
 
     private byte[] read() {

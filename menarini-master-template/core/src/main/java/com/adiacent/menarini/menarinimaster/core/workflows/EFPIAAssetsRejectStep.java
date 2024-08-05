@@ -27,23 +27,25 @@ public class EFPIAAssetsRejectStep implements WorkflowProcess {
         final WorkflowData workflowData = workItem.getWorkflowData();
         final String path = workflowData.getPayload().toString();
         String siteName = EFPIAUtils.siteNameFromPath(path);
+        String reportName = EFPIAUtils.reportNameFromPath(path);
         Integer year = EFPIAUtils.yearFromPath(path);
         EFPIAXLSXLogger logger = null;
 
         try {
             // + Verify publish path
-            logger = EFPIAXLSXLogger.getLogger(siteName, workItem, workflowSession);
+            logger = EFPIAXLSXLogger.getLogger(siteName,reportName, workItem, workflowSession);
 
             try(ResourceResolver resourceResolver =  workflowSession.adaptTo(ResourceResolver.class))
             {
                 if (EFPIAUtils.isPathValid(path)) {
                     siteName = EFPIAUtils.siteNameFromPath(path);
+                    reportName = EFPIAUtils.reportNameFromPath(path);
                     year = EFPIAUtils.yearFromPath(path);
                 } else {
                     log.error("Invalid path: {}", path);
                     return;
                 }
-                logger = EFPIAXLSXLogger.getLogger(siteName, workItem, workflowSession);
+                logger = EFPIAXLSXLogger.getLogger(siteName, reportName,workItem, workflowSession);
                 workflowData.getMetaDataMap().put("isValid", false);
                 Resource resource = resourceResolver.getResource(path);
                 //workItem.getMetaDataMap().put("comment", "<h4>Workflow comment</h4>");

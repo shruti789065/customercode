@@ -13,7 +13,6 @@ import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationStatus;
 import com.day.cq.replication.ReplicationStatusProvider;
 import com.day.cq.replication.Replicator;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.framework.Constants;
@@ -45,29 +44,23 @@ public class EFPIAAssetsMoveStep implements WorkflowProcess {
         final WorkflowData workflowData = workItem.getWorkflowData();
         final String path = workflowData.getPayload().toString();
         String siteName = EFPIAUtils.siteNameFromPath(path);
+        String reportName = EFPIAUtils.reportNameFromPath(path);
         EFPIAXLSXLogger logger = null;
 
         ResourceResolver resourceResolver =  workflowSession.adaptTo(ResourceResolver.class);
         Session jcrSession =  workflowSession.adaptTo(Session.class);
         AssetManager assetManager = resourceResolver.adaptTo(AssetManager.class);
 
-        String[] pathArr = StringUtils.split(path, "/");
-        Integer year = Integer.parseInt(pathArr[pathArr.length-1]);
 
-        String PUBLISH_DIR_PATH = EFPIAUtils.getPublishPath(siteName, year);
+        Integer year = EFPIAUtils.yearFromPath(path);
+
+        String PUBLISH_DIR_PATH = EFPIAUtils.getPublishPath(siteName,reportName, year);
         try {
             // + Verify publish path
-            logger = EFPIAXLSXLogger.getLogger(siteName, workItem, workflowSession);
+            logger = EFPIAXLSXLogger.getLogger(siteName,reportName, workItem, workflowSession);
             Resource publishDir = resourceResolver.getResource(PUBLISH_DIR_PATH);
             if (publishDir == null) {
-                String[] nodeNames = StringUtils.split(PUBLISH_DIR_PATH, "/");
-                String publishPath = "";
-                for (String nodeName : nodeNames) {
-                    publishPath += "/" + nodeName;
-                    if (!jcrSession.nodeExists(publishPath)) {
-                        JcrUtil.createPath(publishPath, JcrConstants.NT_FOLDER, jcrSession);
-                    }
-                }
+                JcrUtil.createPath(PUBLISH_DIR_PATH, JcrConstants.NT_FOLDER, jcrSession);
                 publishDir = resourceResolver.getResource(PUBLISH_DIR_PATH);
             }
             // - Verify publish path

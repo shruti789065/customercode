@@ -1,64 +1,87 @@
 .cmp-product-leaflet {
-	padding: 0px !important;
-	margin-bottom: 25px;
+  padding: 0px !important;
+  margin-bottom: 25px;
 
-	.cmp-container {
-		border: solid 1px $color-fourth;
-		display: flex;
-		padding: 25px;
-		.cmp-text{
-			font-weight: $font-regular;
-			font-family: $font-family-arimo;
-			font-size: 18px;
-			line-height: 25px;
-			color: $color-text;
-			padding-right: 30px;
-			text-align: center;
-			margin: 0;
-		}
+  .cmp-container {
+    border: solid 1px $color-fourth;
+    display: flex;
+    padding: 25px;
+    .cmp-text {
+      font-weight: $font-regular;
+      font-family: $font-family-arimo;
+      font-size: 18px;
+      line-height: 25px;
+      color: $color-text;
+      padding-right: 30px;
+      text-align: center;
+      margin: 0;
+    }
 
-		div {
-			flex-direction: column;
-			display: flex;
-			gap: 20px;
-			align-items: center;
-			justify-content: space-between;
-		}
+    div {
+      flex-direction: column;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-		.button {
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-			.cmp-button__text{
-				font-size: 14px;
-			}
-		}
-	}
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .cmp-button__text {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
-
 @media (min-width: 768px) {
-	.productleafleft {
-		max-width: 768px;
-		.cmp-product-leaflet {
-			.cmp-container {
-				div {
-					flex-direction: row;
-					justify-content: center;
-					gap: 10px;
-					.cmp-button__text{
-						font-size: $font-size;
-					}
-					.image{
-						flex-direction: column;
-						align-items: flex-start;
-						.addPadding-top{
-							padding-top: 25px;
-						}
-					}
-					
-				}
-			}
-		}
-	}
+  .productleafleft {
+    max-width: 768px;
+    .cmp-product-leaflet {
+      .cmp-container {
+        div {
+          flex-direction: row;
+          justify-content: center;
+          gap: 10px;
+          .cmp-button__text {
+            font-size: $font-size;
+          }
+          .image {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+        }
+        .button.addMargin {
+          align-self: flex-end;
+          margin-bottom: 35px;
+        }
+      }
+    }
+  }
+}
+
+.cmp-product-leaflet--v2 {
+  display: flex;
+  border: solid 1px $color-fourth;
+  padding: 0px !important;
+  margin-bottom: 25px;
+  .cmp-container {
+    display: flex;
+    padding: 25px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    .cmp-image {
+      max-width: 400px;
+    }
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 5px;
+    }
+  }
 }
