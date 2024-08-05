@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="9e0bbe9b-340b-4c08-a3f3-d1f3cca82557">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        dam:assetState="processed"
+        dam:jobId="07f665ad-b7dc-4a8e-a1bf-a6b7f80d9875"
+        dam:processingId="717d220a-4dd9-481c-9280-94578c0fdd4d"
+        dam:processingRenditions="[cqdam.metadata.xml,cq5dam.zoom.2048.2048.jpeg,cq5dam.thumbnail.319.319.png,cqdam.machine.metadata.colors.json,cq5dam.preview.pdf,cqdam.machine.metadata.tags.json,cq5dam.thumbnail.48.48.png,cqdam.text.txt,cq5dam.thumbnail.140.100.png,cqdam.machine.metadata.features.json,cq5dam.web.1280.1280.jpeg,cq5dam.preview.mp4]"
+        dam:processingRequestedDate="{Date}2024-07-01T10:30:38.544Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2024-07-08T12:26:49.312+02:00"
+        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.mp4
+                jcr:primaryType="nt:unstructured"
+                message="Format mp4 is not supported for svg files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for svg files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for svg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:extracted="{Date}2024-07-08T12:26:45.185+02:00"
+            dam:sha1="ed121a27c63f8b38427c190cb95a27fc815e2f2e"
+            dam:size="{Long}1053"
+            dc:format="image/svg+xml"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

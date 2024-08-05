@@ -5,6 +5,7 @@
 	.cmp-title {
 		font-family: $font-family-oswald;
 		font-weight: $oswald-weight-bold;
+		line-height: 1.35;
 		h1 { font-size: 3rem; }
 		h2 { font-size: 1.875rem; }
 		h3 { font-size: 1.5rem; }
@@ -44,8 +45,20 @@
 	.title {
 		.cmp-title {
 			h1 { font-size: 6.25rem; }
-			h2 { font-size: 3.75rem; }
+			h2 { font-size: 3.7rem; }
 			h3 { font-size: 2.625rem; }
+			h4 { font-size: 2.188rem; }
+			h5 { font-size: 1.563rem; }
+			h6 { font-size: 1.25rem; }
+		}
+	}
+}
+@include respond-to(high-definition) {
+	.title {
+		.cmp-title {
+			h1 { font-size: 6rem; }
+			h2 { font-size: 3.5rem; }
+			h3 { font-size: 2.5rem; }
 			h4 { font-size: 2.188rem; }
 			h5 { font-size: 1.563rem; }
 			h6 { font-size: 1.25rem; }

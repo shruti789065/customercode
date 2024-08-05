@@ -5,6 +5,7 @@
   display: block;
 }
 .header-mobile {
+  
   a {
     text-decoration: none;
     &:hover,
@@ -13,16 +14,13 @@
       background-color: $white !important;
     }
   }
-  &.scrolled {
-    #btnMenuMobile {
-      padding: clamp(1rem, 1vw + 0.5rem, 1.5rem) clamp(0.25rem, 1vw + 0.25rem, 2rem);
-      .cmp-button__icon--hamburger {
-        transition: $standard-transition;;
-        background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-hamburger-deep-blue.svg")
-          center center no-repeat;
-      }
+  #btnMenuMobile {
+    &:hover {
+      box-shadow: none;
     }
+
   }
+  
   .cmp-experiencefragment--header {
     z-index: 2;
     .cmp-navigation__group {
@@ -59,9 +57,12 @@
 
     .container.responsivegrid:nth-child(1) {
       position: relative;
-      padding: clamp(1.5rem, 4vw, 2.5rem);
+      padding: 1rem 1rem 0 1rem;
       .cmp-image {
-        width: clamp(11.875rem, 1.5vw, 16.25rem);
+        //width: clamp(11.875rem, 1.5vw, 16.25rem);
+        img {
+          height: 4rem;
+        }
       }
       .button {
         height: 100%;
@@ -87,4 +88,25 @@
       }
     }
   }
+
+  &.scrolled {
+    box-shadow: 0 1px 6px 0px $darkGray;
+    .cmp-experiencefragment--header {
+      .container.responsivegrid:nth-child(1) {
+        padding: 1rem 1rem 0 1rem;
+      }
+    }
+    #btnMenuMobile {
+      //padding: clamp(1rem, 1vw + 0.5rem, 1.5rem) clamp(0.25rem, 1vw + 0.25rem, 2rem);
+      .cmp-button__icon--hamburger {
+        transition: $standard-transition;;
+        background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-hamburger-deep-blue.svg")
+          center center no-repeat;
+      }
+	  &:hover{
+		box-shadow: none;
+	  }
+    }
+  }
+
 }

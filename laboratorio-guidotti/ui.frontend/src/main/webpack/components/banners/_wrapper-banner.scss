@@ -1,5 +1,3 @@
-.wrapper-banner {
-}
 .cmp-wrapper_banner--container {
   display: flex;
   flex-wrap: wrap;
@@ -9,76 +7,54 @@
 }
 .cmp-banner--content {
   display: flex;
-
-  &.cmp-banner--content--typo {
-    flex-direction: column;
-    align-content: center;
-    order: 2;
-    justify-content: center;
-  }
-  .cmp-banner--content--text {
-    .cmp-text {
-      font-size: clamp(1rem, 60vw, 1.5rem);
+}
+.cmp-banner--content--typo {
+  flex-direction: column;
+  align-content: center;
+  order: 1;
+  justify-content: center;
+  /*  flex-wrap: wrap;
+  padding: 1rem;
+  width: clamp(18.75rem, 25vw + 13.75rem, 43.75rem); */
+  .text {
+    &.text-left,
+    &.text-right {
       p {
-        margin: 0;
-      }
-    }
-  }
-  &.cmp-banner--content--shapes {
-    position: relative;
-    overflow: visible;
-    justify-content: center;
-    order: 1;
-    .shape_container {
-      position: relative;
-    }
-    .cmp-shape--container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-  &.cmp-banner--content--shapes-bi {
-    .shape_container_1 {
-      .cmp-shape--container {
-        transform: translate(-50%, -50%);
-      }
-    }
-    .shape_container_2 {
-      .cmp-shape--container {
-        transform: translate(0, -80%);
-      }
-    }
-  }
-  &.cmp-banner--content--shapes-tri {
-    .shape_container_1 {
-      .cmp-shape--container {
-        transform: translate(-50%, -50%);
-      }
-    }
-    .shape_container_2 {
-      .cmp-shape--container {
-        transform: translate(0, -80%);
-      }
-    }
-    .shape_container_3 {
-      .cmp-shape--container {
-        transform: translate(30%, -70%);
+        text-align: center !important;
       }
     }
   }
 }
+.cmp-banner--content--text {
+  .cmp-text {
+    font-size: clamp(1rem, 60vw, 1.5rem);
+    p {
+      margin: 0;
+    }
+  }
+}
+.cmp-banner--content--shapes {
+  position: relative;
+  overflow: visible;
+  justify-content: center;
+  order: 1;
+  .shape_container {
+    position: relative;
+  }
+  .cmp-shape--container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
 @include respond-to(tablet) {
-  .cmp-wrapper_banner--container {
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
   .cmp-banner--content {
     flex: 1;
+	max-width: $breakpoint-tablet;
     &.cmp-banner--content--typo {
-      order: 1;
+      order: 2;
     }
     &.cmp-banner--content--shapes {
       order: 2;
@@ -86,75 +62,20 @@
         transform: translate(-40%, -50%);
       }
     }
-    &.cmp-banner--content--shapes-bi {
-      .shape_container_1 {
-        .cmp-shape--container {
-          transform: translate(-50%, -50%);
-        }
-      }
-      .shape_container_2 {
-        .cmp-shape--container {
-          transform: translate(20%, -80%);
-        }
-      }
-    }
-    &.cmp-banner--content--shapes-tri {
-      .shape_container_1 {
-        .cmp-shape--container {
-          transform: translate(-50%, -50%);
-        }
-      }
-      .shape_container_2 {
-        .cmp-shape--container {
-          transform: translate(20%, -80%);
-        }
-      }
-      .shape_container_3 {
-        .cmp-shape--container {
-          transform: translate(60%, -60%);
-        }
-      }
-    }
   }
 }
 @include respond-to(laptop) {
-  .cmp-banner--content {
-    &.cmp-banner--content--shapes {
-      .cmp-shape--container {
-        transform: translate(-45%, -50%);
-      }
-    }
-    &.cmp-banner--content--shapes-bi {
-      .shape_container_1 {
-        .cmp-shape--container {
-          transform: translate(-50%, -50%);
+  .cmp-banner--content--typo {
+    flex-wrap: nowrap;
+    .text {
+      &.text-left {
+        p {
+          text-align: left !important;
         }
       }
-      .shape_container_2 {
-        .cmp-shape--container {
-          transform: translate(20%, -80%);
-        }
-      }
-    }
-  }
-}
-
-@include respond-to(desktop) {
-  .cmp-banner--content {
-    &.cmp-banner--content--shapes {
-      .cmp-shape--container {
-        transform: translate(-50%, -50%);
-      }
-    }
-    &.cmp-banner--content--shapes-bi {
-      .shape_container_1 {
-        .cmp-shape--container {
-          transform: translate(-50%, -50%);
-        }
-      }
-      .shape_container_2 {
-        .cmp-shape--container {
-          transform: translate(0, -80%);
+      &.text-right {
+        p {
+          text-align: right !important;
         }
       }
     }

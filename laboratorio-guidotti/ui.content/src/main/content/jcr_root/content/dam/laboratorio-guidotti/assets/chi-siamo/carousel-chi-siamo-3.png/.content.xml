@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="d25a9824-84f2-4aa5-a963-c93a7ebe11e7">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        dam:assetState="processed"
+        dam:jobId="211cba43-a3f8-48ba-92ca-072b0dc84eec"
+        dam:processingId="8e7f7c7d-a60a-4f8d-9734-294172f549b1"
+        dam:processingRenditions="[cqdam.metadata.xml,cq5dam.zoom.2048.2048.jpeg,cqdam.text.txt,cq5dam.preview.mp4,cq5dam.thumbnail.140.100.png,cq5dam.thumbnail.48.48.png,cqdam.machine.metadata.colors.json,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.tags.json,cqdam.machine.metadata.features.json,cq5dam.thumbnail.319.319.png,cq5dam.preview.pdf]"
+        dam:processingRequestedDate="{Date}2024-06-17T10:02:09.654Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2024-07-08T12:26:01.406+02:00"
+        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for png files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.mp4
+                jcr:primaryType="nt:unstructured"
+                message="Format mp4 is not supported for png files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for png files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:Comments="Software: Adobe ImageReady&#xa;XML:com.adobe.xmp: &lt;?xpacket begin=&quot;﻿&quot; id=&quot;W5M0MpCehiHzreSzNTczkc9d&quot;?> &lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;Adobe XMP Core 9.1-c002 79.a6a63968a, 2024/03/06-11:52:05        &quot;> &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;> &lt;rdf:Description rdf:about=&quot;&quot; xmlns:xmp=&quot;http://ns.adobe.com/xap/1.0/&quot; xmlns:xmpMM=&quot;http://ns.adobe.com/xap/1.0/mm/&quot; xmlns:stRef=&quot;http://ns.adobe.com/xap/1.0/sType/ResourceRef#&quot; xmp:CreatorTool=&quot;Adobe Photoshop 25.9 (Windows)&quot; xmpMM:InstanceID=&quot;xmp.iid:63F08E962C9011EFA68D88D205B73226&quot; xmpMM:DocumentID=&quot;xmp.did:63F08E972C9011EFA68D88D205B73226&quot;> &lt;xmpMM:DerivedFrom stRef:instanceID=&quot;xmp.iid:63F08E942C9011EFA68D88D205B73226&quot; stRef:documentID=&quot;xmp.did:63F08E952C9011EFA68D88D205B73226&quot;/> &lt;/rdf:Description> &lt;/rdf:RDF> &lt;/x:xmpmeta> &lt;?xpacket end=&quot;r&quot;?>&#xa;"
+            dam:extracted="{Date}2024-07-08T12:25:54.397+02:00"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}2"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:predictedColors="{Long}[10031,15026,5022,16021]"
+            dam:Progressive="no"
+            dam:sha1="04fd6efa86e284f57765f8f7eb009b2c27063e7e"
+            dam:size="{Long}730475"
+            dc:format="image/png"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            photoshop:ColorMode="{Long}3"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}1080"
+            tiff:ImageWidth="{Long}1280"
+            xmp:CreatorTool="Adobe Photoshop 25.9 (Windows)"
+            xmpMM:DocumentID="xmp.did:63F08E972C9011EFA68D88D205B73226"
+            xmpMM:InstanceID="xmp.iid:63F08E962C9011EFA68D88D205B73226">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="xmp.did:63F08E952C9011EFA68D88D205B73226"
+                stRef:instanceID="xmp.iid:63F08E942C9011EFA68D88D205B73226"
+                xmpNodeType="xmpStruct"/>
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:lastModified="{Date}2024-06-17T10:02:24.641Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.3054"
+                    name="LIGHT_BLUE"
+                    rank="{Long}1"
+                    rgb="{Long}[139,182,220]"/>
+                <color2
+                    jcr:lastModified="{Date}2024-06-17T10:02:24.642Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.2606"
+                    name="GRAY"
+                    rank="{Long}2"
+                    rgb="{Long}[110,110,105]"/>
+                <color3
+                    jcr:lastModified="{Date}2024-06-17T10:02:24.643Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.2193"
+                    name="DARK_GREEN"
+                    rank="{Long}3"
+                    rgb="{Long}[15,58,64]"/>
+                <color4
+                    jcr:lastModified="{Date}2024-06-17T10:02:24.644Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.2148"
+                    name="DARK_GRAY"
+                    rank="{Long}4"
+                    rgb="{Long}[74,78,76]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

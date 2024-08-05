@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isTransCreated="{Boolean}true"
-        cq:lastModified="{Date}2024-05-15T10:22:06.578+02:00"
+        cq:lastModified="{Date}2024-07-04T16:57:22.990+02:00"
         cq:lastModifiedBy="admin"
         cq:lastTranslationUpdate="{Date}2024-05-15T10:22:06.578+02:00"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/page-content"
@@ -54,6 +54,62 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="laboratorio-guidotti/components/title"/>
+                            <timeline
+                                jcr:created="{Date}2024-07-04T16:56:51.363+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-07-04T16:56:51.363+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="laboratorio-guidotti/components/timeline">
+                                <timeline_row
+                                    jcr:created="{Date}2024-07-04T16:56:55.740+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-07-04T16:56:55.740+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="laboratorio-guidotti/components/timeline_row">
+                                    <timeLineObject_1
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="laboratorio-guidotti/components/timeline_object">
+                                        <text
+                                            jcr:created="{Date}2024-07-04T16:57:04.903+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2024-07-04T16:57:04.903+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="laboratorio-guidotti/components/text"/>
+                                    </timeLineObject_1>
+                                    <timeLineObject_2
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="laboratorio-guidotti/components/timeline_object">
+                                        <shape_container
+                                            jcr:created="{Date}2024-07-04T16:57:10.842+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2024-07-04T16:57:10.842+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="laboratorio-guidotti/components/shape_container"/>
+                                    </timeLineObject_2>
+                                    <timeLineObject_3
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="laboratorio-guidotti/components/timeline_object">
+                                        <title
+                                            jcr:created="{Date}2024-07-04T16:57:14.463+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2024-07-04T16:57:14.463+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="laboratorio-guidotti/components/title"/>
+                                    </timeLineObject_3>
+                                </timeline_row>
+                                <timeline_row_1216873088
+                                    jcr:created="{Date}2024-07-04T16:57:22.971+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2024-07-04T16:57:22.971+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="laboratorio-guidotti/components/timeline_row"/>
+                            </timeline>
                         </wrapper>
                     </section>
                 </container>

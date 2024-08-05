@@ -23,7 +23,8 @@
 }
 
 .cmp-button {
-  display: block;
+  display: flex;
+  justify-content: center;
   text-align: center;
   text-decoration: none;
   font-family: $font-family-oswald;
@@ -32,10 +33,11 @@
   border-radius: 5rem;
   cursor: pointer;
   background-color: transparent;
-  padding: clamp(1rem, 1vw + 0.5rem, 1.5rem) clamp(0.25rem, 1vw + 0.25rem, 2rem);
+  padding: clamp(1.25rem, 0.313vw + 1.188rem, 1.563rem) clamp(1.875rem, 2.813vw + 1.313rem, 4.688rem);
   font-size: clamp(1rem, 1.5vw + 0.5rem, 1.375rem);
-  width: 100%;
-  max-width: 23rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  //max-width: 23rem;
   margin: 1rem 0;
   &:hover {
     box-shadow: 2px 2px 5px lightgray;
@@ -145,7 +147,8 @@
 
 @include respond-to(high-definition) {
   .cmp-button {
-    width: clamp(16.875rem, 100%, 23rem);
+    //width: clamp(16.875rem, 100%, 23rem);
+    width: max-content;
   }
 }
 //.cmp-button__icon--myIcon {}

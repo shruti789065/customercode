@@ -12,6 +12,11 @@
       }
     }
   }
+  &.text-left {
+    .cmp-text {
+      text-align: left;
+    }
+  }
   &.text-center {
     .cmp-text {
       text-align: center;
@@ -77,13 +82,17 @@
 
 
 @include respond-to(small-devices) {
-  .cmp-text {
-    font-size: $font-size;
+  .text {
+    .cmp-text {
+      font-size: $font-size;
+    }
   }
 }
 @include respond-to(desktop) {
-  .cmp-text {
-    font-size: $font-size-max;
+  .text {
+    .cmp-text {
+      font-size: $font-size-max;
+    }
   }
 }
 

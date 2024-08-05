@@ -1,3 +1,69 @@
-@import './scss/common';
-@import './scss/mobile';
-@import './scss/desktop';
+footer {
+    z-index: 1;
+    #footerLinks {
+        .text {
+            .cmp-text {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+        }
+    }
+  }
+  .cmp-experiencefragment--footer {
+    position: relative;
+  
+    .cmp-text {
+      p {
+        color: $color-text-grey;
+        margin: 0.5rem auto;
+        a {
+          text-decoration: none;
+          &:hover {
+            color: darken($color: $deep-blue, $amount: 30%);
+          }
+        }
+      }
+    }
+    .cmp-list {
+      text-align: center;
+      padding: 0;
+      .cmp-list__item {
+        list-style-type: none;
+        margin-bottom: 0.5rem;
+        &:hover {
+          color: $color-hover;
+        }
+      }
+    }
+  }
+
+  @include respond-to(tablet) {
+    footer {
+        z-index: 1;
+        #footerLinks {
+            .text {
+                .cmp-text {
+                    display: block;
+                }
+            }
+        }
+      }
+  }
+  /*
+  
+  **MEDIA QUERIES DA UTILIZZARE**
+  
+  
+  @include respond-to(small-devices) {}
+  
+  @include respond-to(mobile) {}
+  
+  @include respond-to(tablet) {}
+  
+  @include respond-to(laptop) {}
+  
+  @include respond-to(desktop) {}
+  
+  */
+  
