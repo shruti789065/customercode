@@ -3,11 +3,11 @@
 	"use strict";
 
 	const HEADER = {
-	  allHeaders: document.querySelectorAll("header"),
-	  desktop: document.querySelector(".cmp-experiencefragment--header-desktop"),
+	  
+	  mobile: document.querySelector(".cmp-experiencefragment--header-mobile"),
+	  toggleButton: document.getElementById("btnMenuMobile"),
 	  navbar: document.getElementById("navbar"),
 	  headerTablist: document.getElementById("header--tablist"),
-	  desktopMenu: document.querySelector(".menu-desktop"),
 	  activeTabClass: 'cmp-tabs__tab--active'
 	};
 

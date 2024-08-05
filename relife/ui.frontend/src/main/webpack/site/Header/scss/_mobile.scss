@@ -1,29 +1,29 @@
-.wrapper {
-  &:first-of-type {
-    .cmp-container {
-      &:first-of-type {
-        padding: 1.5rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .xf-master-building-block {
+header.cmp-experiencefragment--header-mobile {
+  .wrapper {
+    &:first-of-type {
+      .cmp-container {
+        &:first-of-type {
+          padding: 1.5rem 0;
           display: flex;
-          justify-content: flex-end;
-          gap: 2rem;
+          justify-content: space-between;
+          align-items: center;
+          .xf-master-building-block {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
 
-          .cmp-button {
-            background-color: transparent;
-            border: none;
-            padding: 0;
-            width: 100%;
-            .cmp-button__icon {
-              margin-left: auto;
+            .cmp-button {
+              background-color: transparent;
+              border: none;
+              padding: 0;
+              width: 100%;
+              .cmp-button__icon {
+                margin-left: auto;
+              }
             }
           }
         }
       }
     }
   }
-}
-header.cmp-experiencefragment--header-mobile {
 }
