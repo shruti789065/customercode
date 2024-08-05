@@ -22,7 +22,7 @@
 	 */
 	function handleTabClick(event) {
 	  const clickedTab = event.target.closest('.cmp-tabs__tab');
-	  if (!clickedTab) return;
+	  if (!clickedTab) {return;}
 
 	  const isAlreadyActive = clickedTab.classList.contains(HEADER.activeTabClass);
 
