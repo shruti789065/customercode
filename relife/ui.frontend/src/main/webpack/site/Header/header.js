@@ -20,7 +20,7 @@
 	 */
 	function handleTabClick(event) {
 	  const clickedTab = event.target.closest('.cmp-tabs__tab');
-	  if (!clickedTab) {return;}
+	  if (!clickedTab || !HEADER.desktopMenu) { return; }
 
 	  const isAlreadyActive = clickedTab.classList.contains(HEADER.activeTabClass);
 
@@ -42,6 +42,8 @@
 	 * @private
 	 */
 	function setActiveTab(tab) {
+	  if (!HEADER.headerTablist) { return; }
+
 	  const tabs = HEADER.headerTablist.querySelectorAll('.cmp-tabs__tab');
 	  tabs.forEach(t => t.classList.remove(HEADER.activeTabClass));
 	  tab.classList.add(HEADER.activeTabClass);
@@ -53,6 +55,8 @@
 	 * @private
 	 */
 	function handleOutsideClick(event) {
+	  if (!HEADER.desktop || !HEADER.desktopMenu) { return; }
+
 	  if (!HEADER.desktop.contains(event.target) && !HEADER.desktopMenu.contains(event.target)) {
 		HEADER.desktopMenu.classList.remove("menu-desktop--opened");
 		lastClickedTab = null;

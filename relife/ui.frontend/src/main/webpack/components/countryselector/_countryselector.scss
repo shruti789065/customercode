@@ -1,0 +1,227 @@
+.country-template {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-image: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/images/cover-relife.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  }
+}
+
+.countryselector {
+  * {
+    transition: $standard-transition;
+  }
+  .cmp-languagenavigation {
+    position: relative;
+    padding: 0 2rem;
+    z-index: 1;
+
+    .cmp-languagenavigation__label {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 18rem;
+      font-family: $title-light;
+      font-size: $font-size;
+      color: $white;
+      border-bottom: .001rem $white solid;
+      padding: 1rem;
+
+      .cmp-languagenavigation__label-text {
+        margin-left: -1rem;
+        margin-bottom: 1rem;
+      }
+
+      .toggle-icon {
+        transition: transform 0.3s;
+        height: 2rem;
+        width: 2rem;
+        background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/arrow_down_relife-white.svg") center center no-repeat;
+        transition: $standard-transition;
+        position: absolute;
+        bottom: 1rem;
+        right: 2rem;
+      }
+    }
+
+    .cmp-languagenavigation__group {
+      display: none;
+      opacity: 0;
+      position: absolute;
+      left: 2rem;
+      top: 7rem;
+      margin: 0;
+      background-color: unset;
+      z-index: 1000;
+      padding: 0rem 0rem;   
+      transition: $standard-transition; 
+      width: 18rem;  
+
+      .cmp-languagenavigation__item {
+        list-style: none;
+        width: 100%;
+        text-align: left;
+        
+
+        .cmp-languagenavigation__item-link {
+          display: block;
+          padding: 1rem;
+          text-decoration: none;
+          color: $white;
+          font-family: $title-light;
+          font-size: $font-size;
+
+          &:hover {
+            font-family: $title-book;
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+
+        }
+
+        .cmp-languagenavigation__item--active &-link {
+          font-weight: bold;
+        }
+
+      }
+
+    }
+
+    &.is-open {
+      .cmp-languagenavigation__label {
+        .cmp-languagenavigation__label-text {}
+        .toggle-icon {
+          //background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/arrow_up_relife.svg") center center no-repeat;
+        }
+      }      
+      .cmp-languagenavigation__group {
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        border: .001rem $white solid;
+        border-top: 0;
+        padding: 1rem;
+      }
+    }  
+
+    &::before {
+      background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/images/logo-relife.svg");
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: block;
+      height: 10rem;
+      left: 2rem;
+      position: absolute;
+      top: -20rem;
+      width: 15rem;
+      z-index: 1001;
+    }
+  }
+
+}
+
+@include respond-to(mobile) {
+  .countryselector {
+    .cmp-languagenavigation {
+      padding: 0 0 0 5rem;
+      .cmp-languagenavigation__label {
+        width: 30rem;
+        .cmp-languagenavigation__label-text {}
+
+        .toggle-icon {
+          right: 1rem;
+        }
+      }
+
+      .cmp-languagenavigation__group {
+        left: 5rem;
+        width: 30rem;
+        .cmp-languagenavigation__item {
+
+          .cmp-languagenavigation__item-link {}
+        }
+      }
+
+      &.is-open {}
+
+      &::before {
+        left: 5rem;
+        width: 25rem;
+      }
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .countryselector {
+    .cmp-languagenavigation {
+      padding: 0 0 0 8rem;
+      .cmp-languagenavigation__label {
+        width: 40rem;
+        .cmp-languagenavigation__label-text {}
+
+        .toggle-icon {}
+      }
+
+      .cmp-languagenavigation__group {
+        left: 8rem;
+        width: 40rem;
+        .cmp-languagenavigation__item {
+
+          .cmp-languagenavigation__item-link {}
+        }
+      }
+
+      &.is-open {}
+
+      &::before {
+        left: 8rem;
+        width: 25rem;
+      }
+    }
+  }
+}
+@include respond-to(desktop) {
+  .countryselector {
+    .cmp-languagenavigation {
+      padding: 0 0 0 10rem;
+      .cmp-languagenavigation__label {
+        .cmp-languagenavigation__label-text {}
+
+        .toggle-icon {}
+      }
+
+      .cmp-languagenavigation__group {
+        left: 10rem;
+        .cmp-languagenavigation__item {
+
+          .cmp-languagenavigation__item-link {}
+        }
+      }
+
+      &.is-open {}
+
+      &::before {
+        left: 10rem;
+      }
+    }
+  }
+}
