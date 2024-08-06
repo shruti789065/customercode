@@ -80,6 +80,19 @@ export function hideOverlayAndLoader(item) {
   item.removeClass("loading");
 }
 
+export function toggleOverlay(overlayId) {
+  const overlay = document.getElementById(overlayId);
+  if (overlay) {
+    if (overlay.style.display === "none" || overlay.style.display === "") {
+      overlay.style.display = "block";
+    } else {
+      overlay.style.display = "none";
+    }
+  } else {
+    console.warn(`Overlay con ID "${overlayId}" non trovato.`);
+  }
+}
+
 export function getUrl(endpoint, JSONmock = "") {
   const { hostname, port, protocol } = window.location;
 

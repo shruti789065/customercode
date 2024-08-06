@@ -1,90 +1,69 @@
 /* eslint-disable max-len */
+import { toggleOverlay } from ".././_util";
+
 (function () {
-	"use strict";
+  "use strict";
 
-	const HEADER = {
-	  
-	  mobile: document.querySelector(".cmp-experiencefragment--header-mobile"),
-	  toggleButton: document.getElementById("btnMenuMobile"),
-	  navbar: document.getElementById("navbar"),
-	  headerTablist: document.getElementById("header--tablist"),
-	  activeTabClass: 'cmp-tabs__tab--active'
-	};
+  const HEADER = {
+    mobile: document.querySelector(".cmp-experiencefragment--header-mobile"),
+    menuButton: document.querySelector(".cmp-button__icon--menu"),
+    navigationItem: document.getElementById("navigationItem"),
+    logo: document.querySelector(".cmp-image__link"),
+    searchButton: document.querySelector(".cmp-button__icon--search"),
+    accordionItems: document.querySelectorAll(".cmp-accordion__button"),
+    backButton: document.querySelector("#navigationItem .cmp-button__icon--back"),
+    textLabel: document.querySelector("#navigationItem .text")
+  };
 
-	let lastClickedTab = null;
+  function handleMenuClick() {
+    HEADER.mobile.classList.toggle("cmp-menu--opened");
+    toggleOverlay("overlay");
+  }
 
-	/**
-	 * Toggles the desktop menu visibility based on the clicked tab
-	 *
-	 * @private
-	 */
-	function handleTabClick(event) {
-	  const clickedTab = event.target.closest('.cmp-tabs__tab');
-	  if (!clickedTab) {return;}
+  function handleAccordionClick(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const panel = document.getElementById(button.getAttribute("aria-controls"));
+    const title = button.querySelector(".cmp-accordion__title").textContent;
 
-	  const isAlreadyActive = clickedTab.classList.contains(HEADER.activeTabClass);
+    if (panel && !panel.classList.contains("cmp-accordion__panel--hidden")) {
+      panel.classList.add("cmp-accordion__panel--hidden");
+      HEADER.navigationItem.style.display = "flex";
+      HEADER.logo.style.display = "none";
+      HEADER.searchButton.style.display = "none";
+      HEADER.textLabel.textContent = title;
+    } else {
+      panel.classList.remove("cmp-accordion__panel--hidden");
+    }
+  }
 
-	  if (isAlreadyActive && lastClickedTab === clickedTab) {
-		// Close the menu if the same tab is clicked again
-		HEADER.desktopMenu.classList.remove("menu-desktop--opened");
-		lastClickedTab = null;
-	  } else {
-		// Open the menu and activate the clicked tab
-		HEADER.desktopMenu.classList.add("menu-desktop--opened");
-		setActiveTab(clickedTab);
-		lastClickedTab = clickedTab;
-	  }
-	}
+  function handleBackClick() {
+    const openedPanel = document.querySelector(".cmp-accordion__panel:not(.cmp-accordion__panel--hidden)");
 
-	/**
-	 * Sets the given tab as active and removes the active state from others
-	 *
-	 * @private
-	 */
-	function setActiveTab(tab) {
-	  const tabs = HEADER.headerTablist.querySelectorAll('.cmp-tabs__tab');
-	  tabs.forEach(t => t.classList.remove(HEADER.activeTabClass));
-	  tab.classList.add(HEADER.activeTabClass);
-	}
+    if (openedPanel) {
+      openedPanel.classList.add("cmp-accordion__panel--hidden");
+      HEADER.navigationItem.style.display = "none";
+      HEADER.logo.style.display = "block";
+      HEADER.searchButton.style.display = "block";
+      HEADER.textLabel.textContent = "";
+    }
+  }
 
-	/**
-	 * Closes the desktop menu if click is outside the desktop header
-	 *
-	 * @private
-	 */
-	function handleOutsideClick(event) {
-	  if (!HEADER.desktop.contains(event.target) && !HEADER.desktopMenu.contains(event.target)) {
-		HEADER.desktopMenu.classList.remove("menu-desktop--opened");
-		lastClickedTab = null;
-	  }
-	}
+  function init() {
+    if (HEADER.menuButton) {
+      HEADER.menuButton.addEventListener("click", handleMenuClick);
+    }
 
-	/**
-	 * Initializes the Header
-	 *
-	 * @public
-	 */
-	function init() {
-	  if (HEADER.allHeaders) {
-		window.addEventListener("scroll", function () {
-		  HEADER.allHeaders.forEach((el) => {
-			if (window.scrollY > 0) {
-			  el.classList.add("scrolled");
-			} else {
-			  el.classList.remove("scrolled");
-			}
-		  });
-		});
-	  }
+    HEADER.accordionItems.forEach(item => {
+      item.addEventListener("click", handleAccordionClick);
+    });
 
-	  if (HEADER.headerTablist) {
-		HEADER.headerTablist.addEventListener("click", handleTabClick);
-	  }
+    if (HEADER.backButton) {
+      HEADER.backButton.addEventListener("click", handleBackClick);
+    }
+  }
 
-	  document.addEventListener("click", handleOutsideClick);
-	}
-
-	document.addEventListener("DOMContentLoaded", function () {
-	  init();
-	});
+  document.addEventListener("DOMContentLoaded", function () {
+    init();
+  });
 })();
