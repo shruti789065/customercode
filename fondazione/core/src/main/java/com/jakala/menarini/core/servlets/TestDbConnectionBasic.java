@@ -18,13 +18,13 @@ import java.util.List;
 @Component(
     service = {Servlet.class},
     property = {
-        "sling.servlet.paths=/bin/getUsers",
-        "sling.servlet.paths=/bin/addUser",
+        "sling.servlet.paths=/bin/api/getUsers",
+        "sling.servlet.paths=/bin/api/addUser",
         "sling.servlet.methods={GET,POST}",
         "sling.servlet.extensions=json"
     }
 )
-public class TestDbConnection  extends SlingAllMethodsServlet {
+public class TestDbConnectionBasic  extends SlingAllMethodsServlet {
 
     @Reference
     private UserRegisteredServiceInterface userService;
