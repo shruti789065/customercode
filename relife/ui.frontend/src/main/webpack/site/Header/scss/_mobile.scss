@@ -1,25 +1,133 @@
 header.cmp-experiencefragment--header-mobile {
-  .wrapper {
-    &:first-of-type {
-      .cmp-container {
-        &:first-of-type {
-          padding: 1.5rem 0;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .xf-master-building-block {
+  width: 100% !important;
+  transition: $standard-transition;
+  z-index: 10 !important;
+  #navigationMenuMobile {
+    .wrapper {
+      &:first-of-type {
+        .cmp-container {
+          &:first-of-type {
+            padding: 1.5rem 0;
             display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
+            justify-content: space-between;
+            align-items: center;
+            .xf-master-building-block {
+              display: flex;
+              justify-content: flex-end;
+              gap: 2rem;
 
-            .cmp-button {
-              background-color: transparent;
-              border: none;
-              padding: 0;
-              width: 100%;
-              .cmp-button__icon {
-                margin-left: auto;
+              .cmp-button {
+                background-color: transparent;
+                border: none;
+                padding: 0;
+                display: block;
+                width: 1.143rem;
+                height: 1.143rem;
+                .cmp-button__icon {
+                  margin-left: auto;
+                  width: 100%;
+                }
               }
+            }
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        display: none;
+      }
+      #navigationItem {
+        display: none;
+      }
+    }
+  }
+  &.cmp-menu--opened {
+    width: 90% !important;
+
+    #navigationMenuMobile {
+      .cmp-button__icon--menu {
+        background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/close.svg);
+      }
+      .wrapper {
+        &:nth-of-type(2) {
+          display: block;
+          height: 100vh;
+          .cmp-container {
+            &:first-of-type {
+              border-top: 1px solid $paleGray;
+            }
+          }
+        }
+      }
+      .menu-mobile {
+        padding: 1.714rem 0;
+        .cmp-accordion {
+          .cmp-accordion__item {
+            .cmp-accordion__header {
+              .cmp-accordion__button {
+                border-bottom: none;
+                .cmp-accordion__title {
+                  font-size: 1rem;
+                  font-family: $title-medium;
+                  text-transform: uppercase;
+                }
+                .cmp-accordion__icon {
+                  transform: rotate(-90deg);
+                }
+              }
+            }
+          }
+        }
+      }
+      .languagenavigation {
+        .cmp-languagenavigation {
+          .cmp-languagenavigation__group {
+            visibility: visible;
+            list-style-type: none;
+            text-transform: capitalize;
+            text-decoration: none;
+            padding: 0;
+
+            .cmp-languagenavigation__item {
+              display: none;
+              &--active {
+                display: block;
+                position: relative;
+                text-align: left;
+              }
+              .cmp-languagenavigation__item-link {
+                font-size: 0.857rem;
+                font-family: $title-book;
+                text-transform: uppercase;
+                &::after {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  display: block;
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  background-color: transparent;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-right.svg);
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+      .link {
+        &:has(.cmp-button__icon) {
+          .cmp-button {
+            text-decoration: none;
+            justify-content: space-between;
+            width: 100%;
+            .cmp-button__text {
+              font-size: 0.857rem;
+              font-family: $title-book;
+              text-transform: uppercase;
             }
           }
         }
