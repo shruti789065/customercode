@@ -39,6 +39,7 @@ import { toggleOverlay } from ".././_util";
     event.preventDefault();
     const selectedTab = event.currentTarget;
     const selectedPanelId = selectedTab.getAttribute("aria-controls");
+    const tabList = selectedTab.closest(".cmp-tabs__tablist");
 
     // Disattivare tutti i tab e nascondere tutti i pannelli
     HEADER.tabButtons.forEach((tab) => {
@@ -65,6 +66,12 @@ import { toggleOverlay } from ".././_util";
       HEADER.mobileNavbar.style.display = "none";
       HEADER.menuNavbar.style.display = "flex";
       HEADER.textLabel.textContent = selectedTab.textContent;
+
+      // Nascondere la tablist e il tab selezionato
+      if (tabList) {
+        tabList.style.display = "none";
+      }
+      selectedTab.style.display = "none";
     }
   }
 
@@ -80,11 +87,18 @@ import { toggleOverlay } from ".././_util";
       tab.classList.remove("cmp-tabs__tab--active");
       tab.setAttribute("aria-selected", "false");
       tab.setAttribute("tabindex", "-1");
+      tab.style.display = "block"; // Mostrare di nuovo il tab
     });
 
     // Ripristinare la visualizzazione iniziale
     HEADER.mobileNavbar.style.display = "flex";
     HEADER.menuNavbar.style.display = "none";
+
+    // Mostrare di nuovo tutte le tablist
+    document.querySelectorAll(".cmp-tabs__tablist").forEach((tabList) => {
+      tabList.style.display = "flex";
+    });
+
     HEADER.textLabel.textContent = "";
   }
 
@@ -104,11 +118,18 @@ import { toggleOverlay } from ".././_util";
       tab.classList.remove("cmp-tabs__tab--active");
       tab.setAttribute("aria-selected", "false");
       tab.setAttribute("tabindex", "-1");
+      tab.style.display = "block"; // Mostrare di nuovo il tab
     });
 
     // Ripristinare la visualizzazione iniziale
     HEADER.mobileNavbar.style.display = "flex";
     HEADER.menuNavbar.style.display = "none";
+
+    // Mostrare di nuovo tutte le tablist
+    document.querySelectorAll(".cmp-tabs__tablist").forEach((tabList) => {
+      tabList.style.display = "flex";
+    });
+
     HEADER.textLabel.textContent = "";
   }
 
@@ -122,6 +143,11 @@ import { toggleOverlay } from ".././_util";
     HEADER.tabPanels.forEach((panel) => {
       panel.classList.remove("cmp-tabs__tabpanel--active");
       panel.setAttribute("aria-hidden", "true");
+    });
+
+    // Mostrare tutte le tablist
+    document.querySelectorAll(".cmp-tabs__tablist").forEach((tabList) => {
+      tabList.style.display = "flex";
     });
   }
 
