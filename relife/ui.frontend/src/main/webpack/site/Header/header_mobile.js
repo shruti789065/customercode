@@ -5,54 +5,29 @@ import { toggleOverlay } from ".././_util";
 
   const HEADER = {
     mobile: document.querySelector(".cmp-experiencefragment--header-mobile"),
-    menuButton: document.querySelector(
-      "#navigationMenuMobile .cmp-button__icon--menu"
-    ),
+    menuButton: document.querySelector("#navigationMenuMobile .cmp-button__icon--menu"),
     mobileNavbar: document.getElementById("mobileNavbar"),
     menuNavbar: document.getElementById("menuNavbar"),
-    tabButtons: document.querySelectorAll(
-      "#navigationMenuMobile .cmp-tabs__tab"
-    ),
-    tabPanels: document.querySelectorAll(
-      "#navigationMenuMobile .cmp-tabs__tabpanel"
-    ),
-    backButton: document.querySelector(
-      "#navigationMenuMobile .cmp-button__icon--back"
-    ),
-    closeButton: document.querySelector(
-      "#navigationMenuMobile .cmp-button__icon--close"
-    ),
-    textLabel: document.querySelector(
-      "#navigationMenuMobile #menuNavbar .text"
-    ),
+    tabButtons: document.querySelectorAll("#navigationMenuMobile .cmp-tabs__tab"),
+    tabPanels: document.querySelectorAll("#navigationMenuMobile .cmp-tabs__tabpanel"),
+    backButton: document.querySelector("#navigationMenuMobile .cmp-button__icon--back"),
+    closeButton: document.querySelector("#navigationMenuMobile .cmp-button__icon--close"),
+    textLabel: document.querySelector("#navigationMenuMobile #menuNavbar .text"),
   };
 
   function handleMenuClick() {
-    HEADER.mobile.classList.toggle("cmp-menu--opened");
+    HEADER.mobile?.classList.toggle("cmp-menu--opened");
     toggleOverlay("overlay");
-
-    // Nascondere tutti i tab e pannelli ogni volta che viene cliccato il pulsante del menu
     hideActiveTabs();
   }
 
-  function handleTabClick(event) {
+  function handleMobileTabClick(event) {
     event.preventDefault();
     const selectedTab = event.currentTarget;
     const selectedPanelId = selectedTab.getAttribute("aria-controls");
-    const tabList = selectedTab.closest(".cmp-tabs__tablist");
 
-    // Disattivare tutti i tab e nascondere tutti i pannelli
-    HEADER.tabButtons.forEach((tab) => {
-      tab.classList.remove("cmp-tabs__tab--active");
-      tab.setAttribute("aria-selected", "false");
-      tab.setAttribute("tabindex", "-1");
-    });
-    HEADER.tabPanels.forEach((panel) => {
-      panel.classList.remove("cmp-tabs__tabpanel--active");
-      panel.setAttribute("aria-hidden", "true");
-    });
+    deactivateAllTabsAndPanels();
 
-    // Attivare il tab selezionato e mostrare il pannello corrispondente
     selectedTab.classList.add("cmp-tabs__tab--active");
     selectedTab.setAttribute("aria-selected", "true");
     selectedTab.setAttribute("tabindex", "0");
@@ -62,39 +37,27 @@ import { toggleOverlay } from ".././_util";
       selectedPanel.classList.add("cmp-tabs__tabpanel--active");
       selectedPanel.setAttribute("aria-hidden", "false");
 
-      // Nascondere il pannello del logo e pulsante di ricerca, e mostrare quello con testo e freccia back
       HEADER.mobileNavbar.style.display = "none";
       HEADER.menuNavbar.style.display = "flex";
       HEADER.textLabel.textContent = selectedTab.textContent;
 
-      // Nascondere la tablist e il tab selezionato
+      const tabList = selectedTab.closest(".cmp-tabs__tablist");
       if (tabList) {
         tabList.style.display = "none";
       }
-      selectedTab.style.display = "none";
+      //selectedTab.style.display = "none";
     }
   }
 
   function handleBackClick() {
-    // Nascondere tutti i pannelli
-    HEADER.tabPanels.forEach((panel) => {
-      panel.classList.remove("cmp-tabs__tabpanel--active");
-      panel.setAttribute("aria-hidden", "true");
-    });
-
-    // Rimuovere l'attivazione dai tab
+    deactivateAllTabsAndPanels();
     HEADER.tabButtons.forEach((tab) => {
-      tab.classList.remove("cmp-tabs__tab--active");
-      tab.setAttribute("aria-selected", "false");
-      tab.setAttribute("tabindex", "-1");
-      tab.style.display = "block"; // Mostrare di nuovo il tab
+      tab.style.display = "block";
     });
 
-    // Ripristinare la visualizzazione iniziale
     HEADER.mobileNavbar.style.display = "flex";
     HEADER.menuNavbar.style.display = "none";
 
-    // Mostrare di nuovo tutte le tablist
     document.querySelectorAll(".cmp-tabs__tablist").forEach((tabList) => {
       tabList.style.display = "flex";
     });
@@ -103,76 +66,39 @@ import { toggleOverlay } from ".././_util";
   }
 
   function handleCloseClick() {
-    // Chiudere il menu
-    HEADER.mobile.classList.remove("cmp-menu--opened");
+    HEADER.mobile?.classList.remove("cmp-menu--opened");
     toggleOverlay("overlay");
+    handleBackClick();
+  }
 
-    // Nascondere tutti i pannelli
-    HEADER.tabPanels.forEach((panel) => {
-      panel.classList.remove("cmp-tabs__tabpanel--active");
-      panel.setAttribute("aria-hidden", "true");
-    });
-
-    // Rimuovere l'attivazione dai tab
+  function deactivateAllTabsAndPanels() {
     HEADER.tabButtons.forEach((tab) => {
       tab.classList.remove("cmp-tabs__tab--active");
       tab.setAttribute("aria-selected", "false");
       tab.setAttribute("tabindex", "-1");
-      tab.style.display = "block"; // Mostrare di nuovo il tab
     });
-
-    // Ripristinare la visualizzazione iniziale
-    HEADER.mobileNavbar.style.display = "flex";
-    HEADER.menuNavbar.style.display = "none";
-
-    // Mostrare di nuovo tutte le tablist
-    document.querySelectorAll(".cmp-tabs__tablist").forEach((tabList) => {
-      tabList.style.display = "flex";
+    HEADER.tabPanels.forEach((panel) => {
+      panel.classList.remove("cmp-tabs__tabpanel--active");
+      panel.setAttribute("aria-hidden", "true");
     });
-
-    HEADER.textLabel.textContent = "";
   }
 
   function hideActiveTabs() {
-    // Rimuovere l'attivazione da tutti i tab e pannelli
-    HEADER.tabButtons.forEach((tab) => {
-      tab.classList.remove("cmp-tabs__tab--active");
-      tab.setAttribute("aria-selected", "false");
-      tab.setAttribute("tabindex", "-1");
-    });
-    HEADER.tabPanels.forEach((panel) => {
-      panel.classList.remove("cmp-tabs__tabpanel--active");
-      panel.setAttribute("aria-hidden", "true");
-    });
-
-    // Mostrare tutte le tablist
+    deactivateAllTabsAndPanels();
     document.querySelectorAll(".cmp-tabs__tablist").forEach((tabList) => {
       tabList.style.display = "flex";
     });
   }
 
   function init() {
-    if (HEADER.menuButton) {
-      HEADER.menuButton.addEventListener("click", handleMenuClick);
-    }
-
+    HEADER.menuButton?.addEventListener("click", handleMenuClick);
     HEADER.tabButtons.forEach((tab) => {
-      tab.addEventListener("click", handleTabClick);
+      tab.addEventListener("click", handleMobileTabClick);
     });
-
-    if (HEADER.backButton) {
-      HEADER.backButton.addEventListener("click", handleBackClick);
-    }
-
-    if (HEADER.closeButton) {
-      HEADER.closeButton.addEventListener("click", handleCloseClick);
-    }
-
-    // Nascondere i tab e i pannelli attivi all'inizializzazione
+    HEADER.backButton?.addEventListener("click", handleBackClick);
+    HEADER.closeButton?.addEventListener("click", handleCloseClick);
     hideActiveTabs();
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    init();
-  });
+  document.addEventListener("DOMContentLoaded", init);
 })();

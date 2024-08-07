@@ -1,4 +1,5 @@
 header.cmp-experiencefragment--header-desktop {
+  z-index: 10 !important;
   #logo {
     .cmp-image__image {
       max-width: 10.7rem;
@@ -11,19 +12,19 @@ header.cmp-experiencefragment--header-desktop {
       border-bottom: 0;
       margin: 0;
       .cmp-tabs__tab {
-		position: relative;
+        position: relative;
         width: -moz-fit-content;
         width: fit-content;
         font-size: 1.214rem;
         text-transform: uppercase;
         font-family: $title-medium;
-		.cmp-button{
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
+        .cmp-button {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
       }
     }
   }
@@ -45,6 +46,15 @@ header.cmp-experiencefragment--header-desktop {
 
     &.menu-desktop--opened {
       display: block;
+      .cmp-tabs {
+        .cmp-tabs__tabpanel--active {
+          max-width: 100%;
+          min-height: 30rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
     }
   }
   &.scrolled {
@@ -53,6 +63,37 @@ header.cmp-experiencefragment--header-desktop {
       transition: display 300ms;
       display: none;
       animation: fadeOut 0.3s ease-in-out;
+    }
+  }
+  .teaser {
+    flex: 1;
+    .cmp-teaser {
+      .cmp-teaser__link {
+        text-decoration: none;
+        .cmp-teaser__title {
+          text-align: left;
+          font-size: 1rem;
+          font-family: $title-light;
+          font-weight: normal;
+          margin: 0.357rem 0;
+        }
+      }
+    }
+  }
+  .text {
+    text-align: left;
+    font-size: 1rem;
+    font-family: $title-light;
+    .cmp-text {
+      p {
+        margin: 0.357rem 0;
+        a {
+          text-decoration: none;
+		  b{
+			font-family: $title-bold;
+		  }
+        }
+      }
     }
   }
 }

@@ -1,3 +1,4 @@
+import { toggleOverlay } from ".././_util";
 /* eslint-disable max-len */
 (function () {
 	"use strict";
@@ -20,6 +21,7 @@
 	 */
 	function handleTabClick(event) {
 	  const clickedTab = event.target.closest('.cmp-tabs__tab');
+	  toggleOverlay("overlay");
 	  if (!clickedTab || !HEADER.desktopMenu) { return; }
 
 	  const isAlreadyActive = clickedTab.classList.contains(HEADER.activeTabClass);
