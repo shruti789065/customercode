@@ -1,9 +1,11 @@
 package com.jakala.menarini.core.service;
 
+import java.nio.file.AccessDeniedException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.sql.DataSource;
 
@@ -15,6 +17,9 @@ import org.osgi.service.component.annotations.Reference;
 
 import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.entities.records.RegisteredUserRecord;
+import com.jakala.menarini.core.security.Acl;
+import com.jakala.menarini.core.security.AclRolePermissions;
+import com.jakala.menarini.core.security.AclValidator;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
 
 
@@ -25,8 +30,10 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
     private DataSource dataSource;
 
     @Override
-    public List<RegisteredUserDto> getUsers() {
+    public List<RegisteredUserDto> getUsers(Set<Acl> acls) throws AccessDeniedException {
         List<RegisteredUserDto> users = new ArrayList<>();
+
+        AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
 
         try (Connection connection = dataSource.getConnection()) {
 
@@ -42,7 +49,9 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
 
     @Override
-    public boolean addUser(RegisteredUserDto user) {
+    public boolean addUser(RegisteredUserDto user, Set<Acl> acls) throws AccessDeniedException {
+
+        AclValidator.isAccessAllowed(AclRolePermissions.ADD_REGISTERED_USERS, acls);
 
         try (Connection connection = dataSource.getConnection()) {
 
@@ -59,47 +68,4 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         }
     }
 
-    // @Override
-    // public List<RegisteredUser> getUsers() {
-    //     List<RegisteredUser> users = new ArrayList<>();
-
-    //     String sql = "SELECT * FROM " + RegisteredUser.table;
-
-    //     try (Connection connection = dataSource.getConnection();
-    //          PreparedStatement ps = connection.prepareStatement(sql);
-    //          ResultSet rs = ps.executeQuery()) {
-
-    //         while (rs.next()) {
-    //             RegisteredUser user = new RegisteredUser();
-    //             user.setId(rs.getLong("id"));
-    //             user.setBirthDate(rs.getDate("birth_date"));
-    //             user.setCountry(rs.getString("country"));
-    //             user.setCreatedOn(rs.getTimestamp("created_on"));
-    //             user.setEmail(rs.getString("email"));
-    //             user.setFirstname(rs.getString("firstname"));
-    //             user.setGender(rs.getString("gender"));
-    //             user.setLastUpdatedOn(rs.getTimestamp("last_updated_on"));
-    //             user.setLastname(rs.getString("lastname"));
-    //             user.setLegacyId(rs.getInt("legacy_id"));
-    //             user.setLinkedinProfile(rs.getString("linkedin_profile"));
-    //             user.setNewsletterSubscription(rs.getString("newsletter_subscription"));
-    //             user.setNewsletterSubscriptionTs(rs.getTimestamp("newsletter_subscription_ts"));
-    //             user.setOccupation(rs.getString("occupation"));
-    //             user.setPersonalDataProcessingConsent(rs.getString("personal_data_processing_consent"));
-    //             user.setPersonalDataProcessingConsentTs(rs.getTimestamp("personal_data_processing_consent_ts"));
-    //             user.setPhone(rs.getString("phone"));
-    //             user.setProfilingConsent(rs.getString("profiling_consent"));
-    //             user.setProfilingConsentTs(rs.getTimestamp("profiling_consent_ts"));
-    //             user.setTaxIdCode(rs.getString("tax_id_code"));
-    //             user.setUsername(rs.getString("username"));
-
-    //             users.add(user);
-    //         }
-
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //     }
-
-    //     return users;
-    // }
 }

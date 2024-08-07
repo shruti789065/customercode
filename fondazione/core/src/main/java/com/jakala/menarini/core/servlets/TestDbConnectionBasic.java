@@ -24,14 +24,14 @@ import java.util.List;
         "sling.servlet.extensions=json"
     }
 )
-public class TestDbConnectionBasic  extends SlingAllMethodsServlet {
+public class TestDbConnectionBasic extends SlingAllMethodsServlet {
 
     @Reference
     private UserRegisteredServiceInterface userService;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-        List<RegisteredUserDto> users = userService.getUsers();
+        List<RegisteredUserDto> users = userService.getUsers(null);
         
         Gson gson = new Gson();
         String res = gson.toJson(users);
@@ -44,7 +44,7 @@ public class TestDbConnectionBasic  extends SlingAllMethodsServlet {
         Gson gson = new Gson();
         RegisteredUserDto newUser = gson.fromJson(request.getReader(), RegisteredUserDto.class);
 
-        boolean success = userService.addUser(newUser);
+        boolean success = userService.addUser(newUser, null);
 
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
