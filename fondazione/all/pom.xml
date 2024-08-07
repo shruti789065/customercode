@@ -55,6 +55,34 @@
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
+
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-api</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-impl</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-jackson</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+
+
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-impl</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+
                         <embedded>
                             <groupId>com.jakala.menarini</groupId>
                             <artifactId>fondazione.ui.apps</artifactId>
@@ -211,6 +239,25 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.12.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.12.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.12.6</version>
+            <scope>provided</scope>
+        </dependency>
 
          <dependency>
             <groupId>org.jooq</groupId>

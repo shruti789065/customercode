@@ -44,13 +44,13 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-                    Import-Package: javax.annotation;version=0.0.0,*
+                    Import-Package: javax.annotation;version=0.0.0,*,
                     Export-Package: io.r2dbc.spi,\
                                     javax.annotation.meta,\
                                     jakarta.xml.*,\
                                     jakarta.activation,\
                                     org.glassfish.hk2.osgiresourcelocator,\
-                                    com.sun.activation.registries
+                                    com.sun.activation.registries,
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -88,6 +88,26 @@
     </build>
 
     <dependencies>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.12.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.12.6</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.12.6</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>

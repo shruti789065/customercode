@@ -1,23 +1,35 @@
 package com.jakala.menarini.core.service;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.security.interfaces.RSAPublicKey;
 import java.util.Date;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Jwk;
+import io.jsonwebtoken.security.Jwks;
+import io.jsonwebtoken.security.SignatureException;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.core.spi.AuthenticationInfo;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.oltu.oauth2.jwt.ClaimsSet;
 import org.apache.oltu.oauth2.jwt.JWT;
 import org.apache.oltu.oauth2.jwt.io.JWTReader;
 
 import com.google.gson.Gson;
 import com.jakala.menarini.core.dto.RoleDto;
-
 
 @Component(
     service = AuthenticationHandler.class,
@@ -104,13 +116,45 @@ import com.jakala.menarini.core.dto.RoleDto;
             try {
                 JWTReader reader = new JWTReader();
                 JWT jwt = reader.read(token);
+
                 ClaimsSet claimsSet = jwt.getClaimsSet();
                 Long expirationTime = claimsSet.getExpirationTime();
                 if (expirationTime == null || new Date().getTime() > expirationTime * 1000) {
+                    LOGGER.error("Token expired");
                     return false; // Il token è scaduto
                 }
+                String cognitoIss = claimsSet.getIssuer();
+                String jwkString = getTokenJwk(cognitoIss+"/.well-known/jwks.json");
+                if (jwkString == null) {
+                    //jwk not found
+                    LOGGER.error("Invalid JWK signature");
+                    return false;
+                } else {
+                    LOGGER.error("JWK signature: {}", jwkString);
+                }
+
+
+                final JsonObject jwkJsonObj = JsonParser.parseString(jwkString).getAsJsonObject();
+                String singleKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).toString();
+                LOGGER.info("JWK JSON KEY 0: {}", singleKey);
+
+
+                final Jwk<?> jwk = Jwks.parser().build().parse(singleKey);
+                RSAPublicKey rsaKey = (RSAPublicKey)jwk.toKey();
+
+                try {
+
+                    Jwts.parser().verifyWith(rsaKey).build().parse(token);
+                } catch (SignatureException e) {
+                    LOGGER.error("Invalid JWT signature", e);
+                    return false; //wrong signature
+                }
+
+
+
                 String email = claimsSet.getCustomField("email", String.class);
                 if (email == null || email.isEmpty()) {
+                    LOGGER.error("Missing email address");
                     return false; // Manca username
                 }
                 return true;
@@ -131,6 +175,28 @@ import com.jakala.menarini.core.dto.RoleDto;
             response.setHeader("WWW-Authenticate", AUTH_TYPE);
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
             return false;
+        }
+        
+        private String getTokenJwk(String urlJwk) {
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            HttpGet httpGet = new HttpGet(urlJwk);
+            try(CloseableHttpResponse httpResponse = httpClient.execute(httpGet)) {
+                if(httpResponse.getStatusLine().getStatusCode() == 200 ) {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    httpResponse.getEntity().getContent()));
+
+                    String inputBuffer;
+                    StringBuffer jwkString = new StringBuffer();
+
+                    while ((inputBuffer = reader.readLine()) != null) {
+                        jwkString.append(inputBuffer);
+                    }
+                    return jwkString.toString();
+                }  
+                return null;
+            } catch(IOException clientEx) {
+                return null;
+            } 
         }
 
     }
