@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-08-05T17:19:25.478+02:00"
+        cq:lastModified="{Date}2024-08-06T16:58:17.228+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/relife/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
@@ -22,47 +22,103 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="relife/components/containers/section"
                 id="navigationMenuMobile">
-                <wrapper_776420378
-                    jcr:created="{Date}2024-07-01T10:56:52.573+02:00"
+                <wrapper_294164932
+                    jcr:created="{Date}2024-08-06T12:58:16.323+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-08-02T17:44:44.117+02:00"
+                    jcr:lastModified="{Date}2024-08-06T12:58:16.323+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="relife/components/containers/wrapper"
-                    layout="simple">
-                    <image
-                        jcr:created="{Date}2024-07-01T10:42:36.570+02:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-08-05T16:50:49.892+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/image"
-                        alt="logo relife"
-                        altValueFromDAM="false"
-                        displayPopupTitle="true"
-                        fileReference="/content/dam/logo/relife/Ebene_1.svg"
-                        id="logo"
-                        imageFromPageImage="false"
-                        isDecorative="false"
-                        linkTarget="_self"
-                        linkURL="/content/relife/corporate/en"
-                        titleValueFromDAM="true">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="4"/>
-                        </cq:responsive>
-                    </image>
+                    sling:resourceType="relife/components/containers/wrapper">
                     <container
-                        jcr:created="{Date}2024-08-05T17:16:46.102+02:00"
+                        jcr:created="{Date}2024-08-06T12:58:27.312+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-08-05T17:18:50.050+02:00"
+                        jcr:lastModified="{Date}2024-08-06T15:20:04.037+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="relife/components/container"
-                        flexWrap="cmp-container--wrap"
-                        id="navigationItem"
+                        id="mobileNavbar">
+                        <image
+                            jcr:created="{Date}2024-07-01T10:42:36.570+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-08-06T10:57:26.084+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="relife/components/image"
+                            alt="logo relife"
+                            altValueFromDAM="false"
+                            displayPopupTitle="true"
+                            fileReference="/content/dam/logo/relife/Ebene_1.svg"
+                            id="logoMobile"
+                            imageFromPageImage="false"
+                            isDecorative="false"
+                            linkTarget="_self"
+                            linkURL="/content/relife/corporate/en"
+                            titleValueFromDAM="true">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="4"/>
+                            </cq:responsive>
+                        </image>
+                        <button
+                            cq:masterBuildingBlock="{Boolean}true"
+                            jcr:created="{Date}2024-08-06T15:10:58.389+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-08-06T15:11:14.972+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Buttons Block"
+                            sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
+                            <button433843599201800
+                                jcr:lastModified="{Date}2024-08-06T15:15:06.645+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/button"
+                                icon="search"
+                                linkTarget="_self"
+                                linkURL="#">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="1"/>
+                                </cq:responsive>
+                            </button433843599201800>
+                            <button
+                                jcr:created="{Date}2024-08-06T15:11:23.926+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-08-06T15:15:15.147+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/button"
+                                icon="menu"
+                                linkTarget="_self">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="1"/>
+                                </cq:responsive>
+                            </button>
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="6"
+                                    width="2"/>
+                            </cq:responsive>
+                        </button>
+                    </container>
+                    <container_1872048457
+                        jcr:created="{Date}2024-08-06T12:59:07.710+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-08-06T15:15:33.156+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="relife/components/container"
+                        alignment="cmp-container-alignment--flex-start"
+                        flexWrap="cmp-container--no-wrap"
+                        id="menuNavbar"
                         itemGap="cmp-gap--30"
                         layout="simple">
                         <button
@@ -81,55 +137,17 @@
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/text"/>
-                    	<cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="4"/>
-                        </cq:responsive>
-					</container>
-                    <button_copy
-                        cq:masterBuildingBlock="{Boolean}true"
-                        jcr:created="{Date}2024-08-01T10:44:29.557+02:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-08-02T16:59:57.047+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="buttons"
-                        sling:resourceType="cq/experience-fragments/editor/components/buildingblock">
-                        <button_copy94738121928000
-                            jcr:lastModified="{Date}2024-08-01T15:42:05.566+02:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="relife/components/button"
-                            icon="search"
-                            linkTarget="_self"
-                            linkURL="/content/relife/corporate/en/search-results">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                            </cq:responsive>
-                        </button_copy94738121928000>
-                        <item94738127242200
+                        <item94738127242200_c
                             jcr:created="{Date}2024-08-01T10:44:29.557+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-08-02T16:35:51.471+02:00"
+                            jcr:lastModified="{Date}2024-08-06T12:51:22.111+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/button"
-                            icon="menu"
-                            linkTarget="_self">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                            </cq:responsive>
-                        </item94738127242200>
-                    </button_copy>
-                </wrapper_776420378>
+                            icon="close"
+                            linkTarget="_self"/>
+                    </container_1872048457>
+                </wrapper_294164932>
                 <wrapper
                     jcr:created="{Date}2024-08-05T15:12:44.423+02:00"
                     jcr:createdBy="admin"
@@ -138,106 +156,76 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="relife/components/containers/wrapper">
                     <menu_mobile
-                        jcr:created="{Date}2024-08-05T15:37:42.669+02:00"
+                        jcr:created="{Date}2024-08-06T16:52:44.069+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-08-05T15:38:38.630+02:00"
+                        jcr:lastModified="{Date}2024-08-06T16:53:40.943+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/menu/menu-mobile"
-                        singleExpansion="false">
+                        sling:resourceType="relife/components/menu/menu-mobile">
                         <item_1
                             cq:panelTitle="Treatments"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Item 1"
+                            jcr:title="Menu Mobile Item 1"
                             sling:resourceType="relife/components/container"
                             layout="responsiveGrid">
-                            <text_copy
-                                jcr:created="{Date}2024-08-05T15:14:01.239+02:00"
+                            <tabs
+                                jcr:created="{Date}2024-08-06T16:54:01.816+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-08-05T15:14:13.988+02:00"
+                                jcr:lastModified="{Date}2024-08-06T16:54:57.447+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/text"
-                                text="&lt;p>All treatments&lt;/p>&#xd;&#xa;"
-                                textIsRich="true"/>
-                            <accordion_copy
-                                jcr:created="{Date}2024-08-05T15:13:52.628+02:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-08-05T15:15:22.924+02:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/accordion"
-                                singleExpansion="false">
+                                sling:resourceType="relife/components/tabs">
+                                <item_1722956058960
+                                    cq:panelTitle="All Treatments"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/link"/>
                                 <item_1
                                     cq:panelTitle="Definisse™ Threads"
                                     jcr:primaryType="nt:unstructured"
-                                    jcr:title="Item 1"
+                                    jcr:title="Tab 1"
                                     sling:resourceType="relife/components/container"
                                     layout="responsiveGrid">
-                                    <text
-                                        jcr:created="{Date}2024-08-05T15:16:17.740+02:00"
+                                    <list
+                                        jcr:created="{Date}2024-08-06T16:56:31.025+02:00"
                                         jcr:createdBy="admin"
-                                        jcr:lastModified="{Date}2024-08-05T15:16:27.893+02:00"
+                                        jcr:lastModified="{Date}2024-08-06T16:57:11.602+02:00"
                                         jcr:lastModifiedBy="admin"
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="relife/components/text"
-                                        text="&lt;p>All Definisse™ Threads&lt;/p>&#xd;&#xa;"
-                                        textIsRich="true"/>
-                                    <link
-                                        jcr:created="{Date}2024-08-05T15:16:35.416+02:00"
-                                        jcr:createdBy="admin"
-                                        jcr:lastModified="{Date}2024-08-05T15:16:59.462+02:00"
-                                        jcr:lastModifiedBy="admin"
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="Definisse™ 3D Lift Threads"
-                                        sling:resourceType="relife/components/link"
-                                        linkTarget="_self"
-                                        linkURL="#"/>
-                                    <link_1314577009
-                                        jcr:created="{Date}2024-08-05T15:16:41.654+02:00"
-                                        jcr:createdBy="admin"
-                                        jcr:lastModified="{Date}2024-08-05T15:17:07.210+02:00"
-                                        jcr:lastModifiedBy="admin"
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="Definisse™ Revitalise Threads"
-                                        sling:resourceType="relife/components/link"
-                                        linkTarget="_self"
-                                        linkURL="#"/>
+                                        sling:resourceType="relife/components/list"
+                                        childDepth="1"
+                                        displayItemAsTeaser="false"
+                                        linkItems="true"
+                                        listFrom="static"
+                                        pages="[/content/relife/corporate/en/products/definisse-threads/definisse-3d-lift,/content/relife/corporate/en/products/definisse-threads/definisse-revitalize]"
+                                        showDescription="false"
+                                        showModificationDate="false"
+                                        sortOrder="asc"
+                                        tagsMatch="any"/>
                                 </item_1>
-                                <item_2
+                                <item_1722956074136
                                     cq:panelTitle="Definisse™ Fillers"
                                     jcr:primaryType="nt:unstructured"
-                                    jcr:title="Item 2"
-                                    sling:resourceType="relife/components/container"
-                                    layout="responsiveGrid"/>
-                                <item_1722863691618
+                                    sling:resourceType="relife/components/link"/>
+                                <item_1722956084295
                                     cq:panelTitle="Definisse™ Peel Program"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/container"/>
-                                <item_1722863698655
+                                    sling:resourceType="relife/components/link"/>
+                                <item_1722956092912
                                     cq:panelTitle="Definisse™ Hydrobooster"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/container"/>
-                                <item_1722863710374
-                                    cq:panelTitle="Definisse™ [KP1]® "
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/container"/>
-                                <item_1722863718782
-                                    cq:panelTitle="Pigment Solution™ Program"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/container"/>
-                            </accordion_copy>
+                                    sling:resourceType="relife/components/link"/>
+                            </tabs>
                         </item_1>
-                        <item_2
+                        <item_1722956010497
                             cq:panelTitle="Integrated approach"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Item 2"
+                            sling:resourceType="relife/components/link"/>
+                        <item_2
+                            cq:panelTitle="About us"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Menu Mobile Item 2"
                             sling:resourceType="relife/components/container"
                             layout="responsiveGrid"/>
-                        <item_1722865113354
-                            cq:panelTitle="About Us"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="relife/components/container"/>
                     </menu_mobile>
                     <spacer
                         jcr:created="{Date}2024-08-05T16:09:23.001+02:00"

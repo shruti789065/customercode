@@ -9,17 +9,28 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .button {
+    .cmp-button {
+      border: none;
+      background: transparent;
+    }
+  }
   @include respond-to(tablet) {
     header.cmp-experiencefragment--header-mobile {
       display: block;
     }
     #navigationMenuMobile {
       .wrapper {
-        &:first-of-type {
+        #mobileNavbar {
+          display: grid;
+          grid-template-columns: 15rem 25rem;
+          justify-content: space-between;
+        }
+      }
+      /* &:first-of-type {
           .cmp-container {
             display: grid;
-            grid-template-columns: 15rem 25rem;
-            justify-content: space-between;
+            
             .xf-master-building-block {
               display: grid;
               grid-template-columns: 1fr 1fr;
@@ -36,8 +47,7 @@
               }
             }
           }
-        }
-      }
+        } */
     }
   }
 }
