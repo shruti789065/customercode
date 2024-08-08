@@ -9,11 +9,25 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .dupla_image{
+	grid-template-columns: 1fr 1fr;
+	.second_image{
+		display: block;
+		.cmp-image{
+			margin-top: 0;
+		}
+	}
+  }
   .button {
     .cmp-button {
       border: none;
       background: transparent;
     }
+  }
+  .link{
+	.cmp-button{
+		color: $color-text;
+	}
   }
   @include respond-to(tablet) {
     header.cmp-experiencefragment--header-mobile {
@@ -27,27 +41,6 @@
           justify-content: space-between;
         }
       }
-      /* &:first-of-type {
-          .cmp-container {
-            display: grid;
-            
-            .xf-master-building-block {
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              justify-content: space-between;
-              .button {
-                display: block;
-                width: 100%;
-                .cmp-button {
-                  width: 100%;
-                  .cmp-button__icon {
-                    margin-left: initial;
-                  }
-                }
-              }
-            }
-          }
-        } */
     }
   }
 }

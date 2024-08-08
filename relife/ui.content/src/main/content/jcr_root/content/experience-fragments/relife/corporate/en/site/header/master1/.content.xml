@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-08-06T16:58:17.228+02:00"
+        cq:lastModified="{Date}2024-08-08T12:25:17.495+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/relife/settings/wcm/templates/xf-web-variation"
         cq:xfVariantType="web"
@@ -168,53 +168,62 @@
                             jcr:title="Menu Mobile Item 1"
                             sling:resourceType="relife/components/container"
                             layout="responsiveGrid">
-                            <tabs
-                                jcr:created="{Date}2024-08-06T16:54:01.816+02:00"
+                            <link
+                                jcr:created="{Date}2024-08-08T12:22:03.059+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-08-06T16:54:57.447+02:00"
+                                jcr:lastModified="{Date}2024-08-08T12:22:26.617+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/tabs">
-                                <item_1722956058960
-                                    cq:panelTitle="All Treatments"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/link"/>
+                                jcr:title="All Treatments"
+                                sling:resourceType="relife/components/link"
+                                linkTarget="_self"
+                                linkURL="/content/relife/corporate/en/products/treatments-overview"/>
+                            <accordion
+                                jcr:created="{Date}2024-08-08T12:22:34.455+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-08-08T12:22:46.732+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/accordion"
+                                singleExpansion="false">
                                 <item_1
                                     cq:panelTitle="Definisse™ Threads"
                                     jcr:primaryType="nt:unstructured"
-                                    jcr:title="Tab 1"
+                                    jcr:title="Item 1"
                                     sling:resourceType="relife/components/container"
                                     layout="responsiveGrid">
-                                    <list
-                                        jcr:created="{Date}2024-08-06T16:56:31.025+02:00"
+                                    <link
+                                        jcr:created="{Date}2024-08-08T12:24:07.682+02:00"
                                         jcr:createdBy="admin"
-                                        jcr:lastModified="{Date}2024-08-06T16:57:11.602+02:00"
+                                        jcr:lastModified="{Date}2024-08-08T12:24:56.264+02:00"
                                         jcr:lastModifiedBy="admin"
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="relife/components/list"
-                                        childDepth="1"
-                                        displayItemAsTeaser="false"
-                                        linkItems="true"
-                                        listFrom="static"
-                                        pages="[/content/relife/corporate/en/products/definisse-threads/definisse-3d-lift,/content/relife/corporate/en/products/definisse-threads/definisse-revitalize]"
-                                        showDescription="false"
-                                        showModificationDate="false"
-                                        sortOrder="asc"
-                                        tagsMatch="any"/>
+                                        jcr:title="Definisse™ 3D Lift Threads"
+                                        sling:resourceType="relife/components/link"
+                                        linkTarget="_self"
+                                        linkURL="/content/relife/corporate/en/products/definisse-threads/definisse-3d-lift"/>
+                                    <link_1268777066
+                                        jcr:created="{Date}2024-08-08T12:24:14.378+02:00"
+                                        jcr:createdBy="admin"
+                                        jcr:lastModified="{Date}2024-08-08T12:25:17.415+02:00"
+                                        jcr:lastModifiedBy="admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Definisse™ Revitalise Threads"
+                                        sling:resourceType="relife/components/link"
+                                        linkTarget="_self"
+                                        linkURL="/content/relife/corporate/en/products/definisse-threads/definisse-revitalize"/>
                                 </item_1>
-                                <item_1722956074136
-                                    cq:panelTitle="Definisse™ Fillers"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/link"/>
-                                <item_1722956084295
-                                    cq:panelTitle="Definisse™ Peel Program"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/link"/>
-                                <item_1722956092912
-                                    cq:panelTitle="Definisse™ Hydrobooster"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/link"/>
-                            </tabs>
+                            </accordion>
+                            <link_1408534080
+                                jcr:created="{Date}2024-08-08T12:22:56.252+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-08-08T12:23:25.678+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Definisse fillers Threads"
+                                sling:resourceType="relife/components/link"
+                                linkTarget="_self"
+                                linkURL="/content/relife/corporate/en/products/definisse-fillers"/>
                         </item_1>
                         <item_1722956010497
                             cq:panelTitle="Integrated approach"
@@ -225,7 +234,24 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Menu Mobile Item 2"
                             sling:resourceType="relife/components/container"
-                            layout="responsiveGrid"/>
+                            layout="responsiveGrid">
+                            <list
+                                jcr:created="{Date}2024-08-07T14:16:20.756+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-08-07T14:17:04.352+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/list"
+                                childDepth="1"
+                                displayItemAsTeaser="false"
+                                linkItems="true"
+                                listFrom="static"
+                                pages="[/content/relife/corporate/en/about/about-relife,/content/relife/corporate/en/about/relife-academy,/content/relife/corporate/en/about/contact]"
+                                showDescription="false"
+                                showModificationDate="false"
+                                sortOrder="asc"
+                                tagsMatch="any"/>
+                        </item_2>
                     </menu_mobile>
                     <spacer
                         jcr:created="{Date}2024-08-05T16:09:23.001+02:00"

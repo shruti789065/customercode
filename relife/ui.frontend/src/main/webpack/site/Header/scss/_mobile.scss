@@ -11,6 +11,7 @@ header.cmp-experiencefragment--header-mobile {
         padding: 1.429rem 0;
         display: flex;
         justify-content: space-between;
+        border-bottom: 1px solid $paleGray;
         .xf-master-building-block {
           display: flex;
           justify-content: flex-end;
@@ -34,13 +35,14 @@ header.cmp-experiencefragment--header-mobile {
       }
       #menuNavbar {
         display: none;
-		padding: 1.429rem 0;
-		justify-content: space-between;
-		.text {
-            font-family: $title-medium;
-            text-transform: uppercase;
-            font-size: 1rem;
-          }
+        padding: 1.429rem 0;
+        justify-content: space-between;
+        border-bottom: 1px solid $paleGray;
+        .text {
+          font-family: $title-medium;
+          text-transform: uppercase;
+          font-size: 1rem;
+        }
       }
     }
     .button {
@@ -63,14 +65,13 @@ header.cmp-experiencefragment--header-mobile {
           height: 100vh;
           .cmp-container {
             &:first-of-type {
-              border-top: 1px solid $paleGray;
+              // border-top: 1px solid $paleGray;
             }
           }
         }
         #mobileNavbar {
         }
         #menuNavbar {
-          
         }
       }
       .menu-mobile {
@@ -79,8 +80,8 @@ header.cmp-experiencefragment--header-mobile {
           position: relative;
           overflow: inherit;
           flex-wrap: wrap;
-		  margin: 0;
-		  border-bottom: none;
+          margin: 0;
+          border-bottom: none;
           .cmp-tabs__tab,
           .cmp-tabs__tab--active {
             font-family: $title-medium;
@@ -106,60 +107,93 @@ header.cmp-experiencefragment--header-mobile {
             }
           }
         }
-		.cmp-tabs__tabpanel--active{
-		}
-      }
-      .languagenavigation {
-        .cmp-languagenavigation {
-          .cmp-languagenavigation__group {
-            visibility: visible;
-            list-style-type: none;
-            text-transform: capitalize;
-            text-decoration: none;
-            padding: 0;
-
-            .cmp-languagenavigation__item {
-              display: none;
-              &--active {
-                display: block;
-                position: relative;
-                text-align: left;
-              }
-              .cmp-languagenavigation__item-link {
-                font-size: 0.857rem;
-                font-family: $title-book;
-                text-transform: uppercase;
-                &::after {
-                  content: "";
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  display: block;
-                  width: 1.5rem;
-                  height: 1.5rem;
-                  background-color: transparent;
-                  background-position: center;
-                  background-repeat: no-repeat;
-                  background-size: contain;
-                  background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-right.svg);
-                  cursor: pointer;
+        .cmp-tabs__tabpanel--active {
+        }
+        .cmp-accordion {
+          .cmp-accordion__item {
+            .cmp-accordion__header {
+              .cmp-accordion__button {
+				border-bottom: none;
+                .cmp-accordion__title {
+                  font-family: $title-light;
+                  font-size: 1rem;
+                }
+                .cmp-accordion__icon {
+                  transform: rotate(-90deg);
+                }
+                &.cmp-accordion__button--expanded {
+                  .cmp-accordion__icon {
+                    transform: rotate(0deg);
+                  }
                 }
               }
             }
           }
         }
-      }
-      .link {
-        &:has(.cmp-button__icon) {
-          .cmp-button {
-            text-decoration: none;
-            justify-content: space-between;
-            width: 100%;
-            .cmp-button__text {
-              font-size: 0.857rem;
-              font-family: $title-book;
-              text-transform: uppercase;
+        .languagenavigation {
+          .cmp-languagenavigation {
+            .cmp-languagenavigation__group {
+              visibility: visible;
+              list-style-type: none;
+              text-transform: capitalize;
+              text-decoration: none;
+              padding: 0;
+
+              .cmp-languagenavigation__item {
+                display: none;
+                &--active {
+                  display: block;
+                  position: relative;
+                  text-align: left;
+                }
+                .cmp-languagenavigation__item-link {
+                  font-size: 0.857rem;
+                  font-family: $title-book;
+                  text-transform: uppercase;
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    display: block;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    background-color: transparent;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-image: url(/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-right.svg);
+                    cursor: pointer;
+                  }
+                }
+              }
             }
+          }
+        }
+        .link {
+          text-align: left;
+          &:has(.cmp-button__icon) {
+            .cmp-button {
+              text-decoration: none;
+              justify-content: space-between;
+              width: 100%;
+              .cmp-button__text {
+                font-size: 0.857rem;
+                font-family: $title-book;
+                text-transform: uppercase;
+              }
+            }
+          }
+          .cmp-button {
+            font-family: $title-light;
+            font-size: 1rem;
+            text-decoration: none;
+          }
+        }
+        .text {
+          .cmp-text {
+            font-family: $title-light;
+            font-size: 1rem;
           }
         }
       }

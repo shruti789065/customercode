@@ -88,7 +88,7 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2024-07-17T12:24:57.134+02:00"
+                    jcr:lastModified="{Date}2024-08-08T12:27:48.781+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text"
@@ -170,10 +170,10 @@
                             features="bold,italic,underline"/>
                         <links
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="modifylink,unlink,anchor"/>
                         <subsuperscript
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                     </rtePlugins>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
@@ -184,6 +184,11 @@
                                     cq:styleClasses="cmp-text--gotham"
                                     cq:styleId="1721211788361"
                                     cq:styleLabel="Gotham"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-text--bold"
+                                    cq:styleId="1723112854000"
+                                    cq:styleLabel="Bold"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>

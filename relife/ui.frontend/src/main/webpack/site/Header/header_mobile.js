@@ -15,6 +15,9 @@ import { toggleOverlay } from ".././_util";
     textLabel: document.querySelector("#navigationMenuMobile #menuNavbar .text"),
   };
 
+  let lastScrollTop = 0;
+  let menuVisible = true;
+
   function handleMenuClick() {
     HEADER.mobile?.classList.toggle("cmp-menu--opened");
     toggleOverlay("overlay");
@@ -45,7 +48,6 @@ import { toggleOverlay } from ".././_util";
       if (tabList) {
         tabList.style.display = "none";
       }
-      //selectedTab.style.display = "none";
     }
   }
 
@@ -90,6 +92,24 @@ import { toggleOverlay } from ".././_util";
     });
   }
 
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (!HEADER.mobile?.classList.contains("cmp-menu--opened")) {
+      if (scrollTop > lastScrollTop && menuVisible) {
+        // Scroll down, hide menu
+        HEADER.mobile.style.transform = "translateY(-100%)";
+        menuVisible = false;
+      } else if (scrollTop < lastScrollTop && !menuVisible) {
+        // Scroll up, show menu
+        HEADER.mobile.style.transform = "translateY(0)";
+        menuVisible = true;
+      }
+    }
+
+    lastScrollTop = scrollTop;
+  }
+
   function init() {
     HEADER.menuButton?.addEventListener("click", handleMenuClick);
     HEADER.tabButtons.forEach((tab) => {
@@ -97,6 +117,9 @@ import { toggleOverlay } from ".././_util";
     });
     HEADER.backButton?.addEventListener("click", handleBackClick);
     HEADER.closeButton?.addEventListener("click", handleCloseClick);
+
+    window.addEventListener("scroll", handleScroll);
+
     hideActiveTabs();
   }
 
