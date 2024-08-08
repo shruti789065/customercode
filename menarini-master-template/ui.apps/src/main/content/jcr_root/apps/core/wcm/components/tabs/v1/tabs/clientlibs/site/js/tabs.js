@@ -234,41 +234,43 @@
 		 *
 		 * @private
 		 */
-		function refreshActive() {
-			var tabpanels = that._elements["tabpanel"];
-			var tabs = that._elements["tab"];
+function refreshActive() {
+    var tabpanels = that._elements["tabpanel"];
+    var tabs = that._elements["tab"];
 
-			if (tabpanels) {
-				if (Array.isArray(tabpanels)) {
-					for (var i = 0; i < tabpanels.length; i++) {
-						if (i === parseInt(that._active) && !that._clickItself) {
-							tabpanels[i].classList.add(selectors.active.tabpanel);
-							tabpanels[i].removeAttribute("aria-hidden");
-							tabs[i].classList.add(selectors.active.tab);
-							tabs[i].setAttribute("aria-selected", true);
-							tabs[i].setAttribute("tabindex", "0");
-							if (tabs[i].id.indexOf('megamenu') == 0 && document.querySelectorAll(".aem-AuthorLayer-Edit").length < 1 && tabs[i].childElementCount <= 0) {
-								$('.cmp-navbar-overlayer').show();
-							}
-						} else {
-							tabpanels[i].classList.remove(selectors.active.tabpanel);
-							tabpanels[i].setAttribute("aria-hidden", true);
-							tabs[i].classList.remove(selectors.active.tab);
-							tabs[i].setAttribute("aria-selected", false);
-							tabs[i].setAttribute("tabindex", "-1");
-							if (document.querySelectorAll('body').length > 0) {
-								document.querySelector('body').classList.remove('h-overflow');
-							}
-							$('.cmp-share__container').hide();
-						}
-					}
-				} else {
-					// only one tab
-					tabpanels.classList.add(selectors.active.tabpanel);
-					tabs.classList.add(selectors.active.tab);
-				}
-			}
-		}
+    if (tabpanels) {
+        if (Array.isArray(tabpanels)) {
+            for (var i = 0; i < tabpanels.length; i++) {
+                if (i === parseInt(that._active) && !that._clickItself) {
+                    tabpanels[i].classList.add(selectors.active.tabpanel);
+                    tabpanels[i].removeAttribute("aria-hidden");
+                    tabs[i].classList.add(selectors.active.tab);
+                    tabs[i].setAttribute("aria-selected", true);
+                    tabs[i].setAttribute("tabindex", "0");
+                    if (tabs[i].id.indexOf('megamenu') == 0 && document.querySelectorAll(".aem-AuthorLayer-Edit").length < 1 && tabs[i].childElementCount <= 0) {
+                        $('.cmp-navbar-overlayer').show();
+                    }
+                } else {
+                    tabpanels[i].classList.remove(selectors.active.tabpanel);
+                    tabpanels[i].setAttribute("aria-hidden", true);
+                    tabs[i].classList.remove(selectors.active.tab);
+                    tabs[i].setAttribute("aria-selected", false);
+                    tabs[i].setAttribute("tabindex", "-1");
+                    if (document.querySelector('body')) {
+                        document.querySelector('body').classList.remove('h-overflow');
+                    }
+                    if (document.querySelectorAll('.cmp-share__container').length > 0) {
+                        $('.cmp-share__container').hide();
+                    }
+                }
+            }
+        } else {
+            // only one tab
+            tabpanels.classList.add(selectors.active.tabpanel);
+            tabs.classList.add(selectors.active.tab);
+        }
+    }
+}
 
 
 		/**
@@ -444,14 +446,19 @@
 
 
 	function _closeShare() {
-		if (document.querySelectorAll('body').length > 0) {
-			document.querySelector('body').classList.remove('h-overflow');
-		}
-		if (document.querySelectorAll('.cmp-share-desktop .cmp-share__container .cmp-share__active').length > 0) {
-            document.querySelector('.cmp-share-desktop .cmp-share__container').classList.remove('cmp-share__active');
+        if (document.querySelector('body')) {
+            document.querySelector('body').classList.remove('h-overflow');
         }
-		$('.cmp-share__container').hide();
-	}
+        const shareContainer = document.querySelector('.cmp-share-desktop .cmp-share__container');
+        if (shareContainer && shareContainer.classList.contains('cmp-share__active')) {
+            shareContainer.classList.remove('cmp-share__active');
+        }
+        const allShareContainers = document.querySelectorAll('.cmp-share__container');
+        if (allShareContainers.length > 0) {
+            $('.cmp-share__container').hide();
+        }
+    }
+
 
 	/**
 	 * Document ready handler and DOM mutation observers. Initializes Tabs components as necessary.

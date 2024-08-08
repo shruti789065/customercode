@@ -1,10 +1,6 @@
 header.cmp-experiencefragment--header-desktop {
   z-index: 10 !important;
-  #logo {
-    .cmp-image__image {
-      max-width: 10.7rem;
-    }
-  }
+ 
   #header--tablist {
     .cmp-tabs__tablist {
       justify-content: center;
@@ -32,9 +28,18 @@ header.cmp-experiencefragment--header-desktop {
     //transition: $standard-transition;
   }
   #navigation-menu {
-    margin-top: 2.2rem;
+    padding-top: 1.7rem;
     border-bottom: 1px solid;
     border-color: rgba(11, 29, 44, 0.2);
+	#logo {
+		.cmp-image__image {
+		  max-width: 10.7rem;
+		  .cmp-image__link{
+			display: block;
+			height: 100%;
+		  }
+		}
+	  }
   }
   .cmp-button__icon--search {
     width: 2rem;
