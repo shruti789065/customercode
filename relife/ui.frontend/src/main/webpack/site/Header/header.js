@@ -26,6 +26,11 @@ import { toggleOverlay } from ".././_util";
       return;
     }
 
+    // Se il tab cliccato contiene un elemento con la classe 'header-link', non aprire il menu
+    if (clickedTab.querySelector('.header-link')) {
+      return;
+    }
+
     const isAlreadyActive = clickedTab.classList.contains(HEADER.activeTabClass);
 
     if (isAlreadyActive && lastClickedTab === clickedTab) {
