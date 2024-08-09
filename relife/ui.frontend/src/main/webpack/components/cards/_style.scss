@@ -10,7 +10,10 @@ $font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
     overflow: hidden;
     .cmp-teaser__image {
       .cmp-image {
+        &::before {
+        }
         .cmp-image__image {
+          
         }
       }
     }
@@ -20,9 +23,11 @@ $font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
       justify-content: flex-end;
       &:not(:only-child) {
         position: absolute;
-        z-index: 1;
+        z-index: 5;
         top: 0;
-        bottom: 2rem;
+        bottom: .7rem;
+        padding-bottom: 2rem;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 44.19%, rgba(0, 0, 0, 0.3) 100%);
         left: 0;
         right: 0;
         min-height: auto;
