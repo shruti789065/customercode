@@ -286,8 +286,9 @@
             <groupId>io.r2dbc</groupId>
             <artifactId>r2dbc-spi</artifactId>
             <version>${r2dbc.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../core/src/main/resources/libs/r2dbc-spi-${r2dbc.version}.jar</systemPath>
+            <scope>provided</scope>
+            <!-- <scope>system</scope>
+            <systemPath>${project.basedir}/../core/src/main/resources/libs/r2dbc-spi-${r2dbc.version}.jar</systemPath> -->
         </dependency>
 
         <dependency>
