@@ -1,38 +1,40 @@
-/* //== XF Footer style, used on page template
-footer {
-  z-index: 1;
-}
-.footer-desktop {
-  display: none;
-}
 .cmp-experiencefragment--footer {
-  position: relative;
-
-  .cmp-text {
-    p {
-      color: $color-text-grey;
-      margin: 0.5rem auto;
-      a {
-        text-decoration: none;
-        &:hover {
-          color: darken($color: $deep-blue, $amount: 30%);
-        }
-      }
-      font-size: 0.9rem;
-    }
-  }
   .cmp-list {
-    text-align: center;
-    padding: 0;
+    display: flex;
+    gap: 1.2rem;
     .cmp-list__item {
       list-style-type: none;
-      margin-bottom: 0.5rem;
-      &:hover {
-        color: $color-hover;
+      font-family: $title-light;
+      font-size: 1rem;
+      .cmp-list__item-link {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
+  .cmp-text {
+    font-size: 1rem;
+  }
+  .cmp-button {
+    border: none;
+    background-color: transparent;
+    .cmp-button__icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  .cmp-languagenavigation{
+	.cmp-languagenavigation__group{
+		.cmp-languagenavigation__item{
+			font-size: 1.143rem;
+			font-family: $title-book;
+			
+		}
+		.cmp-languagenavigation__item--active{
+			
+		}
+	}
+  }
 }
-
-*/
- 

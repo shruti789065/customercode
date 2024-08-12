@@ -1,72 +1,49 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable max-len */
 (function () {
-  "use strict";
+    "use strict";
 
-  const LANGUAGE_NAVIGATION = {
-    NAV: ".cmp-languagenavigation",
-    CMP_HEADER_SELECTOR: ".cmp-languagenavigation--header",
-    CMP_PROCESSED: "data-lang-nav-processed",
-    CMP_LANGUAGE_NAV_LABEL: ".cmp-languagenavigation__label",
-    ACTIVE_LINK_SELECTOR:
-      ".cmp-languagenavigation__item--active > .cmp-languagenavigation__item-link",
-    LABEL_TEXT_SELECTOR: ".cmp-languagenavigation__label-text",
-  };
+    function displayCurrentLanguage() {
+        const CMP_SELECTOR = '.cmp-languagenavigation';
+        const CMP_PROCESSED = 'data-lang-nav-processed';
+        const ACTIVE_LINK_SELECTOR = '.cmp-languagenavigation__item--active > .cmp-languagenavigation__item-link';
+        const ACTIVE_COUNTRY_SELECTOR = '.cmp-languagenavigation__item--active';
+        const langNav = document.querySelector(CMP_SELECTOR);
+        
+        if (langNav && !langNav.hasAttribute(CMP_PROCESSED)) {
 
-  /**
-   * Initializes the Language Navigation
-   *
-   * @public
-   */
-  function init() {
-    document.querySelectorAll(LANGUAGE_NAVIGATION.NAV).forEach((navElement) => {
-      const activeLink = navElement.querySelector(
-        LANGUAGE_NAVIGATION.ACTIVE_LINK_SELECTOR
-      );
-      if (activeLink) {
-        const activeLanguageText = activeLink.innerHTML;
-        const labelTextElement = navElement.querySelector(
-          LANGUAGE_NAVIGATION.LABEL_TEXT_SELECTOR
-        );
-        if (labelTextElement) {
-          labelTextElement.insertAdjacentHTML("afterend", activeLanguageText);
-        }
+            langNav.setAttribute(CMP_PROCESSED, 'true');
 
-        const toggleIcon = navElement.querySelector(
-          `${LANGUAGE_NAVIGATION.CMP_LANGUAGE_NAV_LABEL} .toggle-icon`
-        );
-        if (toggleIcon) {
-          toggleIcon.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+            let activeLanguage = langNav.querySelector(ACTIVE_LINK_SELECTOR)?.getAttribute('lang') || 'Language';
+            let activeCountryImg = getComputedStyle(langNav.querySelector(ACTIVE_COUNTRY_SELECTOR))?.backgroundImage || 'none';
+            
+            activeCountryImg = activeCountryImg.replace(/"/g, "'");
 
-            // Remove 'is-open' class from all other language nav elements
-            document
-              .querySelectorAll(LANGUAGE_NAVIGATION.NAV)
-              .forEach((otherNav) => {
-                if (otherNav !== navElement) {
-                  otherNav.classList.remove("is-open");
+            let toggleButton = document.createElement('div');
+            toggleButton.className = 'cmp-languagenavigation--langnavtoggle';
+            toggleButton.innerHTML = `<a id="langNavToggleHeader" style="background-image:${activeCountryImg}" href="#langNavToggle" aria-label="Toggle Language">${activeLanguage}</a>`;
+            langNav.prepend(toggleButton);
+
+            const langNavToggleHeader = document.getElementById('langNavToggleHeader');
+            if (langNavToggleHeader) {
+                langNavToggleHeader.addEventListener('click', function () {
+                    const displayPosition = langNavToggleHeader.getBoundingClientRect().left - 240;
+                    const langNavElement = langNav.querySelector('.cmp-languagenavigation__group');
+                    langNavElement.style.left = `${displayPosition}px`;
+                    langNavElement.classList.toggle('showMenu');
+                    langNavToggleHeader.classList.toggle('open');
+                });
+            }
+
+            window.addEventListener('click', function (event) {
+                if (langNavToggleHeader && !event.target.closest('#langNavToggleHeader') && langNavToggleHeader.classList.contains('open')) {
+                    const langNavElement = langNav.querySelector('.cmp-languagenavigation__group');
+                    langNavElement.classList.remove('showMenu');
+                    langNavToggleHeader.classList.remove('open');
                 }
-              });
-
-            // Toggle 'is-open' class on the current language nav element
-            navElement.classList.toggle("is-open");
-          });
+            });
         }
-      }
-    });
+    }
 
-    // Close language navigation if clicked outside
-    document.addEventListener("click", (e) => {
-      document
-        .querySelectorAll(LANGUAGE_NAVIGATION.NAV)
-        .forEach((navElement) => {
-          if (!navElement.contains(e.target)) {
-            navElement.classList.remove("is-open");
-          }
-        });
+    document.addEventListener("DOMContentLoaded", function () {
+        displayCurrentLanguage();
     });
-  }
-
-  document.addEventListener("DOMContentLoaded", init);
 })();

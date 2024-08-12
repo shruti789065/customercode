@@ -311,54 +311,60 @@
         return options;
     }
 
-    function onDocumentReady() {
-        if (window.Granite && window.Granite.author && window.Granite.author.MessageChannel) {
-            // it might take some time for the authoring MessageChannel to become available, if inside the editor frame
-            window.CQ.CoreComponents.MESSAGE_CHANNEL = window.CQ.CoreComponents.MESSAGE_CHANNEL || new window.Granite.author.MessageChannel("cqauthor", window);
+function onDocumentReady() {
+    if (window.Granite && window.Granite.author && window.Granite.author.MessageChannel) {
+        // it might take some time for the authoring MessageChannel to become available, if inside the editor frame
+        window.CQ.CoreComponents.MESSAGE_CHANNEL = window.CQ.CoreComponents.MESSAGE_CHANNEL || new window.Granite.author.MessageChannel("cqauthor", window);
+    }
+    var elements = document.querySelectorAll(selectors.self);
+    for (var i = 0; i < elements.length; i++) {
+        new Tabs({ element: elements[i], options: readData(elements[i]) });
+    }
+
+    // Sposta cmp-tabs__tablist da menu-desktop a header--tablist
+    var tablistContainer = document.querySelector('.menu-desktop .cmp-tabs__tablist');
+    var headerTablistContainer = document.getElementById('header--tablist');
+
+    if (tablistContainer && headerTablistContainer) {
+        headerTablistContainer.appendChild(tablistContainer);
+
+        // Rimuove la classe cmp-tabs__tab--active se presente in headerTablistContainer
+        var activeTab = headerTablistContainer.querySelector('.cmp-tabs__tab.cmp-tabs__tab--active');
+        if (activeTab) {
+            activeTab.classList.remove('cmp-tabs__tab--active');
         }
-        var elements = document.querySelectorAll(selectors.self);
-        for (var i = 0; i < elements.length; i++) {
-            new Tabs({ element: elements[i], options: readData(elements[i]) });
-        }
-    
-        // Sposta cmp-tabs__tablist da menu-desktop a header--tablist
-        var tablistContainer = document.querySelector('.menu-desktop .cmp-tabs__tablist');
-        var headerTablistContainer = document.getElementById('header--tablist');
-    
-        if (tablistContainer && headerTablistContainer) {
-            headerTablistContainer.appendChild(tablistContainer);
-    
-            // Copia i link da menu-desktop a header--tablist solo se ci sono tabs
-            var tabpanels = document.querySelectorAll('.menu-desktop .cmp-tabs__tabpanel');
-            var tabs = headerTablistContainer.querySelectorAll('.cmp-tabs__tab');
-    
-            if (tabpanels.length === tabs.length) {
-                for (var j = 0; j < tabpanels.length; j++) {
-                    var link = tabpanels[j].querySelector('.link a');
-                    if (link) {
-                        // Creare un nuovo link o aggiornare il contenuto del tab
-                        var clonedLink = link.cloneNode(true);
-                        clonedLink.classList.add('header-link'); // Aggiungere una classe specifica se necessario
-                        
-                        // Conserva il testo originale del tab
-                        var originalTabText = tabs[j].textContent;
-                        tabs[j].innerHTML = originalTabText; // Imposta il testo originale
-                        tabs[j].appendChild(clonedLink); // Aggiunge il link duplicato
-    
-                        // Assicurarsi che l'intero tab agisca come un link
-                        tabs[j].style.cursor = 'pointer';
-                        tabs[j].onclick = function() {
-                            window.location.href = clonedLink.href;
-                        };
-                    }
+
+        // Copia i link da menu-desktop a header--tablist solo se ci sono tabs
+        var tabpanels = document.querySelectorAll('.menu-desktop .cmp-tabs__tabpanel');
+        var tabs = headerTablistContainer.querySelectorAll('.cmp-tabs__tab');
+
+        if (tabpanels.length === tabs.length) {
+            for (var j = 0; j < tabpanels.length; j++) {
+                var link = tabpanels[j].querySelector('.link a');
+                if (link) {
+                    // Creare un nuovo link o aggiornare il contenuto del tab
+                    var clonedLink = link.cloneNode(true);
+                    clonedLink.classList.add('header-link'); // Aggiungere una classe specifica se necessario
+
+                    // Conserva il testo originale del tab
+                    var originalTabText = tabs[j].textContent;
+                    tabs[j].innerHTML = originalTabText; // Imposta il testo originale
+                    tabs[j].appendChild(clonedLink); // Aggiunge il link duplicato
+
+                    // Assicurarsi che l'intero tab agisca come un link
+                    tabs[j].style.cursor = 'pointer';
+                    tabs[j].onclick = function() {
+                        window.location.href = clonedLink.href;
+                    };
                 }
-            } else {
-                console.log('The number of tabpanels and tabs do not match.');
             }
         } else {
-            console.log('Tablist container or header tablist container not found.');
+            console.log('The number of tabpanels and tabs do not match.');
         }
+    } else {
+        console.log('Tablist container or header tablist container not found.');
     }
+}
 
     if (document.readyState !== "loading") {
         onDocumentReady();
