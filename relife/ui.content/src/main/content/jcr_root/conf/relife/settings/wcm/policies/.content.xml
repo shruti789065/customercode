@@ -24,7 +24,14 @@
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="[/apps/relife/components/form/button,/apps/relife/components/form/hidden,/apps/relife/components/form/options,/apps/relife/components/form/text]">
                         <jcr:content
-                            jcr:mixinTypes="[]"
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                             jcr:primaryType="nt:unstructured"/>
                     </form-container>
                 </container>
@@ -56,7 +63,14 @@
                     titleValueFromDAM="true"
                     uuidDisabled="true">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <plugins jcr:primaryType="nt:unstructured">
                         <crop
@@ -92,13 +106,20 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2024-08-08T12:27:48.781+02:00"
+                    jcr:lastModified="{Date}2024-08-09T16:44:30.810+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <rtePlugins jcr:primaryType="nt:unstructured">
                         <paraformat
@@ -198,6 +219,27 @@
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
+                        <item1
+                            cq:styleGroupLabel="Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-align--left"
+                                    cq:styleId="1723214645846"
+                                    cq:styleLabel="Start"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-align--center"
+                                    cq:styleId="1723214646832"
+                                    cq:styleLabel="Center"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-align--right"
+                                    cq:styleId="1723214648018"
+                                    cq:styleLabel="End"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
                     </cq:styleGroups>
                 </policy_641562756958017>
             </text>
@@ -211,12 +253,19 @@
                     linkDisabled="true"
                     type="h1">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:lastModified="{Date}2024-07-17T13:04:49.056+02:00"
+                    jcr:lastModified="{Date}2024-08-09T16:43:03.297+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Title"
@@ -225,7 +274,14 @@
                     linkDisabled="false"
                     type="h2">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
@@ -270,6 +326,27 @@
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
+                        <item2
+                            cq:styleGroupLabel="Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-align--left"
+                                    cq:styleId="1723214564240"
+                                    cq:styleLabel="Start"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-align--center"
+                                    cq:styleId="1723214565594"
+                                    cq:styleLabel="Center"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-align--right"
+                                    cq:styleId="1723214567864"
+                                    cq:styleLabel="End"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
                     </cq:styleGroups>
                 </policy_641528232375303>
             </title>
@@ -283,7 +360,14 @@
                     jcr:title="Page Header"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
@@ -313,7 +397,14 @@
                     jcr:title="Page Footer"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_footer>
             </experiencefragment>
@@ -325,7 +416,14 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="[group:Relife - Content,/apps/relife/components/form/container,group:Relife - Structure]">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -360,7 +458,14 @@
                     components="[group:Relife - Content,/apps/relife/components/form/container]"
                     layoutDisabled="false">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -392,7 +497,14 @@
                     jcr:title="Page Main"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_649128221558427>
                 <policy_1575040440977
@@ -405,7 +517,14 @@
                     components="[group:Relife - Content,/apps/relife/components/form/container,/apps/relife/components/languagenavigation,/apps/relife/components/search]"
                     layoutDisabled="false">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -430,91 +549,6 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
-                <policy_356434924305600
-                    jcr:lastModified="{Date}2024-08-09T12:22:37.034+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Relife - container policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Type"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-container--internal cmp-container__layout"
-                                    cq:styleId="1723198877325"
-                                    cq:styleLabel="Internal"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                        <item1
-                            cq:styleGroupLabel="Layout"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-container--border"
-                                    cq:styleId="1723198897415"
-                                    cq:styleLabel="border box"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item1>
-                        <item2
-                            cq:styleGroupLabel="Margin"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="ms-3"
-                                    cq:styleId="1723198921955"
-                                    cq:styleLabel="left small"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="me-3"
-                                    cq:styleId="1723198922656"
-                                    cq:styleLabel="right small"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                    cq:styleClasses="ms-5"
-                                    cq:styleId="1723198923350"
-                                    cq:styleLabel="left big"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item3
-                                    cq:styleClasses="me-5"
-                                    cq:styleId="1723198924195"
-                                    cq:styleLabel="right big"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item2>
-                        <item3
-                            cq:styleGroupLabel="Padding"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="ps-3"
-                                    cq:styleId="1723198918676"
-                                    cq:styleLabel="left small"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="pe-3"
-                                    cq:styleId="1723198919330"
-                                    cq:styleLabel="right small"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                    cq:styleClasses="ps-5"
-                                    cq:styleId="1723198919961"
-                                    cq:styleLabel="left big"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item3
-                                    cq:styleClasses="pe-5"
-                                    cq:styleId="1723198920955"
-                                    cq:styleLabel="right big"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item3>
-                    </cq:styleGroups>
-                </policy_356434924305600>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
@@ -524,7 +558,14 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     titleType="h3">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1575031387650>
             </teaser>
@@ -540,7 +581,14 @@
                     displaySize="true"
                     titleType="h3">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1575032193319>
             </download>
@@ -553,7 +601,14 @@
                     clientlibs="[relife.dependencies,relife.site]"
                     clientlibsJsHead="relife.dependencies">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>
@@ -602,14 +657,21 @@
                         components="[group:Relife - Content,group:Relife - Form,group:Relife - Structure]"
                         layoutDisabled="false">
                         <jcr:content
-                            jcr:mixinTypes="[]"
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                             jcr:primaryType="nt:unstructured"/>
                     </policy_1719824277018>
                 </wrapper>
                 <section jcr:primaryType="nt:unstructured">
                     <policy_1719824310667
-                        jcr:lastModified="{Date}2024-08-09T12:17:56.663+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2024-08-09T09:58:08.445Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Section Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
@@ -618,7 +680,14 @@
                         components="/apps/relife/components/containers/wrapper"
                         layoutDisabled="false">
                         <jcr:content
-                            jcr:mixinTypes="[]"
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                             jcr:primaryType="nt:unstructured"/>
                     </policy_1719824310667>
                 </section>
@@ -631,7 +700,14 @@
                     jcr:title="Button Policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
@@ -670,7 +746,14 @@
                     showTitleType="false"
                     titleType="h2">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
@@ -701,7 +784,14 @@
                         jcr:title="Puzzle Carousel Container policy"
                         sling:resourceType="wcm/core/components/policy/policy">
                         <jcr:content
-                            jcr:mixinTypes="[]"
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                             jcr:primaryType="nt:unstructured"/>
                     </policy_1721819305779>
                 </puzzle-container>
@@ -718,7 +808,14 @@
                         controlsPrepended="false"
                         delay="5000">
                         <jcr:content
-                            jcr:mixinTypes="[]"
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                             jcr:primaryType="nt:unstructured"/>
                     </policy_1721821961573>
                 </cards-carousel>
@@ -735,7 +832,14 @@
                         controlsPrepended="false"
                         delay="5000">
                         <jcr:content
-                            jcr:mixinTypes="[]"
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                             jcr:primaryType="nt:unstructured"/>
                     </policy_1721822020436>
                 </images-carousel>
@@ -751,7 +855,14 @@
                     showTitleType="false"
                     titleType="h2">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
@@ -847,7 +958,14 @@
                     showTitleType="false"
                     titleType="h2">
                     <jcr:content
-                        jcr:mixinTypes="[]"
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+                        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
@@ -932,29 +1050,6 @@
                     </cq:styleGroups>
                 </policy_1721985061821>
             </fullbanner>
-            <dupla_image jcr:primaryType="nt:unstructured">
-                <policy_1723198684794
-                    jcr:lastModified="{Date}2024-08-09T12:19:01.165+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Dupla Image policy - Relife"
-                    sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Tipology"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="dupla_image--mirrored"
-                                    cq:styleId="1723198712250"
-                                    cq:styleLabel="Img mirrored"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                    </cq:styleGroups>
-                </policy_1723198684794>
-            </dupla_image>
         </components>
     </relife>
     <wcm jcr:primaryType="nt:unstructured">
