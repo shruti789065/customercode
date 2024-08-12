@@ -26,12 +26,14 @@ import { toggleOverlay } from ".././_util";
       return;
     }
 
-    // Se il tab cliccato contiene un elemento con la classe 'header-link', non aprire il menu
-    if (clickedTab.querySelector('.header-link')) {
-      return;
-    }
-
     const isAlreadyActive = clickedTab.classList.contains(HEADER.activeTabClass);
+
+    // Se il tab cliccato contiene un link, non aprire il menu e lascia che il link gestisca il reindirizzamento
+    const linkInTab = clickedTab.querySelector('.header-link');
+    if (linkInTab) {
+      setActiveTab(clickedTab); // Imposta il tab come attivo
+      return; // Non eseguire altro codice, permettendo il reindirizzamento del link
+    }
 
     if (isAlreadyActive && lastClickedTab === clickedTab) {
       // Close the menu if the same tab is clicked again
@@ -105,6 +107,10 @@ import { toggleOverlay } from ".././_util";
     }
 
     if (HEADER.headerTablist) {
+      // Rimuovi la classe 'cmp-tabs__tab--active' da tutti i tab al caricamento della pagina
+      const tabs = HEADER.headerTablist.querySelectorAll(".cmp-tabs__tab");
+      tabs.forEach(t => t.classList.remove(HEADER.activeTabClass));
+
       HEADER.headerTablist.addEventListener("click", handleTabClick);
     }
 

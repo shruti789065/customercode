@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="/conf/relife/settings/wcm/templates/page-content"
+        cq:lastModified="{Date}2024-08-08T07:54:15.272Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:template="/conf/relife/settings/wcm/templates/country"
+        jcr:language="ga_ie"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Ireland"
+        sling:resourceType="relife/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="relife/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="relife/components/container"
+                layout="responsiveGrid"/>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-08-08T07:54:15.257Z"
+            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+    <en/>
+    <rep:policy/>
+</jcr:root>

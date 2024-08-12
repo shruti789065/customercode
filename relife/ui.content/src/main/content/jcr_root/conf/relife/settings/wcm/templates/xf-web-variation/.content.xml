@@ -2,11 +2,18 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:lastModified="{Date}2024-08-08T12:27:48.793+02:00"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-07-31T15:21:46.256+02:00"
         cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-08-08T08:46:25.006Z"
+        cq:lastReplicated_publish="{Date}2024-08-08T08:46:25.006Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:templateType="/conf/relife/settings/wcm/template-types/xf"
         jcr:description="My Site Experience Fragment Template"
-        jcr:mixinTypes="[]"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Web Variation"
         status="enabled"/>

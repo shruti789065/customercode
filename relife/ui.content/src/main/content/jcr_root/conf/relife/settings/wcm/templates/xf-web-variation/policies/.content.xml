@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:isDelivered="{Boolean}false"
         cq:lastModified="{Date}2024-08-08T12:27:48.792+02:00"
         cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:policy="relife/components/page/policy"
-        jcr:mixinTypes="[]"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="nt:unstructured"
+        jcr:uuid="482a0447-0580-4fc7-b3d8-b353e1240ad9"
         sling:resourceType="wcm/core/components/policies/mappings">
         <root
             cq:policy="relife/components/container/policy_1575040440977"

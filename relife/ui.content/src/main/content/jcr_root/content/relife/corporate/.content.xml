@@ -3,14 +3,21 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:allowedTemplates="/conf/relife/settings/wcm/templates/page-content"
-        cq:lastModified="{Date}2024-08-01T11:17:07.270+02:00"
-        cq:lastModifiedBy="admin"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-08-08T07:57:09.433Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-08-08T07:57:20.988Z"
+        cq:lastReplicated_publish="{Date}2024-08-08T07:57:20.988Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/relife/settings/wcm/templates/country"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="corporate"
-        jcr:uuid="4dc9d221-147a-4c67-910c-1721c84a0174"
+        jcr:title="Corporate"
+        jcr:uuid="dad0de85-cb86-4c2d-863d-7fdf650a3d5d"
         sling:resourceType="relife/components/page"
         pwaCachestrategy="staleWhileRevalidate"
         pwaDisplay="standalone"
@@ -22,7 +29,18 @@
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="relife/components/container"
-                layout="responsiveGrid"/>
+                layout="responsiveGrid">
+                <countryselector
+                    jcr:created="{Date}2024-08-08T07:56:46.470Z"
+                    jcr:createdBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2024-08-08T07:57:09.429Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="relife/components/countryselector"
+                    label="Select your country"
+                    navigationRoot="/content/relife"
+                    structureDepth="1"/>
+            </container>
         </root>
         <cq:featuredimage
             jcr:lastModified="{Date}2024-08-01T11:16:33.207+02:00"

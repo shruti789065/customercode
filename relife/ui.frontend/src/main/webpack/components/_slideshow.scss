@@ -3,6 +3,31 @@
     .cmp-carousel__content {
       .cmp-carousel__item {
         .slide-video {
+          &.cmp-title--vermiglione {
+            .cmp-teaser__title {
+              font-family: $font-family-text;
+            }
+          }
+          &.cmp-title--light {
+            .cmp-teaser__title {
+              font-family: $title-light;
+            }
+          }
+          &.cmp-title--book {
+            .cmp-teaser__title {
+              font-family: $title-book;
+            }
+          }
+          &.cmp-title--medium {
+            .cmp-teaser__title {
+              font-family: $title-medium;
+            }
+          }
+          &.cmp-title--bold {
+            .cmp-teaser__title {
+              font-family: $title-bold;
+            }
+          }
           .cmp-teaser {
             position: relative;
             .cmp-teaser__link {
@@ -52,7 +77,9 @@
         display: flex;
         justify-content: center;
         align-content: flex-end;
-
+        &.cmp-carousel__indicators-single-slide {
+          display: none;
+        }
         &:not(:only-child) {
           position: absolute;
           z-index: 1;

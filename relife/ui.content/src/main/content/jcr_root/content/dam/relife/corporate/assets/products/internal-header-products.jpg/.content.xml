@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="9f155264-6905-4019-8cd3-24f4f4e3054e">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
+        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        dam:assetState="processed"
+        dam:jobId="bdded7b8-ed62-43ed-8bbd-3d18b7661b3d"
+        dam:processingId="936fea1f-4c83-4bd3-ad2a-6de57d38d065"
+        dam:processingRenditions="[cq5dam.thumbnail.319.319.png,cq5dam.preview.mp4,cq5dam.preview.pdf,cqdam.text.txt,cqdam.machine.metadata.colors.json,cq5dam.thumbnail.140.100.png,cq5dam.thumbnail.48.48.png,cq5dam.zoom.2048.2048.jpeg,cqdam.machine.metadata.tags.json,cq5dam.web.1280.1280.jpeg,cqdam.metadata.xml,cqdam.machine.metadata.features.json]"
+        dam:processingRequestedDate="{Date}2024-08-08T08:52:02.573Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2024-08-08T08:52:23.156Z"
+        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.mp4
+                jcr:primaryType="nt:unstructured"
+                message="Format mp4 is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2024-08-08T08:52:17.233Z"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:predictedColors="{Long}[2039,37025,24020,25009,29006]"
+            dam:Progressive="no"
+            dam:sha1="e80296de24a4b675e4bba3b84350fd9227839abd"
+            dam:size="{Long}338529"
+            dc:format="image/jpeg"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}1074"
+            tiff:ImageWidth="{Long}2560"
+            xmp:CreatorTool="Adobe Photoshop 25.11 (Windows)"
+            xmpMM:DocumentID="xmp.did:72D08295556311EF8159FE6C428E23CE"
+            xmpMM:InstanceID="xmp.iid:72D08294556311EF8159FE6C428E23CE">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="xmp.did:72D08293556311EF8159FE6C428E23CE"
+                stRef:instanceID="xmp.iid:72D08292556311EF8159FE6C428E23CE"
+                xmpNodeType="xmpStruct"/>
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:lastModified="{Date}2024-08-08T08:52:17.383Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.3928"
+                    name="DARK_RED"
+                    rank="{Long}1"
+                    rgb="{Long}[134,44,27]"/>
+                <color2
+                    jcr:lastModified="{Date}2024-08-08T08:52:17.385Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.2538"
+                    name="ORANGE"
+                    rank="{Long}2"
+                    rgb="{Long}[218,157,120]"/>
+                <color3
+                    jcr:lastModified="{Date}2024-08-08T08:52:17.386Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.2008"
+                    name="BROWN"
+                    rank="{Long}3"
+                    rgb="{Long}[163,90,58]"/>
+                <color4
+                    jcr:lastModified="{Date}2024-08-08T08:52:17.388Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.0917"
+                    name="DARK_BROWN"
+                    rank="{Long}4"
+                    rgb="{Long}[85,44,31]"/>
+                <color5
+                    jcr:lastModified="{Date}2024-08-08T08:52:17.389Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.061"
+                    name="MAROON"
+                    rank="{Long}5"
+                    rgb="{Long}[104,32,18]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

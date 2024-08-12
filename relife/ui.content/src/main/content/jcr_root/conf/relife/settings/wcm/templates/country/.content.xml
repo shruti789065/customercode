@@ -2,10 +2,17 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
+        cq:isDelivered="{Boolean}false"
         cq:lastModified="{Date}2024-08-01T11:16:33.280+02:00"
         cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-08-08T07:57:20.988Z"
+        cq:lastReplicated_publish="{Date}2024-08-08T07:57:20.988Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:templateType="/conf/relife/settings/wcm/template-types/page"
-        jcr:mixinTypes="[]"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Country"
         status="enabled"/>

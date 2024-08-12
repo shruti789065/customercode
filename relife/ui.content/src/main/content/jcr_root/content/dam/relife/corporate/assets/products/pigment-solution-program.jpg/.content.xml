@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="3399a7ad-7ee9-4557-9a1d-42aa73bc9c37">
+    <jcr:content
+        dam:assetState="processed"
+        dam:jobId="3527b925-66b2-4bde-9d49-db3c22e0fd25"
+        dam:processingId="26442fe2-1ed6-428b-ac3a-3eba5ead2443"
+        dam:processingRenditions="[cqdam.machine.metadata.tags.json,cq5dam.preview.mp4,cqdam.machine.metadata.features.json,cq5dam.thumbnail.319.319.png,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.colors.json,cq5dam.thumbnail.48.48.png,cq5dam.thumbnail.140.100.png,cqdam.metadata.xml,cq5dam.preview.pdf,cq5dam.zoom.2048.2048.jpeg,cqdam.text.txt]"
+        dam:processingRequestedDate="{Date}2024-08-09T16:36:59.709Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2024-08-09T16:37:21.666Z"
+        jcr:lastModifiedBy="a.messori@adiacent.com"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.mp4
+                jcr:primaryType="nt:unstructured"
+                message="Format mp4 is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2024-08-09T16:37:15.844Z"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}72"
+            dam:Physicalheightininches="{Decimal}2.652777671813965"
+            dam:Physicalwidthindpi="{Long}72"
+            dam:Physicalwidthininches="{Decimal}3.569444417953491"
+            dam:predictedColors="{Long}[25055,12019,24017,37009]"
+            dam:Progressive="no"
+            dam:sha1="cfed5589438eccf3c86f2c42b58a9511bc8ed955"
+            dam:size="{Long}54971"
+            dc:format="image/jpeg"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
+            tiff:ImageLength="{Long}191"
+            tiff:ImageWidth="{Long}257">
+            <dam:colorDistribution jcr:primaryType="nt:unstructured">
+                <color1
+                    jcr:lastModified="{Date}2024-08-09T16:37:16.214Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.546"
+                    name="DARK_BROWN"
+                    rank="{Long}1"
+                    rgb="{Long}[68,40,21]"/>
+                <color2
+                    jcr:lastModified="{Date}2024-08-09T16:37:16.218Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.1945"
+                    name="BLACK"
+                    rank="{Long}2"
+                    rgb="{Long}[13,9,8]"/>
+                <color3
+                    jcr:lastModified="{Date}2024-08-09T16:37:16.220Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.1694"
+                    name="BROWN"
+                    rank="{Long}3"
+                    rgb="{Long}[155,96,59]"/>
+                <color4
+                    jcr:lastModified="{Date}2024-08-09T16:37:16.221Z"
+                    jcr:mixinTypes="[dam:color]"
+                    jcr:primaryType="nt:unstructured"
+                    coverage="{Double}0.0901"
+                    name="ORANGE"
+                    rank="{Long}4"
+                    rgb="{Long}[216,161,130]"/>
+            </dam:colorDistribution>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

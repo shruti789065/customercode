@@ -106,7 +106,7 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2024-08-09T16:44:30.810+02:00"
+                    jcr:lastModified="{Date}2024-08-12T12:16:29.476+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text"
@@ -213,9 +213,9 @@
                                     cq:styleLabel="Gotham"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                    cq:styleClasses="cmp-text--bold"
-                                    cq:styleId="1723112854000"
-                                    cq:styleLabel="Bold"
+                                    cq:styleClasses="cmp-title--vermiglione"
+                                    cq:styleId="1723457754520"
+                                    cq:styleLabel="Vermiglione"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -225,21 +225,32 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="cmp-align--left"
-                                    cq:styleId="1723214645846"
+                                    cq:styleId="1723457154770"
                                     cq:styleLabel="Start"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="cmp-align--center"
-                                    cq:styleId="1723214646832"
+                                    cq:styleId="1723457158040"
                                     cq:styleLabel="Center"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item2
                                     cq:styleClasses="cmp-align--right"
-                                    cq:styleId="1723214648018"
+                                    cq:styleId="1723457162048"
                                     cq:styleLabel="End"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
+                        <item2
+                            cq:styleGroupLabel="Weight"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-text--bold"
+                                    cq:styleId="1723457774320"
+                                    cq:styleLabel="Bold"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
                     </cq:styleGroups>
                 </policy_641562756958017>
             </text>
@@ -265,7 +276,7 @@
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:lastModified="{Date}2024-08-09T16:43:03.297+02:00"
+                    jcr:lastModified="{Date}2024-08-12T12:15:46.132+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Title"
@@ -297,6 +308,11 @@
                                     cq:styleClasses="cmp-title--underline"
                                     cq:styleId="1721211615482"
                                     cq:styleLabel="Underline"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-title--vermiglione"
+                                    cq:styleId="1723457725921"
+                                    cq:styleLabel="Vermiglione"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -332,17 +348,17 @@
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="cmp-align--left"
-                                    cq:styleId="1723214564240"
+                                    cq:styleId="1723457128445"
                                     cq:styleLabel="Start"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="cmp-align--center"
-                                    cq:styleId="1723214565594"
+                                    cq:styleId="1723457132031"
                                     cq:styleLabel="Center"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item2
                                     cq:styleClasses="cmp-align--right"
-                                    cq:styleId="1723214567864"
+                                    cq:styleId="1723457134961"
                                     cq:styleLabel="End"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
@@ -450,7 +466,7 @@
                 </policy_1574694950110>
                 <policy_1574695586800
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2024-07-24T12:00:58.748+02:00"
+                    jcr:lastModified="{Date}2024-08-12T12:33:42.973+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
@@ -1050,6 +1066,80 @@
                     </cq:styleGroups>
                 </policy_1721985061821>
             </fullbanner>
+            <slideshow jcr:primaryType="nt:unstructured">
+                <policy_1723457800614
+                    jcr:lastModified="{Date}2024-08-12T12:50:04.913+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Slideshow policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    autopauseDisabled="false"
+                    autoplay="false"
+                    components="/apps/relife/components/slide-video"
+                    controlsPrepended="false"
+                    delay="5000">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Font"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-title--vermiglione"
+                                    cq:styleId="1723457814961"
+                                    cq:styleLabel="Vermiglione"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1723457800614>
+            </slideshow>
+            <slide-video jcr:primaryType="nt:unstructured">
+                <policy_1723459664517
+                    jcr:lastModified="{Date}2024-08-12T12:58:26.243+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Slide policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Font"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-title--vermiglione "
+                                    cq:styleId="1723459694660"
+                                    cq:styleLabel="Vermiglione"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-title--light"
+                                    cq:styleId="1723460239832"
+                                    cq:styleLabel="Gotham Light"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-title--book"
+                                    cq:styleId="1723460250842"
+                                    cq:styleLabel="Gotham Book"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-title--medium"
+                                    cq:styleId="1723460257677"
+                                    cq:styleLabel="Gotham Medium"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item4
+                                    cq:styleClasses="cmp-title--bold"
+                                    cq:styleId="1723460264136"
+                                    cq:styleLabel="Gotham Bold"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1723459664517>
+            </slide-video>
         </components>
     </relife>
     <wcm jcr:primaryType="nt:unstructured">
