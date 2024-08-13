@@ -1,4 +1,4 @@
-.cmp-experiencefragment--footer {
+footer {
   .cmp-list {
     display: flex;
     gap: 1.2rem;
@@ -25,16 +25,15 @@
       height: 2rem;
     }
   }
-  .cmp-languagenavigation{
-	.cmp-languagenavigation__group{
-		.cmp-languagenavigation__item{
-			font-size: 1.143rem;
-			font-family: $title-book;
-			
-		}
-		.cmp-languagenavigation__item--active{
-			
-		}
-	}
+  .cmp-languagenavigation {
+    .cmp-languagenavigation__label {
+      font-weight: bold;
+    }
+    .cmp-languagenavigation__group {
+      .cmp-languagenavigation__item {
+        font-size: 1.143rem;
+        font-family: $title-book;
+      }
+    }
   }
 }

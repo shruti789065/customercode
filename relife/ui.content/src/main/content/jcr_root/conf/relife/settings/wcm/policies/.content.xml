@@ -409,6 +409,8 @@
                 <policy_footer
                     cq:styleDefaultElement="footer"
                     jcr:description="Sets a &lt;footer> element on the page footer experience fragment."
+                    jcr:lastModified="{Date}2024-08-13T17:31:28.881+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Footer"
                     sling:resourceType="wcm/core/components/policy/policy">
@@ -422,6 +424,26 @@
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Footer type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-experiencefragment--footer-desktop"
+                                    cq:styleElement="footer"
+                                    cq:styleId="1723563021914"
+                                    cq:styleLabel="Desktop"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-experiencefragment--footer-mobile"
+                                    cq:styleElement="footer"
+                                    cq:styleId="1723563032243"
+                                    cq:styleLabel="Mobile"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_footer>
             </experiencefragment>
             <container jcr:primaryType="nt:unstructured">

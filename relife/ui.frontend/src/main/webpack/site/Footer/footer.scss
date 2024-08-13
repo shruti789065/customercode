@@ -1,5 +1,20 @@
-@import './scss/common';
-@import './scss/desktop';
-/* @import './scss/mobile';
-*/
- 
+@import "./scss/common";
+@import "./scss/desktop";
+@import './scss/mobile';
+
+
+footer.cmp-experiencefragment--footer-desktop {
+  display: none;
+}
+footer.cmp-experiencefragment--footer-mobile {
+  display: block;
+}
+
+@include respond-to(tablet) {
+  footer.cmp-experiencefragment--footer-desktop {
+    display: block;
+  }
+  footer.cmp-experiencefragment--footer-mobile {
+    display: none;
+  }
+}
