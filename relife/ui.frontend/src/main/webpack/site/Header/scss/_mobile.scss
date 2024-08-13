@@ -113,7 +113,7 @@ header.cmp-experiencefragment--header-mobile {
           .cmp-accordion__item {
             .cmp-accordion__header {
               .cmp-accordion__button {
-				border-bottom: none;
+                border-bottom: none;
                 .cmp-accordion__title {
                   font-family: $title-light;
                   font-size: 1rem;
@@ -195,6 +195,55 @@ header.cmp-experiencefragment--header-mobile {
             font-family: $title-light;
             font-size: 1rem;
           }
+        }
+      }
+      .languagenavigation {
+		.cmp-languagenavigation{
+			.cmp-languagenavigation__label {
+			  justify-content: space-between;
+			  font-family: $title-medium;
+			  font-size: 1rem;
+			  text-transform: uppercase;
+			  padding: 1.214rem 0.357rem;
+			  text-align: left;
+			  min-width: clamp(14.286rem, 2.5vw + 13.714rem, 17.143rem);
+			  width: 100%;
+			}
+			.toggle-icon {
+			  background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-right.svg")
+				center center no-repeat;
+			}
+			.cmp-languagenavigation__group{
+				position: relative;
+				height: 0;
+				top: 0;
+			}
+			&.is-open{
+				.toggle-icon{
+					transform: rotate(90deg);
+				}
+				.cmp-languagenavigation__group{
+					position: relative;
+					height: auto;
+					width: 100%;
+					.cmp-languagenavigation__item-link{
+						justify-content: flex-start;
+						padding: 1rem;
+					}
+				}
+			}
+		}
+      }
+      .link {
+        .cmp-button {
+          font-family: $title-medium;
+          font-size: 1rem;
+          text-transform: uppercase;
+          padding: 1.214rem 0.357rem;
+          text-align: left;
+          text-decoration: none;
+          width: 100%;
+          justify-content: space-between;
         }
       }
     }
