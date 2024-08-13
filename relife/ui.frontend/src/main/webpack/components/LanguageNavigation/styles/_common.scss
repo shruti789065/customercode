@@ -1,81 +1,94 @@
-.cmp-languagenavigation--default {
+.cmp-languagenavigation {
+  position: relative;
 
-    .cmp-languagenavigation {
-        text-align: left;
-        width: 15rem;
-    }
-
-    .cmp-languagenavigation__group {
-        list-style: none;
-        margin:0;
-        float: left;
-        padding:0;
-    }
-    
-    .cmp-languagenavigation__item {
-        text-transform: uppercase;
-        display: block;
-        float: left;
-
-    }
-
-    .cmp-languagenavigation__item-title {
-        font-size: 1.143rem;
-        float:left;
-        width:100%;
-        margin-bottom:-5px;
-        padding-left:2px;
-        
-    }
-
-    .cmp-languagenavigation__item-link {
-        font-size: 1.143rem;
+  & > .cmp-languagenavigation__group {
+    transition: $standard-transition;
+    display: none;
+    transition-delay: 0.3s;
+    width: 100%;
+    padding: 0 0.5rem;
+    border-top: 0;
+    background-color: transparent;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .cmp-languagenavigation__item--level-0 {
+      .cmp-languagenavigation__item-link {
+        color: $color-text;
+        text-decoration: none;
         &:hover {
-            text-decoration: underline;
+          text-decoration: underline;
         }
+      }
     }
-
-    .cmp-languagenavigation__item--level-0 { 
-
-        background-repeat: no-repeat;
-        background-size: 5rem;
-        padding: 8px 0px 15px 45px;
-        background-position-y: center;
-        background-position-x: 12px;
-        border-bottom: .25px solid;
-        width: #{'calc(100% - 45px)'};
-        &:last-child {
-            border-bottom: none;
-        }
+  }
+  &.is-open {
+    .toggle-icon {
+      transform: rotate(180deg);
+      transition: $standard-transition;
     }
-
-    .cmp-languagenavigation__item--level-1 {
-        
-        padding-top: 2px;
-        padding-left: 2px;
-
-        &.cmp-languagenavigation__item--active {
-            .cmp-languagenavigation__item-link {
-                text-decoration: underline;
-            }
-        }
-        .cmp-languagenavigation__item-link {
-            border-right: 1px solid;
-            padding-right: 5px;
-            margin-right: 5px;
-        }
-
-        &:last-child {
-            .cmp-languagenavigation__item-link {
-                border-right: none;
-            }
-           
-        }
+    .cmp-languagenavigation__group {
+      display: block;
+      transition: $standard-transition;
+      position: absolute;
+      background-color: $white;
+      width: 15rem;
+      top: 2.5rem;
+      right: 0rem;
+      box-shadow: 1px 1px 3px $black;
+      z-index: 9;
+      .cmp-languagenavigation__item-link {
+        color: $black !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0;
+        text-align: center;
+      }
     }
-
-   
-  
-
-
-
+  }
 }
+
+.cmp-languagenavigation__label {
+  display: flex;
+  text-transform: uppercase;
+  font-family: $title-book;
+  gap: 0.3rem;
+  align-items: center;
+  .cmp-languagenavigation__label-text {
+    color: $charcoal;
+  }
+}
+.toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg")
+    center center no-repeat;
+  cursor: pointer;
+}
+
+.cmp-languagenavigation__item-link {
+  font-family: $title-book;
+  text-transform: capitalize;
+}
+.cmp-languagenavigation__item-title {
+  text-transform: capitalize;
+}
+
+/*
+  
+  **MEDIA QUERIES DA UTILIZZARE**
+  
+  
+  @include respond-to(small-devices) {}
+  
+  @include respond-to(mobile) {}
+  
+  @include respond-to(tablet) {}
+  
+  @include respond-to(laptop) {}
+  
+  @include respond-to(desktop) {}
+  
+  */

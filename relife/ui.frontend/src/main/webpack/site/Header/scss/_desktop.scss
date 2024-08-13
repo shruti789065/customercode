@@ -1,6 +1,6 @@
 header.cmp-experiencefragment--header-desktop {
   z-index: 10 !important;
- 
+
   #header--tablist {
     .cmp-tabs__tablist {
       justify-content: center;
@@ -31,20 +31,26 @@ header.cmp-experiencefragment--header-desktop {
     padding-top: 1.7rem;
     border-bottom: 1px solid;
     border-color: rgba(11, 29, 44, 0.2);
-	#logo {
-		.cmp-image__image {
-		  max-width: 10.7rem;
-		  .cmp-image__link{
-			display: block;
-			height: 100%;
-		  }
-		}
-	  }
-  }
-  .cmp-button__icon--search {
-    width: 2rem;
-    height: 2rem;
-    margin-left: auto;
+    #logo {
+      .cmp-image__image {
+        max-width: 10.7rem;
+        .cmp-image__link {
+          display: block;
+          height: 100%;
+        }
+      }
+    }
+    .cmp-button {
+      width: -moz-fit-content;
+      width: fit-content;
+      display: block;
+      margin-left: auto;
+      .cmp-button__icon--search {
+        width: 2rem;
+        height: 2rem;
+        margin-left: auto;
+      }
+    }
   }
   .menu-desktop {
     display: none;
@@ -94,9 +100,9 @@ header.cmp-experiencefragment--header-desktop {
         margin: 0.357rem 0;
         a {
           text-decoration: none;
-		  b{
-			font-family: $title-bold;
-		  }
+          b {
+            font-family: $title-bold;
+          }
         }
       }
     }
