@@ -59,10 +59,6 @@
   var relifeMenu = document.getElementById("header--tablist");
   var defaultTabs = !masterTemplateMenu && !relifeMenu;
 
-  console.log("MASTER", masterTemplateMenu);
-  console.log("RELIFE", relifeMenu);
-  console.log("DEFAULT", defaultTabs);
-
   /**
    * Tabs Configuration
    *
@@ -121,10 +117,14 @@
             }
           }
         }
+      } else if (relifeMenu) {
+        if (that._elements.tabpanel) {
+          refreshActive();
+          bindEvents();
+          scrollToDeepLinkIdInTabs();
+        }
       } else {
-        that._active = getActiveIndex(
-          that._elements["tab"]
-        ); /* CONTROLLO POSSIBILE ERRORE RELIFE*/
+        that._active = getActiveIndex(that._elements["tab"]);
         if (that._elements.tabpanel) {
           refreshActive();
           bindEvents();
@@ -208,8 +208,9 @@
           }
         }
       }
-
-      if (id.indexOf("megamenu") == 0) return -1;
+      if (masterTemplateMenu) {
+        if (id.indexOf("megamenu") == 0) return -1;
+      }
 
       return 0;
     }
@@ -320,8 +321,8 @@
       var tabs = that._elements["tab"];
 
       if (tabpanels) {
-        if (Array.isArray(tabpanels)) {
-          if (masterTemplateMenu) {
+        if (masterTemplateMenu) {
+          if (Array.isArray(tabpanels)) {
             for (var i = 0; i < tabpanels.length; i++) {
               if (i === parseInt(that._active) && !that._clickItself) {
                 tabpanels[i].classList.add(selectors.active.tabpanel);
@@ -354,6 +355,12 @@
               }
             }
           } else {
+            // only one tab
+            tabpanels.classList.add(selectors.active.tabpanel);
+            tabs.classList.add(selectors.active.tab);
+          }
+        } else {
+          if (Array.isArray(tabpanels)) {
             for (var i = 0; i < tabpanels.length; i++) {
               if (i === parseInt(that._active)) {
                 tabpanels[i].classList.add(selectors.active.tabpanel);
@@ -369,12 +376,10 @@
                 tabs[i].setAttribute("tabindex", "-1");
               }
             }
-          }
-        } else {
-          tabpanels.classList.add(selectors.active.tabpanel);
-          tabs.classList.add(selectors.active.tab);
-          if (relifeMenu) {
+          } else {
+            tabpanels.classList.add(selectors.active.tabpanel);
             tabpanels.removeAttribute("aria-hidden");
+            tabs.classList.add(selectors.active.tab);
             tabs.setAttribute("aria-selected", true);
             tabs.setAttribute("tabindex", "0");
           }
@@ -636,6 +641,16 @@
    * @private
    */
   function onDocumentReady() {
+  if (
+        window.Granite &&
+        window.Granite.author &&
+        window.Granite.author.MessageChannel
+      ) {
+        // it might take some time for the authoring MessageChannel to become available, if inside the editor frame
+        window.CQ.CoreComponents.MESSAGE_CHANNEL =
+          window.CQ.CoreComponents.MESSAGE_CHANNEL ||
+          new window.Granite.author.MessageChannel("cqauthor", window);
+      }
     dataLayerEnabled = document.body.hasAttribute(
       "data-cmp-data-layer-enabled"
     );
@@ -726,6 +741,9 @@
           });
       }
     } else if (relifeMenu) {
+      for (var i = 0; i < elements.length; i++) {
+            new Tabs({ element: elements[i], options: readData(elements[i]) });
+          }
       // Sposta cmp-tabs__tablist da menu-desktop a header--tablist
       var tablistContainer = document.querySelector(
         ".menu-desktop .cmp-tabs__tablist"
