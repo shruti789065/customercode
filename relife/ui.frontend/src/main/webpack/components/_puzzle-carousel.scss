@@ -1,0 +1,21 @@
+.puzzle-carousel {
+  .cmp-carousel__content {
+    display: flex;
+    gap: 3rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    &::-webkit-scrollbar {
+      background: transparent; /* Chrome/Safari/Webkit */
+      width: 0px;
+    }
+    .cmp-carousel__item {
+      display: block;
+      width: clamp(16.857rem, 13.75vw + 13.714rem, 32.571rem);
+    }
+  }
+  .cmp-carousel__actions,
+  .cmp-carousel__indicators {
+    display: none;
+  }
+}
