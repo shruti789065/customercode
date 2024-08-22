@@ -9,14 +9,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .dupla_image{
-	grid-template-columns: 1fr 1fr;
-	.second_image{
-		display: block;
-		.cmp-image{
-			margin-top: 0;
-		}
-	}
+  .dupla_image {
+    grid-template-columns: 1fr 1fr;
+    .second_image {
+      display: block;
+      .cmp-image {
+        margin-top: 0;
+      }
+    }
   }
   .button {
     .cmp-button {
@@ -24,23 +24,42 @@
       background: transparent;
     }
   }
-  .link{
-	.cmp-button{
-		color: $color-text;
-	}
-  }
-  @include respond-to(tablet) {
-    header.cmp-experiencefragment--header-mobile {
-      display: block;
+  .link {
+    .cmp-button {
+      color: $color-text;
     }
-    #navigationMenuMobile {
-      .wrapper {
-        #mobileNavbar {
-          display: grid;
-          grid-template-columns: 15rem 25rem;
-          justify-content: space-between;
+  }
+  .puzzle-carousel {
+    .cmp-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      .teaser {
+        .cmp-teaser__image {
         }
       }
+    }
+  }
+  header.cmp-experiencefragment--header-mobile {
+    display: block;
+  }
+  header.cmp-experiencefragment--header-desktop {
+    display: none;
+  }
+  #navigationMenuMobile {
+    .wrapper {
+      #mobileNavbar {
+        display: grid;
+        grid-template-columns: 15rem 25rem;
+        justify-content: space-between;
+      }
+    }
+  }
+  @include respond-to(laptop) {
+    header.cmp-experiencefragment--header-mobile {
+      display: none;
+    }
+    header.cmp-experiencefragment--header-desktop {
+      display: block;
     }
   }
 }
