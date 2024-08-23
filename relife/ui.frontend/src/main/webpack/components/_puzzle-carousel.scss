@@ -20,6 +20,31 @@
       }
     }
   }
+  .taser {
+    &.cmp-teaser--gotham {
+      .cmp-teaser__content {
+        .cmp-teaser__title {
+          text-transform: uppercase;
+          font-family: $title-bold;
+          font-size: clamp(1.143rem, 0.125vw + 1.114rem, 1.286rem);
+        }
+        .cmp-teaser__description {
+          p {
+            font-size: clamp(1.071rem, 0.063vw + 1.057rem, 1.143rem);
+          }
+        }
+        .cmp-teaser__action-container {
+          .cmp-teaser__action-link {
+            font-size: 1.071rem;
+            font-weight: bold;
+            font-family: $title-medium;
+            text-decoration-color: rgba(28, 29, 29, 0.3);
+            text-underline-offset: 0.5rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 @include respond-to(desktop) {
