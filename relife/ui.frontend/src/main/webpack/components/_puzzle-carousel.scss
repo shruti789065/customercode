@@ -8,40 +8,71 @@
     overflow-x: scroll;
     overflow-y: hidden;
     flex-wrap: nowrap;
+    min-height: 18rem;
+    height: 100%;
     &::-webkit-scrollbar {
       background: transparent; /* Chrome/Safari/Webkit */
       width: 0px;
     }
     .teaser {
+      height: auto;
       .cmp-teaser {
         display: block;
         min-width: clamp(16.857rem, 13.75vw + 13.714rem, 32.571rem);
         width: 100%;
+        .cmp-teaser__content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          .cmp-teaser__title {
+            text-transform: uppercase;
+            font-size: clamp(1.143rem, 0.125vw + 1.114rem, 1.286rem);
+			margin: 0;
+          }
+          .cmp-teaser__description {
+            p {
+              font-size: clamp(1.071rem, 0.063vw + 1.057rem, 1.143rem);
+            }
+          }
+          .cmp-teaser__action-container {
+			margin-top: 2.5rem;
+            .cmp-teaser__action-link {
+              font-size: 1.071rem;
+              font-weight: bold;
+              text-decoration-color: rgba(28, 29, 29, 0.3);
+              text-underline-offset: 0.5rem;
+            }
+          }
+        }
       }
     }
   }
-  .taser {
+  .teaser {
     &.cmp-teaser--gotham {
       .cmp-teaser__content {
         .cmp-teaser__title {
-          text-transform: uppercase;
           font-family: $title-bold;
-          font-size: clamp(1.143rem, 0.125vw + 1.114rem, 1.286rem);
         }
-        .cmp-teaser__description {
-          p {
-            font-size: clamp(1.071rem, 0.063vw + 1.057rem, 1.143rem);
-          }
-        }
+
         .cmp-teaser__action-container {
           .cmp-teaser__action-link {
-            font-size: 1.071rem;
-            font-weight: bold;
             font-family: $title-medium;
-            text-decoration-color: rgba(28, 29, 29, 0.3);
-            text-underline-offset: 0.5rem;
           }
         }
+      }
+    }
+    &.cmp-align--center {
+      text-align: left;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .puzzle-carousel {
+    .teaser {
+      &.cmp-align--center {
+        text-align: center;
       }
     }
   }
