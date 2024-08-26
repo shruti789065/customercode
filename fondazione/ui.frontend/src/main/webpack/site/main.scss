@@ -1,5 +1,11 @@
 
+@import 'fonts';
 @import 'variables';
+
+// Import scss Bootstrap
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Custom scss
 @import 'base';
 @import '../components/**/*.scss';
 @import './styles/*.scss';
