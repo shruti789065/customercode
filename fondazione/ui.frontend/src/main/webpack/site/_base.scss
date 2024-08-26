@@ -8,11 +8,17 @@ body {
     line-height: $font-height;
     color:       $color-foreground;
     background:  $color-background;
-
+    
     @media (prefers-color-scheme: dark) {
         color:       $color-foreground-dark;
         background:  $color-background-dark;
     }
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 250;
+    line-height: 45px;
 }
 
 
@@ -31,3 +37,22 @@ select,
 textarea {
     font: inherit;
 }
+
+
+.cta-fondazione-primary {
+    color: $white;
+    background-color: $color-fondazione-red;
+    padding: 10px 50px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    border: none;
+}
+
+
+// INIZIO RADIO BUTTON
+input[type=radio] {
+    accent-color: $color-fondazione-form-link;
+}
+// FINE RADIO BUTTON
