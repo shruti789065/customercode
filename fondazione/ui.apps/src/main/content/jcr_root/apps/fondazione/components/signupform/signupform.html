@@ -115,25 +115,44 @@
                             aria-describedby="countryHelp">
                     </div>
                 </div>
-                <div class="col-6 pe-0">
+                <div class="col-6 pe-0 cmp-signupform__customMultiSelect">
                     <div class="cmp-signupform__formItemTitle">
                         Area of Interest <span>*</span>
                         <div class="cmp-signupform__formItemLabel">Select a minimum of one interest up to a maximum of
                             three</div>
                     </div>
-                    <div>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle mt-2 text-start" type="button"
-                                id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="w-100 h-100 d-flex align-items-center">Select Area of Interest</div>
+                    <div class="mt-2">
+                        <div class="custom-dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton">
+                                Select Area of Interest
                             </button>
-                            <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownMenuButton1">
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Biologist</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Diagnostic Laboratory Technician</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Doctor</a></li>
+                            <ul class="dropdown-menu" id="interestList">
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Algology"> Algology</label></li>
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Allergology and Clinical Immunology">
+                                        Allergology and Clinical Immunology</label></li>
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Anaestesia and Intensive Care"> Anaestesia
+                                        and Intensive Care</label></li>
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Analyst"> Analyst</label></li>
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Andrology"> Andrology</label></li>
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Biochemistry"> Biochemistry</label></li>
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Cardiology"> Cardiology</label></li>
+                                <li class="d-flex align-items-center"><label
+                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                            class="form-check-input" value="Dentistry"> Dentistry</label></li>
                             </ul>
                         </div>
                     </div>
@@ -182,32 +201,6 @@
                         <input placeholder="Insert Pasword Confirmation" type="password"
                             class="form-control cmp-signupform__textField mt-2" id="passwordConfirmation"
                             aria-describedby="passwordConfirmationHelp">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row g-4 m-0 p-0 cmp-signupform__customMultiSelect">
-                <div class="col-6 ps-0">
-                    <div class="cmp-signupform__formItemTitle">
-                        Password <span>*</span>
-                    </div>
-                    <div>
-                        <div class="custom-dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton">
-                                Select Area of Interest
-                            </button>
-                            <ul class="dropdown-menu" id="interestList">
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Algology"> Algology</label></li>
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Allergology and Clinical Immunology"> Allergology and Clinical Immunology</label></li>
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Anaestesia and Intensive Care"> Anaestesia and Intensive Care</label></li>
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Analyst"> Analyst</label></li>
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Andrology"> Andrology</label></li>
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Biochemistry"> Biochemistry</label></li>
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Cardiology"> Cardiology</label></li>
-                                <li class="d-flex align-items-center"><label class="dropdown-item d-flex align-items-center"><input type="checkbox" class="form-check-input" value="Dentistry"> Dentistry</label></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>

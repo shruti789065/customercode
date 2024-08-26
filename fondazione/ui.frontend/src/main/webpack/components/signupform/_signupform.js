@@ -1,17 +1,6 @@
-$(function () {
-  $('#datepicker').datepicker();
-});
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
-  const dropdownButton = document.getElementById('dropdownMenuButton');
-  const dropdownMenu = document.getElementById('interestList');
+  const dropdownButton = document.querySelector('#dropdownMenuButton');
+  const dropdownMenu = document.querySelector('#interestList');
   const checkboxes = dropdownMenu.querySelectorAll('input[type="checkbox"]');
   let selectedItems = [];
 
