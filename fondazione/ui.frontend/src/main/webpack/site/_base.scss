@@ -8,10 +8,10 @@ body {
     color: $body-color;
     background: $color-background;
 
-    @media (prefers-color-scheme: dark) {
-        color: $color-foreground-dark;
-        background: $color-background-dark;
-    }
+    // @media (prefers-color-scheme: dark) {
+    //     color: $color-foreground-dark;
+    //     background: $color-background-dark;
+    // }
 }
 
 .container-fluid {
@@ -99,9 +99,9 @@ h5,
 a {
     color: $color-link;
 
-    @media (prefers-color-scheme: dark) {
-        color: $color-link-dark;
-    }
+    // @media (prefers-color-scheme: dark) {
+    //     color: $color-link-dark;
+    // }
 }
 
 button,
