@@ -69,30 +69,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateDropdownTextMultiple() {
     let innerString = selectedItemsMultipleSelect.length === 0 ? 'Select Area of Interest' : selectedItemsMultipleSelect.join(', ');
-
     if (innerString !== 'Select Area of Interest') {
       dropdownButtonMultiple.classList.add('dropdown-toggle-filled');
     } else {
       dropdownButtonMultiple.classList.remove('dropdown-toggle-filled');
     }
-
     dropdownButtonMultiple.textContent = innerString
-
-
   }
 
   function updateDropdownTextProfession() {
     let innerString = selectedProfession === "" ? 'Select Profession' : selectedProfession;
-
     if (innerString !== 'Select Profession') {
       dropdownButtonProfession.classList.add('dropdown-toggle-filled');
     } else {
       dropdownButtonProfession.classList.remove('dropdown-toggle-filled');
     }
-
     dropdownButtonProfession.textContent = innerString
-
-
   }
 
   function displayButtonBorderBottom(button, menu) {

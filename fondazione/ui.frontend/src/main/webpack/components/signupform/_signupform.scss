@@ -107,11 +107,31 @@
         color: $color-fondazione-text-light;
         background-color: transparent;
         font-family: $headings-font-family;
-
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+    
         &::after {
             display: none;
         }
+    
+        &::before {
+            content: '';
+            background-image: url('../resources/icons/icon_dropdown.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 16px;
+            top: calc(50% + 5px);
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+        }
+    
+        &.active-dropdown::before {
+            transform: translateY(calc(-50% - 5px)) rotate(180deg);
+        }
     }
+    
 
     .dropdown-toggle-filled {
         font-family: Oswald;
