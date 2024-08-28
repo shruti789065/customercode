@@ -2,9 +2,13 @@
 	 font-family: $title-light;
 }
 .cmp-text--bold{
-	font-weight: bold;
+	font-family: $title-bold!important;
 }
-
+.cmp-text{
+	p{
+		margin: 0;
+	}
+}
 .cmp-button__show-more {
     display: none;
     padding: 0;

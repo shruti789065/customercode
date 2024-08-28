@@ -49,8 +49,9 @@ $font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
 		  text-decoration: none;
 		  font-size: $font-size-style;
 		  &:hover{
-			text-underline-offset: .5rem;
+			text-underline-offset: .6rem;
 			text-decoration: underline;
+			text-decoration-color: rgba(255,255,255,.3);
 		  }
         }
       }
