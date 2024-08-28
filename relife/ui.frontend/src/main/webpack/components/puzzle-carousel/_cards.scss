@@ -1,7 +1,4 @@
-#imgProvv {
-  display: none;
-}
-.puzzle-carousel {
+.cmp-puzzle--cards {
   .cmp-container {
     display: flex;
     gap: 3rem;
@@ -69,7 +66,7 @@
 }
 
 @include respond-to(tablet) {
-  .puzzle-carousel {
+  .cmp-puzzle--cards {
     .teaser {
       &.cmp-align--center {
         text-align: center;
@@ -79,10 +76,7 @@
 }
 
 @include respond-to(desktop) {
-  #imgProvv {
-    display: block;
-  }
-  .puzzle-carousel {
+  .cmp-puzzle--cards {
     .cmp-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
