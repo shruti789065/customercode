@@ -1,24 +1,24 @@
 <div class="cmp-signupform container">
-    <h2 class="cmp-signupform__title">Create your Fondazione Menarini account</h2>
+    <h2 class="cmp-signupform__title text-primary h2 h2-light mb-0">Create your Fondazione Menarini account</h2>
     <p class="cmp-signupform__subtitle">Fields marked with <span>*</span> are mandatory to process your queries</p>
 
     <div class="cmp-signupform__formwrapper w-100">
         <form class="cmp-signupform__formItemWrapper">
             <div class="row g-4 m-0 p-0">
-                <div class="col-6 ps-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         First Name <span>*</span>
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert First Name" type="text"
                             class="form-control cmp-signupform__textField mt-2" id="firstName"
                             aria-describedby="firstNamelHelp">
                     </div>
                 </div>
-                <div class="col-6 pe-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Last Name <span>*</span>
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Last Name" type="text"
                             class="form-control cmp-signupform__textField mt-2" id="lastName"
@@ -27,48 +27,72 @@
                 </div>
             </div>
 
-            <div class="row g-4 m-0 p-0 mt-2">
-                <div class="col-6 ps-0">
-                    <div class="cmp-signupform__formItemTitle">
+            <div class="row g-4 m-0 p-0">
+                <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Profession <span>*</span>
-                    </div>
+                    </h3>
                     <div>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle mt-2 text-start" type="button"
-                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="w-100 h-100 d-flex align-items-center">Select Profession</div>
+                        <div class="custom-dropdown position-relative w-100">
+                            <button class="dropdown-toggle overflow-hidden text-truncate w-100 text-start" type="button"
+                                id="dropdownProfessionMenuButton">
+                                Select Profession
                             </button>
-                            <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownMenuButton1">
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Biologist</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Diagnostic Laboratory Technician</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Doctor</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Healthcare Worker</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">No Healthcare</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Nurse</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Nurse's Assistant</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Obstetrician</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Pharmacist</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Psichologist</a></li>
-                                <li class="d-flex align-items-center"><a class="dropdown-item d-flex align-items-center"
-                                        href="#">Student</a></li>
+                            <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto" id="professionList">
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Biologist" value="Biologist">
+                                    <div class="dropdown-item d-flex align-items-center">Biologist</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Diagnostic Laboratory Technician"
+                                        value="Diagnostic Laboratory Technician">
+                                    <div class="dropdown-item d-flex align-items-center">Diagnostic Laboratory
+                                        Technician</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Doctor" value="Doctor">
+                                    <div class="dropdown-item d-flex align-items-center">Doctor</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Healthcare Worker" value="Healthcare Worker">
+                                    <div class="dropdown-item d-flex align-items-center">Healthcare Worker</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="No Healthcare" value="No Healthcare">
+                                    <div class="dropdown-item d-flex align-items-center">No Healthcare</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Nurse" value="Nurse">
+                                    <div class="dropdown-item d-flex align-items-center">Nurse</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Nurse’s Assistant" value="Nurse’s Assistant">
+                                    <div class="dropdown-item d-flex align-items-center">Nurse’s Assistant</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Obstetrician" value="Obstetrician">
+                                    <div class="dropdown-item d-flex align-items-center">Obstetrician</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Pharmacist" value="Pharmacist">
+                                    <div class="dropdown-item d-flex align-items-center">Pharmacist</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Psichologist" value="Psichologist">
+                                    <div class="dropdown-item d-flex align-items-center">Psichologist</div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <input type="hidden" name="Student" value="Student">
+                                    <div class="dropdown-item d-flex align-items-center">Student</div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 pe-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Gender
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Gender" type="text"
                             class="form-control cmp-signupform__textField mt-2" id="gender"
@@ -78,23 +102,23 @@
             </div>
 
             <div class="row g-4 m-0 p-0 mt-2">
-                <div class="col-6 ps-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Date of Birth <span>*</span>
-                    </div>
+                    </h3>
                     <div class="position-relative">
                         <!-- <input placeholder='Please select a date' id="dateOfBirth"
                             class="form-control mt-2 cmp-signupform__datepicker" type="date" /> -->
-                        <input class="form-control mt-2 cmp-signupform__datepicker" type="text"
+                        <input class="form-control mt-2 cmp-signupform__datepicker rounded-0" type="text"
                             placeholder="Insert mm/dd/yyyy" onfocus="(this.type='date')"
                             onblur="if(this.value==''){this.type='text'}">
 
                     </div>
                 </div>
-                <div class="col-6 pe-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Telephone
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Telephone" type="number"
                             class="form-control cmp-signupform__textField mt-2" id="telephone"
@@ -104,55 +128,61 @@
             </div>
 
             <div class="row g-4 m-0 p-0 mt-2">
-                <div class="col-6 ps-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Country <span>*</span>
-                        <div class="cmp-signupform__formItemLabel">Lorem ipsum dolor amet</div>
-                    </div>
+                        <div data-bs-toggle="tooltip" class="cmp-signupform__formItemLabel text-wrap text-truncate">
+                            Lorem ipsum dolor amet</div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Country" type="text"
                             class="form-control cmp-signupform__textField mt-2" id="country"
                             aria-describedby="countryHelp">
                     </div>
                 </div>
-                <div class="col-6 pe-0 cmp-signupform__customMultiSelect">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 ps-lg-2 cmp-signupform__customMultiSelect">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Area of Interest <span>*</span>
-                        <div class="cmp-signupform__formItemLabel">Select a minimum of one interest up to a maximum of
+                        <div class="cmp-signupform__formItemLabel text-wrap text-truncate">Select a minimum of one
+                            interest up to a maximum
+                            of
                             three</div>
-                    </div>
-                    <div class="mt-2">
-                        <div class="custom-dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton">
+                    </h3>
+                    <div>
+                        <div class="custom-dropdown position-relative w-100">
+                            <button class="dropdown-toggle w-100 overflow-hidden text-truncate text-start" type="button"
+                                id="dropdownMultiselectMenuButton">
                                 Select Area of Interest
                             </button>
-                            <ul class="dropdown-menu" id="interestList">
+                            <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto" id="interestList">
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Algology"> Algology</label></li>
+                                            class="form-check-input mt-0 rounded-0" value="Algology"> Algology</label></li>
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Allergology and Clinical Immunology">
+                                            class="form-check-input mt-0 rounded-0" value="Allergology and Clinical Immunology">
                                         Allergology and Clinical Immunology</label></li>
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Anaestesia and Intensive Care"> Anaestesia
+                                            class="form-check-input mt-0 rounded-0" value="Anaestesia and Intensive Care">
+                                        Anaestesia
                                         and Intensive Care</label></li>
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Analyst"> Analyst</label></li>
+                                            class="form-check-input mt-0 rounded-0" value="Analyst"> Analyst</label></li>
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Andrology"> Andrology</label></li>
+                                            class="form-check-input mt-0 rounded-0" value="Andrology"> Andrology</label></li>
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Biochemistry"> Biochemistry</label></li>
+                                            class="form-check-input mt-0 rounded-0" value="Biochemistry"> Biochemistry</label>
+                                </li>
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Cardiology"> Cardiology</label></li>
+                                            class="form-check-input mt-0 rounded-0" value="Cardiology"> Cardiology</label></li>
                                 <li class="d-flex align-items-center"><label
                                         class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input" value="Dentistry"> Dentistry</label></li>
+                                            class="form-check-input mt-0 rounded-0" value="Dentistry"> Dentistry</label></li>
                             </ul>
                         </div>
                     </div>
@@ -160,20 +190,20 @@
             </div>
 
             <div class="row g-4 m-0 p-0 mt-2">
-                <div class="col-6 ps-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Email <span>*</span>
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Email" type="email"
-                            class="form-control cmp-signupform__textField mt-2" id="email"
+                            class="form-control cmp-signupform__textField rounded-0 mt-2" id="email"
                             aria-describedby="emaillHelp">
                     </div>
                 </div>
-                <div class="col-6 pe-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Email Confirmation <span>*</span>
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Email Confirmation" type="email"
                             class="form-control cmp-signupform__textField mt-2" id="emailConfirmation"
@@ -183,20 +213,20 @@
             </div>
 
             <div class="row g-4 m-0 p-0">
-                <div class="col-6 ps-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Password <span>*</span>
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Password" type="password"
                             class="form-control cmp-signupform__textField mt-2" id="password"
                             aria-describedby="passwordHelp">
                     </div>
                 </div>
-                <div class="col-6 pe-0">
-                    <div class="cmp-signupform__formItemTitle">
+                <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
                         Password Confirmation <span>*</span>
-                    </div>
+                    </h3>
                     <div>
                         <input placeholder="Insert Pasword Confirmation" type="password"
                             class="form-control cmp-signupform__textField mt-2" id="passwordConfirmation"
@@ -206,11 +236,10 @@
             </div>
 
             <div class="cmp-signupform__privacywrapper mt-4">
-                <div class="cmp-signupform__privacytitle">Privacy, Newsletter</div>
-
+                <h6 class="h6">Privacy, Newsletter</h6>
                 <div>
                     <p>
-                        Having read the <a href="#">privacy information notice</a> I consent to the processing of
+                        Having read the <a class="text-decoration-none" href="#">privacy information notice</a> I consent to the processing of
                         personal data
                         including sensitive personal data, for the purposes of managing my request pursuant to the GDPR
                         <span>*</span>
@@ -266,17 +295,20 @@
                     </fieldset>
                 </div>
 
-                <div class="mt-5">Security Code <span>*</span></div>
+                <div class="mt-5 small-text small-text-light">Security Code <span>*</span></div>
 
                 <script src="https://www.google.com/recaptcha/api.js" async defer>
                 </script>
-                <div class="g-recaptcha mt-3" data-sitekey="6LcMoyEqAAAAAA59HyT4MkX3MIPL7HmrWcpTjbQG"
-                    data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaResponseExpiry"
-                    data-error-callback="onRecaptchaError">
+
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="g-recaptcha mt-3 w-100" data-sitekey="6LcMoyEqAAAAAA59HyT4MkX3MIPL7HmrWcpTjbQG"
+                        data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaResponseExpiry"
+                        data-error-callback="onRecaptchaError">
+                    </div>
                 </div>
 
                 <div class="mt-4">
-                    <button class="cta-fondazione-primary" type="submit">SIGN UP</button>
+                    <button class="btn btn-primary cmp-signupform__cta" type="submit">SIGN UP</button>
                 </div>
             </div>
         </form>
