@@ -106,12 +106,13 @@
         line-height: 25px;
         color: $color-fondazione-text-light;
         background-color: transparent;
-    
+        font-family: $headings-font-family;
+
         &::after {
             display: none;
         }
     }
-    
+
     .dropdown-toggle-filled {
         font-family: Oswald;
         font-size: 20px;
@@ -119,7 +120,7 @@
         line-height: 25px;
         color: $body-color !important;
     }
-    
+
     .dropdown-menu {
         max-height: 200px;
         background-color: $white;
@@ -130,43 +131,42 @@
             height: 65px !important;
         }
     }
-    
+
     .active-dropdown {
         background-color: rgba(20, 63, 89, 0.2) !important;
     }
-    
+
     .dropdown-item {
         height: 100%;
         color: $body-color;
         padding: 0.5rem 1rem;
         cursor: pointer;
-    
+        font-family: $headings-font-family;
+        font-weight: 300;
+
         &:hover {
             background-color: $color-hover-li;
         }
     }
-    
+
     .form-check-input {
         margin-right: 10px;
         border: solid 2px $body-color;
         appearance: none;
-    
+
         &:focus {
             box-shadow: none;
             border-color: $body-color;
         }
-    
+
         &:checked {
             background-color: transparent;
             border-color: $blue-link;
             accent-color: $blue-link;
         }
     }
-    
+
     input[type="checkbox"]:not(:disabled):checked {
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" xml:space="preserve"><path style="fill: %230783FF" d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818"/></svg>');
     }
 }
-
-
-
