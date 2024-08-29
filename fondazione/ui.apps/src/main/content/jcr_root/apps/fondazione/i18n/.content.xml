@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
-    jcr:primaryType="nt:folder"/>
+    jcr:primaryType="nt:folder">
+    <en.json jcr:primaryType="nt:file"
+        jcr:mixinTypes="[mix:language]"
+        jcr:language="en"></en.json>
+    <de.json jcr:primaryType="nt:file"
+        jcr:mixinTypes="[mix:language]"
+        jcr:language="de"></de.json>
+</jcr:root>
