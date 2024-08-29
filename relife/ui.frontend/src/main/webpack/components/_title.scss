@@ -1,21 +1,61 @@
-.cmp-title--underline{
-	text-decoration: underline;
+.cmp-title--underline {
+  text-decoration: underline;
 }
 
-.cmp-title {
-    h1, h2, h3, h4, h5, h6{
+.title {
+  &.cmp-title--vermiglione {
+    .cmp-title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Vermiglione";
+        font-weight: 300;
         color: $midnightBlue;
-        font-family: $title-bold;
+      }
+
+      h5 {
+        font-size: $h6-title-size;
+      }
+      h6 {
+        font-size: $h7-title-size;
+      }
+    }
+  }
+  .cmp-title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $midnightBlue;
+      font-family: $title-bold;
     }
 
-    h1 { font-size: $h1-title-size; }
-    h2 { font-size: $h2-title-size; }
-    h3 { font-size: $h3-title-size; }
-    h4 { font-size: $h4-title-size; }
-    h5 { font-size: $h5-title-size; }
-    h6 { font-size: $h6-title-size; }
+    h1 {
+      font-size: $h1-title-size;
+    }
+    h2 {
+      font-size: $h2-title-size;
+    }
+    h3 {
+      font-size: $h3-title-size;
+    }
+    h4 {
+      font-size: $h4-title-size;
+    }
+    h5 {
+      font-size: $h5-title-size;
+    }
+    h6 {
+      font-size: $h6-title-size;
+    }
 
-	.cmp-title__text{
-		margin: 1rem;
-	}
+    .cmp-title__text {
+      margin: 1rem;
+    }
+  }
 }
