@@ -32,10 +32,13 @@
                 </div>
             </div>
             <div class="col-6 ps-5">
-                <h2 class="text-primary h2 h2-light mb-0">${'not_registered' @ i18n}</h2>
-                <p class="d-flex align-items-center mt-4">${'proceed_create_account' @ i18n}</p>
-                <div class="mt-5">
-                    <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
+                <h2 class="text-primary h2 h2-light mb-0">${properties.titleFirstRow @ context='html'}</h2>
+                <h2 class="text-primary h2 h2-light mb-0">${properties.titleSecondRow @ context='html'}</h2>
+                <p class="d-flex align-items-center mt-3">${properties.content @ context='html'}</p>
+                <div class="mt-4">
+                    <a href="${properties.signupUrl}">
+                        <div class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</div>
+                    </a>
                 </div>
             </div>
         </div>
