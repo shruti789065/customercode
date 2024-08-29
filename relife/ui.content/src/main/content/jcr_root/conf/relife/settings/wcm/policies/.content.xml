@@ -276,12 +276,12 @@
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:lastModified="{Date}2024-08-12T12:15:46.132+02:00"
-                    jcr:lastModifiedBy="admin"
+                    jcr:lastModified="{Date}2024-08-28T08:33:34.892Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Title"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="[h2,h3,h4,h5,h6]"
+                    allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="false"
                     type="h2">
                     <jcr:content
@@ -591,9 +591,13 @@
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
                     jcr:description="Sets the title size to H3."
+                    jcr:lastModified="{Date}2024-08-23T14:46:27.160Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Teaser"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="true"
                     titleType="h3">
                     <jcr:content
                         cq:isDelivered="{Boolean}false"
@@ -605,6 +609,40 @@
                         cq:lastReplicationAction_publish="Activate"
                         jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
                         jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-align--left"
+                                    cq:styleId="1724339951617"
+                                    cq:styleLabel="Left"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-align--center"
+                                    cq:styleId="1724339955071"
+                                    cq:styleLabel="Center"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-align--right"
+                                    cq:styleId="1724339965616"
+                                    cq:styleLabel="Right"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Style"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-teaser--gotham"
+                                    cq:styleId="1724341145427"
+                                    cq:styleLabel="Gotham"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
                 </policy_1575031387650>
             </teaser>
             <download jcr:primaryType="nt:unstructured">
@@ -687,8 +725,8 @@
                 </container>
                 <wrapper jcr:primaryType="nt:unstructured">
                     <policy_1719824277018
-                        jcr:lastModified="{Date}2024-07-01T10:58:23.845+02:00"
-                        jcr:lastModifiedBy="admin"
+                        jcr:lastModified="{Date}2024-08-22T15:10:46.330Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Wrapper Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
@@ -729,6 +767,35 @@
                             jcr:primaryType="nt:unstructured"/>
                     </policy_1719824310667>
                 </section>
+                <puzzle-carousel jcr:primaryType="nt:unstructured">
+                    <policy_1724841425608
+                        jcr:lastModified="{Date}2024-08-28T10:38:56.833Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Puzzle Carousel policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Type "
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-puzzle--cards"
+                                        cq:styleId="1724841447090"
+                                        cq:styleLabel="Cards"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-puzzle--images"
+                                        cq:styleId="1724841452139"
+                                        cq:styleLabel="Images"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1724841425608>
+                </puzzle-carousel>
             </containers>
             <button jcr:primaryType="nt:unstructured">
                 <policy_1721037206735
@@ -1162,6 +1229,29 @@
                     </cq:styleGroups>
                 </policy_1723459664517>
             </slide-video>
+            <dupla_image jcr:primaryType="nt:unstructured">
+                <policy_1723646730472
+                    jcr:lastModified="{Date}2024-08-14T14:47:25.188Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Dupla Image policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Type"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="dupla_image--mirrored"
+                                    cq:styleId="1723646831041"
+                                    cq:styleLabel="Revert"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1723646730472>
+            </dupla_image>
         </components>
     </relife>
     <wcm jcr:primaryType="nt:unstructured">

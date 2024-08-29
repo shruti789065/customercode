@@ -29,14 +29,16 @@
       color: $color-text;
     }
   }
-  .puzzle-carousel {
+  .cmp-puzzle--cards {
     .cmp-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      .teaser {
-        .cmp-teaser__image {
-        }
-      }
+    }
+  }
+  .cmp-puzzle--images {
+    .cmp-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   header.cmp-experiencefragment--header-mobile {

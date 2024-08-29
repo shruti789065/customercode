@@ -4,13 +4,7 @@
     gap: 3rem;
     overflow-x: scroll;
     overflow-y: hidden;
-    flex-wrap: nowrap;
-    min-height: 18rem;
-    height: 100%;
-    &::-webkit-scrollbar {
-      background: transparent; /* Chrome/Safari/Webkit */
-      width: 0px;
-    }
+
     .teaser {
       height: auto;
       .cmp-teaser {
@@ -25,7 +19,7 @@
           .cmp-teaser__title {
             text-transform: uppercase;
             font-size: clamp(1.143rem, 0.125vw + 1.114rem, 1.286rem);
-			margin: 0;
+            margin: 0;
           }
           .cmp-teaser__description {
             p {
@@ -33,7 +27,7 @@
             }
           }
           .cmp-teaser__action-container {
-			margin-top: 2.5rem;
+            margin-top: 2.5rem;
             .cmp-teaser__action-link {
               font-size: 1.071rem;
               font-weight: bold;

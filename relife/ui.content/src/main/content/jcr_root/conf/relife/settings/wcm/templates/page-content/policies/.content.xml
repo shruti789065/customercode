@@ -3,8 +3,8 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}false"
-        cq:lastModified="{Date}2024-08-13T17:31:28.899+02:00"
-        cq:lastModifiedBy="admin"
+        cq:lastModified="{Date}2024-08-28T10:38:56.844Z"
+        cq:lastModifiedBy="a.messori@adiacent.com"
         cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
         cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
@@ -104,6 +104,14 @@
                                     cq:policy="relife/components/containers/section/policy_1719824310667"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <wrapper
+                                    cq:policy="relife/components/containers/wrapper/policy_1719824277018"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <puzzle-carousel
+                                    cq:policy="relife/components/containers/puzzle-carousel/policy_1724841425608"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
                             </containers>
                             <slideshow
                                 cq:policy="relife/components/slideshow/policy_1723457800614"
@@ -111,6 +119,10 @@
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <slide-video
                                 cq:policy="relife/components/slide-video/policy_1723459664517"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <dupla_image
+                                cq:policy="relife/components/dupla_image/policy_1723646730472"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                         </components>
