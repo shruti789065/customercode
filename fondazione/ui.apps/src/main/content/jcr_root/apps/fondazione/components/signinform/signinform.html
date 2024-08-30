@@ -1,7 +1,7 @@
 <div class="container">
     <form class="customform">
         <div class="row">
-            <div class="col-6 pe-5 border-end">
+            <div class="col-12 col-lg-6 pe-lg-5 customform__signincol">
                 <h2 class="text-primary h2 h2-light mb-0">${'signin_form_title' @ i18n}</h2>
 
                 <div class="mt-5">
@@ -26,12 +26,12 @@
                     <div class="mt-5">
                         <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signin' @ i18n}</button>
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-4 mb-5 mb-lg-0">
                         <a class="text-decoration-none" href="#">${'forgot_password' @ i18n}</a>
                     </div>
                 </div>
             </div>
-            <div class="col-6 ps-5">
+            <div class="col-12 col-lg-6 ps-lg-5 mt-5 mt-lg-0">
                 <h2 class="text-primary h2 h2-light mb-0">${properties.titleFirstRow @ context='html'}</h2>
                 <h2 class="text-primary h2 h2-light mb-0">${properties.titleSecondRow @ context='html'}</h2>
                 <p class="d-flex align-items-center mt-3">${properties.content @ context='html'}</p>
