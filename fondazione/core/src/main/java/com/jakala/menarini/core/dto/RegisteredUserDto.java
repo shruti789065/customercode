@@ -65,6 +65,9 @@ public class RegisteredUserDto implements Serializable {
 	@Field(name="tax_id_code")
 	private String taxIdCode;
 
+	@Field(name="registration_status")
+	private String registrationStatus;
+
 	private String username;
 
 	//bi-directional many-to-one association to EventEnrollment
@@ -175,6 +178,14 @@ public class RegisteredUserDto implements Serializable {
 
 	public String getNewsletterSubscription() {
 		return this.newsletterSubscription;
+	}
+
+	public String getRegistrationStatus() {
+		return this.registrationStatus;
+	}
+
+	public void setRegistrationStatus(String registrationStatus) {
+		this.registrationStatus = registrationStatus;
 	}
 
 	public void setNewsletterSubscription(String newsletterSubscription) {
