@@ -1,10 +1,8 @@
 <div class="cmp-signupform container">
-    <h2 class="cmp-signupform__title text-primary h2 h2-light mb-0">${'signup_form_title' @ i18n}</h2>
+    <h2 class="text-primary h2 h2-light mb-0">${'signup_form_title' @ i18n}</h2>
     <p class="cmp-signupform__subtitle">${'fields_marked_with' @ i18n}<span> ${'mandatory' @ i18n}</span> ${'are_mandatory_to_process_your_queries' @ i18n}</p>
-
-
-    <div class="cmp-signupform__formwrapper w-100">
-        <form class="cmp-signupform__formItemWrapper">
+    <div class="w-100">
+        <form class="customform">
             <div class="row g-4 m-0 p-0">
                 <div class="col-12 col-lg-6 px-0 pe-lg-2">
                     <h3 class="cmp-signupform__formItemTitle h3">
@@ -12,7 +10,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'first_name_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="firstName"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
                             aria-describedby="firstNamelHelp">
                     </div>
                 </div>
@@ -22,7 +20,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'last_name_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="lastName"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="lastName"
                             aria-describedby="lastNamelHelp">
                     </div>
                 </div>
@@ -97,7 +95,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'gender_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="gender"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="gender"
                             aria-describedby="genderHelp">
                     </div>
                 </div>
@@ -109,7 +107,7 @@
                         ${'date_of_birth' @ i18n} <span>${'mandatory' @ i18n}</span>
                     </h3>
                     <div class="position-relative">
-                        <input class="form-control mt-2 cmp-signupform__datepicker rounded-0" type="text"
+                        <input class="form-control mt-2 cmp-form__datepicker rounded-0" type="text"
                             placeholder="${'date_of_birth_placeholder' @ i18n}" onfocus="(this.type='date')"
                             onblur="if(this.value==''){this.type='text'}">
 
@@ -121,7 +119,7 @@
                     </h3>
                     <div>
                         <input placeholder="Insert Telephone" type="number"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="telephone"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="telephone"
                             aria-describedby="telephoneHelp">
                     </div>
                 </div>
@@ -136,7 +134,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'country_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="country"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="country"
                             aria-describedby="countryHelp">
                     </div>
                 </div>
@@ -203,7 +201,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'email_placeholder' @ i18n}" type="email"
-                            class="form-control cmp-signupform__textField rounded-0 mt-2" id="email"
+                            class="form-control cmp-form__textField rounded-0 mt-2" id="email"
                             aria-describedby="emaillHelp">
                     </div>
                 </div>
@@ -213,7 +211,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'email_confirmation_placeholder' @ i18n}" type="email"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="emailConfirmation"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="emailConfirmation"
                             aria-describedby="emailConfirmationlHelp">
                     </div>
                 </div>
@@ -226,7 +224,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'password_placeholder' @ i18n}" type="password"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="password"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="password"
                             aria-describedby="passwordHelp">
                     </div>
                 </div>
@@ -236,7 +234,7 @@
                     </h3>
                     <div>
                         <input placeholder="${'password_confirmation_placeholder' @ i18n}" type="password"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="passwordConfirmation"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="passwordConfirmation"
                             aria-describedby="passwordConfirmationHelp">
                     </div>
                 </div>
