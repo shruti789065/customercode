@@ -6,7 +6,7 @@ body {
     line-height: 25px;
     font-weight: 400;
     color: $body-color;
-    background: $color-background;
+    background: $white;
 
     // @media (prefers-color-scheme: dark) {
     //     color: $color-foreground-dark;
@@ -80,7 +80,7 @@ h6,
     font-weight: 400;
     line-height: 32px;
 
-    &.h5-light {
+    &.h6-light {
         font-weight: 250;
     }
 }
@@ -139,7 +139,7 @@ textarea {
 
 // INIZIO RADIO BUTTON
 input[type=radio] {
-    accent-color: $color-fondazione-form-link;
+    accent-color: $blue-link;
 }
 
 // FINE RADIO BUTTON
