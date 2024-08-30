@@ -1,0 +1,43 @@
+<footer class="cmp-footer container-fluid px-0">
+    <div class="cmp-footer__top bg-secondary text-white">
+        <div class="cmp-footer__container py-4 px-3 px-lg-5">
+            <div class="row">
+                <div class="cmp-footer__section col-12 col-lg-8 col-xl-7" data-sly-list.link="${resource.getChildren}">
+                    <ul class="cmp-list" data-sly-list.link="${link.getChildren}" data-sly-test="${link.name == 'footerLinks'}">
+                        <li class="cmp-list__item">
+                            <a class="cmp-list__item-link h5 h5-light d-flex justify-content-between me-3 me-lg-0"  href="${link.linkUrl}" target="${link.target}">${link.linkName}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cmp-footer__section col-12 col-lg-4 col-xl-5 text-lg-end">
+                    <div class="d-flex flex-column h-100 justify-content-center mt-4 mt-lg-0 pb-5">
+                        <h2 class="h2-light">${properties.socialTitle}</h2>
+                        <div data-sly-list.link="${resource.getChildren}">
+                            <div class="d-flex justify-content-lg-end gap-3 flex-wrap" data-sly-list.link="${link.getChildren}" data-sly-test="${link.name == 'socialLinks'}">
+                                <a class="cmp-button-social cmp-button-social-${link.socialName}" href="${link.socialLink}" target="${link.target}" title="${link.socialName}"></a>              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cmp-footer__bottom small-text small-text-light pt-4 pb-3 px-3 px-lg-5">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                ${properties.jcr:legalInformation @ context='html'}
+            </div>
+            <div class="col-12 col-lg-6 text-lg-end py-4 py-md-0">
+                <a href="/" title="Homepage">
+                    <img src="${properties.fileReference}" alt="${properties.alt}" width="218" height="62" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                ${properties.jcr:copyright @ context='html'}
+            </div>
+        </div>
+        
+    </div>
+</footer>
