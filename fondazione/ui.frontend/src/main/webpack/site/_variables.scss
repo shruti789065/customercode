@@ -1,3 +1,5 @@
+$resources-path: '/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources';
+
 // Font
 $font-family-base: 'ArimoVariable', Helvetica, Arial, sans-serif;
 $font-family-code: 'ArimoVariable', Helvetica, Arial, sans-serif;
@@ -17,7 +19,7 @@ $container-max-widths: (
     xl: 1140px,
     xxl: 1200px) !default;
 
-$container-fluid-max-width: 1720px;
+$container-fluid-max-width: 1920px;
 
 // Breackpoints
 $grid-breakpoints: (
@@ -38,19 +40,12 @@ $blue-dark: #222E41;
 $color-fondazione-text-light: #B6B59C;
 $white: #FFFFFF;
 
-
-
 // Normal mode
+$white: #FFFFFF;
 $color-foreground: #202020;
 $color-background: #ECECEC;
 $color-link: #2020E0;
-$color-fondazione-red: #AE0F0A;
-$color-fondazione-text: #484542;
 $color-hover-li: #143F5933;
-$color-fondazione-form-link: #0783FF;
-$color-foreground: #202020;
-$color-background: #FFFFFF;
-$color-link: #2020E0;
 
 // Dark mode
 $color-foreground-dark: invert($color-foreground
