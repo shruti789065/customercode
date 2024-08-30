@@ -129,9 +129,10 @@ textarea {
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
+    font-family: $headings-font-family;
 
     @include media-breakpoint-down(lg) {
-       width: 100%;
+        width: 100%;
     }
 }
 
