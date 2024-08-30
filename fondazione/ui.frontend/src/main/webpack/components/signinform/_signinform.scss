@@ -1,0 +1,16 @@
+.customform {
+
+    .customform__signincol {
+        border-right: solid 1px $color-fondazione-text-light;
+
+        @include media-breakpoint-down(lg) {
+            border-right: none;
+            border-bottom: solid 1px $color-fondazione-text-light;
+        }
+    }
+
+    .cmp-signinform__formItemTitle {
+        font-weight: 300;
+    }
+
+}

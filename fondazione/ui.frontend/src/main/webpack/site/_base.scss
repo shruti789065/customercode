@@ -1,27 +1,118 @@
-//== Base
-
+// Base
 html,
 body {
     margin: 0;
-    font-size:   $font-size;
-    font-family: $font-family;
-    line-height: $font-height;
-    color:       $color-foreground;
-    background:  $color-background;
+    font-size: $font-size;
+    line-height: 25px;
+    font-weight: 400;
+    color: $body-color;
+    background: $color-background;
 
-    @media (prefers-color-scheme: dark) {
-        color:       $color-foreground-dark;
-        background:  $color-background-dark;
+    // @media (prefers-color-scheme: dark) {
+    //     color: $color-foreground-dark;
+    //     background: $color-background-dark;
+    // }
+}
+
+.container-fluid {
+    max-width: $container-fluid-max-width !important;
+}
+
+// Headings
+h1,
+.h1 {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 400;
+
+    &.h1-light {
+        font-weight: 250;
     }
 }
 
+h2,
+.h2 {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 400;
+
+    &.h2-light {
+        font-weight: 250;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: 300;
+
+    &.h3-light {
+        font-weight: 250;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 25px;
+    line-height: 45px;
+    font-weight: 400;
+
+    &.h4-light {
+        font-weight: 250;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 25px;
+    line-height: 32px;
+    font-weight: 400;
+
+    &.h5-light {
+        font-weight: 250;
+    }
+}
+
+h6,
+.h6 {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+
+    &.h5-light {
+        font-weight: 250;
+    }
+}
+
+.small-text {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0.25px;
+
+    &.small-text-light {
+        font-weight: 400;
+    }
+}
+
+.extra-small-text {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+
+    &.extra-small-text-light {
+        font-weight: 400;
+    }
+}
 
 a {
     color: $color-link;
 
-    @media (prefers-color-scheme: dark) {
-        color: $color-link-dark;
-    }
+    // @media (prefers-color-scheme: dark) {
+    //     color: $color-link-dark;
+    // }
 }
 
 button,
@@ -31,3 +122,24 @@ select,
 textarea {
     font: inherit;
 }
+
+
+.cmp-signupform__cta {
+    padding: 10px 50px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: $headings-font-family;
+
+    @include media-breakpoint-down(lg) {
+        width: 100%;
+    }
+}
+
+
+// INIZIO RADIO BUTTON
+input[type=radio] {
+    accent-color: $color-fondazione-form-link;
+}
+
+// FINE RADIO BUTTON
