@@ -1,21 +1,28 @@
 .cmp-breadcrumb {}
-.cmp-breadcrumb__list {
-    padding-left: 0px;
-    text-wrap: nowrap;
 
-    @include media-breakpoint-down(lg) {
-     text-wrap: wrap;
+.cmp-breadcrumb__list {
+
+    li {
+        min-width: 50px;
+    }
+
+    .cmp-breadcrumb__itemsSeparator {
+        padding-top: 3px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
     }
 }
-.cmp-breadcrumb__item {
-}
+
+.cmp-breadcrumb__item {}
+
 .cmp-breadcrumb__item--active {
-    text-transform: uppercase;
+
 
 }
+
 .cmp-breadcrumb__item-link {
     color: $body-color;
     text-decoration: none;
-    text-transform: uppercase;
-    
 }
