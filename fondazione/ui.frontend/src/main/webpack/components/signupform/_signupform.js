@@ -97,6 +97,33 @@ document.addEventListener('DOMContentLoaded', function () {
       button.classList.remove('active-dropdown');
     }
   }
+
+
+  let form = document.querySelector('#signUpForm');
+
+  if(form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+
+      let tmpFormData = {
+        profession: selectedProfession,
+        areasOfInterest: selectedItemsMultipleSelect
+      };
+  
+      for (let [key, value] of formData.entries()) {
+        tmpFormData = {
+          ...tmpFormData,
+          [`${key}`]: value
+        }
+      }
+
+      console.log("FORM DATA: ",tmpFormData);
+      
+    });
+  }
+
+  
 });
 
 
