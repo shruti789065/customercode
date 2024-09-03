@@ -1,0 +1,35 @@
+.cmp-heroslim {
+    height: 365px;
+
+    .cmp-heroslim__quote {
+        align-items: center;
+
+        @include media-breakpoint-down(md) {
+            align-items: end;
+        }
+
+
+    }
+
+    .cmp-heroslim__imgWrapper {
+
+        img {
+            background-size: contain;
+            object-fit: cover;
+        }
+    }
+
+    .cmp-heroslim__contentWrapper {
+        color: $white;
+        z-index: 100;
+
+        .h1 {
+            font-weight: 200;
+        }
+
+        .h2 {
+            font-weight: 200;
+        }
+
+    }
+}
