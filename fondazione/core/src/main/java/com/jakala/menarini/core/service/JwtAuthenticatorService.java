@@ -56,7 +56,7 @@ import com.jakala.menarini.core.dto.RoleDto;
             try {
                 LOGGER.info("Extracting credentials");
                 String token = this.getToken(request);
-                LOGGER.info("Token: {}", token);
+                //LOGGER.info("Token: {}", token);
 
                 if (token == null || !isValidToken(token)) {
                     LOGGER.warn("Invalid or missing token");
@@ -136,7 +136,7 @@ import com.jakala.menarini.core.dto.RoleDto;
 
                 final JsonObject jwkJsonObj = JsonParser.parseString(jwkString).getAsJsonObject();
                 String singleKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).toString();
-                LOGGER.info("JWK JSON KEY 0: {}", singleKey);
+                //LOGGER.info("JWK JSON KEY 0: {}", singleKey);
 
 
                 final Jwk<?> jwk = Jwks.parser().build().parse(singleKey);

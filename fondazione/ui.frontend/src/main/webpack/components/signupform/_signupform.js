@@ -99,16 +99,35 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+  async function sendData(registrationData) {
+    const responseCsrf = await fetch('/libs/granite/csrf/token.json');
+    const csrfToken = await responseCsrf.json();
+    console.log('CSRF-Token:',csrfToken);
+    const regResponse = await fetch("/bin/api/awsSignUp",{
+      method:"POST",
+      headers: {
+        'CSRF-Token':csrfToken.token
+      },
+      body:JSON.stringify(registrationData)
+
+    });
+    const dataResponse = await regResponse.json();
+    console.log(JSON.stringify(dataResponse,null,3));
+    return dataResponse;
+
+  }
+
+
   let form = document.querySelector('#signUpForm');
 
   if(form) {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit",  async(event) => {
       event.preventDefault();
       const formData = new FormData(form);
 
       let tmpFormData = {
         profession: selectedProfession,
-        areasOfInterest: selectedItemsMultipleSelect
+        areasOfInterest: selectedItemsMultipleSelect.map(x => x.replaceAll(" ",""))
       };
   
       for (let [key, value] of formData.entries()) {
@@ -119,11 +138,31 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       console.log("FORM DATA: ",tmpFormData);
-      
+      let registrationData = {
+        "firstName":tmpFormData.firstName,
+        "lastName":tmpFormData.lastName,
+        "birthDate":tmpFormData.dateOfBirth.replaceAll("-",""),
+        "password":tmpFormData.password,
+        "email":tmpFormData.email,
+        "profession":tmpFormData.profession,
+        "phone":tmpFormData.telNumber,
+        "country":tmpFormData.country,
+        "interests":tmpFormData.areasOfInterest,
+        "rolesNames":[],
+        "gender":tmpFormData.gender,
+        "privacyConsent":tmpFormData.privacy,
+        "profilingConsent":tmpFormData.personalDataProcessing,
+        "newsletterConsent":tmpFormData.receiveNewsletter
+      }
+      console.log("REGISTRATION DATA: ",registrationData);
+      const responseReg = await sendData(registrationData);
+      if(responseReg.cognitoSignUpErrorResponseDto) {
+          alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
+      } else {
+        document.location.href = "/us/welcome";
+      }
     });
   }
-
-  
 });
 
 

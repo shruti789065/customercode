@@ -29,10 +29,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component(
         service = AwsCognitoServiceInterface.class
@@ -47,6 +44,22 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     @Reference
     private RoleServiceInterface roleService;
 
+
+    private static final HashMap<String,String> MAP_PROFESSION_TO_ROLE;
+    static {
+        MAP_PROFESSION_TO_ROLE  = new HashMap<>();
+        MAP_PROFESSION_TO_ROLE .put("Biologist", "UserHealthCare");
+        MAP_PROFESSION_TO_ROLE .put("Diagnostic Laboratory Technician", "UserHealthCare");
+        MAP_PROFESSION_TO_ROLE .put("Doctor", "UserDoctor");
+        MAP_PROFESSION_TO_ROLE .put("Healthcare Worker", "UserHealthCare");
+        MAP_PROFESSION_TO_ROLE .put("No Healthcare", "User");
+        MAP_PROFESSION_TO_ROLE .put("Nurse", "UserDoctor");
+        MAP_PROFESSION_TO_ROLE .put("Nurse’s Assistant", "UserDoctor");
+        MAP_PROFESSION_TO_ROLE .put("Obstetrician", "UserDoctor");
+        MAP_PROFESSION_TO_ROLE .put("Pharmacist", "UserHealthCare");
+        MAP_PROFESSION_TO_ROLE .put("Psichologist", "UserDoctor");
+        MAP_PROFESSION_TO_ROLE .put("Student", "User");
+    }
 
 
     private String clientId;
@@ -79,9 +92,39 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         cognitoAuthParametersDto.setSECRET_HASH(secretHash);
         cognitoRequestSignInDto.setAuthParameters(cognitoAuthParametersDto);
         String body = gson.toJson(cognitoRequestSignInDto);
+        HttpPost httpPost = new HttpPost(this.idpUrl);
         Date now = new Date();
         String dateStr = new SimpleDateFormat("yyyyMMdd'T'HHmmssZ").format(now);
+        return handleSignInRequest(body,httpPost);
+
+    }
+
+    @Override
+    public SignInResponseDto refreshOnCognito(RefreshDto requestRefreshDto) {
+        Gson gson = new Gson();
+        String username = requestRefreshDto.getEmail().replace("@","_");
+        String secretHash = calculateSecretHash(username);
+
+        CognitoRefreshAuthParamDto cognitoRefreshAuthParamDto = new CognitoRefreshAuthParamDto();
+        cognitoRefreshAuthParamDto.setREFRESH_TOKEN(requestRefreshDto.getRefreshToken());
+        cognitoRefreshAuthParamDto.setSECRET_HASH(secretHash);
+        CognitoRequestRefreshDto cognitoRequestRefreshDto = new CognitoRequestRefreshDto();
+        cognitoRequestRefreshDto.setClientId(clientId);
+        cognitoRequestRefreshDto.setAuthParameters(cognitoRefreshAuthParamDto);
+
+        String body = gson.toJson(cognitoRequestRefreshDto);
+
         HttpPost httpPost = new HttpPost(this.idpUrl);
+        return handleSignInRequest(body, httpPost);
+
+
+
+    }
+
+    private SignInResponseDto handleSignInRequest(String body, HttpPost httpPost) {
+        Gson gson = new Gson();
+        Date now = new Date();
+        String dateStr = new SimpleDateFormat("yyyyMMdd'T'HHmmssZ").format(now);
         httpPost.setHeader("Content-Type", "application/x-amz-json-1.1");
         httpPost.setHeader("X-Amz-Target", "AWSCognitoIdentityProviderService.InitiateAuth");
         httpPost.setHeader("X-Amz-Date", dateStr);
@@ -109,16 +152,17 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
             signInResponseDto.setCognitoSignInErrorResponseDto(cognitoSignInErrorResponseDto);
             return signInResponseDto;
         }
-
     }
 
     @Override
     public SignUpDtoResponse registerOnCognito(SignUpDto registrationData) {
         registrationData.setRegistrationStatus(USER_MAIL_NOT_CONFIRMED);
+        registrationData.getRolesNames().add(MAP_PROFESSION_TO_ROLE
+                .get(registrationData.getProfession()));
         LOGGER.error("====== on call service =====");
+
         Gson gson = new Gson();
         Date now = new Date();
-        LOGGER.error(gson.toJson(registrationData));
         String dateStr = new SimpleDateFormat("yyyyMMdd'T'HHmmssZ").format(now);
         HttpPost httpPost = new HttpPost(this.idpUrl);
         httpPost.setHeader("Content-Type", "application/x-amz-json-1.1");
@@ -179,7 +223,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
                 SignUpDtoResponse errorResponse = new SignUpDtoResponse();
                 errorResponse.setCognitoSignUpErrorResponseDto(cognitoSignInErrorResponseDto);
                 LOGGER.error("========== Invalid Response ============");
-                LOGGER.error(responseString.toString());
+                //LOGGER.error(responseString.toString());
                 return errorResponse;
             }
 

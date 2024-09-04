@@ -10,8 +10,14 @@ public class SignUpDtoResponse  extends SignUpDto {
 
     public static HashMap<String,Long> MAPPING_MAPPING = new HashMap<>(
             Map.ofEntries(
-                    new AbstractMap.SimpleEntry<String, Long>("Medicine", 1L),
-                    new AbstractMap.SimpleEntry<String, Long>("Biotech", 2L)
+                    new AbstractMap.SimpleEntry<String, Long>("Algology", 1L),
+                    new AbstractMap.SimpleEntry<String, Long>("AllergologyandClinicalImmunology", 2L),
+                    new AbstractMap.SimpleEntry<String, Long>("AnaestesiaandIntensiveCare", 3L),
+                    new AbstractMap.SimpleEntry<String, Long>("Analyst", 4L),
+                    new AbstractMap.SimpleEntry<String, Long>("Andrology", 5L),
+                    new AbstractMap.SimpleEntry<String, Long>("Biochemistry", 6L),
+                    new AbstractMap.SimpleEntry<String, Long>("Cardiology", 7L),
+                    new AbstractMap.SimpleEntry<String, Long>("Dentistry", 8L)
             )
     );
 

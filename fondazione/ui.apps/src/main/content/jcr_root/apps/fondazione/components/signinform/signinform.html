@@ -1,5 +1,11 @@
 <div class="container">
-    <form class="customform">
+
+    <div  class="alert alert-danger alert-dismissible collapse"  role="alert" id="alertBox">
+        <button id="alertBtn" class="close" data-dismiss="alert" aria-label="close">×</button>
+        <div id="alertMessage"></div>
+    </div>
+
+    <form class="customform" id="signInForm" method="post">
         <div class="row">
             <div class="col-12 col-lg-6 pe-lg-5 customform__signincol">
                 <h2 class="text-primary h2 h2-light mb-0">${'signin_form_title' @ i18n}</h2>
@@ -7,19 +13,20 @@
                 <div class="mt-5">
                     <h3 class="h3">${'email_label' @ i18n}</h3>
                     <div class="mt-2">
-                        <input placeholder="${'email_label' @ i18n}" type="text"
-                            class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
-                            aria-describedby="firstNamelHelp">
+                        <input placeholder="${'email_label' @ i18n}" type="email"
+                            class="form-control cmp-form__textField mt-2 rounded-0" name="emailField" id="emailField"
+                            aria-describedby="firstNamelHelp" required>
                     </div>
                     <div class="mt-5">
                         <h3 class="h3">${'password' @ i18n}</h3>
-                        <input placeholder="${'password' @ i18n}" type="text"
-                            class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
-                            aria-describedby="firstNamelHelp">
+                        <input type="password" placeholder="${'password' @ i18n}"
+                            class="form-control cmp-form__textField mt-2 rounded-0" name="passField" id="passField"
+                            aria-describedby="firstNamelHelp" required>
                     </div>
                     <div class="mt-3">
                         <p class="d-flex align-items-center lh-1">
-                            <input type="checkbox" class="form-check-input mt-0 rounded-0 me-2" value="remember me">
+                            <input type="checkbox" class="form-check-input mt-0 rounded-0 me-2" value="remember me"
+                                  name="rememberCheck" id="rememberCheck">
                             ${'remember_me' @ i18n}
                         </p>
                     </div>

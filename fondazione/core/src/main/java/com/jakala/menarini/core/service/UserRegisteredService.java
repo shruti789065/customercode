@@ -137,7 +137,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     listTopics.add(tur);
                     RegisteredUserTopicRecord topicRecord = create.
                             newRecord(RegisteredUserTopic.REGISTERED_USER_TOPIC, tur);
-                    LOGGER.error(topicRecord.getId().toString());
+                    //LOGGER.error(topicRecord.getId().toString());
                     topicRecord.setRegisteredUserId(user.getId());
                     topicRecord.setTopicId(topic.getId());
                     topicRecord.store();
