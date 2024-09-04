@@ -1,0 +1,22 @@
+<nav data-sly-use.breadcrumb="com.adobe.cq.wcm.core.components.models.Breadcrumb"
+    data-sly-use.template="core/wcm/components/commons/v1/templates.html" id="${breadcrumb.id}" class="cmp-breadcrumb w-100"
+    aria-label="${'Breadcrumb' @ i18n}" data-sly-test="${breadcrumb.items.size > 0}"
+    data-cmp-data-layer="${breadcrumb.data.json}" role="navigation">
+    <ol class="cmp-breadcrumb__list ps-0 w-100 d-flex overflow-hidden" itemscope itemtype="http://schema.org/BreadcrumbList"
+        data-sly-list.navItem="${breadcrumb.items}">
+        <sly data-sly-set.lang="${navItem.page.properties.contentLang}" />
+        <li class="overflow-hidden text-uppercase text-nowrap flex-shrink-1 text-truncate cmp-breadcrumb__item${navItem.active ? ' cmp-breadcrumb__item--active' : ''}"
+            aria-current="${navItem.active ? 'page' : false}" data-cmp-data-layer="${navItem.data.json}"
+            itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a data-sly-attribute="${navItem.link.htmlAttributes}" class="text-uppercase cmp-breadcrumb__item-link" itemprop="item"
+                lang="${lang}" hreflang="${lang}" data-cmp-clickable="${breadcrumb.data ? true : false}"
+                data-sly-unwrap="${navItem.active || !navItem.link.valid}">
+                <span class="extra-small-text extra-small-text-light" itemprop="name">${navItem.title}</span>
+            </a>
+            <meta itemprop="position" content="${navItemList.count}" />
+        </li>
+        <div data-sly-test="${navItemList.count < breadcrumb.items.size}" class="extra-small-text extra-small-text-light cmp-breadcrumb__itemsSeparator mx-2 h-100 flex-shrink-0">/</div>
+
+    </ol>
+</nav>
+<sly data-sly-call="${template.placeholder @ isEmpty=breadcrumb.items.size == 0, classAppend='cmp-breadcrumb'}"></sly>
