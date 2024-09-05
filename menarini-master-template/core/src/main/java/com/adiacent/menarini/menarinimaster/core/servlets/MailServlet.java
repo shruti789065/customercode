@@ -488,7 +488,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 	public CloseableHttpClient getHttpClient() {
 		return HttpClients.createDefault();
 	}
-    public String getSecretKey(SlingHttpServletRequest request) {
+    protected String getSecretKey(SlingHttpServletRequest request) {
         try {
             ResourceResolver resourceResolver = request.getResourceResolver();
             Resource currentResource = request.getResource();
