@@ -1,6 +1,8 @@
 .dupla_image {
     display:grid;
     grid-template: auto auto / auto auto;
+    justify-content: end;
+    transition: $standard-transition;
 
     .first_image {
         .cmp-image {
@@ -15,13 +17,13 @@
 
     .second_image {
         display: flex;
-        left: -20%;
+        left: -30%;
         position: relative;
         z-index: 3;
         grid-area: 2 /2;
         align-items: baseline;
         .cmp-image {
-            margin-top: -40%;
+            margin-top: -65%;
 
             img {
                 width: clamp(192px, 15.8333333333vw, 304px);
@@ -32,6 +34,8 @@
     }
 
     &.dupla_image--mirrored {
+        justify-content: start;
+
         .first_image {
             grid-area: 1/2;
             position: relative;
@@ -42,7 +46,7 @@
 
         .second_image {
             grid-area: 2/1;
-            left: 10%;
+            left: 30%;
             justify-content: flex-end;
         }
     }
@@ -53,7 +57,7 @@
         .second_image {
             left: -60px;
             .cmp-image {
-                margin-top: -100px;
+                
             }
         }
         
