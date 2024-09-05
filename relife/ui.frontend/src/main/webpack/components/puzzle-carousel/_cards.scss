@@ -1,7 +1,7 @@
 .cmp-puzzle--cards {
   .cmp-container {
     display: flex;
-    gap: 3rem;
+    gap: 1.5rem;
     overflow-x: scroll;
     overflow-y: hidden;
 
@@ -11,6 +11,7 @@
         display: block;
         min-width: clamp(16.857rem, 13.75vw + 13.714rem, 32.571rem);
         width: 100%;
+        height: 100%;
         .cmp-teaser__content {
           display: flex;
           flex-direction: column;
@@ -61,9 +62,12 @@
 
 @include respond-to(tablet) {
   .cmp-puzzle--cards {
-    .teaser {
-      &.cmp-align--center {
-        text-align: center;
+    .cmp-container {
+      gap: 3rem;
+      .teaser {
+        &.cmp-align--center {
+          text-align: center;
+        }
       }
     }
   }

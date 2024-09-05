@@ -457,9 +457,9 @@
      */
     function navigateAndFocusTab(index, keepHash) {
       var exActive = that._active;
-      if (!keepHash && containerUtils) {
+     /* if (!keepHash && containerUtils) {
         containerUtils.updateUrlHash(that, "tab", index);
-      }
+      }*/
       navigate(index);
       focusWithoutScroll(that._elements["tab"][index]);
 

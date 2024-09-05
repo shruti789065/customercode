@@ -2,6 +2,8 @@ header.cmp-experiencefragment--header-desktop {
   z-index: 10 !important;
 
   #header--tablist {
+	position: relative;
+	bottom: -0.714rem;
     .cmp-tabs__tablist {
       justify-content: center;
       flex-wrap: nowrap;
@@ -89,6 +91,13 @@ header.cmp-experiencefragment--header-desktop {
           margin: 0.357rem 0;
         }
       }
+      &:hover {
+        .cmp-teaser__title {
+          text-underline-offset: 0.6rem;
+          text-decoration: underline;
+          text-decoration-color: rgba(28, 29, 29, .5);
+        }
+      }
     }
   }
   .text {
@@ -102,6 +111,11 @@ header.cmp-experiencefragment--header-desktop {
           text-decoration: none;
           b {
             font-family: $title-bold;
+          }
+          &:hover {
+            text-underline-offset: 0.6rem;
+            text-decoration: underline;
+            text-decoration-color: rgba(28, 29, 29, .5);
           }
         }
       }
