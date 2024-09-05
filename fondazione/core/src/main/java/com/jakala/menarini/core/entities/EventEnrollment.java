@@ -60,7 +60,7 @@ public class EventEnrollment extends TableImpl<EventEnrollmentRecord> {
     /**
      * The column <code>menarini_dev.EVENT_ENROLLMENT.event_id</code>.
      */
-    public final TableField<EventEnrollmentRecord, Long> EVENT_ID = createField(DSL.name("event_id"), SQLDataType.BIGINT, this, "");
+    public final TableField<EventEnrollmentRecord, String> EVENT_ID = createField(DSL.name("event_id"), SQLDataType.VARCHAR(30), this, "");
 
     /**
      * The column <code>menarini_dev.EVENT_ENROLLMENT.registered_user_id</code>.
@@ -162,21 +162,10 @@ public class EventEnrollment extends TableImpl<EventEnrollmentRecord> {
 
     @Override
     public List<ForeignKey<EventEnrollmentRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.EVENT_ENROLLMENT_IBFK_1, Keys.EVENT_ENROLLMENT_IBFK_2);
+        return Arrays.asList(Keys.EVENT_ENROLLMENT_IBFK_2);
     }
 
-    private transient Event _event;
     private transient RegisteredUser _registeredUser;
-
-    /**
-     * Get the implicit join path to the <code>menarini_dev.EVENT</code> table.
-     */
-    public Event event() {
-        if (_event == null)
-            _event = new Event(this, Keys.EVENT_ENROLLMENT_IBFK_1);
-
-        return _event;
-    }
 
     /**
      * Get the implicit join path to the
@@ -220,7 +209,7 @@ public class EventEnrollment extends TableImpl<EventEnrollmentRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Long, Long, Long, String, LocalDateTime, String, LocalDateTime, JSON, LocalDateTime, LocalDateTime> fieldsRow() {
+    public Row10<Long, String, Long, String, LocalDateTime, String, LocalDateTime, JSON, LocalDateTime, LocalDateTime> fieldsRow() {
         return (Row10) super.fieldsRow();
     }
 }

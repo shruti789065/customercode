@@ -64,7 +64,7 @@ public class RegisteredUserTopic extends TableImpl<RegisteredUserTopicRecord> {
     /**
      * The column <code>menarini_dev.REGISTERED_USER_TOPIC.topic_id</code>.
      */
-    public final TableField<RegisteredUserTopicRecord, Long> TOPIC_ID = createField(DSL.name("topic_id"), SQLDataType.BIGINT, this, "");
+    public final TableField<RegisteredUserTopicRecord, String> TOPIC_ID = createField(DSL.name("topic_id"), SQLDataType.VARCHAR(30), this, "");
 
     /**
      * The column
@@ -140,21 +140,10 @@ public class RegisteredUserTopic extends TableImpl<RegisteredUserTopicRecord> {
 
     @Override
     public List<ForeignKey<RegisteredUserTopicRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.REGISTERED_USER_TOPIC_IBFK_1, Keys.REGISTERED_USER_TOPIC_IBFK_2);
+        return Arrays.asList(Keys.REGISTERED_USER_TOPIC_IBFK_2);
     }
 
-    private transient Topic _topic;
     private transient RegisteredUser _registeredUser;
-
-    /**
-     * Get the implicit join path to the <code>menarini_dev.TOPIC</code> table.
-     */
-    public Topic topic() {
-        if (_topic == null)
-            _topic = new Topic(this, Keys.REGISTERED_USER_TOPIC_IBFK_1);
-
-        return _topic;
-    }
 
     /**
      * Get the implicit join path to the
@@ -198,7 +187,7 @@ public class RegisteredUserTopic extends TableImpl<RegisteredUserTopicRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Long, Integer, Long, Long, LocalDateTime, LocalDateTime> fieldsRow() {
+    public Row6<Long, Integer, String, Long, LocalDateTime, LocalDateTime> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 }

@@ -12,7 +12,7 @@ public class TopicDto implements Serializable {
 
 	public static String table = "TOPIC";
 
-	private long id;
+	private String id;
 
 	@Field(name="created_on")
 	private Timestamp createdOn;
@@ -31,11 +31,11 @@ public class TopicDto implements Serializable {
 	public TopicDto() {
 	}
 
-	public long getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

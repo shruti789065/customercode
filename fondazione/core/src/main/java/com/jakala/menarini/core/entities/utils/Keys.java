@@ -4,36 +4,16 @@
 package com.jakala.menarini.core.entities.utils;
 
 
-import com.jakala.menarini.core.entities.Event;
 import com.jakala.menarini.core.entities.EventEnrollment;
-import com.jakala.menarini.core.entities.EventSessionDate;
-import com.jakala.menarini.core.entities.EventSpeaker;
-import com.jakala.menarini.core.entities.EventTopic;
-import com.jakala.menarini.core.entities.Location;
-import com.jakala.menarini.core.entities.MagazineSubscription;
-import com.jakala.menarini.core.entities.NewsletterSubscription;
 import com.jakala.menarini.core.entities.RegisteredUser;
 import com.jakala.menarini.core.entities.RegisteredUserRole;
 import com.jakala.menarini.core.entities.RegisteredUserTopic;
 import com.jakala.menarini.core.entities.Role;
-import com.jakala.menarini.core.entities.Speaker;
-import com.jakala.menarini.core.entities.Topic;
-import com.jakala.menarini.core.entities.Venue;
 import com.jakala.menarini.core.entities.records.EventEnrollmentRecord;
-import com.jakala.menarini.core.entities.records.EventRecord;
-import com.jakala.menarini.core.entities.records.EventSessionDateRecord;
-import com.jakala.menarini.core.entities.records.EventSpeakerRecord;
-import com.jakala.menarini.core.entities.records.EventTopicRecord;
-import com.jakala.menarini.core.entities.records.LocationRecord;
-import com.jakala.menarini.core.entities.records.MagazineSubscriptionRecord;
-import com.jakala.menarini.core.entities.records.NewsletterSubscriptionRecord;
 import com.jakala.menarini.core.entities.records.RegisteredUserRecord;
 import com.jakala.menarini.core.entities.records.RegisteredUserRoleRecord;
 import com.jakala.menarini.core.entities.records.RegisteredUserTopicRecord;
 import com.jakala.menarini.core.entities.records.RoleRecord;
-import com.jakala.menarini.core.entities.records.SpeakerRecord;
-import com.jakala.menarini.core.entities.records.TopicRecord;
-import com.jakala.menarini.core.entities.records.VenueRecord;
 
 import org.jooq.ForeignKey;
 import org.jooq.TableField;
@@ -53,42 +33,18 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<EventRecord> KEY_EVENT_PRIMARY = Internal.createUniqueKey(Event.EVENT, DSL.name("KEY_EVENT_PRIMARY"), new TableField[] { Event.EVENT.ID }, true);
     public static final UniqueKey<EventEnrollmentRecord> KEY_EVENT_ENROLLMENT_PRIMARY = Internal.createUniqueKey(EventEnrollment.EVENT_ENROLLMENT, DSL.name("KEY_EVENT_ENROLLMENT_PRIMARY"), new TableField[] { EventEnrollment.EVENT_ENROLLMENT.ID }, true);
-    public static final UniqueKey<EventSessionDateRecord> KEY_EVENT_SESSION_DATE_PRIMARY = Internal.createUniqueKey(EventSessionDate.EVENT_SESSION_DATE, DSL.name("KEY_EVENT_SESSION_DATE_PRIMARY"), new TableField[] { EventSessionDate.EVENT_SESSION_DATE.ID }, true);
-    public static final UniqueKey<EventSpeakerRecord> KEY_EVENT_SPEAKER_PRIMARY = Internal.createUniqueKey(EventSpeaker.EVENT_SPEAKER, DSL.name("KEY_EVENT_SPEAKER_PRIMARY"), new TableField[] { EventSpeaker.EVENT_SPEAKER.ID }, true);
-    public static final UniqueKey<EventTopicRecord> KEY_EVENT_TOPIC_PRIMARY = Internal.createUniqueKey(EventTopic.EVENT_TOPIC, DSL.name("KEY_EVENT_TOPIC_PRIMARY"), new TableField[] { EventTopic.EVENT_TOPIC.ID }, true);
-    public static final UniqueKey<LocationRecord> KEY_LOCATION_PRIMARY = Internal.createUniqueKey(Location.LOCATION, DSL.name("KEY_LOCATION_PRIMARY"), new TableField[] { Location.LOCATION.ID }, true);
-    public static final UniqueKey<MagazineSubscriptionRecord> KEY_MAGAZINE_SUBSCRIPTION_PRIMARY = Internal.createUniqueKey(MagazineSubscription.MAGAZINE_SUBSCRIPTION, DSL.name("KEY_MAGAZINE_SUBSCRIPTION_PRIMARY"), new TableField[] { MagazineSubscription.MAGAZINE_SUBSCRIPTION.ID }, true);
-    public static final UniqueKey<NewsletterSubscriptionRecord> KEY_NEWSLETTER_SUBSCRIPTION_PRIMARY = Internal.createUniqueKey(NewsletterSubscription.NEWSLETTER_SUBSCRIPTION, DSL.name("KEY_NEWSLETTER_SUBSCRIPTION_PRIMARY"), new TableField[] { NewsletterSubscription.NEWSLETTER_SUBSCRIPTION.ID }, true);
     public static final UniqueKey<RegisteredUserRecord> KEY_REGISTERED_USER_PRIMARY = Internal.createUniqueKey(RegisteredUser.REGISTERED_USER, DSL.name("KEY_REGISTERED_USER_PRIMARY"), new TableField[] { RegisteredUser.REGISTERED_USER.ID }, true);
     public static final UniqueKey<RegisteredUserRoleRecord> KEY_REGISTERED_USER_ROLE_PRIMARY = Internal.createUniqueKey(RegisteredUserRole.REGISTERED_USER_ROLE, DSL.name("KEY_REGISTERED_USER_ROLE_PRIMARY"), new TableField[] { RegisteredUserRole.REGISTERED_USER_ROLE.ID }, true);
     public static final UniqueKey<RegisteredUserTopicRecord> KEY_REGISTERED_USER_TOPIC_PRIMARY = Internal.createUniqueKey(RegisteredUserTopic.REGISTERED_USER_TOPIC, DSL.name("KEY_REGISTERED_USER_TOPIC_PRIMARY"), new TableField[] { RegisteredUserTopic.REGISTERED_USER_TOPIC.ID }, true);
     public static final UniqueKey<RoleRecord> KEY_ROLE_PRIMARY = Internal.createUniqueKey(Role.ROLE, DSL.name("KEY_ROLE_PRIMARY"), new TableField[] { Role.ROLE.ID }, true);
-    public static final UniqueKey<SpeakerRecord> KEY_SPEAKER_PRIMARY = Internal.createUniqueKey(Speaker.SPEAKER, DSL.name("KEY_SPEAKER_PRIMARY"), new TableField[] { Speaker.SPEAKER.ID }, true);
-    public static final UniqueKey<TopicRecord> KEY_TOPIC_PRIMARY = Internal.createUniqueKey(Topic.TOPIC, DSL.name("KEY_TOPIC_PRIMARY"), new TableField[] { Topic.TOPIC.ID }, true);
-    public static final UniqueKey<VenueRecord> KEY_VENUE_PRIMARY = Internal.createUniqueKey(Venue.VENUE, DSL.name("KEY_VENUE_PRIMARY"), new TableField[] { Venue.VENUE.ID }, true);
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final ForeignKey<EventRecord, LocationRecord> EVENT_IBFK_1 = Internal.createForeignKey(Event.EVENT, DSL.name("EVENT_ibfk_1"), new TableField[] { Event.EVENT.LOCATION_ID }, Keys.KEY_LOCATION_PRIMARY, new TableField[] { Location.LOCATION.ID }, true);
-    public static final ForeignKey<EventRecord, VenueRecord> EVENT_IBFK_2 = Internal.createForeignKey(Event.EVENT, DSL.name("EVENT_ibfk_2"), new TableField[] { Event.EVENT.VENUE_ID }, Keys.KEY_VENUE_PRIMARY, new TableField[] { Venue.VENUE.ID }, true);
-    public static final ForeignKey<EventEnrollmentRecord, EventRecord> EVENT_ENROLLMENT_IBFK_1 = Internal.createForeignKey(EventEnrollment.EVENT_ENROLLMENT, DSL.name("EVENT_ENROLLMENT_ibfk_1"), new TableField[] { EventEnrollment.EVENT_ENROLLMENT.EVENT_ID }, Keys.KEY_EVENT_PRIMARY, new TableField[] { Event.EVENT.ID }, true);
     public static final ForeignKey<EventEnrollmentRecord, RegisteredUserRecord> EVENT_ENROLLMENT_IBFK_2 = Internal.createForeignKey(EventEnrollment.EVENT_ENROLLMENT, DSL.name("EVENT_ENROLLMENT_ibfk_2"), new TableField[] { EventEnrollment.EVENT_ENROLLMENT.REGISTERED_USER_ID }, Keys.KEY_REGISTERED_USER_PRIMARY, new TableField[] { RegisteredUser.REGISTERED_USER.ID }, true);
-    public static final ForeignKey<EventSessionDateRecord, LocationRecord> EVENT_SESSION_DATE_IBFK_1 = Internal.createForeignKey(EventSessionDate.EVENT_SESSION_DATE, DSL.name("EVENT_SESSION_DATE_ibfk_1"), new TableField[] { EventSessionDate.EVENT_SESSION_DATE.LOCATION_ID }, Keys.KEY_LOCATION_PRIMARY, new TableField[] { Location.LOCATION.ID }, true);
-    public static final ForeignKey<EventSessionDateRecord, VenueRecord> EVENT_SESSION_DATE_IBFK_2 = Internal.createForeignKey(EventSessionDate.EVENT_SESSION_DATE, DSL.name("EVENT_SESSION_DATE_ibfk_2"), new TableField[] { EventSessionDate.EVENT_SESSION_DATE.VENUE_ID }, Keys.KEY_VENUE_PRIMARY, new TableField[] { Venue.VENUE.ID }, true);
-    public static final ForeignKey<EventSessionDateRecord, EventRecord> EVENT_SESSION_DATE_IBFK_3 = Internal.createForeignKey(EventSessionDate.EVENT_SESSION_DATE, DSL.name("EVENT_SESSION_DATE_ibfk_3"), new TableField[] { EventSessionDate.EVENT_SESSION_DATE.EVENT_ID }, Keys.KEY_EVENT_PRIMARY, new TableField[] { Event.EVENT.ID }, true);
-    public static final ForeignKey<EventSpeakerRecord, EventRecord> EVENT_SPEAKER_IBFK_1 = Internal.createForeignKey(EventSpeaker.EVENT_SPEAKER, DSL.name("EVENT_SPEAKER_ibfk_1"), new TableField[] { EventSpeaker.EVENT_SPEAKER.EVENT_ID }, Keys.KEY_EVENT_PRIMARY, new TableField[] { Event.EVENT.ID }, true);
-    public static final ForeignKey<EventSpeakerRecord, SpeakerRecord> EVENT_SPEAKER_IBFK_2 = Internal.createForeignKey(EventSpeaker.EVENT_SPEAKER, DSL.name("EVENT_SPEAKER_ibfk_2"), new TableField[] { EventSpeaker.EVENT_SPEAKER.SPEAKER_ID }, Keys.KEY_SPEAKER_PRIMARY, new TableField[] { Speaker.SPEAKER.ID }, true);
-    public static final ForeignKey<EventTopicRecord, TopicRecord> EVENT_TOPIC_IBFK_1 = Internal.createForeignKey(EventTopic.EVENT_TOPIC, DSL.name("EVENT_TOPIC_ibfk_1"), new TableField[] { EventTopic.EVENT_TOPIC.TOPIC_ID }, Keys.KEY_TOPIC_PRIMARY, new TableField[] { Topic.TOPIC.ID }, true);
-    public static final ForeignKey<EventTopicRecord, EventRecord> EVENT_TOPIC_IBFK_2 = Internal.createForeignKey(EventTopic.EVENT_TOPIC, DSL.name("EVENT_TOPIC_ibfk_2"), new TableField[] { EventTopic.EVENT_TOPIC.EVENT_ID }, Keys.KEY_EVENT_PRIMARY, new TableField[] { Event.EVENT.ID }, true);
-    public static final ForeignKey<MagazineSubscriptionRecord, RegisteredUserRecord> MAGAZINE_SUBSCRIPTION_IBFK_1 = Internal.createForeignKey(MagazineSubscription.MAGAZINE_SUBSCRIPTION, DSL.name("MAGAZINE_SUBSCRIPTION_ibfk_1"), new TableField[] { MagazineSubscription.MAGAZINE_SUBSCRIPTION.REGISTERED_USER_ID }, Keys.KEY_REGISTERED_USER_PRIMARY, new TableField[] { RegisteredUser.REGISTERED_USER.ID }, true);
-    public static final ForeignKey<NewsletterSubscriptionRecord, RegisteredUserRecord> NEWSLETTER_SUBSCRIPTION_IBFK_1 = Internal.createForeignKey(NewsletterSubscription.NEWSLETTER_SUBSCRIPTION, DSL.name("NEWSLETTER_SUBSCRIPTION_ibfk_1"), new TableField[] { NewsletterSubscription.NEWSLETTER_SUBSCRIPTION.REGISTERED_USER_ID }, Keys.KEY_REGISTERED_USER_PRIMARY, new TableField[] { RegisteredUser.REGISTERED_USER.ID }, true);
     public static final ForeignKey<RegisteredUserRoleRecord, RegisteredUserRecord> REGISTERED_USER_ROLE_IBFK_1 = Internal.createForeignKey(RegisteredUserRole.REGISTERED_USER_ROLE, DSL.name("REGISTERED_USER_ROLE_ibfk_1"), new TableField[] { RegisteredUserRole.REGISTERED_USER_ROLE.REGISTERED_USER_ID }, Keys.KEY_REGISTERED_USER_PRIMARY, new TableField[] { RegisteredUser.REGISTERED_USER.ID }, true);
     public static final ForeignKey<RegisteredUserRoleRecord, RoleRecord> REGISTERED_USER_ROLE_IBFK_2 = Internal.createForeignKey(RegisteredUserRole.REGISTERED_USER_ROLE, DSL.name("REGISTERED_USER_ROLE_ibfk_2"), new TableField[] { RegisteredUserRole.REGISTERED_USER_ROLE.ROLE_ID }, Keys.KEY_ROLE_PRIMARY, new TableField[] { Role.ROLE.ID }, true);
-    public static final ForeignKey<RegisteredUserTopicRecord, TopicRecord> REGISTERED_USER_TOPIC_IBFK_1 = Internal.createForeignKey(RegisteredUserTopic.REGISTERED_USER_TOPIC, DSL.name("REGISTERED_USER_TOPIC_ibfk_1"), new TableField[] { RegisteredUserTopic.REGISTERED_USER_TOPIC.TOPIC_ID }, Keys.KEY_TOPIC_PRIMARY, new TableField[] { Topic.TOPIC.ID }, true);
     public static final ForeignKey<RegisteredUserTopicRecord, RegisteredUserRecord> REGISTERED_USER_TOPIC_IBFK_2 = Internal.createForeignKey(RegisteredUserTopic.REGISTERED_USER_TOPIC, DSL.name("REGISTERED_USER_TOPIC_ibfk_2"), new TableField[] { RegisteredUserTopic.REGISTERED_USER_TOPIC.REGISTERED_USER_ID }, Keys.KEY_REGISTERED_USER_PRIMARY, new TableField[] { RegisteredUser.REGISTERED_USER.ID }, true);
-    public static final ForeignKey<VenueRecord, LocationRecord> VENUE_IBFK_1 = Internal.createForeignKey(Venue.VENUE, DSL.name("VENUE_ibfk_1"), new TableField[] { Venue.VENUE.LOCATION_ID }, Keys.KEY_LOCATION_PRIMARY, new TableField[] { Location.LOCATION.ID }, true);
 }
