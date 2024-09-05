@@ -38,13 +38,14 @@
 .link:has(.cmp-button__icon) {
     a {
         display: grid;
-        gap: 2px;
+        gap: 0.429rem;
 		width: -moz-fit-content;
         width: fit-content;
         .cmp-button__icon {
             grid-area: 1/2;
-            width: 2rem;
-            height: 1.5rem;
+            width: 1.143rem;
+            height: 1.143rem;
+			margin: auto;
         }
     }
 }

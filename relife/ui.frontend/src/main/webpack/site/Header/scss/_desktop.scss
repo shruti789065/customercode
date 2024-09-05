@@ -2,13 +2,16 @@ header.cmp-experiencefragment--header-desktop {
   z-index: 10 !important;
 
   #header--tablist {
-	position: relative;
-	bottom: -0.714rem;
+    position: relative;
+    bottom: -0.4rem;
+	max-width: 41.143rem;
     .cmp-tabs__tablist {
       justify-content: center;
       flex-wrap: nowrap;
       border-bottom: 0;
       margin: 0;
+	  display: flex;
+	  gap: 3.143rem;
       .cmp-tabs__tab {
         position: relative;
         width: -moz-fit-content;
@@ -16,6 +19,9 @@ header.cmp-experiencefragment--header-desktop {
         font-size: 1.214rem;
         text-transform: uppercase;
         font-family: $title-medium;
+		min-width: unset;
+		padding-left: 0;
+		padding-right: 0;
         .cmp-button {
           position: absolute;
           top: 0;
@@ -30,7 +36,7 @@ header.cmp-experiencefragment--header-desktop {
     //transition: $standard-transition;
   }
   #navigation-menu {
-    padding-top: 1.7rem;
+    padding-top: 1rem;
     border-bottom: 1px solid;
     border-color: rgba(11, 29, 44, 0.2);
     #logo {
@@ -40,6 +46,12 @@ header.cmp-experiencefragment--header-desktop {
           display: block;
           height: 100%;
         }
+      }
+    }
+    .cmp-container {
+      &.cmp-container-alignment--center {
+	  justify-content: space-between;
+	  align-items: center;
       }
     }
     .cmp-button {
@@ -95,7 +107,7 @@ header.cmp-experiencefragment--header-desktop {
         .cmp-teaser__title {
           text-underline-offset: 0.6rem;
           text-decoration: underline;
-          text-decoration-color: rgba(28, 29, 29, .5);
+          text-decoration-color: rgba(28, 29, 29, 0.5);
         }
       }
     }
@@ -115,7 +127,7 @@ header.cmp-experiencefragment--header-desktop {
           &:hover {
             text-underline-offset: 0.6rem;
             text-decoration: underline;
-            text-decoration-color: rgba(28, 29, 29, .5);
+            text-decoration-color: rgba(28, 29, 29, 0.5);
           }
         }
       }
