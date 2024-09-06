@@ -5,7 +5,7 @@
     <div class="w-100">
 
         <form class="customform needs-validation" id="signUpForm" method="post" novalidate>
-            
+
             <!-- NAME - LAST NAME -->
             <div class="row g-4 m-0 p-0">
                 <div class="col-12 col-lg-6 px-0 pe-lg-2">
@@ -17,7 +17,7 @@
                             class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
                             aria-describedby="firstNamelHelp">
                         <div class="invalid-feedback">
-                            This field is mandatory.
+                            ${'mandatory_field' @ i18n}
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                             class="form-control cmp-form__textField mt-2 rounded-0" id="lastName"
                             aria-describedby="lastNamelHelp">
                         <div class="invalid-feedback">
-                            This field is mandatory.
+                            ${'mandatory_field' @ i18n}
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                             name="dateOfBirth" placeholder="${'date_of_birth_placeholder' @ i18n}"
                             onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                         <div class="invalid-feedback">
-                            This field is mandatory.
+                            ${'mandatory_field' @ i18n}
                         </div>
                     </div>
                 </div>
@@ -225,6 +225,24 @@
                         </div>
                     </div>
                     <div id="interestErrorString" class="mt-2 cmp-signupform__customError"></div>
+                </div>
+            </div>
+
+            <!-- FISCAL CODE -->
+            <div class="row g-4 m-0 p-0 mt-2 d-none" id="fiscalCodeInput">
+                <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                    <h3 class="cmp-signupform__formItemTitle h3">
+                        ${'fiscal_code' @ i18n} <span>${'mandatory' @ i18n}</span>
+                    </h3>
+                    <div>
+                        <input required placeholder="${'fiscal_code_placeholder' @ i18n}" type="text" name="fiscalCode"
+                            class="form-control cmp-form__textField mt-2 rounded-0" id="fiscalCode"
+                            aria-describedby="fiscalCodeHelp">
+                        <div class="invalid-feedback">
+                            ${'mandatory_field' @ i18n}
+                        </div>
+                    </div>
+                    <div id="countryErrorString" class="mt-2 cmp-signupform__customError"></div>
                 </div>
             </div>
 

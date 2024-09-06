@@ -87,11 +87,20 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   countryItems.forEach(element => {
+    let fiscalCodeInput = document.querySelector('#fiscalCodeInput');
     element.addEventListener('click', function (event) {
       selectedCountry = element.textContent.trim();
       dropdownMenuCountry.style.display = 'none'
       displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
       updateDropdownTextCountry();
+
+      if (selectedCountry.toLowerCase() === 'it') {
+        fiscalCodeInput.classList.remove('d-none');
+        fiscalCodeInput.classList.add('d-block');
+      } else {
+        fiscalCodeInput.classList.add('d-none');
+        fiscalCodeInput.classList.remove('d-block');
+      }
     })
   })
 
@@ -136,9 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-
-
-
   // FORM DATA VALIDATION FUNCTIONS
   function validateProfession() {
     let errorElement = document.querySelector('#professionErrorString');
@@ -148,10 +154,10 @@ document.addEventListener('DOMContentLoaded', function () {
       erroeMessagges.push(
         {
           id: "profession",
-          message: "Profession field is mandatory"
+          message: Granite.I18n.get('mandatory_field')
         }
       )
-      errorElement.innerHTML = "This field is mandatory."
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
       dropdownButton.classList.add('cmp-signupform__borderRed');
       dropdownButton.classList.remove('cmp-signupform__borderGreen');
     } else {
@@ -168,10 +174,10 @@ document.addEventListener('DOMContentLoaded', function () {
       erroeMessagges.push(
         {
           id: "country",
-          message: "Country field is mandatory"
+          message: Granite.I18n.get('mandatory_field')
         }
       )
-      errorElement.innerHTML = "This field is mandatory."
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
       dropdownButton.classList.add('cmp-signupform__borderRed');
       dropdownButton.classList.remove('cmp-signupform__borderGreen');
     } else {
@@ -189,11 +195,11 @@ document.addEventListener('DOMContentLoaded', function () {
       erroeMessagges.push(
         {
           id: "areasOfInterest",
-          message: "Please select at least 1 area of interest"
+          message: Granite.I18n.get('mandatory_field')
         }
 
       )
-      errorElement.innerHTML = "This field is mandatory."
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
       dropdownButton.classList.add('cmp-signupform__borderRed');
       dropdownButton.classList.remove('cmp-signupform__borderGreen');
     } else {
@@ -209,10 +215,10 @@ document.addEventListener('DOMContentLoaded', function () {
       erroeMessagges.push(
         {
           id: "personalDataProcessing",
-          message: "Please select personal data processing preference"
+          message: Granite.I18n.get('mandatory_field')
         }
       )
-      errorElement.innerHTML = "This field is mandatory."
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
     } else {
       errorElement.innerHTML = ""
     }
@@ -224,10 +230,10 @@ document.addEventListener('DOMContentLoaded', function () {
       erroeMessagges.push(
         {
           id: "receiveNewsletter",
-          message: "Please select if you want to receive newsletter or not"
+          message: Granite.I18n.get('mandatory_field')
         }
       )
-      errorElement.innerHTML = "This field is mandatory."
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
     } else {
       errorElement.innerHTML = ""
     }
@@ -237,19 +243,19 @@ document.addEventListener('DOMContentLoaded', function () {
     let errorElement = document.querySelector('#passwordErrorString');
 
     if ((data.password && data.password !== data.passwordConfirmation) || (data.password && !data.passwordConfirmation)) {
-      errorElement.innerHTML = "Password and password confirmation fields doesn't match";
+      errorElement.innerHTML = Granite.I18n.get('password_form_error');
       erroeMessagges.push(
         {
           id: "password",
-          message: "Password and password confirmation fields doesn't match"
+          message: Granite.I18n.get('password_form_error')
         }
       )
     } else if (!data.password) {
-      errorElement.innerHTML = "This field is mandatory.";
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
       erroeMessagges.push(
         {
           id: "password",
-          message: "This field is mandatory."
+          message: Granite.I18n.get('mandatory_field')
         }
       )
     }
@@ -259,19 +265,19 @@ document.addEventListener('DOMContentLoaded', function () {
     let errorElement = document.querySelector('#passwordConfirmationErrorString');
 
     if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) || (data.passwordConfirmation && !data.password)) {
-      errorElement.innerHTML = "Password and password confirmation fields doesn't match";
+      errorElement.innerHTML = Granite.I18n.get('password_form_error');
       erroeMessagges.push(
         {
           id: "passwordConfirmation",
-          message: "Password and password confirmation fields doesn't match"
+          message: Granite.I18n.get('password_form_error')
         }
       )
     } else if (!data.passwordConfirmation) {
-      errorElement.innerHTML = "This field is mandatory.";
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
       erroeMessagges.push(
         {
           id: "passwordConfirmation",
-          message: "This field is mandatory."
+          message: Granite.I18n.get('mandatory_field')
         }
       )
     }
@@ -280,20 +286,20 @@ document.addEventListener('DOMContentLoaded', function () {
   function validateEmail(data) {
     let errorElement = document.querySelector('#emailErrorString');
 
-    if ((data.email && data.email !== data.emailConfirmation) || (data.email && !data.emailConfirmation)) {      
-      errorElement.innerHTML = "Email and email confirmation fields doesn't match";
+    if ((data.email && data.email !== data.emailConfirmation) || (data.email && !data.emailConfirmation)) {
+      errorElement.innerHTML = Granite.I18n.get('email_form_error');
       erroeMessagges.push(
         {
           id: "email",
-          message: "Email and email confirmation fields doesn't match."
+          message: errorElement.innerHTML = Granite.I18n.get('email_form_error')
         }
       )
     } else if (!data.email) {
-      errorElement.innerHTML = "This field is mandatory.";
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
       erroeMessagges.push(
         {
           id: "email",
-          message: "This field is mandatory."
+          message: Granite.I18n.get('mandatory_field')
         }
       )
     }
@@ -302,20 +308,20 @@ document.addEventListener('DOMContentLoaded', function () {
   function validateEmailConfirmation(data) {
     let errorElement = document.querySelector('#emailConfirmationErrorString');
 
-    if ((data.emailConfirmation && data.emailConfirmation !== data.email) || (data.emailConfirmation && !data.email)) {      
-      errorElement.innerHTML = "Email and email confirmation fields doesn't match";
+    if ((data.emailConfirmation && data.emailConfirmation !== data.email) || (data.emailConfirmation && !data.email)) {
+      errorElement.innerHTML = Granite.I18n.get('email_form_error');
       erroeMessagges.push(
         {
           id: "emailConfirmation",
-          message: "Email and email confirmation fields doesn't match."
+          message: Granite.I18n.get('email_form_error')
         }
       )
     } else if (!data.emailConfirmation) {
-      errorElement.innerHTML = "This field is mandatory.";
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
       erroeMessagges.push(
         {
           id: "emailConfirmation",
-          message: "Email confirmation field is mandatory."
+          message: Granite.I18n.get('mandatory_field')
         }
       )
     }
@@ -327,10 +333,10 @@ document.addEventListener('DOMContentLoaded', function () {
       erroeMessagges.push(
         {
           id: "privacy",
-          message: "Please accept the privacy information notice before sign up"
+          message: Granite.I18n.get('accept_privacy')
         }
       )
-      errorElement.innerHTML = data.privacy === "no" ? "Please accept the privacy information notice before sign up." : "This field is mandatory." 
+      errorElement.innerHTML = data.privacy === "no" ? Granite.I18n.get('accept_privacy') : Granite.I18n.get('mandatory_field');
     } else {
       errorElement.innerHTML = ""
     }
@@ -340,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
   async function sendData(registrationData) {
     const responseCsrf = await fetch('/libs/granite/csrf/token.json');
     const csrfToken = await responseCsrf.json();
-    console.log('CSRF-Token:', csrfToken);
+    // console.log('CSRF-Token:', csrfToken);
     const regResponse = await fetch("/bin/api/awsSignUp", {
       method: "POST",
       headers: {
@@ -350,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
     const dataResponse = await regResponse.json();
-    console.log(JSON.stringify(dataResponse, null, 3));
+    // console.log(JSON.stringify(dataResponse, null, 3));
     return dataResponse;
 
   }
@@ -385,6 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "profession": tmpFormData.profession,
         "phone": tmpFormData.telNumber,
         "country": tmpFormData.country,
+        "taxIdCode": tmpFormData.fiscalCode ? tmpFormData.fiscalCode : null,
         "interests": tmpFormData.areasOfInterest,
         "rolesNames": [],
         "gender": tmpFormData.gender,
