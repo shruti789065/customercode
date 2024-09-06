@@ -26,6 +26,10 @@
             .cmp-teaser__description {
                 font-family: $title-light;
                 font-size: $font-size-small;
+                margin: 1rem auto 2rem auto;
+                p {
+                    margin: 0px !important;
+                }
                 b {
                     font-family: $title-medium;
                 }
@@ -56,6 +60,7 @@
                     font-family: $title-light;
                     font-size: $font-size-btn;
                     color: $charcoal;
+                    letter-spacing: 0.35px;
 
                     transition: $standard-transition;
 
@@ -96,6 +101,11 @@
                     width: auto;
                     min-height: 20rem;
                     height: 20rem;
+                    transition: $standard-transition;
+                    transform: scale(1.05);
+                    &:hover {
+                        transform: scale(1);
+                    }
                 }
             }
         }
