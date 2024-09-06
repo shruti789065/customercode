@@ -9,6 +9,7 @@
         margin-right: 10px;
         border: solid 2px $body-color;
         appearance: none;
+        background-color: transparent !important;
 
         &:focus {
             box-shadow: none;
@@ -16,7 +17,7 @@
         }
 
         &:checked {
-            background-color: transparent;
+            background-color: transparent !important;
             border-color: $blue-link;
             accent-color: $blue-link;
         }
@@ -31,7 +32,7 @@
 
     // INIZIO INPUT PLACEHOLDER
     .form-control::placeholder {
-        font-family: Oswald;
+        font-family: $headings-font-family;
         font-size: 20px;
         font-weight: 300;
         line-height: 25px;
