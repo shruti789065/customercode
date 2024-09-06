@@ -36,13 +36,13 @@ $title-size-max: 56px;
 $title-size: clamp($title-size-min, 50vw, $title-size-max);
 $title-letter-spacing: 2px;
 
-$h1-title-size: clamp(1.625rem, calc(26px + (44 - 26) * ((100vw - 320px) / (1920 - 320))), 2.75rem); // min: 26px, max: 44px
-$h2-title-size: clamp(1.25rem, calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320))), 2rem); // min: 20px, max: 32px
-$h3-title-size: clamp(1rem, calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320))), 1.5rem); // min: 16px, max: 24px
-$h4-title-size: clamp(0.875rem, calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))), 1.125rem); // min: 14px, max: 18px
-$h5-title-size: clamp(0.75rem, calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320))), 0.875rem); // min: 12px, max: 14px - complimentary header
-$h6-title-size: clamp(0.6875rem, calc(11px + (12 - 11) * ((100vw - 320px) / (1920 - 320))), 0.75rem); // min: 11px, max: 12px - patient name
-$h7-title-size: clamp(0.625rem, calc(10px + (11 - 10) * ((100vw - 320px) / (1920 - 320))), 0.6875rem); // min: 10px, max: 11px - extra
+$h1-title-size: clamp(1.857rem, calc(1.857rem + (3.143rem - 1.857rem) * ((100vw - 320px) / (1920 - 320))), 3.143rem); // min: 26px, max: 44px
+$h2-title-size: clamp(1.429rem, calc(1.429rem + (2.286rem - 1.429rem) * ((100vw - 320px) / (1920 - 320))), 2.286rem); // min: 20px, max: 32px
+$h3-title-size: clamp(1.143rem, calc(1.143rem + (1.714rem - 1.143rem) * ((100vw - 320px) / (1920 - 320))), 1.714rem); // min: 16px, max: 24px
+$h4-title-size: clamp(1rem, calc(1rem + (1.286rem - 1rem) * ((100vw - 320px) / (1920 - 320))), 1.286rem); // min: 14px, max: 18px
+$h5-title-size: clamp(0.857rem, calc(0.857rem + (1rem - 0.857rem) * ((100vw - 320px) / (1920 - 320))), 1rem); // min: 12px, max: 14px
+$h6-title-size: clamp(0.786rem, calc(0.786rem + (0.857rem - 0.786rem) * ((100vw - 320px) / (1920 - 320))), 0.857rem); // min: 11px, max: 12px
+$h7-title-size: clamp(0.714rem, calc(0.714rem + (0.786rem - 0.714rem) * ((100vw - 320px) / (1920 - 320))), 0.786rem); // min: 10px, max: 11px
 
 // Color
 $black: #000000;
