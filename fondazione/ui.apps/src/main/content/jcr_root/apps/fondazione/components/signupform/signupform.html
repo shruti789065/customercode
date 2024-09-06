@@ -5,14 +5,7 @@
     <div class="w-100">
 
         <form class="customform needs-validation" id="signUpForm" method="post" novalidate>
-
-            <!-- <div class="alert alert-danger fade show d-none" role="alert" id="cmp-signupform__errorsAlert">
-                <div class="w-100">
-                    <srong>Errors:</srong>
-                </div>
-                <ul class="mt-3" id="cmp-signupform__errorsList"></ul>
-            </div> -->
-
+            
             <!-- NAME - LAST NAME -->
             <div class="row g-4 m-0 p-0">
                 <div class="col-12 col-lg-6 px-0 pe-lg-2">
@@ -291,6 +284,8 @@
 
             <div class="cmp-signupform__privacywrapper mt-4">
                 <h6 class="h6">${'privacy_newsletter' @ i18n}</h6>
+
+                <!-- GDPR -->
                 <div>
                     <p>
                         ${'having_read_the' @ i18n} <a class="text-decoration-none"
@@ -312,6 +307,7 @@
 
                 </div>
 
+                <!-- DATA PROCESSING -->
                 <div class="mt-3">
                     <p>${'profiling' @ i18n}</p>
                     <fieldset class="ps-0">
@@ -328,6 +324,7 @@
 
                 </div>
 
+                <!-- NEWSLETTER -->
                 <div class="mt-3">
                     <p>${'agree_newsletter' @ i18n} <span>${'mandatory' @ i18n}</span></p>
                     <fieldset class="ps-0">
@@ -348,16 +345,6 @@
 
                 <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div>
                 
-                <!-- <script src="https://www.google.com/recaptcha/api.js" async defer>
-                </script>
-
-                <div class="w-100 d-flex justify-content-center">
-                    <div class="g-recaptcha mt-3 w-100" data-sitekey="6LcMoyEqAAAAAA59HyT4MkX3MIPL7HmrWcpTjbQG"
-                        data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaResponseExpiry"
-                        data-error-callback="onRecaptchaError">
-                    </div>
-                </div> -->
-
                 <div class="mt-4">
                     <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
                 </div>

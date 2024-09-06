@@ -336,26 +336,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // function generateErrorsAlert() {
-  //   let errorsAlert = document.querySelector('#cmp-signupform__errorsAlert');
-  //   let errorsList = document.querySelector('#cmp-signupform__errorsList');
-  //   errorsList.innerHTML = '';
-
-  //   if (erroeMessagges.length > 0) {
-  //     errorsAlert.classList.add("d-block");
-  //     errorsAlert.classList.remove("d-none");
-
-  //     erroeMessagges.forEach(item => {
-  //       const li = document.createElement('li');
-  //       li.textContent = item.message;
-  //       errorsList.appendChild(li);
-  //     });
-  //   } else {
-  //     errorsAlert.classList.remove("d-block");
-  //     errorsAlert.classList.add("d-none");
-  //   }
-  // }
-
   // FORM SUBMIT FUNCTIONS
   async function sendData(registrationData) {
     const responseCsrf = await fetch('/libs/granite/csrf/token.json');
