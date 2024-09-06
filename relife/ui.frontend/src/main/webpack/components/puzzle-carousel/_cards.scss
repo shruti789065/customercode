@@ -7,6 +7,7 @@
 
     .teaser {
       height: auto;
+      padding: ;
       .cmp-teaser {
         display: block;
         min-width: clamp(16.857rem, 13.75vw + 13.714rem, 32.571rem);
@@ -15,7 +16,7 @@
         .cmp-teaser__content {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: flex-start;
           height: 100%;
           .cmp-teaser__title {
             text-transform: uppercase;
@@ -30,10 +31,14 @@
           .cmp-teaser__action-container {
             margin-top: 2.5rem;
             .cmp-teaser__action-link {
-              font-size: 1.071rem;
-              font-weight: bold;
+              font-size: $h5-title-size;
+              font-weight: $text-bold;
               text-decoration-color: rgba(28, 29, 29, 0.3);
-              text-underline-offset: 0.5rem;
+              text-underline-offset: 0.8rem;
+              transition:  $standard-transition;
+              &:hover {
+                text-decoration-color: $charcoal;
+              }
             }
           }
         }
