@@ -10,13 +10,15 @@ header.cmp-experiencefragment--header-mobile {
       #mobileNavbar {
         padding: 1.429rem 0;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid $paleGray;
+        height: 5.143rem;
         .xf-master-building-block {
           display: flex;
           justify-content: flex-end;
           .button {
-            margin-left: 1rem;
+            margin-left: 2rem;
             .cmp-button {
               display: block;
               width: 1.5rem;
@@ -31,17 +33,29 @@ header.cmp-experiencefragment--header-mobile {
         }
         #logoMobile {
           max-width: 7rem;
+          .cmp-image__link {
+            display: block;
+            height: 100%;
+          }
         }
       }
       #menuNavbar {
         display: none;
-        padding: 1.429rem 0;
+        padding: 1rem 0;
         justify-content: space-between;
         border-bottom: 1px solid $paleGray;
+        height: 5.143rem;
         .text {
+          display: flex;
           font-family: $title-medium;
           text-transform: uppercase;
-          font-size: 1rem;
+          font-size: .9rem;
+		  width: 100%;
+          align-self: center;
+		  justify-content: center;
+        }
+        .button {
+          display: flex;
         }
       }
     }
@@ -114,8 +128,8 @@ header.cmp-experiencefragment--header-mobile {
             .cmp-accordion__header {
               .cmp-accordion__button {
                 border-bottom: none;
+                font-family: $title-book;
                 .cmp-accordion__title {
-                  font-family: $title-light;
                   font-size: 1rem;
                 }
                 .cmp-accordion__icon {
@@ -171,7 +185,10 @@ header.cmp-experiencefragment--header-mobile {
           }
         }
         .link {
+          font-family: $title-book;
+          font-size: 1rem;
           text-align: left;
+          margin: 0.2rem 0;
           &:has(.cmp-button__icon) {
             .cmp-button {
               text-decoration: none;
@@ -198,47 +215,47 @@ header.cmp-experiencefragment--header-mobile {
         }
       }
       .languagenavigation {
-		.cmp-languagenavigation{
-			.cmp-languagenavigation__label {
-			  justify-content: space-between;
-			  font-family: $title-medium;
-			  font-size: 1rem;
-			  text-transform: uppercase;
-			  padding: 1.214rem 0.357rem;
-			  text-align: left;
-			  min-width: clamp(14.286rem, 2.5vw + 13.714rem, 17.143rem);
-			  width: 100%;
-			}
-			.toggle-icon {
-			  background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-right.svg")
-				center center no-repeat;
-			}
-			.cmp-languagenavigation__group{
-				position: relative;
-				height: 0;
-				top: 0;
-			}
-			&.is-open{
-				.toggle-icon{
-					transform: rotate(90deg);
-				}
-				.cmp-languagenavigation__group{
-					position: relative;
-					height: auto;
-					width: 100%;
-					.cmp-languagenavigation__item-link{
-						justify-content: flex-start;
-						padding: 1rem;
-					}
-				}
-			}
-		}
+        .cmp-languagenavigation {
+          .cmp-languagenavigation__label {
+            justify-content: space-between;
+            font-family: $title-book;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 1.214rem 0.357rem;
+            text-align: left;
+            min-width: clamp(14.286rem, 2.5vw + 13.714rem, 17.143rem);
+            width: 100%;
+          }
+          .toggle-icon {
+            background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-right.svg")
+              center center no-repeat;
+          }
+          .cmp-languagenavigation__group {
+            position: relative;
+            height: 0;
+            top: 0;
+          }
+          &.is-open {
+            .toggle-icon {
+              transform: rotate(90deg);
+            }
+            .cmp-languagenavigation__group {
+              position: relative;
+              height: auto;
+              width: 100%;
+              .cmp-languagenavigation__item-link {
+                justify-content: flex-start;
+                padding: 1rem;
+              }
+            }
+          }
+        }
       }
       .link {
         .cmp-button {
-          font-family: $title-medium;
+          font-family: $title-book;
           font-size: 1rem;
-          text-transform: uppercase;
+          //text-transform: uppercase;
           padding: 1.214rem 0.357rem;
           text-align: left;
           text-decoration: none;

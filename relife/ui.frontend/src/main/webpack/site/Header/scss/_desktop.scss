@@ -4,14 +4,14 @@ header.cmp-experiencefragment--header-desktop {
   #header--tablist {
     position: relative;
     bottom: -0.4rem;
-	max-width: 41.143rem;
+    max-width: 41.143rem;
     .cmp-tabs__tablist {
       justify-content: center;
       flex-wrap: nowrap;
       border-bottom: 0;
       margin: 0;
-	  display: flex;
-	  gap: 3.143rem;
+      display: flex;
+      gap: 3.143rem;
       .cmp-tabs__tab {
         position: relative;
         width: -moz-fit-content;
@@ -19,9 +19,9 @@ header.cmp-experiencefragment--header-desktop {
         font-size: 1.214rem;
         text-transform: uppercase;
         font-family: $title-medium;
-		min-width: unset;
-		padding-left: 0;
-		padding-right: 0;
+        min-width: unset;
+        padding-left: 0;
+        padding-right: 0;
         .cmp-button {
           position: absolute;
           top: 0;
@@ -50,8 +50,8 @@ header.cmp-experiencefragment--header-desktop {
     }
     .cmp-container {
       &.cmp-container-alignment--center {
-	  justify-content: space-between;
-	  align-items: center;
+        justify-content: space-between;
+        align-items: center;
       }
     }
     .cmp-button {
@@ -72,9 +72,11 @@ header.cmp-experiencefragment--header-desktop {
     &.menu-desktop--opened {
       display: block;
       .cmp-tabs {
+		padding: 1.125rem 0 3.688rem;
         .cmp-tabs__tabpanel--active {
           max-width: 100%;
-          min-height: 28.571rem;
+		  height: auto;
+          //min-height: 28.571rem;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -101,13 +103,13 @@ header.cmp-experiencefragment--header-desktop {
           font-family: $title-light;
           font-weight: normal;
           margin: 0.357rem 0;
-        }
-      }
-      &:hover {
-        .cmp-teaser__title {
-          text-underline-offset: 0.6rem;
-          text-decoration: underline;
-          text-decoration-color: rgba(28, 29, 29, 0.5);
+          line-height: $line-heigt;
+          letter-spacing: $text-letter-spacing;
+          &:hover {
+            text-underline-offset: 0.2rem;
+            text-decoration: underline;
+            text-decoration-color: $color-text;
+          }
         }
       }
     }
@@ -116,20 +118,24 @@ header.cmp-experiencefragment--header-desktop {
     text-align: left;
     font-size: 1rem;
     font-family: $title-light;
+    #specialMenuTxt {
+      p {
+        margin: 1.063rem 0;
+        a {
+          text-underline-offset: 0.4rem;
+          text-decoration: underline;
+          text-decoration-color: rgba(28, 29, 29, 0.3);
+          font-family: $title-medium;
+          font-weight: bold;
+          &:hover {
+            text-decoration-color: rgba(28, 29, 29, 1);
+          }
+        }
+      }
+    }
     .cmp-text {
       p {
         margin: 0.357rem 0;
-        a {
-          text-decoration: none;
-          b {
-            font-family: $title-bold;
-          }
-          &:hover {
-            text-underline-offset: 0.6rem;
-            text-decoration: underline;
-            text-decoration-color: rgba(28, 29, 29, 0.5);
-          }
-        }
       }
     }
   }
