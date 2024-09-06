@@ -294,7 +294,7 @@
                 <div>
                     <p>
                         ${'having_read_the' @ i18n} <a class="text-decoration-none"
-                            href="#">${'privacy_information_notice' @ i18n}</a>
+                            href="${properties.privacyLink}">${'privacy_information_notice' @ i18n}</a>
                         ${'personal_data_processing' @ i18n}
                         <span>${'mandatory' @ i18n}</span>
                     </p>
@@ -346,7 +346,9 @@
                 <div class="mt-5 small-text small-text-light">${'security_code' @ i18n}<span>${'mandatory' @
                         i18n}</span></div>
 
-                <script src="https://www.google.com/recaptcha/api.js" async defer>
+                <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div>
+                
+                <!-- <script src="https://www.google.com/recaptcha/api.js" async defer>
                 </script>
 
                 <div class="w-100 d-flex justify-content-center">
@@ -354,7 +356,7 @@
                         data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaResponseExpiry"
                         data-error-callback="onRecaptchaError">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="mt-4">
                     <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
