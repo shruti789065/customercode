@@ -1,6 +1,6 @@
 .cmp-form-options {
   border: none;
-  height: 5rem;
+  height: 4rem;
 
   &.cmp-form-options--drop-down {
     margin-bottom: 0rem;
@@ -43,7 +43,7 @@
 
   .cmp-form-options__label {
     display: block;
-    font-size: 1.25rem;
+    font-size: $h6-title-size;
     font-family: $title-light;
     color: $midnightBlue;
     margin-bottom: 0rem;    
@@ -67,10 +67,10 @@
       }
 
       width: 100%;
-      height: 3.125rem;
+      height: 2.2rem;
       padding: .5rem 1rem .5rem 0;
     
-      font-size: $font-size;
+      font-size: $h6-title-size;
       font-family: $title-light;
       color: $midnightBlue;
       line-height: 1.42857143;
