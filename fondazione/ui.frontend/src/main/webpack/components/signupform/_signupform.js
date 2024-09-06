@@ -234,22 +234,88 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function validatePassword(data) {
-    if (data.password && data.password !== data.passwordConfirmation) {
+    let errorElement = document.querySelector('#passwordErrorString');
+
+    if ((data.password && data.password !== data.passwordConfirmation) || (data.password && !data.passwordConfirmation)) {
+      errorElement.innerHTML = "Password and password confirmation fields doesn't match";
       erroeMessagges.push(
         {
-          id: "email",
+          id: "password",
           message: "Password and password confirmation fields doesn't match"
+        }
+      )
+    } else if (!data.password) {
+      errorElement.innerHTML = "This field is mandatory.";
+      erroeMessagges.push(
+        {
+          id: "password",
+          message: "This field is mandatory."
+        }
+      )
+    }
+  }
+
+  function validatePasswordConfirmation(data) {
+    let errorElement = document.querySelector('#passwordConfirmationErrorString');
+
+    if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) || (data.passwordConfirmation && !data.password)) {
+      errorElement.innerHTML = "Password and password confirmation fields doesn't match";
+      erroeMessagges.push(
+        {
+          id: "passwordConfirmation",
+          message: "Password and password confirmation fields doesn't match"
+        }
+      )
+    } else if (!data.passwordConfirmation) {
+      errorElement.innerHTML = "This field is mandatory.";
+      erroeMessagges.push(
+        {
+          id: "passwordConfirmation",
+          message: "This field is mandatory."
         }
       )
     }
   }
 
   function validateEmail(data) {
-    if (data.email && data.email !== data.emailConfirmation) {
+    let errorElement = document.querySelector('#emailErrorString');
+
+    if ((data.email && data.email !== data.emailConfirmation) || (data.email && !data.emailConfirmation)) {      
+      errorElement.innerHTML = "Email and email confirmation fields doesn't match";
       erroeMessagges.push(
         {
           id: "email",
-          message: "Email and email confirmation fields doesn't match"
+          message: "Email and email confirmation fields doesn't match."
+        }
+      )
+    } else if (!data.email) {
+      errorElement.innerHTML = "This field is mandatory.";
+      erroeMessagges.push(
+        {
+          id: "email",
+          message: "This field is mandatory."
+        }
+      )
+    }
+  }
+
+  function validateEmailConfirmation(data) {
+    let errorElement = document.querySelector('#emailConfirmationErrorString');
+
+    if ((data.emailConfirmation && data.emailConfirmation !== data.email) || (data.emailConfirmation && !data.email)) {      
+      errorElement.innerHTML = "Email and email confirmation fields doesn't match";
+      erroeMessagges.push(
+        {
+          id: "emailConfirmation",
+          message: "Email and email confirmation fields doesn't match."
+        }
+      )
+    } else if (!data.emailConfirmation) {
+      errorElement.innerHTML = "This field is mandatory.";
+      erroeMessagges.push(
+        {
+          id: "emailConfirmation",
+          message: "Email confirmation field is mandatory."
         }
       )
     }
@@ -264,31 +330,31 @@ document.addEventListener('DOMContentLoaded', function () {
           message: "Please accept the privacy information notice before sign up"
         }
       )
-      errorElement.innerHTML = "This field is mandatory."
+      errorElement.innerHTML = data.privacy === "no" ? "Please accept the privacy information notice before sign up." : "This field is mandatory." 
     } else {
       errorElement.innerHTML = ""
     }
   }
 
-  function generateErrorsAlert() {
-    let errorsAlert = document.querySelector('#cmp-signupform__errorsAlert');
-    let errorsList = document.querySelector('#cmp-signupform__errorsList');
-    errorsList.innerHTML = '';
+  // function generateErrorsAlert() {
+  //   let errorsAlert = document.querySelector('#cmp-signupform__errorsAlert');
+  //   let errorsList = document.querySelector('#cmp-signupform__errorsList');
+  //   errorsList.innerHTML = '';
 
-    if (erroeMessagges.length > 0) {
-      errorsAlert.classList.add("d-block");
-      errorsAlert.classList.remove("d-none");
+  //   if (erroeMessagges.length > 0) {
+  //     errorsAlert.classList.add("d-block");
+  //     errorsAlert.classList.remove("d-none");
 
-      erroeMessagges.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item.message;
-        errorsList.appendChild(li);
-      });
-    } else {
-      errorsAlert.classList.remove("d-block");
-      errorsAlert.classList.add("d-none");
-    }
-  }
+  //     erroeMessagges.forEach(item => {
+  //       const li = document.createElement('li');
+  //       li.textContent = item.message;
+  //       errorsList.appendChild(li);
+  //     });
+  //   } else {
+  //     errorsAlert.classList.remove("d-block");
+  //     errorsAlert.classList.add("d-none");
+  //   }
+  // }
 
   // FORM SUBMIT FUNCTIONS
   async function sendData(registrationData) {
@@ -351,21 +417,20 @@ document.addEventListener('DOMContentLoaded', function () {
       validateCountry(tmpFormData);
       validateInterests(tmpFormData);
       validatePassword(tmpFormData);
+      validatePasswordConfirmation(tmpFormData);
       validateEmail(tmpFormData);
       validateGdpr(tmpFormData);
       validateDataProcessing(tmpFormData);
       validateNewsLetter(tmpFormData);
-
-      generateErrorsAlert();
+      validateEmailConfirmation(tmpFormData);
 
       if (erroeMessagges.length === 0) {
-
-        // const responseReg = await sendData(registrationData);
-        // if(responseReg.cognitoSignUpErrorResponseDto) {
-        //     alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
-        // } else {
-        //   document.location.href = "/us/welcome";
-        // }
+        const responseReg = await sendData(registrationData);
+        if (responseReg.cognitoSignUpErrorResponseDto) {
+          alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
+        } else {
+          document.location.href = "/us/welcome";
+        }
       }
     });
   }
