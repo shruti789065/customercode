@@ -36,6 +36,7 @@
 @include respond-to(laptop) {
   .cmp-container--balanced {
     flex-wrap: nowrap;
+	align-items: center;
   }
 }
 @include respond-to(tablet) {

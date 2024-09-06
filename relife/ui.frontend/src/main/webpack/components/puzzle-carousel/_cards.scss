@@ -7,7 +7,8 @@
 
     .teaser {
       height: auto;
-      //padding: ;
+	  margin: 1.875rem 0;
+      
       .cmp-teaser {
         display: block;
         min-width: clamp(16.857rem, 13.75vw + 13.714rem, 32.571rem);
@@ -16,7 +17,7 @@
         .cmp-teaser__content {
           display: flex;
           flex-direction: column;
-          justify-content: flex-start;
+          justify-content: space-between;
           height: 100%;
           .cmp-teaser__title {
             text-transform: uppercase;
@@ -24,6 +25,8 @@
             margin: 0;
           }
           .cmp-teaser__description {
+			position: relative;
+			top: -1rem;
             p {
               font-size: clamp(1.071rem, 0.063vw + 1.057rem, 1.143rem);
             }
@@ -31,11 +34,12 @@
           .cmp-teaser__action-container {
             margin-top: 2.5rem;
             .cmp-teaser__action-link {
-              font-size: $h5-title-size;
+              font-size: 1.071rem;
               font-weight: $text-bold;
+			  font-family: $title-book;
               text-decoration-color: rgba(28, 29, 29, 0.3);
               text-underline-offset: 0.8rem;
-              transition:  $standard-transition;
+              transition: $standard-transition;
               &:hover {
                 text-decoration-color: $charcoal;
               }
@@ -78,14 +82,14 @@
   }
 }
 
-@include respond-to(desktop) {
+@include respond-to(laptop) {
   .cmp-puzzle--cards {
     .cmp-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       .teaser {
-        .cmp-teaser__image {
-          display: none;
+        .cmp-teaser {
+          min-width: auto;
         }
       }
     }

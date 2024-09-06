@@ -72,10 +72,10 @@ header.cmp-experiencefragment--header-desktop {
     &.menu-desktop--opened {
       display: block;
       .cmp-tabs {
-		padding: 1.125rem 0 3.688rem;
+        padding: 1.125rem 0 3.688rem;
         .cmp-tabs__tabpanel--active {
           max-width: 100%;
-		  height: auto;
+          height: auto;
           //min-height: 28.571rem;
           display: flex;
           justify-content: center;
@@ -136,6 +136,14 @@ header.cmp-experiencefragment--header-desktop {
     .cmp-text {
       p {
         margin: 0.357rem 0;
+        a {
+          text-decoration: none;
+          &:hover {
+            text-underline-offset: 0.2rem;
+            text-decoration: underline;
+            text-decoration-color: $color-text;
+          }
+        }
       }
     }
   }

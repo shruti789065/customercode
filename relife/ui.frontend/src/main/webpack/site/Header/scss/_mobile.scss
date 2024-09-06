@@ -212,6 +212,21 @@ header.cmp-experiencefragment--header-mobile {
             font-family: $title-light;
             font-size: 1rem;
           }
+		  #specialMenuTxtMobile {
+			p {
+			  margin: 1.063rem 0;
+			  a {
+				text-underline-offset: 0.4rem;
+				text-decoration: underline;
+				text-decoration-color: rgba(28, 29, 29, 0.3);
+				font-family: $title-medium;
+				font-weight: bold;
+				&:hover {
+				  text-decoration-color: rgba(28, 29, 29, 1);
+				}
+			  }
+			}
+		  }
         }
       }
       .languagenavigation {

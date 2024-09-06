@@ -5,8 +5,9 @@ footer {
   .cmp-list {
     display: flex;
     gap: 1.2rem;
+	padding: 0;
     .cmp-list__item {
-      list-style-type: none;
+      list-style-type: none;   
       font-family: $title-light;
       font-size: 1rem;
       .cmp-list__item-link {
@@ -19,6 +20,7 @@ footer {
   }
   .cmp-text {
     font-size: 1rem;
+	line-height: 1.5rem;
   }
   .cmp-button {
     border: none;
