@@ -24,11 +24,15 @@ $font-height: 1.5;
 
 $font-size-min: 14px;
 $font-size-max: 18px;
-$font-size: clamp($font-size-min, 0.688vw + 1.3rem, $font-size-max);
+$font-size: clamp($font-size-min, 0.688vw + 0.929rem, $font-size-max); // 0.929rem corrisponde a 13px
 
 $font-size-small-min: 12px;
 $font-size-small-max: 16px;
-$font-size-small: clamp($font-size-small-min, 0.688vw + 1rem, $font-size-small-max);
+$font-size-small: clamp($font-size-small-min, 0.688vw + 0.857rem, $font-size-small-max); // 0.857rem corrisponde a 12px
+
+$font-size-extra-small-min: 10px;
+$font-size-extra-small-max: 14px;
+$font-size-extra-small: clamp($font-size-extra-small-min, 0.688vw + 0.714rem, $font-size-extra-small-max); // 0.714rem corrisponde a 10px
 
 //title varaibles
 $title-size-min: 26px;
