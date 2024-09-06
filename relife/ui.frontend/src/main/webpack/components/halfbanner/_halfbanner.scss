@@ -19,12 +19,13 @@
             padding: 12rem 2.5rem 2.5rem 2.5rem;
             .cmp-teaser__title {
                 font-family: $title-bold;
-                font-size: $h7-title-size;
+                font-size: $h3-title-size;
                 margin: 0;
                 text-transform: uppercase;
             }
             .cmp-teaser__description {
                 font-family: $title-light;
+                font-size: $font-size-small;
                 b {
                     font-family: $title-medium;
                 }
@@ -228,7 +229,7 @@
 
             .cmp-teaser__content {
                 width: 50%;
-                padding: 2.5rem;
+                padding: 0 10%;
             }
 
             .cmp-teaser__image {
