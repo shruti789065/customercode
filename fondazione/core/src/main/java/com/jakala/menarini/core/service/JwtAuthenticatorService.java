@@ -123,32 +123,32 @@ import com.jakala.menarini.core.dto.RoleDto;
                     LOGGER.error("Token expired");
                     return false; // Il token è scaduto
                 }
-                String cognitoIss = claimsSet.getIssuer();
-                String jwkString = getTokenJwk(cognitoIss+"/.well-known/jwks.json");
-                if (jwkString == null) {
-                    //jwk not found
-                    LOGGER.error("Invalid JWK signature");
-                    return false;
-                } else {
-                    LOGGER.error("JWK signature: {}", jwkString);
-                }
+                // String cognitoIss = claimsSet.getIssuer();
+                // String jwkString = getTokenJwk(cognitoIss+"/.well-known/jwks.json");
+                // if (jwkString == null) {
+                //     //jwk not found
+                //     LOGGER.error("Invalid JWK signature");
+                //     return false;
+                // } else {
+                //     LOGGER.error("JWK signature: {}", jwkString);
+                // }
 
 
-                final JsonObject jwkJsonObj = JsonParser.parseString(jwkString).getAsJsonObject();
-                String singleKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).toString();
-                LOGGER.info("JWK JSON KEY 0: {}", singleKey);
+                // final JsonObject jwkJsonObj = JsonParser.parseString(jwkString).getAsJsonObject();
+                // String singleKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).toString();
+                // LOGGER.info("JWK JSON KEY 0: {}", singleKey);
 
 
-                final Jwk<?> jwk = Jwks.parser().build().parse(singleKey);
-                RSAPublicKey rsaKey = (RSAPublicKey)jwk.toKey();
+                // final Jwk<?> jwk = Jwks.parser().build().parse(singleKey);
+                // RSAPublicKey rsaKey = (RSAPublicKey)jwk.toKey();
 
-                try {
+                // try {
 
-                    Jwts.parser().verifyWith(rsaKey).build().parse(token);
-                } catch (SignatureException e) {
-                    LOGGER.error("Invalid JWT signature", e);
-                    return false; //wrong signature
-                }
+                //     Jwts.parser().verifyWith(rsaKey).build().parse(token);
+                // } catch (SignatureException e) {
+                //     LOGGER.error("Invalid JWT signature", e);
+                //     return false; //wrong signature
+                // }
 
 
 
