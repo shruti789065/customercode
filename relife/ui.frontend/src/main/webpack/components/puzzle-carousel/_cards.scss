@@ -7,7 +7,7 @@
 
     .teaser {
       height: auto;
-	  margin: 1.875rem 0;
+	    margin: 1.875rem 0;
       
       .cmp-teaser {
         display: block;
@@ -17,7 +17,7 @@
         .cmp-teaser__content {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: start;
           height: 100%;
           .cmp-teaser__title {
             text-transform: uppercase;
@@ -26,8 +26,8 @@
 			margin-bottom: .571rem;
           }
           .cmp-teaser__description {
-			position: relative;
-			top: -1rem;
+			      position: relative;
+			      top: -1rem;
             p {
               font-size: clamp(1.071rem, 0.063vw + 1.057rem, 1.143rem);
             }
@@ -37,7 +37,7 @@
             .cmp-teaser__action-link {
               font-size: 1.071rem;
               font-weight: $text-bold;
-			  font-family: $title-book;
+			        font-family: $title-book;
               text-decoration-color: rgba(28, 29, 29, 0.3);
               text-underline-offset: 0.8rem;
               transition: $standard-transition;
