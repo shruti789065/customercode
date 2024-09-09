@@ -34,12 +34,12 @@ public class SignupServlet extends SlingAllMethodsServlet {
         SignUpDtoResponse awsResponse = awsCognitoService.registerOnCognito(signUpDto);
         if (awsResponse.getCognitoSignUpErrorResponseDto() != null) {
             String successResponse = gson.toJson(awsResponse);
+            response.setStatus(400);
             response.setContentType("application/json");
             response.getWriter().println(successResponse);
         } else {
             String errorResponse = gson.toJson(awsResponse);
             response.setContentType("application/json");
-            response.setStatus(400);
             response.getWriter().println(errorResponse);
         }
 
