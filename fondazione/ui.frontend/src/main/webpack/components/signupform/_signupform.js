@@ -17,6 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let erroeMessagges = [];
 
+  let formComponent = document.getElementById('#formComponentWrapper');
+  let thankyouComponent = document.querySelector('#thankyouComponent');
+
+  // if (formComponent && thankyouComponent) {
+  //   formComponent.classList.add('d-block');
+  //   formComponent.classList.remove('d-none');
+  //   thankyouComponent.classList.add('d-none');
+  //   thankyouComponent.classList.remove('d-block')
+  // }
+
+
+
   // STYLE FUNCTIONS AND CUSTOM COMPONENT FUNCTIONS
   dropdownButtonMultiple.addEventListener('click', function () {
     dropdownMenuInterests.style.display = dropdownMenuInterests.style.display === 'block' ? 'none' : 'block';
@@ -342,6 +354,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // function toggleThankyouComponent() {
+
+  // }
+
   // FORM SUBMIT FUNCTIONS
   async function sendData(registrationData) {
     const responseCsrf = await fetch('/libs/granite/csrf/token.json');
@@ -372,6 +388,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       let tmpFormData = {
         profession: selectedProfession,
+        country: selectedCountry,
         areasOfInterest: selectedItemsMultipleSelect.map(x => x.replaceAll(" ", ""))
       };
 
@@ -395,9 +412,10 @@ document.addEventListener('DOMContentLoaded', function () {
         "interests": tmpFormData.areasOfInterest,
         "rolesNames": [],
         "gender": tmpFormData.gender,
-        "privacyConsent": tmpFormData.privacy,
-        "profilingConsent": tmpFormData.personalDataProcessing,
-        "newsletterConsent": tmpFormData.receiveNewsletter
+        "privacyConsent": tmpFormData.privacy === "yes" ? true : false,
+        "profilingConsent": tmpFormData.personalDataProcessing === "yes" ? true : false,
+        "newsletterConsent": tmpFormData.receiveNewsletter === "yes" ? true : false
+  
       }
 
       validateProfession(tmpFormData);
@@ -413,10 +431,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
+        console.log("DATA: ",registrationData);
+        
         if (responseReg.cognitoSignUpErrorResponseDto) {
           alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
         } else {
-          document.location.href = "/us/welcome";
+          if (formComponent && thankyouComponent) {
+            formComponent.classList.add('d-none');
+            formComponent.classList.remove('d-block');
+            thankyouComponent.classList.add('d-block');
+            thankyouComponent.classList.remove('d-none');
+          }
         }
       }
     });
