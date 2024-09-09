@@ -4,16 +4,9 @@
 package com.jakala.menarini.core.entities.utils;
 
 
-import com.jakala.menarini.core.entities.Event;
 import com.jakala.menarini.core.entities.EventEnrollment;
-import com.jakala.menarini.core.entities.EventSessionDate;
-import com.jakala.menarini.core.entities.EventSpeaker;
-import com.jakala.menarini.core.entities.EventTopic;
-import com.jakala.menarini.core.entities.MagazineSubscription;
-import com.jakala.menarini.core.entities.NewsletterSubscription;
 import com.jakala.menarini.core.entities.RegisteredUserRole;
 import com.jakala.menarini.core.entities.RegisteredUserTopic;
-import com.jakala.menarini.core.entities.Venue;
 
 import org.jooq.Index;
 import org.jooq.OrderField;
@@ -32,21 +25,9 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     public static final Index EVENT_ENROLLMENT_EVENT_ID = Internal.createIndex(DSL.name("event_id"), EventEnrollment.EVENT_ENROLLMENT, new OrderField[] { EventEnrollment.EVENT_ENROLLMENT.EVENT_ID }, false);
-    public static final Index EVENT_SESSION_DATE_EVENT_ID = Internal.createIndex(DSL.name("event_id"), EventSessionDate.EVENT_SESSION_DATE, new OrderField[] { EventSessionDate.EVENT_SESSION_DATE.EVENT_ID }, false);
-    public static final Index EVENT_SPEAKER_EVENT_ID = Internal.createIndex(DSL.name("event_id"), EventSpeaker.EVENT_SPEAKER, new OrderField[] { EventSpeaker.EVENT_SPEAKER.EVENT_ID }, false);
-    public static final Index EVENT_TOPIC_EVENT_ID = Internal.createIndex(DSL.name("event_id"), EventTopic.EVENT_TOPIC, new OrderField[] { EventTopic.EVENT_TOPIC.EVENT_ID }, false);
-    public static final Index EVENT_LOCATION_ID = Internal.createIndex(DSL.name("location_id"), Event.EVENT, new OrderField[] { Event.EVENT.LOCATION_ID }, false);
-    public static final Index EVENT_SESSION_DATE_LOCATION_ID = Internal.createIndex(DSL.name("location_id"), EventSessionDate.EVENT_SESSION_DATE, new OrderField[] { EventSessionDate.EVENT_SESSION_DATE.LOCATION_ID }, false);
-    public static final Index VENUE_LOCATION_ID = Internal.createIndex(DSL.name("location_id"), Venue.VENUE, new OrderField[] { Venue.VENUE.LOCATION_ID }, false);
     public static final Index EVENT_ENROLLMENT_REGISTERED_USER_ID = Internal.createIndex(DSL.name("registered_user_id"), EventEnrollment.EVENT_ENROLLMENT, new OrderField[] { EventEnrollment.EVENT_ENROLLMENT.REGISTERED_USER_ID }, false);
-    public static final Index MAGAZINE_SUBSCRIPTION_REGISTERED_USER_ID = Internal.createIndex(DSL.name("registered_user_id"), MagazineSubscription.MAGAZINE_SUBSCRIPTION, new OrderField[] { MagazineSubscription.MAGAZINE_SUBSCRIPTION.REGISTERED_USER_ID }, false);
-    public static final Index NEWSLETTER_SUBSCRIPTION_REGISTERED_USER_ID = Internal.createIndex(DSL.name("registered_user_id"), NewsletterSubscription.NEWSLETTER_SUBSCRIPTION, new OrderField[] { NewsletterSubscription.NEWSLETTER_SUBSCRIPTION.REGISTERED_USER_ID }, false);
     public static final Index REGISTERED_USER_ROLE_REGISTERED_USER_ID = Internal.createIndex(DSL.name("registered_user_id"), RegisteredUserRole.REGISTERED_USER_ROLE, new OrderField[] { RegisteredUserRole.REGISTERED_USER_ROLE.REGISTERED_USER_ID }, false);
     public static final Index REGISTERED_USER_TOPIC_REGISTERED_USER_ID = Internal.createIndex(DSL.name("registered_user_id"), RegisteredUserTopic.REGISTERED_USER_TOPIC, new OrderField[] { RegisteredUserTopic.REGISTERED_USER_TOPIC.REGISTERED_USER_ID }, false);
     public static final Index REGISTERED_USER_ROLE_ROLE_ID = Internal.createIndex(DSL.name("role_id"), RegisteredUserRole.REGISTERED_USER_ROLE, new OrderField[] { RegisteredUserRole.REGISTERED_USER_ROLE.ROLE_ID }, false);
-    public static final Index EVENT_SPEAKER_SPEAKER_ID = Internal.createIndex(DSL.name("speaker_id"), EventSpeaker.EVENT_SPEAKER, new OrderField[] { EventSpeaker.EVENT_SPEAKER.SPEAKER_ID }, false);
-    public static final Index EVENT_TOPIC_TOPIC_ID = Internal.createIndex(DSL.name("topic_id"), EventTopic.EVENT_TOPIC, new OrderField[] { EventTopic.EVENT_TOPIC.TOPIC_ID }, false);
     public static final Index REGISTERED_USER_TOPIC_TOPIC_ID = Internal.createIndex(DSL.name("topic_id"), RegisteredUserTopic.REGISTERED_USER_TOPIC, new OrderField[] { RegisteredUserTopic.REGISTERED_USER_TOPIC.TOPIC_ID }, false);
-    public static final Index EVENT_VENUE_ID = Internal.createIndex(DSL.name("venue_id"), Event.EVENT, new OrderField[] { Event.EVENT.VENUE_ID }, false);
-    public static final Index EVENT_SESSION_DATE_VENUE_ID = Internal.createIndex(DSL.name("venue_id"), EventSessionDate.EVENT_SESSION_DATE, new OrderField[] { EventSessionDate.EVENT_SESSION_DATE.VENUE_ID }, false);
 }

@@ -8,16 +8,16 @@ import java.util.*;
 
 public class SignUpDtoResponse  extends SignUpDto {
 
-    public static HashMap<String,Long> MAPPING_MAPPING = new HashMap<>(
+    public static HashMap<String, String> MAPPING_MAPPING = new HashMap<>(
             Map.ofEntries(
-                    new AbstractMap.SimpleEntry<String, Long>("Algology", 1L),
-                    new AbstractMap.SimpleEntry<String, Long>("AllergologyandClinicalImmunology", 2L),
-                    new AbstractMap.SimpleEntry<String, Long>("AnaestesiaandIntensiveCare", 3L),
-                    new AbstractMap.SimpleEntry<String, Long>("Analyst", 4L),
-                    new AbstractMap.SimpleEntry<String, Long>("Andrology", 5L),
-                    new AbstractMap.SimpleEntry<String, Long>("Biochemistry", 6L),
-                    new AbstractMap.SimpleEntry<String, Long>("Cardiology", 7L),
-                    new AbstractMap.SimpleEntry<String, Long>("Dentistry", 8L)
+                    new AbstractMap.SimpleEntry<String, String>("Algology", "1"),
+                    new AbstractMap.SimpleEntry<String, String>("AllergologyandClinicalImmunology", "2"),
+                    new AbstractMap.SimpleEntry<String, String>("AnaestesiaandIntensiveCare", "3"),
+                    new AbstractMap.SimpleEntry<String, String>("Analyst", "4"),
+                    new AbstractMap.SimpleEntry<String, String>("Andrology", "5"),
+                    new AbstractMap.SimpleEntry<String, String>("Biochemistry", "6"),
+                    new AbstractMap.SimpleEntry<String, String>("Cardiology", "7"),
+                    new AbstractMap.SimpleEntry<String, String>("Dentistry", "8")
             )
     );
 
