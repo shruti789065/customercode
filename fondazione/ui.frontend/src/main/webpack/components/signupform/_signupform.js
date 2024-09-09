@@ -17,17 +17,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let erroeMessagges = [];
 
-  let formComponent = document.getElementById('#formComponentWrapper');
+  let formComponent = document.querySelector('#formComponentWrapper');
   let thankyouComponent = document.querySelector('#thankyouComponent');
 
-  // if (formComponent && thankyouComponent) {
-  //   formComponent.classList.add('d-block');
-  //   formComponent.classList.remove('d-none');
-  //   thankyouComponent.classList.add('d-none');
-  //   thankyouComponent.classList.remove('d-block')
-  // }
-
-
+  if (formComponent && thankyouComponent) {
+    formComponent.classList.add('d-block');
+    formComponent.classList.remove('d-none');
+    thankyouComponent.classList.add('d-none');
+    thankyouComponent.classList.remove('d-block')
+  }
 
   // STYLE FUNCTIONS AND CUSTOM COMPONENT FUNCTIONS
   dropdownButtonMultiple.addEventListener('click', function () {
@@ -354,15 +352,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // function toggleThankyouComponent() {
-
-  // }
-
   // FORM SUBMIT FUNCTIONS
   async function sendData(registrationData) {
+    
     const responseCsrf = await fetch('/libs/granite/csrf/token.json');
     const csrfToken = await responseCsrf.json();
-    // console.log('CSRF-Token:', csrfToken);
     const regResponse = await fetch("/bin/api/awsSignUp", {
       method: "POST",
       headers: {
@@ -372,7 +366,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
     const dataResponse = await regResponse.json();
-    // console.log(JSON.stringify(dataResponse, null, 3));
     return dataResponse;
 
   }
@@ -381,11 +374,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (form) {
     form.addEventListener("submit", async (event) => {
-      erroeMessagges = []; // reset errors array
+      erroeMessagges = [];
       event.preventDefault();
-
       const formData = new FormData(form);
-
       let tmpFormData = {
         profession: selectedProfession,
         country: selectedCountry,
@@ -431,17 +422,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
-        console.log("DATA: ",registrationData);
-        
         if (responseReg.cognitoSignUpErrorResponseDto) {
           alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
         } else {
-          if (formComponent && thankyouComponent) {
+
+          if (formComponent && thankyouComponent) { 
             formComponent.classList.add('d-none');
             formComponent.classList.remove('d-block');
             thankyouComponent.classList.add('d-block');
             thankyouComponent.classList.remove('d-none');
           }
+
         }
       }
     });
