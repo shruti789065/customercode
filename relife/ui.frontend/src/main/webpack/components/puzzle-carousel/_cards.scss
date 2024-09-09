@@ -7,8 +7,8 @@
 
     .teaser {
       height: auto;
-	    margin: 1.875rem 0;
-      
+      margin: 1.875rem 0;
+
       .cmp-teaser {
         display: block;
         min-width: clamp(16.857rem, 13.75vw + 13.714rem, 32.571rem);
@@ -17,27 +17,27 @@
         .cmp-teaser__content {
           display: flex;
           flex-direction: column;
-          justify-content: start;
+          justify-content: space-between;
           height: 100%;
           .cmp-teaser__title {
             text-transform: uppercase;
             font-size: clamp(1.143rem, 0.125vw + 1.114rem, 1.286rem);
             margin: 0;
-			margin-bottom: .571rem;
+            margin-bottom: 0.571rem;
           }
           .cmp-teaser__description {
-			      position: relative;
-			      top: -1rem;
+            position: relative;
+            top: -1rem;
             p {
               font-size: clamp(1.071rem, 0.063vw + 1.057rem, 1.143rem);
             }
           }
           .cmp-teaser__action-container {
-            margin-top: 2.2rem;
+            margin-top: clamp(0.857rem, 1.812vw + 0.372rem, 2.857rem);
             .cmp-teaser__action-link {
               font-size: 1.071rem;
               font-weight: $text-bold;
-			        font-family: $title-book;
+              font-family: $title-book;
               text-decoration-color: rgba(28, 29, 29, 0.3);
               text-underline-offset: 0.8rem;
               transition: $standard-transition;

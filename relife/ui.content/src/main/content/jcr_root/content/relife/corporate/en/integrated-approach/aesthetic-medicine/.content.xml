@@ -3,22 +3,23 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}false"
-        cq:lastModified="{Date}2024-09-04T08:32:03.302Z"
-        cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2024-09-05T08:46:03.599Z"
-        cq:lastReplicated_publish="{Date}2024-09-05T08:46:03.599Z"
-        cq:lastReplicatedBy="workflow-process-service"
-        cq:lastReplicatedBy_publish="workflow-process-service"
+        cq:lastModified="{Date}2024-09-09T11:28:36.014+02:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-09-09T08:49:52.740Z"
+        cq:lastReplicated_publish="{Date}2024-09-09T08:49:52.740Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
-        cq:redirectTarget="/content/relife/corporate/en/integrated-approach/aesthetic-medicine"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
+        jcr:description="Our 5Rs holistic treatment approach celebrates individual beauty and supports complete well being"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Integrated approach"
-        jcr:uuid="d2682349-d56c-44a7-b1a3-37c7f1b16a6c"
+        jcr:title="Our 5Rs "
+        jcr:uuid="92875cdf-5be8-4583-a5a4-a02c9fe71d25"
         sling:resourceType="relife/components/page"
+        pageTitle="Holistic approach | Comprehensive rejuvenation |"
         pwaCachestrategy="staleWhileRevalidate"
         pwaDisplay="standalone"
         pwaOrientation="any">
@@ -75,27 +76,6 @@
                                     linkTarget="_self"
                                     textIsRich="true"/>
                             </slideshow>
-                            <title
-                                cq:styleIds="[1723457725921,1723457132031]"
-                                jcr:created="{Date}2024-09-02T13:31:18.556Z"
-                                jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-02T13:31:47.034Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Our holistic approach to aesthetic treatments - the secret to timeless Italian style"
-                                sling:resourceType="relife/components/title"
-                                linkTarget="_self"
-                                type="h5"/>
-                            <text
-                                cq:styleIds="[1721211788361,1723457158040]"
-                                jcr:created="{Date}2024-09-02T13:31:55.510Z"
-                                jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-02T13:32:48.282Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/text"
-                                text="&lt;p>To meet your unique skin needs, we’ve crafted a portfolio of evidence-based skincare and devices that work&lt;/p>&#xd;&#xa;&lt;p>together and with the skin's natural ability to regenerate, to deliver the best treatment outcomes and natural-&lt;/p>&#xd;&#xa;&lt;p>looking results. We call this the RELIFE 5R Integrated Portfolio Approach.&lt;/p>&#xd;&#xa;"
-                                textIsRich="true"/>
                         </wrapper>
                     </section_7504393>
                     <section
@@ -113,14 +93,57 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper"
                             layout="responsiveGrid">
-                            <spacer_copy
+                            <spacer_copy_copy
                                 jcr:created="{Date}2024-08-08T08:29:50.120Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-08T08:34:31.621Z"
+                                jcr:lastModified="{Date}2024-09-09T08:43:01.756Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/spacer"
-                                spacer="100"/>
+                                spacer="25"/>
+                            <title
+                                cq:styleIds="[1723457725921,1723457132031]"
+                                jcr:created="{Date}2024-09-02T13:31:18.556Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-09T08:43:06.965Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Our holistic approach to aesthetic treatments - the secret to timeless Italian style"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h1">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="2"
+                                        width="8"/>
+                                </cq:responsive>
+                            </title>
+                            <text
+                                cq:styleIds="[1721211788361,1723457158040]"
+                                jcr:created="{Date}2024-09-02T13:31:55.510Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-02T13:32:48.282Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/text"
+                                text="&lt;p>To meet your unique skin needs, we’ve crafted a portfolio of evidence-based skincare and devices that work&lt;/p>&#xd;&#xa;&lt;p>together and with the skin's natural ability to regenerate, to deliver the best treatment outcomes and natural-&lt;/p>&#xd;&#xa;&lt;p>looking results. We call this the RELIFE 5R Integrated Portfolio Approach.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="2"
+                                        width="8"/>
+                                </cq:responsive>
+                            </text>
+                            <spacer_copy
+                                jcr:created="{Date}2024-08-08T08:29:50.120Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T09:18:15.941Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
                             <container_copy
                                 jcr:created="{Date}2024-08-08T08:23:50.593Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
@@ -277,11 +300,11 @@
                                     cq:styleIds="[1721211788361]"
                                     jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                     jcr:createdBy="d.mariotti@adiacent.com"
-                                    jcr:lastModified="{Date}2024-08-29T14:59:03.737Z"
-                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-09T08:46:57.717Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/text"
-                                    text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Our techniques are developed over long periods with industry leading aesthetic experts. Every protocol undergoes multiple layers of clinical tests and results modelling.&amp;nbsp;&lt;br>&#xd;&#xa;Our products and techniques are designed for beautiful and lasting results that delight and inspire. We call it ‘Timeless Beauty’.&lt;/p>&#xd;&#xa;"
+                                    text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Our techniques are developed over long periods with industry leading aesthetic experts. Every protocol undergoes multiple layers of clinical tests and results modelling.&amp;nbsp;&lt;br>&#xd;&#xa;Our products and techniques are designed for beautiful and lasting results that delight and inspire. &lt;br>&#xd;&#xa;We call it ‘Timeless Beauty’.&lt;/p>&#xd;&#xa;"
                                     textIsRich="true"/>
                             </container_copy_1091621557>
                             <container_copy_copy
@@ -345,13 +368,13 @@
                                 cq:styleIds="[1723457725921,1723457132031]"
                                 jcr:created="{Date}2024-08-29T14:59:32.374Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-29T15:00:07.746Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-09T08:43:51.614Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Our 5Rs holistic treatment approach &lt;br/> celebrates individual beauty and supports complete well being"
                                 sling:resourceType="relife/components/title"
                                 linkTarget="_self"
-                                type="h4"/>
+                                type="h2"/>
                             <spacer_copy
                                 jcr:created="{Date}2024-08-29T15:04:31.210Z"
                                 jcr:createdBy="a.messori@adiacent.com"
@@ -364,9 +387,9 @@
                                 cq:styleIds="[1721920650500,1721920694276,1721920841536]"
                                 jcr:created="{Date}2024-08-29T15:00:19.990Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:description="&lt;p>Redefine your facial contours and preserve your youthful silhouette.&lt;/p>&#xd;&#xa;&lt;p>REshape utilises the uniquely structured &lt;a href=&quot;/content/relife/corporate/en/products/definisse-threads/definisse-3d-lift.html&quot;>Definisse™ 3D Lift Threads&lt;/a>&amp;nbsp;to sculpt facial contours, reposition tissue and stimulate the generation of collagen to support the skin's structure and replenish lost volume.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                jcr:lastModified="{Date}2024-09-03T13:12:58.583Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:description="&lt;p>Redefine your facial contours and preserve your youthful silhouette.&lt;/p>&#xd;&#xa;&lt;p>REshape utilises the uniquely structured&amp;nbsp;Definisse™ 3D Lift Threads to sculpt facial contours, reposition tissue and stimulate the generation of collagen to support the skin's structure and replenish lost volume.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;b>EXPLORE FURTHER&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-threads/definisse-3d-lift.html&quot;>Definisse™ 3D Lift Threads&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2024-09-09T11:19:59.580+02:00"
+                                jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="REshape"
                                 sling:resourceType="relife/components/halfbanner"
@@ -389,8 +412,8 @@
                                 cq:styleIds="[1721920651574,1721920703430,1721920841536]"
                                 jcr:created="{Date}2024-08-29T15:00:19.990Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:description="&lt;p>You can restore facial volume and protect collagen degradation with our advanced HA (Hyaluronic Acid) technologies.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-fillers.html&quot;>&lt;b>Definisse™&amp;nbsp;Fillers&lt;/b>&lt;/a>&amp;nbsp;harness the cohesivity and viscosity of HA gel, which is injected under the skin to create both physical volume and to stimulate the hydration (water-binding) properties of HA.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Try our latest innovation – the exclusive &lt;b>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-kp1.html&quot;>KP1 Collagen Modulator Bio-Peptide&lt;/a>&lt;/b>&amp;nbsp; has clinically demonstrated effectiveness in addressing wrinkles, fine lines, dull skin, and loss of volume.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™&amp;nbsp;KP1 is a revolutionary skin care line that works to preserve the skin’s natural collagen by inhibiting the enzymes responsible for its degradation. It delivers significantly improved skin density, firmness and a luminous, velvety nourished complexion.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Introducing the&amp;nbsp;Definisse™ KP1 product line:&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>&lt;p>Definisse™&amp;nbsp;KP1 regenerating serum&lt;/p>&#xd;&#xa;&lt;/li>&#xd;&#xa;&lt;li>&lt;p>Definisse™&amp;nbsp;KP1 redensifying cream&lt;/p>&#xd;&#xa;&lt;/li>&#xd;&#xa;&lt;li>&lt;p>Definisse™&amp;nbsp;KP1 revitalising eye contour&lt;/p>&#xd;&#xa;&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
-                                jcr:lastModified="{Date}2024-09-03T13:16:35.344Z"
+                                jcr:description="&lt;p>You can restore facial volume and protect collagen degradation with our advanced HA (Hyaluronic Acid) technologies.&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Fillers&amp;nbsp;harness the cohesivity and viscosity of HA gel, which is injected under the skin to create both physical volume and to stimulate the hydration (water-binding) properties of HA.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Try our latest innovation – the exclusive &amp;nbsp;KP1 Collagen Modulator Bio-Peptide has clinically demonstrated effectiveness in addressing wrinkles, fine lines, dull skin, and loss of volume. Definisse™&amp;nbsp;KP1 is a revolutionary skin care line that works to preserve the skin’s natural collagen by inhibiting the enzymes responsible for its degradation. It delivers significantly improved skin density, firmness and a luminous, velvety nourished complexion.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;b>INTRODUCING THE DEFINISSE™ KP1 PRODUCT LINE:&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-kp1.html&quot;>KP1 Collagen Modulator Bio-Peptide&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2024-09-09T08:24:47.105Z"
                                 jcr:lastModifiedBy="a.messori@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="REstore"
@@ -414,9 +437,9 @@
                                 cq:styleIds="[1721920650500,1721920694276,1721920841536]"
                                 jcr:created="{Date}2024-08-29T15:00:19.990Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:description="&lt;p>Improve your skin’s quality and reduce the signs of aging from the inside out, by stimulating collagen production and boosting the body’s natural ability to protect hydration and elasticity.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-threads/definisse-revitalisethreads.html&quot;>&lt;b>Definisse™&amp;nbsp;Revitalise threads&lt;/b>&lt;/a>&amp;nbsp; work by stimulating collagen production within the skin tissue, regenerating firmness, skin density, elasticity and improving overall appearance.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-hydroboosters.html&quot;>&lt;b>Definisse™&amp;nbsp;Hydrobooster&lt;/b>&lt;/a>&amp;nbsp; is an injectable HA gel that replenishes the loss of hyaluronic acid to maintain hydration,&amp;nbsp; improve the tone and elasticity of the skin and reduce small lines such as crow’s feet.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                jcr:lastModified="{Date}2024-09-03T13:11:54.634Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:description="&lt;p>Improve your skin’s quality and reduce the signs of aging from the inside out, by stimulating collagen production and boosting the body’s natural ability to protect hydration and elasticity.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Revitalise threads&amp;nbsp; work by stimulating collagen production within the skin tissue, regenerating firmness, skin density, elasticity and improving overall appearance.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Hydrobooster&amp;nbsp; is an injectable HA gel that replenishes the loss of hyaluronic acid to maintain hydration,&amp;nbsp; improve the tone and elasticity of the skin and reduce small lines such as crow’s feet.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;b>EXPLORE FURTHER&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-threads/definisse-revitalisethreads.html&quot;>Definisse™&amp;nbsp;Revitalise threads&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-hydroboosters.html&quot;>Definisse™&amp;nbsp;Hydrobooster&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2024-09-09T11:28:36.008+02:00"
+                                jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="REboost"
                                 sling:resourceType="relife/components/halfbanner"
@@ -439,9 +462,9 @@
                                 cq:styleIds="[1721920651574,1721920703430,1721920841536]"
                                 jcr:created="{Date}2024-08-29T15:00:19.990Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:description="&lt;p>Regenerate the top layers of your skin to reveal a natural glow, improved texture, brighten the skin and reduce the appearance of scars or hyperpigmentation.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-peel-program.html&quot;>&lt;b>Definisse™&amp;nbsp;Peel program&lt;/b>&lt;/a>&amp;nbsp;uses 3 active ingredients that perform different rejuvenating actions and in combination deliver multilevel skin resurfacing of the upper dermal layers for bright and glowing skin.&lt;/p>&#xd;&#xa;&lt;p>Delivering comprehensive cell regeneration and stimulating ongoing replenishment through:&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>&lt;p>Exfoliation&lt;/p>&#xd;&#xa;&lt;/li>&#xd;&#xa;&lt;li>&lt;p>Collagen stimulation&lt;/p>&#xd;&#xa;&lt;/li>&#xd;&#xa;&lt;li>&lt;p>Anti-bacterial cleansing&lt;/p>&#xd;&#xa;&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                jcr:lastModified="{Date}2024-09-03T13:14:38.169Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:description="&lt;p>Regenerate the top layers of your skin to reveal a natural glow, improved texture, brighten the skin and reduce the appearance of scars or hyperpigmentation.&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Peel program&amp;nbsp;uses 3 active ingredients that perform different rejuvenating actions and in combination deliver multilevel skin resurfacing of the upper dermal layers for bright and glowing skin.&lt;/p>&#xd;&#xa;&lt;p>Delivering comprehensive cell regeneration and stimulating ongoing replenishment through:&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>Exfoliation&lt;/li>&#xd;&#xa;&lt;li>Collagen stimulation&lt;/li>&#xd;&#xa;&lt;li>Anti-bacterial cleansing&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p>&lt;b>EXPLORE FURTHER&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/relife/corporate/en/products/definisse-peel-program.html&quot;>Definisse™&amp;nbsp;Peel program&lt;/a>&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2024-09-09T11:17:12.905+02:00"
+                                jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="REsurface"
                                 sling:resourceType="relife/components/halfbanner"
@@ -464,9 +487,9 @@
                                 cq:styleIds="[1721920650500,1721920694276,1721920841536]"
                                 jcr:created="{Date}2024-08-29T15:00:19.990Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:description="&lt;p>REtone for a lighter, brighter, flawless completion you’ll love.&lt;/p>&#xd;&#xa;&lt;p>Whether sun damage or hormonally induced, the Pigment Solution Programme effectively and cumulatively reduces the hyperpigmentation in your skin.&lt;/p>&#xd;&#xa;&lt;p>Our formulation is gentler than typical lightening treatments and incorporates vitamins A and E for simultaneous and ongoing skin protection.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                jcr:lastModified="{Date}2024-09-03T13:17:01.117Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:description="&lt;p>REtone for a lighter, brighter, flawless completion you’ll love.&lt;/p>&#xd;&#xa;&lt;p>Whether sun damage or hormonally induced, the Pigment Solution Programme effectively and cumulatively reduces the hyperpigmentation in your skin.&lt;/p>&#xd;&#xa;&lt;p>Our formulation is gentler than typical lightening treatments and incorporates vitamins A and E for simultaneous and ongoing skin protection.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>EXPLORE FURTHER&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;https://author-p100658-e925032.adobeaemcloud.com/content/relife/corporate/en/products/pigment-solution.html&quot;>RELIFE&amp;nbsp;Pigment Solution™ Programme&lt;/a>&lt;/p>&#xd;&#xa;"
+                                jcr:lastModified="{Date}2024-09-09T11:16:32.475+02:00"
+                                jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="REtone"
                                 sling:resourceType="relife/components/halfbanner"
@@ -491,11 +514,10 @@
             </container>
         </root>
         <cq:featuredimage
-            jcr:lastModified="{Date}2024-09-04T08:32:03.235Z"
-            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+            jcr:lastModified="{Date}2024-09-04T09:58:10.072Z"
+            jcr:lastModifiedBy="a.messori@adiacent.com"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="core/wcm/components/image/v3/image"
             altValueFromDAM="false"/>
     </jcr:content>
-    <aesthetic-medicine/>
 </jcr:root>

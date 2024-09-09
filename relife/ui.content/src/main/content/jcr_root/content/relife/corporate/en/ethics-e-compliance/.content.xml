@@ -2,11 +2,18 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-08-08T07:45:38.754Z"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-09-06T15:26:56.080Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-06T15:27:09.294Z"
+        cq:lastReplicated_publish="{Date}2024-09-06T15:27:09.294Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Ethics &amp; Compliance"
         jcr:uuid="7cce07e1-4e8c-4e62-b00f-7007d5bffe66"
@@ -36,13 +43,30 @@
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper">
-                            <slideshow
+                            <slideshow_copy
                                 jcr:created="{Date}2024-06-28T16:52:23.638+02:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2024-06-28T16:52:23.638+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/slideshow"/>
+                                sling:resourceType="relife/components/slideshow">
+                                <slide_video
+                                    cq:styleIds="[1723460257677]"
+                                    jcr:created="{Date}2024-08-29T08:53:36.622Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>ETHICS &amp;amp; COMPLIANCE&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-09-04T08:34:44.014Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/slide-video"
+                                    automaticDuration="true"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/corporate/assets/about/contact-us-slide.png"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"/>
+                            </slideshow_copy>
                         </wrapper>
                     </section_7504393>
                     <section
@@ -55,10 +79,289 @@
                         <wrapper
                             jcr:created="{Date}2024-06-28T16:52:45.393+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-06-28T16:52:45.393+02:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:lastModified="{Date}2024-09-04T08:41:53.417Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="relife/components/containers/wrapper"/>
+                            sling:resourceType="relife/components/containers/wrapper"
+                            layout="responsiveGrid">
+                            <spacer_copy
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:25:30.841Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="25"/>
+                            <title_copy
+                                cq:styleIds="[1723457725921,1723457132031]"
+                                jcr:created="{Date}2024-08-29T09:48:19.569Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:25:36.028Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Ethics &amp; Compliance"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h1"/>
+                            <spacer_copy_copy
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:18:32.217Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
+                            <title
+                                cq:styleIds="[1721211637597]"
+                                jcr:created="{Date}2024-09-04T08:36:16.967Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:25:43.288Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="MENARINI GROUP"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h3"/>
+                            <text
+                                jcr:created="{Date}2024-09-04T08:37:03.911Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:40:56.499Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/text"
+                                text="&lt;p>As a part of the Menarini Group, RELIFE lays its foundations on the scientific heritage and high-quality standards of the company and respects the highest standards in all its processes.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="10"/>
+                                </cq:responsive>
+                            </text>
+                            <link
+                                jcr:created="{Date}2024-09-04T08:40:19.186Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:40:48.508Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Go To Menarini Site"
+                                sling:resourceType="relife/components/link"
+                                linkTarget="_blank"
+                                linkURL="https://www.menarini.com">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="2"/>
+                                </cq:responsive>
+                            </link>
+                            <spacer_copy_copy_cop
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:18:32.217Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
+                            <title_copy_199589782
+                                cq:styleIds="[1721211637597]"
+                                jcr:created="{Date}2024-09-04T08:36:16.967Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:25:48.240Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="ETHICAL CODE"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h3"/>
+                            <text_copy
+                                jcr:created="{Date}2024-09-04T08:37:03.911Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:42:35.207Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/text"
+                                text="&lt;p>We believe in making the best possible decisions concerning people, resource and the environment. Ethical choices advance positive results, increase trust and reputation, determine long term success and build RELIFE S.r.l. Italia leadership. The Code of Ethics encompasses all the principles and rules of conduct that those operating within the Company must comply with, defining our values, formisiling our commitment to conduct the Company with integrity, loyalty and correctness and specifying to our collaborator the standards of behaviour.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="9"/>
+                                </cq:responsive>
+                            </text_copy>
+                            <container
+                                jcr:created="{Date}2024-09-06T15:26:05.553Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:26:05.553Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/container">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="1"/>
+                                </cq:responsive>
+                            </container>
+                            <link_copy
+                                jcr:created="{Date}2024-09-04T08:40:19.186Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:46:01.526Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="READ MORE"
+                                sling:resourceType="relife/components/link"
+                                linkTarget="_blank"
+                                linkURL="/content/dam/relife/corporate/assets/documents/RELIFE_Code%20of%20Ethics_ENG-IT.pdf">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="2"/>
+                                </cq:responsive>
+                            </link_copy>
+                            <spacer_copy_copy_cop_1884455673
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:18:32.217Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
+                            <title_copy_199589782_18122065
+                                cq:styleIds="[1721211637597]"
+                                jcr:created="{Date}2024-09-04T08:36:16.967Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:26:51.644Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="GENERAL PRINCIPLES"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h3"/>
+                            <text_copy_copy
+                                jcr:created="{Date}2024-09-04T08:37:03.911Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:45:12.645Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/text"
+                                text="&lt;p>Relife S.r.l. has adopted a Management and Control Model compliance with Legislative Decree 231 of 2001, sensitive to the need of disseminating and consolidating the culture of transparency and integrity of our Company&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="9"/>
+                                </cq:responsive>
+                            </text_copy_copy>
+                            <container_copy
+                                jcr:created="{Date}2024-09-06T15:26:05.553Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:26:05.553Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/container">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="1"/>
+                                </cq:responsive>
+                            </container_copy>
+                            <link_copy_copy
+                                jcr:created="{Date}2024-09-04T08:40:19.186Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:46:48.348Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="READ MORE"
+                                sling:resourceType="relife/components/link"
+                                linkTarget="_blank"
+                                linkURL="/content/dam/relife/corporate/assets/documents/Relife_Principi-Generali_2018_Eng-It.pdf">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="2"/>
+                                </cq:responsive>
+                            </link_copy_copy>
+                            <spacer_copy_copy_cop_1250820934
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:18:32.217Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
+                            <title_copy_199589782_1889162696
+                                cq:styleIds="[1721211637597]"
+                                jcr:created="{Date}2024-09-04T08:36:16.967Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:26:56.026Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="MENARINI GLOBAL CODE OF CONDUCT"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h3"/>
+                            <text_copy_copy_2126716516
+                                jcr:created="{Date}2024-09-04T08:37:03.911Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:45:04.292Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/text"
+                                text="&lt;p>Menarini Group has adopted its Code of Conduct (hereafter referred to as the “Code”) to promote ethical behaviors, guarantee compliance with all laws and regulations, and facilitate the reporting of improper and unlawful conduct.&lt;/p>&#xd;&#xa;"
+                                textIsRich="true">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="9"/>
+                                </cq:responsive>
+                            </text_copy_copy_2126716516>
+                            <container_copy_2061446267
+                                jcr:created="{Date}2024-09-06T15:26:05.553Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T15:26:05.553Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/container">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="1"/>
+                                </cq:responsive>
+                            </container_copy_2061446267>
+                            <link_copy_copy_1088866254
+                                jcr:created="{Date}2024-09-04T08:40:19.186Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:47:06.014Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="READ MORE"
+                                sling:resourceType="relife/components/link"
+                                linkTarget="_blank"
+                                linkURL="/content/dam/relife/corporate/assets/documents/CDC_ENG.pdf">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="2"/>
+                                </cq:responsive>
+                            </link_copy_copy_1088866254>
+                            <spacer_copy_copy_cop_1552918705
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:18:32.217Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
+                        </wrapper>
                     </section>
                 </container>
             </container>

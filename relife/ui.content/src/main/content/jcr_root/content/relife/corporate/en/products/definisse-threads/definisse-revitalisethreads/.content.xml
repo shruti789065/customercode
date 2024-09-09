@@ -3,23 +3,23 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}false"
-        cq:lastModified="{Date}2024-09-06T13:02:38.301Z"
+        cq:lastModified="{Date}2024-09-09T09:04:17.111Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2024-09-06T13:02:42.615Z"
-        cq:lastReplicated_publish="{Date}2024-09-06T13:02:42.615Z"
+        cq:lastReplicated="{Date}2024-09-06T12:48:06.975Z"
+        cq:lastReplicated_publish="{Date}2024-09-06T12:48:06.975Z"
         cq:lastReplicatedBy="d.mariotti@adiacent.com"
         cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
-        jcr:description="Definisse™ Fillers restore volume and hydration, smooth deep lines, and enhance your natural beauty."
+        jcr:description="Definisse™ revitalise threads promote long-lasting regeneration, added firmness and improved skin quality with a lasting glow - in both young and mature skin"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Definisse™ fillers"
-        jcr:uuid="76cd7e54-9ed2-4ca5-b1bf-7c0d5eeebd89"
+        jcr:title="Definisse™ Revitalise Threads"
+        jcr:uuid="e7bd06e2-a0e3-42e2-888d-9e05a0b9d5da"
         sling:resourceType="relife/components/page"
-        pageTitle="HA dermal fillers | Hyaluronic Acid | Volumising"
+        pageTitle="Collagen regeneration | Skin quality and elasticity "
         pwaCachestrategy="staleWhileRevalidate"
         pwaDisplay="standalone"
         pwaOrientation="any">
@@ -80,14 +80,14 @@
                                     cq:styleIds="[1723460257677]"
                                     jcr:created="{Date}2024-08-30T13:10:35.792Z"
                                     jcr:createdBy="a.messori@adiacent.com"
-                                    jcr:description="&lt;p>Redefining facial &lt;/p>&#xd;&#xa;&lt;p>rejuvenation and &lt;/p>&#xd;&#xa;&lt;p>enhancement &lt;/p>&#xd;&#xa;"
-                                    jcr:lastModified="{Date}2024-08-30T14:20:24.659Z"
+                                    jcr:description="&lt;p>Redefining &lt;/p>&#xd;&#xa;&lt;p>Rejuvenation&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-08-30T13:11:30.235Z"
                                     jcr:lastModifiedBy="a.messori@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/slide-video"
                                     automaticDuration="true"
                                     descriptionFromPage="false"
-                                    fileReference="/content/dam/relife/corporate/assets/slideshow/slider-hp-1.jpg"
+                                    fileReference="/content/dam/relife/corporate/assets/products/internal-header-products.jpg"
                                     imageFromPageImage="false"
                                     isDecorative="true"
                                     linkTarget="_self"
@@ -105,14 +105,15 @@
                         <wrapper
                             jcr:created="{Date}2024-06-28T16:52:45.393+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-06-28T16:52:45.393+02:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:lastModified="{Date}2024-09-06T12:34:07.884Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="relife/components/containers/wrapper">
+                            sling:resourceType="relife/components/containers/wrapper"
+                            layout="responsiveGrid">
                             <spacer_copy_copy
                                 jcr:created="{Date}2024-08-30T09:21:50.444Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-06T12:55:04.146Z"
+                                jcr:lastModified="{Date}2024-09-06T12:33:12.708Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/spacer"
@@ -121,17 +122,24 @@
                                 cq:styleIds="[1723457725921,1721211637597,1723457132031]"
                                 jcr:created="{Date}2024-08-08T08:20:07.062Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-06T12:54:59.734Z"
+                                jcr:lastModified="{Date}2024-09-06T12:33:51.284Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                jcr:title="Redefine and enhance your timeless beauty with Definisse™ HA dermal fillers"
+                                jcr:title="Activate beauty from within with Definisse™ revitalise threads, regenerating your skin from the inside out. "
                                 sling:resourceType="relife/components/title"
                                 linkTarget="_self"
-                                type="h2"/>
+                                type="h1">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="2"
+                                        width="8"/>
+                                </cq:responsive>
+                            </title_copy_copy_copy>
                             <spacer_copy
                                 jcr:created="{Date}2024-08-30T09:21:50.444Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-04T09:13:35.588Z"
+                                jcr:lastModified="{Date}2024-09-04T09:12:51.059Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/spacer"
@@ -178,18 +186,18 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/dupla_image">
                                     <first_image
-                                        jcr:lastModified="{Date}2024-08-30T14:21:00.823Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:18:19.793Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/image"
-                                        fileReference="/content/dam/relife/corporate/assets/products/half-banner-hp-4.jpg"
+                                        fileReference="/content/dam/relife/corporate/assets/home/half-banner-hp-1.jpg"
                                         imageFromPageImage="false"/>
                                     <second_image
-                                        jcr:lastModified="{Date}2024-08-30T14:21:06.724Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:18:00.614Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/image"
-                                        fileReference="/content/dam/relife/corporate/assets/products/square-ponte-vecchio.jpg"
+                                        fileReference="/content/dam/relife/corporate/assets/integrated-approach/Image (8).png"
                                         imageFromPageImage="false"/>
                                 </dupla_image>
                             </container_copy>
@@ -222,11 +230,11 @@
                                     cq:styleIds="[1721211788361]"
                                     jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                     jcr:createdBy="d.mariotti@adiacent.com"
-                                    jcr:lastModified="{Date}2024-08-30T14:20:51.311Z"
+                                    jcr:lastModified="{Date}2024-09-03T09:13:47.859Z"
                                     jcr:lastModifiedBy="a.messori@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/text"
-                                    text="&lt;p>Definisse™ Fillers are crafted to deliver to today’s beauty trends and needs. Our fillers restore volume and hydration, smooth deep lines, and enhance your natural beauty, helping you maintain youthful features proactively. Get ahead of the curve, embrace pre-juvenation and the confidence that comes with natural-looking, yet transformative treatments, tailored to your unique beauty needs.&lt;/p>&#xd;&#xa;"
+                                    text="&lt;p>Definisse™ revitalise threads are the next generation of threads designed specifically for bio-stimulation and revitalisation. They promote long-lasting regeneration, added firmness and improved skin quality with a lasting glow - in both young and mature skin.&lt;/p>&#xd;&#xa;&lt;p>These threads smooth and firm the skin by stimulating both Collagen Type 1 and 3&lt;sup>3&lt;/sup> production. Skin elasticity and hydration are increased resulting in a boost in overall skin quality. You will notice a difference in both texture and appearance.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ revitalise threads are simple, quick and relatively pain free - they are set to be your new go-to treatment for glowing and healthy skin. Whether you would like firmer and tighter skin on your face, neck or abdomen Definisse™ revitalise threads have got you covered.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
                                     textIsRich="true"/>
                             </container>
                         </wrapper_copy_copy>
@@ -282,95 +290,96 @@
                                 <accordion
                                     jcr:created="{Date}2024-08-09T07:23:32.095Z"
                                     jcr:createdBy="d.mariotti@adiacent.com"
-                                    jcr:lastModified="{Date}2024-09-03T09:40:03.247Z"
+                                    jcr:lastModified="{Date}2024-09-03T09:16:24.072Z"
                                     jcr:lastModifiedBy="a.messori@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/accordion"
                                     singleExpansion="false">
                                     <item_1723188422005
-                                        cq:panelTitle="What are HA dermal fillers?"
+                                        cq:panelTitle="What are rejuvenating and pre-juvenating threads?"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <text_copy_copy
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                             jcr:createdBy="d.mariotti@adiacent.com"
-                                            jcr:lastModified="{Date}2024-08-30T14:24:03.874Z"
+                                            jcr:lastModified="{Date}2024-08-30T13:22:02.886Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>HA dermal fillers are Hyaluronic Acid gels that are injected under the skin to replenish the volumes lost due to the ageing process.&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Rejuvenation threads are a regenerative treatment that stimulate the skin to produce elastin and collagen - the molecules that keep our skin young-looking. Skin appears smoother and fine lines are reduced, refreshing not just how you look but also how you feel&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1723188422005>
                                     <item_1723188426365
-                                        cq:panelTitle="What are Definisse™ Fillers good for?"
+                                        cq:panelTitle="What are Definisse™ revitalise threads good for?"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <text_copy_copy
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                             jcr:createdBy="d.mariotti@adiacent.com"
-                                            jcr:lastModified="{Date}2024-09-03T09:40:38.774Z"
+                                            jcr:lastModified="{Date}2024-09-03T12:55:53.862Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>Definisse™ Fillers can benefit a wide range of age groups and be used to tackle a diverse range of needs.&lt;/p>&#xd;&#xa;&lt;p>A skilled aesthetics professional can perform real artistry and sculpt your face to enhance almost anything thats bothering you, but the most common treatments are:&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Replace lost volume to enhance and define your facial contours&lt;/p>&#xd;&#xa;&lt;p>Plump out and effectively reverse fine lines and even deep wrinkles, including folds to the side of the nose, frown lines and smile lines&lt;/p>&#xd;&#xa;&lt;p>Lips can be made fuller and softer bring back that youthful pout&lt;/p>&#xd;&#xa;&lt;p>Adding back the lost volume that causes dark under eye circles to address that tired look&lt;/p>&#xd;&#xa;&lt;p>Downturned lines to the side of mouth, known as marionette lines, can be reduced&lt;/p>&#xd;&#xa;&lt;p>Enhancing the jawline and chin for a perfect profile&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>We rely on collagen to maintain our skin’s structure and resilience to ageing. When we are young our skin naturally produces collagen keeping it supple and soft, but as we age the skin’s ability to replenish collagen naturally decreases by 1.0 % – 1.5 % per year - and this is what causes the appearance of fine lines and deeper wrinkles.&lt;sup>2&lt;/sup>&lt;/p>&#xd;&#xa;&lt;p>Definisse™ revitalise threads improve skin quality by retaining and increasing collagen production - and in doing so - slow down the ageing process. Whether you’re young and want to maintain your youthful glow, or more mature and want to gain it back, Definisse™ revitalise threads are for you.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Our revitalising threads are approved for a number of indications:&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>As early as our 20s collagen production slows down and we can benefit from preservation of elasticity and reduction of fine lines. Sagging skin in the mid or lower face can be corrected in those of us a little older, e.g.45–65 years. Even crepey, sagging skin in the neck area when we approach our 60s can be improved.&amp;nbsp;&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>And best yet, Definisse™ Revitalise Threads can help us tighten and lift loose abdomen skin, yes you heard right!&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1723188426365>
                                     <item_1723188294817
-                                        cq:panelTitle="What is a Definisse™ Fillers treatment like?"
+                                        cq:panelTitle="What is a Definisse™ revitalise threads treatment like? "
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <text_copy_copy
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                             jcr:createdBy="d.mariotti@adiacent.com"
-                                            jcr:lastModified="{Date}2024-09-03T09:41:15.961Z"
+                                            jcr:lastModified="{Date}2024-09-03T09:15:35.092Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>Definisse™ Fillers use a high quality syringe for a more comfortable and precise treatment. Fine needles ensure a gentler experience and with all our products including Lidocaine local anaesthetic any discomfort is minimised.&lt;/p>&#xd;&#xa;&lt;p>Visible results are immediate and the treatment time is around 20-30 minutes depending on the areas being treated. In the following days, the gel seamlessly integrates with your tissue, stabilising and enhancing your refreshed look.&lt;/p>&#xd;&#xa;&lt;p>Results are targeted and predictable due to the Definisse™ Fillers portfolio. Our gels offer a range of flexibility, elasticity and durability that delivers the perfect product for each type of treatment.&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Definisse™ revitalise thread treatments are even simpler than other types of thread treatments, taking literally 10-15 minutes. The threads are very fine and are invisible under the skin - you won't even notice the threads once inserted and positioned correctly. After just a few months you’ll start to see the benefits of rejuvenated healthy skin and a natural glow.&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1723188294817>
                                     <item_1723188303459
-                                        cq:panelTitle="How do Definisse™ Fillers work?"
+                                        cq:panelTitle="How do Definisse™ revitalise threads work?"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <text_copy_copy
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                             jcr:createdBy="d.mariotti@adiacent.com"
-                                            jcr:lastModified="{Date}2024-08-30T14:25:24.887Z"
+                                            jcr:lastModified="{Date}2024-09-03T09:17:21.567Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>Hyaluronic acid naturally exists as a hydrating fluid. To create HA gels that can be used for facial sculpting the molecular chains of HA are ‘cross-linked’ to bind them together in a&amp;quot;network&amp;quot; that transforms the liquid into a gel.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>When injected beneath the skin the HA gels raise sunken areas and provide added volume that can be sculpted into beautiful contours. The gels integrate with our own tissue to form a stable structure within the skin but with an elasticity that enables natural movement with your features.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Presence of HA also promotes hydration and the associated plump smooth skin, as HA attracts and binds to water molecules.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Fine synthetic polymer threads, similar to medical sutures, are gently and quickly inserted under the skin in the desired treatment areas. The threads then stimulate collagen production as skin tissue reacts to the presence of the thread – and over time, due to it’s biocompatibility&lt;sup>1&lt;/sup>, the polymer-based material continues to generate collagen as it is gradually absorbed.&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1723188303459>
                                     <item_1725024230474
-                                        cq:panelTitle="Why Definisse™ Fillers?"
+                                        cq:panelTitle="Why Definisse™ revitalise threads?"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <title
-                                            cq:styleIds="[1723457725921,1723457128445]"
-                                            jcr:created="{Date}2024-08-30T14:26:03.717Z"
+                                            cq:styleIds="[1723457725921]"
+                                            jcr:created="{Date}2024-09-03T09:17:34.863Z"
                                             jcr:createdBy="a.messori@adiacent.com"
-                                            jcr:lastModified="{Date}2024-08-30T14:26:26.805Z"
-                                            jcr:lastModifiedBy="a.messori@adiacent.com"
+                                            jcr:lastModified="{Date}2024-09-09T09:04:17.029Z"
+                                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
-                                            jcr:title="Unique technology for precision treatments"
+                                            jcr:title="Long lasting benefits"
                                             sling:resourceType="relife/components/title"
                                             linkTarget="_self"
-                                            type="h6"/>
+                                            linkURL="/content/relife/corporate/en/products/definisse-threads/definisse-3d-lift"
+                                            type="h3"/>
                                         <text
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-30T13:24:09.016Z"
                                             jcr:createdBy="a.messori@adiacent.com"
-                                            jcr:lastModified="{Date}2024-09-03T09:42:09.812Z"
+                                            jcr:lastModified="{Date}2024-09-04T09:01:15.745Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Fillers are manufactured using our XTR™ Technology (eXcellent Three-dimensional Reticulation), an innovation in HA dermal filler technology that’s only used by RELIFE.&amp;nbsp; XTR™ Technology delivers optimal levels of elasticity for structural support and volume enhancement while still maintaining natural movement and subtle beautification.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Our fillers offer:&lt;/p>&#xd;&#xa;&lt;p>Tailored solutions: Our fillers are created to address a wide range of beauty goals, for a personalised treatment for every patient.&lt;/p>&#xd;&#xa;&lt;p>Safe and effective: Developed with innovative XTR™ Technology, Definisse™ Fillers offer reliable results with a good safety profile.&lt;/p>&#xd;&#xa;&lt;p>Long-lasting results: Enjoy subtle yet impactful enhancements for a refreshed and youthful appearance that lasts.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ cross-linked fillers are not only highly stable and resilient to degradation but also boast enhanced biocompatibility and tissue integration which provide longer lasting treatments.&lt;sup>7&lt;/sup>&lt;/p>&#xd;&#xa;&lt;p>When used in combination, Definisse™ Fillers can effectively target all your problem areas, providing optimised treatments that achieve full-face rejuvenation with perfectly natural results.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ revitalise threads stimulate both Collagen Type 1 and Type 3 over a longer time period (up to 18 months&lt;sup>1&lt;/sup>) than PDO and PLLA threads (which only stimulate Collagen Type 1)&lt;sup>3&lt;/sup> and only last for around 6 months.&lt;/p>&#xd;&#xa;&lt;p>Definisse™&amp;nbsp;revitalise threads are the only revitalising threads to use P(LA-CL) material – extensively clinically proven through its use in our&amp;nbsp;Definisse™ 3D lift threads [Internal link to&amp;nbsp;Definisse™ 3D lift threads]. This is the newest thread material and the most advanced thread technology.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>The unique balance of durability and flexibility paired with the range of textures and lengths available make&amp;nbsp;Definisse™ revitalise threads suitable for a range of applications, including delicate areas such as arms. And of course, our RELIFE Academy ensures that our aesthetic professionals are certified and use global best practice protocols.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1725024230474>
                                 </accordion>
@@ -401,11 +410,11 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/dupla_image">
                                     <first_image
-                                        jcr:lastModified="{Date}2024-08-30T14:22:02.275Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:20:37.479Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/image"
-                                        fileReference="/content/dam/relife/corporate/assets/integrated-approach/Rectangle 134 (1).png"
+                                        fileReference="/content/dam/relife/corporate/assets/products/Rectangle 134 (3).png"
                                         imageFromPageImage="false"/>
                                     <second_image
                                         jcr:lastModified="{Date}2024-08-30T13:19:17.546Z"
@@ -432,11 +441,11 @@
                             jcr:lastModifiedBy="a.messori@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper">
-                            <spacer_copy_copy
-                                jcr:created="{Date}2024-08-08T08:29:50.120Z"
-                                jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-08T08:34:31.621Z"
-                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            <spacer_copy
+                                jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-08-30T13:33:47.821Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/spacer"
                                 spacer="100"/>
@@ -444,10 +453,10 @@
                                 cq:styleIds="[1723457132031]"
                                 jcr:created="{Date}2024-08-30T13:26:49.008Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-06T12:55:28.266Z"
+                                jcr:lastModified="{Date}2024-09-06T12:34:39.456Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                jcr:title="DEFINISSE™ FILLERS PRODUCT RANGE"
+                                jcr:title="DEFINISSE™ REVITALISE THREADS PRODUCT RANGE"
                                 sling:resourceType="relife/components/title"
                                 linkTarget="_self"
                                 type="h2"/>
@@ -455,10 +464,10 @@
                                 cq:styleIds="[1723457725921,1723457132031]"
                                 jcr:created="{Date}2024-08-30T13:28:15.397Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-06T12:55:34.515Z"
+                                jcr:lastModified="{Date}2024-09-06T12:34:47.713Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                jcr:title="Targeted products for optimised results"
+                                jcr:title="A range of threads for a range of treatments – and maximum comfort"
                                 sling:resourceType="relife/components/title"
                                 linkTarget="_self"
                                 type="h2"/>
@@ -475,7 +484,7 @@
                                 <container
                                     jcr:created="{Date}2024-08-30T13:28:51.760Z"
                                     jcr:createdBy="a.messori@adiacent.com"
-                                    jcr:lastModified="{Date}2024-09-04T09:07:04.982Z"
+                                    jcr:lastModified="{Date}2024-09-04T08:58:41.775Z"
                                     jcr:lastModifiedBy="a.messori@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/container"
@@ -489,12 +498,13 @@
                                             width="6"/>
                                     </cq:responsive>
                                     <image
+                                        jcr:created="{Date}2024-08-30T13:33:24.440Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-02T10:07:10.982Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:33:24.440Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/image"
-                                        fileReference="/content/dam/relife/corporate/assets/products/Image (9).png"
+                                        fileReference="/content/dam/relife/corporate/assets/products/product-placeholder.png"
                                         imageFromPageImage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
@@ -529,21 +539,65 @@
                                         cq:styleIds="[1721211788361,1723457774320]"
                                         jcr:created="{Date}2024-08-30T13:30:03.029Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-02T10:08:29.289Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:32:05.000Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p>&lt;b>DEFINISSE™ TOUCH FILLER&lt;/b>&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p>&lt;b>DEFINISSE™ REVITALISE THREADS BARBED&amp;nbsp;&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&lt;b>– 5CM THREAD&lt;/b>&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
+                                    <spacer_copy_copy_2022407095
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy_732132601
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:13.881Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>Ideal for regeneration of the cheek area, addressing mature crepey skin, loss of elasticity and drooping.&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:31.364Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>Best for small areas&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
                                     <text_1553609734
                                         cq:styleIds="[1721211788361]"
                                         jcr:created="{Date}2024-08-30T13:31:20.569Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-02T10:08:34.870Z"
-                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:39.974Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Adds elegance for refined finishes&lt;/p>&#xd;&#xa;&lt;p>Definisse™ touch filler is your gentle introduction to aesthetic refinement, offering soft, subtle touches that elevate facial features. Crafted with care, it blends seamlessly, enhancing your features with a whisper, not a shout.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p>Tiny barbs increase biostimulation and grip&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
                                 </container_107335930>
                             </container>
@@ -560,7 +614,7 @@
                                 <container
                                     jcr:created="{Date}2024-08-30T13:28:51.760Z"
                                     jcr:createdBy="a.messori@adiacent.com"
-                                    jcr:lastModified="{Date}2024-09-04T09:07:21.697Z"
+                                    jcr:lastModified="{Date}2024-09-04T08:58:58.575Z"
                                     jcr:lastModifiedBy="a.messori@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/container"
@@ -576,11 +630,11 @@
                                     <image
                                         jcr:created="{Date}2024-08-30T13:33:24.440Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-08-30T14:28:06.053Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:33:24.440Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/image"
-                                        fileReference="/content/dam/relife/corporate/assets/products/Image (10).png"
+                                        fileReference="/content/dam/relife/corporate/assets/products/product-placeholder.png"
                                         imageFromPageImage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
@@ -615,22 +669,74 @@
                                         cq:styleIds="[1721211788361,1723457774320]"
                                         jcr:created="{Date}2024-08-30T13:30:03.029Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-08-30T14:28:49.758Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:34:53.338Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p>&lt;b>DEFINISSE™ RESTORE FILLERS&lt;/b>&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p>&lt;b>DEFINISSE™ REVITALISE THREADS BARBED&amp;nbsp;&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&lt;b>– 9CM THREAD&lt;/b>&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
+                                    <spacer_copy_copy_cop_1932875339
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy_1110049408
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:39:20.578Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>Longer threads are perfect for the abdomen area, and the tightening flabby, crepey skin and loss of elasticity.&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy_cop_149806734
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
                                     <text_1553609734
                                         cq:styleIds="[1721211788361]"
                                         jcr:created="{Date}2024-08-30T13:31:20.569Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-08-30T14:29:01.573Z"
-                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:39:54.155Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Brings adaptability for comprehensive rejuvenation&lt;/p>&#xd;&#xa;&lt;p>Unlock the secret to a naturally youthful appearance with Definisse™ restore filler. Specially designed for dynamic facial enhancement, it targets everything from fine lines to deeper folds, ensuring a smoother, more radiant complexion. Embrace the confidence that comes with understated, yet effective rejuvenation.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p>Best for large areas&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
+                                    <spacer_copy_copy
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:40:00.965Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>Tiny barbs increase biostimulation and grip&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy_cop
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
                                 </container_107335930>
                             </container_copy>
                             <container_copy_568563489
@@ -646,7 +752,7 @@
                                 <container
                                     jcr:created="{Date}2024-08-30T13:28:51.760Z"
                                     jcr:createdBy="a.messori@adiacent.com"
-                                    jcr:lastModified="{Date}2024-09-04T09:07:36.389Z"
+                                    jcr:lastModified="{Date}2024-09-04T08:59:13.295Z"
                                     jcr:lastModifiedBy="a.messori@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/container"
@@ -662,11 +768,11 @@
                                     <image
                                         jcr:created="{Date}2024-08-30T13:33:24.440Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-08-30T14:28:12.853Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:33:24.440Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/image"
-                                        fileReference="/content/dam/relife/corporate/assets/products/Image (11).png"
+                                        fileReference="/content/dam/relife/corporate/assets/products/product-placeholder.png"
                                         imageFromPageImage="false">
                                         <cq:responsive jcr:primaryType="nt:unstructured">
                                             <default
@@ -701,24 +807,198 @@
                                         cq:styleIds="[1721211788361,1723457774320]"
                                         jcr:created="{Date}2024-08-30T13:30:03.029Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-08-30T14:29:13.772Z"
+                                        jcr:lastModified="{Date}2024-08-30T13:35:13.479Z"
                                         jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p>&lt;b>DEFINISSE™ CORE FILLERS&lt;/b>&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p>&lt;b>DEFINISSE™ REVITALISE THREADS SMOOTH&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&lt;b>– 5CM THREAD&lt;/b>&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
+                                    <spacer_copy_copy_cop_1901353162
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
                                     <text_1553609734
                                         cq:styleIds="[1721211788361]"
                                         jcr:created="{Date}2024-08-30T13:31:20.569Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-08-30T14:29:23.522Z"
-                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:40:44.940Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Provides the structure necessary for defining contours&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ core filler offers a foundation for subtle enhancements, designed with precision to complement your natural contours. Experience balance between desired outcomes and natural aesthetics, where your features are enhanced, not altered.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p>Cheek revitalising technique; addressing mature crepey skin, loss of elasticity and drooping.&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy_cop
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:40:53.461Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>Best for small areas&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy_cop_1940365786
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy_1427483031
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:41:00.358Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>More comfortable solution for delicate areas&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
                                 </container_107335930>
                             </container_copy_568563489>
+                            <container_copy_981689545
+                                jcr:created="{Date}2024-08-30T13:28:40.765Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-08-30T13:29:12.816Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/container"
+                                flexWrap="cmp-container--wrap"
+                                itemGap="cmp-gap--30"
+                                layout="responsiveGrid">
+                                <container
+                                    jcr:created="{Date}2024-08-30T13:28:51.760Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-04T08:59:29.044Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/container"
+                                    flexWrap="cmp-container--wrap"
+                                    itemGap="cmp-gap--30"
+                                    layout="responsiveGrid">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="6"/>
+                                    </cq:responsive>
+                                    <image
+                                        jcr:created="{Date}2024-08-30T13:33:24.440Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-08-30T13:33:24.440Z"
+                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/image"
+                                        fileReference="/content/dam/relife/corporate/assets/products/product-placeholder.png"
+                                        imageFromPageImage="false">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="1"
+                                                width="4"/>
+                                        </cq:responsive>
+                                    </image>
+                                </container>
+                                <container_107335930
+                                    jcr:created="{Date}2024-08-30T13:28:59.219Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-30T13:28:59.219Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/container">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="6"/>
+                                    </cq:responsive>
+                                    <spacer
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-08-30T13:33:47.821Z"
+                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="100"/>
+                                    <text
+                                        cq:styleIds="[1721211788361,1723457774320]"
+                                        jcr:created="{Date}2024-08-30T13:30:03.029Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-08-30T13:35:30.588Z"
+                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>&lt;b>DEFINISSE™ REVITALISE THREADS&amp;nbsp;SMOOTH&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&lt;b>– 7CM THREAD&lt;/b>&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy_cop
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:41:42.953Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>Smooth threads allow effective treatment of the neck area to combat flabby, crepey skin and&amp;nbsp; loss of elasticity. These threads can also be used for abdomen tightening.&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy_cop_1963725712
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:41:51.186Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>Best for large areas&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                    <spacer_copy_copy_cop_175677884
+                                        jcr:created="{Date}2024-08-30T13:29:46.266Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:38:50.887Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/spacer"
+                                        spacer="10"/>
+                                    <text_1553609734_copy_1123623089
+                                        cq:styleIds="[1721211788361]"
+                                        jcr:created="{Date}2024-08-30T13:31:20.569Z"
+                                        jcr:createdBy="a.messori@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:41:58.233Z"
+                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/text"
+                                        text="&lt;p>More comfortable solution for delicate areas&lt;br />&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                                        textIsRich="true"/>
+                                </container_107335930>
+                            </container_copy_981689545>
                         </wrapper>
                     </section_1410731342>
                     <section_1118336503
@@ -772,7 +1052,7 @@
                                 <title
                                     jcr:created="{Date}2024-08-30T13:39:07.822Z"
                                     jcr:createdBy="a.messori@adiacent.com"
-                                    jcr:lastModified="{Date}2024-09-06T12:55:45.651Z"
+                                    jcr:lastModified="{Date}2024-09-06T12:42:13.373Z"
                                     jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     jcr:title="FAQ"
@@ -782,54 +1062,54 @@
                                 <accordion
                                     jcr:created="{Date}2024-08-09T07:23:32.095Z"
                                     jcr:createdBy="d.mariotti@adiacent.com"
-                                    jcr:lastModified="{Date}2024-08-30T14:29:49.627Z"
+                                    jcr:lastModified="{Date}2024-08-30T13:40:58.232Z"
                                     jcr:lastModifiedBy="a.messori@adiacent.com"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/accordion"
                                     singleExpansion="false">
                                     <item_1723188422005
-                                        cq:panelTitle="What does Hyaluronic acid do?"
+                                        cq:panelTitle="How can I increase my collagen levels?"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <text_copy_copy
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                             jcr:createdBy="d.mariotti@adiacent.com"
-                                            jcr:lastModified="{Date}2024-08-30T14:31:21.113Z"
+                                            jcr:lastModified="{Date}2024-09-03T12:54:49.266Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>Hyaluronic acid is a major source of hydration in the skin. It attracts water molecules and therefore assists with moisture retention, reducing dull skin and fine lines, plumping and volumises the skin. When in gel form it can replace lost volumes in the skin to soften deep lines, reduce dark circles and enhance contours such as cheek bones.&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Definisse™&amp;nbsp;revitalise threads can stimulate your skin to produce more collagen and therefore increase levels to those seen in younger people - to reduce the signs of ageing.&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1723188422005>
                                     <item_1723188426365
-                                        cq:panelTitle="How long do lip fillers last?"
+                                        cq:panelTitle="How can I prevent ageing of the skin?"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <text_copy_copy
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                             jcr:createdBy="d.mariotti@adiacent.com"
-                                            jcr:lastModified="{Date}2024-08-30T14:31:06.647Z"
+                                            jcr:lastModified="{Date}2024-09-03T12:55:00.685Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>Lip fillers typically last 12 to 18 months, but it can vary depending on the age and metabolism of the patient, the injected area and the product longevity&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Signs of ageing of the skin are primarily caused by a reduction in collagen.&amp;nbsp;Definisse™ revitalise threads can delay these signs by stimulating collagen production from within.&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1723188426365>
                                     <item_1723188294817
-                                        cq:panelTitle="How much is a dermal fillers treatment? "
+                                        cq:panelTitle="How do rejuvenating threads work?"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/container">
                                         <text_copy_copy
                                             cq:styleIds="[1721211788361]"
                                             jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                             jcr:createdBy="d.mariotti@adiacent.com"
-                                            jcr:lastModified="{Date}2024-08-30T14:30:52.768Z"
+                                            jcr:lastModified="{Date}2024-09-03T12:55:11.778Z"
                                             jcr:lastModifiedBy="a.messori@adiacent.com"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="relife/components/text"
-                                            text="&lt;p>Prices are dependant on which&amp;nbsp; areas are treated and how much product is required to be effective. Contact a RELIFE aesthetics practitioner for a consultation and quotation.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                            text="&lt;p>Definisse™&amp;nbsp;revitalise threads stimulate your skin to produce collagen by agitating the skin tissue, through both it’s presence under the skin and as it dissolves over time.&lt;/p>&#xd;&#xa;"
                                             textIsRich="true"/>
                                     </item_1723188294817>
                                 </accordion>
@@ -887,7 +1167,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper"
                             layout="responsiveGrid">
-                            <spacer
+                            <spacer_copy
                                 jcr:created="{Date}2024-08-28T09:53:59.744Z"
                                 jcr:createdBy="a.messori@adiacent.com"
                                 jcr:lastModified="{Date}2024-08-28T09:54:06.138Z"
@@ -895,7 +1175,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/spacer"
                                 spacer="80"/>
-                            <title_copy_copy
+                            <title_copy
                                 cq:styleIds="[1723457132031]"
                                 jcr:created="{Date}2024-09-06T12:20:24.166Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
@@ -929,11 +1209,11 @@
                     <spacer_copy_copy
                         jcr:created="{Date}2024-08-30T09:21:50.444Z"
                         jcr:createdBy="a.messori@adiacent.com"
-                        jcr:lastModified="{Date}2024-09-06T12:56:53.991Z"
+                        jcr:lastModified="{Date}2024-09-06T12:43:15.622Z"
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="relife/components/spacer"
-                        spacer="25"/>
+                        spacer="50"/>
                     <section_2134444286_c_99131855
                         jcr:created="{Date}2024-08-09T07:28:33.200Z"
                         jcr:createdBy="d.mariotti@adiacent.com"
@@ -952,53 +1232,60 @@
                             <tabs
                                 jcr:created="{Date}2024-08-09T07:50:30.989Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-30T14:45:47.200Z"
+                                jcr:lastModified="{Date}2024-08-30T13:54:15.997Z"
                                 jcr:lastModifiedBy="a.messori@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/tabs">
                                 <item_1723189867508
-                                    cq:panelTitle="DEFINISSE™ GALA&lt;br/>Lift &amp; plump cheek"
+                                    cq:panelTitle="DEFINISSE™ COMPLETE REBOOST"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/container">
                                     <spacer
                                         jcr:created="{Date}2024-08-28T09:54:44.421Z"
                                         jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T13:01:03.857Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2024-08-28T09:54:54.791Z"
+                                        jcr:lastModifiedBy="a.messori@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/spacer"
-                                        spacer="50"/>
-                                    <title_copy
-                                        cq:styleIds="[1721211701223,1723457128445]"
-                                        jcr:created="{Date}2024-08-30T13:55:54.715Z"
-                                        jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:57:56.002Z"
+                                        spacer="80"/>
+                                    <title_copy_copy
+                                        cq:styleIds="[1723457128445]"
+                                        jcr:created="{Date}2024-09-06T12:20:24.166Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:45:05.959Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="DEFINISSE™ GALA"
+                                        jcr:title="DEFINISSE™ COMPLETE REBOOST"
                                         sling:resourceType="relife/components/title"
                                         linkTarget="_self"
                                         type="h3"/>
-                                    <title
+                                    <title_1657927442_cop
                                         cq:styleIds="[1723457725921,1723457128445]"
-                                        jcr:created="{Date}2024-08-30T13:55:54.715Z"
-                                        jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:57:16.319Z"
+                                        jcr:created="{Date}2024-09-06T12:20:49.235Z"
+                                        jcr:createdBy="d.mariotti@adiacent.com"
+                                        jcr:lastModified="{Date}2024-09-06T12:45:15.270Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Be ready for every event in life"
+                                        jcr:title="Experience the ultimate boost to your skin quality, texture and appearance."
                                         sling:resourceType="relife/components/title"
                                         linkTarget="_self"
-                                        type="h2"/>
+                                        type="h2">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="2"
+                                                width="8"/>
+                                        </cq:responsive>
+                                    </title_1657927442_cop>
                                     <text
                                         cq:styleIds="[1721211788361,1723457154770]"
                                         jcr:created="{Date}2024-08-09T07:52:19.283Z"
                                         jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:58:06.993Z"
+                                        jcr:lastModified="{Date}2024-09-06T12:45:41.370Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p style=&quot;text-align: left;&quot;>Enjoy the confidence of alluring defined cheeks and elegant poise by combining both lifting and volumising techniques.&amp;nbsp;&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Working together to deliver a seamless and natural result; Definisse™ 3D Lift Threads give your cheeks support by repositioning skin that has begun to sag with gravity, whilst Definisse™ Filler restores hydration, density and volume to the cheekbone area, replacing volume that has diminished overtime.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>The result is a refreshed demeanour, defined features and a younger outlook.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p style=&quot;text-align: left;&quot;>Two complementary HA products work in tandem to reinvigorate your skin’s natural ability to regenerate and preserve its own youthfulness.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Revitalise Threads inserted beneath the skin stimulate collagen production to boost the skin from the inside, creating a firmer more youthful structure. Definisse™ Hydrobooster then supports topically using hyaluronic acid to promote deep hydration, fullness and brightening from the outside.&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
                                     <spacer_1284439577
                                         jcr:created="{Date}2024-08-28T09:55:01.309Z"
@@ -1010,140 +1297,93 @@
                                         spacer="80"/>
                                 </item_1723189867508>
                                 <item_1723189869478
-                                    cq:panelTitle="DEFINISSE™ ELEVA&lt;br/>Contouring jawline lift"
+                                    cq:panelTitle="DEFINISSE™ STIMULATE &amp; PROTECT"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/container">
-                                    <spacer_copy
-                                        jcr:created="{Date}2024-08-28T09:54:44.421Z"
-                                        jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T13:01:03.857Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="relife/components/spacer"
-                                        spacer="50"/>
-                                    <title_copy_copy
+                                    <title_copy_copy_copy
                                         cq:styleIds="[1723457128445]"
-                                        jcr:created="{Date}2024-08-09T07:52:02.413Z"
+                                        jcr:created="{Date}2024-09-06T12:20:24.166Z"
                                         jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:58:43.900Z"
+                                        jcr:lastModified="{Date}2024-09-06T12:46:09.830Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="DEFINISSE™ ELEVA"
+                                        jcr:title="DEFINISSE™ STIMULATE &amp; PROTECT"
                                         sling:resourceType="relife/components/title"
                                         linkTarget="_self"
                                         type="h3"/>
-                                    <title_copy
+                                    <title_1657927442_cop
                                         cq:styleIds="[1723457725921,1723457128445]"
-                                        jcr:created="{Date}2024-08-09T07:52:02.413Z"
+                                        jcr:created="{Date}2024-09-06T12:20:49.235Z"
                                         jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:58:23.247Z"
+                                        jcr:lastModified="{Date}2024-09-06T12:46:21.370Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Lift the weight of time"
+                                        jcr:title="A revolutionary new product combined with a tried &amp; tested favourite brings us an unprecedented treatment - Definisse™ Stimulate &amp; Protect."
                                         sling:resourceType="relife/components/title"
                                         linkTarget="_self"
-                                        type="h2"/>
+                                        type="h2">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="2"
+                                                width="8"/>
+                                        </cq:responsive>
+                                    </title_1657927442_cop>
                                     <text_copy_copy
                                         cq:styleIds="[1721211788361,1723457154770]"
                                         jcr:created="{Date}2024-08-09T07:52:19.283Z"
                                         jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:58:51.860Z"
+                                        jcr:lastModified="{Date}2024-09-06T12:46:32.719Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p>Hold your head up high with a taught, crisp jawline - eliminating jowling and sagging skin.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>You might have thought that was a thing of the past, but with DefinisseTM Eleva, it can be possible again.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>The upper jaw area is redefined and volumised with strategic placement of Definisse™ Fillers. Then Definisse™ 3D Lift Threads lift the weight of time from your jawline to reinstate a youthful contour and silhouette. Taking years off &amp;amp; renewing your sense of self.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p>Simultaneously enhancing the skin’s ability to both regenerate and prevent erosion of it’s own collagen, this is dual action advanced anti-aging protocol.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Revitalise Threads mechanically promote collagen creation and the resulting increased firmness.&amp;nbsp; Definisse™ KP1 magnifies the collagen production effect and most significantly protects collagen from degradation by counteracting the enzymes that cause it’s breakdown. This treatment helps to both preserve and increase the level of collagen in the skin.&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
                                 </item_1723189869478>
                                 <item_1723189871133
-                                    cq:panelTitle="DEFINISSE™ ILLUMINA&lt;br/>Eyebrow lift &amp; dark circles"
+                                    cq:panelTitle="DEFINISSE™ RESHAPE &amp; REBOOST"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="relife/components/container">
-                                    <spacer_copy
-                                        jcr:created="{Date}2024-08-28T09:54:44.421Z"
-                                        jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T13:01:03.857Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="relife/components/spacer"
-                                        spacer="50"/>
                                     <title_copy_copy_copy
                                         cq:styleIds="[1723457128445]"
-                                        jcr:created="{Date}2024-08-09T07:52:02.413Z"
+                                        jcr:created="{Date}2024-09-06T12:20:24.166Z"
                                         jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:59:17.769Z"
+                                        jcr:lastModified="{Date}2024-09-06T12:46:56.724Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="DEFINISSE™ ILLUMINA"
+                                        jcr:title="DEFINISSE™ RESHAPE &amp; REBOOST"
                                         sling:resourceType="relife/components/title"
                                         linkTarget="_self"
                                         type="h3"/>
-                                    <title_copy_copy
+                                    <title_1657927442_cop
                                         cq:styleIds="[1723457725921,1723457128445]"
-                                        jcr:created="{Date}2024-08-09T07:52:02.413Z"
+                                        jcr:created="{Date}2024-09-06T12:20:49.235Z"
                                         jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:59:05.868Z"
+                                        jcr:lastModified="{Date}2024-09-06T12:47:06.696Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Bring light into your gaze"
+                                        jcr:title="Improve both your skin quality and facial structure in one treatment. The perfect partnership of both types of Definisse™ Threads brings us this ultimate solution."
                                         sling:resourceType="relife/components/title"
                                         linkTarget="_self"
-                                        type="h2"/>
+                                        type="h2">
+                                        <cq:responsive jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                offset="2"
+                                                width="8"/>
+                                        </cq:responsive>
+                                    </title_1657927442_cop>
                                     <text_copy_copy_copy
                                         cq:styleIds="[1721211788361,1723457154770]"
                                         jcr:created="{Date}2024-08-09T07:52:19.283Z"
                                         jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:59:24.627Z"
+                                        jcr:lastModified="{Date}2024-09-06T12:47:16.076Z"
                                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="relife/components/text"
-                                        text="&lt;p style=&quot;text-align: left;&quot;>Nothing is more ageing than looking tired all the time - and can even make you feel tired.&amp;nbsp;&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>The combination of techniques in&amp;nbsp;Definisse™ Illumina present the miracle cure you’ve been wishing for. Eyes appear awakened, brighter, more alert and with a renewed sparkle.&lt;/p>&#xd;&#xa;&lt;p>The eyebrow arch is enhanced with subtle use of Definisse™ 3D Lift Threads to lift the tissues of the forehead that have succumbed to the passage of time, instantly refreshing your look.&lt;/p>&#xd;&#xa;&lt;p>Specially formulated Definisse™ Filler is then gently applied to the tear trough area to correct the loss of volume that causes dark circles. Finally Definisse™ Filler completes the rejuvenation by lifting the cheekbone contour and reducing wrinkles to the side of the eye.&lt;/p>&#xd;&#xa;&lt;p>This subtle and discrete use of advanced aesthetics technology makes a real difference to how you look and feel&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                        text="&lt;p style=&quot;text-align: left;&quot;>Definisse™ Revitalise Threads boost the skin's appearance by generating collagen production and therefore protecting elasticity and reducing wrinkles.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ 3D Lift Threads are then inserted to enable a simultaneous sculpting of facial contours preserving both facial shape and skin quality.&lt;/p>&#xd;&#xa;&lt;p>Skin is stronger, healthier, more beautiful and simultaneously repositioned to a more youthful contour.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
                                         textIsRich="true"/>
                                 </item_1723189871133>
-                                <item_1725029122209
-                                    cq:panelTitle="DEFINISSE™ MUSA&lt;br/>Nose, lip &amp; chin shaping"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="relife/components/container">
-                                    <spacer_copy
-                                        jcr:created="{Date}2024-08-28T09:54:44.421Z"
-                                        jcr:createdBy="a.messori@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T13:01:03.857Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="relife/components/spacer"
-                                        spacer="50"/>
-                                    <title_copy_copy_copy_1513241038
-                                        cq:styleIds="[1723457128445]"
-                                        jcr:created="{Date}2024-08-09T07:52:02.413Z"
-                                        jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:59:45.658Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="DEFINISSE™ MUSA"
-                                        sling:resourceType="relife/components/title"
-                                        linkTarget="_self"
-                                        type="h3"/>
-                                    <title_copy_copy_copy
-                                        cq:styleIds="[1723457725921,1723457128445]"
-                                        jcr:created="{Date}2024-08-09T07:52:02.413Z"
-                                        jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T12:59:51.691Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="Be your own muse"
-                                        sling:resourceType="relife/components/title"
-                                        linkTarget="_self"
-                                        type="h2"/>
-                                    <text_copy_copy_copy_
-                                        cq:styleIds="[1721211788361,1723457154770]"
-                                        jcr:created="{Date}2024-08-09T07:52:19.283Z"
-                                        jcr:createdBy="d.mariotti@adiacent.com"
-                                        jcr:lastModified="{Date}2024-09-06T13:00:00.275Z"
-                                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="relife/components/text"
-                                        text="&lt;p style=&quot;text-align: left;&quot;>As we age, volume and definition can diminish in the features that make up our profile. Cumulatively it can change our appearance and make us feel less like ‘ourselves’.&amp;nbsp;&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Refresh your profile with a clever combination of Definisse™ 3D Lift Threads and Definisse™ Filler -&amp;nbsp;Definisse™ Musa.&lt;/p>&#xd;&#xa;&lt;p>Definisse™ 3D Lift Threads are used to gently lift the tip of the nose, creating completely natural and subtle rejuvenation without distorting its shape.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Definisse™ Filler is then used to enhance the lip volume, the lip contour and the chin, returning the lower face to its prior fullness and beauty. Lips are plumped yet naturally, so as to affirm your natural proportions and most attractive features.&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                        textIsRich="true"/>
-                                </item_1725029122209>
                             </tabs>
                         </wrapper>
                     </section_2134444286_c_99131855>
@@ -1222,6 +1462,14 @@
                             </puzzle_carousel>
                         </wrapper>
                     </section_copy_1986116>
+                    <spacer
+                        jcr:created="{Date}2024-09-03T09:21:41.528Z"
+                        jcr:createdBy="a.messori@adiacent.com"
+                        jcr:lastModified="{Date}2024-09-03T09:21:51.038Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="relife/components/spacer"
+                        spacer="100"/>
                     <section_1576562251_c
                         jcr:created="{Date}2024-09-03T09:22:10.194Z"
                         jcr:createdBy="a.messori@adiacent.com"
@@ -1236,15 +1484,7 @@
                             jcr:lastModifiedBy="a.messori@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper">
-                            <spacer_copy_copy
-                                jcr:created="{Date}2024-09-03T09:21:41.528Z"
-                                jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-03T09:21:51.038Z"
-                                jcr:lastModifiedBy="a.messori@adiacent.com"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/spacer"
-                                spacer="100"/>
-                            <title_copy_copy
+                            <title_copy
                                 jcr:created="{Date}2024-09-06T12:11:57.454Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
                                 jcr:lastModified="{Date}2024-09-06T12:12:08.331Z"
@@ -1255,14 +1495,14 @@
                                 linkTarget="_self"
                                 type="h5"/>
                             <text
-                                cq:styleIds="[1725625444256,1721211788361]"
+                                cq:styleIds="[1721211788361,1725625444256]"
                                 jcr:created="{Date}2024-09-03T09:21:55.580Z"
                                 jcr:createdBy="a.messori@adiacent.com"
-                                jcr:lastModified="{Date}2024-09-06T13:02:15.134Z"
+                                jcr:lastModified="{Date}2024-09-06T12:47:40.974Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/text"
-                                text="&lt;p>7. Salti, G., &amp;amp; Fundarò, S. P. (2020). Evaluation of the rheologic and physicochemical properties of a novel hyaluronic acid filler range with eXcellent Three-Dimensional Reticulation (XTR™) technology. Polymers, 12(8), 1644&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;"
+                                text="&lt;p>1. Wong V. et al. 2017. Hanging by a thread: choosing the right thread for the right patient&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>2. Reilly D. et al. 2021. Skin collagen through the lifestages: importance for skin health and beauty.&lt;/p>&#xd;&#xa;&lt;p>3. Kalyan R. et al. 2017. The Efficacy of Polycaprolactone Threads in Zygomatic and Mandibular Lifting: Consecutive Study from a Single Practitioner’s Experience.&lt;/p>&#xd;&#xa;"
                                 textIsRich="true"/>
                         </wrapper>
                     </section_1576562251_c>
@@ -1270,11 +1510,10 @@
             </container>
         </root>
         <cq:featuredimage
-            jcr:lastModified="{Date}2024-09-04T09:05:42.959Z"
+            jcr:lastModified="{Date}2024-09-04T08:59:55.576Z"
             jcr:lastModifiedBy="a.messori@adiacent.com"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="core/wcm/components/image/v3/image"
-            altValueFromDAM="false"
-            fileReference="/content/dam/relife/corporate/assets/menu/Rectangle 153.png"/>
+            altValueFromDAM="false"/>
     </jcr:content>
 </jcr:root>

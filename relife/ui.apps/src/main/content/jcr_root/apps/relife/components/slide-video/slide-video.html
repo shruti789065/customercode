@@ -28,12 +28,6 @@
 	   data-sly-unwrap="${!teaser.link.valid || !teaser.actions.empty}"
 	   data-cmp-clickable="${teaser.data ? true : false}">
 
-		<div class="cmp-teaser__content">
-			<sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
-			<sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
-		</div>
-
-
 		<sly data-sly-test="${teaser.videoFilePath}">
 			<sly data-sly-call="${videoTemplate.video @ teaser=teaser, imageResource=teaser.imageResource, videoResource=teaser.videoFilePath}"></sly>
 		</sly>
@@ -41,6 +35,11 @@
 		<sly data-sly-test="${!teaser.videoFilePath && teaser.imageResource}">
 			<sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
 		</sly>
+
+		<div class="cmp-teaser__content">
+			<sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
+			<sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
+		</div>
 
 	</a>
 </div>

@@ -21,14 +21,14 @@
                 font-family: $title-bold;
                 font-size: $h3-title-size;
                 margin: 0;
-                text-transform: uppercase;
             }
             .cmp-teaser__description {
                 font-family: $title-light;
                 font-size: $font-size-small;
                 margin: 1rem auto 2rem auto;
                 p {
-                    margin: 0px !important;
+                    margin: 0px;
+					
                 }
                 b {
                     font-family: $title-medium;
@@ -37,6 +37,7 @@
                     font-family: $title-medium;
                     text-decoration: none;
                     padding-bottom: .2rem;
+					margin-bottom: .9rem;
                     border-bottom: 0.125rem solid $charcoal30;
 
                     &:hover {
@@ -47,13 +48,11 @@
             .cmp-teaser__action-container {
                 .cmp-teaser__action-link {
                     text-decoration: none;
-                    text-transform: uppercase;
                     border: $btn-border-style $btn-border-size;
                     width: $btn-width;
                     height: $btn-height;
                     text-align: center;
                     text-decoration: none;
-                    text-transform: uppercase;
                     line-height: $btn-height;
                     display: inline-block;
                     padding: $btn-padding;
@@ -239,7 +238,7 @@
 
             .cmp-teaser__content {
                 width: 50%;
-                padding: 0 8%;
+                padding: 0 5%;
             }
 
             .cmp-teaser__image {
