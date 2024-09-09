@@ -24,15 +24,15 @@ $font-height: 1.5;
 
 $font-size-min: 14px;
 $font-size-max: 18px;
-$font-size: clamp($font-size-min, 0.688vw + 0.929rem, $font-size-max); // 0.929rem corrisponde a 13px
+$font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))), 18px);
 
 $font-size-small-min: 12px;
 $font-size-small-max: 16px;
-$font-size-small: clamp($font-size-small-min, 0.688vw + 0.857rem, $font-size-small-max); // 0.857rem corrisponde a 12px
+$font-size-small: clamp(12px, calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320))), 16px);
 
 $font-size-extra-small-min: 10px;
 $font-size-extra-small-max: 14px;
-$font-size-extra-small: clamp($font-size-extra-small-min, 0.688vw + 0.714rem, $font-size-extra-small-max); // 0.714rem corrisponde a 10px
+$font-size-extra-small: clamp(10px, calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320))), 14px);
 
 //title varaibles
 $title-size-min: 26px;
@@ -40,13 +40,13 @@ $title-size-max: 56px;
 $title-size: clamp($title-size-min, 50vw, $title-size-max);
 $title-letter-spacing: 2px;
 
-$h1-title-size: clamp(1.857rem, calc(1.857rem + (3.143rem - 1.857rem) * ((100vw - 320px) / (1920 - 320))), 3.143rem); // min: 26px, max: 44px
-$h2-title-size: clamp(1.429rem, calc(1.429rem + (2.286rem - 1.429rem) * ((100vw - 320px) / (1920 - 320))), 2.286rem); // min: 20px, max: 32px
-$h3-title-size: clamp(1.143rem, calc(1.143rem + (1.714rem - 1.143rem) * ((100vw - 320px) / (1920 - 320))), 1.714rem); // min: 16px, max: 24px
-$h4-title-size: clamp(1rem, calc(1rem + (1.286rem - 1rem) * ((100vw - 320px) / (1920 - 320))), 1.286rem); // min: 14px, max: 18px
-$h5-title-size: clamp(0.857rem, calc(0.857rem + (1rem - 0.857rem) * ((100vw - 320px) / (1920 - 320))), 1rem); // min: 12px, max: 14px
-$h6-title-size: clamp(0.786rem, calc(0.786rem + (0.857rem - 0.786rem) * ((100vw - 320px) / (1920 - 320))), 0.857rem); // min: 11px, max: 12px
-$h7-title-size: clamp(0.714rem, calc(0.714rem + (0.786rem - 0.714rem) * ((100vw - 320px) / (1920 - 320))), 0.786rem); // min: 10px, max: 11px
+$h1-title-size: clamp(26px, calc(26px + (44 - 26) * ((100vw - 320px) / (1920 - 320))), 44px); // min: 26px, max: 44px //H1
+$h2-title-size: clamp(20px, calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320))), 32px); // min: 20px, max: 32px //H2
+$h3-title-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320))), 24px); // min: 16px, max: 24px //H3
+$h4-title-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))), 18px); // min: 14px, max: 18px //H4
+$h5-title-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320))), 14px); // min: 12px, max: 14px // complimentary header
+$h6-title-size: clamp(11px, calc(11px + (12 - 11) * ((100vw - 320px) / (1920 - 320))), 12px); // min: 11px, max: 12px // patient name
+$h7-title-size: clamp(10px, calc(10px + (11 - 10) * ((100vw - 320px) / (1920 - 320))), 11px); // min: 10px, max: 11px
 
 $line-heigt: 1.429rem;
 $text-letter-spacing: 0.013rem;
