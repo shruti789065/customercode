@@ -1,5 +1,28 @@
 .cmp-breadcrumb {}
-.cmp-breadcrumb__list {}
+
+.cmp-breadcrumb__list {
+
+    li {
+        min-width: 50px;
+    }
+
+    .cmp-breadcrumb__itemsSeparator {
+        padding-top: 3px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
+    }
+}
+
 .cmp-breadcrumb__item {}
-.cmp-breadcrumb__item--active {}
-.cmp-breadcrumb__item-link {}
+
+.cmp-breadcrumb__item--active {
+
+
+}
+
+.cmp-breadcrumb__item-link {
+    color: $body-color;
+    text-decoration: none;
+}

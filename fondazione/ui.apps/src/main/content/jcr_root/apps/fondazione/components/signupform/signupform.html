@@ -1,312 +1,384 @@
 <div class="cmp-signupform container">
-    <h2 class="cmp-signupform__title text-primary h2 h2-light mb-0">${'signup_form_title' @ i18n}</h2>
-    <p class="cmp-signupform__subtitle">${'fields_marked_with' @ i18n}<span> ${'mandatory' @ i18n}</span> ${'are_mandatory_to_process_your_queries' @ i18n}</p>
+    <div class="d-block" id="formComponentWrapper">
+        <h2 class="text-primary h2 h2-light mb-0">${'signup_form_title' @ i18n}</h2>
+        <p class="cmp-signupform__subtitle">${'fields_marked_with' @ i18n}<span> ${'mandatory' @ i18n}</span>
+            ${'are_mandatory_to_process_your_queries' @ i18n}</p>
+        <div class="w-100">
 
+            <form class="customform needs-validation" id="signUpForm" method="post" novalidate>
 
-    <div class="cmp-signupform__formwrapper w-100">
-        <form class="cmp-signupform__formItemWrapper">
-            <div class="row g-4 m-0 p-0">
-                <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'first_name' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
-                    <div>
-                        <input placeholder="${'first_name_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="firstName"
-                            aria-describedby="firstNamelHelp">
+                <!-- NAME - LAST NAME -->
+                <div class="row g-4 m-0 p-0">
+                    <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'first_name' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <input required placeholder="${'first_name_placeholder' @ i18n}" name="firstName"
+                                type="text" class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
+                                aria-describedby="firstNamelHelp">
+                            <div class="invalid-feedback">
+                                ${'mandatory_field' @ i18n}
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'last_name' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
-                    <div>
-                        <input placeholder="${'last_name_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="lastName"
-                            aria-describedby="lastNamelHelp">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 m-0 p-0">
-                <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'profession' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
-                    <div>
-                        <div class="custom-dropdown position-relative w-100">
-                            <button class="dropdown-toggle overflow-hidden text-truncate w-100 text-start" type="button"
-                                id="dropdownProfessionMenuButton">
-                                ${'select_profession' @ i18n}
-                            </button>
-                            <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
-                                id="professionList">
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Biologist" value="Biologist">
-                                    <div class="dropdown-item d-flex align-items-center">Biologist</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Diagnostic Laboratory Technician"
-                                        value="Diagnostic Laboratory Technician">
-                                    <div class="dropdown-item d-flex align-items-center">Diagnostic Laboratory
-                                        Technician</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Doctor" value="Doctor">
-                                    <div class="dropdown-item d-flex align-items-center">Doctor</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Healthcare Worker" value="Healthcare Worker">
-                                    <div class="dropdown-item d-flex align-items-center">Healthcare Worker</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="No Healthcare" value="No Healthcare">
-                                    <div class="dropdown-item d-flex align-items-center">No Healthcare</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Nurse" value="Nurse">
-                                    <div class="dropdown-item d-flex align-items-center">Nurse</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Nurse’s Assistant" value="Nurse’s Assistant">
-                                    <div class="dropdown-item d-flex align-items-center">Nurse’s Assistant</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Obstetrician" value="Obstetrician">
-                                    <div class="dropdown-item d-flex align-items-center">Obstetrician</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Pharmacist" value="Pharmacist">
-                                    <div class="dropdown-item d-flex align-items-center">Pharmacist</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Psichologist" value="Psichologist">
-                                    <div class="dropdown-item d-flex align-items-center">Psichologist</div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <input type="hidden" name="Student" value="Student">
-                                    <div class="dropdown-item d-flex align-items-center">Student</div>
-                                </li>
-                            </ul>
+                    <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'last_name' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <input required placeholder="${'last_name_placeholder' @ i18n}" type="text" name="lastName"
+                                class="form-control cmp-form__textField mt-2 rounded-0" id="lastName"
+                                aria-describedby="lastNamelHelp">
+                            <div class="invalid-feedback">
+                                ${'mandatory_field' @ i18n}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'gender_label' @ i18n}
-                    </h3>
-                    <div>
-                        <input placeholder="${'gender_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="gender"
-                            aria-describedby="genderHelp">
-                    </div>
-                </div>
-            </div>
 
-            <div class="row g-4 m-0 p-0 mt-2">
-                <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'date_of_birth' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
-                    <div class="position-relative">
-                        <input class="form-control mt-2 cmp-signupform__datepicker rounded-0" type="text"
-                            placeholder="${'date_of_birth_placeholder' @ i18n}" onfocus="(this.type='date')"
-                            onblur="if(this.value==''){this.type='text'}">
-
+                <!-- PROESSION - GENDER -->
+                <div class="row g-4 m-0 p-0">
+                    <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'profession' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <div class="custom-dropdown position-relative w-100">
+                                <button class="dropdown-toggle overflow-hidden text-truncate w-100 text-start"
+                                    type="button" id="dropdownProfessionMenuButton">
+                                    ${'select_profession' @ i18n}
+                                </button>
+                                <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
+                                    id="professionList">
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Biologist">
+                                        <div class="dropdown-item d-flex align-items-center">Biologist</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Diagnostic Laboratory Technician">
+                                        <div class="dropdown-item d-flex align-items-center">Diagnostic Laboratory
+                                            Technician</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Doctor">
+                                        <div class="dropdown-item d-flex align-items-center">Doctor</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Healthcare Worker">
+                                        <div class="dropdown-item d-flex align-items-center">Healthcare Worker</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="No Healthcare">
+                                        <div class="dropdown-item d-flex align-items-center">No Healthcare</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Nurse">
+                                        <div class="dropdown-item d-flex align-items-center">Nurse</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Nurse’s Assistant">
+                                        <div class="dropdown-item d-flex align-items-center">Nurse’s Assistant</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Obstetrician">
+                                        <div class="dropdown-item d-flex align-items-center">Obstetrician</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Pharmacist">
+                                        <div class="dropdown-item d-flex align-items-center">Pharmacist</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Psichologist">
+                                        <div class="dropdown-item d-flex align-items-center">Psichologist</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="Student">
+                                        <div class="dropdown-item d-flex align-items-center">Student</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="professionErrorString" class="mt-2 cmp-signupform__customError"></div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        Telephone
-                    </h3>
-                    <div>
-                        <input placeholder="Insert Telephone" type="number"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="telephone"
-                            aria-describedby="telephoneHelp">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 m-0 p-0 mt-2">
-                <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'country_label' @ i18n} <span>${'mandatory' @ i18n}</span>
-                        <div data-bs-toggle="tooltip" class="cmp-signupform__formItemLabel text-wrap text-truncate">
-                            Lorem ipsum dolor amet</div>
-                    </h3>
-                    <div>
-                        <input placeholder="${'country_placeholder' @ i18n}" type="text"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="country"
-                            aria-describedby="countryHelp">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 px-0 ps-lg-2 cmp-signupform__customMultiSelect">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'area_of_interest' @ i18n} <span>${'mandatory' @ i18n}</span>
-                        <div class="cmp-signupform__formItemLabel text-wrap text-truncate">${'area_of_interest_label' @
-                            i18n}</div>
-                    </h3>
-                    <div>
-                        <div class="custom-dropdown position-relative w-100">
-                            <button class="dropdown-toggle w-100 overflow-hidden text-truncate text-start" type="button"
-                                id="dropdownMultiselectMenuButton">
-                                ${'area_of_interest_placeholder' @ i18n}
-                            </button>
-                            <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
-                                id="interestList">
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0" value="Algology"> Algology</label>
-                                </li>
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0"
-                                            value="Allergology and Clinical Immunology">
-                                        Allergology and Clinical Immunology</label></li>
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0"
-                                            value="Anaestesia and Intensive Care">
-                                        Anaestesia
-                                        and Intensive Care</label></li>
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0" value="Analyst"> Analyst</label>
-                                </li>
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0" value="Andrology"> Andrology</label>
-                                </li>
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0" value="Biochemistry">
-                                        Biochemistry</label>
-                                </li>
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0" value="Cardiology">
-                                        Cardiology</label></li>
-                                <li class="d-flex align-items-center"><label
-                                        class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                            class="form-check-input mt-0 rounded-0" value="Dentistry"> Dentistry</label>
-                                </li>
-                            </ul>
+                    <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'gender_label' @ i18n}
+                        </h3>
+                        <div>
+                            <input placeholder="${'gender_placeholder' @ i18n}" type="text" name="gender"
+                                class="form-control cmp-form__textField mt-2 rounded-0" id="gender"
+                                aria-describedby="genderHelp">
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row g-4 m-0 p-0 mt-2">
-                <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'email_label' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
+                <!-- DATE OF BIRTH - TELEPHONE -->
+                <div class="row g-4 m-0 p-0 mt-2">
+                    <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'date_of_birth' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div class="position-relative">
+                            <input required class="form-control mt-2 cmp-form__datepicker rounded-0" type="text"
+                                name="dateOfBirth" placeholder="${'date_of_birth_placeholder' @ i18n}"
+                                onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                            <div class="invalid-feedback">
+                                ${'mandatory_field' @ i18n}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            Telephone
+                        </h3>
+                        <div>
+                            <input placeholder="Insert Telephone" type="number" name="telNumber"
+                                class="form-control cmp-form__textField mt-2 rounded-0" id="telephone"
+                                aria-describedby="telephoneHelp">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COUNTRY - AREA OF INTERESTS -->
+                <div class="row g-4 m-0 p-0 mt-2">
+                    <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle cmp-signupform__countryTitle h3">
+                            ${'country_label' @ i18n} <span>${'mandatory' @ i18n}</span>
+                            <!-- <div data-bs-toggle="tooltip" class="cmp-signupform__formItemLabel text-wrap text-truncate">
+                                Lorem ipsum dolor amet</div> -->
+                        </h3>
+                        <div>
+                            <div class="custom-dropdown position-relative w-100">
+                                <button class="dropdown-toggle overflow-hidden text-truncate w-100 text-start"
+                                    type="button" id="dropdownCountryMenuButton">
+                                    ${'select_country' @ i18n}
+                                </button>
+                                <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
+                                    id="countryList">
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="it">
+                                        <div class="dropdown-item d-flex align-items-center">IT</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="de">
+                                        <div class="dropdown-item d-flex align-items-center">DE</div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <input type="hidden" value="fr">
+                                        <div class="dropdown-item d-flex align-items-center">FR</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="countryErrorString" class="mt-2 cmp-signupform__customError"></div>
+                    </div>
+                    <div class="col-12 col-lg-6 px-0 ps-lg-2 cmp-signupform__customMultiSelect">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'area_of_interest' @ i18n} <span>${'mandatory' @ i18n}</span>
+                            <div class="cmp-signupform__formItemLabel text-wrap text-truncate">
+                                ${'area_of_interest_label' @
+                                i18n}</div>
+                        </h3>
+                        <div>
+                            <div class="custom-dropdown position-relative w-100">
+                                <button class="dropdown-toggle w-100 overflow-hidden text-truncate text-start"
+                                    type="button" id="dropdownMultiselectMenuButton">
+                                    ${'area_of_interest_placeholder' @ i18n}
+                                </button>
+                                <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
+                                    id="interestList">
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0" value="Algology">
+                                            Algology</label>
+                                    </li>
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0"
+                                                value="Allergology and Clinical Immunology">
+                                            Allergology and Clinical Immunology</label></li>
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0"
+                                                value="Anaestesia and Intensive Care">
+                                            Anaestesia and Intensive Care</label></li>
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0" value="Analyst"> Analyst</label>
+                                    </li>
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0" value="Andrology">
+                                            Andrology</label>
+                                    </li>
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0" value="Biochemistry">
+                                            Biochemistry</label>
+                                    </li>
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0" value="Cardiology">
+                                            Cardiology</label></li>
+                                    <li class="d-flex align-items-center"><label
+                                            class="dropdown-item d-flex align-items-center"><input type="checkbox"
+                                                class="form-check-input mt-0 rounded-0"
+                                                value="Dentistry">Dentistry</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="interestErrorString" class="mt-2 cmp-signupform__customError"></div>
+                    </div>
+                </div>
+
+                <!-- FISCAL CODE -->
+                <div class="row g-4 m-0 p-0 mt-2 d-none" id="fiscalCodeInput">
+                    <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'fiscal_code' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <input required placeholder="${'fiscal_code_placeholder' @ i18n}" type="text"
+                                name="fiscalCode" class="form-control cmp-form__textField mt-2 rounded-0"
+                                id="fiscalCode" aria-describedby="fiscalCodeHelp">
+                            <div class="invalid-feedback">
+                                ${'mandatory_field' @ i18n}
+                            </div>
+                        </div>
+                        <div id="countryErrorString" class="mt-2 cmp-signupform__customError"></div>
+                    </div>
+                </div>
+
+                <!-- EMAIL - EMAIL CONFIRMATION -->
+                <div class="row g-4 m-0 p-0 mt-2">
+                    <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'email_label' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <input required placeholder="${'email_placeholder' @ i18n}" type="email" name="email"
+                                class="form-control cmp-form__textField rounded-0 mt-2" id="email"
+                                aria-describedby="emaillHelp">
+                            <div class="mt-2 cmp-signupform__customError" id="emailErrorString"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'email_confirmation' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <input required placeholder="${'email_confirmation_placeholder' @ i18n}" type="email"
+                                name="emailConfirmation" class="form-control cmp-form__textField mt-2 rounded-0"
+                                id="emailConfirmation" aria-describedby="emailConfirmationlHelp">
+                            <div class="mt-2 cmp-signupform__customError" id="emailConfirmationErrorString"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSWORD - PASSWORD CONFIRMATION -->
+                <div class="row g-4 m-0 p-0">
+                    <div class="col-12 col-lg-6 px-0 pe-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'password' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <input required placeholder="${'password_placeholder' @ i18n}" type="password"
+                                name="password" class="form-control cmp-form__textField mt-2 rounded-0" id="password"
+                                aria-describedby="passwordHelp">
+                            <div class="mt-2 cmp-signupform__customError" id="passwordErrorString"></div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 px-0 ps-lg-2">
+                        <h3 class="cmp-signupform__formItemTitle h3">
+                            ${'password_confirmation' @ i18n} <span>${'mandatory' @ i18n}</span>
+                        </h3>
+                        <div>
+                            <input required placeholder="${'password_confirmation_placeholder' @ i18n}" type="password"
+                                name="passwordConfirmation" class="form-control cmp-form__textField mt-2 rounded-0"
+                                id="passwordConfirmation" aria-describedby="passwordConfirmationHelp">
+                            <div class="mt-2 cmp-signupform__customError" id="passwordConfirmationErrorString"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cmp-signupform__privacywrapper mt-4">
+                    <h6 class="h6">${'privacy_newsletter' @ i18n}</h6>
+
+                    <!-- GDPR -->
                     <div>
-                        <input placeholder="${'email_placeholder' @ i18n}" type="email"
-                            class="form-control cmp-signupform__textField rounded-0 mt-2" id="email"
-                            aria-describedby="emaillHelp">
+                        <p>
+                            ${'having_read_the' @ i18n} <a class="text-decoration-none"
+                                href="${properties.privacyLink}">${'privacy_information_notice' @ i18n}</a>
+                            ${'personal_data_processing' @ i18n}
+                            <span>${'mandatory' @ i18n}</span>
+                        </p>
+                        <fieldset class="ps-0">
+                            <label class="me-3">
+                                <input required type="radio" name="privacy" value="yes" class="ms-2 me-2">
+                                ${'yes_label' @ i18n}
+                            </label>
+                            <label>
+                                <input required type="radio" name="privacy" value="no" class="ms-2 me-2">
+                                ${'no_label' @ i18n}
+                            </label>
+                        </fieldset>
+                        <div id="privacyErrorString" class="mt-2 cmp-signupform__customError"></div>
+
+                    </div>
+
+                    <!-- DATA PROCESSING -->
+                    <div class="mt-3">
+                        <p>${'profiling' @ i18n}</p>
+                        <fieldset class="ps-0">
+                            <label class="me-3">
+                                <input required type="radio" name="personalDataProcessing" value="yes"
+                                    class="ms-2 me-2">
+                                ${'yes_label' @ i18n}
+                            </label>
+                            <label>
+                                <input required type="radio" name="personalDataProcessing" value="no" class="ms-2 me-2">
+                                ${'no_label' @ i18n}
+                            </label>
+                        </fieldset>
+                        <div id="dataProcessingErrorString" class="mt-2 cmp-signupform__customError"></div>
+
+                    </div>
+
+                    <!-- NEWSLETTER -->
+                    <div class="mt-3">
+                        <p>${'agree_newsletter' @ i18n} <span>${'mandatory' @ i18n}</span></p>
+                        <fieldset class="ps-0">
+                            <label class="me-3">
+                                <input required type="radio" name="receiveNewsletter" value="yes" class="ms-2 me-2">
+                                ${'yes_label' @ i18n}
+                            </label>
+                            <label>
+                                <input required type="radio" name="receiveNewsletter" value="no" class="ms-2 me-2">
+                                ${'no_label' @ i18n}
+                            </label>
+                        </fieldset>
+                        <div id="newsletterErrorString" class="mt-2 cmp-signupform__customError"></div>
+                    </div>
+
+                    <div class="mt-5 small-text small-text-light">${'security_code' @ i18n}<span>${'mandatory' @
+                            i18n}</span></div>
+
+                    <!-- <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div> -->
+
+                    <div id="cmp-signupform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
+
+                    <div class="mt-4">
+                        <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'email_confirmation' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
-                    <div>
-                        <input placeholder="${'email_confirmation_placeholder' @ i18n}" type="email"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="emailConfirmation"
-                            aria-describedby="emailConfirmationlHelp">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 m-0 p-0">
-                <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'password' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
-                    <div>
-                        <input placeholder="${'password_placeholder' @ i18n}" type="password"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="password"
-                            aria-describedby="passwordHelp">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                    <h3 class="cmp-signupform__formItemTitle h3">
-                        ${'password_confirmation' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    </h3>
-                    <div>
-                        <input placeholder="${'password_confirmation_placeholder' @ i18n}" type="password"
-                            class="form-control cmp-signupform__textField mt-2 rounded-0" id="passwordConfirmation"
-                            aria-describedby="passwordConfirmationHelp">
-                    </div>
-                </div>
-            </div>
-
-            <div class="cmp-signupform__privacywrapper mt-4">
-                <h6 class="h6">${'privacy_newsletter' @ i18n}</h6>
-                <div>
-                    <p>
-                        ${'having_read_the' @ i18n} <a class="text-decoration-none" href="#">${'privacy_information_notice' @ i18n}</a> 
-                        ${'personal_data_processing' @ i18n}
-                        <span>${'mandatory' @ i18n}</span>
-                    </p>
-
-                    <fieldset class="ps-0">
-                        <label class="me-3">
-                            <input type="radio" name="privacy" value="yes" class="ms-2 me-2">
-                            ${'yes_label' @ i18n}
-                        </label>
-                        <label>
-                            <input type="radio" name="privacy" value="no" class="ms-2 me-2">
-                            ${'no_label' @ i18n}
-                        </label>
-                    </fieldset>
-                </div>
-
-                <div class="mt-3">
-                    <p>${'profiling' @ i18n}</p>
-                    <fieldset class="ps-0">
-                        <label class="me-3">
-                            <input type="radio" name="personalDataProcessing" value="yes" class="ms-2 me-2">
-                            ${'yes_label' @ i18n}
-                        </label>
-                        <label>
-                            <input type="radio" name="personalDataProcessing" value="no" class="ms-2 me-2">
-                            ${'no_label' @ i18n}
-                        </label>
-                    </fieldset>
-                </div>
-
-                <div class="mt-3">
-                    <p>${'agree_newsletter' @ i18n} <span>${'mandatory' @ i18n}</span></p>
-                    <fieldset class="ps-0">
-                        <label class="me-3">
-                            <input type="radio" name="receiveNewsletter" value="yes" class="ms-2 me-2">
-                            ${'yes_label' @ i18n}
-                        </label>
-                        <label>
-                            <input type="radio" name="receiveNewsletter" value="no" class="ms-2 me-2">
-                            ${'no_label' @ i18n}
-                        </label>
-                    </fieldset>
-                </div>
-
-                <div class="mt-5 small-text small-text-light">${'security_code' @ i18n}<span>${'mandatory' @ i18n}</span></div>
-
-                <script src="https://www.google.com/recaptcha/api.js" async defer>
-                </script>
-
-                <div class="w-100 d-flex justify-content-center">
-                    <div class="g-recaptcha mt-3 w-100" data-sitekey="6LcMoyEqAAAAAA59HyT4MkX3MIPL7HmrWcpTjbQG"
-                        data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaResponseExpiry"
-                        data-error-callback="onRecaptchaError">
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+
+    <div data-sly-resource="${'thankyou' @ resourceType='fondazione/components/thankyou/'}"></div>
+
 </div>

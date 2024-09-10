@@ -9,6 +9,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const professionItems = document.querySelectorAll("#professionList li div");
   let selectedProfession = "";
 
+
+  const dropdownButtonCountry = document.querySelector('#dropdownCountryMenuButton');
+  const dropdownMenuCountry = document.querySelector('#countryList');
+  const countryItems = document.querySelectorAll("#countryList li div");
+  let selectedCountry = "";
+
+  let erroeMessagges = [];
+
+  let formComponent = document.querySelector('#formComponentWrapper');
+  let thankyouComponent = document.querySelector('#thankyouComponent');
+
+  if (formComponent && thankyouComponent) {
+    formComponent.classList.add('d-block');
+    formComponent.classList.remove('d-none');
+    thankyouComponent.classList.add('d-none');
+    thankyouComponent.classList.remove('d-block')
+  }
+
+  // STYLE FUNCTIONS AND CUSTOM COMPONENT FUNCTIONS
   dropdownButtonMultiple.addEventListener('click', function () {
     dropdownMenuInterests.style.display = dropdownMenuInterests.style.display === 'block' ? 'none' : 'block';
     displayButtonBorderBottom(dropdownButtonMultiple, dropdownMenuInterests);
@@ -23,8 +42,13 @@ document.addEventListener('DOMContentLoaded', function () {
       dropdownMenuProfession.style.display = 'none';
     }
 
+    if (!dropdownButtonCountry.contains(event.target) && !dropdownMenuCountry.contains(event.target)) {
+      dropdownMenuCountry.style.display = 'none';
+    }
+
     displayButtonBorderBottom(dropdownButtonMultiple, dropdownMenuInterests);
     displayButtonBorderBottom(dropdownButtonProfession, dropdownMenuProfession);
+    displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
 
   });
 
@@ -58,12 +82,35 @@ document.addEventListener('DOMContentLoaded', function () {
     displayButtonBorderBottom(dropdownButtonProfession, dropdownMenuProfession);
   });
 
+  dropdownButtonCountry.addEventListener('click', function () {
+    dropdownMenuCountry.style.display = dropdownMenuCountry.style.display === 'block' ? 'none' : 'block';
+    displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
+  });
+
   professionItems.forEach(element => {
     element.addEventListener('click', function (event) {
       selectedProfession = element.textContent.trim();
       dropdownMenuProfession.style.display = 'none'
       displayButtonBorderBottom(dropdownButtonProfession, dropdownMenuProfession);
       updateDropdownTextProfession();
+    })
+  })
+
+  countryItems.forEach(element => {
+    let fiscalCodeInput = document.querySelector('#fiscalCodeInput');
+    element.addEventListener('click', function (event) {
+      selectedCountry = element.textContent.trim();
+      dropdownMenuCountry.style.display = 'none'
+      displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
+      updateDropdownTextCountry();
+
+      if (selectedCountry.toLowerCase() === 'it') {
+        fiscalCodeInput.classList.remove('d-none');
+        fiscalCodeInput.classList.add('d-block');
+      } else {
+        fiscalCodeInput.classList.add('d-none');
+        fiscalCodeInput.classList.remove('d-block');
+      }
     })
   })
 
@@ -87,6 +134,16 @@ document.addEventListener('DOMContentLoaded', function () {
     dropdownButtonProfession.textContent = innerString
   }
 
+  function updateDropdownTextCountry() {
+    let innerString = selectedCountry === "" ? 'Select Country' : selectedCountry;
+    if (innerString !== 'Select Country') {
+      dropdownButtonCountry.classList.add('dropdown-toggle-filled');
+    } else {
+      dropdownButtonCountry.classList.remove('dropdown-toggle-filled');
+    }
+    dropdownButtonCountry.textContent = innerString
+  }
+
   function displayButtonBorderBottom(button, menu) {
     if (menu.style.display === 'block') {
       button.classList.add('border-bottom-0');
@@ -97,6 +154,324 @@ document.addEventListener('DOMContentLoaded', function () {
       button.classList.remove('active-dropdown');
     }
   }
+
+  function displayErrorsAlert(errorString) {
+    let errorAlert = document.querySelector('#cmp-signupform__errorsAlert');
+    if(errorAlert && errorString && errorString !== ""){
+      if(errorAlert.classList.contains('d-none')) {
+        errorAlert.innerHTML = errorString.slice(1, -1)
+        errorAlert.classList.remove('d-none');
+        errorAlert.classList.add('d-block');
+      } else {
+        errorAlert.classList.remove('d-block');
+        errorAlert.classList.add('d-none');
+      }
+    }
+  }
+
+  // FORM DATA VALIDATION FUNCTIONS
+  function validateProfession() {
+    let errorElement = document.querySelector('#professionErrorString');
+    let dropdownButton = document.querySelector('#dropdownProfessionMenuButton');
+
+    if (selectedProfession === "") {
+      erroeMessagges.push(
+        {
+          id: "profession",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+      dropdownButton.classList.add('cmp-signupform__borderRed');
+      dropdownButton.classList.remove('cmp-signupform__borderGreen');
+    } else {
+      dropdownButton.classList.remove('cmp-signupform__borderRed');
+      dropdownButton.classList.add('cmp-signupform__borderGreen');
+      errorElement.innerHTML = ""
+    }
+  }
+
+  function validateCountry() {
+    let errorElement = document.querySelector('#countryErrorString');
+    let dropdownButton = document.querySelector('#dropdownCountryMenuButton');
+    if (selectedCountry === "") {
+      erroeMessagges.push(
+        {
+          id: "country",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
+      dropdownButton.classList.add('cmp-signupform__borderRed');
+      dropdownButton.classList.remove('cmp-signupform__borderGreen');
+    } else {
+      dropdownButton.classList.remove('cmp-signupform__borderRed');
+      dropdownButton.classList.add('cmp-signupform__borderGreen');
+      errorElement.innerHTML = ""
+    }
+  }
+
+  function validateInterests(data) {
+    let errorElement = document.querySelector('#interestErrorString');
+    let dropdownButton = document.querySelector('#dropdownMultiselectMenuButton');
+
+    if (!data.areasOfInterest || data.areasOfInterest.length === 0) {
+      erroeMessagges.push(
+        {
+          id: "areasOfInterest",
+          message: Granite.I18n.get('mandatory_field')
+        }
+
+      )
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
+      dropdownButton.classList.add('cmp-signupform__borderRed');
+      dropdownButton.classList.remove('cmp-signupform__borderGreen');
+    } else {
+      dropdownButton.classList.remove('cmp-signupform__borderRed');
+      dropdownButton.classList.add('cmp-signupform__borderGreen');
+      errorElement.innerHTML = ""
+    }
+  }
+
+  function validateDataProcessing(data) {
+    let errorElement = document.querySelector('#newsletterErrorString');
+    if (!data.personalDataProcessing) {
+      erroeMessagges.push(
+        {
+          id: "personalDataProcessing",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
+    } else {
+      errorElement.innerHTML = ""
+    }
+  }
+
+  function validateNewsLetter(data) {
+    let errorElement = document.querySelector('#dataProcessingErrorString');
+    if (!data.receiveNewsletter) {
+      erroeMessagges.push(
+        {
+          id: "receiveNewsletter",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field')
+    } else {
+      errorElement.innerHTML = ""
+    }
+  }
+
+  function validatePassword(data) {
+    let errorElement = document.querySelector('#passwordErrorString');
+
+    if ((data.password && data.password !== data.passwordConfirmation) || (data.password && !data.passwordConfirmation)) {
+      errorElement.innerHTML = Granite.I18n.get('password_form_error');
+      erroeMessagges.push(
+        {
+          id: "password",
+          message: Granite.I18n.get('password_form_error')
+        }
+      )
+    } else if (!data.password) {
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+      erroeMessagges.push(
+        {
+          id: "password",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+    }
+  }
+
+  function validatePasswordConfirmation(data) {
+    let errorElement = document.querySelector('#passwordConfirmationErrorString');
+
+    if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) || (data.passwordConfirmation && !data.password)) {
+      errorElement.innerHTML = Granite.I18n.get('password_form_error');
+      erroeMessagges.push(
+        {
+          id: "passwordConfirmation",
+          message: Granite.I18n.get('password_form_error')
+        }
+      )
+    } else if (!data.passwordConfirmation) {
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+      erroeMessagges.push(
+        {
+          id: "passwordConfirmation",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+    }
+  }
+
+  function validateEmail(data) {
+    let errorElement = document.querySelector('#emailErrorString');
+
+    if ((data.email && data.email !== data.emailConfirmation) || (data.email && !data.emailConfirmation)) {
+      errorElement.innerHTML = Granite.I18n.get('email_form_error');
+      erroeMessagges.push(
+        {
+          id: "email",
+          message: errorElement.innerHTML = Granite.I18n.get('email_form_error')
+        }
+      )
+    } else if (!data.email) {
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+      erroeMessagges.push(
+        {
+          id: "email",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+    }
+  }
+
+  function validateEmailConfirmation(data) {
+    let errorElement = document.querySelector('#emailConfirmationErrorString');
+
+    if ((data.emailConfirmation && data.emailConfirmation !== data.email) || (data.emailConfirmation && !data.email)) {
+      errorElement.innerHTML = Granite.I18n.get('email_form_error');
+      erroeMessagges.push(
+        {
+          id: "emailConfirmation",
+          message: Granite.I18n.get('email_form_error')
+        }
+      )
+    } else if (!data.emailConfirmation) {
+      errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+      erroeMessagges.push(
+        {
+          id: "emailConfirmation",
+          message: Granite.I18n.get('mandatory_field')
+        }
+      )
+    }
+  }
+
+  function validateGdpr(data) {
+    let errorElement = document.querySelector('#privacyErrorString');
+    if (data.privacy === "no" || !data.privacy) {
+      erroeMessagges.push(
+        {
+          id: "privacy",
+          message: Granite.I18n.get('accept_privacy')
+        }
+      )
+      errorElement.innerHTML = data.privacy === "no" ? Granite.I18n.get('accept_privacy') : Granite.I18n.get('mandatory_field');
+    } else {
+      errorElement.innerHTML = ""
+    }
+  }
+
+  // FORM SUBMIT FUNCTIONS
+  async function sendData(registrationData) {
+    
+    const responseCsrf = await fetch('/libs/granite/csrf/token.json');
+    const csrfToken = await responseCsrf.json();
+    const regResponse = await fetch("/bin/api/awsSignUp", {
+      method: "POST",
+      headers: {
+        'CSRF-Token': csrfToken.token
+      },
+      body: JSON.stringify(registrationData)
+
+    });
+    const dataResponse = await regResponse.json();
+    return dataResponse;
+
+  }
+
+  let form = document.querySelector('#signUpForm');
+
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      erroeMessagges = [];
+      event.preventDefault();
+      const formData = new FormData(form);
+      let tmpFormData = {
+        profession: selectedProfession,
+        country: selectedCountry,
+        areasOfInterest: selectedItemsMultipleSelect.map(x => x.replaceAll(" ", ""))
+      };
+
+      for (let [key, value] of formData.entries()) {
+        tmpFormData = {
+          ...tmpFormData,
+          [`${key}`]: value
+        }
+      }
+
+      let registrationData = {
+        "firstName": tmpFormData.firstName,
+        "lastName": tmpFormData.lastName,
+        "birthDate": tmpFormData.dateOfBirth.replaceAll("-", ""),
+        "password": tmpFormData.password,
+        "email": tmpFormData.email,
+        "profession": tmpFormData.profession,
+        "phone": tmpFormData.telNumber,
+        "country": tmpFormData.country,
+        "taxIdCode": tmpFormData.fiscalCode ? tmpFormData.fiscalCode : null,
+        "interests": tmpFormData.areasOfInterest,
+        "rolesNames": [],
+        "gender": tmpFormData.gender,
+        "privacyConsent": tmpFormData.privacy === "yes" ? true : false,
+        "profilingConsent": tmpFormData.personalDataProcessing === "yes" ? true : false,
+        "newsletterConsent": tmpFormData.receiveNewsletter === "yes" ? true : false
+  
+      }
+
+      validateProfession(tmpFormData);
+      validateCountry(tmpFormData);
+      validateInterests(tmpFormData);
+      validatePassword(tmpFormData);
+      validatePasswordConfirmation(tmpFormData);
+      validateEmail(tmpFormData);
+      validateGdpr(tmpFormData);
+      validateDataProcessing(tmpFormData);
+      validateNewsLetter(tmpFormData);
+      validateEmailConfirmation(tmpFormData);
+
+      if (erroeMessagges.length === 0) {
+        const responseReg = await sendData(registrationData);
+        if (responseReg.cognitoSignUpErrorResponseDto) {
+          // alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
+          displayErrorsAlert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message))
+          
+        } else {
+
+          if (formComponent && thankyouComponent) { 
+            formComponent.classList.add('d-none');
+            formComponent.classList.remove('d-block');
+            thankyouComponent.classList.add('d-block');
+            thankyouComponent.classList.remove('d-none');
+          }
+
+        }
+      }
+    });
+  }
 });
+
+function setFieldAsNotValid() {
+  var forms = document.getElementsByClassName('needs-validation');
+
+  var validation = Array.prototype.filter.call(forms, function (form) {
+    form.addEventListener('submit', function (event) {
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+}
+
+window.addEventListener('load', function () {
+  setFieldAsNotValid();
+}, false);
+
 
 

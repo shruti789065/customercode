@@ -41,6 +41,7 @@
     <!-- ====================================================================== -->
     <build>
         <plugins>
+
             <!-- ====================================================================== -->
             <!-- V A U L T   P A C K A G E   P L U G I N S                              -->
             <!-- ====================================================================== -->
@@ -54,12 +55,72 @@
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
+
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-api</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-impl</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-jackson</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+
+
+                        <embedded>
+                            <groupId>io.jsonwebtoken</groupId>
+                            <artifactId>jjwt-impl</artifactId>
+                            <type>jar</type>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+
                         <embedded>
                             <groupId>com.jakala.menarini</groupId>
                             <artifactId>fondazione.ui.apps</artifactId>
                             <type>zip</type>
                             <target>/apps/fondazione-packages/application/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>org.jooq</groupId>
+                            <artifactId>jooq</artifactId>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+                        <!-- <embedded>
+                            <groupId>io.r2dbc</groupId>
+                            <artifactId>r2dbc-spi</artifactId>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded> -->
+                        <embedded>
+                            <groupId>commons-dbutils</groupId>
+                            <artifactId>commons-dbutils</artifactId>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+
+                        <embedded>
+                            <groupId>org.reactivestreams</groupId>
+                            <artifactId>reactive-streams</artifactId>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.r2dbc</groupId>
+                            <artifactId>r2dbc-spi</artifactId>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+
                         <embedded>
                             <groupId>com.jakala.menarini</groupId>
                             <artifactId>fondazione.core</artifactId>
@@ -178,6 +239,57 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.12.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.12.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.12.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+         <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${dbutils.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.reactivestreams</groupId>
+            <artifactId>reactive-streams</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-spi</artifactId>
+            <version>${r2dbc.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../core/src/main/resources/libs/r2dbc-spi-${r2dbc.version}.jar</systemPath>
+        </dependency>
+
         <dependency>
             <groupId>com.jakala.menarini</groupId>
             <artifactId>fondazione.ui.apps</artifactId>
