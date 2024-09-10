@@ -49,10 +49,10 @@ header.cmp-experiencefragment--header-mobile {
           display: flex;
           font-family: $title-medium;
           text-transform: uppercase;
-          font-size: .9rem;
-		  width: 100%;
+          font-size: 0.9rem;
+          width: 100%;
           align-self: center;
-		  justify-content: center;
+          justify-content: center;
         }
         .button {
           display: flex;
@@ -206,27 +206,42 @@ header.cmp-experiencefragment--header-mobile {
             font-size: 1rem;
             text-decoration: none;
           }
+          &.cmp-link--style-2 {
+            .cmp-button {
+              padding: 1.429rem 0;
+              .cmp-button__text {
+                font-family: $title-book;
+                font-weight: 700;
+                font-size: 1rem;
+				text-transform: none;
+              }
+			  .cmp-button__icon{
+				width: 1.429rem;
+				height: 1.429rem;
+			  }
+            }
+          }
         }
         .text {
           .cmp-text {
             font-family: $title-light;
             font-size: 1rem;
           }
-		  #specialMenuTxtMobile {
-			p {
-			  margin: 1.063rem 0;
-			  a {
-				text-underline-offset: 0.4rem;
-				text-decoration: underline;
-				text-decoration-color: rgba(28, 29, 29, 0.3);
-				font-family: $title-medium;
-				font-weight: bold;
-				&:hover {
-				  text-decoration-color: rgba(28, 29, 29, 1);
-				}
-			  }
-			}
-		  }
+          #specialMenuTxtMobile {
+            p {
+              margin: 1.063rem 0;
+              a {
+                text-underline-offset: 0.4rem;
+                text-decoration: underline;
+                text-decoration-color: rgba(28, 29, 29, 0.3);
+                font-family: $title-medium;
+                font-weight: bold;
+                &:hover {
+                  text-decoration-color: rgba(28, 29, 29, 1);
+                }
+              }
+            }
+          }
         }
       }
       .languagenavigation {
