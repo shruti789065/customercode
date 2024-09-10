@@ -67,12 +67,6 @@
                         </embedded>
                         <embedded>
                             <groupId>com.adiacent.menarini.relife</groupId>
-                            <artifactId>relife.ui.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/relife-packages/content/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adiacent.menarini.relife</groupId>
                             <artifactId>relife.ui.config</artifactId>
                             <type>zip</type>
                             <target>/apps/relife-packages/application/install</target>
@@ -181,12 +175,6 @@
         <dependency>
             <groupId>com.adiacent.menarini.relife</groupId>
             <artifactId>relife.ui.apps</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adiacent.menarini.relife</groupId>
-            <artifactId>relife.ui.content</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
