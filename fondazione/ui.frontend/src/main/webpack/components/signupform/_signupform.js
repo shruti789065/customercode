@@ -155,6 +155,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function displayErrorsAlert(errorString) {
+    let errorAlert = document.querySelector('#cmp-signupform__errorsAlert');
+    if(errorAlert && errorString && errorString !== ""){
+      if(errorAlert.classList.contains('d-none')) {
+        errorAlert.innerHTML = errorString.slice(1, -1)
+        errorAlert.classList.remove('d-none');
+        errorAlert.classList.add('d-block');
+      } else {
+        errorAlert.classList.remove('d-block');
+        errorAlert.classList.add('d-none');
+      }
+    }
+  }
+
   // FORM DATA VALIDATION FUNCTIONS
   function validateProfession() {
     let errorElement = document.querySelector('#professionErrorString');
@@ -423,7 +437,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
         if (responseReg.cognitoSignUpErrorResponseDto) {
-          alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
+          // alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
+          displayErrorsAlert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message))
+          
         } else {
 
           if (formComponent && thankyouComponent) { 
