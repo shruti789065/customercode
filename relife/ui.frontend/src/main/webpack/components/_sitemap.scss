@@ -1,0 +1,55 @@
+.cmp-sitemap {
+	.cmp-navigation__item {
+		&-link {
+			color: $charcoal;
+			font-weight: $text-regular;
+			word-wrap: break-word;
+			text-decoration: none;
+			text-transform: capitalize;
+			font-size: $font-size;
+			list-style-type: none;
+			margin-left: 1rem;
+			padding: 0.5rem;
+
+			&:hover {
+				background-color: $lightGrey;
+			}
+		}
+
+		&::marker {
+			content: "-";
+			position: absolute;
+			width: 10px;
+			height: 10px;
+		}
+
+		&.cmp-navigation__item--level-0 {
+			border-bottom: 2px solid $charcoal;
+			padding: 5px;
+
+			> .cmp-navigation__item-link {
+				text-transform: uppercase;
+				font-weight: $text-bold;
+			}
+
+			&:hover {
+				> .cmp-navigation__group{
+					background-color:inherit;
+				}
+			}
+		}
+
+		&.cmp-navigation__item--level-1 {
+			.cmp-navigation__item-link {
+				font-size: $font-size;
+
+			}
+		}
+
+		&.cmp-navigation__item--level-2 {
+			.cmp-navigation__item-link {
+				font-size: $font-size-small;
+			}
+		}
+	}
+}
