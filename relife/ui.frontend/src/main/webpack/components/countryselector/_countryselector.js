@@ -26,8 +26,10 @@
       de: 'Germany',
       es: 'Spain',
       fr: 'France',
+      ga: 'Ireland',
       ie: 'Ireland',
       gb: 'United Kingdom',
+      uk: 'United Kingdom',
       at: 'Austria',
       th: 'Thailand'
     };
@@ -35,10 +37,14 @@
     // translate navigation
     const navItems = document.querySelectorAll(".cmp-languagenavigation__item-link");
     navItems.forEach(item => {
-      const lang = item.getAttribute("lang").split('-')[0];
-      if (langMap[lang]) {
-        item.textContent = langMap[lang];
-        console.log(`Translated ${lang} to ${langMap[lang]}`);
+      const lang = item.getAttribute("lang");
+      const shortLang = lang.split('-')[0];
+      console.log(`Processing item with lang: ${lang}`);
+      if (langMap[shortLang]) {
+        item.innerHTML = langMap[shortLang];
+        console.log(`Translated ${lang} to ${langMap[shortLang]}`);
+      } else {
+        console.log(`No translation found for ${shortLang}`);
       }
     });
 
