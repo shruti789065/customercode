@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: clamp(1rem, 1.91vw - 0.048rem, 2.571rem);
   max-width: clamp(26.786rem, 21.127vw + 21.127rem, 42.857rem);
+  max-height: clamp(24.286rem, 37.277vw + 14.301rem, 40.714rem);
   margin: 0 auto;
   transition: $standard-transition;
 
@@ -38,4 +39,9 @@
       align-self: flex-start;
     }
   }
+}
+@include respond-to(tablet) {
+	.dupla_image {
+		max-height: clamp(40.714rem, 22.629vw + 24.68rem, 55.714rem);
+	}
 }

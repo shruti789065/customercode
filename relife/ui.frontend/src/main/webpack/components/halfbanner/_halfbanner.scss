@@ -19,7 +19,7 @@
             padding: 12rem 2.5rem 2.5rem 2.5rem;
             .cmp-teaser__title {
                 font-family: $title-bold;
-                font-size: $h3-title-size;
+                font-size: clamp(1.143rem, 1.036vw + 0.865rem, 2.286rem);
                 margin: 0;
             }
             .cmp-teaser__description {
@@ -34,10 +34,13 @@
                     font-family: $title-medium;
                 }
                 a {
+					display: flex;
+					width: -moz-fit-content;
+					width: fit-content;
                     font-family: $title-medium;
                     text-decoration: none;
                     padding-bottom: .2rem;
-					margin-bottom: .9rem;
+					margin-bottom: .5rem;
                     border-bottom: 0.125rem solid $charcoal30;
 
                     &:hover {
@@ -231,7 +234,7 @@
         .cmp-teaser {
             display: flex;
             flex-direction: row;
-            min-height: 40rem;
+            min-height: 40.571rem;
             margin-top: unset;
             margin-left: unset;
             margin-right: unset;
@@ -244,7 +247,7 @@
             .cmp-teaser__image {
                 position: relative;
                 width: 50%;
-                min-height: 40rem;
+                min-height: 40.571rem;
                 left: unset;
                 top: unset;
                 -webkit-transform: unset;
@@ -252,8 +255,8 @@
                 
                 .cmp-image {
                     img {
-                        min-height: 40rem;
-                        height: 40rem;
+                        min-height: 40.571rem;
+                        height: 40.571rem;
                         width: auto;
                     }
                 }
