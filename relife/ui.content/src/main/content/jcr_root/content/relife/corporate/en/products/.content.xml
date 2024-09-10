@@ -3,21 +3,25 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:isDelivered="{Boolean}false"
-        cq:lastModified="{Date}2024-08-09T08:04:16.299Z"
+        cq:lastModified="{Date}2024-09-04T08:31:39.902Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
-        cq:lastReplicated="{Date}2024-08-09T08:00:49.591Z"
-        cq:lastReplicated_publish="{Date}2024-08-09T08:00:49.591Z"
-        cq:lastReplicatedBy="d.mariotti@adiacent.com"
-        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-05T08:46:03.599Z"
+        cq:lastReplicated_publish="{Date}2024-09-05T08:46:03.599Z"
+        cq:lastReplicatedBy="workflow-process-service"
+        cq:lastReplicatedBy_publish="workflow-process-service"
         cq:lastReplicationAction="Activate"
         cq:lastReplicationAction_publish="Activate"
+        cq:redirectTarget="/content/relife/corporate/en/products/treatments"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Products"
         jcr:uuid="bae65c86-9759-42d7-b451-cc028c41b953"
-        sling:resourceType="relife/components/page">
+        sling:resourceType="relife/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="relife/components/container"
@@ -46,10 +50,14 @@
                             <slideshow
                                 jcr:created="{Date}2024-06-28T16:52:23.638+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-06-28T16:52:23.638+02:00"
+                                jcr:lastModified="{Date}2024-08-12T12:50:46.337+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/slideshow">
+                                sling:resourceType="relife/components/slideshow"
+                                accessibilityAutoItemTitles="false"
+                                autopauseDisabled="false"
+                                autoplay="false"
+                                delay="5000">
                                 <slide_video
                                     jcr:created="{Date}2024-08-08T08:49:00.003Z"
                                     jcr:createdBy="d.mariotti@adiacent.com"
@@ -66,6 +74,21 @@
                                     linkTarget="_self"
                                     textIsRich="true"
                                     titleFromPage="false"/>
+                                <item_1723459840575
+                                    cq:panelTitle="Slide 1"
+                                    cq:styleIds="[1723459694660]"
+                                    jcr:lastModified="{Date}2024-08-12T12:51:22.536+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/slide-video"
+                                    automaticDuration="true"
+                                    descriptionFromPage="true"
+                                    fileReference="/content/dam/relife/corporate/assets/products/internal-header-products-definisse.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="true"/>
                             </slideshow>
                         </wrapper>
                     </section_7504393>
@@ -83,8 +106,16 @@
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper">
+                            <spacer_copy_copy
+                                jcr:created="{Date}2024-08-08T08:29:50.120Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-03T07:12:02.013Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="25"/>
                             <title
-                                cq:styleIds="[1721211582912,1721211637597]"
+                                cq:styleIds="[1721211637597,1723457725921,1723457132031]"
                                 jcr:created="{Date}2024-08-08T08:20:07.062Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
                                 jcr:lastModified="{Date}2024-08-08T08:52:42.947Z"
@@ -114,11 +145,11 @@
                             <spacer_copy
                                 jcr:created="{Date}2024-08-08T08:29:50.120Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-08T08:34:31.621Z"
+                                jcr:lastModified="{Date}2024-09-03T07:12:02.013Z"
                                 jcr:lastModifiedBy="d.mariotti@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="relife/components/spacer"
-                                spacer="100"/>
+                                spacer="25"/>
                             <container_copy
                                 jcr:created="{Date}2024-08-08T08:23:50.593Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
@@ -185,6 +216,7 @@
                                     sling:resourceType="relife/components/spacer"
                                     spacer="100"/>
                                 <text
+                                    cq:styleIds="[1721211788361]"
                                     jcr:created="{Date}2024-08-08T08:25:31.639Z"
                                     jcr:createdBy="d.mariotti@adiacent.com"
                                     jcr:lastModified="{Date}2024-08-08T08:54:54.594Z"
@@ -373,7 +405,7 @@
                         jcr:lastModifiedBy="d.mariotti@adiacent.com"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="relife/components/containers/section">
-                        <wrapper
+                        <wrapper_copy
                             jcr:created="{Date}2024-08-09T07:28:39.846Z"
                             jcr:createdBy="d.mariotti@adiacent.com"
                             jcr:lastModified="{Date}2024-08-09T07:28:53.569Z"
@@ -382,7 +414,7 @@
                             sling:resourceType="relife/components/containers/wrapper"
                             layout="responsiveGrid">
                             <title
-                                cq:styleIds="[1721211701223]"
+                                cq:styleIds="[1721211701223,1723457132031]"
                                 jcr:created="{Date}2024-08-09T07:29:44.463Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
                                 jcr:lastModified="{Date}2024-08-09T07:30:07.130Z"
@@ -393,7 +425,7 @@
                                 linkTarget="_self"
                                 type="h4"/>
                             <title_1126855602
-                                cq:styleIds="[1721211582912,1721211637597]"
+                                cq:styleIds="[1721211582912,1721211637597,1723457132031]"
                                 jcr:created="{Date}2024-08-09T07:34:55.353Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
                                 jcr:lastModified="{Date}2024-08-09T07:35:12.966Z"
@@ -403,18 +435,123 @@
                                 sling:resourceType="relife/components/title"
                                 linkTarget="_self"
                                 type="h6"/>
-                            <title_848639499
-                                cq:styleIds="[1721211705938]"
-                                jcr:created="{Date}2024-08-09T07:44:23.018Z"
-                                jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-09T07:45:01.294Z"
-                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            <image
+                                jcr:created="{Date}2024-08-28T08:23:27.171Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-08-28T13:39:08.025Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                jcr:title="ADD GALLERY HERE"
-                                sling:resourceType="relife/components/title"
+                                sling:resourceType="relife/components/image"
+                                displayPopupTitle="true"
+                                fileReference="/content/dam/relife/corporate/assets/menu/bg-relife-products.jpg"
+                                id="imgProvv"
+                                imageFromPageImage="false"
+                                isDecorative="true"
                                 linkTarget="_self"
-                                type="h2"/>
-                        </wrapper>
+                                titleValueFromDAM="true"/>
+                            <spacer_copy
+                                jcr:created="{Date}2024-08-28T09:53:22.709Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-08-30T09:04:24.938Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="40"/>
+                            <puzzle_carousel
+                                cq:styleIds="[1724841447090]"
+                                jcr:created="{Date}2024-08-28T08:23:03.317Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-08-28T08:23:03.317Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/containers/puzzle-carousel">
+                                <teaser
+                                    cq:styleIds="[1724341145427]"
+                                    jcr:created="{Date}2024-08-28T08:24:13.018Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>Versatile threads for lifting and shaping of many areas including the jawline, malar area, nasolabial folds, corners of the mouth, eyebrow curve, supero-lateral neck, lateral &amp;amp; vertical face shaping&lt;/p>&#xd;&#xa;&lt;p>• Volume repositioning&lt;/p>&#xd;&#xa;&lt;p>• Moderate lifting&lt;/p>&#xd;&#xa;&lt;p>• Tissue stimulation &amp;amp; revitalisation&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-08-30T08:46:30.517Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Definisse™ Double Needle Threads"
+                                    sling:resourceType="relife/components/teaser"
+                                    descriptionFromPage="false"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false"
+                                    titleType="h3"/>
+                                <teaser_813406508
+                                    cq:styleIds="[1724341145427]"
+                                    jcr:created="{Date}2024-08-28T08:24:21.017Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>Soft tissue reshaping for cheeks and nasolabial folds&lt;/p>&#xd;&#xa;&lt;p>• Moderate volumising&lt;/p>&#xd;&#xa;&lt;p>• Mild lifting&lt;/p>&#xd;&#xa;&lt;p>• Tissue stimulation &amp;amp; revitalisation&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-08-30T08:47:40.818Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Definisse™ Free Floating Threads"
+                                    sling:resourceType="relife/components/teaser"
+                                    descriptionFromPage="false"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false"
+                                    titleType="h3"/>
+                                <teaser_1498732960
+                                    cq:styleIds="[1724341145427]"
+                                    jcr:created="{Date}2024-08-28T08:24:24.796Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>Anti-gravity reshaping for marionette lines, cheeks, jawline, malar area and nasolabial folds&lt;/p>&#xd;&#xa;&lt;p>• Volume repositioning&lt;/p>&#xd;&#xa;&lt;p>• Strong lifting&lt;/p>&#xd;&#xa;&lt;p>• Tissue stimulation &amp;amp; revitalisation&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-08-30T08:46:52.920Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Definisse™ Anchorage Threads"
+                                    sling:resourceType="relife/components/teaser"
+                                    descriptionFromPage="false"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false"
+                                    titleType="h3"/>
+                                <teaser_1994205472
+                                    cq:styleIds="[1724341145427]"
+                                    jcr:created="{Date}2024-08-28T08:24:31.404Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>A dedicated thread for the raising of the nose tip&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>• Moderate lifting&lt;/p>&#xd;&#xa;&lt;p>• Tissue stimulation &amp;amp; revitalisation&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-08-30T08:48:01.120Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Definisse™ Nose Threads"
+                                    sling:resourceType="relife/components/teaser"
+                                    descriptionFromPage="false"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false"
+                                    titleType="h3"/>
+                                <teaser_813012125
+                                    cq:styleIds="[1724341145427]"
+                                    jcr:created="{Date}2024-08-28T08:24:35.941Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>For volumising lips&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>• Mild volumising&lt;/p>&#xd;&#xa;&lt;p>• Moderate subversion&lt;/p>&#xd;&#xa;&lt;p>• Tissue stimulation &amp;amp; revitalisation&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-08-30T08:48:12.437Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Definisse™ Boca Threads"
+                                    sling:resourceType="relife/components/teaser"
+                                    descriptionFromPage="false"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"
+                                    titleFromPage="false"
+                                    titleType="h3"/>
+                            </puzzle_carousel>
+                        </wrapper_copy>
                     </section_2134444286>
                     <section_2134444286_c
                         jcr:created="{Date}2024-08-09T07:28:33.200Z"
@@ -580,7 +717,7 @@
                                 linkTarget="_self"
                                 type="h4"/>
                             <title_1126855602_cop
-                                cq:styleIds="[1721211582912,1721211637597]"
+                                cq:styleIds="[1721211637597,1723457725921,1723457132031]"
                                 jcr:created="{Date}2024-08-09T07:34:55.353Z"
                                 jcr:createdBy="d.mariotti@adiacent.com"
                                 jcr:lastModified="{Date}2024-08-09T07:49:05.915Z"
@@ -730,58 +867,100 @@
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper"
-                            layout="responsiveGrid"/>
+                            layout="responsiveGrid">
+                            <spacer_copy
+                                jcr:created="{Date}2024-08-08T08:29:50.120Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-08-09T07:48:33.254Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
+                        </wrapper>
                     </section_2134444286_c_2084372277>
-                    <section_2134444286_c_586273993
-                        jcr:created="{Date}2024-08-09T07:28:33.200Z"
-                        jcr:createdBy="d.mariotti@adiacent.com"
-                        jcr:lastModified="{Date}2024-08-09T07:28:33.200Z"
-                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    <section_copy_1986116
+                        jcr:created="{Date}2024-06-28T16:52:37.739+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-08-30T09:21:31.479Z"
+                        jcr:lastModifiedBy="a.messori@adiacent.com"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="relife/components/containers/section">
+                        sling:resourceType="relife/components/containers/section"
+                        backgroundImageReference="/content/dam/relife/corporate/assets/menu/bg-blue-relife.png">
                         <wrapper
-                            jcr:created="{Date}2024-08-09T07:28:39.846Z"
-                            jcr:createdBy="d.mariotti@adiacent.com"
-                            jcr:lastModified="{Date}2024-08-09T07:28:53.569Z"
+                            jcr:created="{Date}2024-06-28T16:52:45.393+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-08-09T08:35:28.929Z"
                             jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper"
                             layout="responsiveGrid">
-                            <title_848639499_copy
-                                cq:styleIds="[1721211705938]"
-                                jcr:created="{Date}2024-08-09T07:44:23.018Z"
-                                jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-09T08:00:29.713Z"
-                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                            <puzzle_carousel
+                                cq:styleIds="[1724841452139]"
+                                jcr:created="{Date}2024-08-28T12:43:15.237Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-08-28T12:43:15.237Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                jcr:title="ADD IMGS HERE"
-                                sling:resourceType="relife/components/title"
-                                linkTarget="_self"
-                                type="h2"/>
-                            <image
-                                jcr:created="{Date}2024-08-09T07:58:20.707Z"
-                                jcr:createdBy="d.mariotti@adiacent.com"
-                                jcr:lastModified="{Date}2024-08-09T08:00:01.127Z"
-                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/image"
-                                displayPopupTitle="true"
-                                fileReference="/content/dam/relife/corporate/assets/menu/bg-relife-blue.jpg"
-                                imageFromPageImage="false"
-                                isDecorative="true"
-                                linkTarget="_self"
-                                titleValueFromDAM="true"/>
+                                sling:resourceType="relife/components/containers/puzzle-carousel">
+                                <carousel
+                                    jcr:created="{Date}2024-08-28T12:50:24.906Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-28T12:52:26.555Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/carousel">
+                                    <item_1724849535901
+                                        cq:panelTitle="before image"
+                                        jcr:lastModified="{Date}2024-08-29T08:26:46.471Z"
+                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/image"
+                                        displayPopupTitle="true"
+                                        fileReference="/content/dam/relife/corporate/assets/products/image-before.png"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        titleValueFromDAM="true"/>
+                                    <item_1724849447450
+                                        cq:panelTitle="after image"
+                                        jcr:lastModified="{Date}2024-08-29T08:29:57.721Z"
+                                        jcr:lastModifiedBy="a.messori@adiacent.com"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="relife/components/image"
+                                        displayPopupTitle="true"
+                                        fileReference="/content/dam/relife/corporate/assets/products/image-after.png"
+                                        imageFromPageImage="false"
+                                        isDecorative="true"
+                                        linkTarget="_self"
+                                        titleValueFromDAM="true"/>
+                                </carousel>
+                                <spacer
+                                    jcr:created="{Date}2024-08-30T09:21:50.444Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-30T09:21:57.230Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/spacer"
+                                    spacer="110"/>
+                            </puzzle_carousel>
                         </wrapper>
-                    </section_2134444286_c_586273993>
+                    </section_copy_1986116>
                 </container>
             </container>
         </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-09-04T08:31:39.867Z"
+            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
-    <treatments-overview/>
+    <treatments/>
     <definisse-threads/>
     <definisse-fillers/>
     <definisse-peel-program/>
     <definisse-hydroboosters/>
     <definisse-kp1/>
     <pigment-solution/>
+    <treatments-overview/>
 </jcr:root>

@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-08-08T07:44:15.057Z"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-09-05T10:33:33.039Z"
         cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-05T10:33:38.403Z"
+        cq:lastReplicated_publish="{Date}2024-09-05T10:33:38.403Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Netiquette"
+        jcr:uuid="969a4bb1-69bd-4eb3-8399-8964320da35a"
         sling:resourceType="relife/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -19,7 +29,7 @@
                 <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="relife/components/container">
-                    <section_7504393
+                    <section_7504393_copy
                         jcr:created="{Date}2024-07-29T14:35:39.445+02:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2024-07-29T14:35:39.445+02:00"
@@ -33,16 +43,37 @@
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper">
-                            <slideshow
+                            <slideshow_copy_copy
                                 jcr:created="{Date}2024-06-28T16:52:23.638+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-06-28T16:52:23.638+02:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2024-08-29T12:34:59.140Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/slideshow"/>
+                                sling:resourceType="relife/components/slideshow"
+                                accessibilityAutoItemTitles="false"
+                                autopauseDisabled="false"
+                                autoplay="false"
+                                delay="5000">
+                                <slide_video
+                                    cq:panelTitle="Slide 1"
+                                    jcr:created="{Date}2024-08-29T12:34:25.496Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>Netiquette&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-09-03T15:28:12.552Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/slide-video"
+                                    automaticDuration="true"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/corporate/assets/menu/bg-relife-blue.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"/>
+                            </slideshow_copy_copy>
                         </wrapper>
-                    </section_7504393>
-                    <section
+                    </section_7504393_copy>
+                    <section_copy_copy
                         jcr:created="{Date}2024-06-28T16:52:37.739+02:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2024-06-28T16:52:37.739+02:00"
@@ -52,11 +83,48 @@
                         <wrapper
                             jcr:created="{Date}2024-06-28T16:52:45.393+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-06-28T16:52:45.393+02:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:lastModified="{Date}2024-09-05T10:32:34.253Z"
+                            jcr:lastModifiedBy="d.mariotti@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="relife/components/containers/wrapper"/>
-                    </section>
+                            sling:resourceType="relife/components/containers/wrapper"
+                            layout="responsiveGrid">
+                            <container
+                                jcr:created="{Date}2024-09-05T10:32:46.202Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-05T10:32:46.202Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/container">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="2"
+                                        width="8"/>
+                                </cq:responsive>
+                                <title
+                                    cq:styleIds="[1723457128445]"
+                                    jcr:created="{Date}2024-09-03T15:22:26.556Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-05T10:33:10.541Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="NETIQUETTE"
+                                    sling:resourceType="relife/components/title"
+                                    linkTarget="_self"
+                                    type="h2"/>
+                                <text
+                                    cq:styleIds="[1721211788361]"
+                                    jcr:created="{Date}2024-09-03T15:23:00.955Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-03T15:29:00.897Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/text"
+                                    text="&lt;p>Dear user, thank you for your interest in the social media channels and in the online community of Relife S.r.l (hereinafter referred to as the ”Company”).&lt;/p>&#xd;&#xa;&lt;p>There are number of things you need to know in case you wish to comment or post material on these channels.&amp;nbsp;The mission of the Company is to improve people's lives by providing high quality products to patients. In order to achieve this goal, the Company has the social and moral duty to adopt, support and promote ethically correct behavior in line with the values of integrity, correctness and transparency which have always distinguished them. The Company has adopted these principles and objects to any action and approach which may promote, or even tolerate, behavior which is not in accordance with this.&amp;nbsp;The Company operates in sectors governed by specific provisions; any discussions must therefore be in line with the terms of use set out below.Your data shall be processed in compliance with the applicable law. For more information, click &lt;b>&lt;a href=&quot;/ii/en/Privacy-Notice-for-Social-Network-Users&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>&lt;i>here&lt;/i>&lt;/a>&lt;/b>.&lt;/p>&#xd;&#xa;&lt;p>Any user who posts a message or replies to one of the posts published on any of the Company's social media channels and online community (the &amp;quot;Channels&amp;quot;) agrees to comply with these terms of use, which shall apply in addition to the terms and conditions or any other legal notices provided to the users by the Company or by any companies that own the social platforms and the online communities used.&lt;/p>&#xd;&#xa;&lt;p>Whenever possible, the medical and scientific information made available is for informational use only and cannot be considered as professional advice replacing medical intervention or giving any customized treatment indication.&lt;/p>&#xd;&#xa;&lt;p>The user acknowledges that, where posting is permitted, any data, texts, graphics, pictures, their selection and arrangement and any other material the user decides to post by using the IT functions and tools of the chosen channel (&amp;quot;Contents&amp;quot;) are the sole responsibility of the person who generated them.&lt;/p>&#xd;&#xa;&lt;p>Quotations, likes and comments are allowed, whereas discussions concerning products of the Company or of any other pharmaceutical companies, or treatment options, are not allowed.&lt;/p>&#xd;&#xa;&lt;p>Management and moderation are entrusted to people in charge of this, who carry out periodic checks on posted messages every day from 9:00 A.M. to 5:00 P.M. In any case, the user acknowledges that the Company that manages the relevant Channel may not carry out any preventive oversight on the Contents, declining any responsibility for the Contents uploaded, posted or otherwise made available by the users.&lt;/p>&#xd;&#xa;&lt;p>Where provided for, the user also acknowledges that the Channel may allow sharing of Contents published with other social networks; the Company that manages the relevant Channel has no control over the subsequent processing of the Contents and refuses any responsibility or liability therefor.&lt;/p>&#xd;&#xa;&lt;p>The Company shall use its best efforts to respond to any users’ comments and questions; however, it is not possible to address certain topics, such as any matters directly related to the legal field, confidential information or information concerning medical disorders. If it is not possible to reply to a comment, a private message with the motivation may be sent, where allowed and permitted by the functionality of the chosen Channel.&lt;/p>&#xd;&#xa;&lt;p>In any case, it is absolutely forbidden for each user to send messages that include:&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; profanity, defamation, calumny; offensive, discriminatory or degrading, vulgar, xenophobic contents or any contents harmful to the dignity and sensitivity of others, praising hatred, violence or illegal behaviour;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; intellectual and/or industrial property rights of third parties (such as trademarks or logos), or copyrighted materials (such as music, videos, texts) without the express consent from the holders of such rights;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; any treatment indications;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; political propaganda contents;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; off-topic contents, or any contents written to disturb the discussion or offend those who manage and moderate the media channel;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; offering medical or otherwise health advice in general;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; commercial contents: for example, selling products / services, advertising campaigns, or recruiting fans and followers;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; excessively repetitive and/or disturbing contents for the community or spamming;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; any matters directly related to the legal field, confidential information or information concerning medical disorders;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; any contents that violate the rules of conduct of the chosen Channel.&lt;/p>&#xd;&#xa;&lt;p>Furthermore, the user acknowledges that:&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; posted contents must never mention any drugs or active ingredients of the companies of the Menarini Group or of any other pharmaceutical companies;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; as provided for by the regulations in force, under no circumstances may promotional contents relating to drugs be posted;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; in no case should any legal proceedings, disputes / pending suits be mentioned;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; the user has to obtain, before uploading any information that allows the identification of third parties (such as name, phone number, address, pictures and/or videos in which such third parties are portrayed), their prior consent to the publication and possible sharing via the social media network, it being understood that posting – through the functionalities and the IT tools available on the site – any pictures or Contents that concern a user automatically implies the consent of that user to their diffusion and sharing;&lt;/p>&#xd;&#xa;&lt;p>·&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; any use or mention of the user Contents or materials transmitted through the Channel's functionalities and IT tools or obtained by the user through said functionalities or IT tools is at the user's own risk.&lt;/p>&#xd;&#xa;&lt;p>The Company reserves the right to intervene by eliminating as soon as possible any posts which, at the Company’s discretion, may be deemed not to comply with these terms of use.&lt;/p>&#xd;&#xa;&lt;p>The user acknowledges the Company’s right / obligation to implement any measures whereby the competent authorities request the Company to disclose the identity of whoever may have sent said material. In no way shall the Company be liable for any loss or damage caused by, related to or resulting from any Contents posted by you or by other users.&lt;/p>&#xd;&#xa;&lt;p>For users who repeatedly violate these terms of use or the rules of conduct of the Channel used, the Company reserves the right (where technically allowed) to use ban or block to prevent further interventions and to report the user to the administrators of the social platform.&lt;/p>&#xd;&#xa;&lt;p>The Company may provide links or references to websites as part of the social content; however, the Company accepts no responsibility for the accuracy or content of such sites and is not liable for any damage resulting from such content.&lt;/p>&#xd;&#xa;&lt;p>By posting on any of the Channels managed by the Company, users acknowledge and agree that their posts and any ideas, techniques or contents may be freely used by the Company in any way and on any media, including on forums, on any other websites and social media pages of the Company, as well as in its business activity. As a result, users are encouraged not to submit ideas, materials or contents about which they wish to maintain confidentiality or for which they expect to receive a consideration.&lt;/p>&#xd;&#xa;&lt;p>Please do not use this channel to report adverse events or side effects of drugs. In case of side effects or adverse reactions following the use of a product of the Company, you should consult your doctor, pharmacist or any other healthcare professional immediately. You can report any adverse reaction directly to the Company and the competent authorities at the following link&amp;nbsp;&lt;b>&lt;i>&lt;a href=&quot;/ii/en/Privacy-Notice-for-Social-Network-Users&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>www.relifecompany.com/ii/en/Privacy-Notice-for-Social-Network-Users&lt;/a>&lt;/i>&lt;/b>&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </container>
+                        </wrapper>
+                    </section_copy_copy>
                 </container>
             </container>
         </root>

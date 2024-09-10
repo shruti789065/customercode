@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-08-12T08:28:52.152Z"
-        cq:lastModifiedBy="a.messori@adiacent.com"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-09-06T15:58:20.706Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-06T14:24:33.152Z"
+        cq:lastReplicated_publish="{Date}2024-09-06T14:24:33.152Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Contact"
+        jcr:uuid="78066324-6b2e-4ef4-99e4-cbfdd3893e9d"
         sling:resourceType="relife/components/page"
         pwaCachestrategy="staleWhileRevalidate"
         pwaDisplay="standalone"
@@ -42,7 +52,24 @@
                                 jcr:lastModified="{Date}2024-06-28T16:52:23.638+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/slideshow"/>
+                                sling:resourceType="relife/components/slideshow">
+                                <slide_video
+                                    cq:styleIds="[1723460257677]"
+                                    jcr:created="{Date}2024-08-29T08:53:36.622Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>CONTACT US&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-08-29T08:56:33.767Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/slide-video"
+                                    automaticDuration="true"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/corporate/assets/about/contact-us-slide.png"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"/>
+                            </slideshow>
                         </wrapper>
                     </section_7504393>
                     <section
@@ -55,10 +82,495 @@
                         <wrapper
                             jcr:created="{Date}2024-06-28T16:52:45.393+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-06-28T16:52:45.393+02:00"
-                            jcr:lastModifiedBy="admin"
+                            jcr:lastModified="{Date}2024-08-29T09:49:17.711Z"
+                            jcr:lastModifiedBy="a.messori@adiacent.com"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="relife/components/containers/wrapper"/>
+                            sling:resourceType="relife/components/containers/wrapper"
+                            layout="responsiveGrid">
+                            <spacer
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T14:16:04.561Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="25"/>
+                            <title
+                                cq:styleIds="[1723457725921,1723457132031]"
+                                jcr:created="{Date}2024-08-29T09:48:19.569Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T14:16:10.609Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="For RELIFE Academy enquiries, sales, distribution or advice contact us here"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h1">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="2"
+                                        width="8"/>
+                                </cq:responsive>
+                            </title>
+                            <spacer_copy
+                                jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-04T08:18:32.217Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="50"/>
+                            <form_container
+                                jcr:created="{Date}2024-08-29T08:58:00.446Z"
+                                jcr:createdBy="a.messori@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-06T09:58:25.286Z"
+                                jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/form/form-container"
+                                action="/content/usergenerated/relife/corporate/en/about/contact/cq-gen1724921880458/"
+                                actionType="foundation/components/form/actions/mail"
+                                from="noreply@menarini.com"
+                                mailto="contact@relifecompany.it"
+                                redirect="/content/relife/corporate/en/about/contact/thank-you"
+                                subject="Contact us From Relife Company">
+                                <options
+                                    jcr:created="{Date}2024-08-29T08:58:47.081Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T09:57:08.504Z"
+                                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="AREA OF INTEREST"
+                                    sling:resourceType="relife/components/form/options"
+                                    name="area"
+                                    requiredMultiSelect="false"
+                                    requiredRadio="false"
+                                    requiredSelect="true"
+                                    source="local"
+                                    type="drop-down">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            disabled="true"
+                                            selected="true"
+                                            text="Please select"/>
+                                        <item1
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="false"
+                                            text="area 1"
+                                            value="area 1"/>
+                                        <item2
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="false"
+                                            text="area 2"/>
+                                    </items>
+                                </options>
+                                <text
+                                    jcr:created="{Date}2024-08-29T09:39:21.850Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:41:08.870Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="SUBJECT"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="subject"
+                                    required="true"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text>
+                                <text_736799045
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:41:43.972Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="FIRST NAME"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="first-name"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045>
+                                <text_736799045_copy
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:41:50.390Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="LAST NAME"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="last-name"
+                                    required="true"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy>
+                                <text_736799045_copy_
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:43:16.949Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="EMAIL"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="email"
+                                    required="true"
+                                    rows="2"
+                                    type="email">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy_>
+                                <text_736799045_copy__1131428399
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:43:10.563Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="PHONE"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="phone"
+                                    rows="2"
+                                    type="tel">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy__1131428399>
+                                <text_736799045_copy__589101853
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:43:48.318Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="ADDRESS"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="address"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy__589101853>
+                                <text_736799045_copy__1696715468
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:44:04.699Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="CITY"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="city"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy__1696715468>
+                                <text_736799045_copy__161470172
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:44:29.003Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="STATE/PROVINCE"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="state"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy__161470172>
+                                <options_602846006
+                                    jcr:created="{Date}2024-08-29T09:46:07.782Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T09:47:28.834Z"
+                                    jcr:lastModifiedBy="L.ambrosini@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="COUNTRY"
+                                    sling:resourceType="relife/components/form/options"
+                                    name="country"
+                                    requiredMultiSelect="false"
+                                    requiredRadio="false"
+                                    requiredSelect="false"
+                                    source="local"
+                                    type="drop-down">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            disabled="true"
+                                            selected="true"
+                                            text="Please select"/>
+                                        <item1
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="false"
+                                            text="Country 1"
+                                            value="Country 1"/>
+                                    </items>
+                                </options_602846006>
+                                <spacer_682055498
+                                    jcr:created="{Date}2024-09-06T14:24:09.705Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T14:24:21.066Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/spacer"
+                                    spacer="0"/>
+                                <text_736799045_copy__1139823518
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T09:45:41.232Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="ZIP/POSTAL"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="zip"
+                                    rows="2"
+                                    type="text">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="4"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy__1139823518>
+                                <text_736799045_copy__2105599714
+                                    jcr:created="{Date}2024-08-29T09:40:24.195Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T14:24:58.351Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="MESSAGE"
+                                    sling:resourceType="relife/components/form/text"
+                                    name="message"
+                                    required="true"
+                                    rows="2"
+                                    type="textarea">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="8"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="12"/>
+                                    </cq:responsive>
+                                </text_736799045_copy__2105599714>
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="2"
+                                        width="9"/>
+                                    <phone
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="12"/>
+                                </cq:responsive>
+                                <spacer
+                                    jcr:created="{Date}2024-09-03T07:32:45.417Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T14:25:09.420Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/spacer"
+                                    spacer="100"/>
+                                <spacer_copy_72761864
+                                    jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T14:16:04.561Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/spacer"
+                                    spacer="25"/>
+                                <text_1289774907
+                                    cq:styleIds="[1721211788361,1725625444256]"
+                                    jcr:created="{Date}2024-08-29T10:33:10.684Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T10:33:21.823Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/text"
+                                    text="&lt;p>*Mandatory&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <spacer_copy_30099844
+                                    jcr:created="{Date}2024-09-03T07:32:45.417Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-03T08:09:39.778Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/spacer"
+                                    spacer="15"/>
+                                <options_27998254
+                                    jcr:created="{Date}2024-08-29T10:43:06.090Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-03T08:08:25.067Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title=" "
+                                    sling:resourceType="relife/components/form/options"
+                                    name="mandatory"
+                                    requiredMultiSelect="false"
+                                    requiredRadio="false"
+                                    requiredSelect="false"
+                                    source="local"
+                                    type="checkbox">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="false"
+                                            text=" "
+                                            value="accept"/>
+                                    </items>
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="1"/>
+                                    </cq:responsive>
+                                </options_27998254>
+                                <text_1289774907_copy
+                                    cq:styleIds="[1721211788361,1725625444256]"
+                                    jcr:created="{Date}2024-08-29T10:33:10.684Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-03T08:10:27.226Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/text"
+                                    text="&lt;p>Having read the privacy information notice I consent to the processing of my personal data including sensitive personal data, for the purpose of managing my request pursuant to the GDPR&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true">
+                                    <cq:responsive jcr:primaryType="nt:unstructured">
+                                        <default
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="0"
+                                            width="8"/>
+                                        <phone
+                                            jcr:primaryType="nt:unstructured"
+                                            offset="2"
+                                            width="9"/>
+                                    </cq:responsive>
+                                </text_1289774907_copy>
+                                <spacer_copy_1471771172
+                                    jcr:created="{Date}2024-09-04T08:18:27.638Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T14:16:04.561Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/spacer"
+                                    spacer="25"/>
+                                <recaptcha
+                                    jcr:created="{Date}2024-09-04T07:56:56.625Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-04T07:57:07.651Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/form/recaptcha"
+                                    publicKey="6Lff9zAqAAAAAJFE00uV7yeF0qMiRfjqTRraXdhh"
+                                    secretKey="6Lff9zAqAAAAALdLkiKvDoEK_mX0zddW24JUu2vX"/>
+                                <spacer_copy
+                                    jcr:created="{Date}2024-09-03T07:32:45.417Z"
+                                    jcr:createdBy="d.mariotti@adiacent.com"
+                                    jcr:lastModified="{Date}2024-09-06T14:20:31.740Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/spacer"
+                                    spacer="50"/>
+                                <button
+                                    jcr:created="{Date}2024-08-29T10:44:17.571Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:lastModified="{Date}2024-08-29T10:44:17.571Z"
+                                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/form/button"/>
+                            </form_container>
+                        </wrapper>
                     </section>
                 </container>
             </container>
@@ -71,4 +583,5 @@
             altValueFromDAM="true"
             fileReference="/content/dam/relife/corporate/assets/about/contact-us.png"/>
     </jcr:content>
+    <thank-you/>
 </jcr:root>

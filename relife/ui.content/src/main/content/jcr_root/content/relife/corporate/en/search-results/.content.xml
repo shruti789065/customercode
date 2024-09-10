@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-08-08T13:08:06.352Z"
-        cq:lastModifiedBy="a.messori@adiacent.com"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-09-05T09:34:20.577Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-05T09:34:43.760Z"
+        cq:lastReplicated_publish="{Date}2024-09-05T09:34:43.760Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
         cq:template="/conf/relife/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Search Results"
+        jcr:uuid="2de471e7-ad10-4e25-8e93-9d9175d1f210"
         sling:resourceType="relife/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -33,13 +43,34 @@
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="relife/components/containers/wrapper">
-                            <slideshow
+                            <slideshow_copy_copy
                                 jcr:created="{Date}2024-06-28T16:52:23.638+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-06-28T16:52:23.638+02:00"
-                                jcr:lastModifiedBy="admin"
+                                jcr:lastModified="{Date}2024-08-29T12:34:59.140Z"
+                                jcr:lastModifiedBy="a.messori@adiacent.com"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="relife/components/slideshow"/>
+                                sling:resourceType="relife/components/slideshow"
+                                accessibilityAutoItemTitles="false"
+                                autopauseDisabled="false"
+                                autoplay="false"
+                                delay="5000">
+                                <slide_video
+                                    cq:panelTitle="Slide 1"
+                                    jcr:created="{Date}2024-08-29T12:34:25.496Z"
+                                    jcr:createdBy="a.messori@adiacent.com"
+                                    jcr:description="&lt;p>Search&lt;/p>&#xd;&#xa;"
+                                    jcr:lastModified="{Date}2024-09-05T09:32:59.850Z"
+                                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="relife/components/slide-video"
+                                    automaticDuration="true"
+                                    descriptionFromPage="false"
+                                    fileReference="/content/dam/relife/corporate/assets/menu/bg-relife-blue.jpg"
+                                    imageFromPageImage="false"
+                                    isDecorative="true"
+                                    linkTarget="_self"
+                                    textIsRich="true"/>
+                            </slideshow_copy_copy>
                         </wrapper>
                     </section_7504393>
                     <section
@@ -55,7 +86,42 @@
                             jcr:lastModified="{Date}2024-06-28T16:52:45.393+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="relife/components/containers/wrapper"/>
+                            sling:resourceType="relife/components/containers/wrapper">
+                            <spacer_copy
+                                jcr:created="{Date}2024-09-05T09:33:16.662Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-05T09:33:21.509Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="40"/>
+                            <title
+                                cq:styleIds="[1723457725921,1723457132031]"
+                                jcr:created="{Date}2024-09-05T09:33:30.277Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-05T09:33:47.456Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Search"
+                                sling:resourceType="relife/components/title"
+                                linkTarget="_self"
+                                type="h3"/>
+                            <spacer
+                                jcr:created="{Date}2024-09-05T09:33:16.662Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-05T09:33:21.509Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/spacer"
+                                spacer="40"/>
+                            <full_search
+                                jcr:created="{Date}2024-09-05T09:34:20.568Z"
+                                jcr:createdBy="d.mariotti@adiacent.com"
+                                jcr:lastModified="{Date}2024-09-05T09:34:20.568Z"
+                                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="relife/components/full-search"/>
+                        </wrapper>
                     </section>
                 </container>
             </container>

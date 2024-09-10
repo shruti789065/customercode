@@ -6,7 +6,7 @@
           &.cmp-title--vermiglione {
             .cmp-teaser__title {
               font-family: $font-family-text;
-			  font-weight: 300;
+              font-weight: 300;
             }
           }
           &.cmp-title--light {
@@ -29,6 +29,38 @@
               font-family: $title-bold;
             }
           }
+          &.cmp-slide--homepage {
+            .cmp-teaser {
+              .cmp-teaser__image {
+                .cmp-image {
+                  .cmp-image__image {
+                    min-height: 41.143rem;
+                  }
+                }
+              }
+              .cmp-teaser__content {
+                &:not(:only-child) {
+                  position: absolute;
+                  z-index: 1;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  min-height: auto;
+                  min-width: auto;
+                  color: $white;
+                  align-items: center;
+                }
+                .cmp-teaser__description {
+                  position: relative;
+                  bottom: 5.7rem;
+                  font-size: clamp(1.857rem, 1.125vw + 1.6rem, 3.143rem);
+                  p {
+                  }
+                }
+              }
+            }
+          }
           .cmp-teaser {
             position: relative;
             .cmp-teaser__link {
@@ -39,22 +71,15 @@
               flex-direction: column;
               justify-content: flex-end;
               &:not(:only-child) {
-                position: absolute;
-                z-index: 1;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                min-height: auto;
-                min-width: auto;
-                color: $white;
-                align-items: center;
+                position: relative;
+                color: $color-text;
+                margin-top: 1rem;
               }
               .cmp-teaser__description {
                 position: relative;
-                bottom: 5.7rem;
                 text-transform: uppercase;
                 font-family: $title-medium;
+                font-weight: bold;
                 font-size: clamp(1.857rem, 1.125vw + 1.6rem, 3.143rem);
                 p {
                   text-align: center;
@@ -65,8 +90,7 @@
             .cmp-teaser__image {
               .cmp-image {
                 .cmp-image__image {
-                  max-height: 59.429rem;
-				  min-height: 41.143rem;
+                  min-height: 26.276rem;
                   object-fit: cover;
                   height: 100%;
                 }
@@ -125,14 +149,21 @@
                 justify-content: center;
                 width: 50%;
                 &:not(:only-child) {
+                  position: absolute;
+                  z-index: 1;
+                  top: 0;
+                  left: 0;
+                  min-height: auto;
+                  min-width: auto;
                   bottom: 0;
                   right: 0;
                   color: $white;
                   align-items: center;
                 }
                 .cmp-teaser__description {
+                  position: relative;
                   bottom: 0;
-                  
+				  font-weight: normal;
                 }
               }
             }
