@@ -1,0 +1,8 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.TopicListingModel">
+    <ul data-sly-list.topic="${model.topics}">
+        <option value="${topic.id}">
+            ${topic.name}
+        </option>
+    </ul>
+    <p data-sly-test="${!model.topics}">Nessun topic trovato.</p>
+</sly>

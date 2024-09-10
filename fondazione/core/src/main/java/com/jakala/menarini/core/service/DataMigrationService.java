@@ -31,6 +31,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+
 /**
  * Service component for migrating data from SQL Server to Content Fragments in AEM.
  */
@@ -47,9 +53,10 @@ public class DataMigrationService {
     private static String CSV_PATH = "/csv/";
     private static String ROOT_DATA = "/content/dam/fondazione";
     private static String BASE_MODEL = "/conf/fondazione/settings/dam/cfm/models";
+    private static String[] OBJECTS = {"events", "cities", "nations", "subscriptionTypes", "speakers", "media", "topics"};
 
     private static String eventModelPath = BASE_MODEL + "/event";
-    private static String eventParentPath = ROOT_DATA + "/event";
+    private static String eventParentPath = ROOT_DATA + "/events";
     private static String[] eventSingleFields = {"id", "data_inizio", "data_fine", "ref_citta", "ref_nazione", "sede", "ref_iscrizione", "immagine_evidenza_url", "program_cover", "program_pdf"};
     private static final Map<String, Object> eventFieldIndexMap = new HashMap<>();
     static {
@@ -57,11 +64,11 @@ public class DataMigrationService {
         eventFieldIndexMap.put("data_inizio", 3);
         eventFieldIndexMap.put("data_fine", 4);
         eventFieldIndexMap.put("citta", 7);
-        eventFieldIndexMap.put("ref_citta", "/content/dam/fondazione/city/");
+        eventFieldIndexMap.put("ref_citta", "/content/dam/fondazione/cities/");
         eventFieldIndexMap.put("nazione", 8);
-        eventFieldIndexMap.put("ref_nazione", "/content/dam/fondazione/nation/");
+        eventFieldIndexMap.put("ref_nazione", "/content/dam/fondazione/nations/");
         eventFieldIndexMap.put("iscrizione", 9);
-        eventFieldIndexMap.put("ref_iscrizione", "/content/dam/fondazione/subscription/");
+        eventFieldIndexMap.put("ref_iscrizione", "/content/dam/fondazione/subscriptionTypes/");
         eventFieldIndexMap.put("sede", 10);
         eventFieldIndexMap.put("immagine_evidenza_url", 11);
         eventFieldIndexMap.put("program_cover", 14);
@@ -72,12 +79,12 @@ public class DataMigrationService {
     static {
         eventTopicsFieldIndexMap.put("id", 2);
         eventTopicsFieldIndexMap.put("topics", 1);
-        eventTopicsFieldIndexMap.put("ref_topics", "/content/dam/fondazione/topic/");
+        eventTopicsFieldIndexMap.put("ref_topics", "/content/dam/fondazione/topics/");
     }
 
 
     private static String topicModelPath = BASE_MODEL + "/topic";
-    private static String topicParentPath = ROOT_DATA + "/topic";
+    private static String topicParentPath = ROOT_DATA + "/topics";
     private static String[] topicSingleFields = {"id"};
     private static final Map<String, Object> topicFieldIndexMap = new HashMap<>();
     static {
@@ -85,7 +92,7 @@ public class DataMigrationService {
     }
 
     private static String speakerModelPath = BASE_MODEL + "/speaker";
-    private static String speakerParentPath = ROOT_DATA + "/speaker";
+    private static String speakerParentPath = ROOT_DATA + "/speakers";
     private static String[] speakerSingleFields = {"id", "nome", "cognome", "societa", "ruolo", "foto"};
     private static final Map<String, Object> speakerFieldIndexMap = new HashMap<>();
     static {
@@ -98,7 +105,7 @@ public class DataMigrationService {
     }
 
     private static String nationModelPath = BASE_MODEL + "/nation";
-    private static String nationParentPath = ROOT_DATA + "/nation";
+    private static String nationParentPath = ROOT_DATA + "/nations";
     private static String[] nationSingleFields = {"id"};
     private static final Map<String, Object> nationFieldIndexMap = new HashMap<>();
     static {
@@ -106,43 +113,100 @@ public class DataMigrationService {
     }
 
     private static String cityModelPath = BASE_MODEL + "/city";
-    private static String cityParentPath = ROOT_DATA + "/city";
+    private static String cityParentPath = ROOT_DATA + "/cities";
     private static String[] citySingleFields = {"id", "ref_nation"};
     private static final Map<String, Object> cityFieldIndexMap = new HashMap<>();
     static {
         cityFieldIndexMap.put("id", 0);
         cityFieldIndexMap.put("nation", 1);
-        cityFieldIndexMap.put("ref_nation", "/content/dam/fondazione/nation/");
+        cityFieldIndexMap.put("ref_nation", "/content/dam/fondazione/nations/");
     }
 
     private static String subscriptionModelPath = BASE_MODEL + "/subscription";
-    private static String subscriptionParentPath = ROOT_DATA + "/subscription";
+    private static String subscriptionParentPath = ROOT_DATA + "/subscriptionTypes";
     private static String[] subscriptionSingleFields = {"id"};
     private static final Map<String, Object> subscriptionFieldIndexMap = new HashMap<>();
     static {
         subscriptionFieldIndexMap.put("id", 0);
     }
 
+    private static String mediaModelPath = BASE_MODEL + "/media";
+    private static String mediaParentPath = ROOT_DATA + "/media";
+    private static String[] mediaSingleFields = {"id", "ref_evento", "ref_relatore", "ordine", "data_relazione", "code_video", "path_video", "path_mini", "tipo", "ref_disciplina"};
+    private static final Map<String, Object> mediaFieldIndexMap = new HashMap<>();
+    static {
+        mediaFieldIndexMap.put("id", 0);
+        mediaFieldIndexMap.put("evento", 1);
+        mediaFieldIndexMap.put("ref_evento", "/content/dam/fondazione/events/");
+        mediaFieldIndexMap.put("relatore", 2);
+        mediaFieldIndexMap.put("ref_relatore", "/content/dam/fondazione/speakers/");
+        mediaFieldIndexMap.put("ordine", 3);
+        mediaFieldIndexMap.put("data_relazione", 4);
+        mediaFieldIndexMap.put("code_video", 9);
+        mediaFieldIndexMap.put("path_video", 10);
+        mediaFieldIndexMap.put("path_mini", 11);
+        mediaFieldIndexMap.put("tipo", 12);
+        mediaFieldIndexMap.put("disciplina", 13);
+        mediaFieldIndexMap.put("ref_disciplina", "/content/dam/fondazione/topics/");
+    }
+
+    private static ResourceResolver currentResolver;
     private static String[] currentSingleFields;
     private static Map<String, String> currentVariationData;
     private static Map<String, Object> currentFieldIndexMap;
     private static boolean appendRef;
+    private static QueryManager queryManager;
+    private static String currentParentPath;
 
     /**
      * Main method to initiate the data migration process.
      * Calls individual migration methods for different content types.
      */
-    public void migrateData() throws Exception {
+    public void migrateData(String object) throws Exception {
           
         try (ResourceResolver resolver = getResourceResolver()) {
+            currentResolver = resolver;
+            queryManager = resolver.adaptTo(Session.class).getWorkspace().getQueryManager();
 
-            // migrateTopics(resolver);
-            // migrateSpeakers(resolver);
-            // migrateNations(resolver);
-            // migrateCities(resolver);
-            // migrateSubscriptions(resolver);
-            migrateEvents(resolver);
-            connectEventsTopics(resolver);
+            if (object.isBlank()) {
+                migrateTopics();
+                migrateSpeakers();
+                migrateNations();
+                migrateSubscriptionTypes();
+                migrateCities(); // nations
+                migrateEvents(); // subscriptionTypes cities nations
+                connectEventsTopics();
+                migrateMedia(); // speakers topics events
+            } else if (Arrays.asList(OBJECTS).contains(object.toLowerCase())) {
+                switch (object.toLowerCase()) {
+                    case "events":
+                        migrateEvents(); // subscriptionTypes cities nations
+                        connectEventsTopics();
+                        break;
+                    case "cities":
+                        migrateCities(); // nations
+                        break;
+                    case "nations":
+                        migrateNations();
+                        break;
+                    case "subscriptionTypes":
+                        migrateSubscriptionTypes();
+                        break;
+                    case "speakers":
+                        migrateSpeakers();
+                        break;
+                    case "media":
+                        migrateMedia(); // speakers topics events
+                        break;
+                    case "topics":
+                        migrateTopics();
+                        break;
+                    default:
+                        break;
+                } 
+            } else {
+                throw new IllegalArgumentException();   
+            }
 
             //TODO connection with image and PDF assets
         } 
@@ -151,15 +215,19 @@ public class DataMigrationService {
     /**
      * Migrates topic data from CSV to Content Fragments.
      */
-    private void migrateTopics(ResourceResolver resolver) throws Exception {
+    private void migrateTopics() throws Exception {
 
-        Resource modelResource = resolver.getResource(topicModelPath);
+        Resource modelResource = currentResolver.getResource(topicModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
             throw new IllegalArgumentException("Template not found: " + topicModelPath);
         }
 
-        Resource parentResource = ensureFolderExists(resolver, topicParentPath);
+        appendRef = false;
+        currentParentPath = topicParentPath;
+        currentSingleFields = topicSingleFields;
+        currentFieldIndexMap = topicFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "topics.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -173,19 +241,16 @@ public class DataMigrationService {
 
                 String[] fields = parseCsvLine(line);
 
-                appendRef = false;
-                currentSingleFields = topicSingleFields;
-                currentFieldIndexMap = topicFieldIndexMap;
                 currentVariationData = new HashMap<>();
                 currentVariationData.put("nome_disciplina_it", fields[1]);
                 currentVariationData.put("nome_disciplina_en", fields[2]);
 
-                processCsvRow(fields, 0, template, parentResource, resolver);
+                processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
             }
         } finally {
-            if (resolver != null) {
-                resolver.commit();
+            if (currentResolver != null) {
+                currentResolver.commit();
             }
         }
     }
@@ -193,14 +258,18 @@ public class DataMigrationService {
     /**
      * Migrates speaker data from CSV to Content Fragments.
      */
-    private void migrateSpeakers(ResourceResolver resolver) throws Exception {
-        Resource modelResource = resolver.getResource(speakerModelPath);
+    private void migrateSpeakers() throws Exception {
+        Resource modelResource = currentResolver.getResource(speakerModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
             throw new IllegalArgumentException("Template not found: " + speakerModelPath);
         }
 
-        Resource parentResource = ensureFolderExists(resolver, speakerParentPath);
+        appendRef = false;
+        currentParentPath = speakerParentPath;
+        currentSingleFields = speakerSingleFields;
+        currentFieldIndexMap = speakerFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "speakers.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -214,19 +283,16 @@ public class DataMigrationService {
 
                 String[] fields = parseCsvLine(line);
 
-                appendRef = false;
-                currentSingleFields = speakerSingleFields;
-                currentFieldIndexMap = speakerFieldIndexMap;
                 currentVariationData = new HashMap<>();
                 currentVariationData.put("curriculum_it", fields[6]);
                 currentVariationData.put("curriculum_en", fields[6]);
 
-                processCsvRow(fields, 0, template, parentResource, resolver);
+                processCsvRow(fields, fields[0], fields[1] + " " + fields[2], template, parentResource);
                 
             }
         } finally {
-            if (resolver != null) {
-                resolver.commit();
+            if (currentResolver != null) {
+                currentResolver.commit();
             }
         }
     }
@@ -234,14 +300,18 @@ public class DataMigrationService {
     /**
      * Migrates nation data from CSV to Content Fragments.
      */
-    private void migrateNations(ResourceResolver resolver) throws Exception {
-        Resource modelResource = resolver.getResource(nationModelPath);
+    private void migrateNations() throws Exception {
+        Resource modelResource = currentResolver.getResource(nationModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
             throw new IllegalArgumentException("Template not found: " + nationModelPath);
         }
 
-        Resource parentResource = ensureFolderExists(resolver, nationParentPath);
+        appendRef = false;
+        currentParentPath = nationParentPath;
+        currentSingleFields = nationSingleFields;
+        currentFieldIndexMap = nationFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "nazioni.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -255,19 +325,16 @@ public class DataMigrationService {
 
                 String[] fields = parseCsvLine(line);
 
-                appendRef = false;
-                currentSingleFields = nationSingleFields;
-                currentFieldIndexMap = nationFieldIndexMap;
                 currentVariationData = new HashMap<>();
                 currentVariationData.put("name_it", fields[1]);
                 currentVariationData.put("name_en", fields[2]);
 
-                processCsvRow(fields, 0, template, parentResource, resolver);
+                processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
             }
         } finally {
-            if (resolver != null) {
-                resolver.commit();
+            if (currentResolver != null) {
+                currentResolver.commit();
             }
         }
     }
@@ -275,14 +342,23 @@ public class DataMigrationService {
     /**
      * Migrates city data from CSV to Content Fragments.
      */
-    private void migrateCities(ResourceResolver resolver) throws Exception {
-        Resource modelResource = resolver.getResource(cityModelPath);
+    private void migrateCities() throws Exception {
+
+        if (!checkReferencesExist("/content/dam/fondazione/nations")) {
+            throw new RepositoryException("Missing references. Migrate nations before cities.");
+        }
+
+        Resource modelResource = currentResolver.getResource(cityModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
             throw new IllegalArgumentException("Template not found: " + cityModelPath);
         }
 
-        Resource parentResource = ensureFolderExists(resolver, cityParentPath);
+        appendRef = false;
+        currentParentPath = cityParentPath;
+        currentSingleFields = citySingleFields;
+        currentFieldIndexMap = cityFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "citta.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -296,19 +372,16 @@ public class DataMigrationService {
 
                 String[] fields = parseCsvLine(line);
 
-                appendRef = false;
-                currentSingleFields = citySingleFields;
-                currentFieldIndexMap = cityFieldIndexMap;
                 currentVariationData = new HashMap<>();
                 currentVariationData.put("name_it", fields[2]);
                 currentVariationData.put("name_en", fields[3]);
 
-                processCsvRow(fields, 0, template,parentResource, resolver);
+                processCsvRow(fields, fields[0], fields[2], template, parentResource);
                 
             }
         } finally {
-            if (resolver != null) {
-                resolver.commit();
+            if (currentResolver != null) {
+                currentResolver.commit();
             }
         }
     }
@@ -316,15 +389,26 @@ public class DataMigrationService {
     /**
      * Migrates event data from CSV to Content Fragments.
      */
-    private void migrateEvents(ResourceResolver resolver) throws Exception {
+    private void migrateEvents() throws Exception {
 
-        Resource modelResource = resolver.getResource(eventModelPath);
+        if (!checkReferencesExist("/content/dam/fondazione/nations") ||
+            !checkReferencesExist("/content/dam/fondazione/cities") ||
+            !checkReferencesExist("/content/dam/fondazione/subscriptionTypes")) {
+        
+            throw new RepositoryException("Missing references. Migrate nations, cities and subscriptionTypes before events.");
+        }
+
+        Resource modelResource = currentResolver.getResource(eventModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
             throw new IllegalArgumentException("Template not found: " + eventModelPath);
         }
 
-        Resource parentResource = ensureFolderExists(resolver, eventParentPath);
+        appendRef = false;
+        currentParentPath = eventParentPath;
+        currentSingleFields = eventSingleFields;
+        currentFieldIndexMap = eventFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "events.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -338,9 +422,6 @@ public class DataMigrationService {
 
                 String[] fields = parseCsvLine(line);
 
-                appendRef = false;
-                currentSingleFields = eventSingleFields;
-                currentFieldIndexMap = eventFieldIndexMap;
                 currentVariationData = new HashMap<>();
                 currentVariationData.put("titolo_it", fields[1]);
                 currentVariationData.put("titolo_en", fields[2]);
@@ -349,12 +430,12 @@ public class DataMigrationService {
                 currentVariationData.put("presentation_description_it", fields[12]);
                 currentVariationData.put("presentation_description_en", fields[13]);
 
-                processCsvRow(fields, 0, template, parentResource, resolver);
+                processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
             }
         } finally {
-            if (resolver != null) {
-                resolver.commit();
+            if (currentResolver != null) {
+                currentResolver.commit();
             }
         }
     }
@@ -362,14 +443,18 @@ public class DataMigrationService {
     /**
      * Migrates subscription data from CSV to Content Fragments.
      */
-    private void migrateSubscriptions(ResourceResolver resolver) throws Exception {
-        Resource modelResource = resolver.getResource(subscriptionModelPath);
+    private void migrateSubscriptionTypes() throws Exception {
+        Resource modelResource = currentResolver.getResource(subscriptionModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
             throw new IllegalArgumentException("Template not found: " + subscriptionModelPath);
         }
 
-        Resource parentResource = ensureFolderExists(resolver, subscriptionParentPath);
+        appendRef = false;
+        currentParentPath = subscriptionParentPath;
+        currentSingleFields = subscriptionSingleFields;
+        currentFieldIndexMap = subscriptionFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "subscriptions.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -383,19 +468,16 @@ public class DataMigrationService {
 
                 String[] fields = parseCsvLine(line);
 
-                appendRef = false;
-                currentSingleFields = subscriptionSingleFields;
-                currentFieldIndexMap = subscriptionFieldIndexMap;
                 currentVariationData = new HashMap<>();
                 currentVariationData.put("type_it", fields[1]);
                 currentVariationData.put("type_en", fields[2]);
 
-                processCsvRow(fields, 0, template, parentResource, resolver);
+                processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
             }
         } finally {
-            if (resolver != null) {
-                resolver.commit();
+            if (currentResolver != null) {
+                currentResolver.commit();
             }
         }
     }
@@ -403,15 +485,19 @@ public class DataMigrationService {
     /**
      * Connects events with their corresponding topics.
      */
-    private void connectEventsTopics(ResourceResolver resolver) throws Exception {
+    private void connectEventsTopics() throws Exception {
 
-        Resource modelResource = resolver.getResource(eventModelPath);
+        Resource modelResource = currentResolver.getResource(eventModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
             throw new IllegalArgumentException("Template not found: " + eventModelPath);
         }
 
-        Resource parentResource = ensureFolderExists(resolver, eventParentPath);
+        appendRef = true;
+        currentParentPath = eventParentPath;
+        currentSingleFields = eventTopicsSingleFields;
+        currentFieldIndexMap = eventTopicsFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "events_topics.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -425,17 +511,68 @@ public class DataMigrationService {
 
                 String[] fields = parseCsvLine(line);
 
-                appendRef = true;
-                currentSingleFields = eventTopicsSingleFields;
-                currentFieldIndexMap = eventTopicsFieldIndexMap;
                 currentVariationData = new HashMap<>();
 
-                processCsvRow(fields, 2, template, parentResource, resolver);
+                processCsvRow(fields, fields[2], null, template, parentResource);
                 
             }
         } finally {
-            if (resolver != null) {
-                resolver.commit();
+            if (currentResolver != null) {
+                currentResolver.commit();
+            }
+        }
+    }
+
+
+
+    /**
+     * Migrates topic data from CSV to Content Fragments.
+     */
+    private void migrateMedia() throws Exception {
+
+        if (!checkReferencesExist("/content/dam/fondazione/speakers") ||
+            !checkReferencesExist("/content/dam/fondazione/topics") ||
+            !checkReferencesExist("/content/dam/fondazione/events")) {
+        
+            throw new RepositoryException("Missing references. Migrate speakers, topics and events before media.");
+        }
+
+        Resource modelResource = currentResolver.getResource(mediaModelPath);
+        FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
+        if (template == null) {
+            throw new IllegalArgumentException("Template not found: " + mediaModelPath);
+        }
+
+        appendRef = false;
+        currentParentPath = mediaParentPath;
+        currentSingleFields = mediaSingleFields;
+        currentFieldIndexMap = mediaFieldIndexMap;
+        Resource parentResource = ensureFolderExists();
+
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CSV_PATH + "media.csv");
+                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+            String line;
+            boolean isFirstLine = true;
+            while ((line = br.readLine()) != null) {
+                if (isFirstLine) {
+                    isFirstLine = false;
+                    continue;
+                }
+
+                String[] fields = parseCsvLine(line);
+
+                currentVariationData = new HashMap<>();
+                currentVariationData.put("titolo_it", fields[5]);
+                currentVariationData.put("titolo_en", fields[6]);
+                currentVariationData.put("descrizione_it", fields[7]);
+                currentVariationData.put("descrizione_en", fields[8]);
+
+                processCsvRow(fields, fields[0], fields[5], template, parentResource);
+                
+            }
+        } finally {
+            if (currentResolver != null) {
+                currentResolver.commit();
             }
         }
     }
@@ -443,20 +580,13 @@ public class DataMigrationService {
     /**
      * Processes a single row from the CSV file and creates or updates a Content Fragment.
      */
-    private void processCsvRow(String[] fields, int idPos, FragmentTemplate template, Resource parentResource, ResourceResolver resourceResolver) throws Exception {
-        String id = fields[idPos];
-        String fragmentPath = null;
-        
-        fragmentPath = parentResource.getPath() + "/" + id;
+    private void processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource) throws Exception {
 
-        Resource fragmentResource = resourceResolver.getResource(fragmentPath);
-        ContentFragment cfm;
+        ContentFragment cfm = findFragmentById(id, currentParentPath);
         
-        if (fragmentResource == null) {
-            cfm = template.createFragment(parentResource, id, fields[1]);
-        } else {
-            cfm = fragmentResource.adaptTo(ContentFragment.class);
-        }
+        if (cfm == null && name != null) { //controllo per i job di associazione che non devono creare fragments
+            cfm = template.createFragment(parentResource, slugify(id, name), name);
+        } 
 
         if (cfm == null) {
             throw new IllegalStateException("Failed to create or retrieve content fragment for ID: " + id);
@@ -466,7 +596,7 @@ public class DataMigrationService {
         
         updateContentFragmentVariations(cfm);
 
-        resourceResolver.commit();
+        currentResolver.commit();
     }
 
     /**
@@ -510,8 +640,9 @@ public class DataMigrationService {
     /**
      * Updates fields of a Content Fragment with data from CSV.
      * This also manages the single and multiple fragment reference fields.
+     * @throws RepositoryException 
      */
-    private void updateFields(ContentFragment cfm, String[] fields) throws ContentFragmentException {
+    private void updateFields(ContentFragment cfm, String[] fields) throws ContentFragmentException, RepositoryException {
         for (String field : currentSingleFields) {
             ContentElement element = cfm.getElement(field);
             if (element != null) {
@@ -529,6 +660,12 @@ public class DataMigrationService {
                         continue;
                     }
                     String refPath = (String)currentFieldIndexMap.get(field);
+                    ContentFragment refFragment = findFragmentById(newVal, refPath);
+                    if (refFragment == null) {
+                        continue;
+                    } else {
+                        newVal = refFragment.getName();
+                    }
                     String newValPath = refPath + newVal;
 
                     FragmentData fragmentData = elementRef.getValue();
@@ -604,28 +741,28 @@ public class DataMigrationService {
      * Ensures that the specified folder path exists in the JCR repository.
      * Creates the folder structure if it doesn't exist.
      */
-    private Resource ensureFolderExists(ResourceResolver resolver, String folderPath) throws PersistenceException {
-        Resource folderResource = resolver.getResource(folderPath);
+    private Resource ensureFolderExists() throws PersistenceException {
+        Resource folderResource = currentResolver.getResource(currentParentPath);
         Resource prevPath = null;
         if (folderResource == null) {
-            folderPath = StringUtils.remove(folderPath, ROOT_DATA);
-            String[] parts = folderPath.split("/");
+            String parentPath = StringUtils.remove(currentParentPath, ROOT_DATA);
+            String[] parts = parentPath.split("/");
             StringBuilder pathBuilder = new StringBuilder();
             pathBuilder.append(ROOT_DATA);
             for (String part : parts) {
                 pathBuilder.append(part).append("/");
                 String currentPath = pathBuilder.toString();
-                Resource currentResource = resolver.getResource(currentPath);
+                Resource currentResource = currentResolver.getResource(currentPath);
                 if ( currentResource == null) {
                     Map<String, Object> properties = new HashMap<>();
                     properties.put("jcr:primaryType", "nt:folder");
-                    folderResource = resolver.create(prevPath, part, properties);
+                    folderResource = currentResolver.create(prevPath, part, properties);
                 } else {
                     prevPath = currentResource;
                 }
 
             }
-            resolver.commit();
+            currentResolver.commit();
         }
         return folderResource;
     }
@@ -639,4 +776,72 @@ public class DataMigrationService {
         return resolverFactory.getServiceResourceResolver(param);
     }
 
+    /**
+     * Build the slug value for fragment name
+     */
+    private static String slugify(String id, String name) {
+        // Normalization
+        String slug = name.toLowerCase()
+                .replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}\\s]", "")
+                .replaceAll("\\s+", "-");
+
+        String idSlug = id + "-" + slug;
+
+        // Max 20 chars
+        if (idSlug.length() > 20) {
+            idSlug = idSlug.substring(0, 20);
+        }
+
+        // Remove final cut
+        idSlug = idSlug.replaceAll("-$", "");
+
+        return idSlug;
+    }
+
+    /**
+     * Find the fragment by id field
+     */
+    public ContentFragment findFragmentById(String id, String path) throws RepositoryException {
+        String queryStr = "SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE(s, '" + path + "') AND s.[jcr:content/data/master/id] = '" + id + "'";
+
+        Query query = queryManager.createQuery(queryStr, Query.JCR_SQL2);
+        QueryResult result = query.execute();
+
+        while (result.getRows().hasNext()) {
+            String nodePath = result.getRows().nextRow().getPath();
+            // using s.[jcr:content/data/master/id] instead of s.[id] in the query returns only the master, the statement below might be unnecessary
+            if (nodePath.contains("/jcr:content/")) {
+                nodePath = nodePath.substring(0, nodePath.indexOf("/jcr:content"));
+            }
+            Resource fragmentResource = currentResolver.getResource(nodePath);
+
+            if (fragmentResource != null) {
+                ContentFragment contentFragment = fragmentResource.adaptTo(ContentFragment.class);
+                
+                if (contentFragment != null) {
+                    return contentFragment;
+                }
+            }
+        }
+        
+        return null;
+    }
+
+    /**
+     * check if reference path has fragments
+     */
+    private boolean checkReferencesExist(String referencePath) {
+        Resource referenceResource = currentResolver.getResource(referencePath);
+    
+        if (referenceResource != null && referenceResource.hasChildren()) {
+            for (Resource child : referenceResource.getChildren()) {
+                ContentFragment fragment = child.adaptTo(ContentFragment.class);
+                if (fragment != null) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }

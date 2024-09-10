@@ -1,4 +1,4 @@
-<sly data-sly-use.model="com.jakala.menarini.core.models.FragmentListModel">
+<sly data-sly-use.model="com.jakala.menarini.core.models.EventListingModel">
     <ul data-sly-list.fragment="${model.fragments}">
         <li>
             <a href="${fragment.path}.html">
@@ -7,5 +7,5 @@
             </a>
         </li>
     </ul>
-    <p data-sly-test="${!model.fragments}">Nessun frammento trovato.</p>
+    <p data-sly-test="${!model.fragments}">Nessun evento trovato.</p>
 </sly>
