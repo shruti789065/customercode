@@ -1,74 +1,41 @@
 .dupla_image {
-    display:grid;
-    grid-template: auto auto / auto auto;
-    justify-content: end;
-    transition: $standard-transition;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 1.91vw - 0.048rem, 2.571rem);
+  max-width: clamp(26.786rem, 21.127vw + 21.127rem, 42.857rem);
+  margin: 0 auto;
+  transition: $standard-transition;
 
+  .first_image {
+    .cmp-image {
+      img {
+        height: auto;
+        width: clamp(15rem, 16.964vw + 11.122rem, 28.571rem);
+      }
+    }
+  }
+
+  .second_image {
+    display: flex;
+    align-self: flex-end;
+    transform: translateY(-50%);
+    position: relative;
+    z-index: 3;
+    .cmp-image {
+      img {
+        width: clamp(13.714rem, 10vw + 11.429rem, 21.714rem);
+        height: auto;
+      }
+    }
+  }
+
+  &.dupla_image--mirrored {
     .first_image {
-        .cmp-image {
-            text-align: end;
-            img {
-                height: auto;
-                width: clamp(213px, 20.8333333333vw, 400px);
-                max-width: 400px;
-            }
-        }
+      align-self: flex-end;
     }
 
     .second_image {
-        display: flex;
-        left: -30%;
-        position: relative;
-        z-index: 3;
-        grid-area: 2 /2;
-        align-items: baseline;
-        .cmp-image {
-            margin-top: -65%;
-
-            img {
-                width: clamp(192px, 15.8333333333vw, 304px);
-                max-width: 304px;
-                height: auto;
-            }
-        }
+      align-self: flex-start;
     }
-
-    &.dupla_image--mirrored {
-        justify-content: start;
-
-        .first_image {
-            grid-area: 1/2;
-            position: relative;
-            .cmp-image {
-                text-align: start;
-            }
-        }
-
-        .second_image {
-            grid-area: 2/1;
-            left: 30%;
-            justify-content: flex-end;
-        }
-    }
-}
-
-@media (max-width: $breakpoint-tablet) {
-    .dupla_image{    
-        .second_image {
-            left: -60px;
-            .cmp-image {
-                
-            }
-        }
-        
-        &.dupla_image--mirrored{
-            .first_image {
-                right: 60px;
-            }
-
-            .second_image {
-                left: 0;
-            }
-        }
-    }
+  }
 }
