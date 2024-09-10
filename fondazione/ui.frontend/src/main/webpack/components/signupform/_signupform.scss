@@ -26,6 +26,14 @@
         }
     }
 
+    .cmp-signupform__countryTitle {
+        margin-bottom: 37px;
+
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 12px;
+        }
+    }
+
     .cmp-signupform__privacywrapper {
 
         p {
