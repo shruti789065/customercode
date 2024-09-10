@@ -377,13 +377,6 @@
         </div>
     </div>
 
-    <div id="thankyouComponent" class="d-none">
-        <h2 class="text-primary h2 h2-light mb-0">Welcome to your Fondazione Menarini account</h2>
-        <p class="cmp-signupform__subtitle mt-3">Thanks for your registration on Fondazione Menarini.
-            Your new account gives you exclusive access to stay up-to-date on medical/scientific events and watch their
-            video contributions</p>
-        <div class="mt-4">
-            <button class="btn btn-primary cmp-signupform__cta" type="submit">DONE</button>
-        </div>
-    </div>
+    <div data-sly-resource="${'thankyou' @ resourceType='fondazione/components/thankyou/'}"></div>
+
 </div>
