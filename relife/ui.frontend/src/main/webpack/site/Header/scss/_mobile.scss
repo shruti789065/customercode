@@ -142,6 +142,14 @@ header.cmp-experiencefragment--header-mobile {
                 }
               }
             }
+            .cmp-accordion__panel {
+              .link {
+                margin: 0.5rem 0;
+                .cmp-button {
+                  padding: 1.214rem;
+                }
+              }
+            }
           }
         }
         .languagenavigation {
@@ -188,7 +196,7 @@ header.cmp-experiencefragment--header-mobile {
           font-family: $title-book;
           font-size: 1rem;
           text-align: left;
-          margin: 0.2rem 0;
+          margin: 0.4rem 0;
           &:has(.cmp-button__icon) {
             .cmp-button {
               text-decoration: none;
@@ -213,12 +221,12 @@ header.cmp-experiencefragment--header-mobile {
                 font-family: $title-book;
                 font-weight: 700;
                 font-size: 1rem;
-				text-transform: none;
+                text-transform: none;
               }
-			  .cmp-button__icon{
-				width: 1.429rem;
-				height: 1.429rem;
-			  }
+              .cmp-button__icon {
+                width: 1.429rem;
+                height: 1.429rem;
+              }
             }
           }
         }
@@ -227,20 +235,17 @@ header.cmp-experiencefragment--header-mobile {
             font-family: $title-light;
             font-size: 1rem;
           }
-          #specialMenuTxtMobile {
-            p {
-              margin: 1.063rem 0;
-              a {
-                text-underline-offset: 0.4rem;
-                text-decoration: underline;
-                text-decoration-color: rgba(28, 29, 29, 0.3);
-                font-family: $title-medium;
-                font-weight: bold;
-                &:hover {
-                  text-decoration-color: rgba(28, 29, 29, 1);
-                }
-              }
-            }
+        }
+        #specialMenuTxtMobile {
+          margin: 1.063rem 0;
+          padding: 1.214rem 0;
+          text-underline-offset: 0.4rem;
+          text-decoration: underline;
+          text-decoration-color: rgba(28, 29, 29, 0.3);
+          font-family: $title-medium;
+          font-weight: bold;
+          &:hover {
+            text-decoration-color: rgba(28, 29, 29, 1);
           }
         }
       }
