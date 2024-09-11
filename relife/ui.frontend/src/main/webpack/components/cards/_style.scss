@@ -1,6 +1,6 @@
 @use 'card' as *;
 
-$font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
+$font-size-style: clamp($font-size-med, 0.5vw + 1.029rem, 1.714rem);
 .cmp-card--style {
 	width: 100%;
   .cmp-teaser {

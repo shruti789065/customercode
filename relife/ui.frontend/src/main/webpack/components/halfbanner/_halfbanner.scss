@@ -8,8 +8,8 @@
         min-height: 100%;
         position: relative;
         margin-top: 15rem;
-        margin-left: calc(-1 * (1em + clamp(1.429rem, 1.25vw + 1.143rem, 2.857rem)));
-        margin-right: calc(-1 * (1em + clamp(1.429rem, 1.25vw + 1.143rem, 2.857rem)));
+        margin-left: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
+        margin-right: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
 
         .cmp-teaser__content {
             width: 100%;
@@ -19,7 +19,7 @@
             padding: 12rem 2.5rem 2.5rem 2.5rem;
             .cmp-teaser__title {
                 font-family: $title-bold;
-                font-size: clamp(1.143rem, 1.036vw + 0.865rem, 2.286rem);
+                font-size: clamp($font-size-med, 1.036vw + 0.865rem, 2.286rem);
                 margin: 0;
             }
             .cmp-teaser__description {

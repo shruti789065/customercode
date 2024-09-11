@@ -12,8 +12,8 @@
             min-height: 100%;
             position: relative;
             margin-top: 15rem;
-            margin-left: calc(-1 * (1em + clamp(1.429rem, 1.25vw + 1.143rem, 2.857rem)));
-            margin-right: calc(-1 * (1em + clamp(1.429rem, 1.25vw + 1.143rem, 2.857rem)));
+            margin-left: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
+            margin-right: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
     
             .cmp-teaser__content {
                 width: 100%;

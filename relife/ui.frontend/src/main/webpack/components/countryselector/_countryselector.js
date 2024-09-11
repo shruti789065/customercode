@@ -38,7 +38,7 @@
     const navItems = document.querySelectorAll(".cmp-languagenavigation__item-link");
     navItems.forEach(item => {
       const lang = item.getAttribute("lang");
-      const shortLang = lang.split('-')[0];
+      const shortLang = lang.split('-')[1];
       console.log(`Processing item with lang: ${lang}`);
       if (langMap[shortLang]) {
         item.innerHTML = langMap[shortLang];

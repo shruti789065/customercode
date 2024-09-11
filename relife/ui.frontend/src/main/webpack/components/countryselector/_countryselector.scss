@@ -43,7 +43,10 @@
       padding: 1rem;
 
       .cmp-languagenavigation__label-text {
-        margin-left: -1rem;
+		font-size: $font-size-med;
+		color: $white;
+		font-family: $title-light;
+        //margin-left: -1rem;
         margin-bottom: 1rem;
       }
 
@@ -117,7 +120,7 @@
         border: .001rem $white solid;
         border-top: 0;
         padding: 1rem;
-        top: 3rem;
+        top: 4rem;
         width: unset;
       }
     }  
