@@ -1,0 +1,115 @@
+$bg-content: #F7F6F4;
+$title-color: $secondary;
+$max-image-height: 365px;
+
+.cmp-teaser--custom-right,
+.cmp-teaser--custom-left {
+    margin: 10px 0;
+    margin-bottom: 45px;
+
+    .cmp-teaser {
+        display: flex;
+        flex-direction: column;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+
+        }
+
+        &__content {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            padding: 30px 15px;
+            box-sizing: border-box;
+            width: 100%;
+            background-color: $bg-content;
+
+            @include media-breakpoint-up(lg) {
+                width: auto;
+                padding: 30px;
+                height: 80%;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: auto;
+
+            img {
+                margin-top: 0px;
+                width: 100%;
+                height: auto;
+                max-height: $max-image-height;
+                object-fit: cover;
+            }
+
+
+            @include media-breakpoint-up(lg) {
+                object-fit: cover;
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+            }
+        }
+
+        &__icon {
+            display: none;
+        }
+
+        &__title {
+            font-family: "Oswald", sans-serif;
+            font-weight: 250;
+            line-height: 1.875rem;
+            font-size: 1.25rem;
+            color: $title-color;
+            margin-bottom: 10px;
+        }
+
+        &__description {
+            font-family: $font-family-base;
+            font-size: 0.75rem;
+            font-weight: 200;
+            color: $body-color;
+            text-align: left;
+
+            @include media-breakpoint-up(lg) {
+                flex-direction: row;
+            }
+        }
+
+        &__action-container {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        &__action-link {
+            display: inline-block;
+            padding: 10px 0px;
+            width: 100%;
+            background-color: $primary;
+            text-align: center;
+            color: $white;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-family: $headings-font-family;
+            font-weight: 500;
+            text-transform: uppercase;
+
+            @include media-breakpoint-up(lg) {
+                padding: 10px 50px;
+                width: auto;
+            }
+        }
+    }
+}
+
+.cmp-teaser--custom-left {
+    .cmp-teaser {
+        @include media-breakpoint-up(lg) {
+            flex-direction: row-reverse;
+
+        }
+    }
+}
