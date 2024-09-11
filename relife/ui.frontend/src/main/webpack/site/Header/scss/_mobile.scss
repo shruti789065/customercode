@@ -142,6 +142,14 @@ header.cmp-experiencefragment--header-mobile {
                 }
               }
             }
+            .cmp-accordion__panel {
+              .link {
+                margin: 0.5rem 0;
+                .cmp-button {
+                  padding: 1.214rem;
+                }
+              }
+            }
           }
         }
         .languagenavigation {
@@ -188,7 +196,7 @@ header.cmp-experiencefragment--header-mobile {
           font-family: $title-book;
           font-size: 1rem;
           text-align: left;
-          margin: 0.2rem 0;
+          margin: 0.4rem 0;
           &:has(.cmp-button__icon) {
             .cmp-button {
               text-decoration: none;
