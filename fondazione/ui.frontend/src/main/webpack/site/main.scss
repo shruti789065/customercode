@@ -1,7 +1,11 @@
-@import "~bootstrap/scss/bootstrap";
+@import "fonts";
 @import "./variables/variables.scss";
+
+@import "~bootstrap/scss/bootstrap";
+
 @import "./mixins/mixins.scss";
 @import "./placeholders/placeholders.scss";
+
 @import "base.scss";
 @import "./styles/*.scss";
 @import "../components/**/*.scss";
