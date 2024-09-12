@@ -1,6 +1,6 @@
 .fullbanner {
-        margin-left: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
-        margin-right: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
+        margin-left: calc(-1 * (1em + clamp($size-20, 1.25vw + $font-size-med, 2.857rem)));
+        margin-right: calc(-1 * (1em + clamp($size-20, 1.25vw + $font-size-med, 2.857rem)));
     * {
         transition: $standard-transition;
     }

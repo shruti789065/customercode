@@ -17,7 +17,7 @@
     &:hover {
       color: $midnightBlue;
     }
-    padding: 1.429rem 0;
+    padding: $size-20 0;
     line-height: $accordion-button-line-height;
     font-size: $h4-title-size;
     display: flex;
@@ -31,8 +31,8 @@
       content: " ";
       background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg")
         center center no-repeat;
-      width: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem);
-      height: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem);
+      width: clamp($size-20, 1.119vw + 0.609rem, 2.143rem);
+      height: clamp($size-20, 1.119vw + 0.609rem, 2.143rem);
       background-size: contain;
       transition: $standard-transition;
       &::before {

@@ -8,8 +8,8 @@
         min-height: 100%;
         position: relative;
         margin-top: 15rem;
-        margin-left: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
-        margin-right: calc(-1 * (1em + clamp(1.429rem, 1.25vw + $font-size-med, 2.857rem)));
+        margin-left: calc(-1 * (1em + clamp($size-20, 1.25vw + $font-size-med, 2.857rem)));
+        margin-right: calc(-1 * (1em + clamp($size-20, 1.25vw + $font-size-med, 2.857rem)));
 
         .cmp-teaser__content {
             width: 100%;
@@ -126,7 +126,7 @@
                 right: unset;
                 position: absolute;
                 -webkit-transform: translate(-50%, -50%);
-                transform: translate(1.429rem, -50%);
+                transform: translate($size-20, -50%);
             }
         }
     }
@@ -143,7 +143,7 @@
                 right: 1.5rem;
                 position: absolute;
                 -webkit-transform: translate(-50%, -50%);
-                transform: translate(-1.429rem, -50%);
+                transform: translate(-$size-20, -50%);
             }
         }
     }
