@@ -10,13 +10,20 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
   .dupla_image {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     .second_image {
       display: block;
+      transform: translate(0);
+      margin-left: auto;
       .cmp-image {
         margin-top: 0;
       }
     }
+	&.dupla_image--mirrored{
+		.second_image {
+			margin-left: 0;
+		}
+	}
   }
   .button {
     .cmp-button {
@@ -55,6 +62,11 @@
         justify-content: space-between;
       }
     }
+  }
+
+  .dupla_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   @include respond-to(laptop) {
     header.cmp-experiencefragment--header-mobile {
