@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Banner Mobile App Teaser"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[core.wcm.components.teaser.v2.editor,core.wcm.components.image.v3.editor]"
+    helpPath="https://www.adobe.com/go/aem_cmp_teaser_v2"
+    trackingFeature="core-components:teaser:v2">
+    <content
+        granite:class="cmp-teaser__editor cmp-image__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <links
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Store Links"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <buttons
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                fieldLabel="Buttons Images">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <googlePlayGroup
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <googlePlayLink
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                emptyText="https://play.google.com/"
+                                                                fieldLabel="Google Play Link"
+                                                                name="./googlePlayLink"
+                                                                rootPath="/content"
+                                                                value="https://play.google.com/" />
+                                                            <googleImage
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                fieldLabel="Google Play Image"
+                                                                name="./googlePlayImage"
+                                                                rootPath="/content/dam" />
+                                                        </items>
+                                                    </googlePlayGroup>
+                                                    <appleStoreGroup
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <appleStoreLink
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                emptyText="https://www.apple.com/app-store/"
+                                                                fieldLabel="Apple Store Link"
+                                                                name="./appleStoreLink"
+                                                                rootPath="/content"
+                                                                value="https://www.apple.com/app-store/"
+                                                            />
+                                                            <appleStoreImage
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                fieldDescription="Apple Store Image"
+                                                                fieldLabel="Apple Store Image"
+                                                                name="./appleStoreImage"
+                                                                rootPath="/content/dam" />
+                                                        </items>
+                                                    </appleStoreGroup>
+                                                </items>
+                                            </buttons>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </links>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

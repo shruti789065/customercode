@@ -1,0 +1,38 @@
+<sly data-sly-template.store="${@ teaser}">
+  <div class="cmp-teaser__links">
+    <!-- Google Play Link -->
+    <sly
+      data-sly-test="${properties.googlePlayLink && properties.googlePlayImage}"
+    >
+      <div class="cmp-teaser__links--group cmp-teaser__links--group---google">
+        <a
+          href="${properties.googlePlayLink @ context='uri'}"
+          class="cmp-teaser__links--group--link"
+        >
+          <img
+            class="cmp-teaser__links--group--image"
+            src="${properties.googlePlayImage}"
+            alt="Google Play Store Image"
+          />
+        </a>
+      </div>
+    </sly>
+    <!-- Apple Store Link -->
+    <sly
+      data-sly-test="${properties.appleStoreLink && properties.appleStoreImage}"
+    >
+      <div class="cmp-teaser__links--group cmp-teaser__links--group--apple">
+        <a
+          href="${properties.appleStoreLink @ context='uri'}"
+          class="cmp-teaser__links--group--link"
+        >
+          <img
+            class="cmp-teaser__links--group--image"
+            src="${properties.appleStoreImage}"
+            alt="Apple Store Image"
+          />
+        </a>
+      </div>
+    </sly>
+  </div>
+</sly>
