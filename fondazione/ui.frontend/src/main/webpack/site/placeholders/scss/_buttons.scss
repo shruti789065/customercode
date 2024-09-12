@@ -1,11 +1,14 @@
 %btn-primary {
+    font-family: $font-default;
     background-color: $primary;
-    font-weight: $font-bold;
+    font-weight: $font-weight-medium;
     font-size: $text-size;
     line-height: $text-line-height;
+    text-align: center;
     color: $white;
     padding: 10px 50px;
     border: none;
+    text-align: center;
     text-transform: uppercase;
     text-decoration: none;
     transition: background-color $transition-duration-default $transition-ease-in-out;

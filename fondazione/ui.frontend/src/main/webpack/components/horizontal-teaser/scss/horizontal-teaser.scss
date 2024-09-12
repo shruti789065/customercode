@@ -1,9 +1,7 @@
-$bg-content: #F7F6F4;
-$title-color: $secondary;
 $max-image-height: 365px;
 
-.cmp-teaser--custom-right,
-.cmp-teaser--custom-left {
+.cmp-horizontal-teaser-right,
+.cmp-horizontal-teaser-left {
     margin: 10px 0;
     margin-bottom: 45px;
 
@@ -13,18 +11,14 @@ $max-image-height: 365px;
 
         @include media-breakpoint-up(lg) {
             flex-direction: row;
-
         }
 
         &__content {
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            text-align: left;
+            @extend %flex-column-start;
             padding: 30px 15px;
             box-sizing: border-box;
             width: 100%;
-            background-color: $bg-content;
+            background-color: $fm-color-bg-section;
 
             @include media-breakpoint-up(lg) {
                 width: auto;
@@ -35,16 +29,14 @@ $max-image-height: 365px;
 
         &__image {
             width: 100%;
-            height: auto;
+            height: 100%;
 
             img {
-                margin-top: 0px;
                 width: 100%;
                 height: auto;
                 max-height: $max-image-height;
                 object-fit: cover;
             }
-
 
             @include media-breakpoint-up(lg) {
                 object-fit: cover;
@@ -59,19 +51,12 @@ $max-image-height: 365px;
         }
 
         &__title {
-            font-family: "Oswald", sans-serif;
-            font-weight: 250;
-            line-height: 1.875rem;
-            font-size: 1.25rem;
-            color: $title-color;
+            font-weight: $font-weight-lighter;
+            font-size: $title-font-size;
             margin-bottom: 10px;
         }
 
         &__description {
-            font-family: $font-family-base;
-            font-size: 0.75rem;
-            font-weight: 200;
-            color: $body-color;
             text-align: left;
 
             @include media-breakpoint-up(lg) {
@@ -85,17 +70,11 @@ $max-image-height: 365px;
         }
 
         &__action-link {
+            @extend %btn-primary;
             display: inline-block;
-            padding: 10px 0px;
+            padding: 10px 0;
             width: 100%;
-            background-color: $primary;
-            text-align: center;
-            color: $white;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-family: $headings-font-family;
-            font-weight: 500;
-            text-transform: uppercase;
+
 
             @include media-breakpoint-up(lg) {
                 padding: 10px 50px;
@@ -105,11 +84,10 @@ $max-image-height: 365px;
     }
 }
 
-.cmp-teaser--custom-left {
+.cmp-horizontal-teaser-right {
     .cmp-teaser {
         @include media-breakpoint-up(lg) {
             flex-direction: row-reverse;
-
         }
     }
 }
