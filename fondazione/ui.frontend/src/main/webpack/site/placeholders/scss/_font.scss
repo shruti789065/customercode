@@ -1,0 +1,191 @@
+// Headlines
+
+%h1 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h1-font-size;
+    line-height: calc($heading-h1-line-height / $heading-h1-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h1-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h1-font-size;
+    line-height: calc($heading-h1-line-height / $heading-h1-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h2 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h2-font-size;
+    line-height: calc($heading-h2-line-height / $heading-h2-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h2-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h2-font-size;
+    line-height: calc($heading-h2-line-height / $heading-h2-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h3 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h3-font-size;
+    line-height: calc($heading-h3-line-height / $heading-h3-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h3-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h3-font-size;
+    line-height: calc($heading-h3-line-height / $heading-h3-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h4 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h4-font-size;
+    line-height: calc($heading-h4-line-height / $heading-h4-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h4-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h4-font-size;
+    line-height: calc($heading-h4-line-height / $heading-h4-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+
+%h5 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h5-font-size;
+    line-height: calc($heading-h5-line-height / $heading-h5-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h5-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h5-font-size;
+    line-height: calc($heading-h5-line-height / $heading-h5-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h6 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h6-font-size;
+    line-height: calc($heading-h6-line-height / $heading-h6-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h6-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h6-font-size;
+    line-height: calc($heading-h6-line-height / $heading-h6-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+
+// Body text
+
+%text {
+    font-family: $font-arimo;
+    font-size: $text-size;
+    line-height: $text-line-height;
+    font-weight: $font-regular;
+}
+
+%text-bold {
+    font-family: $font-arimo;
+    font-size: $text-size;
+    line-height: $text-bold-line-height;
+    font-weight: $font-bold;
+}
+
+%text-small-bold {
+    font-family: $font-arimo;
+    font-size: $small-text-size;
+    line-height: $text-small-line-height;
+    font-weight: $font-bold;
+}
+
+%text-small-light {
+    font-family: $font-arimo;
+    font-size: $small-text-size;
+    line-height: $text-small-line-height;
+    font-weight: $font-regular;
+}
+
+%text-super-small-bold {
+    font-family: $font-arimo;
+    font-size: $super-small-text-size;
+    line-height: $text-super-small-line-height;
+    font-weight: $font-bold;
+}
+
+%text-super-small-light {
+    font-family: $font-arimo;
+    font-size: $super-small-text-size;
+    line-height: $text-super-small-line-height;
+    font-weight: $font-regular;
+}
