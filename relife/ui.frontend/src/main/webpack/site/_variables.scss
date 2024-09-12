@@ -23,6 +23,7 @@ $text-bold: 700;
 $font-height: 1.5;
 
 $font-size-min: 14px;
+$font-size-med: 16px;
 $font-size-max: 18px;
 $font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))), 18px);
 
@@ -125,10 +126,10 @@ $tab-width: clamp(14.286rem, 2.5vw + 13.714rem, 17.143rem);
 $tab-height: clamp(3.429rem, 0.5vw + 3.314rem, 4rem);
 $tab-padding-top: clamp(0.286rem, 0.25vw + 0.229rem, 0.571rem);
 $tab-padding-bottom: clamp(1.714rem, -0.25vw + 1.771rem, 1.429rem);
-$tab-padding-lateral: clamp(1.143rem, -0.25vw + 1.2rem, 0.857rem);
+$tab-padding-lateral: clamp($font-size-med, -0.25vw + 1.2rem, 0.857rem);
 $tab-panel-width:clamp(23.929rem, 60.313vw + 10.143rem, 92.857rem);
 $max-tab-panel-width: calc($breakpoint-laptop + 100px);
 
 /*ACCORDION STYLES*/
-$accordion-button-font-size: clamp(1.143rem, 0.125vw + 1.114rem, 1.286rem);
+$accordion-button-font-size: clamp($font-size-med, 0.125vw + 1.114rem, 1.286rem);
 $accordion-button-line-height:  clamp(1.714rem, 0.25vw + 1.657rem, 2rem);

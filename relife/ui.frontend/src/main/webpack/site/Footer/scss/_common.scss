@@ -33,10 +33,15 @@ footer {
   .cmp-languagenavigation {
     .cmp-languagenavigation__label {
       font-weight: bold;
+	  .cmp-languagenavigation__label-text{
+		font-size: $font-size-med;
+		font-family: $title-book;
+		line-height: 1.714rem;
+	  }
     }
     .cmp-languagenavigation__group {
       .cmp-languagenavigation__item {
-        font-size: 1.143rem;
+        font-size: $font-size-med;
         font-family: $title-book;
       }
     }
