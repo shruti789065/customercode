@@ -1,7 +1,7 @@
 .customform {
 
     a {
-        color: $blue-link;
+        color: $fm-color-blue-link;
     }
 
     // INIZIO CHECKBOX
@@ -18,13 +18,13 @@
 
         &:checked {
             background-color: transparent !important;
-            border-color: $blue-link;
-            accent-color: $blue-link;
+            border-color: $fm-color-blue-link;
+            accent-color: $fm-color-blue-link;
         }
 
         &:valid {
-            
-            
+
+
             &:focus {
                 box-shadow: none !important;
             }
@@ -51,7 +51,7 @@
         font-size: 20px;
         font-weight: 300;
         line-height: 25px;
-        color: $color-fondazione-text-light;
+        color: $fm-color-gray-light;
     }
 
     // FINE INPUT PLACEHOLDER
@@ -77,7 +77,7 @@
         font-weight: 300;
 
         &:hover {
-            background-color: $color-hover-li;
+            background-color: $fm-color-hover-li;
         }
     }
 
@@ -112,7 +112,7 @@
         font-size: 20px;
         font-weight: 300;
         line-height: 25px;
-        color: $color-fondazione-text-light;
+        color: $fm-color-gray-light;
         background-color: transparent;
         font-family: $headings-font-family;
         background-repeat: no-repeat;

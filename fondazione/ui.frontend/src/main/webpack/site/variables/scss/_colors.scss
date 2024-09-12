@@ -1,0 +1,40 @@
+// Colors
+
+// Custom colors 
+// use this convention: {fm}-{color}-{description}-{color}
+$fm-color-bg-section: #F7F6F4;
+$fm-color-gray-light: #B6B59C;
+$fm-color-border: #C9C9C9;
+$fm-color-text: #484542;
+$fm-color-blue-link: #0783FF;
+$fm-color-hover-li: #143F5933;
+// --- END---
+
+// Bootstrap overwritest
+
+// _Primary colors
+$primary: #AE0F0A;
+$primary-hover: #D32D39;
+
+// _Secondary colors
+$secondary: #143F59;
+$secondary-hover: #222E41;
+
+$white: #ffffff;
+$black: #000000;
+$body-color: $black;
+
+//== BORDER COLORS
+$border-color-light: $fm-color-border;
+$border-color-dark: $fm-color-text;
+$border-color-primary: $secondary-hover;
+
+// _Normal mode
+$color-foreground: #202020;
+$color-background: #ECECEC;
+$color-link: #2020E0;
+
+// _Dark mode
+$color-foreground-dark: invert($color-foreground);
+$color-background-dark: invert($color-background);
+$color-link-dark: invert($color-link);
