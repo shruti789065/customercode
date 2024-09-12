@@ -1,49 +1,58 @@
-.cmp-accordion, .maindocs .cmp-accordion {
-
-    .cmp-accordion__item {}
-    .cmp-accordion__header {}
-    .cmp-accordion__button {
-        cursor: pointer;
-        background: transparent;
-        border: none;        
-        border-bottom: 1px solid;
-        border-color: $lightgrey-border-color;
-        border-radius: 0px; 
-        color: $midnightBlue;
-        font-family: $title-book;        
-        &:hover {
-            color: $midnightBlue;
-        }
-        padding: 1.429rem 0;      
-        line-height: $accordion-button-line-height;
-        font-size: $h4-title-size;
-        display: flex;
-        justify-content: space-between;
-
-        .cmp-accordion__title {
-            font-family: $title-book;    
-        }
-        .cmp-accordion__icon {
-            position: initial;     
-            content: " ";
-            background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg") center center no-repeat;
-            width: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem);
-            height: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem); 
-            background-size: contain;
-			transition: $standard-transition;
-            &::before {
-                display: none;
-            }
-        }
-        &.cmp-accordion__button--expanded {
-            .cmp-accordion__icon {            
-                background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg") center center no-repeat;     
-                background-size: contain;   
-				transform: rotate(180deg);                 
-            }       
-        }          
+.cmp-accordion,
+.maindocs .cmp-accordion {
+  .cmp-accordion__item {
+  }
+  .cmp-accordion__header {
+    
+  }
+  .cmp-accordion__button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-color: $lightgrey-border-color;
+    border-radius: 0px;
+    color: $midnightBlue;
+    font-family: $title-book;
+    &:hover {
+      color: $midnightBlue;
     }
-    .cmp-accordion__panel {}
-    .cmp-accordion__panel--expanded {}
-    .cmp-accordion__panel--hidden {}
+    padding: 1.429rem 0;
+    line-height: $accordion-button-line-height;
+    font-size: $h4-title-size;
+    display: flex;
+    justify-content: space-between;
+
+    .cmp-accordion__title {
+      font-family: $title-book;
+    }
+    .cmp-accordion__icon {
+      position: initial;
+      content: " ";
+      background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg")
+        center center no-repeat;
+      width: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem);
+      height: clamp(1.429rem, 1.119vw + 0.609rem, 2.143rem);
+      background-size: contain;
+      transition: $standard-transition;
+      &::before {
+        display: none;
+      }
+    }
+    &.cmp-accordion__button--expanded {
+      .cmp-accordion__icon {
+        background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg")
+          center center no-repeat;
+        background-size: contain;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .cmp-accordion__panel {
+  }
+  .cmp-accordion__panel--expanded {
+    padding: 1rem ;
+  }
+  .cmp-accordion__panel--hidden {
+  }
 }
