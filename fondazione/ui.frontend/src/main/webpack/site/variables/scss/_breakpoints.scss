@@ -1,0 +1,14 @@
+//== Bootstrap Breakpoints Overwrites
+$grid-breakpoints: (
+    xs: 0,
+    // Extra small devices (phones) - Bootstrap's "mobile-first" approach starts at 0px
+    sm: 576px,
+    // Small devices (phones in landscape) - Start applying styles for small screens (e.g., 576px and above)
+    md: 768px,
+    // Medium devices (tablets) - Styles apply for tablet-sized devices starting at 768px and above
+    lg: 992px,
+    // Large devices (desktops) - Styles for larger desktops and tablets starting at 992px and above
+    xl: 1200px,
+    // Extra large devices (large desktops) - Styles for large desktop screens starting at 1200px and above
+    xxl: 1400px // Extra extra large devices (widescreens) - Applies for ultra-wide monitors or larger screens starting at 1400px
+    ) !default;
