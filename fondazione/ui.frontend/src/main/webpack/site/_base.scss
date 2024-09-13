@@ -14,9 +14,11 @@ body {
     // }
 }
 
-// .container-fluid {
-//     max-width: $container-fluid-max-width !important;
-// }
+.container-fluid,
+.container.container-fluid {
+    max-width: 100%;
+    padding: 0px;
+}
 
 // Headings
 h1,
