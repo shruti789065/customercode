@@ -1,10 +1,7 @@
 $banner-bg-color: rgba($black, 0.5);
 
-.banner-app-teaser {
-    background: $banner-bg-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.banner-mobile-app-teaser {
+    @extend %flex-column-center;
     position: relative;
     color: $white;
 
@@ -12,62 +9,44 @@ $banner-bg-color: rgba($black, 0.5);
         text-align: center;
 
         &__content {
-            padding: 40px;
+            padding: 30px;
+            background: $banner-bg-color;
+
+            @include media-breakpoint-up(lg) {
+                padding: 60px;
+            }
         }
 
         &__title {
-            font-family: $font-family-oswald;
-            font-weight: $font-medium;
-            font-size: $title-big-font-size;
             color: $white;
+            font-family: $font-default;
+            font-weight: $font-extra-light;
+            font-size: 2rem;
             line-height: 1.2;
             margin: 20px 0;
-            text-transform: uppercase;
             z-index: 1;
             position: relative;
+
+            @include media-breakpoint-up(lg) {
+                font-size: $title-big-font-size;
+            }
         }
 
         &__description {
-            font-family: $font-family-arimo;
-            font-size: $font-size;
             color: $white;
-            line-height: $font-height;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
         }
 
         &__links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @extend %flex-row-center;
             gap: 20px;
             margin-top: 40px;
 
             &--group {
                 display: inline-block;
 
-                .cmp-link__screen-reader-only {
-                    position: absolute;
-                    width: 1px;
-                    height: 1px;
-                    margin: -1px;
-                    padding: 0;
-                    overflow: hidden;
-                    clip: rect(0, 0, 0, 0);
-                    border: 0;
-                }
-
                 &--google,
                 &--apple {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    &:hover {
-                        transform: scale(1.05);
-                        transition: transform 0.3s ease;
-                    }
+                    @extend %flex-row-center;
                 }
             }
         }
