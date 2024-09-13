@@ -1,11 +1,11 @@
 .customform {
 
     .customform__signincol {
-        border-right: solid 1px $color-fondazione-text-light;
+        border-right: solid 1px $fm-color-gray-light;
 
         @include media-breakpoint-down(lg) {
             border-right: none;
-            border-bottom: solid 1px $color-fondazione-text-light;
+            border-bottom: solid 1px $fm-color-gray-light;
         }
     }
 
