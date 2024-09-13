@@ -1,0 +1,96 @@
+.card-grid-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 0px;
+    }
+
+    .cmp-teaser {
+        min-height: 375px;
+
+        @include media-breakpoint-up(lg) {
+            min-height: 0px;
+        }
+
+        &__link {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            text-decoration: none;
+            z-index: 1;
+            padding: 50px 20px;
+
+            @include media-breakpoint-up(lg) {
+                padding: 0px;
+            }
+        }
+
+        &__content {
+            @extend %flex-column-center;
+            text-align: center;
+
+            @include media-breakpoint-up(lg) {
+                max-width: 300px;
+            }
+        }
+
+        &__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            object-fit: cover;
+            z-index: 0;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        &__icon {
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
+            z-index: 3;
+            margin-top: 20px;
+
+            @include media-breakpoint-up(lg) {
+                height: 60px;
+                width: 60px;
+                margin-top: 5px;
+            }
+        }
+
+        &__title {
+            color: $white;
+            font-size: 1.7rem;
+            line-height: normal;
+            text-transform: uppercase;
+            text-align: center;
+            z-index: 3;
+            min-height: 65px;
+        }
+
+        &__description {
+            color: $white;
+            z-index: 3;
+
+            p {
+                font-family: $font-georgia;
+                font-style: italic;
+
+                @include media-breakpoint-up(lg) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
