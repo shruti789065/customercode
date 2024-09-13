@@ -5,10 +5,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Savepoint;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.*;
 
 import javax.sql.DataSource;
 
@@ -18,6 +18,7 @@ import com.jakala.menarini.core.entities.RegisteredUserTopic;
 import com.jakala.menarini.core.entities.records.RegisteredUserRoleRecord;
 import com.jakala.menarini.core.entities.records.RegisteredUserTopicRecord;
 import org.jooq.DSLContext;
+import org.jooq.Record;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.osgi.service.component.annotations.Component;
@@ -40,6 +41,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
     @Reference(target = "(datasource.name=fondazione-mysql)")
     private DataSource dataSource;
 
+
     @Override
     public List<RegisteredUserDto> getUsers(Set<Acl> acls) throws AccessDeniedException {
         List<RegisteredUserDto> users = new ArrayList<>();
@@ -60,8 +62,251 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
 
     @Override
-    public boolean addUser(RegisteredUserDto user, Set<Acl> acls) throws AccessDeniedException {
+    public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls) throws AccessDeniedException, SQLException {
 
+        AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
+        Connection connection = dataSource.getConnection();
+        DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
+        RegisteredUserDto user = (RegisteredUserDto) Objects.requireNonNull(create
+                .select()
+                .from(RegisteredUserDto.table)
+                .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email))
+                .fetchOne()).into(RegisteredUserDto.class);
+        if(user == null) {
+            connection.close();
+            return null;
+        }
+        ArrayList<String> topicsUser = (ArrayList<String>) TopicUtils.getTopicsRefForUser(user.getId(), create);
+        if(topicsUser != null && !topicsUser.isEmpty()) {
+            ArrayList<RegisteredUserTopicDto> topics = new ArrayList<>();
+            ArrayList<TopicDto> listTopics = (ArrayList<TopicDto>) TopicUtils.getTopics();
+            listTopics.removeIf(topic -> !topicsUser.contains(topic.getId()));
+            for(TopicDto topic : listTopics) {
+                RegisteredUserTopicDto topicDto = new RegisteredUserTopicDto();
+                topicDto.setTopic(topic);
+                topics.add(topicDto);
+            }
+            user.setRegisteredUserTopics(topics);
+        }
+        connection.close();
+        return user;
+
+    }
+
+    @Override
+    public RegisteredUseServletResponseDto updateUserData(String email, RegisteredUserDto user, List<String> updateTopics, Set<Acl> acls) throws AccessDeniedException, SQLException {
+        RegisteredUseServletResponseDto response = new RegisteredUseServletResponseDto();
+        String errorMessage = "";
+        Connection connection = null;
+        Savepoint savepoint = null;
+        AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
+        try {
+            RegisteredUserDto oldData = this.getUserByEmail(email, acls);
+            user.setId(oldData.getId());
+            connection = dataSource.getConnection();
+            savepoint = connection.setSavepoint();
+            DSLContext create = DSL.using(connection);
+            LOGGER.error("------ Start Prepare Query --------");
+            Record dataSet = this.setUpdateQuery(user, create);
+            LOGGER.error("------ End Prepare Query --------");
+            LOGGER.error("------ Start Update --------");
+            int x = create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
+                    .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
+            LOGGER.error("------ rows --------");
+            LOGGER.error(""+x);
+            LOGGER.error("------ End Update --------");
+            if(!updateTopics.isEmpty()) {
+                LOGGER.error("------ on Update topic --------");
+                ArrayList<TopicDto> listTopics = (ArrayList<TopicDto>) TopicUtils.getTopics();
+                List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
+                List<String> topicToSaveRefers =  new ArrayList<String>();
+                updateTopics = this.convertTopicsNameToId(updateTopics,listTopics);
+                for(String topic : updateTopics) {
+                    if(!oldTopicRefs.contains(topic)) {
+                        topicToSaveRefers.add(topic);
+                    }
+                }
+                LOGGER.error("------ Start delete topic --------");
+                boolean isDeleted = this.deleteTopics(user.getId(),updateTopics,oldTopicRefs,create,connection,savepoint);
+                if(!isDeleted) {
+                    response.setSuccess(false);
+                    errorMessage = "Error on delete topics";
+                    response.setErrorMessage(errorMessage);
+                    return response;
+
+                }
+                LOGGER.error("------ End delete topic --------");
+                LOGGER.error("------ Start add topic --------");
+                for(String topicRef : topicToSaveRefers) {
+                    LOGGER.error("id topics to save: "+topicRef);
+                }
+                boolean isCreated = this.saveNewTopic(topicToSaveRefers,user,create,connection,savepoint);
+                if(!isCreated) {
+                    response.setSuccess(false);
+                    errorMessage = "Error on add topics";
+                    response.setErrorMessage(errorMessage);
+                    return response;
+                }
+                LOGGER.error("------ End add topic --------");
+            }
+            connection.close();
+            response.setSuccess(true);
+            response.setUpdatedUser(user);
+            return response;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //connection.rollback(savepoint);
+            //connection.close();
+            errorMessage = e.getMessage();
+            response.setSuccess(false);
+            response.setErrorMessage(errorMessage);
+            return response;
+        } catch (Exception e) {
+            errorMessage = e.getMessage();
+            response.setSuccess(false);
+            response.setErrorMessage(errorMessage);
+            return response;
+        }
+    }
+
+    private List<String> convertTopicsNameToId(List<String> topics, List<TopicDto> topicsRefs) {
+        List<String> convertedTopics = new ArrayList<>();
+        for(String topic : topics) {
+            for(TopicDto topicRef : topicsRefs) {
+                if(topicRef.getName().equals(topic)) {
+                    convertedTopics.add(topicRef.getId());
+                    break;
+                }
+            }
+        }
+        return convertedTopics;
+    }
+
+    private boolean deleteTopics(Long idUser,
+                                 List<String> updateTopics,
+                                 List<String> oldTopic,
+                                 DSLContext create,
+                                 Connection connection,
+                                 Savepoint savepoint) throws SQLException {
+
+        oldTopic.removeIf(topic -> updateTopics.contains(topic));
+        List<String> deleteTopics = new ArrayList<>(oldTopic);
+        LOGGER.error("------- on Delete topic func --------");
+        for(String topic : oldTopic) {
+            LOGGER.error("id topic to delete"+topic);
+        }
+        try{
+            if(!deleteTopics.isEmpty()) {
+                create.deleteFrom(RegisteredUserTopic.REGISTERED_USER_TOPIC).
+                        where(RegisteredUserTopic.REGISTERED_USER_TOPIC.TOPIC_ID.in(deleteTopics))
+                        .and(RegisteredUserTopic.REGISTERED_USER_TOPIC.REGISTERED_USER_ID.eq(idUser))
+                        .execute();
+            }
+            return true;
+          }catch (Exception e) {
+            e.printStackTrace();
+            connection.rollback(savepoint);
+            connection.close();
+            return false;
+        }
+    }
+
+    private boolean saveNewTopic(
+            List<String> updateTopicRefs,
+            RegisteredUserDto user,
+            DSLContext create,
+            Connection connection,
+            Savepoint savepoint) throws SQLException {
+
+        if(updateTopicRefs.isEmpty()) {
+            return true;
+        }
+        try {
+            updateTopicRefs.forEach(topicRef -> {
+                LOGGER.error("on save topic");
+                TopicDto topic = new TopicDto();
+                topic.setId(topicRef);
+                RegisteredUserTopicDto topicUsr = new RegisteredUserTopicDto();
+                topicUsr.setTopic(topic);
+                topicUsr.setRegisteredUser(user);
+                RegisteredUserTopicRecord rowData = create.
+                        newRecord(RegisteredUserTopic.REGISTERED_USER_TOPIC, topicUsr);
+                rowData.setRegisteredUserId(user.getId());
+                rowData.setTopicId(topic.getId());
+                rowData.setCreatedOn(LocalDateTime.now());
+                rowData.setLastUpdatedOn(LocalDateTime.now());
+                rowData.store();
+            });
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+            connection.rollback(savepoint);
+            connection.close();
+            return false;
+        }
+    }
+
+
+
+    private Record setUpdateQuery(RegisteredUserDto user, DSLContext create) {
+        LocalDateTime now = LocalDateTime.now();
+        Record dataSet = create.newRecord(RegisteredUser.REGISTERED_USER);
+        dataSet.set(RegisteredUser.REGISTERED_USER.LAST_UPDATED_ON,now);
+        if(user.getFirstname() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.FIRSTNAME, user.getFirstname());
+        }
+        if(user.getLastname() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.LASTNAME, user.getLastname());
+        }
+        if(user.getCountry() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.COUNTRY, user.getCountry());
+        }
+        if(user.getBirthDate() != null) {
+            LocalDate date = LocalDate.ofInstant(user.getBirthDate().toInstant(), ZoneId.systemDefault());
+            dataSet.set(RegisteredUser.REGISTERED_USER.BIRTH_DATE,date);
+        }
+        if(user.getPhone() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.PHONE, user.getPhone());
+        }
+        if(user.getGender() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.GENDER, user.getGender());
+        }
+        if(user.getLinkedinProfile() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.LINKEDIN_PROFILE, user.getLinkedinProfile());
+        }
+        if(user.getTaxIdCode() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.TAX_ID_CODE, user.getTaxIdCode());
+        }
+        if(user.getOccupation() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.OCCUPATION, user.getOccupation());
+        }
+        if(user.getPersonalDataProcessingConsent() != null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.PERSONAL_DATA_PROCESSING_CONSENT, user.getPersonalDataProcessingConsent());
+            dataSet.set(RegisteredUser.REGISTERED_USER.PERSONAL_DATA_PROCESSING_CONSENT_TS,now);
+        }
+        if(user.getProfilingConsent()!= null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.PROFILING_CONSENT, user.getProfilingConsent());
+            dataSet.set(RegisteredUser.REGISTERED_USER.PROFILING_CONSENT_TS,now);
+        }
+        if(user.getProfilingConsent()!= null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.PROFILING_CONSENT, user.getProfilingConsent());
+            dataSet.set(RegisteredUser.REGISTERED_USER.PROFILING_CONSENT_TS,now);
+        }
+        if(user.getProfilingConsent()!= null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.PROFILING_CONSENT, user.getProfilingConsent());
+            dataSet.set(RegisteredUser.REGISTERED_USER.PROFILING_CONSENT_TS,now);
+        }
+        if(user.getNewsletterSubscription()!= null) {
+            dataSet.set(RegisteredUser.REGISTERED_USER.NEWSLETTER_SUBSCRIPTION, user.getNewsletterSubscription());
+            dataSet.set(RegisteredUser.REGISTERED_USER.NEWSLETTER_SUBSCRIPTION_TS,now);
+        }
+        return dataSet;
+    }
+
+
+
+    @Override
+    public boolean addUser(RegisteredUserDto user, Set<Acl> acls) throws AccessDeniedException {
         AclValidator.isAccessAllowed(AclRolePermissions.ADD_REGISTERED_USERS, acls);
 
         try (Connection connection = dataSource.getConnection()) {
@@ -70,14 +315,17 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             RegisteredUserRecord rur = create.newRecord(com.jakala.menarini.core.entities.RegisteredUser.REGISTERED_USER, user);
             rur.store();
             create.executeInsert(rur);
-
+            connection.close();
             return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
+
             return false;
         }
     }
+
+
 
     @Override
     public boolean isActiveUser(String username) {
@@ -88,6 +336,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     .from(RegisteredUserDto.table)
                     .where(RegisteredUser.REGISTERED_USER.USERNAME.eq(username))
                     .fetchOne()).into(RegisteredUserDto.class);
+            connection.close();
             return Objects.equals(userDto.getRegistrationStatus(), "confirmed");
         } catch (Exception e) {
             e.printStackTrace();
@@ -161,7 +410,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     return false;
                 }
             }
-            e.printStackTrace();
             return false;
         }
     }
