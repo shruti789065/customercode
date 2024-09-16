@@ -1,0 +1,16 @@
+%btn-primary {
+    background-color: $primary;
+    font-weight: $font-bold;
+    font-size: $text-size;
+    line-height: $text-line-height;
+    color: $white;
+    padding: 10px 50px;
+    border: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color $transition-duration-default $transition-ease-in-out;
+
+    &:hover {
+        background-color: $primary-hover;
+    }
+}
