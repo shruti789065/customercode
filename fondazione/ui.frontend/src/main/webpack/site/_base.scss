@@ -14,10 +14,15 @@ body {
     // }
 }
 
+.root.container,
 .container-fluid,
 .container.container-fluid {
     max-width: 100%;
     padding: 0px;
+}
+
+.container.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 {
+    float: unset;
 }
 
 // Headings

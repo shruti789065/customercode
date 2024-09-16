@@ -3,7 +3,7 @@
     data-sly-test="${properties.optionsType == 'heroSlimQuote'}"
     class="cmp-heroslim__quote position-relative w-100 h-100 d-flex justify-content-center"
   >
-    <div class="cmp-heroslim__contentWrapper container-fluid pb-3 pb-md-0">
+    <div class="cmp-heroslim__contentWrapper container pb-3 pb-md-0">
       <sly data-sly-test="${properties.content}">
         <div class="h2" role="heading">
           ${properties.content @ context='html'}
@@ -24,30 +24,30 @@
 
   <div
     data-sly-test="${properties.optionsType == 'heroSlimText'}"
-    class="position-relative w-100 h-100 d-flex justify-content-center align-items-end"
+    class="position-relative w-100 h-100 d-flex justify-content-center align-items-center"
   >
     <div
-      class="cmp-heroslim__contentWrapper cmp-heroslim__textTitle container-fluid"
+      class="cmp-heroslim__contentWrapper cmp-heroslim__textTitle container"
     >
       <sly data-sly-test="${properties.titleTag}">
         <sly data-sly-test="${properties.titleTag == 'h1'}">
-          <h1 class="h1 mb-5 pb-md-5" role="heading">${properties.title}</h1>
+          <h1 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h1>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h2'}">
-          <h2 class="h1 mb-5 pb-md-5" role="heading">${properties.title}</h2>
+          <h2 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h2>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h3'}">
-          <h3 class="h1 mb-5 pb-md-5" role="heading">${properties.title}</h3>
+          <h3 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h3>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h4'}">
-          <h4 class="h1 mb-5 pb-md-5" role="heading">${properties.title}</h4>
+          <h4 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h4>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h5'}">
-          <h5 class="h1 mb-5 pb-md-5" role="heading">${properties.title}</h5>
+          <h5 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h5>
         </sly>
       </sly>
     </div>
