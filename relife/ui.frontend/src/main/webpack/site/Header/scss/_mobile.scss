@@ -8,7 +8,7 @@ header.cmp-experiencefragment--header-mobile {
         display: none;
       }
       #mobileNavbar {
-        padding: 1.429rem 0;
+        padding: $size-20 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -216,7 +216,7 @@ header.cmp-experiencefragment--header-mobile {
           }
           &.cmp-link--style-2 {
             .cmp-button {
-              padding: 1.429rem 0;
+              padding: $size-20 0;
               .cmp-button__text {
                 font-family: $title-book;
                 font-weight: 700;
@@ -224,8 +224,8 @@ header.cmp-experiencefragment--header-mobile {
                 text-transform: none;
               }
               .cmp-button__icon {
-                width: 1.429rem;
-                height: 1.429rem;
+                width: $size-20;
+                height: $size-20;
               }
             }
           }

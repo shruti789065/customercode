@@ -21,7 +21,7 @@
           height: 100%;
           .cmp-teaser__title {
             text-transform: uppercase;
-            font-size: clamp(1.143rem, 0.125vw + 1.114rem, 1.286rem);
+            font-size: clamp($font-size-med, 0.125vw + 1.114rem, 1.286rem);
             margin: 0;
             margin-bottom: 0.571rem;
           }
@@ -29,7 +29,7 @@
             position: relative;
             //top: -1rem;
             p {
-              font-size: clamp(1.071rem, 0.063vw + 1.057rem, 1.143rem);
+              font-size: clamp(1.071rem, 0.063vw + 1.057rem, $font-size-med);
               margin: 0;
             }
           }

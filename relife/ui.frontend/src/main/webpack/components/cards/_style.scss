@@ -1,6 +1,6 @@
 @use 'card' as *;
 
-$font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
+$font-size-style: clamp($font-size-med, 0.5vw + 1.029rem, 1.714rem);
 .cmp-card--style {
 	width: 100%;
   .cmp-teaser {
@@ -13,6 +13,8 @@ $font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
         &::before {
         }
         .cmp-image__image {
+			object-fit: cover;
+			min-height: 16.857rem;
           
         }
       }
@@ -22,11 +24,14 @@ $font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
       flex-direction: column;
       justify-content: flex-end;
       &:not(:only-child) {
-        position: absolute;
+        position: absolute; 
         z-index: 5;
         top: 0;
         bottom: .7rem;
-        padding-bottom: 4rem;
+		padding-top:0;
+		padding-left: clamp($size-24, 1.553vw + 1.298rem, 3.429rem);
+		padding-right: clamp($size-24, 1.553vw + 1.298rem, 3.429rem);
+        padding-bottom: clamp($size-16, 2.071vw + 0.588rem, 3.429rem);
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 44.19%, rgba(0, 0, 0, 0.3) 100%);
         left: 0;
         right: 0;
@@ -40,7 +45,10 @@ $font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
       .cmp-teaser__title {
         text-transform: uppercase;
         font-family: $title-medium;
-        font-size: $font-size-style;
+        font-size: clamp($font-size-med, 0.518vw + 1.004rem, $size-24);
+		text-align: center;
+		font-weight: 400;
+		margin-bottom: 0.286rem;
       }
       .cmp-teaser__description {
         text-align: center;
@@ -74,4 +82,16 @@ $font-size-style: clamp(1.143rem, 0.5vw + 1.029rem, 1.714rem);
 
     }
   }
+}
+
+@include respond-to(tablet) {
+	.cmp-card--style{
+		.cmp-teaser{
+			.cmp-teaser__content {
+				&:not(:only-child) {
+				}
+				
+			}
+		}
+	}
 }
