@@ -1,0 +1,149 @@
+#customFooter{
+    width: 100%;
+    .cmp-link__screen-reader-only{
+        display: none;
+    }
+    section.section.container:first-child{
+        background-color: $secondary;
+        color: $white;
+        padding: 30px 16px;
+        @media (min-width: 768px) {
+            padding-inline: 90px;
+        }
+        &>.cmp-container{
+            @media (min-width: 768px) {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        h2{
+            font-weight: 200;
+            font-family: 'OswaldVariable';
+        }
+        .section.container.responsivegrid{
+            padding: 0;
+        }
+        .list{
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-size: 20px;
+                line-height: 45px;
+                @media (min-width: 768px){
+                    max-height: 175px;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: column wrap;
+                }
+                li{
+                    width: 100%;
+                    align-self: flex-start;
+                    @media (min-width: 768px){
+                        max-width: 175px;
+                        margin-right: 70px;
+                    }
+                    a{
+                        color: $white;
+                        text-decoration: none;
+                        font-weight: 200;
+                        font-family: 'OswaldVariable';
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding-right: 40px;
+                        margin-bottom: 10px;
+                        height: 45px;
+                        user-select: all;
+                        pointer-events: all;
+                        font-size: 20px;
+                        @media (min-width: 768px){
+                            padding-right: 0;
+                            font-size: 25px;
+                        }
+                        &::after{
+                            content: "";
+                            display: block;
+                            width: 10px;
+                            height: 45px;
+                            background: url($resources-path + "/icons/arrow.svg");
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+        .section.wrapper{
+            margin-top: 40px;
+            @media (min-width: 768px){
+                max-width: 121px;
+                margin: 0;
+            }
+            section{
+                &>.cmp-container{
+                    display: flex;
+                }
+            }
+        }
+    }
+    section:last-child{
+        padding: 30px 15px;
+        @media (min-width: 768px){
+            padding-inline: 90px;
+        }
+        &>.cmp-container{
+            @media (min-width: 768px){
+                width: 100%;
+                display: grid;
+                grid-template-columns: calc(100% - 218px) 218px;
+            }
+        }
+        p{
+            font-size: 12px;
+            line-height: 20px;
+            font-family: 'ArimoVariable';
+            color: $body-color;
+        }
+        .image{
+            max-width: 211px;
+        }
+    }
+    .button{
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        button{
+            width: 60px;
+            height: 60px;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+        .cmp-button__icon{
+            display: block;
+            width: 37px;
+            height: 37px;
+            &--linkedIn{
+                background: url($resources-path + "/icons/linkedin-footer.svg");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            &--youtube {
+              background: url($resources-path + "/icons/youtube-footer.svg");
+              background-size: contain;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+        }
+    }
+
+}

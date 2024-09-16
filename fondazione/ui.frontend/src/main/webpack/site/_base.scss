@@ -16,6 +16,13 @@ body {
 
 .container-fluid {
     max-width: $container-fluid-max-width !important;
+    padding: 0;
+}
+
+.container {
+    padding: 0;
+    margin: 0;
+    max-width: unset;
 }
 
 // Headings
