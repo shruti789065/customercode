@@ -93,22 +93,31 @@ import { toggleOverlay } from ".././_util";
   }
 
   function handleScroll() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (!HEADER.mobile?.classList.contains("cmp-menu--opened")) {
-      if (scrollTop > lastScrollTop && menuVisible) {
-        // Scroll down, hide menu
-        HEADER.mobile.style.transform = "translateY(-100%)";
-        menuVisible = false;
-      } else if (scrollTop < lastScrollTop && !menuVisible) {
-        // Scroll up, show menu
-        HEADER.mobile.style.transform = "translateY(0)";
-        menuVisible = true;
-      }
-    }
-
-    lastScrollTop = scrollTop;
+	let scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+  
+	// Evitare che scrollTop e lastScrollTop diventino negativi
+	scrollTop = Math.max(0, scrollTop);
+  
+	if (!HEADER.mobile?.classList.contains("cmp-menu--opened")) {
+	  if (scrollTop > lastScrollTop && menuVisible) {
+		// Scroll down, hide menu
+		HEADER.mobile.style.transform = "translateY(-100%)";
+		menuVisible = false;
+	  } else if (scrollTop <= 0) {
+		// If we are at the top, show menu
+		HEADER.mobile.style.transform = "translateY(0)";
+		menuVisible = true;
+	  } else if (scrollTop < lastScrollTop && !menuVisible) {
+		// Scroll up, show menu
+		HEADER.mobile.style.transform = "translateY(0)";
+		menuVisible = true;
+	  }
+	}
+  
+	// Impedire che lastScrollTop sia negativo
+	lastScrollTop = Math.max(0, scrollTop);
   }
+  
 
   function init() {
     HEADER.menuButton?.addEventListener("click", handleMenuClick);
