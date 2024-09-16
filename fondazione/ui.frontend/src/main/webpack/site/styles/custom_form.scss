@@ -58,6 +58,7 @@
 
     .cmp-form__textField {
         font-family: $headings-font-family;
+        font-size: $title-extra-small-font-size;
         font-weight: 300;
         height: 65px;
         border: solid $body-color 1px;
@@ -144,6 +145,7 @@
 
     // INIZIO DATE PICKER
     .cmp-form__datepicker {
+        font-size: $title-extra-small-font-size;
         font-family: $headings-font-family;
         font-weight: 300;
         border: solid $body-color 1px;
@@ -168,5 +170,11 @@
     }
 
     // FINE INPUT NUMBER
+
+
+    .form-fieldset-label {
+        color: $fm-color-text !important;
+        font-family: $font-arimo;
+    }
 
 }

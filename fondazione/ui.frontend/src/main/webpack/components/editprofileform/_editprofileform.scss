@@ -1,7 +1,7 @@
 .cmp-editprofileform {
 
     .cmp-editprofileform__subtitle {
-        color: $body-color;
+        color: $fm-color-text;
 
         span {
             color: $primary;
@@ -9,15 +9,18 @@
     }
 
     .cmp-editprofileform__tabsWrapper {
+        color: $fm-color-text;
+        margin-top: 48px;
 
         .active {
             border-bottom: solid $secondary 4px !important;
-            color: $secondary;
+            color: $secondary !important;
 
         }
 
         .cmp-editprofileform__tabsButton {
             background-color: transparent;
+            color: $fm-color-text;
 
             .cmp-editprofileform__tabsButtonText {
                 font-weight: 200;
@@ -26,19 +29,28 @@
     }
 
     .cmp-editprofileform__editProfileTitle {
+        margin-top: 50px;
+        margin-bottom: 50px;
         font-weight: 200 !important;
         color: $secondary;
     }
 
-    .cmp-signupform__countryTitle {
-        margin-bottom: 37px;
-
-        @include media-breakpoint-down(lg) {
-            margin-bottom: 12px;
-        }
+    .cmp-editprofileform__editProfileLabel {
+        color: $fm-color-text;
     }
 
-    .cmp-signupform__privacywrapper {
+    .cmp-editprofileform__editProfileValue {
+        color: $fm-color-text;
+        font-weight: 200 !important;
+    }
+
+    
+
+    .cmp-editprofile__privacywrapper {
+
+        h6 {
+            color: $fm-color-text;
+        }
 
         p {
             font-size: 15px;
@@ -66,16 +78,33 @@
         }
     }
 
-    .cmp-signupform__customError {
-        color: #dc3545;
-        font-size: .875em;
+    // .cmp-editprofile__customError {
+    //     color: #dc3545;
+    //     font-size: .875em;
+    // }
+
+    .cmp-editprofileform__formItemTitle {
+        color: $fm-color-text;
+
+        span {
+            color: $primary;
+        }
+
+        // .cmp-editprofileform__formItemLabel {
+        //     margin-bottom: 12px;
+        //     font-family: $font-family-base;
+        //     font-weight: 400;
+        //     font-size: 18px;
+        //     line-height: 25px;
+        //     color: $body-color;
+        // }
     }
 
-    .cmp-signupform__borderRed {
-        border-color: #dc3545 !important;
-    }
+    // .cmp-editprofileform__professionItem {
+    //     margin-top: 10px;
+    // }
 
-    .cmp-signupform__borderGreen {
-        border-color: #198754 !important;
-    }
+    // .cmp-editprofileform__countryItem {
+    //     margin-top: 10px;
+    // }
 }

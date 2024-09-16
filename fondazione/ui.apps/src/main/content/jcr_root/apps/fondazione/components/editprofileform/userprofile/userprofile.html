@@ -2,28 +2,28 @@
     <h2 class="h2 h2-light cmp-editprofileform__editProfileTitle">Add/edit photo profile</h2>
 
     <div class="mt-4 d-flex">
-        <h3 class="h3 me-2">Email address:</h3>
-        <h4 class="h4 h4-light">mario.rossi@gmail.com</h4>
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Email address:</h3>
+        <h4 class="h4 h4-light cmp-editprofileform__editProfileValue">mario.rossi@gmail.com</h4>
     </div>
 
-    <div class="mt-4 d-flex">
-        <h3 class="h3 me-2">Creation date:</h3>
-        <h4 class="h4 h4-light">01/01/2023</h4>
+    <div class="mt-2 d-flex">
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Creation date:</h3>
+        <h4 class="h4 h4-light cmp-editprofileform__editProfileValue">01/01/2023</h4>
     </div>
 
-    <div class="mt-4 d-flex">
-        <h3 class="h3 me-2">Last activity date:</h3>
-        <h4 class="h4 h4-light">16/06/2023</h4>
+    <div class="mt-2 d-flex">
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Last activity date:</h3>
+        <h4 class="h4 h4-light cmp-editprofileform__editProfileValue">16/06/2023</h4>
     </div>
 
     <h2 class="h2 h2-light mt-4 cmp-editprofileform__editProfileTitle">Change of personal information</h2>
 
-    <form class="customform needs-validation mt-4" id="editProfileForm" method="post" novalidate>
+    <form class="customform needs-validation mt-4" id="userProfileForm" method="post" novalidate>
 
         <!-- NAME - LAST NAME -->
         <div class="row g-4 m-0 p-0">
             <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                <h3 class="cmp-editprofileform__formItemTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                     ${'first_name' @ i18n} <span>${'mandatory' @ i18n}</span>
                 </h3>
                 <div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                <h3 class="cmp-editprofileform__formItemTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                     ${'last_name' @ i18n} <span>${'mandatory' @ i18n}</span>
                 </h3>
                 <div>
@@ -53,13 +53,14 @@
         <!-- PROESSION - GENDER -->
         <div class="row g-4 m-0 p-0">
             <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                <h3 class="cmp-editprofileform__formItemTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                     ${'profession' @ i18n} <span>${'mandatory' @ i18n}</span>
                 </h3>
                 <div>
-                    <div class="custom-dropdown position-relative w-100">
-                        <button class="dropdown-toggle overflow-hidden text-truncate w-100 text-start" type="button"
-                            id="dropdownProfessionMenuButton">
+                    <div class="custom-dropdown position-relative w-100 mt-2">
+                        <button
+                            class="dropdown-toggle overflow-hidden text-truncate w-100 text-start cmp-editprofileform__professionItem"
+                            type="button" id="dropdownProfessionMenuButton">
                             ${'select_profession' @ i18n}
                         </button>
                         <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
@@ -112,10 +113,10 @@
                         </ul>
                     </div>
                 </div>
-                <div id="professionErrorString" class="mt-2 cmp-signupform__customError"></div>
+                <div id="professionErrorString" class="mt-2 cmp-editprofile__customError"></div>
             </div>
             <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                <h3 class="cmp-editprofileform__formItemTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                     ${'gender_label' @ i18n}
                 </h3>
                 <div>
@@ -129,7 +130,7 @@
         <!-- DATE OF BIRTH - TELEPHONE -->
         <div class="row g-4 m-0 p-0 mt-2">
             <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                <h3 class="cmp-editprofileform__formItemTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                     ${'date_of_birth' @ i18n} <span>${'mandatory' @ i18n}</span>
                 </h3>
                 <div class="position-relative">
@@ -142,7 +143,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 px-0 ps-lg-2">
-                <h3 class="cmp-editprofileform__formItemTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                     Telephone
                 </h3>
                 <div>
@@ -156,15 +157,14 @@
         <!-- COUNTRY - FISCAL CODE -->
         <div class="row g-4 m-0 p-0 mt-2">
             <div class="col-12 col-lg-6 px-0 pe-lg-2">
-                <h3 class="cmp-editprofileform__formItemTitle cmp-editprofile__countryTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle cmp-editprofile__countryTitle h3 h3-light">
                     ${'country_label' @ i18n} <span>${'mandatory' @ i18n}</span>
-                    <!-- <div data-bs-toggle="tooltip" class="cmp-signupform__formItemLabel text-wrap text-truncate">
-                        Lorem ipsum dolor amet</div> -->
                 </h3>
                 <div>
-                    <div class="custom-dropdown position-relative w-100">
-                        <button class="dropdown-toggle overflow-hidden text-truncate w-100 text-start" type="button"
-                            id="dropdownCountryMenuButton">
+                    <div class="custom-dropdown position-relative w-100 mt-2">
+                        <button
+                            class="dropdown-toggle overflow-hidden text-truncate w-100 text-start cmp-editprofileform__countryItem"
+                            type="button" id="dropdownCountryMenuButton">
                             ${'select_country' @ i18n}
                         </button>
                         <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
@@ -184,10 +184,10 @@
                         </ul>
                     </div>
                 </div>
-                <div id="countryErrorString" class="mt-2 cmp-signupform__customError"></div>
+                <div id="countryErrorString" class="mt-2 cmp-editprofile__customError"></div>
             </div>
             <div class="col-12 col-lg-6 px-0 ps-lg-2" id="fiscalCodeInput">
-                <h3 class="cmp-editprofile__formItemTitle h3">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                     ${'fiscal_code' @ i18n} <span>${'mandatory' @ i18n}</span>
                 </h3>
                 <div>
@@ -198,17 +198,18 @@
                         ${'mandatory_field' @ i18n}
                     </div>
                 </div>
-                <div id="countryErrorString" class="mt-2 cmp-signupform__customError"></div>
+                <div id="countryErrorString" class="mt-2 cmp-editprofile__customError"></div>
             </div>
         </div>
 
         <!-- AREAS OF INTERST -->
         <div class="col-12 px-0 cmp-signupform__customMultiSelect mt-4">
-            <h3 class="cmp-editprofile__formItemTitle h3">
+            <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                 ${'area_of_interest' @ i18n} <span>${'mandatory' @ i18n}</span>
-                <div class="cmp-signupform__formItemLabel text-wrap text-truncate">
-                    ${'area_of_interest_label' @
-                    i18n}</div>
+            </h3>
+            <p class="cmp-editprofileform__formItemTitle text-wrap text-truncate">
+                ${'area_of_interest_label' @
+                i18n}</p>
             </h3>
             <div>
                 <div class="custom-dropdown position-relative w-100">
@@ -256,10 +257,21 @@
                     </ul>
                 </div>
             </div>
-            <div id="interestErrorString" class="mt-2 cmp-signupform__customError"></div>
+            <div id="interestErrorString" class="mt-2 cmp-editprofile__customError"></div>
         </div>
 
-        <div class="cmp-signupform__privacywrapper mt-4">
+        <div class="row g-4 m-0 p-0">
+            <div class="col-12 px-0">
+                <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">${'linkedin_profile' @ i18n}</h3>
+                <div>
+                    <input required placeholder="${'linkedin_profile_label' @ i18n}" name="linkedinProfile" type="text"
+                        class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
+                        aria-describedby="linkedinProfileHelp">
+                </div>
+            </div>
+        </div>
+
+        <div class="cmp-editprofile__privacywrapper mt-4">
             <h6 class="h6">${'privacy_newsletter' @ i18n}</h6>
 
             <!-- GDPR -->
@@ -270,62 +282,61 @@
                     ${'personal_data_processing' @ i18n}
                     <span>${'mandatory' @ i18n}</span>
                 </p>
-                <fieldset class="ps-0">
-                    <label class="me-3">
-                        <input required type="radio" name="privacy" value="yes" class="ms-2 me-2">
-                        ${'yes_label' @ i18n}
+                <fieldset class="ps-0 d-flex">
+                    <label class="d-flex align-items-center">
+                        <input required type="radio" name="privacy" value="yes" class="me-2">
+                        <span class="form-fieldset-label">${'yes_label' @ i18n}</span>
                     </label>
-                    <label>
+                    <label class="d-flex align-items-center">
                         <input required type="radio" name="privacy" value="no" class="ms-2 me-2">
-                        ${'no_label' @ i18n}
+                        <span class="form-fieldset-label">${'no_label' @ i18n}</span>
                     </label>
                 </fieldset>
-                <div id="privacyErrorString" class="mt-2 cmp-signupform__customError"></div>
-
+                <div id="privacyErrorString" class="mt-2 cmp-editprofile__customError"></div>
             </div>
 
             <!-- DATA PROCESSING -->
             <div class="mt-3">
                 <p>${'profiling' @ i18n}</p>
-                <fieldset class="ps-0">
-                    <label class="me-3">
-                        <input required type="radio" name="personalDataProcessing" value="yes" class="ms-2 me-2">
-                        ${'yes_label' @ i18n}
+                <fieldset class="ps-0 d-flex">
+                    <label class="d-flex align-items-center">
+                        <input required type="radio" name="personalDataProcessing" value="yes" class="me-2">
+                        <span class="form-fieldset-label">${'yes_label' @ i18n}</span>
                     </label>
-                    <label>
+                    <label class="d-flex align-items-center">
                         <input required type="radio" name="personalDataProcessing" value="no" class="ms-2 me-2">
-                        ${'no_label' @ i18n}
+                        <span class="form-fieldset-label">${'no_label' @ i18n}</span>
                     </label>
                 </fieldset>
-                <div id="dataProcessingErrorString" class="mt-2 cmp-signupform__customError"></div>
+                <div id="dataProcessingErrorString" class="mt-2 cmp-editprofile__customError"></div>
 
             </div>
 
             <!-- NEWSLETTER -->
             <div class="mt-3">
                 <p>${'agree_newsletter' @ i18n} <span>${'mandatory' @ i18n}</span></p>
-                <fieldset class="ps-0">
-                    <label class="me-3">
-                        <input required type="radio" name="receiveNewsletter" value="yes" class="ms-2 me-2">
-                        ${'yes_label' @ i18n}
+                <fieldset class="ps-0 d-flex">
+                    <label class="d-flex align-items-center">
+                        <input required type="radio" name="receiveNewsletter" value="yes" class="me-2">
+                        <span class="form-fieldset-label">${'yes_label' @ i18n}</span>
                     </label>
-                    <label>
+                    <label class="d-flex align-items-center">
                         <input required type="radio" name="receiveNewsletter" value="no" class="ms-2 me-2">
-                        ${'no_label' @ i18n}
+                        <span class="form-fieldset-label">${'no_label' @ i18n}</span>
                     </label>
                 </fieldset>
-                <div id="newsletterErrorString" class="mt-2 cmp-signupform__customError"></div>
+                <div id="newsletterErrorString" class="mt-2 cmp-editprofile__customError"></div>
             </div>
 
-            <div class="mt-5 small-text small-text-light">${'security_code' @ i18n}<span>${'mandatory' @
-                    i18n}</span></div>
+            <p class="mt-5 mb-0 small-text small-text-light">${'security_code' @ i18n} <span>${'mandatory' @
+                    i18n}</span></p>
 
-            <!-- <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div> -->
+            <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div>
 
             <div id="cmp-signupform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
 
             <div class="mt-4">
-                <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
+                <button class="btn btn-primary cmp-signupform__cta" type="submit">${'save' @ i18n}</button>
             </div>
         </div>
     </form>
