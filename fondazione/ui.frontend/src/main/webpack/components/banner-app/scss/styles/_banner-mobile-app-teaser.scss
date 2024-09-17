@@ -4,15 +4,21 @@ $banner-bg-color: rgba($black, 0.5);
     @extend %flex-column-center;
     position: relative;
     color: $white;
+    height: 270px;
+    @include media-breakpoint-up(md) {
+        height: 480px;
+    }
 
     .cmp-teaser {
+        height: 100%;
         text-align: center;
 
         &__content {
+            height: 100%;
             padding: 30px;
             background: $banner-bg-color;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(md) {
                 padding: 60px;
             }
         }
@@ -23,23 +29,26 @@ $banner-bg-color: rgba($black, 0.5);
             font-weight: $font-extra-light;
             font-size: 2rem;
             line-height: 1.2;
-            margin: 20px 0;
+            margin: 10px 0;
             z-index: 1;
             position: relative;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(md) {
                 font-size: $title-big-font-size;
+                margin: 20px 0;
             }
         }
 
-        &__description {
+        &__description p {
             color: $white;
         }
 
         &__links {
             @extend %flex-row-center;
             gap: 20px;
-            margin-top: 40px;
+            @include media-breakpoint-up(md) {
+                margin-top: 40px;
+            }
 
             &--group {
                 display: inline-block;
