@@ -1,5 +1,6 @@
 #customFooter{
     width: 100%;
+    // @TODO Needs to be looked into further / updated with a better solution
     .cmp-link__screen-reader-only{
         display: none;
     }
@@ -7,19 +8,15 @@
         background-color: $secondary;
         color: $white;
         padding: 30px 16px;
-        @media (min-width: 768px) {
+        @include media-breakpoint-up(lg) {
             padding-inline: 90px;
         }
         &>.cmp-container{
-            @media (min-width: 768px) {
+            @include media-breakpoint-up(lg) {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
             }
-        }
-        h2{
-            font-weight: 200;
-            font-family: 'OswaldVariable';
         }
         .section.container.responsivegrid{
             padding: 0;
@@ -29,9 +26,8 @@
                 list-style: none;
                 padding: 0;
                 margin: 0;
-                font-size: 20px;
-                line-height: 45px;
-                @media (min-width: 768px){
+                line-height: $heading-h3-line-height;
+                @include media-breakpoint-up(lg) {
                     max-height: 175px;
                     width: 100%;
                     display: flex;
@@ -40,15 +36,15 @@
                 li{
                     width: 100%;
                     align-self: flex-start;
-                    @media (min-width: 768px){
+                    @include media-breakpoint-up(lg) {
                         max-width: 175px;
                         margin-right: 70px;
                     }
                     a{
                         color: $white;
                         text-decoration: none;
-                        font-weight: 200;
-                        font-family: 'OswaldVariable';
+                        font-weight: $font-default-light;
+                        font-family: $font-default;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
@@ -57,10 +53,10 @@
                         height: 45px;
                         user-select: all;
                         pointer-events: all;
-                        font-size: 20px;
-                        @media (min-width: 768px){
+                        font-size: $title-extra-small-font-size;
+                        @include media-breakpoint-up(lg) {
                             padding-right: 0;
-                            font-size: 25px;
+                            font-size: $heading-h4-font-size;
                         }
                         &::after{
                             content: "";
@@ -78,34 +74,46 @@
         }
         .section.wrapper{
             margin-top: 40px;
-            @media (min-width: 768px){
-                max-width: 121px;
+            @include media-breakpoint-up(lg) {
+                max-width: 130px;
                 margin: 0;
+                display: flex;
+                align-items: center;
+            }
+            h2{
+                @extend %h2-extralight;
+                color: $white;
+                font-size: $title-font-size;
             }
             section{
                 &>.cmp-container{
                     display: flex;
+                    @include media-breakpoint-up(lg) {
+                        justify-content: flex-end;
+                    }
                 }
             }
         }
     }
     section:last-child{
         padding: 30px 15px;
-        @media (min-width: 768px){
+        @include media-breakpoint-up(lg) {
             padding-inline: 90px;
         }
         &>.cmp-container{
-            @media (min-width: 768px){
+            @include media-breakpoint-up(lg) {
                 width: 100%;
                 display: grid;
                 grid-template-columns: calc(100% - 218px) 218px;
             }
         }
+
         p{
-            font-size: 12px;
-            line-height: 20px;
-            font-family: 'ArimoVariable';
-            color: $body-color;
+            @include text-type(text-super-small-light);
+            color: $fm-color-text;
+            @include media-breakpoint-up(lg) {
+                @include text-type(text-small-light); 
+            }
         }
         .image{
             max-width: 211px;

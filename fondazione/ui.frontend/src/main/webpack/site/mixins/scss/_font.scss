@@ -1,0 +1,54 @@
+// Define style maps for headings and text
+$headlines: (
+    h1: ($heading-h1-font-size, $heading-h1-line-height, $font-regular),
+    h1-extralight: ($heading-h1-font-size, $heading-h1-line-height, $font-extra-light),
+    h2: ($heading-h2-font-size, $heading-h2-line-height, $font-regular),
+    h2-extralight: ($heading-h2-font-size, $heading-h2-line-height, $font-extra-light),
+    h3: ($heading-h3-font-size, $heading-h3-line-height, $font-regular),
+    h3-extralight: ($heading-h3-font-size, $heading-h3-line-height, $font-extra-light),
+    h4: ($heading-h4-font-size, $heading-h4-line-height, $font-regular),
+    h4-extralight: ($heading-h4-font-size, $heading-h4-line-height, $font-extra-light),
+    h5: ($heading-h5-font-size, $heading-h5-line-height, $font-regular),
+    h5-extralight: ($heading-h5-font-size, $heading-h5-line-height, $font-extra-light),
+    h6: ($heading-h6-font-size, $heading-h6-line-height, $font-regular),
+    h6-extralight: ($heading-h6-font-size, $heading-h6-line-height, $font-extra-light)
+);
+
+$texts: (
+    text: ($text-size, $text-line-height, $font-regular),
+    text-bold: ($text-size, $text-bold-line-height, $font-bold),
+    text-small-bold: ($small-text-size, $text-small-line-height, $font-bold),
+    text-small-light: ($small-text-size, $text-small-line-height, $font-regular),
+    text-super-small-bold: ($super-small-text-size, $text-super-small-line-height, $font-bold),
+    text-super-small-light: ($super-small-text-size, $text-super-small-line-height, $font-regular)
+);
+
+// Mixin to apply headline styles based on map key
+@mixin headline-type($type) {
+    $styles: map-get($headlines, $type);
+    @if $styles {
+        font-family: $font-default;
+        font-size: nth($styles, 1);
+        line-height: calc(nth($styles, 2) / nth($styles, 1));
+        font-weight: nth($styles, 3);
+    } @else {
+        @warn "Unknown headline type: #{$type}";
+    }
+}
+
+// Mixin to apply text styles based on map key
+@mixin text-type($type) {
+    $styles: map-get($texts, $type);
+    @if $styles {
+        font-family: $font-arimo;
+        font-size: nth($styles, 1);
+        line-height: nth($styles, 2);
+        font-weight: nth($styles, 3);
+    } @else {
+        @warn "Unknown text type: #{$type}";
+    }
+}
+
+// Usage examples
+// @include headline-type(h5-extralight);
+// @include text-type(text-bold);
