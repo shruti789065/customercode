@@ -1,7 +1,7 @@
 // Base
 html,
 body {
-    margin: 0;
+    margin: 0px;
     font-size: $font-size;
     line-height: $text-line-height;
     font-weight: $font-regular;
@@ -12,6 +12,18 @@ body {
     //     color: $color-foreground-dark;
     //     background: $color-background-dark;
     // }
+}
+
+.root.container,
+.container-fluid,
+.container.container-fluid {
+    max-width: 100%;
+    padding: 0px;
+}
+
+.container.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 {
+    float: unset;
+    clear: both;
 }
 
 // Headings

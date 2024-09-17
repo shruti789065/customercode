@@ -330,6 +330,8 @@
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
+                    jcr:lastModified="{Date}2024-09-13T16:28:09.840+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Title"
                     sling:resourceType="wcm/core/components/policy/policy"
@@ -359,17 +361,15 @@
             </experiencefragment>
             <container jcr:primaryType="nt:unstructured">
                 <policy_1574694950110
-                    cq:styleDefaultClasses="container-fluid px-0"
+                    cq:styleDefaultClasses="container-fluid"
                     jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2024-09-11T21:10:53.683+03:00"
+                    jcr:lastModified="{Date}2024-09-16T15:47:02.024+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    columns="12"
                     components="[group:Fondazione - Content,/apps/fondazione/components/form/container,group:Fondazione - Structure]"
-                    layout="responsiveGrid"
-                    layoutDisabled="true">
+                    layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -397,12 +397,13 @@
                 <policy_1574695586800
                     cq:styleDefaultClasses="container-fluid"
                     jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:lastModified="{Date}2024-09-11T21:19:59.117+03:00"
+                    jcr:lastModified="{Date}2024-09-13T15:47:48.765+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="[group:Fondazione - Content,/apps/fondazione/components/form/container]"
+                    layout="responsiveGrid"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -427,6 +428,17 @@
                                 resourceType="fondazione/components/contentfragment"/>
                         </assetToComponentMapping>
                     </cq:authoring>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0 jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="container-fluid"
+                                    cq:styleId="1726235249991"
+                                    cq:styleLabel="Full Width"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_1574695586800>
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
@@ -469,6 +481,16 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+                <policy_34977012579416
+                    jcr:lastModified="{Date}2024-09-17T01:03:58.619+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Container Default Layout"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    layout="responsiveGrid"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_34977012579416>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
