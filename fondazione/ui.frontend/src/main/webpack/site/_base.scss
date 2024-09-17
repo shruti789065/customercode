@@ -1,10 +1,10 @@
 // Base
 html,
 body {
-    margin: 0;
+    margin: 0px;
     font-size: $font-size;
-    line-height: 25px;
-    font-weight: 400;
+    line-height: $text-line-height;
+    font-weight: $font-regular;
     color: $body-color;
     background: $white;
 
@@ -25,94 +25,101 @@ body {
     max-width: unset;
 }
 
+.root.container,
+.container-fluid,
+.container.container-fluid {
+    max-width: 100%;
+    padding: 0px;
+}
+
+.container.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 {
+    float: unset;
+    clear: both;
+}
+
 // Headings
 h1,
 .h1 {
-    font-size: 50px;
-    line-height: 60px;
-    font-weight: 400;
+    @extend %h1;
 
     &.h1-light {
-        font-weight: 250;
+        @extend %h1-extralight;
     }
 }
 
 h2,
 .h2 {
-    font-size: 40px;
-    line-height: 50px;
-    font-weight: 400;
+    @extend %h2;
 
     &.h2-light {
-        font-weight: 250;
+        @extend %h2-extralight;
     }
 }
 
 h3,
 .h3 {
-    font-size: 30px;
-    line-height: 45px;
-    font-weight: 300;
+    @extend %h3;
 
     &.h3-light {
-        font-weight: 250;
+        @extend %h3-extralight;
     }
 }
 
 h4,
 .h4 {
-    font-size: 25px;
-    line-height: 45px;
-    font-weight: 400;
+    @extend %h4;
 
     &.h4-light {
-        font-weight: 250;
+        @extend %h4-extralight;
     }
 }
 
 h5,
 .h5 {
-    font-size: 25px;
-    line-height: 32px;
-    font-weight: 400;
+    @extend %h5;
 
     &.h5-light {
-        font-weight: 250;
+        @extend %h5-extralight;
     }
 }
 
 h6,
 .h6 {
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 32px;
+    @extend %h6;
 
     &.h6-light {
-        font-weight: 250;
+        @extend %h6-extralight;
     }
 }
 
-.small-text {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 25px;
-    letter-spacing: 0.25px;
+// Text 
 
-    &.small-text-light {
-        font-weight: 400;
-    }
+p,
+.text {
+    @extend %text;
 }
 
-.extra-small-text {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 22px;
-    letter-spacing: 0.25px;
-
-    &.extra-small-text-light {
-        font-weight: 400;
-    }
+.text-bold {
+    @extend %text-bold;
 }
+
+.text-small-bold {
+    @extend %text-small-bold;
+}
+
+.text-small-light {
+    @extend %text-small-light;
+}
+
+.text-super-small-bold {
+    @extend %text-super-small-bold;
+}
+
+.text-super-small-light {
+    @extend %text-super-small-light;
+}
+
+// Links
 
 a {
     color: $color-link;
@@ -122,6 +129,7 @@ a {
     // }
 }
 
+// Buttons
 button,
 input,
 optgroup,
@@ -130,6 +138,12 @@ textarea {
     font: inherit;
 }
 
+// Radio Button
+input[type=radio] {
+    accent-color: $fm-color-blue-link;
+}
+
+// Sign up form
 
 .cmp-signupform__cta {
     padding: 10px 50px;
@@ -142,11 +156,3 @@ textarea {
         width: 100%;
     }
 }
-
-
-// INIZIO RADIO BUTTON
-input[type=radio] {
-    accent-color: $blue-link;
-}
-
-// FINE RADIO BUTTON

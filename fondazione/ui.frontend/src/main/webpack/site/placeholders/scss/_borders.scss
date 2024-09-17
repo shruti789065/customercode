@@ -1,0 +1,19 @@
+// BORDER
+
+%border-small-solid-primary {
+    border: 1px solid $border-color-primary;
+    border-radius: $border-radius-small;
+    border-style: $border-style-solid;
+}
+
+%border-medium-dashed-light {
+    border: 1px solid $border-color-light;
+    border-radius: $border-radius-medium;
+    border-style: $border-style-dashed;
+}
+
+%border-circle-solid-dark {
+    border: 1px solid $border-color-dark;
+    border-radius: $border-radius-circle;
+    border-style: $border-style-solid;
+}
