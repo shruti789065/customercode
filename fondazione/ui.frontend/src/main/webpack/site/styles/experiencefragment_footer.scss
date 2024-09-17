@@ -1,14 +1,166 @@
-//== XF Footer style, used on page template
+#footer{
+    width: 100%;
+    // @TODO Needs to be looked into further / updated with a better solution
+    .cmp-link__screen-reader-only{
+        display: none;
+    }
+    section.section.container:first-child{
+        background-color: $secondary;
+        color: $white;
+        padding: 30px 16px;
+        @include media-breakpoint-up(lg) {
+            padding-inline: 90px;
+        }
+        &>.cmp-container{
+            @include media-breakpoint-up(lg) {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 70px;
+            }
+        }
+        .list{
+            @include media-breakpoint-up(lg) {
+                width: 100vw;
+                max-width: 220px;
+            }
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                line-height: $heading-h3-line-height;
+                @include media-breakpoint-up(lg) {
+                    max-height: 175px;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: column wrap;
+                }
+                li{
+                    width: 100%;
+                    align-self: flex-start;
+                    a{
+                        color: $white;
+                        text-decoration: none;
+                        font-weight: $font-default-light;
+                        font-family: $font-default;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding-right: 40px;
+                        margin-bottom: 10px;
+                        height: 45px;
+                        user-select: all;
+                        pointer-events: all;
+                        font-size: $title-extra-small-font-size;
+                        @include media-breakpoint-up(lg) {
+                            padding-right: 0;
+                            font-size: $heading-h4-font-size;
+                        }
+                        &::after{
+                            content: "";
+                            display: block;
+                            width: 10px;
+                            height: 45px;
+                            background: url($resources-path + "/icons/arrow.svg");
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+        .section.wrapper{
+            margin-top: 40px;
+            @include media-breakpoint-up(lg) {
+                max-width: 130px;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                grid-column: -1;
+            }
+            >.cmp-container{
+                max-width: 100%;
+            }
+            h2{
+                @extend %h2-extralight;
+                color: $white;
+                font-size: $title-font-size;
+            }
+            section{
+                padding: 12px 0 0;
+                &>.cmp-container{
+                    display: flex;
+                    justify-content: flex-start;
+                    padding-left: 12px;
+                    gap: 23px;
+                    @include media-breakpoint-up(lg) {
+                        justify-content: flex-end;
+                    }
+                    .button{
+                        max-width: 37px;
+                        max-height: 37px;
+                    }
+                }
+            }
+        }
+    }
+    section:last-child{
+        padding: 30px 15px;
+        @include media-breakpoint-up(lg) {
+            padding-inline: 90px;
+        }
+        &>.cmp-container{
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                display: grid;
+                grid-template-columns: calc(100% - 218px) 218px;
+            }
+        }
 
-footer.experiencefragment {
-    border-top: 1px solid $color-foreground;
-
-    @media (prefers-color-scheme: dark) {
-        border-color: $color-foreground-dark;
+        p{
+            @include text-type(text-super-small-light);
+            color: $fm-color-text;
+            @include media-breakpoint-up(lg) {
+                @include text-type(text-small-light); 
+            }
+        }
+        .image{
+            max-width: 211px;
+        }
+    }
+    .button{
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        button{
+            width: 60px;
+            height: 60px;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+        .cmp-button__icon{
+            display: block;
+            width: 37px;
+            height: 37px;
+            &--linkedIn{
+                background: url($resources-path + "/icons/linkedin-footer.svg");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            &--youtube {
+              background: url($resources-path + "/icons/youtube-footer.svg");
+              background-size: contain;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+        }
     }
 
-    .cmp-separator__horizontal-rule {
-        margin: 0;
-        border: 0;
-    }
 }
