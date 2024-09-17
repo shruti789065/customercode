@@ -21,8 +21,7 @@ $max-image-height: 365px;
             background-color: $fm-color-bg-section;
 
             @include media-breakpoint-up(lg) {
-                width: auto;
-                padding: 30px;
+                padding: 45px;
                 height: 80%;
             }
         }
@@ -31,17 +30,20 @@ $max-image-height: 365px;
             width: 100%;
             height: 100%;
 
-            img {
+            .cmp-image {
                 width: 100%;
-                height: auto;
-                max-height: $max-image-height;
-                object-fit: cover;
-            }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    max-height: $max-image-height;
+                    object-fit: cover;
+                }
+            }        
 
             @include media-breakpoint-up(lg) {
                 object-fit: cover;
                 display: flex;
-                justify-content: center;
                 overflow: hidden;
             }
         }
@@ -54,6 +56,7 @@ $max-image-height: 365px;
             font-weight: $font-weight-lighter;
             font-size: $title-font-size;
             margin-bottom: 10px;
+            line-height: $heading-h2-line-height;
         }
 
         &__description {
@@ -84,10 +87,69 @@ $max-image-height: 365px;
     }
 }
 
+.cmp-horizontal-teaser-left{
+    .cmp-teaser {
+        &__content {  
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                padding-left: calc((100vw - map-get($container-max-widths, lg))/2);
+            }
+            @include media-breakpoint-up(xl) {
+                width: 100%;
+                padding-left: calc((100vw - map-get($container-max-widths, xl))/2);
+            }
+            @include media-breakpoint-up(xxl) {
+                width: 100%;
+                padding-left: calc((100vw - map-get($container-max-widths, xxl))/2);
+            }
+        }
+        &__image {
+            @include media-breakpoint-up(lg) {
+                padding-right: calc((100vw - map-get($container-max-widths, lg))/2);
+                justify-content: left;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-right: calc((100vw - map-get($container-max-widths,xl))/2);
+                justify-content: left;
+            }
+            @include media-breakpoint-up(xxl) {
+                padding-right: calc((100vw - map-get($container-max-widths, xxl))/2);
+                justify-content: left;
+            }
+        }
+        
+    }
+}
+
 .cmp-horizontal-teaser-right {
     .cmp-teaser {
         @include media-breakpoint-up(lg) {
             flex-direction: row-reverse;
+        }
+        &__content {
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                padding-right: calc(((100vw - map-get($container-max-widths, lg))/2));
+                padding-left: 80px;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-right: calc(((100vw - map-get($container-max-widths, xl))/2));
+            }
+            @include media-breakpoint-up(xxl) {
+                padding-right: calc(((100vw - map-get($container-max-widths, xxl))/2));
+            }
+        }
+        &__image {
+            @include media-breakpoint-up(lg) {
+                padding-left: calc(((100vw - map-get($container-max-widths, lg))/2));
+                justify-content: right;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-left: calc(((100vw - map-get($container-max-widths, xl))/2));
+            }
+            @include media-breakpoint-up(xxl) {
+                padding-left: calc(((100vw - map-get($container-max-widths, xxl))/2));
+            }
         }
     }
 }
