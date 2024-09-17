@@ -1,0 +1,155 @@
+$max-image-height: 365px;
+
+.cmp-horizontal-teaser-right,
+.cmp-horizontal-teaser-left {
+    margin: 10px 0;
+    margin-bottom: 45px;
+
+    .cmp-teaser {
+        display: flex;
+        flex-direction: column;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+        }
+
+        &__content {
+            @extend %flex-column-start;
+            padding: 30px 15px;
+            box-sizing: border-box;
+            width: 100%;
+            background-color: $fm-color-bg-section;
+
+            @include media-breakpoint-up(lg) {
+                padding: 45px;
+                height: 80%;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 100%;
+
+            .cmp-image {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    max-height: $max-image-height;
+                    object-fit: cover;
+                }
+            }        
+
+            @include media-breakpoint-up(lg) {
+                object-fit: cover;
+                display: flex;
+                overflow: hidden;
+            }
+        }
+
+        &__icon {
+            display: none;
+        }
+
+        &__title {
+            font-weight: $font-weight-lighter;
+            font-size: $title-font-size;
+            margin-bottom: 10px;
+            line-height: $heading-h2-line-height;
+        }
+
+        &__description {
+            text-align: left;
+
+            @include media-breakpoint-up(lg) {
+                flex-direction: row;
+            }
+        }
+
+        &__action-container {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        &__action-link {
+            @extend %btn-primary;
+            display: inline-block;
+            padding: 10px 0;
+            width: 100%;
+
+
+            @include media-breakpoint-up(lg) {
+                padding: 10px 50px;
+                width: auto;
+            }
+        }
+    }
+}
+
+.cmp-horizontal-teaser-left{
+    .cmp-teaser {
+        &__content {  
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                padding-left: calc((100vw - map-get($container-max-widths, lg))/2);
+            }
+            @include media-breakpoint-up(xl) {
+                width: 100%;
+                padding-left: calc((100vw - map-get($container-max-widths, xl))/2);
+            }
+            @include media-breakpoint-up(xxl) {
+                width: 100%;
+                padding-left: calc((100vw - map-get($container-max-widths, xxl))/2);
+            }
+        }
+        &__image {
+            @include media-breakpoint-up(lg) {
+                padding-right: calc((100vw - map-get($container-max-widths, lg))/2);
+                justify-content: left;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-right: calc((100vw - map-get($container-max-widths,xl))/2);
+                justify-content: left;
+            }
+            @include media-breakpoint-up(xxl) {
+                padding-right: calc((100vw - map-get($container-max-widths, xxl))/2);
+                justify-content: left;
+            }
+        }
+        
+    }
+}
+
+.cmp-horizontal-teaser-right {
+    .cmp-teaser {
+        @include media-breakpoint-up(lg) {
+            flex-direction: row-reverse;
+        }
+        &__content {
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                padding-right: calc(((100vw - map-get($container-max-widths, lg))/2));
+                padding-left: 80px;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-right: calc(((100vw - map-get($container-max-widths, xl))/2));
+            }
+            @include media-breakpoint-up(xxl) {
+                padding-right: calc(((100vw - map-get($container-max-widths, xxl))/2));
+            }
+        }
+        &__image {
+            @include media-breakpoint-up(lg) {
+                padding-left: calc(((100vw - map-get($container-max-widths, lg))/2));
+                justify-content: right;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-left: calc(((100vw - map-get($container-max-widths, xl))/2));
+            }
+            @include media-breakpoint-up(xxl) {
+                padding-left: calc(((100vw - map-get($container-max-widths, xxl))/2));
+            }
+        }
+    }
+}

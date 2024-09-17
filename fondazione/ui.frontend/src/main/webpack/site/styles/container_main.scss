@@ -1,6 +1,15 @@
-
 //== Container main content style, used on page template
 
 main.container {
-    padding: .5em 1em;
+    padding: 0px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.container-fluid {
+    max-width: none;
+}
+
+.fm-container {
+    max-width: 100%;
 }
