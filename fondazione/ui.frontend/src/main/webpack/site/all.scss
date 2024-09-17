@@ -1,0 +1,756 @@
+// Use Bootstrap's default transition duration and ease-in-out
+$transition-duration-default: 0.3s;
+$transition-ease-in-out: ease;
+//== BORDER WIDTHS
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 4px;
+
+//== BORDER RADIUS (rounded corners)
+$border-radius-small: 2px;
+$border-radius-medium: 4px;
+$border-radius-large: 8px;
+$border-radius-circle: 50%;
+
+//== BORDER STYLES
+$border-style-solid: solid;
+$border-style-dashed: dashed;
+$border-style-dotted: dotted;
+
+// Bootstrap Button Border Radius Overwrite
+$btn-border-radius: 0px;
+
+//== Bootstrap Breakpoints Overwrites
+$grid-breakpoints: (
+    xs: 0,
+    // Extra small devices (phones) - Bootstrap's "mobile-first" approach starts at 0px
+    sm: 576px,
+    // Small devices (phones in landscape) - Start applying styles for small screens (e.g., 576px and above)
+    md: 768px,
+    // Medium devices (tablets) - Styles apply for tablet-sized devices starting at 768px and above
+    lg: 992px,
+    // Large devices (desktops) - Styles for larger desktops and tablets starting at 992px and above
+    xl: 1200px,
+    // Extra large devices (large desktops) - Styles for large desktop screens starting at 1200px and above
+    xxl: 1400px // Extra extra large devices (widescreens) - Applies for ultra-wide monitors or larger screens starting at 1400px
+    ) !default;
+
+// Colors
+
+// Custom colors 
+// use this convention: {fm}-{color}-{description}-{color}
+$fm-color-bg-section: #F7F6F4;
+$fm-color-gray-light: #B6B59C;
+$fm-color-border: #C9C9C9;
+$fm-color-text: #484542;
+$fm-color-blue-link: #0783FF;
+$fm-color-hover-li: #143F5933;
+// --- END---
+
+// Bootstrap overwritest
+
+// _Primary colors
+$primary: #AE0F0A;
+$primary-hover: #D32D39;
+
+// _Secondary colors
+$secondary: #143F59;
+$secondary-hover: #222E41;
+
+$white: #ffffff;
+$black: #000000;
+$body-color: $black;
+
+//== BORDER COLORS
+$border-color-light: $fm-color-border;
+$border-color-dark: $fm-color-text;
+$border-color-primary: $secondary-hover;
+
+// _Normal mode
+$color-foreground: #202020;
+$color-background: #ECECEC;
+$color-link: #2020E0;
+
+// _Dark mode
+$color-foreground-dark: invert($color-foreground
+);
+$color-background-dark: invert($color-background);
+$color-link-dark: invert($color-link);
+
+$container-fluid-max-width: 1920px;
+
+// Font
+
+// Font Family
+$font-default: 'OswaldVariable', sans-serif;
+$font-arimo: 'ArimoVariable', serif;
+$font-arimo-italic: 'ArimoVariableItalic', serif;
+
+// Base Font
+$font-size: 16px;
+$font-height: 1.5;
+
+// Font size
+$title-extra-small-font-size: 1.25rem;
+$title-small-font-size: 1.875rem;
+$title-font-size: 2.5rem;
+$title-big-font-size: 3.75rem;
+
+// Headings Font Sizes
+$heading-h1-font-size: 3.125rem;
+$heading-h2-font-size: 3rem;
+$heading-h3-font-size: 1.875rem;
+$heading-h4-font-size: 1.5625rem;
+$heading-h5-font-size: 1.375rem;
+$heading-h6-font-size: 1.375rem;
+
+// Text Font size
+$text-size: 1.125rem;
+$small-text-size: 0.9375rem;
+$super-small-text-size: 0.75rem;
+
+// Font Weight 
+$font-extra-light: 250;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+// Line Heights 
+$heading-h1-line-height: 3.75rem;
+$heading-h2-line-height: 2.5rem;
+$heading-h3-line-height: 2.8125rem;
+$heading-h4-line-height: 2.8125rem;
+$heading-h5-line-height: 2rem;
+$heading-h6-line-height: 2rem;
+$text-line-height: 1.5625rem;
+$text-bold-line-height: 1.75rem;
+$text-small-line-height: 1.5625rem;
+$text-super-small-line-height: 1.375rem;
+
+// Bootstrap overwrites
+
+// Override Bootstrap variables with custom fonts 
+
+
+
+$font-family-base: $font-default;
+$headings-font-family: $font-default;
+$body-font-family: $font-arimo;
+$body-font-weight: $font-regular;
+$headings-font-weight: $font-bold;
+
+// Path
+
+$resources-path: '/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources';
+// Custom spaces
+$xxl: 60px;
+$xl: 36px;
+$l: 30px;
+$m: 24px;
+$xs: 12px;
+$s: 18px;
+
+// Section spaces
+$space-between-sections: 55px;
+
+// Bootstrap's default $spacers map
+$spacers: (
+    0: 0,
+    1: $xs,
+    2: $s,
+    3: $m,
+    4: $l,
+    5: $xl,
+    6: $xxl
+);
+
+// Mixin for typography
+@mixin typography($font-size, $font-weight: normal, $line-height: 1.5, $letter-spacing: normal) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
+
+%smooth-transition {
+    transition: all $transition-duration-default $transition-ease-in-out;
+}
+
+// BORDER
+
+%border-small-solid-primary {
+    border: 1px solid $border-color-primary;
+    border-radius: $border-radius-small;
+    border-style: $border-style-solid;
+}
+
+%border-medium-dashed-light {
+    border: 1px solid $border-color-light;
+    border-radius: $border-radius-medium;
+    border-style: $border-style-dashed;
+}
+
+%border-circle-solid-dark {
+    border: 1px solid $border-color-dark;
+    border-radius: $border-radius-circle;
+    border-style: $border-style-solid;
+}
+
+%btn-primary {
+    background-color: $primary;
+    font-weight: $font-bold;
+    font-size: $text-size;
+    line-height: $text-line-height;
+    color: $white;
+    padding: 10px 50px;
+    border: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color $transition-duration-default $transition-ease-in-out;
+
+    &:hover {
+        background-color: $primary-hover;
+    }
+}
+
+%container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $xs;
+}
+
+%flex-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+// Headlines
+
+%h1 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h1-font-size;
+    line-height: calc($heading-h1-line-height / $heading-h1-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h1-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h1-font-size;
+    line-height: calc($heading-h1-line-height / $heading-h1-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h2 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h2-font-size;
+    line-height: calc($heading-h2-line-height / $heading-h2-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h2-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h2-font-size;
+    line-height: calc($heading-h2-line-height / $heading-h2-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h3 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h3-font-size;
+    line-height: calc($heading-h3-line-height / $heading-h3-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h3-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h3-font-size;
+    line-height: calc($heading-h3-line-height / $heading-h3-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h4 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h4-font-size;
+    line-height: calc($heading-h4-line-height / $heading-h4-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h4-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h4-font-size;
+    line-height: calc($heading-h4-line-height / $heading-h4-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+
+%h5 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h5-font-size;
+    line-height: calc($heading-h5-line-height / $heading-h5-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h5-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h5-font-size;
+    line-height: calc($heading-h5-line-height / $heading-h5-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h6 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h6-font-size;
+    line-height: calc($heading-h6-line-height / $heading-h6-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h6-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h6-font-size;
+    line-height: calc($heading-h6-line-height / $heading-h6-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+
+// Body text
+
+%text {
+    font-family: $font-arimo;
+    font-size: $text-size;
+    line-height: $text-line-height;
+    font-weight: $font-regular;
+}
+
+%text-bold {
+    font-family: $font-arimo;
+    font-size: $text-size;
+    line-height: $text-bold-line-height;
+    font-weight: $font-bold;
+}
+
+%text-small-bold {
+    font-family: $font-arimo;
+    font-size: $small-text-size;
+    line-height: $text-small-line-height;
+    font-weight: $font-bold;
+}
+
+%text-small-light {
+    font-family: $font-arimo;
+    font-size: $small-text-size;
+    line-height: $text-small-line-height;
+    font-weight: $font-regular;
+}
+
+%text-super-small-bold {
+    font-family: $font-arimo;
+    font-size: $super-small-text-size;
+    line-height: $text-super-small-line-height;
+    font-weight: $font-bold;
+}
+
+%text-super-small-light {
+    font-family: $font-arimo;
+    font-size: $super-small-text-size;
+    line-height: $text-super-small-line-height;
+    font-weight: $font-regular;
+}
+
+// Headlines
+
+%h1 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h1-font-size;
+    line-height: calc($heading-h1-line-height / $heading-h1-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h1-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h1-font-size;
+    line-height: calc($heading-h1-line-height / $heading-h1-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h2 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h2-font-size;
+    line-height: calc($heading-h2-line-height / $heading-h2-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h2-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h2-font-size;
+    line-height: calc($heading-h2-line-height / $heading-h2-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h3 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h3-font-size;
+    line-height: calc($heading-h3-line-height / $heading-h3-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h3-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h3-font-size;
+    line-height: calc($heading-h3-line-height / $heading-h3-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h4 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h4-font-size;
+    line-height: calc($heading-h4-line-height / $heading-h4-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h4-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h4-font-size;
+    line-height: calc($heading-h4-line-height / $heading-h4-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+
+%h5 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h5-font-size;
+    line-height: calc($heading-h5-line-height / $heading-h5-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h5-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h5-font-size;
+    line-height: calc($heading-h5-line-height / $heading-h5-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+%h6 {
+    font-family: $font-default;
+    font-weight: $font-regular;
+    font-size: $heading-h6-font-size;
+    line-height: calc($heading-h6-line-height / $heading-h6-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 40px;
+    //     line-height: 48px;
+    // }
+}
+
+%h6-extralight {
+    font-family: $font-default;
+    font-weight: $font-extra-light;
+    font-size: $heading-h6-font-size;
+    line-height: calc($heading-h6-line-height / $heading-h6-font-size);
+
+    // @media screen and (max-width: $breakpoint-tablet) {
+    //     font-size: 50px;
+    //     line-height: 58px;
+    // }
+}
+
+
+// Body text
+
+%text {
+    font-family: $font-arimo;
+    font-size: $text-size;
+    line-height: $text-line-height;
+    font-weight: $font-regular;
+}
+
+%text-bold {
+    font-family: $font-arimo;
+    font-size: $text-size;
+    line-height: $text-bold-line-height;
+    font-weight: $font-bold;
+}
+
+%text-small-bold {
+    font-family: $font-arimo;
+    font-size: $small-text-size;
+    line-height: $text-small-line-height;
+    font-weight: $font-bold;
+}
+
+%text-small-light {
+    font-family: $font-arimo;
+    font-size: $small-text-size;
+    line-height: $text-small-line-height;
+    font-weight: $font-regular;
+}
+
+%text-super-small-bold {
+    font-family: $font-arimo;
+    font-size: $super-small-text-size;
+    line-height: $text-super-small-line-height;
+    font-weight: $font-bold;
+}
+
+%text-super-small-light {
+    font-family: $font-arimo;
+    font-size: $super-small-text-size;
+    line-height: $text-super-small-line-height;
+    font-weight: $font-regular;
+}
+
+// Base
+html,
+body {
+    margin: 0;
+    font-size: $font-size;
+    line-height: $text-line-height;
+    font-weight: $font-regular;
+    color: $body-color;
+    background: $white;
+
+    // @media (prefers-color-scheme: dark) {
+    //     color: $color-foreground-dark;
+    //     background: $color-background-dark;
+    // }
+}
+
+// Headings
+h1,
+.h1 {
+    @extend %h1;
+
+    &.h1-light {
+        @extend %h1-extralight;
+    }
+}
+
+h2,
+.h2 {
+    @extend %h2;
+
+    &.h2-light {
+        @extend %h2-extralight;
+    }
+}
+
+h3,
+.h3 {
+    @extend %h3;
+
+    &.h3-light {
+        @extend %h3-extralight;
+    }
+}
+
+h4,
+.h4 {
+    @extend %h4;
+
+    &.h4-light {
+        @extend %h4-extralight;
+    }
+}
+
+h5,
+.h5 {
+    @extend %h5;
+
+    &.h5-light {
+        @extend %h5-extralight;
+    }
+}
+
+h6,
+.h6 {
+    @extend %h6;
+
+    &.h6-light {
+        @extend %h6-extralight;
+    }
+}
+
+// Text 
+
+p,
+.text {
+    @extend %text;
+}
+
+.text-bold {
+    @extend %text-bold;
+}
+
+.text-small-bold {
+    @extend %text-small-bold;
+}
+
+.text-small-light {
+    @extend %text-small-light;
+}
+
+.text-super-small-bold {
+    @extend %text-super-small-bold;
+}
+
+.text-super-small-light {
+    @extend %text-super-small-light;
+}
+
+// Links
+
+a {
+    color: $color-link;
+
+    // @media (prefers-color-scheme: dark) {
+    //     color: $color-link-dark;
+    // }
+}
+
+// Buttons
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: inherit;
+}
+
+// Radio Button
+input[type=radio] {
+    accent-color: $fm-color-blue-link;
+}
+
+// Sign up form
+
+.cmp-signupform__cta {
+    padding: 10px 50px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: $headings-font-family;
+
+    @include media-breakpoint-down(lg) {
+        width: 100%;
+    }
+}
