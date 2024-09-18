@@ -114,7 +114,7 @@
 					let popupTemplate = `
 						<div class="popup-overlay">
 							<div class="popup-content">
-								<p>You are about to leave ${currentCountry} website to go to ${targetCountry} website, are you sure?</p>
+								<p>You are about to leave the ${currentCountry} website to go to the ${targetCountry} website, are you sure?</p>
 								<button id="popup-no">No</button>
 								<button id="popup-yes">Yes</button>
 							</div>
