@@ -1,5 +1,25 @@
 .cmp-heroslim {
-    height: 365px;
+
+    .cmp-hero-slim-quote-height {
+        min-height: 365px;
+        height: auto;
+        @include media-breakpoint-up(md) {
+            height: 365px;
+        }
+    }
+
+    &.cmp-hero-slim-text-height {
+        height: 380px;
+    }
+
+    .cmp-overlay {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(178deg, $secondary 0.49%, rgba(20, 63, 89, 0) 99.52%);
+        z-index: 1;
+    }
 
     .cmp-heroslim__quote {
         align-items: center;
@@ -22,6 +42,19 @@
     .cmp-heroslim__contentWrapper {
         color: $white;
         z-index: 100;
+        .cmp-heroslim__title {
+            @extend %h1-extralight;
+            @include media-breakpoint-down(md) {
+                font-size: 2.0625rem;
+            }
+        }
+
+        blockquote {
+            line-height: 45px;
+            @include media-breakpoint-up(lg) {
+                width: 75%;
+            }
+        }
 
         .h1,
         .h2,

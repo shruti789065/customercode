@@ -1,18 +1,19 @@
-<div class="cmp-heroslim container-fluid">
+<div class="cmp-heroslim container-fluid ${properties.optionsType == 'heroSlimQuote' ? 'cmp-hero-slim-quote-height' : 'cmp-hero-slim-text-height'}">
   <div
     data-sly-test="${properties.optionsType == 'heroSlimQuote'}"
-    class="cmp-heroslim__quote position-relative w-100 h-100 d-flex justify-content-center"
+    class="cmp-heroslim__quote position-relative w-100 h-100 d-flex justify-content-center align-items-center cmp-hero-slim-quote-height"
   >
-    <div class="cmp-heroslim__contentWrapper container pb-3 pb-md-0">
+    <div class="cmp-heroslim__contentWrapper container p-5">
       <sly data-sly-test="${properties.content}">
-        <div class="h2" role="heading">
+        <div class="h2 h2-light text-white mb-3" role="heading">
           ${properties.content @ context='html'}
         </div>
       </sly>
       <sly data-sly-test="${properties.signature}">
-        <p class="fst-italic">${properties.signature @ context='html'}</p>
+        <p class="fst-italic text-white fw-lighter mb-0">${properties.signature @ context='html'}</p>
       </sly>
     </div>
+   
     <div class="position-absolute w-100 h-100 cmp-heroslim__imgWrapper">
       <img
         class="w-100 h-100 bg-center bg-no-repeat"
@@ -20,34 +21,38 @@
         alt="hero slim background"
       />
     </div>
+    <div data-sly-test="${properties.overlay}" class="cmp-overlay position-absolute w-100 h-100"></div>
   </div>
 
+  
+  
   <div
     data-sly-test="${properties.optionsType == 'heroSlimText'}"
-    class="position-relative w-100 h-100 d-flex justify-content-center align-items-center"
+    class="position-relative w-100 h-100 d-flex justify-content-center align-items-end  align-items-md-center"
   >
+    <div data-sly-test="${properties.overlay}" class="cmp-overlay position-absolute w-100 h-100"></div>
     <div
-      class="cmp-heroslim__contentWrapper cmp-heroslim__textTitle container"
+      class="cmp-heroslim__contentWrapper cmp-heroslim__textTitle container mt-md-5"
     >
       <sly data-sly-test="${properties.titleTag}">
         <sly data-sly-test="${properties.titleTag == 'h1'}">
-          <h1 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h1>
+          <h1 class="cmp-heroslim__title h1 pb-5 pt-md-5 mt-md-5 pb-md-0 text-white" role="heading">${properties.title}</h1>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h2'}">
-          <h2 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h2>
+          <h2 class="cmp-heroslim__title h1 pb-5 pt-md-5 mt-md-5 pb-md-0 text-white" role="heading">${properties.title}</h2>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h3'}">
-          <h3 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h3>
+          <h3 class="cmp-heroslim__title h1 pb-5 pt-md-5 mt-md-5 pb-md-0 text-white" role="heading">${properties.title}</h3>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h4'}">
-          <h4 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h4>
+          <h4 class="cmp-heroslim__title h1 pb-5 pt-md-5 mt-md-5 pb-md-0 text-white" role="heading">${properties.title}</h4>
         </sly>
 
         <sly data-sly-test="${properties.titleTag == 'h5'}">
-          <h5 class="h1 mt-5 pb-mt-5" role="heading">${properties.title}</h5>
+          <h5 class="cmp-heroslim__title h1 pb-5 pt-md-5 mt-md-5 text-white" role="heading">${properties.title}</h5>
         </sly>
       </sly>
     </div>
