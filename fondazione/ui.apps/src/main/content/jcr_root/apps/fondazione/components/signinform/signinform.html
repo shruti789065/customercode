@@ -11,14 +11,14 @@
                 <h2 class="text-primary h2 h2-light mb-0">${'signin_form_title' @ i18n}</h2>
 
                 <div class="mt-5">
-                    <h3 class="h3">${'email_label' @ i18n}</h3>
+                    <h3 class="h3 h3-light">${'email_label' @ i18n}</h3>
                     <div class="mt-2">
                         <input placeholder="${'email_label' @ i18n}" type="email"
                             class="form-control cmp-form__textField mt-2 rounded-0" name="emailField" id="emailField"
                             aria-describedby="firstNamelHelp" required>
                     </div>
                     <div class="mt-5">
-                        <h3 class="h3">${'password' @ i18n}</h3>
+                        <h3 class="h3 h3-light">${'password' @ i18n}</h3>
                         <input type="password" placeholder="${'password' @ i18n}"
                             class="form-control cmp-form__textField mt-2 rounded-0" name="passField" id="passField"
                             aria-describedby="firstNamelHelp" required>
@@ -34,13 +34,13 @@
                         <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signin' @ i18n}</button>
                     </div>
                     <div class="mt-4 mb-5 mb-lg-0">
-                        <a class="text-decoration-none" href="#">${'forgot_password' @ i18n}</a>
+                        <a class="text-decoration-none forgot-password-link" href="#">${'forgot_password' @ i18n}</a>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6 ps-lg-5 mt-5 mt-lg-0">
                 <h2 class="text-primary h2 h2-light mb-0">${properties.titleFirstRow @ context='html'}</h2>
-                <h2 class="text-primary h2 h2-light mb-0">${properties.titleSecondRow @ context='html'}</h2>
+                <h2 class="text-primary h2 h2-light mb-0 mt-1">${properties.titleSecondRow @ context='html'}</h2>
                 <p class="d-flex align-items-center mt-3">${properties.content @ context='html'}</p>
                 <div class="mt-4">
                     <a href="${properties.signupUrl}">
