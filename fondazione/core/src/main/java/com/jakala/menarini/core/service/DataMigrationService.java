@@ -16,8 +16,11 @@ import com.adobe.cq.dam.cfm.ContentVariation;
 import com.adobe.cq.dam.cfm.FragmentData;
 import com.adobe.cq.dam.cfm.FragmentTemplate;
 import com.adobe.cq.dam.cfm.VariationDef;
+import com.day.cq.dam.api.Asset;
+import com.day.cq.dam.api.AssetManager;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.ParseException;
@@ -51,9 +54,11 @@ public class DataMigrationService {
 
     private static String SERVICE = "data-migration-service";
     private static String CSV_PATH = "/csv/";
+    private static String SPEAKER_IMAGES_PATH = "/speakerImages/";
+    private static String EVENT_IMAGES_PATH = "/eventImages/";
     private static String ROOT_DATA = "/content/dam/fondazione";
     private static String BASE_MODEL = "/conf/fondazione/settings/dam/cfm/models";
-    private static String[] OBJECTS = {"events", "cities", "nations", "subscriptionTypes", "speakers", "media", "topics"};
+    private static String[] OBJECTS = {"events", "cities", "nations", "subscriptiontypes", "speakers", "media", "topics", "speakerimages", "eventimages"};
 
     private static String eventModelPath = BASE_MODEL + "/event";
     private static String eventParentPath = ROOT_DATA + "/events";
@@ -81,7 +86,7 @@ public class DataMigrationService {
         eventTopicsFieldIndexMap.put("topics", 1);
         eventTopicsFieldIndexMap.put("ref_topics", "/content/dam/fondazione/topics/");
     }
-
+    private static String eventImagesParentPath = ROOT_DATA + "/images/events";
 
     private static String topicModelPath = BASE_MODEL + "/topic";
     private static String topicParentPath = ROOT_DATA + "/topics";
@@ -103,6 +108,7 @@ public class DataMigrationService {
         speakerFieldIndexMap.put("ruolo", 4);
         speakerFieldIndexMap.put("foto", 5);
     }
+    private static String speakerImagesParentPath = ROOT_DATA + "/images/speakers";
 
     private static String nationModelPath = BASE_MODEL + "/nation";
     private static String nationParentPath = ROOT_DATA + "/nations";
@@ -175,7 +181,12 @@ public class DataMigrationService {
                 migrateSubscriptionTypes();
                 migrateCities(); // nations
                 migrateEvents(); // subscriptionTypes cities nations
-                connectEventsTopics();
+                try {
+                    connectEventsTopics();
+                } catch (Exception e) {
+                    Thread.sleep(2000); // Wait for 2 seconds
+                    connectEventsTopics();
+                }
                 migrateMedia(); // speakers topics events
             } else if (Arrays.asList(OBJECTS).contains(object.toLowerCase())) {
                 switch (object.toLowerCase()) {
@@ -189,7 +200,7 @@ public class DataMigrationService {
                     case "nations":
                         migrateNations();
                         break;
-                    case "subscriptionTypes":
+                    case "subscriptiontypes":
                         migrateSubscriptionTypes();
                         break;
                     case "speakers":
@@ -200,6 +211,12 @@ public class DataMigrationService {
                         break;
                     case "topics":
                         migrateTopics();
+                        break;
+                    case "speakerimages":
+                        loadLinkSpeakerImages();
+                        break;
+                    case "eventimages":
+                        loadLinkEventImages();
                         break;
                     default:
                         break;
@@ -233,6 +250,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -246,7 +264,11 @@ public class DataMigrationService {
                 currentVariationData.put("nome_disciplina_en", fields[2]);
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource);
-                
+
+                count++;
+                if (count % 100 == 0) {
+                    currentResolver.commit();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -275,6 +297,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -289,6 +312,10 @@ public class DataMigrationService {
 
                 processCsvRow(fields, fields[0], fields[1] + " " + fields[2], template, parentResource);
                 
+                count++;
+                if (count % 100 == 0) {
+                    currentResolver.commit();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -317,6 +344,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -331,6 +359,10 @@ public class DataMigrationService {
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
+                count++;
+                if (count % 100 == 0) {
+                    currentResolver.commit();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -364,6 +396,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -378,6 +411,10 @@ public class DataMigrationService {
 
                 processCsvRow(fields, fields[0], fields[2], template, parentResource);
                 
+                count++;
+                if (count % 100 == 0) {
+                    currentResolver.commit();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -414,6 +451,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -432,6 +470,10 @@ public class DataMigrationService {
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
+                count++;
+                if (count % 100 == 0) {
+                    currentResolver.commit();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -460,6 +502,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -474,6 +517,10 @@ public class DataMigrationService {
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
+                count++;
+                if (count % 100 == 0) {
+                    currentResolver.commit();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -524,7 +571,6 @@ public class DataMigrationService {
     }
 
 
-
     /**
      * Migrates topic data from CSV to Content Fragments.
      */
@@ -553,6 +599,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -568,13 +615,151 @@ public class DataMigrationService {
                 currentVariationData.put("descrizione_en", fields[8]);
 
                 processCsvRow(fields, fields[0], fields[5], template, parentResource);
-                
+
+                count++;
+                if (count % 100 == 0) {
+                    currentResolver.commit();
+                }
             }
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
             }
         }
+    }
+
+    /**
+     * Loads speaker images from a specified directory and links them to speaker content fragments.
+     */
+    private void loadLinkSpeakerImages() throws Exception {
+
+        if (!checkReferencesExist("/content/dam/fondazione/speakers")) {
+            throw new RepositoryException("Migrate speakers before loading images.");
+        }
+
+        currentParentPath = speakerImagesParentPath;
+        ensureFolderExists();
+
+        AssetManager assetManager = currentResolver.adaptTo(AssetManager.class);
+
+        Resource modelResource = currentResolver.getResource(speakerModelPath);
+        FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
+        if (template == null) {
+            throw new IllegalArgumentException("Template not found: " + speakerParentPath);
+        }
+
+        currentParentPath = speakerParentPath;
+        Resource parentResource = ensureFolderExists();
+        String replace = ".PhotoContent";
+
+        Asset defaultAsset = loadAsset("default.PhotoContent.png", SPEAKER_IMAGES_PATH, speakerImagesParentPath, replace, assetManager);
+        if (defaultAsset == null) {
+            throw new IllegalArgumentException("Default image not found");
+        }
+
+        Iterator<Resource> fragments = parentResource.listChildren();
+        while (fragments.hasNext()) {
+            Resource fragmentResource = fragments.next();
+            ContentFragment cfm = fragmentResource.adaptTo(ContentFragment.class);
+            ContentElement element = cfm.getElement("id");
+            String id = element.getValue().getValue().toString();
+
+            String fileName = id + replace + ".jpg";
+
+            Asset asset = null;
+            asset = loadAsset(fileName, SPEAKER_IMAGES_PATH, speakerImagesParentPath, replace, assetManager);
+            if (asset == null) {
+                fileName = id + replace + ".png";
+                asset = loadAsset(fileName, SPEAKER_IMAGES_PATH, speakerImagesParentPath, replace, assetManager);
+            }
+            if (asset == null) {
+                asset = defaultAsset;
+            }
+
+            String assetReference = asset.getPath();
+            ContentElement photoElement = cfm.getElement("foto");
+            if (photoElement != null) {
+                photoElement.setContent(assetReference, photoElement.getContentType());
+                currentResolver.commit();
+            }
+        }
+    }
+
+    /**
+     * Loads event images from a specified directory and links them to event content fragments.
+     */
+    private void loadLinkEventImages() throws Exception {
+
+        if (!checkReferencesExist("/content/dam/fondazione/events")) {
+            throw new RepositoryException("Migrate events before loading images.");
+        }
+
+        currentParentPath = eventImagesParentPath;
+        ensureFolderExists();
+
+        AssetManager assetManager = currentResolver.adaptTo(AssetManager.class);
+
+        Resource modelResource = currentResolver.getResource(eventModelPath);
+        FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
+        if (template == null) {
+            throw new IllegalArgumentException("Template not found: " + speakerParentPath);
+        }
+
+        currentParentPath = eventParentPath;
+        Resource parentResource = ensureFolderExists();
+        String replace = ".FileContent";
+
+        Iterator<Resource> fragments = parentResource.listChildren();
+        while (fragments.hasNext()) {
+            Resource fragmentResource = fragments.next();
+            ContentFragment cfm = fragmentResource.adaptTo(ContentFragment.class);
+            ContentElement element = cfm.getElement("id");
+            String id = element.getValue().getValue().toString();
+
+            String fileName = id + replace + ".jpg";
+
+            Asset asset = null;
+            asset = loadAsset(fileName, EVENT_IMAGES_PATH, eventImagesParentPath, replace, assetManager);
+            if (asset == null) {
+                fileName = id + replace + ".png";
+                asset = loadAsset(fileName, EVENT_IMAGES_PATH, eventImagesParentPath, replace, assetManager);
+            }
+            if (asset == null) {
+                continue;
+            }
+
+            String assetReference = asset.getPath();
+            ContentElement photoElement = cfm.getElement("presentation_image");
+            if (photoElement != null) {
+                photoElement.setContent(assetReference, photoElement.getContentType());
+                currentResolver.commit();
+            }
+        }
+    }
+
+    /**
+     * Loads an asset from the specified file name and returns it.
+     * If the asset does not exist in the repository, it attempts to create it.
+     */
+    @SuppressWarnings("deprecation")
+    private Asset loadAsset(String fileName, String fromPath, String toPath, String replace, AssetManager assetManager) {
+        Asset asset = null;
+        String assetPath = toPath + "/" + fileName.replace(replace, "");
+        Resource assetResource = currentResolver.getResource(assetPath);
+        
+        if (assetResource != null) {
+            asset = assetResource.adaptTo(Asset.class);
+            return asset;
+        }
+
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fromPath + fileName)) {
+            if (inputStream != null) {
+                asset = assetManager.createAsset(assetPath, inputStream, "image/jpeg", true);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return asset;
     }
 
     /**
@@ -596,7 +781,8 @@ public class DataMigrationService {
         
         updateContentFragmentVariations(cfm);
 
-        currentResolver.commit();
+        // aggiunto commit ogni 100 elementi nel chiamante
+        // currentResolver.commit();
     }
 
     /**
@@ -787,9 +973,9 @@ public class DataMigrationService {
 
         String idSlug = id + "-" + slug;
 
-        // Max 20 chars
-        if (idSlug.length() > 20) {
-            idSlug = idSlug.substring(0, 20);
+        // Max 30 chars
+        if (idSlug.length() > 30) {
+            idSlug = idSlug.substring(0, 30);
         }
 
         // Remove final cut
@@ -802,7 +988,7 @@ public class DataMigrationService {
      * Find the fragment by id field
      */
     public ContentFragment findFragmentById(String id, String path) throws RepositoryException {
-        String queryStr = "SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE(s, '" + path + "') AND s.[jcr:content/data/master/id] = '" + id + "'";
+        String queryStr = "SELECT * FROM [dam:Asset] AS s WHERE ISDESCENDANTNODE(s, '" + path + "') AND s.[jcr:content/data/master/id] = '" + id + "'";
 
         Query query = queryManager.createQuery(queryStr, Query.JCR_SQL2);
         QueryResult result = query.execute();

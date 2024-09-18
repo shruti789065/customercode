@@ -4,7 +4,7 @@
     allowedPaths="[/content/entities(/.*)?]"
     ranking="{Long}100">
     <jcr:content
-        cq:lastModified="{Date}2024-09-06T15:57:29.270+02:00"
+        cq:lastModified="{Date}2024-09-17T17:32:01.698+02:00"
         cq:lastModifiedBy="admin"
         cq:scaffolding="/conf/fondazione/settings/dam/cfm/models/speaker/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
@@ -24,13 +24,13 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}2024-09-06T15:57:29.270+02:00"
+                    jcr:lastModified="{Date}2024-09-17T17:32:01.698+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                     <items
                         jcr:primaryType="nt:unstructured"
-                        maxGeneratedOrder="28">
+                        maxGeneratedOrder="21">
                         <_x0031_725630896506
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -40,6 +40,7 @@
                             metaType="text-single"
                             name="id"
                             renderReadOnly="false"
+                            required="on"
                             showEmptyInReadOnly="true"
                             unique="true"
                             valueType="string">
@@ -49,7 +50,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             fieldLabel="Nome"
-                            listOrder="21"
+                            listOrder="1"
                             maxlength="255"
                             metaType="text-single"
                             name="nome"
@@ -62,7 +63,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             fieldLabel="Cognome"
-                            listOrder="22"
+                            listOrder="1"
                             maxlength="255"
                             metaType="text-single"
                             name="cognome"
@@ -75,7 +76,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             fieldLabel="Società"
-                            listOrder="23"
+                            listOrder="1"
                             maxlength="255"
                             metaType="text-single"
                             name="societa"
@@ -88,7 +89,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             fieldLabel="Ruolo"
-                            listOrder="24"
+                            listOrder="1"
                             maxlength="255"
                             metaType="text-single"
                             name="ruolo"
@@ -97,26 +98,33 @@
                             valueType="string">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_725630958662>
-                        <_x0031_725630972086
+                        <_x0031_726587012625
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            sling:resourceType="dam/cfm/models/editor/components/contentreference"
                             fieldLabel="Foto"
-                            listOrder="25"
-                            maxlength="255"
-                            metaType="text-single"
+                            filter="hierarchy"
+                            listOrder="21"
+                            metaType="reference"
                             name="foto"
+                            nameSuffix="contentReference"
                             renderReadOnly="false"
+                            rootPath="/content/dam/fondazione/images/speakers"
                             showEmptyInReadOnly="true"
-                            valueType="string">
-                            <granite:data jcr:primaryType="nt:unstructured"/>
-                        </_x0031_725630972086>
+                            showThumbnail="true"
+                            validation="cfm.validation.contenttype.image"
+                            valueType="string/reference">
+                            <granite:data
+                                jcr:primaryType="nt:unstructured"
+                                showThumbnail="true"
+                                thumbnail-validation="cfm.validation.thumbnail.show"/>
+                        </_x0031_726587012625>
                         <_x0031_725631035068
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
                             cfm-element="Curriculum"
                             checked="false"
                             default-mime-type="text/html"
-                            listOrder="28"
+                            listOrder="2"
                             metaType="text-multi"
                             name="curriculum"
                             renderReadOnly="false"
