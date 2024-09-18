@@ -52,6 +52,7 @@ function buttonBehaviour() {
 // Funzione di inizializzazione
 function init() {
   const popup = document.querySelector(".cmp-popup");
+  console.log("Popup");
   if (!popup) {
     console.log("Popup element not found");
     return;
