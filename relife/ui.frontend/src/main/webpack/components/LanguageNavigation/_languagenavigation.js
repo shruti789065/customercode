@@ -84,54 +84,58 @@
 	document.addEventListener("DOMContentLoaded", init);
 
 	/*-----------------------------------------------------------------------------*/
-
-
+	
 	function seturlPOPup() {
+		// Check if the meta tag is present
+		let isCountryTemplate = document.querySelector('meta[name="template"][content="country"]') !== null;
+	
 		// Change all the Corporate links
 		let languageNavItems = document.querySelectorAll('.cmp-languagenavigation__group');
-
+	
 		languageNavItems.forEach(group => {
 			let corporateLink = group.querySelector('a[href="/content/relife/corporate.html"]');
 			if (corporateLink) {
 				corporateLink.setAttribute('href', '/content/relife/corporate/en.html');
 			}
 		});
-
-		// Add click event for all language links
-		let links = document.querySelectorAll('.cmp-languagenavigation__item-link');
-
-		links.forEach(link => {
-			link.addEventListener('click', function (e) {
-				e.preventDefault(); // Prevent default navigation
-
-				let currentUrl = window.location.href;
-				let currentCountry = getCountryFromUrl(currentUrl);
-				let targetCountry = getCountryFromUrl(link.getAttribute('href'));
-
-				let popupTemplate = `
-					<div class="popup-overlay">
-						<div class="popup-content">
-							<p>You are about to leave ${currentCountry} website to go to ${targetCountry} website, are you sure?</p>
-							<button id="popup-no">No</button>
-							<button id="popup-yes">Yes</button>
+	
+		if (!isCountryTemplate) {
+			// Add click event for all language links
+			let links = document.querySelectorAll('.cmp-languagenavigation__item-link');
+	
+			links.forEach(link => {
+				link.addEventListener('click', function (e) {
+					e.preventDefault(); // Prevent default navigation
+	
+					let currentUrl = window.location.href;
+					let currentCountry = getCountryFromUrl(currentUrl);
+					let targetCountry = getCountryFromUrl(link.getAttribute('href'));
+	
+					let popupTemplate = `
+						<div class="popup-overlay">
+							<div class="popup-content">
+								<p>You are about to leave ${currentCountry} website to go to ${targetCountry} website, are you sure?</p>
+								<button id="popup-no">No</button>
+								<button id="popup-yes">Yes</button>
+							</div>
 						</div>
-					</div>
-				`;
-
-				document.body.insertAdjacentHTML('beforeend', popupTemplate);
-
-				document.getElementById('popup-no').addEventListener('click', function () {
-					document.querySelector('.popup-overlay').remove();
-				});
-
-				document.getElementById('popup-yes').addEventListener('click', function () {
-					window.location.href = link.getAttribute('href');
+					`;
+	
+					document.body.insertAdjacentHTML('beforeend', popupTemplate);
+	
+					document.getElementById('popup-no').addEventListener('click', function () {
+						document.querySelector('.popup-overlay').remove();
+					});
+	
+					document.getElementById('popup-yes').addEventListener('click', function () {
+						window.location.href = link.getAttribute('href');
+					});
 				});
 			});
-		});
-
+		}
+	
 		function getCountryFromUrl(url) {
-			if (url.includes('/corporate/en.html')) return 'RELIFE Corporate';
+			if (url.includes('/corporate/en.html')) return 'RELIFE International';
 			if (url.includes('/it/it.html')) return 'RELIFE Italian';
 			if (url.includes('/it/en.html')) return 'RELIFE Italian';
 			if (url.includes('/de/de.html')) return 'RELIFE German';
@@ -148,7 +152,8 @@
 			return 'Unknown';
 		}
 	}
-
+	
 	document.addEventListener("DOMContentLoaded", seturlPOPup);
+
 	/*-----------------------------------------------------------------------------*/
 })();
