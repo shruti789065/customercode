@@ -1,4 +1,8 @@
 .card-grid-container {
+    padding: 0px 15px;
+    @include media-breakpoint-up(sm) {
+        padding: 0px;
+    }
     &__title {
 
         font-size: $title-small-font-size;
@@ -16,7 +20,7 @@
     }
 
     &__children {
-        div {
+        div.aem-Grid {
             display: flex;
             flex-direction: column;
 
@@ -25,8 +29,6 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 align-content: center;
-                justify-content: flex-start;
-                align-items: center;
 
                 .card-grid-item {
                     flex: 0 0 calc(49%);
@@ -40,6 +42,9 @@
 
                     &:not(:nth-child(2n)) {
                         margin-right: 10px;
+                        @include media-breakpoint-up(xl) {
+                            margin-right: 22px;
+                        }
                     }
                 }
             }

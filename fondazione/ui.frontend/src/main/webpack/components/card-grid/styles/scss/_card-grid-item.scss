@@ -12,10 +12,10 @@
     }
 
     .cmp-teaser {
-        min-height: 375px;
-
+        min-height: 445px;
+        width: 100%;
         @include media-breakpoint-up(lg) {
-            min-height: 0px;
+            min-height: 296px;
         }
 
         &__link {
@@ -26,7 +26,7 @@
             position: relative;
             text-decoration: none;
             z-index: 1;
-            padding: 50px 20px;
+            padding: 70px 20px;
 
             @include media-breakpoint-up(lg) {
                 padding: 0px;
@@ -38,7 +38,7 @@
             text-align: center;
 
             @include media-breakpoint-up(lg) {
-                max-width: 300px;
+                max-width: 389px;
             }
         }
 
@@ -49,9 +49,28 @@
             width: 100%;
             object-fit: cover;
             z-index: 0;
+            min-height: 445px;
+            @include media-breakpoint-up(lg) {
+                min-height: 296px;
+            }
 
-            img {
-                height: 100%;
+            .cmp-image {
+                height: 445px;
+                @include media-breakpoint-up(lg) {
+                    height: 296px;
+                }
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }   
+        }
+
+
+        &.cmp-card-pretitle {
+            min-height: 400px;
+            .cmp-image {
+                height: 400px;
             }
         }
 
@@ -69,14 +88,21 @@
             }
         }
 
+        &__pretitle {
+            @extend %h3;
+            color: $white;
+            z-index: 3;
+            border-bottom: 4px solid $primary;
+        }
+
         &__title {
             color: $white;
-            font-size: 1.7rem;
-            line-height: normal;
+            font-size: 2.5rem;
+            line-height: 2.9rem;
             text-transform: uppercase;
             text-align: center;
             z-index: 3;
-            min-height: 65px;
+            // min-height: 65px;
         }
 
         &__description {
@@ -86,6 +112,7 @@
             p {
                 font-family: $font-georgia;
                 font-style: italic;
+                color: $white;
 
                 @include media-breakpoint-up(lg) {
                     font-size: 1rem;
