@@ -2,3 +2,57 @@ $default-width: 360px;
 
 @import './styles/common';
 @import './styles/navbar';
+
+/* CSS */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: $white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-family: $title-light;
+    font-size: $font-size;
+}
+
+.popup-content button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#popup-no,
+#popup-yes {
+    background-color: $white;
+    color: $midnightBlue;
+    border: 1px solid $midnightBlue;
+    transition: $standard-transition;
+    text-transform: uppercase;
+    font-family: $title-light;
+    font-size: $h5-title-size;
+    padding: 15px 50px;
+    margin: 5px 10px;
+    min-width: 130px;
+
+    &:hover {
+        background-color: $midnightBlue;
+        color: $white;
+    }
+
+}
