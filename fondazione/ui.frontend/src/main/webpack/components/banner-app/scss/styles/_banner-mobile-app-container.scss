@@ -1,0 +1,8 @@
+.banner-mobile-app-container {
+    .cmp-container {
+        height: 270px;
+        @include media-breakpoint-up(md) {
+            height: 480px;
+        }
+    }
+}
