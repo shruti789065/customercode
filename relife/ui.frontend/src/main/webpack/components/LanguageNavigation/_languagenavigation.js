@@ -93,9 +93,9 @@
 		let languageNavItems = document.querySelectorAll('.cmp-languagenavigation__group');
 	
 		languageNavItems.forEach(group => {
-			let corporateLink = group.querySelector('a[href="/content/relife/corporate.html"]');
+			let corporateLink = group.querySelector('a[href="/corporate.html"]');
 			if (corporateLink) {
-				corporateLink.setAttribute('href', '/content/relife/corporate/en.html');
+				corporateLink.setAttribute('href', '/corporate/en.html');
 			}
 		});
 	
@@ -135,20 +135,20 @@
 		}
 	
 		function getCountryFromUrl(url) {
-			if (url.includes('/corporate/en.html')) return 'RELIFE International';
-			if (url.includes('/it/it.html')) return 'RELIFE Italian';
-			if (url.includes('/it/en.html')) return 'RELIFE Italian';
-			if (url.includes('/de/de.html')) return 'RELIFE German';
-			if (url.includes('/de/en.html')) return 'RELIFE German';
-			if (url.includes('/fr/fr.html')) return 'RELIFE French';
-			if (url.includes('/fr/en.html')) return 'RELIFE French';
-			if (url.includes('/at/de.html')) return 'RELIFE Austria';
-			if (url.includes('/at/en.html')) return 'RELIFE Austria';
-			if (url.includes('/ie/en.html')) return 'RELIFE Ireland';
-			if (url.includes('/th/th.html')) return 'RELIFE Thailand';
-			if (url.includes('/th/en.html')) return 'RELIFE Thailand';
-			if (url.includes('/gb/en.html')) return 'RELIFE United Kingdom';
-			if (url.includes('/uk/en.html')) return 'RELIFE United Kingdom';
+			if (url.includes('/corporate/en')) return 'RELIFE International';
+			if (url.includes('/it/it')) return 'RELIFE Italian';
+			if (url.includes('/it/en')) return 'RELIFE Italian';
+			if (url.includes('/de/de')) return 'RELIFE German';
+			if (url.includes('/de/en')) return 'RELIFE German';
+			if (url.includes('/fr/fr')) return 'RELIFE French';
+			if (url.includes('/fr/en')) return 'RELIFE French';
+			if (url.includes('/at/de')) return 'RELIFE Austria';
+			if (url.includes('/at/en')) return 'RELIFE Austria';
+			if (url.includes('/ie/en')) return 'RELIFE Ireland';
+			if (url.includes('/th/th')) return 'RELIFE Thailand';
+			if (url.includes('/th/en')) return 'RELIFE Thailand';
+			if (url.includes('/gb/en')) return 'RELIFE United Kingdom';
+			if (url.includes('/uk/en')) return 'RELIFE United Kingdom';
 			return 'Unknown';
 		}
 	}
