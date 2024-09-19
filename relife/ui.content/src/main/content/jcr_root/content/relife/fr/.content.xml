@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="/conf/relife/settings/wcm/templates/page-content"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-08-08T07:53:51.558Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-05T09:28:23.789Z"
+        cq:lastReplicated_publish="{Date}2024-09-05T09:28:23.789Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/relife/settings/wcm/templates/country"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:language="fr"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="France"
+        jcr:uuid="043587fb-421c-4a51-bbb1-c1aaf4f53ce2"
+        sling:resourceType="relife/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="relife/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="relife/components/container"
+                layout="responsiveGrid"/>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-08-08T07:53:51.541Z"
+            jcr:lastModifiedBy="d.mariotti@adiacent.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+    <fr/>
+    <rep:policy/>
+</jcr:root>

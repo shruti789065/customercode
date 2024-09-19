@@ -1058,7 +1058,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="pharmaceutical template policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productleafleft,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
+                    components="[/apps/menarinimaster/components/accordion,/apps/menarinimaster/components/banner,/apps/menarinimaster/components/button,/apps/menarinimaster/components/card,/apps/menarinimaster/components/cardHover,/apps/menarinimaster/components/container,/apps/menarinimaster/components/contentfragment,/apps/menarinimaster/components/contentfragmentlist,/apps/menarinimaster/components/customTeaser,/apps/menarinimaster/components/experiencefragment,/apps/menarinimaster/components/image,/apps/menarinimaster/components/link,/apps/menarinimaster/components/productleaflet,/apps/menarinimaster/components/section,/apps/menarinimaster/components/separator,/apps/menarinimaster/components/spacer,/apps/menarinimaster/components/teaser,/apps/menarinimaster/components/text,/apps/menarinimaster/components/title,/apps/menarinimaster/components/wrapper]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-06-13T11:26:20.213Z"
@@ -1776,14 +1776,14 @@
                     </cq:styleGroups>
                 </policy_189824603425295>
             </productlist>
-            <productleafleftcontainer jcr:primaryType="nt:unstructured">
+            <productleafletcontainer jcr:primaryType="nt:unstructured">
                 <policy_1657183629541
                     jcr:lastModified="{Date}2022-07-07T10:50:14.810+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="leaflet policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="/apps/menarinimaster/components/productleafleft"
+                    components="/apps/menarinimaster/components/productleaflet"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-03-31T14:37:44.136Z"
@@ -1795,7 +1795,7 @@
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1657183629541>
-            </productleafleftcontainer>
+            </productleafletcontainer>
             <customTeaser jcr:primaryType="nt:unstructured">
                 <policy_1657527731660
                     cq:styleDefaultClasses="cmp-custom-teaser"
@@ -2402,12 +2402,12 @@
                     </cq:styleGroups>
                 </policy_1684743664262>
             </productlistitem>
-            <productleafleft jcr:primaryType="nt:unstructured">
+            <productleaflet jcr:primaryType="nt:unstructured">
                 <policy_1684745083530
                     jcr:lastModified="{Date}2023-06-12T16:00:09.155+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Menarini PT product leafleft policy"
+                    jcr:title="Menarini PT product leaflet policy"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content
                         cq:isDelivered="{Boolean}true"
@@ -2476,7 +2476,7 @@
                         </item1>
                     </cq:styleGroups>
                 </policy_1684745083530>
-            </productleafleft>
+            </productleaflet>
             <productcategorylist jcr:primaryType="nt:unstructured">
                 <policy_1684745198255
                     jcr:lastModified="{Date}2023-06-12T14:41:17.029+02:00"

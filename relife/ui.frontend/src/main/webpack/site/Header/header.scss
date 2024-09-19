@@ -1,0 +1,25 @@
+@import "./scss/navbar";
+@import "./scss/mobile";
+@import "./scss/desktop";
+
+header.experiencefragment {
+	position: fixed;
+	background-color: $white;
+	z-index: 9;
+}
+
+header.cmp-experiencefragment--header-desktop {
+  display: none;
+}
+header.cmp-experiencefragment--header-mobile {
+  display: block;
+}
+
+@include respond-to(tablet) {
+  header.cmp-experiencefragment--header-desktop {
+    display: block;
+  }
+  header.cmp-experiencefragment--header-mobile {
+    display: none;
+  }
+}

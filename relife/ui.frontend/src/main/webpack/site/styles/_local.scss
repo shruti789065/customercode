@@ -1,0 +1,46 @@
+.local-environment:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+}
+
+@include respond-to(small-devices) {
+  .local-environment:before {
+    background: url('data:image/svg+xml;utf8,<svg style="transform:rotate(45deg)" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 40 100"><text x="0" y="25" fill="%23000">Small Devices </text></svg>')
+      0 0/400px 300px;
+  }
+}
+@include respond-to(mobile) {
+  .local-environment:before {
+    background: url('data:image/svg+xml;utf8,<svg style="transform:rotate(45deg)" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 40 100"><text x="0" y="25" fill="%23000">Mobile </text></svg>')
+      0 0/400px 300px;
+  }
+}
+
+@include respond-to(tablet) {
+  .local-environment:before {
+    background: url('data:image/svg+xml;utf8,<svg style="transform:rotate(45deg)" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 45 100"><text x="0" y="25" fill="%23000">Tablet </text></svg>')
+      0 0/400px 300px;
+  }
+}
+@include respond-to(laptop) {
+  .local-environment:before {
+    background: url('data:image/svg+xml;utf8,<svg style="transform:rotate(45deg)" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 40 100"><text x="0" y="25" fill="%23000">Laptop </text></svg>')
+      0 0/400px 300px;
+  }
+}
+
+@include respond-to(desktop) {
+  .local-environment:before {
+    background: url('data:image/svg+xml;utf8,<svg style="transform:rotate(45deg)" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 40 100"><text x="0" y="25" fill="%23000">Desktop</text></svg>')
+      0 0/400px 300px;
+  }
+}
+
+@include respond-to(high-definition) {
+  .local-environment:before {
+    background: url('data:image/svg+xml;utf8,<svg style="transform:rotate(45deg)" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 40 100"><text x="0" y="25" fill="%23000">High Definition</text></svg>')
+      0 0/400px 300px;
+  }
+}

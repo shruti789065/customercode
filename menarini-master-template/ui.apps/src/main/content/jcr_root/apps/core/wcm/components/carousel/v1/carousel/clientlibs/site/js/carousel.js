@@ -123,7 +123,6 @@
     function init(config) {
       that._config = config;
 
-
       // prevents multiple initialization
       config.element.removeAttribute("data-" + NS + "-is");
 
@@ -144,7 +143,11 @@
       }
 
       // TODO: This section is only relevant in edit mode and should move to the editor clientLib
-      if (window.Granite && window.Granite.author && window.Granite.author.MessageChannel) {
+      if (
+        window.Granite &&
+        window.Granite.author &&
+        window.Granite.author.MessageChannel
+      ) {
         /*
          * Editor message handling:
          * - subscribe to "cmp.panelcontainer" message requests sent by the editor frame
@@ -180,19 +183,20 @@
       var imageSlide = item.querySelector(".cmp-teaser__image");
 
       if (slide && slide.tagName === "VIDEO") {
-        if(imageSlide && imageSlide.getAttribute('data-small-screen-only') == 'true'){
-                delay = that._properties.firstDelay;
-        }else{
-            delay = slide.getAttribute("duration");
+        if (
+          imageSlide &&
+          imageSlide.getAttribute("data-small-screen-only") == "true"
+        ) {
+          delay = that._properties.firstDelay;
+        } else {
+          delay = slide.getAttribute("duration");
         }
-      }else {
+      } else {
         delay = that._properties.firstDelay;
       }
       that._properties.delay = delay;
       //startTimer(delay);
     }
-
-
 
     function startTimer(seconds) {
       let counter = seconds / 1000;
@@ -310,6 +314,10 @@
      *
      * @private
      */
+    var startX = 0;
+    var endX = 0;
+    var minSwipeDistance = 50;
+
     function bindEvents() {
       window.addEventListener(
         "hashchange",
@@ -384,6 +392,40 @@
         for (var j = 0; j < items.length; j++) {
           items[j].addEventListener("focusin", onMouseEnter);
           items[j].addEventListener("focusout", onMouseLeave);
+        }
+      }
+      if (that._elements.self) {
+        that._elements.self.addEventListener("touchstart", onTouchStart);
+        that._elements.self.addEventListener("touchmove", onTouchMove);
+        that._elements.self.addEventListener("touchend", onTouchEnd);
+      }
+    }
+
+    function onTouchStart(event) {
+      // Registra la posizione di partenza del touch
+      startX = event.touches[0].clientX;
+    }
+
+    function onTouchMove(event) {
+      // Evita l'azione predefinita per evitare il comportamento di scroll
+      event.preventDefault();
+    }
+
+    function onTouchEnd(event) {
+      // Registra la posizione finale del touch
+      endX = event.changedTouches[0].clientX;
+      handleSwipe();
+    }
+
+    function handleSwipe() {
+      var swipeDistance = endX - startX;
+      if (Math.abs(swipeDistance) > minSwipeDistance) {
+        if (swipeDistance < 0) {
+          // Swipe verso sinistra
+          navigate(getNextIndex());
+        } else {
+          // Swipe verso destra
+          navigate(getPreviousIndex());
         }
       }
     }
@@ -549,18 +591,20 @@
               items[i].classList.add("cmp-carousel__item--active");
               items[i].removeAttribute("aria-hidden");
               setCustomDelay(items[i]);
-              if (indicators){
-	              indicators[i].classList.add("cmp-carousel__indicator--active");
-	              indicators[i].setAttribute("aria-selected", true);
-	              indicators[i].setAttribute("tabindex", "0");
+              if (indicators) {
+                indicators[i].classList.add("cmp-carousel__indicator--active");
+                indicators[i].setAttribute("aria-selected", true);
+                indicators[i].setAttribute("tabindex", "0");
               }
             } else {
               items[i].classList.remove("cmp-carousel__item--active");
               items[i].setAttribute("aria-hidden", true);
-              if (indicators){
-	              indicators[i].classList.remove("cmp-carousel__indicator--active");
-	              indicators[i].setAttribute("aria-selected", false);
-	              indicators[i].setAttribute("tabindex", "-1");
+              if (indicators) {
+                indicators[i].classList.remove(
+                  "cmp-carousel__indicator--active"
+                );
+                indicators[i].setAttribute("aria-selected", false);
+                indicators[i].setAttribute("tabindex", "-1");
               }
             }
           }
@@ -661,7 +705,7 @@
      */
     function navigateAndFocusIndicator(index, keepHash) {
       navigate(index, keepHash);
-      if(that._elements["indicator"] != null){
+      if (that._elements["indicator"] != null) {
         focusWithoutScroll(that._elements["indicator"][index]);
       }
 
@@ -784,19 +828,18 @@
     return null;
   }
 
+  function toggleSmallScreenOnlyAttributeForAll() {
+    const elements = document.querySelectorAll("[data-small-screen-only]");
 
-function toggleSmallScreenOnlyAttributeForAll() {
-      const elements = document.querySelectorAll("[data-small-screen-only]");
+    // Itera su tutti gli elementi che hanno l'attributo 'data-small-screen-only'
+    elements.forEach(function (element) {
+      // Chiama la funzione toggleSmallScreenOnlyAttribute per ogni elemento
+      const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
 
-      // Itera su tutti gli elementi che hanno l'attributo 'data-small-screen-only'
-      elements.forEach(function (element) {
-        // Chiama la funzione toggleSmallScreenOnlyAttribute per ogni elemento
-		const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
-
-		// Modifica l'attributo 'data-small-screen-only'
-		element.setAttribute('data-small-screen-only', isSmallScreen);
-      });
-    }
+      // Modifica l'attributo 'data-small-screen-only'
+      element.setAttribute("data-small-screen-only", isSmallScreen);
+    });
+  }
   /**
    * Document ready handler and DOM mutation observers. Initializes Carousel components as necessary.
    *

@@ -1,0 +1,50 @@
+footer {
+  #footer-logo {
+    max-width: 200px;
+  }
+  .cmp-list {
+    display: flex;
+    gap: 1.2rem;
+	padding: 0;
+    .cmp-list__item {
+      list-style-type: none;   
+      font-family: $title-light;
+      font-size: 1rem;
+	  margin: 0;
+      .cmp-list__item-link {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .cmp-text {
+    font-size: 1rem;
+	line-height: 1.5rem;
+  }
+  .cmp-button {
+    border: none;
+    background-color: transparent;
+    .cmp-button__icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  .cmp-languagenavigation {
+    .cmp-languagenavigation__label {
+      font-weight: bold;
+	  .cmp-languagenavigation__label-text{
+		font-size: $font-size-med;
+		font-family: $title-book;
+		line-height: 1.714rem;
+	  }
+    }
+    .cmp-languagenavigation__group {
+      .cmp-languagenavigation__item {
+        font-size: $font-size-med;
+        font-family: $title-book;
+      }
+    }
+  }
+}

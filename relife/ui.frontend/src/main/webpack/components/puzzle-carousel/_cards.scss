@@ -1,0 +1,101 @@
+.cmp-puzzle--cards {
+  .cmp-container {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    .teaser {
+      height: 13.143rem;
+      margin: 1.875rem 0;
+
+      .cmp-teaser {
+        display: block;
+        min-width: clamp(16.857rem, 13.75vw + 13.714rem, 32.571rem);
+        width: 100%;
+        height: 100%;
+        .cmp-teaser__content {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          height: 100%;
+          .cmp-teaser__title {
+            text-transform: uppercase;
+            font-size: clamp($font-size-med, 0.125vw + 1.114rem, 1.286rem);
+            margin: 0;
+            margin-bottom: 0.571rem;
+          }
+          .cmp-teaser__description {
+            position: relative;
+            //top: -1rem;
+            p {
+              font-size: clamp(1.071rem, 0.063vw + 1.057rem, $font-size-med);
+              margin: 0;
+            }
+          }
+          .cmp-teaser__action-container {
+            margin-top: auto;
+            .cmp-teaser__action-link {
+              font-size: 1.071rem;
+              font-weight: $text-bold;
+              font-family: $title-book;
+              text-decoration-color: rgba(28, 29, 29, 0.3);
+              text-underline-offset: 0.8rem;
+              transition: $standard-transition;
+              &:hover {
+                text-decoration-color: $charcoal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .teaser {
+    &.cmp-teaser--gotham {
+      .cmp-teaser__content {
+        .cmp-teaser__title {
+          font-family: $title-bold;
+        }
+
+        .cmp-teaser__action-container {
+          .cmp-teaser__action-link {
+            font-family: $title-medium;
+          }
+        }
+      }
+    }
+    &.cmp-align--center {
+      text-align: left;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .cmp-puzzle--cards {
+    .cmp-container {
+      gap: 1rem;
+      .teaser {
+        height: 12.215rem;
+        &.cmp-align--center {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(laptop) {
+  .cmp-puzzle--cards {
+    .cmp-container {
+      gap: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      .teaser {
+        .cmp-teaser {
+          min-width: auto;
+        }
+      }
+    }
+  }
+}

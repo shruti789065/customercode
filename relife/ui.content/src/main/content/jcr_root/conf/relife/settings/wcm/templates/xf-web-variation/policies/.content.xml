@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-08-22T15:10:46.337Z"
+        cq:lastModifiedBy="a.messori@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-03T08:11:45.359Z"
+        cq:lastReplicated_publish="{Date}2024-09-03T08:11:45.359Z"
+        cq:lastReplicatedBy="workflow-process-service"
+        cq:lastReplicatedBy_publish="workflow-process-service"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:policy="relife/components/page/policy"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="nt:unstructured"
+        jcr:uuid="482a0447-0580-4fc7-b3d8-b353e1240ad9"
+        sling:resourceType="wcm/core/components/policies/mappings">
+        <root
+            cq:policy="relife/components/container/policy_1575040440977"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping">
+            <mysite jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <title
+                        cq:policy="relife/components/title/policy_641528232375303"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                    <text
+                        cq:policy="relife/components/text/policy_641562756958017"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                    <teaser
+                        cq:policy="relife/components/teaser/policy_1575031387650"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                    <download
+                        cq:policy="relife/components/download/policy_1575032193319"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                    <image
+                        cq:policy="relife/components/image/policy_651483963895698"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                </components>
+            </mysite>
+            <relife jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <containers jcr:primaryType="nt:unstructured">
+                        <wrapper
+                            cq:policy="relife/components/containers/wrapper/policy_1719824277018"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <section
+                            cq:policy="relife/components/containers/section/policy_1719824310667"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                    </containers>
+                    <container
+                        cq:policy="relife/components/container/policy_1575040440977"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                    <text
+                        cq:policy="relife/components/text/policy_641562756958017"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                </components>
+            </relife>
+        </root>
+    </jcr:content>
+</jcr:root>

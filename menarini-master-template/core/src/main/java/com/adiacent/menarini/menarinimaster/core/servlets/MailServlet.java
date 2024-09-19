@@ -37,7 +37,13 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -178,26 +184,19 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 
 
 		//recupero risorsa di provenienza contenente il componente recaptcha per il recupero della secret key
+
 		final String formStart = request.getParameter("resourcePath");
 		if (StringUtils.isBlank(formStart)) {
 			logger.debug("It is no possible to verify recaptcha");
 			errors.add("It is no possible to verify recaptcha");
 		} else {
 			//recupero la risorsa recaptcha
+            final String recaptchaToken = request.getParameter("g-recaptcha-response");
+            if(StringUtils.isBlank(recaptchaToken) || !checkRecaptcha(recaptchaToken,getSecretKey(request))){
+                logger.debug("Recaptcha verification failed");
+                errors.add("Recaptcha verification failed");
+            }
 
-			Resource parent = getParentResource(resourceResolver, formStart);
-			if (parent != null) {
-				Resource recaptchaCmp = parent.getChild("recaptcha");
-				if (recaptchaCmp != null && recaptchaCmp.getValueMap().get("secretKey") != null) {
-					String secretKey = (String) recaptchaCmp.getValueMap().get("secretKey");
-					//check recaptcha
-					final String recaptchaToken = request.getParameter("g-recaptcha-response");
-					if (!checkRecaptcha(recaptchaToken, secretKey)) {
-						logger.debug("Recaptcha verification failed");
-						errors.add("Recaptcha verification failed");
-					}
-				}
-			}
 		}
 
 		Map<String, String> predicate = new HashMap<>();
@@ -321,7 +320,9 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 				mailTo = new String[]{getEncryptedEmail(String.valueOf(encryptedMail))};
 			}
 			sendEmail(request, adminText, StringUtils.isNotBlank(optMailTo) ? new String[]{optMailTo} : mailTo, fromAddress, ccRecs, bccRecs, subject, namesList, resBundle,false,new String[]{emailValue});
-		}
+		} else {
+            status = 400;
+        }
 
 
 		// check for redirect
@@ -487,6 +488,33 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 	public CloseableHttpClient getHttpClient() {
 		return HttpClients.createDefault();
 	}
+    protected String getSecretKey(SlingHttpServletRequest request) {
+        try {
+            ResourceResolver resourceResolver = request.getResourceResolver();
+            Resource currentResource = request.getResource();
+            Session session = resourceResolver.adaptTo(Session.class);
+            QueryManager queryManager = session.getWorkspace().getQueryManager();
+            StringBuilder queryInsidePage = new StringBuilder();
+
+            queryInsidePage.append("SELECT * FROM [nt:unstructured] AS s ");
+            queryInsidePage.append("WHERE ISDESCENDANTNODE('" +currentResource.getPath() + "') ");
+            queryInsidePage.append(" AND s.[sling:resourceType] = 'menarinimaster/components/form/recaptcha' ");
+
+            Query query = queryManager.createQuery(queryInsidePage.toString(), Query.JCR_SQL2);
+            QueryResult queryPageResult = query.execute();
+            NodeIterator nodes = queryPageResult.getNodes();
+            if( nodes.hasNext()){
+                Node recaptcha = nodes.nextNode();
+                if(recaptcha.hasProperty("secretKey")){
+                    return recaptcha.getProperty("secretKey").getString();
+                }
+            }
+
+        }catch (RepositoryException e){
+            logger.error("Missing Recaptcha", e);
+        }
+        return null;
+    }
 
 	public boolean checkRecaptcha(String responseToken, String secretKey) throws RuntimeException {
 		if (StringUtils.isBlank(responseToken) || StringUtils.isBlank(secretKey))

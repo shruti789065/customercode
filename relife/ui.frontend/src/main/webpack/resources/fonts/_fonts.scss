@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "Vermiglione";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Vermiglione/vermiglione_it.ttf")
+    format("woff2-variations");
+  font-weight: 200 700; /* Intervallo dei pesi */
+}
+
+@font-face {
+  font-family: "GothamLight";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLight/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLight/font.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "GothamMedium";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMedium/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMedium/font.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "GothamBold";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBold/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBold/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamBook";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBook/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBook/font.woff")
+      format("woff");
+}
+
+/*ITALIC*/
+
+@font-face {
+  font-family: "GothamBoldItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBoldItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBoldItalic/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamMediumItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMediumItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamMediumItalic/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamBookItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBookItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamBookItalic/font.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "GothamLightItalic";
+  src: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLightItalic/font.woff2")
+      format("woff2"),
+    url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/fonts/Gotham/GothamLightItalic/font.woff")
+      format("woff");
+}
+
+.cmp-title--vermiglione {
+  .cmp-title__text {
+    font-family: "Vermiglione";
+	font-weight: 300;
+  }
+}
+.cmp-title--light {
+  .cmp-title__text {
+    font-family: "GothamLight";
+  }
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamLightItalic";
+    }
+  }
+}
+
+.cmp-title--book {
+  .cmp-title__text {
+    font-family: "GothamBook";
+  }
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamBookItalic";
+    }
+  }
+}
+
+.cmp-title--medium {
+  .cmp-title__text {
+    font-family: "GothamMedium";
+  }
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamMediumItalic";
+    }
+  }
+}
+.cmp-title--bold {
+  .cmp-title__text {
+    font-family: "GothamBold";
+  }
+  &.cmp-title--italic {
+    .cmp-title__text {
+      font-family: "GothamBoldItalic";
+    }
+  }
+}
