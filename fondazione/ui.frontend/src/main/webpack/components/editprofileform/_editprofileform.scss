@@ -44,8 +44,6 @@
         font-weight: 200 !important;
     }
 
-    
-
     .cmp-editprofile__privacywrapper {
 
         h6 {
@@ -78,10 +76,12 @@
         }
     }
 
-    // .cmp-editprofile__customError {
-    //     color: #dc3545;
-    //     font-size: .875em;
-    // }
+    .cmp-editprofile__customError {
+        color: #dc3545;
+        font-size: .875em;
+        font-weight: 300;
+        font-family: $font-arimo;
+    }
 
     .cmp-editprofileform__formItemTitle {
         color: $fm-color-text;
@@ -107,4 +107,12 @@
     // .cmp-editprofileform__countryItem {
     //     margin-top: 10px;
     // }
+
+    .cmp-userprofileform__borderRed {
+        border-color: #dc3545 !important;
+    }
+
+    .cmp-userprofileform__borderGreen {
+        border-color: #198754 !important;
+    }
 }

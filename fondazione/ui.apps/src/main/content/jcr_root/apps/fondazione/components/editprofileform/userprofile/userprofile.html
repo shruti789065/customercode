@@ -3,17 +3,17 @@
 
     <div class="mt-4 d-flex">
         <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Email address:</h3>
-        <h4 class="h4 h4-light cmp-editprofileform__editProfileValue">mario.rossi@gmail.com</h4>
+        <h4 id="userProfileEmailAddress" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <div class="mt-2 d-flex">
         <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Creation date:</h3>
-        <h4 class="h4 h4-light cmp-editprofileform__editProfileValue">01/01/2023</h4>
+        <h4 id="userProfileCreationDate" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <div class="mt-2 d-flex">
         <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Last activity date:</h3>
-        <h4 class="h4 h4-light cmp-editprofileform__editProfileValue">16/06/2023</h4>
+        <h4 id="userProfileLastUpdatedOn" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <h2 class="h2 h2-light mt-4 cmp-editprofileform__editProfileTitle">Change of personal information</h2>
@@ -30,7 +30,7 @@
                     <input required placeholder="${'first_name_placeholder' @ i18n}" name="firstName" type="text"
                         class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
                         aria-describedby="firstNamelHelp">
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback cmp-editprofile__customError">
                         ${'mandatory_field' @ i18n}
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <input required placeholder="${'last_name_placeholder' @ i18n}" type="text" name="lastName"
                         class="form-control cmp-form__textField mt-2 rounded-0" id="lastName"
                         aria-describedby="lastNamelHelp">
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback cmp-editprofile__customError">
                         ${'mandatory_field' @ i18n}
                     </div>
                 </div>
@@ -60,11 +60,11 @@
                     <div class="custom-dropdown position-relative w-100 mt-2">
                         <button
                             class="dropdown-toggle overflow-hidden text-truncate w-100 text-start cmp-editprofileform__professionItem"
-                            type="button" id="dropdownProfessionMenuButton">
+                            type="button" id="dropdownProfessionMenuButtonUserProfile">
                             ${'select_profession' @ i18n}
                         </button>
                         <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
-                            id="professionList">
+                            id="professionListUserProfile">
                             <li class="d-flex align-items-center">
                                 <input type="hidden" value="Biologist">
                                 <div class="dropdown-item d-flex align-items-center">Biologist</div>
@@ -113,7 +113,7 @@
                         </ul>
                     </div>
                 </div>
-                <div id="professionErrorString" class="mt-2 cmp-editprofile__customError"></div>
+                <div id="professionErrorString" class="cmp-editprofile__customError"></div>
             </div>
             <div class="col-12 col-lg-6 px-0 ps-lg-2">
                 <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
@@ -134,10 +134,9 @@
                     ${'date_of_birth' @ i18n} <span>${'mandatory' @ i18n}</span>
                 </h3>
                 <div class="position-relative">
-                    <input required class="form-control mt-2 cmp-form__datepicker rounded-0" type="text"
-                        name="dateOfBirth" placeholder="${'date_of_birth_placeholder' @ i18n}"
-                        onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
-                    <div class="invalid-feedback">
+                    <input required class="form-control mt-2 cmp-form__datepicker rounded-0" type="date"
+                        name="dateOfBirth" id="dateOfBirth">
+                    <div class="invalid-feedback cmp-editprofile__customError">
                         ${'mandatory_field' @ i18n}
                     </div>
                 </div>
@@ -164,11 +163,11 @@
                     <div class="custom-dropdown position-relative w-100 mt-2">
                         <button
                             class="dropdown-toggle overflow-hidden text-truncate w-100 text-start cmp-editprofileform__countryItem"
-                            type="button" id="dropdownCountryMenuButton">
+                            type="button" id="dropdownCountryMenuButtonUserProfile">
                             ${'select_country' @ i18n}
                         </button>
                         <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
-                            id="countryList">
+                            id="countryListUserProfile">
                             <li class="d-flex align-items-center">
                                 <input type="hidden" value="it">
                                 <div class="dropdown-item d-flex align-items-center">IT</div>
@@ -184,7 +183,7 @@
                         </ul>
                     </div>
                 </div>
-                <div id="countryErrorString" class="mt-2 cmp-editprofile__customError"></div>
+                <div id="countryErrorString" class="cmp-editprofile__customError"></div>
             </div>
             <div class="col-12 col-lg-6 px-0 ps-lg-2" id="fiscalCodeInput">
                 <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
@@ -194,16 +193,13 @@
                     <input required placeholder="${'fiscal_code_placeholder' @ i18n}" type="text" name="fiscalCode"
                         class="form-control cmp-form__textField mt-2 rounded-0" id="fiscalCode"
                         aria-describedby="fiscalCodeHelp">
-                    <div class="invalid-feedback">
-                        ${'mandatory_field' @ i18n}
-                    </div>
+                    <div id="fiscalCodeErrorString" class="cmp-editprofile__customError"></div>
                 </div>
-                <div id="countryErrorString" class="mt-2 cmp-editprofile__customError"></div>
             </div>
         </div>
 
         <!-- AREAS OF INTERST -->
-        <div class="col-12 px-0 cmp-signupform__customMultiSelect mt-4">
+        <div class="col-12 px-0 cmp-editProfileform__customMultiSelect mt-4">
             <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                 ${'area_of_interest' @ i18n} <span>${'mandatory' @ i18n}</span>
             </h3>
@@ -214,15 +210,16 @@
             <div>
                 <div class="custom-dropdown position-relative w-100">
                     <button class="dropdown-toggle w-100 overflow-hidden text-truncate text-start" type="button"
-                        id="dropdownMultiselectMenuButton">
+                        id="dropdownMultiselectMenuButtonUserProfile">
                         ${'area_of_interest_placeholder' @ i18n}
                     </button>
-                    <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
-                        id="interestList">
-                        <li class="d-flex align-items-center"><label
-                                class="dropdown-item d-flex align-items-center"><input type="checkbox"
-                                    class="form-check-input mt-0 rounded-0" value="Algology">
-                                Algology</label>
+                    <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto d-none"
+                        id="interestListUserProfile">
+                        <li class="d-flex align-items-center">
+                            <label class="dropdown-item d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input mt-0 rounded-0" value="Algology">
+                                Algology
+                            </label>
                         </li>
                         <li class="d-flex align-items-center"><label
                                 class="dropdown-item d-flex align-items-center"><input type="checkbox"
@@ -257,15 +254,16 @@
                     </ul>
                 </div>
             </div>
-            <div id="interestErrorString" class="mt-2 cmp-editprofile__customError"></div>
+            <div id="interestErrorString" class="cmp-editprofile__customError"></div>
         </div>
 
+        <!-- LINKEDIN PROFILE -->
         <div class="row g-4 m-0 p-0">
             <div class="col-12 px-0">
                 <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">${'linkedin_profile' @ i18n}</h3>
                 <div>
-                    <input required placeholder="${'linkedin_profile_label' @ i18n}" name="linkedinProfile" type="text"
-                        class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
+                    <input placeholder="${'linkedin_profile_label' @ i18n}" name="linkedinProfile" type="text"
+                        class="form-control cmp-form__textField mt-2 rounded-0" id="linkedinProfile"
                         aria-describedby="linkedinProfileHelp">
                 </div>
             </div>
@@ -284,15 +282,15 @@
                 </p>
                 <fieldset class="ps-0 d-flex">
                     <label class="d-flex align-items-center">
-                        <input required type="radio" name="privacy" value="yes" class="me-2">
+                        <input required id="privacyYes" type="radio" name="privacy" value="yes" class="me-2">
                         <span class="form-fieldset-label">${'yes_label' @ i18n}</span>
                     </label>
                     <label class="d-flex align-items-center">
-                        <input required type="radio" name="privacy" value="no" class="ms-2 me-2">
+                        <input required id="privacyNo" type="radio" name="privacy" value="no" class="ms-2 me-2">
                         <span class="form-fieldset-label">${'no_label' @ i18n}</span>
                     </label>
                 </fieldset>
-                <div id="privacyErrorString" class="mt-2 cmp-editprofile__customError"></div>
+                <div id="privacyErrorString" class="cmp-editprofile__customError"></div>
             </div>
 
             <!-- DATA PROCESSING -->
@@ -300,15 +298,17 @@
                 <p>${'profiling' @ i18n}</p>
                 <fieldset class="ps-0 d-flex">
                     <label class="d-flex align-items-center">
-                        <input required type="radio" name="personalDataProcessing" value="yes" class="me-2">
+                        <input required id="dataProcessingYes" type="radio" name="personalDataProcessing" value="yes"
+                            class="me-2">
                         <span class="form-fieldset-label">${'yes_label' @ i18n}</span>
                     </label>
                     <label class="d-flex align-items-center">
-                        <input required type="radio" name="personalDataProcessing" value="no" class="ms-2 me-2">
+                        <input required id="dataProcessingNo" type="radio" name="personalDataProcessing" value="no"
+                            class="ms-2 me-2">
                         <span class="form-fieldset-label">${'no_label' @ i18n}</span>
                     </label>
                 </fieldset>
-                <div id="dataProcessingErrorString" class="mt-2 cmp-editprofile__customError"></div>
+                <div id="dataProcessingErrorString" class="cmp-editprofile__customError"></div>
 
             </div>
 
@@ -317,26 +317,29 @@
                 <p>${'agree_newsletter' @ i18n} <span>${'mandatory' @ i18n}</span></p>
                 <fieldset class="ps-0 d-flex">
                     <label class="d-flex align-items-center">
-                        <input required type="radio" name="receiveNewsletter" value="yes" class="me-2">
+                        <input required id="newsletterYes" type="radio" name="receiveNewsletter" value="yes"
+                            class="me-2">
                         <span class="form-fieldset-label">${'yes_label' @ i18n}</span>
                     </label>
                     <label class="d-flex align-items-center">
-                        <input required type="radio" name="receiveNewsletter" value="no" class="ms-2 me-2">
+                        <input required id="newsletterNo" type="radio" name="receiveNewsletter" value="no"
+                            class="ms-2 me-2">
                         <span class="form-fieldset-label">${'no_label' @ i18n}</span>
                     </label>
                 </fieldset>
-                <div id="newsletterErrorString" class="mt-2 cmp-editprofile__customError"></div>
+                <div id="newsletterErrorString" class="cmp-editprofile__customError"></div>
             </div>
 
             <p class="mt-5 mb-0 small-text small-text-light">${'security_code' @ i18n} <span>${'mandatory' @
                     i18n}</span></p>
 
-            <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div>
+            <!-- <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div> -->
 
-            <div id="cmp-signupform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
+            <div id="cmp-editprofileform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
+            <div id="cmp-editprofileform__successAlert" class="alert alert-success mt-4 d-none" role="alert">${'user_info_update_success' @ i18n}</div>
 
             <div class="mt-4">
-                <button class="btn btn-primary cmp-signupform__cta" type="submit">${'save' @ i18n}</button>
+                <button class="btn btn-primary cmp-form__cta" type="submit">${'save' @ i18n}</button>
             </div>
         </div>
     </form>

@@ -1,6 +1,7 @@
 <div class="container">
     <form class="customform needs-validation" id="signInForm" method="post" novalidate>
         <div class="row">
+
             <div class="col-12 col-lg-6 pe-lg-5 customform__signincol">
                 <h2 class="text-primary h2 h2-light mb-0">${'signin_form_title' @ i18n}</h2>
 
@@ -30,24 +31,25 @@
                             ${'remember_me' @ i18n}
                         </p>
                     </div>
-                    <div class="alert alert-danger collapse mt-4" role="alert" id="alertBox">
-                        <div id="alertMessage"></div>
+                    <div class="alert alert-danger collapse mt-4" role="alert" id="alertBox"><div id="alertMessage"></div>
                     </div>
                     <div class="mt-5">
-                        <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signin' @ i18n}</button>
+                        <button class="btn btn-primary cmp-form__cta" type="submit">${'signin' @ i18n}</button>
                     </div>
                     <div class="mt-4 mb-5 mb-lg-0">
                         <a class="text-decoration-none" href="#">${'forgot_password' @ i18n}</a>
                     </div>
                 </div>
+
             </div>
+
             <div class="col-12 col-lg-6 ps-lg-5 mt-5 mt-lg-0">
                 <h2 class="text-primary h2 h2-light mb-0">${properties.titleFirstRow @ context='html'}</h2>
                 <h2 class="text-primary h2 h2-light mb-0">${properties.titleSecondRow @ context='html'}</h2>
                 <p class="d-flex align-items-center mt-3">${properties.content @ context='html'}</p>
                 <div class="mt-4">
                     <a href="${properties.signupUrl}">
-                        <div class="btn btn-primary cmp-signupform__cta">${'signup' @ i18n}</div>
+                        <div class="btn btn-primary cmp-form__cta">${'signup' @ i18n}</div>
                     </a>
                 </div>
             </div>
