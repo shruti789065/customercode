@@ -49,7 +49,9 @@
             }
         }
 
-        blockquote {
+        .cmp-quote-text p {
+            @extend %h2-extralight;
+            color: $white;
             line-height: 45px;
             @include media-breakpoint-up(lg) {
                 width: 75%;
