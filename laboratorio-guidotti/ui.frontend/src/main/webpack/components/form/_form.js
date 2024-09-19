@@ -55,7 +55,7 @@ $(function () {
         validateFile(this, file, $filesContainer);
         $filesContainer.html(file.name + '<i class="cmp-close__icon"></i>');
       } else {
-        $filesContainer.html('No file selected');
+        $filesContainer.html("No file selected");
       }
       updateFileSpan();
     });
@@ -73,25 +73,29 @@ $(function () {
       if (!performAllValidations($form)) {
         event.preventDefault();
       } else {
-        showOverlayAndLoader($form,true);
+        showOverlayAndLoader($form, true);
       }
     });
   }
 
   function performAllValidations($form) {
-    return (
-      validateRadios($form) && validateInputs($form) && validateRecaptcha()
-    );
+    // Eseguiamo tutte le validazioni indipendentemente l'una dall'altra
+    const isInputsValid = validateInputs($form);
+    const isRadiosValid = validateRadios($form);
+    const isRecaptchaValid = validateRecaptcha();
+
+    // Torniamo true solo se tutte le validazioni sono valide
+    return isInputsValid && isRadiosValid && isRecaptchaValid;
   }
 
   function updateFileSpan() {
     const $filesContainer = $("#myFiles");
-    if ($filesContainer.find('.cmp-close__icon').length > 0) {
-      $filesContainer.removeClass('empty').addClass('has-icon');
+    if ($filesContainer.find(".cmp-close__icon").length > 0) {
+      $filesContainer.removeClass("empty").addClass("has-icon");
     } else {
-      $filesContainer.removeClass('has-icon').addClass('empty');
-      if ($filesContainer.text().trim() === '') {
-        $filesContainer.text('No file selected...');
+      $filesContainer.removeClass("has-icon").addClass("empty");
+      if ($filesContainer.text().trim() === "") {
+        $filesContainer.text("No file selected...");
       }
     }
   }
