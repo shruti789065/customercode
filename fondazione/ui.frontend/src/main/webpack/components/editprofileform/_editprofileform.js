@@ -46,12 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let dataProcessingNo = document.querySelector('#dataProcessingNo');
     let newsletterYes = document.querySelector('#newsletterYes');
     let newsletterNo = document.querySelector('#newsletterNo');
+    let taxIdCode = document.querySelector('#taxIdCode');
 
     // SET TOKEN AND FILL FORM WITH USER DATA
     async function setToken() {
-        const token = localStorage.getItem('token') !== null ? localStorage.getItem('token') : sessionStorage.getItem('token');
-        console.log("TOKEN: ", token);
-        
+        let token = localStorage.getItem('token') !== null ? localStorage.getItem('token') : sessionStorage.getItem('token');
         const responseCsrf = await fetch("/libs/granite/csrf/token.json");
         const csrfToken = await responseCsrf.json();
         const regResponse = await fetch("/private/api/user", {
@@ -62,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         });
         const dataResponse = await regResponse.json();
-
         if (dataResponse.success === true) {
             if (firstName && dataResponse.updatedUser.firstname !== "") {
                 firstName.value = dataResponse.updatedUser.firstname;
@@ -72,6 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             if (linkedinProfile && dataResponse.updatedUser.linkedinProfile !== "") {
                 linkedinProfile.value = dataResponse.updatedUser.linkedinProfile;
+            }
+            if (taxIdCode && dataResponse.updatedUser.taxIdCode !== "") {
+                taxIdCode.value = dataResponse.updatedUser.taxIdCode;
             }
             if (gender && dataResponse.updatedUser.gender !== "") {
                 gender.value = dataResponse.updatedUser.gender;
@@ -89,15 +90,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 emailAddress.textContent = dataResponse.updatedUser.email
             }
             if (userProfileCreationDate && dataResponse.updatedUser.createdOn !== "") {
-                const formattedDate = moment(dataResponse.updatedUser.createdOn, "MMM D, YYYY, h:mm:ss A").format("DD/MM/YYYY");
+                const formattedDate = moment(dataResponse.updatedUser.createdOn).format("L");
                 userProfileCreationDate.textContent = formattedDate;
             }
             if (userProfileLastUpdatedOn && dataResponse.updatedUser.lastUpdatedOn !== "") {
-                const formattedDate = moment(dataResponse.updatedUser.lastUpdatedOn, "MMM D, YYYY, h:mm:ss A").format("DD/MM/YYYY");
+                const formattedDate = moment(dataResponse.updatedUser.lastUpdatedOn).format("L");
                 userProfileLastUpdatedOn.textContent = formattedDate;
             }
             if (country && dataResponse.updatedUser.country !== "") {
-                let fiscalCodeInput = document.querySelector("#fiscalCodeInput");
+                let fiscalCodeInput = document.querySelector("#taxIdCode");
                 selectedCountry = dataResponse.updatedUser.country;
                 if (selectedCountry.toLowerCase() === "it") {
                     fiscalCodeInput.classList.remove("d-none");
@@ -140,7 +141,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-
     setToken();
 
     // STYLE FUNCTIONS AND CUSTOM COMPONENT FUNCTIONS
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     countryItems.forEach((element) => {
-        let fiscalCodeInput = document.querySelector("#fiscalCodeInput");
+        let fiscalCodeInput = document.querySelector("#taxIdCode");
         element.addEventListener("click", function () {
             selectedCountry = element.textContent.trim();
             dropdownMenuCountry.classList.add("d-none");
@@ -563,6 +563,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 };
             }
 
+            console.log(tmpFormData);
+            
+
             let registrationData = {
                 firstName: tmpFormData.firstName,
                 lastName: tmpFormData.lastName,
@@ -570,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 profession: tmpFormData.profession,
                 phone: tmpFormData.telNumber,
                 country: tmpFormData.country,
-                taxIdCode: tmpFormData.fiscalCode ? tmpFormData.fiscalCode : null,
+                taxIdCode: tmpFormData.taxIdCode ? tmpFormData.taxIdCode : null,
                 interests: tmpFormData.areasOfInterest,
                 gender: tmpFormData.gender,
                 privacyConsent: tmpFormData.privacy === "yes" ? true : false,
