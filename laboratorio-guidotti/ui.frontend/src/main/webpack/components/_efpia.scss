@@ -96,12 +96,17 @@
                     color: $white;
                 }
             }
-        } 
-        @media screen and (min-width: 992px) {
+        }         
+    }
+}
+@media screen and (min-width: 992px) {
+    #cmp-efpia {
+        #modalEfpia{
+            margin: -75% -20% 0% -20%;
+            height: 220%;
+            width: 140%;
             #modal-content {
-                margin: -75% -20% 0% -20%;
-                height: 220%;
-                width: 140%;
+                max-width: 900px;
             }
         }
     }
