@@ -94,9 +94,24 @@
 	
 		languageNavItems.forEach(group => {
 			let corporateLink = group.querySelector('a[href="/corporate.html"]');
+			let corporateLinkStage = group.querySelector('a[href="/relife/corporate.html"]');
+			let corporateLinkLocalHost = group.querySelector('a[href="/content/relife/corporate.html"]');
+
 			if (corporateLink) {
+				console.log('corporate link found');
 				corporateLink.setAttribute('href', '/corporate/en.html');
 			}
+			if (corporateLinkStage) {
+				console.log('corporateLinkStage link found');
+				corporateLinkStage.setAttribute('href', '/relife/corporate/en.html');
+			}
+			if (corporateLinkLocalHost) {
+				console.log('corporateLinkLocalHost link found');
+				corporateLinkLocalHost.setAttribute('href', '/content/relife/corporate/en.html');
+			} else {
+				console.log('corporate link not found');
+			}
+			
 		});
 	
 		if (!isCountryTemplate) {
