@@ -2,7 +2,7 @@
 
     .cmp-signupform__subtitle {
         margin-top: 0.5rem;
-        color: $body-color;
+        color: $fm-color-text;
 
         span {
             color: $primary;
@@ -11,6 +11,7 @@
 
     .cmp-signupform__formItemTitle {
         font-weight: 300;
+        color: $fm-color-text;
 
         span {
             color: $primary;
@@ -18,11 +19,11 @@
 
         .cmp-signupform__formItemLabel {
             margin-bottom: 12px;
-            font-family: $font-family-base;
+            font-family: $font-arimo;
             font-weight: 400;
             font-size: 18px;
             line-height: 25px;
-            color: $body-color;
+            color: $fm-color-text;
         }
     }
 
@@ -55,6 +56,8 @@
             font-weight: 400;
             font-size: 1rem;
             line-height: 25px;
+            font-family: $font-arimo;
+            color: $fm-color-text;
         }
 
         span {
@@ -63,6 +66,7 @@
     }
 
     .cmp-signupform__customError {
+        font-family: $font-arimo;
         color: #dc3545;
         font-size: .875em;
     }
@@ -73,5 +77,9 @@
 
     .cmp-signupform__borderGreen {
         border-color: #198754 !important;
+    }
+
+    .invalif-feedback {
+        font-family: $font-arimo;
     }
 }

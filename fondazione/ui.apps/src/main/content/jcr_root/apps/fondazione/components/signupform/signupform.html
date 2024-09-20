@@ -1,7 +1,7 @@
 <div class="cmp-signupform container">
     <div class="d-block" id="formComponentWrapper">
         <h2 class="text-primary h2 h2-light mb-0">${'signup_form_title' @ i18n}</h2>
-        <p class="cmp-signupform__subtitle">${'fields_marked_with' @ i18n}<span> ${'mandatory' @ i18n}</span>
+        <p class="cmp-signupform__subtitle mt-2">${'fields_marked_with' @ i18n}<span> ${'mandatory' @ i18n}</span>
             ${'are_mandatory_to_process_your_queries' @ i18n}</p>
         <div class="w-100">
 
@@ -17,7 +17,7 @@
                             <input required placeholder="${'first_name_placeholder' @ i18n}" name="firstName"
                                 type="text" class="form-control cmp-form__textField mt-2 rounded-0" id="firstName"
                                 aria-describedby="firstNamelHelp">
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback mt-2">
                                 ${'mandatory_field' @ i18n}
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                             <input required placeholder="${'last_name_placeholder' @ i18n}" type="text" name="lastName"
                                 class="form-control cmp-form__textField mt-2 rounded-0" id="lastName"
                                 aria-describedby="lastNamelHelp">
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback mt-2">
                                 ${'mandatory_field' @ i18n}
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             ${'profession' @ i18n} <span>${'mandatory' @ i18n}</span>
                         </h3>
                         <div>
-                            <div class="custom-dropdown position-relative w-100">
+                            <div class="custom-dropdown position-relative mt-2 w-100">
                                 <button class="dropdown-toggle overflow-hidden text-truncate w-100 text-start"
                                     type="button" id="dropdownProfessionMenuButton">
                                     ${'select_profession' @ i18n}
@@ -123,7 +123,7 @@
                             <input required class="form-control mt-2 cmp-form__datepicker rounded-0" type="text"
                                 name="dateOfBirth" placeholder="${'date_of_birth_placeholder' @ i18n}"
                                 onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback mt-2">
                                 ${'mandatory_field' @ i18n}
                             </div>
                         </div>
@@ -176,9 +176,9 @@
                     <div class="col-12 col-lg-6 px-0 ps-lg-2 cmp-signupform__customMultiSelect">
                         <h3 class="cmp-signupform__formItemTitle h3">
                             ${'area_of_interest' @ i18n} <span>${'mandatory' @ i18n}</span>
-                            <div class="cmp-signupform__formItemLabel text-wrap text-truncate">
+                            <p class="cmp-signupform__formItemLabel text-wrap text-truncate">
                                 ${'area_of_interest_label' @
-                                i18n}</div>
+                                i18n}</p>
                         </h3>
                         <div>
                             <div class="custom-dropdown position-relative w-100">
@@ -243,7 +243,7 @@
                             <input required placeholder="${'fiscal_code_placeholder' @ i18n}" type="text"
                                 name="fiscalCode" class="form-control cmp-form__textField mt-2 rounded-0"
                                 id="fiscalCode" aria-describedby="fiscalCodeHelp">
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback mt-2">
                                 ${'mandatory_field' @ i18n}
                             </div>
                         </div>
@@ -317,12 +317,12 @@
                             <span>${'mandatory' @ i18n}</span>
                         </p>
                         <fieldset class="ps-0">
-                            <label class="me-3">
-                                <input required type="radio" name="privacy" value="yes" class="ms-2 me-2">
+                            <label>
+                                <input required type="radio" name="privacy" value="yes" class="me-1">
                                 ${'yes_label' @ i18n}
                             </label>
                             <label>
-                                <input required type="radio" name="privacy" value="no" class="ms-2 me-2">
+                                <input required type="radio" name="privacy" value="no" class="ms-2 me-1">
                                 ${'no_label' @ i18n}
                             </label>
                         </fieldset>
@@ -334,13 +334,13 @@
                     <div class="mt-3">
                         <p>${'profiling' @ i18n}</p>
                         <fieldset class="ps-0">
-                            <label class="me-3">
+                            <label>
                                 <input required type="radio" name="personalDataProcessing" value="yes"
-                                    class="ms-2 me-2">
+                                    class="me-1">
                                 ${'yes_label' @ i18n}
                             </label>
                             <label>
-                                <input required type="radio" name="personalDataProcessing" value="no" class="ms-2 me-2">
+                                <input required type="radio" name="personalDataProcessing" value="no" class="ms-2 me-1">
                                 ${'no_label' @ i18n}
                             </label>
                         </fieldset>
@@ -352,27 +352,27 @@
                     <div class="mt-3">
                         <p>${'agree_newsletter' @ i18n} <span>${'mandatory' @ i18n}</span></p>
                         <fieldset class="ps-0">
-                            <label class="me-3">
-                                <input required type="radio" name="receiveNewsletter" value="yes" class="ms-2 me-2">
+                            <label>
+                                <input required type="radio" name="receiveNewsletter" value="yes" class="me-1">
                                 ${'yes_label' @ i18n}
                             </label>
                             <label>
-                                <input required type="radio" name="receiveNewsletter" value="no" class="ms-2 me-2">
+                                <input required type="radio" name="receiveNewsletter" value="no" class="ms-2 me-1">
                                 ${'no_label' @ i18n}
                             </label>
                         </fieldset>
                         <div id="newsletterErrorString" class="mt-2 cmp-signupform__customError"></div>
                     </div>
 
-                    <div class="mt-5 small-text small-text-light">${'security_code' @ i18n}<span>${'mandatory' @
-                            i18n}</span></div>
+                    <p class="mt-5 small-text small-text-light">${'security_code' @ i18n}<span>${'mandatory' @
+                            i18n}</span></p>
 
                     <!-- <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div> -->
 
                     <div id="cmp-signupform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
 
                     <div class="mt-4">
-                        <button class="btn btn-primary cmp-form__cta" type="submit">${'signup' @ i18n}</button>
+                        <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
                     </div>
                 </div>
             </form>

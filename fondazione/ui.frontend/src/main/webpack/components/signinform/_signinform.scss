@@ -9,8 +9,40 @@
         }
     }
 
+    h3 {
+        color: $fm-color-text;
+    }
+
     .cmp-signinform__formItemTitle {
         font-weight: 300;
+    }
+
+    .forgot-password-link {
+        font-family: $font-arimo;
+    }
+    .cmp-signinform__forgotPassword {
+        color: $fm-color-blue-link;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .cmp-signinform__customError {
+        color: #dc3545;
+        font-size: .875em;
+    }
+
+    .cmp-signinform__borderRed {
+        border-color: #dc3545 !important;
+    }
+
+    .cmp-signinform__borderGreen {
+        border-color: #198754 !important;
+    }
+
+    .invalid-feedback {
+        font-family: $font-arimo;
     }
 
 }

@@ -1,12 +1,14 @@
 <div class="container">
-    <form class="customform needs-validation" id="signInForm" method="post" novalidate>
+    <div class="customform">
         <div class="row">
 
-            <div class="col-12 col-lg-6 pe-lg-5 customform__signincol">
+            <!-- FORM SIGN IN -->
+            <form id="signInForm" class="needs-validation col-12 col-lg-6 pe-lg-5 customform__signincol d-block"
+                method="post" novalidate>
                 <h2 class="text-primary h2 h2-light mb-0">${'signin_form_title' @ i18n}</h2>
 
                 <div class="mt-5">
-                    <h3 class="h3">${'email_label' @ i18n}</h3>
+                    <h3 class="h3 h3-light">${'email_label' @ i18n}</h3>
                     <div class="mt-2">
                         <input placeholder="${'email_label' @ i18n}" type="email"
                             class="form-control cmp-form__textField mt-2 rounded-0" name="emailField" id="emailField"
@@ -16,7 +18,7 @@
                         </div>
                     </div>
                     <div class="mt-5">
-                        <h3 class="h3">${'password' @ i18n}</h3>
+                        <h3 class="h3 h3-light">${'password' @ i18n}</h3>
                         <input type="password" placeholder="${'password' @ i18n}"
                             class="form-control cmp-form__textField mt-2 rounded-0" name="passField" id="passField"
                             aria-describedby="firstNamelHelp" required>
@@ -31,29 +33,96 @@
                             ${'remember_me' @ i18n}
                         </p>
                     </div>
-                    <div class="alert alert-danger collapse mt-4" role="alert" id="alertBox"><div id="alertMessage"></div>
+                    <div class="alert alert-danger collapse mt-4" role="alert" id="alertBox">
+                        <div id="alertMessage"></div>
                     </div>
                     <div class="mt-5">
-                        <button class="btn btn-primary cmp-form__cta" type="submit">${'signin' @ i18n}</button>
+                        <button class="btn btn-primary cmp-signinform__cta" type="submit">${'signin' @ i18n}</button>
                     </div>
                     <div class="mt-4 mb-5 mb-lg-0">
-                        <a class="text-decoration-none" href="#">${'forgot_password' @ i18n}</a>
+                        <div id="forgotPasswordLink" class="text-decoration-none forgot-password-link cmp-signinform__forgotPassword">
+                            ${'forgot_password' @ i18n}</div>
                     </div>
                 </div>
+            </form>
 
-            </div>
+            <!-- FORM EMAIL -->
+            <form id="resetPasswordEmailForm" class="needs-validation col-12 col-lg-6 pe-lg-5 d-none" novalidate
+                method="dialog">
+                <h2 class="text-primary h2 h2-light mb-0">${'reset_password' @ i18n}</h2>
 
-            <div class="col-12 col-lg-6 ps-lg-5 mt-5 mt-lg-0">
+                <div class="mt-5">
+                    <h3 class="h3">${'email_label' @ i18n}</h3>
+                    <div class="mt-2">
+                        <input placeholder="${'email_label' @ i18n}" type="email"
+                            class="form-control cmp-form__textField mt-2 rounded-0" name="emailFieldResetPassword"
+                            id="emailFieldResetPassword" aria-describedby="emailFieldResetPasswordHelp" required>
+                        <div class="invalid-feedback">
+                            ${'mandatory_field' @ i18n}
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button id="resetPasswordEmailSubmit" class="btn btn-primary cmp-signinform__cta text-uppercase"
+                            type="click">${'reset_password' @ i18n}</button>
+                    </div>
+                    <div class="mt-4 mb-5 mb-lg-0">
+                        <div id="signinLink" class="text-decoration-none cmp-signinform__forgotPassword">${'signin' @
+                            i18n}</div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- FORM RESET PASSWORD -->
+            <form id="resetPasswordForm" class="needs-validation col-12 col-lg-6 pe-lg-5 d-none" method="post"
+                novalidate>
+                <h2 class="text-primary h2 h2-light mb-0">${'reset_password' @ i18n}</h2>
+
+                <div class="mt-5">
+                    <h3 class="h3">${'code' @ i18n}</h3>
+                    <div class="mt-2">
+                        <input placeholder="${'code' @ i18n}" type="number"
+                            class="form-control cmp-form__textField mt-2 rounded-0" name="codeField" id="codeField"
+                            aria-describedby="codeHelp" required>
+                        <div class="mt-2 cmp-signinform__customError" id="codeErrorString"></div>
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="h3">${'password' @ i18n}</h3>
+                        <input type="password" placeholder="${'password' @ i18n}"
+                            class="form-control cmp-form__textField mt-2 rounded-0" name="passwordField"
+                            id="passwordField" aria-describedby="firstNamelHelp" required>
+                        <div class="mt-2 cmp-signinform__customError" id="passwordErrorString"></div>
+                    </div>
+                    <div class="mt-5"></div>
+                    <h3 class="h3">${'password_confirmation' @ i18n}</h3>
+                    <input type="password" placeholder="${'password_confirmation' @ i18n}"
+                        class="form-control cmp-form__textField mt-2 rounded-0" name="passwordConfirmationField"
+                        id="passwordConfirmationField" aria-describedby="passwordConfirmationHelp" required>
+                    <div class="mt-2 cmp-signinform__customError" id="passwordConfirmationErrorString"></div>
+                </div>
+
+                <div id="cmp-signinform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
+
+                <div class="mt-5">
+                    <button class="btn btn-primary cmp-signinform__cta" type="submit">${'reset_password' @
+                        i18n}</button>
+                </div>
+
+                <div class="mt-4 mb-5 mb-lg-0">
+                    <div id="signinLinkReset" class="text-decoration-none cmp-signinform__forgotPassword">${'signin' @
+                        i18n}</div>
+                </div>
+            </form>
+
+            <div id="signupSection" class="col-12 col-lg-6 ps-lg-5 mt-5 mt-lg-0">
                 <h2 class="text-primary h2 h2-light mb-0">${properties.titleFirstRow @ context='html'}</h2>
-                <h2 class="text-primary h2 h2-light mb-0">${properties.titleSecondRow @ context='html'}</h2>
+                <h2 class="text-primary h2 h2-light mb-0 mt-1">${properties.titleSecondRow @ context='html'}</h2>
                 <p class="d-flex align-items-center mt-3">${properties.content @ context='html'}</p>
                 <div class="mt-4">
                     <a href="${properties.signupUrl}">
-                        <div class="btn btn-primary cmp-form__cta">${'signup' @ i18n}</div>
+                        <div class="btn btn-primary cmp-signinform__cta">${'signup' @ i18n}</div>
                     </a>
                 </div>
             </div>
         </div>
-    </form>
-
+    </div>
 </div>
