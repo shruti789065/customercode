@@ -614,7 +614,11 @@ public class DataMigrationService {
                 currentVariationData.put("descrizione_it", fields[7]);
                 currentVariationData.put("descrizione_en", fields[8]);
 
-                processCsvRow(fields, fields[0], fields[5], template, parentResource);
+                try {
+                    processCsvRow(fields, fields[0], fields[5], template, parentResource);
+                } catch (Exception e) {
+                    throw new Exception("Id: " + fields[0], e);
+                }
 
                 count++;
                 if (count % 100 == 0) {
