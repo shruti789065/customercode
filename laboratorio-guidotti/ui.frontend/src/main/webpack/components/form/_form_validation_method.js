@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 const ERRORS = {
   CLASS: "label_error",
   MESSAGE: {
