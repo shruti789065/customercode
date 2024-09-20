@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2024-09-19T15:05:05.173+02:00"
+        cq:lastModifiedBy="admin"
         cq:policy="fondazione/components/page/policy"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="wcm/core/components/policies/mappings">
@@ -33,6 +35,22 @@
                         sling:resourceType="wcm/core/components/policies/mapping"/>
                 </components>
             </mysite>
+            <fondazione jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <container
+                        cq:policy="fondazione/components/container/policy_113795751377583"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                    <section
+                        cq:policy="fondazione/components/section/policy_1726227643159"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                    <separator
+                        cq:policy="fondazione/components/separator/policy_1726751060906"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                </components>
+            </fondazione>
         </root>
     </jcr:content>
 </jcr:root>
