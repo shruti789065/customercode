@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-09-20T12:29:35.983+03:00"
+        cq:lastModified="{Date}2024-09-20T18:31:47.937+02:00"
         cq:lastModifiedBy="admin"
         cq:tags="[experience-fragments:variation/web]"
         cq:template="/conf/fondazione/settings/wcm/templates/xf-web-variation"
@@ -28,107 +28,152 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/section"
                 layout="simple">
-                <list
-                    jcr:created="{Date}2024-09-11T14:17:01.348+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-09-20T12:29:08.511+03:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/list"
-                    childDepth="1"
-                    displayItemAsTeaser="false"
-                    linkItems="true"
-                    listFrom="static"
-                    pages="[/content/fondazione/en,/content/fondazione,/content/fondazione/en]"
-                    parentPage="/content/fondazione/us/en"
-                    showDescription="false"
-                    showModificationDate="false"
-                    sortOrder="asc"
-                    tagsMatch="any">
-                    <cq:responsive jcr:primaryType="nt:unstructured">
-                        <default
-                            jcr:primaryType="nt:unstructured"
-                            offset="0"
-                            width="8"/>
-                    </cq:responsive>
-                </list>
-                <list_1196583146
-                    jcr:created="{Date}2024-09-17T15:33:56.626+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-09-20T12:29:35.928+03:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/list"
-                    childDepth="1"
-                    displayItemAsTeaser="false"
-                    linkItems="true"
-                    listFrom="static"
-                    pages="[/content/fondazione/en,/content/fondazione/en,/content/fondazione/en]"
-                    showDescription="false"
-                    showModificationDate="false"
-                    sortOrder="asc"
-                    tagsMatch="any"/>
                 <cq:responsive jcr:primaryType="nt:unstructured">
                     <phone
                         jcr:primaryType="nt:unstructured"
                         offset="0"
                         width="12"/>
                 </cq:responsive>
-                <section_2144279116
-                    cq:styleIds="[1726823409414]"
-                    jcr:created="{Date}2024-09-13T12:25:28.953+02:00"
+                <container_624699990
+                    jcr:created="{Date}2024-09-20T18:25:19.191+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-09-17T15:33:48.264+02:00"
+                    jcr:lastModified="{Date}2024-09-20T18:25:38.458+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/section"
-                    layout="simple">
-                    <title
-                        jcr:created="{Date}2024-09-11T14:17:32.658+02:00"
+                    sling:resourceType="fondazione/components/container"
+                    layout="responsiveGrid">
+                    <container
+                        jcr:created="{Date}2024-09-20T18:14:12.108+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-09-16T16:36:29.375+02:00"
+                        jcr:lastModified="{Date}2024-09-20T18:17:14.488+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Follow us"
-                        sling:resourceType="fondazione/components/title"
-                        linkTarget="_self"
-                        type="h2"/>
-                    <section
-                        jcr:created="{Date}2024-09-11T14:17:21.783+02:00"
+                        sling:resourceType="fondazione/components/container"
+                        id="footerNavigation"
+                        layout="responsiveGrid">
+                        <list_1196583146
+                            jcr:created="{Date}2024-09-17T15:33:56.626+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-09-20T12:29:35.928+03:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="fondazione/components/list"
+                            childDepth="1"
+                            displayItemAsTeaser="false"
+                            linkItems="true"
+                            listFrom="static"
+                            pages="[/content/fondazione/en,/content/fondazione/en,/content/fondazione/en]"
+                            showDescription="false"
+                            showModificationDate="false"
+                            sortOrder="asc"
+                            tagsMatch="any">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="2"/>
+                            </cq:responsive>
+                        </list_1196583146>
+                        <list
+                            jcr:created="{Date}2024-09-11T14:17:01.348+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-09-20T12:29:08.511+03:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="fondazione/components/list"
+                            childDepth="1"
+                            displayItemAsTeaser="false"
+                            linkItems="true"
+                            listFrom="static"
+                            pages="[/content/fondazione/en,/content/fondazione,/content/fondazione/en]"
+                            parentPage="/content/fondazione/us/en"
+                            showDescription="false"
+                            showModificationDate="false"
+                            sortOrder="asc"
+                            tagsMatch="any">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="2"/>
+                            </cq:responsive>
+                        </list>
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="10"/>
+                        </cq:responsive>
+                    </container>
+                    <container_1934053076
+                        jcr:created="{Date}2024-09-20T18:18:22.526+02:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2024-09-17T15:33:30.477+02:00"
+                        jcr:lastModified="{Date}2024-09-20T18:18:42.715+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="fondazione/components/section"
-                        layout="simple">
-                        <button_1868956693
-                            jcr:created="{Date}2024-09-11T14:18:28.512+02:00"
+                        sling:resourceType="fondazione/components/container"
+                        id="followSection"
+                        layout="responsiveGrid">
+                        <title_copy
+                            jcr:created="{Date}2024-09-20T18:20:30.660+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-09-12T11:33:17.341+02:00"
+                            jcr:lastModified="{Date}2024-09-20T18:20:30.660+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="fondazione/components/button"
-                            icon="linkedIn"
-                            linkTarget="_self"/>
-                        <button
-                            jcr:created="{Date}2024-09-13T11:29:36.816+02:00"
+                            jcr:title="Follow us"
+                            sling:resourceType="fondazione/components/title"
+                            linkTarget="_self"
+                            type="h2">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="3"/>
+                            </cq:responsive>
+                        </title_copy>
+                        <container_1288338945
+                            jcr:created="{Date}2024-09-20T18:18:53.947+02:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2024-09-16T16:44:21.479+02:00"
+                            jcr:lastModified="{Date}2024-09-20T18:19:30.024+02:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="fondazione/components/button"
-                            accessibilityLabel="Click me"
-                            icon="youtube"
-                            linkTarget="_blank"
-                            linkURL="https://www.google.com/"/>
-                    </section>
-                    <cq:responsive jcr:primaryType="nt:unstructured">
-                        <default
-                            jcr:primaryType="nt:unstructured"
-                            offset="0"
-                            width="2"/>
-                    </cq:responsive>
-                </section_2144279116>
+                            sling:resourceType="fondazione/components/container"
+                            layout="responsiveGrid">
+                            <button_copy
+                                jcr:created="{Date}2024-09-13T11:29:36.816+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-09-16T16:44:21.479+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="fondazione/components/button"
+                                accessibilityLabel="Click me"
+                                icon="youtube"
+                                linkTarget="_blank"
+                                linkURL="https://www.google.com/"/>
+                            <button_1868956693_co
+                                jcr:created="{Date}2024-09-11T14:18:28.512+02:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2024-09-12T11:33:17.341+02:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="fondazione/components/button"
+                                icon="linkedIn"
+                                linkTarget="_self"/>
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="3"/>
+                            </cq:responsive>
+                        </container_1288338945>
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="2"/>
+                        </cq:responsive>
+                    </container_1934053076>
+                </container_624699990>
             </section>
             <section_copy
                 jcr:created="{Date}2024-09-11T14:08:50.577+02:00"
@@ -137,39 +182,48 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/section">
-                <text
-                    jcr:created="{Date}2024-09-11T14:28:59.241+02:00"
+                <container
+                    jcr:created="{Date}2024-09-20T18:31:08.637+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-09-12T16:15:01.257+02:00"
+                    jcr:lastModified="{Date}2024-09-20T18:31:26.314+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/text"
-                    text="&lt;p>Menarini Foundation, Milanofiori Business Center 20089&lt;br>&#xd;&#xa;Rozzano (MI) - Building L - Street 6&lt;br>&#xd;&#xa;Tel. tel:+390255308110 Fax tel:+390255305739 Tax ID (C.F.) 94265730484&lt;/p>&#xd;&#xa;"
-                    textIsRich="true"/>
-                <image
-                    jcr:created="{Date}2024-09-11T14:29:36.034+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-09-12T16:19:44.085+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/image"
-                    alt="logo"
-                    altValueFromDAM="false"
-                    displayPopupTitle="true"
-                    fileReference="/content/dam/menarinimaster/assets/logo_menarini_group.svg"
-                    imageFromPageImage="false"
-                    isDecorative="false"
-                    linkTarget="_self"
-                    titleValueFromDAM="true"/>
-                <text_394241904
-                    jcr:created="{Date}2024-09-11T14:30:23.885+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-09-11T14:30:37.826+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/text"
-                    text="&lt;p>© 2018 Fondazione Menarini - All rights reserved&lt;/p>&#xd;&#xa;"
-                    textIsRich="true"/>
+                    sling:resourceType="fondazione/components/container"
+                    layout="responsiveGrid">
+                    <text
+                        jcr:created="{Date}2024-09-11T14:28:59.241+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-09-12T16:15:01.257+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="fondazione/components/text"
+                        text="&lt;p>Menarini Foundation, Milanofiori Business Center 20089&lt;br>&#xd;&#xa;Rozzano (MI) - Building L - Street 6&lt;br>&#xd;&#xa;Tel. tel:+390255308110 Fax tel:+390255305739 Tax ID (C.F.) 94265730484&lt;/p>&#xd;&#xa;"
+                        textIsRich="true"/>
+                    <image
+                        jcr:created="{Date}2024-09-11T14:29:36.034+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-09-12T16:19:44.085+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="fondazione/components/image"
+                        alt="logo"
+                        altValueFromDAM="false"
+                        displayPopupTitle="true"
+                        fileReference="/content/dam/menarinimaster/assets/logo_menarini_group.svg"
+                        imageFromPageImage="false"
+                        isDecorative="false"
+                        linkTarget="_self"
+                        titleValueFromDAM="true"/>
+                    <text_394241904
+                        jcr:created="{Date}2024-09-11T14:30:23.885+02:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-09-11T14:30:37.826+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="fondazione/components/text"
+                        text="&lt;p>© 2018 Fondazione Menarini - All rights reserved&lt;/p>&#xd;&#xa;"
+                        textIsRich="true"/>
+                </container>
             </section_copy>
         </root>
     </jcr:content>
