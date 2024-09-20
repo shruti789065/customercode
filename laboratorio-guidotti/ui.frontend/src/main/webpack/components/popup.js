@@ -52,6 +52,7 @@ function buttonBehaviour() {
 // Funzione di inizializzazione
 function init() {
   const popup = document.querySelector(".cmp-popup");
+  console.log("Popup");
   if (!popup) {
     console.log("Popup element not found");
     return;
@@ -69,14 +70,17 @@ function init() {
   if (popup.classList.contains("cmp-popup--persistent")) {
     popup.classList.add('show');
     document.documentElement.classList.add('no-scroll');
+    console.log("Popup persistent set");
   } else if (popup.classList.contains("cmp-popup--session")) {
     const disclaimerAccepted = sessionStorage.getItem(`${domain}-Popup`);
+    console.log("Popup session set");
     if (!disclaimerAccepted) {
       popup.classList.add('show');
       document.documentElement.classList.add('no-scroll');
     }
   } else if (popup.classList.contains("cmp-popup--cookie")) {
     const disclaimerAccepted = getCookie(`${domain}-Popup`);
+    console.log("Popup cookie set");
     if (!disclaimerAccepted) {
       popup.classList.add('show');
       document.documentElement.classList.add('no-scroll');

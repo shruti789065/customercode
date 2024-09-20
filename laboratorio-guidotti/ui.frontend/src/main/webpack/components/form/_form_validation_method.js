@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 const ERRORS = {
   CLASS: "label_error",
   MESSAGE: {
@@ -124,9 +126,11 @@ function validateEmailField(element, value) {
   const errorMessageMailFormat = ERRORS.MESSAGE.email_format;
 
   if (value) {
-    emailFormat
-      ? removeErrorMessage(element)
-      : handleValidationResult(element, emailFormat, errorMessageMailFormat);
+    if (emailFormat) {
+      removeErrorMessage(element);
+    } else {
+      handleValidationResult(element, emailFormat, errorMessageMailFormat);
+    }
   } else {
     handleValidationResult(element, emailFormat, errorMessageMail);
   }
@@ -140,9 +144,11 @@ function validatePhoneField(element, value) {
   );
   const errorMessagePhoneFormat = ERRORS.MESSAGE.phone_format;
   if (value.length > 0) {
-    phoneFormat
-      ? removeErrorMessage(element)
-      : handleValidationResult(element, phoneFormat, errorMessagePhoneFormat);
+    if (phoneFormat) {
+      removeErrorMessage(element);
+    } else {
+      handleValidationResult(element, phoneFormat, errorMessagePhoneFormat);
+    }
   } else {
     handleValidationResult(element, phoneFormat, errorMessagePhone);
   }

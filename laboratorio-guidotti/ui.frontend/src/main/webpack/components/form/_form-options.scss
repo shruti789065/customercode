@@ -21,6 +21,18 @@
       border-color: $deep-blue;
       outline: 0;
     }
+    &.first-required {
+      position: relative;
+      &:after {
+        content: "";
+        right: -47px;
+        top: -5px;
+        position: absolute;
+        color: $red;
+        font-family: $font-family-oswald;
+        font-weight: $oswald-weight-medium;
+      }
+    }
   }
 
   .cmp-form-options__field-label {
