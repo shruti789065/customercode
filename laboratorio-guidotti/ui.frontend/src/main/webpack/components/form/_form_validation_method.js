@@ -1,5 +1,7 @@
 import $ from "jquery";
 
+console.log('form v1.0');
+
 const ERRORS = {
   CLASS: "label_error",
   MESSAGE: {
@@ -205,13 +207,16 @@ function handleValidationResult(element, isValid, errorMessage) {
  */
 
 export function validateInputs(form) {
+  console.log('validate form v1.0');
   let inputsValid = true;
 
   form.find(":input:not(:hidden,:checkbox)").each(function () {
     if ($(this).is("select")) {
       inputsValid = validateSelect(this) && inputsValid;
     } else if ($(this).attr("type") == "file") {
-      inputsValid = validateFile(this) && inputsValid;
+      const file = this.files ? this.files[0] : null; // Prendi il file
+      const fileContainer = $("#myFiles"); // Seleziona lo span #myFiles per mostrare il nome del file
+      inputsValid = validateFile(this, file, fileContainer) && inputsValid;
     } else {
       inputsValid = validateText(this) && inputsValid;
     }
@@ -238,6 +243,10 @@ export function validateFile(element, file, fileContainer) {
   const myFilesInput = document.getElementById("myfile");
   const isMyFilesEmpty = myFilesInput && myFilesInput.value.trim() === "";
 
+  // Log di debug per verificare lo stato
+  console.log("isMyFilesEmpty: ", isMyFilesEmpty, "isRequired: ", isRequired);
+  console.log("File: ", file);
+
   if (isMyFilesEmpty && isRequired) {
     // Se il campo myFiles è vuoto e il campo è richiesto, mostra il messaggio di errore
     handleValidationResult(element, false, errorMessageFileRequired);
@@ -246,10 +255,18 @@ export function validateFile(element, file, fileContainer) {
     // Se un file è stato caricato, rimuovi il messaggio di errore per il file richiesto
     handleValidationResult(element, true, errorMessageFileRequired);
 
-    // Esegui le opportune validazioni e carica il file
-    validateFileSize(element, file, errorMessageFileSize);
-    validateFileExtension(element, file, errorMessageFileExtension);
-    fileContainer.text(file.name).append('<i class="cmp-close__icon"></i>');
+    // Validazione dimensione file
+    if (!validateFileSize(element, file, errorMessageFileSize)) {
+      return false;
+    }
+
+    // Validazione estensione file
+    if (!validateFileExtension(element, file, errorMessageFileExtension)) {
+      return false;
+    }
+
+    // Mostra il nome del file selezionato nello span
+    fileContainer.text(file.name).removeClass('empty').append('<i class="cmp-close__icon"></i>');
     return true; // Restituisci true se la validazione passa
   } else {
     return true; // Se il file non è presente, consideralo valido
