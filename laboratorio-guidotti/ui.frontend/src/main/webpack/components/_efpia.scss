@@ -15,7 +15,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 200%;
+        margin: -70% 0 0 0;
         background-color: rgba(0, 0, 0, 0.7);
         align-items: center;
         justify-content: center;
@@ -39,14 +40,14 @@
                 position: relative;
 
                 .year-container {
-                    width: 200px;
+                    width: 100px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     h3 {
                         cursor: pointer;
                         margin-bottom: 0px;
-                        font-size: $title-size;
+                        font-size: 20px;
                         border: 1px solid $vibrant-azure;
                         padding: 5px 10px;
                         box-shadow: 1px 1px 1px 1px $lightGray;
@@ -69,7 +70,7 @@
                             flex-direction: column;
                             position: absolute;
                             left: 0px;
-                            top: 50px;
+                            top: 80px;
                             width: 1280px;
                         }
                     }
@@ -80,7 +81,7 @@
                 position: absolute;
                 top: 12px;
                 right: 12px;
-                font-family: $font-family-oswald;
+                font-family: $font-family-arimo;
                 font-weight: $oswald-weight-bold;
                 font-size: 20px;
                 cursor: pointer;
@@ -98,7 +99,9 @@
         } 
         @media screen and (min-width: 992px) {
             #modal-content {
-                width: 60%;
+                margin: -75% -20% 0% -20%;
+                height: 220%;
+                width: 140%;
             }
         }
     }

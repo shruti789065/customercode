@@ -14,6 +14,9 @@
     
     .shape_container {
       position: relative;
+      .text {
+        display: none;
+      }
       
       .cmp-shape--container {
         max-width: clamp(15.125rem, 18.641vw + 10.756rem, 33.125rem);
@@ -58,6 +61,9 @@
     
     .cmp-banner--content {
       .shape_container {
+        .text {
+          display: none;
+        }
         &:nth-child(1) {
           .cmp-shape--container {
             transform: translate(calc(50% + 10vw), 60%);
@@ -78,6 +84,9 @@
   .cmp-section_banner--container-wave {
     .cmp-banner--content {
       .shape_container {
+        .text {
+          display: none;
+        }
         .cmp-shape--container {
           .cmp-container {
             .cmp-button {
@@ -111,6 +120,9 @@
     padding: 2rem 0 2rem 0;
     .cmp-banner--content {
       .shape_container {
+        .text {
+          display: block;
+        }
         &:nth-child(1) {
           .cmp-shape--container {
             transform: translate(calc(70% + 10vw), 30%);
@@ -133,6 +145,9 @@
     height: unset;
     .cmp-banner--content {
       .shape_container {
+        .text {
+          display: block;
+        }
         &:nth-child(1) {
           .cmp-shape--container {
             transform: translate(calc(80% + 10vw), 0);
@@ -154,6 +169,9 @@
     padding: 1rem 0 1rem 0;
     .cmp-banner--content {
       .shape_container {
+        .text {
+          display: block;
+        }
         &:nth-child(1) {
           .cmp-shape--container {
             transform: translate(calc(110% + 10vw), 10%);
