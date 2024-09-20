@@ -27,11 +27,17 @@ function showAlert(message) {
 }
 
 function updateTokens(signInResponse, rememberCheck) {
+    localStorage.setItem("remember_me", rememberCheck);
     if (rememberCheck) {
         localStorage.setItem("token", signInResponse.AuthenticationResult.IdToken);
         localStorage.setItem("refresh_token", signInResponse.AuthenticationResult.RefreshToken);
     } else {
-        sessionStorage.setItem("token", signInResponse.AuthenticationResult.IdToken);
+        const ttl = signInResponse.AuthenticationResult.ExpiresIn;
+        const item = {
+            token: signInResponse.AuthenticationResult.IdToken,
+            expiry: ttl,
+        };
+        localStorage.setItem("token", JSON.stringify(item));
     }
 }
 

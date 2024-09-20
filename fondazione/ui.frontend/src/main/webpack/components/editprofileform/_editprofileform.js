@@ -50,96 +50,111 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // SET TOKEN AND FILL FORM WITH USER DATA
     async function setToken() {
-        let token = localStorage.getItem('token') !== null ? localStorage.getItem('token') : sessionStorage.getItem('token');
-        const responseCsrf = await fetch("/libs/granite/csrf/token.json");
-        const csrfToken = await responseCsrf.json();
-        const regResponse = await fetch("/private/api/user", {
-            method: "GET",
-            headers: {
-                "CSRF-Token": csrfToken.token,
-                'Authorization': 'Bearer ' + token
-            },
-        });
-        const dataResponse = await regResponse.json();
-        if (dataResponse.success === true) {
-            if (firstName && dataResponse.updatedUser.firstname !== "") {
-                firstName.value = dataResponse.updatedUser.firstname;
+        let storedToken = localStorage.getItem('token');
+        let token = null;
+
+        if (storedToken) {
+
+            if (localStorage.getItem('remember_me') === "false") {
+                let tokenObject = JSON.parse(storedToken);
+                token = tokenObject.token;
+            } else {
+                token = storedToken
             }
-            if (lastName && dataResponse.updatedUser.lastname !== "") {
-                lastName.value = dataResponse.updatedUser.lastname;
-            }
-            if (linkedinProfile && dataResponse.updatedUser.linkedinProfile !== "") {
-                linkedinProfile.value = dataResponse.updatedUser.linkedinProfile;
-            }
-            if (taxIdCode && dataResponse.updatedUser.taxIdCode !== "") {
-                taxIdCode.value = dataResponse.updatedUser.taxIdCode;
-            }
-            if (gender && dataResponse.updatedUser.gender !== "") {
-                gender.value = dataResponse.updatedUser.gender;
-            }
-            if (telephone && dataResponse.updatedUser.phone !== "") {
-                telephone.value = dataResponse.updatedUser.phone;
-            }
-            if (dateOfBirth && dataResponse.updatedUser.birthDate !== "") {
-                moment.locale(dataResponse.updatedUser.country.toLowerCase());
-                const backendDate = dataResponse.updatedUser.birthDate;
-                const formattedDate = moment(backendDate, "MMM D, YYYY").format("YYYY-MM-DD");
-                dateOfBirth.value = formattedDate;
-            }
-            if (emailAddress && dataResponse.updatedUser.email !== "") {
-                emailAddress.textContent = dataResponse.updatedUser.email
-            }
-            if (userProfileCreationDate && dataResponse.updatedUser.createdOn !== "") {
-                const formattedDate = moment(dataResponse.updatedUser.createdOn).format("L");
-                userProfileCreationDate.textContent = formattedDate;
-            }
-            if (userProfileLastUpdatedOn && dataResponse.updatedUser.lastUpdatedOn !== "") {
-                const formattedDate = moment(dataResponse.updatedUser.lastUpdatedOn).format("L");
-                userProfileLastUpdatedOn.textContent = formattedDate;
-            }
-            if (country && dataResponse.updatedUser.country !== "") {
-                let fiscalCodeInput = document.querySelector("#taxIdCode");
-                selectedCountry = dataResponse.updatedUser.country;
-                if (selectedCountry.toLowerCase() === "it") {
-                    fiscalCodeInput.classList.remove("d-none");
-                    fiscalCodeInput.classList.add("d-block");
-                } else {
-                    fiscalCodeInput.classList.add("d-none");
-                    fiscalCodeInput.classList.remove("d-block");
+
+            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+            const csrfToken = await responseCsrf.json();
+            const regResponse = await fetch("/private/api/user", {
+                method: "GET",
+                headers: {
+                    "CSRF-Token": csrfToken.token,
+                    'Authorization': 'Bearer ' + token
+                },
+            });
+            const dataResponse = await regResponse.json();
+            if (dataResponse.success === true) {
+                if (firstName && dataResponse.updatedUser.firstname !== "") {
+                    firstName.value = dataResponse.updatedUser.firstname;
                 }
-                updateDropdownTextCountry()
+                if (lastName && dataResponse.updatedUser.lastname !== "") {
+                    lastName.value = dataResponse.updatedUser.lastname;
+                }
+                if (linkedinProfile && dataResponse.updatedUser.linkedinProfile !== "") {
+                    linkedinProfile.value = dataResponse.updatedUser.linkedinProfile;
+                }
+                if (taxIdCode && dataResponse.updatedUser.taxIdCode !== "") {
+                    taxIdCode.value = dataResponse.updatedUser.taxIdCode;
+                }
+                if (gender && dataResponse.updatedUser.gender !== "") {
+                    gender.value = dataResponse.updatedUser.gender;
+                }
+                if (telephone && dataResponse.updatedUser.phone !== "") {
+                    telephone.value = dataResponse.updatedUser.phone;
+                }
+                if (dateOfBirth && dataResponse.updatedUser.birthDate !== "") {
+                    moment.locale(dataResponse.updatedUser.country.toLowerCase());
+                    const backendDate = dataResponse.updatedUser.birthDate;
+                    const formattedDate = moment(backendDate, "MMM D, YYYY").format("YYYY-MM-DD");
+                    dateOfBirth.value = formattedDate;
+                }
+                if (emailAddress && dataResponse.updatedUser.email !== "") {
+                    emailAddress.textContent = dataResponse.updatedUser.email
+                }
+                if (userProfileCreationDate && dataResponse.updatedUser.createdOn !== "") {
+                    const formattedDate = moment(dataResponse.updatedUser.createdOn).format("L");
+                    userProfileCreationDate.textContent = formattedDate;
+                }
+                if (userProfileLastUpdatedOn && dataResponse.updatedUser.lastUpdatedOn !== "") {
+                    const formattedDate = moment(dataResponse.updatedUser.lastUpdatedOn).format("L");
+                    userProfileLastUpdatedOn.textContent = formattedDate;
+                }
+                if (country && dataResponse.updatedUser.country !== "") {
+                    let fiscalCodeInput = document.querySelector("#taxIdCode");
+                    selectedCountry = dataResponse.updatedUser.country;
+                    if (selectedCountry.toLowerCase() === "it") {
+                        fiscalCodeInput.classList.remove("d-none");
+                        fiscalCodeInput.classList.add("d-block");
+                    } else {
+                        fiscalCodeInput.classList.add("d-none");
+                        fiscalCodeInput.classList.remove("d-block");
+                    }
+                    updateDropdownTextCountry()
+                }
+                if (profession && dataResponse.updatedUser.occupation !== "") {
+                    selectedProfession = dataResponse.updatedUser.occupation;
+                    updateDropdownTextProfession()
+                }
+                if (areaOfIntersts && dataResponse.updatedUser.registeredUserTopics.length > 0) {
+                    const valuesArray = Array.from(checkboxes).map(checkbox => checkbox.value);
+                    dataResponse.updatedUser.registeredUserTopics.forEach(topic => {
+                        selectedItemsMultipleSelect.push(valuesArray[topic.topic.id - 1])
+                        checkboxes[topic.topic.id - 1].checked = true;
+                    });
+                    updateDropdownTextMultiple();
+                }
+                if (privacyYes && dataResponse.updatedUser.profilingConsent === "1") {
+                    privacyYes.checked = true;
+                }
+                if (privacyNo && dataResponse.updatedUser.profilingConsent === "0") {
+                    privacyNo.checked = true;
+                }
+                if (dataProcessingYes && dataResponse.updatedUser.personalDataProcessingConsent === "1") {
+                    dataProcessingYes.checked = true;
+                }
+                if (dataProcessingNo && dataResponse.updatedUser.personalDataProcessingConsent === "0") {
+                    dataProcessingNo.checked = true;
+                }
+                if (newsletterYes && dataResponse.updatedUser.newsletterSubscription === "1") {
+                    newsletterYes.checked = true;
+                }
+                if (newsletterNo && dataResponse.updatedUser.newsletterSubscription === "0") {
+                    newsletterNo.checked = true;
+                }
             }
-            if (profession && dataResponse.updatedUser.occupation !== "") {
-                selectedProfession = dataResponse.updatedUser.occupation;
-                updateDropdownTextProfession()
-            }
-            if (areaOfIntersts && dataResponse.updatedUser.registeredUserTopics.length > 0) {
-                const valuesArray = Array.from(checkboxes).map(checkbox => checkbox.value);
-                dataResponse.updatedUser.registeredUserTopics.forEach(topic => {
-                    selectedItemsMultipleSelect.push(valuesArray[topic.topic.id - 1])
-                    checkboxes[topic.topic.id - 1].checked = true;
-                });
-                updateDropdownTextMultiple();
-            }
-            if (privacyYes && dataResponse.updatedUser.profilingConsent === "1") {
-                privacyYes.checked = true;
-            }
-            if (privacyNo && dataResponse.updatedUser.profilingConsent === "0") {
-                privacyNo.checked = true;
-            }
-            if (dataProcessingYes && dataResponse.updatedUser.personalDataProcessingConsent === "1") {
-                dataProcessingYes.checked = true;
-            }
-            if (dataProcessingNo && dataResponse.updatedUser.personalDataProcessingConsent === "0") {
-                dataProcessingNo.checked = true;
-            }
-            if (newsletterYes && dataResponse.updatedUser.newsletterSubscription === "1") {
-                newsletterYes.checked = true;
-            }
-            if (newsletterNo && dataResponse.updatedUser.newsletterSubscription === "0") {
-                newsletterNo.checked = true;
-            }
+        } else {
+            console.log("No token found in local storage.");
         }
+
     }
     setToken();
 
@@ -562,9 +577,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     [`${key}`]: value,
                 };
             }
-
-            console.log(tmpFormData);
-            
 
             let registrationData = {
                 firstName: tmpFormData.firstName,
