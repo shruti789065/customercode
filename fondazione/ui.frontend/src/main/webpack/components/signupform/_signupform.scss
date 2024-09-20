@@ -23,7 +23,7 @@
             font-weight: 400;
             font-size: 18px;
             line-height: 25px;
-            color: $fm-color-text;
+            color: $fm-color-text
         }
     }
 
@@ -36,6 +36,10 @@
     }
 
     .cmp-signupform__privacywrapper {
+
+        h6 {
+            color: $fm-color-text;
+        }
 
         p {
             font-size: 15px;
@@ -79,7 +83,7 @@
         border-color: #198754 !important;
     }
 
-    .invalif-feedback {
+    .invalid-feedback {
         font-family: $font-arimo;
     }
 }

@@ -1,0 +1,13 @@
+<template data-sly-template.fullWidth="${ @ container}">
+  <div
+    id="${properties.id}"
+    class="fm-container container-fluid px-0 cmp-container"
+    aria-label="${properties.accessibilityLabel}"
+    role="${properties.roleAttribute}"
+    style="${properties.backgroundStyle @ context='styleString'}"
+  >
+    <sly
+      data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}"
+    ></sly>
+  </div>
+</template>

@@ -1,0 +1,123 @@
+.card-grid-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 0px;
+    }
+
+    .cmp-teaser {
+        min-height: 445px;
+        width: 100%;
+        @include media-breakpoint-up(lg) {
+            min-height: 296px;
+        }
+
+        &__link {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            text-decoration: none;
+            z-index: 1;
+            padding: 70px 20px;
+
+            @include media-breakpoint-up(lg) {
+                padding: 0px;
+            }
+        }
+
+        &__content {
+            @extend %flex-column-center;
+            text-align: center;
+
+            @include media-breakpoint-up(lg) {
+                max-width: 389px;
+            }
+        }
+
+        &__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            object-fit: cover;
+            z-index: 0;
+            min-height: 445px;
+            @include media-breakpoint-up(lg) {
+                min-height: 296px;
+            }
+
+            .cmp-image {
+                height: 445px;
+                @include media-breakpoint-up(lg) {
+                    height: 296px;
+                }
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }   
+        }
+
+
+        &.cmp-card-pretitle {
+            min-height: 400px;
+            .cmp-image {
+                height: 400px;
+            }
+        }
+
+        &__icon {
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
+            z-index: 3;
+            margin-top: 20px;
+
+            @include media-breakpoint-up(lg) {
+                height: 60px;
+                width: 60px;
+                margin-top: 5px;
+            }
+        }
+
+        &__pretitle {
+            @extend %h3;
+            color: $white;
+            z-index: 3;
+            border-bottom: 4px solid $primary;
+        }
+
+        &__title {
+            color: $white;
+            font-size: 2.5rem;
+            line-height: 2.9rem;
+            text-transform: uppercase;
+            text-align: center;
+            z-index: 3;
+            // min-height: 65px;
+        }
+
+        &__description {
+            color: $white;
+            z-index: 3;
+
+            p {
+                font-family: $font-georgia;
+                font-style: italic;
+                color: $white;
+
+                @include media-breakpoint-up(lg) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
