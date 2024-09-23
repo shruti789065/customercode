@@ -38,6 +38,11 @@
       right: 0rem;
       box-shadow: 1px 1px 3px $black;
       z-index: 9;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 12rem;
+      scrollbar-width: thin;
+      scrollbar-color: $charcoal transparent;
       .cmp-languagenavigation__item-link {
         color: $black !important;
         display: flex;
@@ -76,6 +81,17 @@
   text-transform: capitalize;
 }
 
+
+@include respond-to(tablet) {
+  .cmp-languagenavigation {
+    &.is-open {
+      .cmp-languagenavigation__group {
+        overflow: unset;
+        max-height: unset;
+      }
+    }
+  }
+}
 /*
   
   **MEDIA QUERIES DA UTILIZZARE**
