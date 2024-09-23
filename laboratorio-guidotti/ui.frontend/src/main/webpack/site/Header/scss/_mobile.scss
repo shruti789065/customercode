@@ -91,6 +91,8 @@
 
   &.scrolled {
     box-shadow: 0 1px 6px 0px $darkGray;
+    z-index: 4;
+
     .cmp-experiencefragment--header {
       .container.responsivegrid:nth-child(1) {
         padding: 1rem 1rem 0 1rem;
