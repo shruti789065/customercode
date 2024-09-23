@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-console.log('form v1.0');
+console.log("form v1.0");
 
 const ERRORS = {
   CLASS: "label_error",
@@ -25,7 +25,8 @@ function isValidPhoneNumber(phoneNumber) {
 }
 
 function isValidMailFormat(email) {
-  const re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+  const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
   return re.test(email);
 }
 
@@ -43,7 +44,7 @@ function appendErrorMessage(el, errorMessage) {
   if (!existingError.length || existingError.text() !== errorMessage) {
     existingError.remove(); // Rimuovi il messaggio di errore esistente se presente
 
-    if ($el.is(":radio") || $el.is(":checkbox")) {
+    if ($el.is(":radio") || $el.is(":checkbox") || $el.attr("type") == "file") {
       // Se l'elemento è un radio button o una casella di controllo,
       // appendi l'errore al parent del parent
       parent.parent().append(`<p class='${ERRORS.CLASS}'>${errorMessage}</p>`);
@@ -81,7 +82,6 @@ function validateText(element) {
     element,
     ERRORS.MESSAGE.text_field
   );
-
   const isRequired = isElementOrParentRequired(element);
 
   if (value.length === 0 && isRequired) {
@@ -89,15 +89,17 @@ function validateText(element) {
     return false;
   } else {
     handleValidationResult(element, true);
-    return true;
   }
 
   if ($(element).attr("type") === "email") {
     validateEmailField(element, value);
   }
+
   if ($(element).attr("type") === "tel") {
     validatePhoneField(element, value);
   }
+
+  return true; // Restituisce true se la validazione passa
 }
 
 function validateSelect(element) {
@@ -156,6 +158,14 @@ function validatePhoneField(element, value) {
   }
 }
 
+function validateFileSize(element, file, errorMessage) {
+  if (file.size > 3 * 1024 * 1024) {
+    appendErrorMessage(element, errorMessage);
+    return false;
+  }
+  return true;
+}
+
 function validateFileExtension(element, file, errorMessage) {
   const fileExtensionsAllowed = ["pdf", "doc", "docx"];
   const fileNameExt = file.name
@@ -163,13 +173,9 @@ function validateFileExtension(element, file, errorMessage) {
     .toLowerCase();
   if (!fileExtensionsAllowed.includes(fileNameExt)) {
     appendErrorMessage(element, errorMessage);
+    return false;
   }
-}
-
-function validateFileSize(element, file, errorMessage) {
-  if (file.size > 3 * 1024 * 1024) {
-    appendErrorMessage(element, errorMessage);
-  }
+  return true;
 }
 
 function handleValidationResult(element, isValid, errorMessage) {
@@ -207,7 +213,6 @@ function handleValidationResult(element, isValid, errorMessage) {
  */
 
 export function validateInputs(form) {
-  console.log('validate form v1.0');
   let inputsValid = true;
 
   form.find(":input:not(:hidden,:checkbox)").each(function () {
@@ -266,7 +271,10 @@ export function validateFile(element, file, fileContainer) {
     }
 
     // Mostra il nome del file selezionato nello span
-    fileContainer.text(file.name).removeClass('empty').append('<i class="cmp-close__icon"></i>');
+    fileContainer
+      .text(file.name)
+      .removeClass("empty")
+      .append('<i class="cmp-close__icon"></i>');
     return true; // Restituisci true se la validazione passa
   } else {
     return true; // Se il file non è presente, consideralo valido
@@ -299,6 +307,8 @@ export function validateRadios(form) {
 
 export function validateRecaptcha() {
   const recaptchaElement = document.getElementById("g-recaptcha-response");
+  if (!recaptchaElement) return true; // Se non esiste, restituisci true per non bloccare il form
+
   const tokenRecaptcha = recaptchaElement.value;
   if (!tokenRecaptcha.trim()) {
     appendErrorMessage(recaptchaElement, ERRORS.MESSAGE.reCAPTCHA);

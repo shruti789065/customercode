@@ -5,10 +5,11 @@
     <sly data-sly-test="${properties.description}">
         <div class="label-info cmp-text">${properties.description}</div>
     </sly>    
-    <label class="buttonText" for="myfile"><span>+</span> ${!properties.buttonText ? 'Upload' : properties.buttonText}</label>
-
-    <input data-sly-test="${properties.required}" required type="file" id="myfile" name="myfile" >
-    <input data-sly-test="${!properties.required}" type="file" id="myfile" name="myfile">
-    <span id="myFiles"></span>
+    <div class="cmp-input--container">
+        <input data-sly-test="${!properties.required}" type="file" id="myfile" name="myfile">
+        <input data-sly-test="${properties.required}" required type="file" id="myfile" name="myfile" >
+        <label class="buttonText" for="myfile"><span>+</span> ${!properties.buttonText ? 'Upload' : properties.buttonText}</label>
+        <span id="myFiles"></span>
+    </div>
 </div>
 

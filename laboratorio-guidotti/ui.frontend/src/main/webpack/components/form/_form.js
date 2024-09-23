@@ -10,7 +10,7 @@ import {
 import { showOverlayAndLoader } from "../../site/_util";
 
 $(function () {
-  const $form = $("#new_form");
+  const $form = $("#new_form"); //CONTROLLARE CHE IL CONTAINER DEL FORM NON ABBIA UN ID DIVERSO
   const $fileInput = $("#myfile");
   const $filesContainer = $("#myFiles");
 
@@ -22,7 +22,9 @@ $(function () {
     let tabIndex = 1;
 
     $form.find(":input").each(function () {
-      const { type, name, dataset } = this;
+      const type = this.type;
+      const name = this.name;
+      const dataset = this.dataset;
       const cmpHookFormText = dataset.cmpHookFormText;
 
       if (
@@ -30,7 +32,7 @@ $(function () {
         cmpHookFormText === "input" ||
         name === "info"
       ) {
-        if (type !== "file") {
+        if (type !== "file" && type !== "hidden") {
           $(this).prop("tabindex", tabIndex++);
         }
       }
@@ -73,6 +75,7 @@ $(function () {
       if (!performAllValidations($form)) {
         event.preventDefault();
       } else {
+        $(this).find(":submit").prop("disabled", true); // Disabilita il submit
         showOverlayAndLoader($form, true);
       }
     });
