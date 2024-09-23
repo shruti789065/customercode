@@ -122,8 +122,11 @@
         padding: 1rem;
         top: 3.6rem;
         width: unset;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         max-height: 12rem;
+        scrollbar-width: thin;
+        scrollbar-color: $charcoal transparent;
       }
     }  
 
@@ -224,7 +227,12 @@
         }
       }
 
-      &.is-open {}
+      &.is-open {
+        .cmp-languagenavigation__group {
+          overflow-y: auto;
+          max-height: unset;
+        }
+      }
 
       &::before {
         left: 10rem;
