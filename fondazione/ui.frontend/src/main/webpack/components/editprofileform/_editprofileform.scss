@@ -77,7 +77,7 @@
     }
 
     .cmp-editprofile__customError {
-        color: #dc3545;
+        color: $fm-form-error;
         font-size: .875em;
         font-weight: 300;
         font-family: $font-arimo;
@@ -109,10 +109,10 @@
     // }
 
     .cmp-userprofileform__borderRed {
-        border-color: #dc3545 !important;
+        border-color: $fm-form-error !important;
     }
 
     .cmp-userprofileform__borderGreen {
-        border-color: #198754 !important;
+        border-color: $fm-form-success !important;
     }
 }
