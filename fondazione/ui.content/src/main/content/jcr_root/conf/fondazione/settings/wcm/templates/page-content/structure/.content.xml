@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2024-09-11T21:19:21.143+03:00"
+        cq:lastModifiedBy="admin"
         cq:template="/conf/fondazione/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="fondazione/components/page">
         <root
+            jcr:lastModified="{Date}2024-09-11T20:50:40.767+03:00"
+            jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="fondazione/components/container"
-            layout="responsiveGrid">
+            layout="fullWidth">
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/experiencefragment"
                 fragmentVariationPath="/content/experience-fragments/fondazione/us/en/site/header/master"/>
             <container
+                jcr:lastModified="{Date}2024-09-11T21:19:14.299+03:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/container"
-                layout="responsiveGrid">
+                layout="fullWidth">
                 <title
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="fondazione/components/title"
@@ -29,6 +35,8 @@
                     layout="responsiveGrid"/>
             </container>
             <experiencefragment-footer
+                jcr:lastModified="{Date}2024-09-11T21:19:21.138+03:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/experiencefragment"
                 fragmentVariationPath="/content/experience-fragments/fondazione/us/en/site/footer/master"/>
