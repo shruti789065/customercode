@@ -52,7 +52,7 @@
                 <h2 class="text-primary h2 h2-light mb-0">${'reset_password' @ i18n}</h2>
 
                 <div class="mt-5">
-                    <h3 class="h3">${'email_label' @ i18n}</h3>
+                    <h3 class="h3 h3-light">${'email_label' @ i18n}</h3>
                     <div class="mt-2">
                         <input placeholder="${'email_label' @ i18n}" type="email"
                             class="form-control cmp-form__textField mt-2 rounded-0" name="emailFieldResetPassword"
@@ -66,7 +66,7 @@
                             type="click">${'reset_password' @ i18n}</button>
                     </div>
                     <div class="mt-4 mb-5 mb-lg-0">
-                        <div id="signinLink" class="text-decoration-none cmp-signinform__forgotPassword">${'signin' @
+                        <div id="signinLink" class="text-decoration-none signin-link cmp-signinform__forgotPassword">${'signin' @
                             i18n}</div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 <h2 class="text-primary h2 h2-light mb-0">${'reset_password' @ i18n}</h2>
 
                 <div class="mt-5">
-                    <h3 class="h3">${'code' @ i18n}</h3>
+                    <h3 class="h3 h3-light">${'code' @ i18n}</h3>
                     <div class="mt-2">
                         <input placeholder="${'code' @ i18n}" type="number"
                             class="form-control cmp-form__textField mt-2 rounded-0" name="codeField" id="codeField"
@@ -93,7 +93,7 @@
                         <div class="mt-2 cmp-signinform__customError" id="passwordErrorString"></div>
                     </div>
                     <div class="mt-5"></div>
-                    <h3 class="h3">${'password_confirmation' @ i18n}</h3>
+                    <h3 class="h3 h3-light">${'password_confirmation' @ i18n}</h3>
                     <input type="password" placeholder="${'password_confirmation' @ i18n}"
                         class="form-control cmp-form__textField mt-2 rounded-0" name="passwordConfirmationField"
                         id="passwordConfirmationField" aria-describedby="passwordConfirmationHelp" required>
@@ -103,12 +103,12 @@
                 <div id="cmp-signinform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
 
                 <div class="mt-5">
-                    <button class="btn btn-primary cmp-signinform__cta" type="submit">${'reset_password' @
+                    <button class="btn btn-primary cmp-signinform__cta" type="submit">${'reset_password_uppercase' @
                         i18n}</button>
                 </div>
 
                 <div class="mt-4 mb-5 mb-lg-0">
-                    <div id="signinLinkReset" class="text-decoration-none cmp-signinform__forgotPassword">${'signin' @
+                    <div id="signinLinkReset" class="text-decoration-none signin-link cmp-signinform__forgotPassword">${'signin' @
                         i18n}</div>
                 </div>
             </form>

@@ -17,9 +17,10 @@
         font-weight: 300;
     }
 
-    .forgot-password-link {
+    .forgot-password-link, .signin-link {
         font-family: $font-arimo;
     }
+
     .cmp-signinform__forgotPassword {
         color: $fm-color-blue-link;
 
@@ -29,16 +30,16 @@
     }
 
     .cmp-signinform__customError {
-        color: #dc3545;
+        color: $fm-form-error;
         font-size: .875em;
     }
 
     .cmp-signinform__borderRed {
-        border-color: #dc3545 !important;
+        border-color: $fm-form-error !important;
     }
 
     .cmp-signinform__borderGreen {
-        border-color: #198754 !important;
+        border-color: $fm-form-success !important;
     }
 
     .invalid-feedback {
