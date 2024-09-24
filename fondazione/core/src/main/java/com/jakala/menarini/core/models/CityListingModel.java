@@ -15,11 +15,11 @@ import java.util.Iterator;
 import java.util.List;
 
 @Model(adaptables = Resource.class)
-public class TopicListingModel {
+public class CityListingModel {
 
-    private static final Logger LOG = LoggerFactory.getLogger(TopicListingModel.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CityListingModel.class);
 
-    private static final String TOPICS_PATH = "/content/dam/fondazione/topics/";
+    private static final String CITIES_PATH = "/content/dam/fondazione/cities/";
 
     @SlingObject
     private ResourceResolver resourceResolver;
@@ -27,18 +27,18 @@ public class TopicListingModel {
     @SlingObject
     private Resource currentResource;
 
-    private List<Topic> topics = new ArrayList<>();
+    private List<City> cities = new ArrayList<>();
 
-    public List<Topic> getTopics() {
-        return topics;
+    public List<City> getCities() {
+        return cities;
     }
 
     @PostConstruct
     protected void init() {
-        topics = new ArrayList<>();
+        cities = new ArrayList<>();
 
         try {
-            Resource parentResource = resourceResolver.getResource(TOPICS_PATH);
+            Resource parentResource = resourceResolver.getResource(CITIES_PATH);
         
             String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
 
@@ -50,27 +50,27 @@ public class TopicListingModel {
 
                     if (fragment != null) {
                         String id = fragment.getElement("id").getContent();
-                        String nome = ModelHelper.getLocalizedElementValue(fragment, language, "nome_disciplina", fragment.getElement("nome_disciplina").getContent());
+                        String nome = ModelHelper.getLocalizedElementValue(fragment, language, "name", fragment.getElement("name").getContent());
                         String path = fragment.getName();
 
-                        topics.add(new Topic(id, nome, TOPICS_PATH + path));
+                        cities.add(new City(id, nome, CITIES_PATH + path));
                     }
                 }
             }
 
-            topics.sort((topic1, topic2) -> topic1.getName().compareToIgnoreCase(topic2.getName()));
+            cities.sort((city1, city2) -> city1.getName().compareToIgnoreCase(city2.getName()));
         } catch (Exception e) {
             LOG.error("Error retrieving topic content fragments", e);
         }
     }
 
-    // Inner class to represent each topic
-    public static class Topic {
+    // Inner class to represent each city
+    public static class City {
         private String id;
         private String name;
         private String path;
 
-        public Topic(String id, String name, String path) {
+        public City(String id, String name, String path) {
             this.id = id;
             this.name = name;
             this.path = path;
