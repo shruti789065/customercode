@@ -85,6 +85,20 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*.jar</include>
+                <include>**/*.csv</include>
+                <include>**/*.jpg</include>
+                <include>**/*.png</include>
+            </includes>
+            <excludes>
+                <exclude>**/*.tmp</exclude>
+            </excludes>
+            </resource>
+        </resources>
     </build>
 
     <dependencies>

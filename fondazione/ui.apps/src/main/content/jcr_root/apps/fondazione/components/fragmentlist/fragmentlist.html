@@ -1,0 +1,11 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.EventListingModel">
+    <ul data-sly-list.fragment="${model.fragments}">
+        <li>
+            <a href="${fragment.path}.html">
+                <h3>${fragment.title}</h3>
+                <p>${fragment.description}</p>
+            </a>
+        </li>
+    </ul>
+    <p data-sly-test="${!model.fragments}">Nessun evento trovato.</p>
+</sly>

@@ -5,6 +5,7 @@
     <filter root="/content/dam/fondazione" mode="merge">
         <exclude pattern="/content/dam/fondazione(/.*)?"/>
         <include pattern="/content/dam/fondazione/jcr:content(/.*)?"/>
+        <include pattern="/content/dam/fondazione/rep:policy(/.*)?"/>
     </filter>
     <filter root="/content/dam/fondazione/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/fondazione" mode="merge"/>

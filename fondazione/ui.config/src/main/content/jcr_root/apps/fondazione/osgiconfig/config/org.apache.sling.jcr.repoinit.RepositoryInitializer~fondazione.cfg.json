@@ -2,6 +2,7 @@
     "scripts": [
         "create path (sling:OrderedFolder) /content/dam/fondazione",
         "create path (nt:unstructured) /content/dam/fondazione/jcr:content",
-        "set properties on /content/dam/fondazione/jcr:content\n  set cq:conf{String} to /conf/fondazione\n  set jcr:title{String} to \"Fondazione\"\nend"
+        "set properties on /content/dam/fondazione/jcr:content\n  set cq:conf{String} to /conf/fondazione\n  set jcr:title{String} to \"Fondazione\"\nend",
+        "create service user fondazione-user with path /home/users/system/fondazione"
     ]
 }
