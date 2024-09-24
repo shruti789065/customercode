@@ -7,8 +7,11 @@
   }
 
   header.experiencefragment {
+    height: 5.5rem;
+
     #navbar {
       transition: transform 0.3s ease;
+      padding: 0 2rem;
       .xf-master-building-block {
         display: flex;
         justify-content: flex-end;
@@ -17,27 +20,32 @@
       }
       .button {
         display: flex;
+        .cmp-button {
+          padding: 0 1rem 0 0;
           .cmp-button__text {
             font-family: $font-family-oswald;
-            border: .07rem solid $white;
-            padding: .7vw 1vw;
+            border: 0.07rem solid $white;
+            padding: 0.7vw 1vw;
             text-align: center;
             border-radius: 5rem;
             font-size: $font-size-min;
             cursor: pointer;
             transition: $standard-transition;
+            background-color: $white;
+            color: $vibrant-azure;
             &:hover {
-              background-color: $white;
-              color: $vibrant-azure;
-              box-shadow: 2px 2px 5px lightgray;
+              background-color: $vibrant-azure;
+              color: $white;
+              box-shadow: 2px 2px 3px lightGray;
             }
           }
+          &:hover {
+            box-shadow: inherit;
+          }
+        }
       }
-    }
-
-    .container.responsivegrid:nth-child(1) {
-      transition: $standard-transition;
-      padding: 0px clamp(0.7rem, 4vw, 1.7rem) 0px clamp(0.7rem, 4vw, 1.7rem);
+      #logo-guidotti {
+      }
     }
 
     .container.responsivegrid:nth-child(2) {
@@ -52,38 +60,52 @@
     }
 
     &.scrolled {
+      background: $white;
+      background: linear-gradient(
+        180deg,
+        $white 0%,
+        $white 100%,
+        rgba(255, 255, 255, 0.65) 60%,
+        rgba(255, 255, 255, 0.65) 100%
+      );
+      -webkit-box-shadow: 0 4px 6px -6px $darkGray;
+      -moz-box-shadow: 0 4px 6px -6px $darkGray;
+      box-shadow: 0 1px 6px 0px $darkGray;
+
       #navbar {
+        padding: 0;
         transform: scale(0.95);
+
         .button {
           display: flex;
-            .cmp-button__text {
-              border: .07rem solid $vibrant-azure;
-              color: $black;
-              &:hover {
-                background-color: $vibrant-azure;
-                color: $white;
-                box-shadow: 2px 2px 5px lightgray;
-              }
-            }
-        }
-      }
-      
-      .container.responsivegrid:nth-child(1) {
-        padding: 0px clamp(1rem, 1vw, 2rem) 0px clamp(1rem, 1vw, 2rem);
-      }
-      .container.responsivegrid:nth-child(2) {
-        .cmp-navigation {
-          > .cmp-navigation__group {
-            transform: scale(0.95);
-            .cmp-navigation__item-link {
-              //padding: 1rem;
+          .cmp-button__text {
+            border: 0.07rem solid $vibrant-azure;
+            color: $black;
+            &:hover {
+              background-color: $vibrant-azure;
+              color: $white;
+              box-shadow: 2px 2px 5px $lightGray;
             }
           }
         }
+        #logo-guidotti {
+          .image {
+            .cmp-image {
+              .cmp-image__image {
+                height: 4rem;
+              }
+            }
+          }
+        }
+        .cmp-navigation {
+          border-top: 0.063rem solid $vibrant-azure;
+        }
       }
-      .languagenavigation {        
+
+      .languagenavigation {
         .cmp-languagenavigation {
           .cmp-languagenavigation__label {
+            padding-top: 4.8rem;
             color: $black;
             .cmp-languagenavigation__label-text {
               color: $black;
@@ -111,6 +133,18 @@
           }
         }
       }
+      nav {
+        margin-top: -5rem;
+        height: 5.5rem;
+        background-color: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0 0 0rem;
+      }
+      .cmp-navigation__group {
+        transform: scale(0.7);
+      }
     }
 
     .cmp-experiencefragment--header {
@@ -120,7 +154,7 @@
         > div {
           display: flex;
           align-items: center;
-        }        
+        }
       }
       .languagenavigation {
         font-family: $font-family-arimo;
@@ -131,11 +165,13 @@
       .container.responsivegrid:nth-child(1) {
         position: relative;
         .cmp-image {
-          width: clamp(10rem, 1.5vw, 16.25rem);
+          //width: clamp(10rem, 1.5vw, 16.25rem);
           .cmp-image__image {
             padding-top: 10px;
+            height: 5.5rem;
+            transition: $standard-transition;
           }
-        }        
+        }
       }
       .container.responsivegrid:nth-child(2) {
         position: relative;
@@ -151,6 +187,7 @@
 
     .cmp-navigation {
       background-color: rgba($color-background, 0.7);
+      transition: $standard-transition;
     }
     .cmp-navigation__group {
       display: flex;
@@ -165,7 +202,7 @@
     .cmp-navigation__item-link {
       color: $deep-blue;
       font-size: 1.12rem;
-      padding: 1.2rem 1rem;
+      padding: 0.8rem 1rem;
       font-weight: $oswald-weight-regular;
     }
 
@@ -203,7 +240,7 @@
       .cmp-navigation__item-link {
         color: $color-background;
         font-size: $font-size-min;
-        padding: .3rem .5rem;
+        padding: 0.3rem 0.5rem;
       }
     }
 
@@ -261,5 +298,15 @@
     }
     .cmp-languagenavigation__item--active > .cmp-languagenavigation__item-link {
     }
+  }
+}
+
+@include respond-to(laptop) {
+  header.experiencefragment {
+	&.scrolled{
+		.cmp-navigation__group {
+		  transform: scale(1);
+		}
+	}
   }
 }

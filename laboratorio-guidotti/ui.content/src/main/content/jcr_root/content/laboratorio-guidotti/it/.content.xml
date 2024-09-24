@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-06-06T15:08:56.919+02:00"
+        cq:lastModified="{Date}2024-07-02T16:00:30.149+02:00"
         cq:lastModifiedBy="admin"
         cq:styleIds="[1715699746961]"
         cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/page-content"
@@ -182,7 +182,7 @@
                                 <card_copy
                                     jcr:created="{Date}2024-06-03T10:18:56.901+02:00"
                                     jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2024-06-03T10:41:23.935+02:00"
+                                    jcr:lastModified="{Date}2024-06-07T15:29:44.548+02:00"
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="laboratorio-guidotti/components/card"
@@ -190,7 +190,7 @@
                                     descriptionFromPage="true"
                                     imageFromPageImage="true"
                                     isDecorative="false"
-                                    linkTarget="_self"
+                                    linkTarget="_blank"
                                     linkURL="/content/laboratorio-guidotti/it/aree-terapeutiche/area-dislipidemia"
                                     textIsRich="true"
                                     titleFromPage="true">
@@ -210,69 +210,14 @@
                                     </cq:responsive>
                                 </card_copy>
                             </container>
-                            <business_card
-                                jcr:created="{Date}2024-06-04T12:40:08.879+02:00"
+                            <wrapper_banner
+                                jcr:created="{Date}2024-07-02T15:38:52.854+02:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-06-06T12:36:47.702+02:00"
+                                jcr:lastModified="{Date}2024-07-02T16:00:30.118+02:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="laboratorio-guidotti/components/business_card"
-                                cardType="essential"
-                                description="[(&amp;#43;39) 050/971011]"
-                                descriptionEvent="&lt;p>(+39) 050/971011&lt;/p>&#xd;&#xa;"
-                                icon="/content/dam/laboratorio-guidotti/icons/icon-phone.svg"
-                                textIsRich="[true,true]"
-                                title="TELEFONO">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
-                                    <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="6"/>
-                                    <tablet
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="6"/>
-									<phone
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="12"/>
-                                </cq:responsive>
-                            </business_card>
-                            <business_card_copy
-                                jcr:created="{Date}2024-06-04T12:40:08.879+02:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-06-06T12:36:59.739+02:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="laboratorio-guidotti/components/business_card"
-                                cardType="essential"
-                                description="[&lt;p>Via Livornese\, 897 56122 Pisa -&lt;/p>&#xd;&#xa;&lt;p> Loc. La Vettola&lt;/p>&#xd;&#xa;]"
-                                descriptionEvent="&lt;p>Via Livornese, 897&lt;/p>&#xd;&#xa;&lt;p>56122 Pisa - Loc. La Vettola&lt;/p>&#xd;&#xa;"
-                                icon="/content/dam/laboratorio-guidotti/icons/icon-pin-map.svg"
-                                textIsRich="[true,true]"
-                                title="INDIRIZZO">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
-                                    <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="6"/>
-                                    <tablet
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="6"/>
-									<phone
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="0"
-                                        width="12"/>
-                                </cq:responsive>
-                            </business_card_copy>
-                            <business_card_copy_1394447641
-                                jcr:created="{Date}2024-06-04T12:40:08.879+02:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2024-06-04T12:40:08.879+02:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="laboratorio-guidotti/components/business_card"/>
+                                sling:resourceType="laboratorio-guidotti/components/banners/wrapper-banner"
+                                bannerType="central-shape"/>
                         </wrapper>
                     </section>
                 </container>
@@ -291,4 +236,10 @@
     <termini-e-condizioni/>
     <farmacovigilanza/>
     <transparency/>
+    <farmaci/>
+    <borse-di-studio/>
+    <carriere/>
+    <data-privacy/>
+    <sitemap/>
+    <fair-play-menarini/>
 </jcr:root>

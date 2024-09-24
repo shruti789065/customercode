@@ -1,0 +1,101 @@
+.cmp-form-options {
+  
+  border: none;
+
+  &.cmp-form-options--drop-down {
+    margin-bottom: 27px;
+    padding: 0 15px;
+  }
+
+  .cmp-form-options__label {
+    font-family: $font-family-oswald;
+    font-size: 30px;
+    font-weight: $oswald-weight-light;
+    color: $deep-blue;
+    margin-bottom: 18px;
+    display: none;
+  }
+
+  .cmp-form-options__field {
+    &:focus {
+      border-color: $deep-blue;
+      outline: 0;
+    }
+    &.first-required {
+      position: relative;
+      &:after {
+        content: "";
+        right: -47px;
+        top: -5px;
+        position: absolute;
+        color: $red;
+        font-family: $font-family-oswald;
+        font-weight: $oswald-weight-medium;
+      }
+    }
+  }
+
+  .cmp-form-options__field-label {
+    display: inline-flex;
+    gap: 5px;
+    font-family: $font-family-arimo;
+    font-size: 18px;
+    font-weight: $arimo-weight-regular;
+    color: $color-text;
+    height: 22px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  .cmp-form-options__field--drop-down {
+    display: block;
+    background-position: right 30px center;
+    background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/icons/arrow_down_grey.png");
+    background-repeat: no-repeat;
+    font-family: $font-family-arimo;
+    font-size: 20px;
+    font-weight: $arimo-weight-regular;
+    color: $color-text;
+    border: 1px solid $color-text;
+    box-shadow: none;
+    width: 100%;
+    height: 65px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    transition: $standard-transition;
+    line-height: 1.42857143;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+}
+
+.form-group {
+  padding: 0 15px;
+}
+
+.cmp-options {
+  padding: 0 15px;
+
+  fieldset {
+    border: none;
+    font-family: $font-family-oswald;
+    font-size: 18px;
+    font-weight: $oswald-weight-light;
+    color: $color-text;
+    float: left;
+    width: 100%;
+  }
+
+  legend {
+    margin-bottom: 27px;
+  }
+
+  .radio-item {
+    display: inline-block;
+  }
+}

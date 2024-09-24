@@ -1,0 +1,41 @@
+#imgProvv {
+  display: none;
+}
+.puzzle-carousel {
+  .cmp-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    min-height: 18rem;
+    height: 100%;
+    &::-webkit-scrollbar {
+      background: transparent; /* Chrome/Safari/Webkit */
+      width: 0px;
+    }
+  }
+}
+
+@include respond-to(laptop) {
+  .puzzle-carousel {
+    .cmp-container {
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+      .teaser {
+        .cmp-teaser__image {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@include respond-to(desktop) {
+  #imgProvv {
+    display: block;
+  }
+  .puzzle-carousel {
+    .cmp-container {
+      gap: 5rem;
+    }
+  }
+}

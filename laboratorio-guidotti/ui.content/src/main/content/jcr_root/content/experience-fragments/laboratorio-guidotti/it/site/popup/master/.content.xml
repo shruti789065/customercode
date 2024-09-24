@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-06-28T07:50:16.998Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/laboratorio-guidotti/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="POPUP - Persistence"
+        jcr:uuid="cf2564ed-729c-41e4-b6ec-ddfa9b3347ce"
+        sling:resourceType="laboratorio-guidotti/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="laboratorio-guidotti/components/containers/container"
+            layout="responsiveGrid">
+            <popup
+                cq:styleIds="[1719560717072]"
+                jcr:created="{Date}2024-06-28T07:44:33.712Z"
+                jcr:createdBy="d.mariotti@adiacent.com"
+                jcr:lastModified="{Date}2024-06-28T07:44:33.712Z"
+                jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="laboratorio-guidotti/components/popup">
+                <title
+                    jcr:created="{Date}2024-06-28T07:46:09.909Z"
+                    jcr:createdBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2024-06-28T07:47:10.269Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="FRAUD WARNING DISCLAIMER"
+                    sling:resourceType="laboratorio-guidotti/components/title"
+                    linkTarget="_self"
+                    type="h1"/>
+                <text
+                    jcr:created="{Date}2024-06-28T07:48:02.106Z"
+                    jcr:createdBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2024-06-28T07:48:33.879Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="laboratorio-guidotti/components/text"
+                    text="&lt;p>Please be aware that certain individuals might approach you by falsely presenting themselves as our employees, affiliates, agents or representatives. Under this false pretense, they might try to gain access to your personal information or to acquire money or other valuables from you by offering fictitious employment opportunities or by claiming that they are contacting you on our behalf. The contacting individual or organisation may, for example, claim that we can guarantee your employment if you pay them a certain amount of money. Such fraudulent offers and claims are usually received via email, the internet, text message, phone, etc. These claims and offers are fraudulent and invalid and you are strongly advised to exercise great caution when you receive such an offer of employment or notice. Be very mindful of such scams.Below we list some of the features such an offer or claim may have:&lt;/p>&#xd;&#xa;&lt;p>Below we list some of the features such an offer or claim may have:&lt;/p>&#xd;&#xa;&lt;p>• It may propose a phone or instant message program interview and/or money as a precondition for hiring You may be requested to disclose private, sensitive or confidential information&lt;/p>&#xd;&#xa;&lt;p>• You may be told that you were contacted in such a manner because it is a matter of urgency&lt;/p>&#xd;&#xa;&lt;p>Such an offer or claim will probably be in the form of an email sent from a fake email address or from a free email address and not from an official Menarini Group email address. Please take extra caution while examining such an email address, as the perpetrators may misspell an official Menarini Group email address and use a slightly modified version of an official Menarini Group email address.&lt;/p>&#xd;&#xa;&lt;p>Please note that you will never receive a fraudulent employment offer or any other similar claim from us, because we do not provide any recruitment services. Moreover, we will never ask you for money in exchange for employment opportunities or other similar services. Any such offer of employment or any other service in exchange for fees that claims to be from us is deceitful and part of a fraud.&lt;/p>&#xd;&#xa;&lt;p>Criminal and/or civil liabilities may arise from such actions and we intend to cooperate with competent law enforcement agencies. Accordingly, we would ask you to immediately get in touch with us upon receiving a suspicious offer or claim and additionally notify the police or other competent authority.&lt;/p>&#xd;&#xa;&lt;p>In any case, please disregard any written or oral request related to a job offer or an interview that you believe is or might be fraudulent or suspicious.&lt;/p>&#xd;&#xa;&lt;p>Please note that under no circumstances shall Menarini Group be held liable or responsible for any claims, losses, damages, expenses or other inconvenience resulting from or in any way connected to the actions of these imposters.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <button
+                    cq:styleIds="[1715873454853,1719558916508]"
+                    jcr:created="{Date}2024-06-28T07:49:04.811Z"
+                    jcr:createdBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2024-06-28T07:49:54.208Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Conferma"
+                    sling:resourceType="laboratorio-guidotti/components/button"
+                    id="popupConfirm"
+                    linkTarget="_self"
+                    linkURL="#"/>
+            </popup>
+        </root>
+        <cq:metadata jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

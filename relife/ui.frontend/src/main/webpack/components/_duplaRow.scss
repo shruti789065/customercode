@@ -1,0 +1,37 @@
+.dupla_row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .first_container {
+    width: 100%;
+  }
+  .second_container {
+    width: 100%;
+  }
+  &.cmp-mobile--switch {
+    .first_container {
+      order: 2;
+    }
+    .second_container {
+      order: 1;
+    }
+  }
+  .dupla_image {
+    padding: 0;
+  }
+}
+
+@include respond-to(laptop) {
+  .dupla_row {
+    flex-direction: row;
+    gap: 9rem;
+    &.cmp-mobile--switch {
+      .first_container {
+        order: 1;
+      }
+      .second_container {
+        order: 2;
+      }
+    }
+  }
+}

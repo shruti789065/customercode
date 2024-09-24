@@ -1,0 +1,12 @@
+<sly data-sly-test="${properties.bannerType == 'wave'}"
+     data-sly-use.bannerWaveTemplate="wave.html"
+     data-sly-call="${bannerWaveTemplate.bannerWave @ background=properties.backgroundImageReference}"></sly>
+
+
+<sly data-sly-test="${properties.bannerType == 'multi-shape'}"
+     data-sly-use.bannerMultiTemplate="multi-shape.html"
+     data-sly-call="${bannerMultiTemplate.bannerMultiShape }"></sly>
+
+
+<div data-sly-test="${!properties.bannerType}" data-emptytext="Section Banner" class="cq-placeholder"></div>
+

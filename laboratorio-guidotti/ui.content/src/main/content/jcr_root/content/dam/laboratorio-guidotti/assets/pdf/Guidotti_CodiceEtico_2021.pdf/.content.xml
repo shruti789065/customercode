@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="8b025f8f-6d88-4062-a279-f87dbd9a54f4">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        dam:assetState="processed"
+        dam:jobId="d3ec3931-05b0-40f1-ba6f-0d72f53c6ac3"
+        dam:processingId="06cabd2f-e5c8-4ef4-bc12-205a598435b9"
+        dam:processingRenditions="[cqdam.metadata.xml,cq5dam.web.1280.1280.jpeg,cq5dam.preview.mp4,cq5dam.preview.pdf,cqdam.machine.metadata.colors.json,cq5dam.thumbnail.140.100.png,cq5dam.thumbnail.319.319.png,cq5dam.zoom.2048.2048.jpeg,cqdam.machine.metadata.features.json,cqdam.text.txt,cq5dam.thumbnail.48.48.png,cqdam.machine.metadata.tags.json]"
+        dam:processingRequestedDate="{Date}2024-06-28T08:30:00.535Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2024-07-08T12:26:56.393+02:00"
+        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+        jcr:mixinTypes="[cq:ReplicationStatus2]"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for pdf files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.mp4
+                jcr:primaryType="nt:unstructured"
+                message="Format mp4 is not supported for pdf files"
+                reason="RenditionFormatUnsupported"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:Author="Gianmarco Di Giovanni"
+            dam:extracted="{Date}2024-07-08T12:26:45.201+02:00"
+            dam:numPages="{Long}68"
+            dam:Physicalheightininches="{Decimal}11.695"
+            dam:Physicalwidthininches="{Decimal}8.263333333333334"
+            dam:Producer="Microsoft® Word 2016"
+            dam:sha1="0b32283027edd16670632f303ea659b39c2f0a8a"
+            dam:size="{Long}1376109"
+            dc:creator="[Gianmarco Di Giovanni]"
+            dc:creator_xmpArrayType="rdf:Seq"
+            dc:format="application/pdf"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            pdf:Producer="Microsoft® Word 2016"
+            xmp:CreateDate="{Date}2021-07-08T11:36:05.000+02:00"
+            xmp:CreatorTool="Microsoft® Word 2016"
+            xmp:MetadataDate="{Date}2021-07-08T11:36:05.000+02:00"
+            xmp:ModifyDate="{Date}2021-07-08T11:36:05.000+02:00">
+            <predictedTags jcr:primaryType="nt:unstructured">
+                <compiti
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.355Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Compiti"/>
+                <su_base_individuale
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.356Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="su base individuale"/>
+                <ix_2
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.357Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="IX.2"/>
+                <viii_3_norme
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.358Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="VIII.3 Norme"/>
+                <utilizzo
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.358Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Utilizzo"/>
+                <contrasto_al_riciclaggio
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.359Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Contrasto al riciclaggio"/>
+                <diligenza_da_adottarsi
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.359Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Diligenza da adottarsi"/>
+                <sull_immigrazione
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.360Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="sull’immigrazione"/>
+                <diligenza_nell_utilizzo
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.361Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Diligenza nell’utilizzo"/>
+                <siti
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.361Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Siti"/>
+                <le_riunioni_scientifiche
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.362Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="le riunioni scientifiche"/>
+                <manifestazioni_congressuali
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.364Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Manifestazioni congressuali"/>
+                <rapporti
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.365Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Rapporti"/>
+                <conflitto
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.366Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Conflitto"/>
+                <vii_5
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.366Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="VII.5"/>
+                <vii_4
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.367Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="VII.4"/>
+                <vii_3
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.367Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="VII.3"/>
+                <correttezza
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.368Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Correttezza"/>
+                <vii_2
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.369Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="VII.2"/>
+                <le_autorita
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.370Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Le Autorità"/>
+                <v_6_tutela
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.370Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="V.6 Tutela"/>
+                <nelle_transazionifinanziarie
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.371Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="nelle transazioni finanziarie"/>
+                <v_5
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.372Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="V.5"/>
+                <v_4
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.372Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="V.4"/>
+                <v_3
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.373Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="V.3"/>
+                <v_2
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.373Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="V.2"/>
+                <v_1_tutela
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.374Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="V.1 Tutela"/>
+                <iii_6_tutela_dellimmagine
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.374Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="III.6 Tutela dell’immagine"/>
+                <soggiorno_dei
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.375Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="soggiorno dei"/>
+                <permesso
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.376Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="permesso"/>
+                <rispetto
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.376Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Rispetto"/>
+                <iii_4
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.377Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="III.4"/>
+                <iii_3_tutela
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.377Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="III.3 Tutela"/>
+                <italia
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.378Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Italia"/>
+                <ripudio
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.378Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Ripudio"/>
+                <conflitti
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.379Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Conflitti"/>
+                <imparzialita
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.380Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Imparzialità"/>
+                <trasparenza_13
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.380Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Trasparenza 13"/>
+                <responsabilita
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.381Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Responsabilità"/>
+                <gruppo_menarini
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.381Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Gruppo Menarini"/>
+                <condotta_globale
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.382Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Condotta Globale"/>
+                <i_1_il_codice
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.382Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="I.1 Il Codice"/>
+                <aggiornato
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.383Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="Aggiornato"/>
+                <laboratori_guidottispa
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.383Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}1.0"
+                    isCustom="{Boolean}false"
+                    name="LABORATORI GUIDOTTI S.p.A"/>
+                <del_codice_etico
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.384Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9999633099683907"
+                    isCustom="{Boolean}false"
+                    name="del Codice Etico"/>
+                <codice_etico
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.385Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9999047484710579"
+                    isCustom="{Boolean}false"
+                    name="codice Etico"/>
+                <societa_del_gruppo
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.386Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9998988123013797"
+                    isCustom="{Boolean}false"
+                    name="società del Gruppo"/>
+                <presente_codice_etico
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.387Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9998964185702213"
+                    isCustom="{Boolean}false"
+                    name="presente codice Etico"/>
+                <della_societa
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.387Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9998275649007609"
+                    isCustom="{Boolean}false"
+                    name="della società"/>
+                <del_presente_codice
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.388Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9997846174498102"
+                    isCustom="{Boolean}false"
+                    name="del presente codice"/>
+                <nei_rapporti_con
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.388Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9997710740700323"
+                    isCustom="{Boolean}false"
+                    name="nei rapporti con"/>
+                <societa
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.389Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9997396288098617"
+                    isCustom="{Boolean}false"
+                    name="società"/>
+                <rapporti_con
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.390Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9996595473213072"
+                    isCustom="{Boolean}false"
+                    name="rapporti con"/>
+                <delle_societa_del
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.390Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9996570543583225"
+                    isCustom="{Boolean}false"
+                    name="delle società del"/>
+                <nel_rispetto_delle
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.391Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.999653387913606"
+                    isCustom="{Boolean}false"
+                    name="nel rispetto delle"/>
+                <rispetto_del_codice
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.391Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9996239602247616"
+                    isCustom="{Boolean}false"
+                    name="rispetto del Codice"/>
+                <destinatari_del_codice
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.392Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9996105160410547"
+                    isCustom="{Boolean}false"
+                    name="Destinatari del Codice"/>
+                <dipendenti_dellasocieta
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.392Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9995449118814681"
+                    isCustom="{Boolean}false"
+                    name="dipendenti della Società"/>
+                <presente_codice
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.393Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.999472751225472"
+                    isCustom="{Boolean}false"
+                    name="presente codice"/>
+                <rispetto_delle
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.394Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9994629185078263"
+                    isCustom="{Boolean}false"
+                    name="rispetto delle"/>
+                <del
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.394Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9994479964389502"
+                    isCustom="{Boolean}false"
+                    name="del"/>
+                <delle
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.395Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9994156509456242"
+                    isCustom="{Boolean}false"
+                    name="delle"/>
+                <del_gruppo_menarini
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.395Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9993821210986127"
+                    isCustom="{Boolean}false"
+                    name="del Gruppo Menarini"/>
+                <societa_del
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.396Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.999368232061234"
+                    isCustom="{Boolean}false"
+                    name="società del"/>
+                <della
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.397Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9992943972257227"
+                    isCustom="{Boolean}false"
+                    name="della"/>
+                <rispetto_dei_principi
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.397Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9992594198183427"
+                    isCustom="{Boolean}false"
+                    name="rispetto dei principi"/>
+                <del_gruppo
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.398Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9992491263050216"
+                    isCustom="{Boolean}false"
+                    name="del gruppo"/>
+                <che
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.398Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9991637054133227"
+                    isCustom="{Boolean}false"
+                    name="che"/>
+                <nel_rispetto
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.399Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9991300518726609"
+                    isCustom="{Boolean}false"
+                    name="nel rispetto"/>
+                <rispetto_delle_leggi
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.400Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9990986174542917"
+                    isCustom="{Boolean}false"
+                    name="rispetto delle leggi"/>
+                <del_personale_guidotti
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.400Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9989777788716221"
+                    isCustom="{Boolean}false"
+                    name="del personale GUIDOTTI"/>
+                <nei_rapporti
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.401Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9988641447945714"
+                    isCustom="{Boolean}false"
+                    name="nei rapporti"/>
+                <etico
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.401Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9988558370266936"
+                    isCustom="{Boolean}false"
+                    name="etico"/>
+                <nel
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.402Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9988229648893521"
+                    isCustom="{Boolean}false"
+                    name="nel"/>
+                <nel_codice_deontologico
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.402Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9986893548177809"
+                    isCustom="{Boolean}false"
+                    name="nel Codice Deontologico"/>
+                <personale
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.403Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9986502645304516"
+                    isCustom="{Boolean}false"
+                    name="personale"/>
+                <della_tutela_dei
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.404Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9984810036549523"
+                    isCustom="{Boolean}false"
+                    name="della tutela dei"/>
+                <del_codice_nel
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.404Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9984490876934866"
+                    isCustom="{Boolean}false"
+                    name="del Codice nel"/>
+                <codice_etico_anche
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.405Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9984487025734989"
+                    isCustom="{Boolean}false"
+                    name="Codice Etico anche"/>
+                <rispetto_delle_procedure
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.405Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9984415678869809"
+                    isCustom="{Boolean}false"
+                    name="rispetto delle procedure"/>
+                <tutela_della
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.406Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9984033590071584"
+                    isCustom="{Boolean}false"
+                    name="tutela della"/>
+                <tutela_dei
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.406Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9983268561670366"
+                    isCustom="{Boolean}false"
+                    name="tutela dei"/>
+                <violazioni_del_codice
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.407Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9982090900794462"
+                    isCustom="{Boolean}false"
+                    name="violazioni del Codice"/>
+                <principi
+                    jcr:lastModified="{Date}2024-06-28T08:30:11.408Z"
+                    jcr:primaryType="nt:unstructured"
+                    confidence="{Double}0.9981901783583904"
+                    isCustom="{Boolean}false"
+                    name="principi"/>
+            </predictedTags>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

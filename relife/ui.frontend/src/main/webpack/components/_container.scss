@@ -1,0 +1,62 @@
+.cmp-container {
+	background-position: center;
+}
+.cmp-container-alignment {
+  display: flex;
+  align-items: stretch;
+}
+.cmp-container-alignment--flex-start {
+  justify-content: flex-start;
+}
+.cmp-container-alignment--center {
+  justify-content: center;
+}
+.cmp-container-alignment--flex-end {
+  justify-content: flex-end;
+}
+.cmp-container--wrap {
+  flex-wrap: wrap;
+}
+.cmp-container--no-wrap {
+  flex-wrap: nowrap;
+}
+.cmp-container--balanced {
+  flex-wrap: wrap;
+}
+.cmp-gap--30 {
+  gap: 30px;
+}
+.cmp-gap--60 {
+  gap: 60px;
+}
+.cmp-gap--120 {
+  gap: 120px;
+}
+
+@include respond-to(laptop) {
+  .cmp-container--balanced {
+    flex-wrap: nowrap;
+	align-items: center;
+  }
+}
+@include respond-to(tablet) {
+  .wrapper.cmp-max-width-50 {
+    max-width: 50%;
+  }
+  
+  .wrapper.cmp-max-width-60 {
+    max-width: 60%;
+  }
+  
+  .wrapper.cmp-max-width-70 {
+    max-width: 70%;
+  }
+  
+  .wrapper.cmp-max-width-80 {
+    max-width: 80%;
+  }
+  
+  .wrapper.cmp-max-width-90 {
+    max-width: 90%;
+  }
+}

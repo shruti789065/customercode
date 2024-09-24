@@ -1,0 +1,109 @@
+.shape_container {
+  position: relative;
+  overflow: visible;
+  padding: 0.2rem;
+  height: 20rem;
+}
+
+.cmp-shape--container {
+  position: relative;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  .cmp-container {
+    height: 100%;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Uso di un selettore comune per le varie maschere
+@for $i from 1 through 8 {
+  .cmp-shape--style-#{$i} {
+    .cmp-shape--container {
+      -webkit-mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
+      mask-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/shape-style-#{$i}.svg#shapeStyle#{$i}");
+    }
+  }
+}
+.cmp-shape--style-1 {
+  .cmp-shape--container {
+    height: clamp(18.125rem, 40vw, 32.5rem);
+    width: clamp(15.125rem, 40vw, 27rem);
+  }
+}
+.cmp-shape--style-2 {
+  .cmp-shape--container {
+    height: clamp(22.5rem, 40vw, 36.625rem);
+    width: clamp(29.375rem, 40vw, 46.75rem);
+  }
+}
+.cmp-shape--style-3 {
+  .cmp-shape--container {
+    height: clamp(17.5rem, 40vw, 29rem);
+    width: clamp(23.125rem, 40vw, 38.75rem);
+  }
+}
+.cmp-shape--style-4 {
+  .cmp-shape--container {
+    height: clamp(22.5rem, 40vw, 40rem);
+    width: clamp(17.375rem, 40vw, 30.625rem);
+  }
+}
+.cmp-shape--style-5 {
+  .cmp-shape--container {
+    height: clamp(21.75rem, 40vw, 32.5rem);
+    width: clamp(20rem, 40vw, 29.875rem);
+  }
+}
+.cmp-shape--style-6 {
+  .cmp-shape--container {
+    height: clamp(18.375rem, 40vw, 32.5rem);
+    width: clamp(22rem, 40vw, 30rem);
+  }
+}
+.cmp-shape--style-7 {
+  .cmp-shape--container {
+    height: clamp(22.5rem, 40vw, 47rem);
+    width: clamp(16.5rem, 40vw, 34.375rem);
+  }
+}
+.cmp-shape--style-8 {
+  .cmp-shape--container {
+    height: clamp(38.125rem, 7.5vw + 36.625rem, 45.625rem);
+    width: clamp(51.5rem, 9.75vw + 49.55rem, 61.25rem);
+  }
+}
+
+.cmp-shape--container-big {
+  transform: scale(1.2);
+}
+
+.cmp-shape--container-regular {
+  transform: scale(1);
+}
+
+.cmp-shape--container-small {
+  transform: scale(0.5);
+}
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/
