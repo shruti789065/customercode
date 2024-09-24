@@ -64,11 +64,8 @@ public class ImageProfileService implements ImageProfileServiceInterface {
                 .build();
         ImageProfileServiceResponseDto imgResponse = this.parseResponse(getRequest);
         Map imageResponseMap = gson.fromJson(imgResponse.getImageData(), Map.class);
-        LOGGER.error("==== RESPONSE ===========");
-        LOGGER.error(imageResponseMap.toString());
         String body = imageResponseMap.get("body").toString();
         Map imageBodyMap = gson.fromJson(body, Map.class);
-        LOGGER.error(imageBodyMap.toString());
         LambdaImageDataDto imageDataDto = gson.fromJson(imageBodyMap.get("imageData").toString(), LambdaImageDataDto.class);
         imgResponse.setImageData(new String(imageDataDto.getData(), StandardCharsets.UTF_8));
         return imgResponse;
@@ -128,9 +125,6 @@ public class ImageProfileService implements ImageProfileServiceInterface {
     }
 
     private Map<Boolean,String> checkIntegrityImage(String image) {
-        LOGGER.error("============================================");
-        LOGGER.error(image);
-        LOGGER.error("============================================");
         HashMap<Boolean,String> checkResult = new HashMap<>();
         final byte[] imageBufferData = DatatypeConverter.parseBase64Binary(image);
         ByteArrayInputStream imageStream = new ByteArrayInputStream(imageBufferData);
