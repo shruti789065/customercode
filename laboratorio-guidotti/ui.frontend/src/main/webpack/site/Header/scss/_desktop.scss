@@ -1,5 +1,3 @@
-
-
 @include respond-to(tablet) {
   .header-mobile {
     display: none;
@@ -10,7 +8,7 @@
 
   header.experiencefragment {
     height: 5.5rem;
-    
+
     #navbar {
       transition: transform 0.3s ease;
       padding: 0 2rem;
@@ -46,7 +44,8 @@
           }
         }
       }
-      #logo-guidotti {}
+      #logo-guidotti {
+      }
     }
 
     .container.responsivegrid:nth-child(2) {
@@ -62,9 +61,15 @@
 
     &.scrolled {
       background: $white;
-      background: linear-gradient(180deg, $white 0%, $white 100%, rgba(255, 255, 255, 0.65) 60%, rgba(255, 255, 255, 0.65) 100%);
-        -webkit-box-shadow: 0 4px 6px -6px $darkGray;
-        -moz-box-shadow: 0 4px 6px -6px $darkGray;
+      background: linear-gradient(
+        180deg,
+        $white 0%,
+        $white 100%,
+        rgba(255, 255, 255, 0.65) 60%,
+        rgba(255, 255, 255, 0.65) 100%
+      );
+      -webkit-box-shadow: 0 4px 6px -6px $darkGray;
+      -moz-box-shadow: 0 4px 6px -6px $darkGray;
       box-shadow: 0 1px 6px 0px $darkGray;
 
       #navbar {
@@ -137,6 +142,9 @@
         justify-content: center;
         padding: 0 0 0 0rem;
       }
+      .cmp-navigation__group {
+        transform: scale(0.7);
+      }
     }
 
     .cmp-experiencefragment--header {
@@ -179,7 +187,7 @@
 
     .cmp-navigation {
       background-color: rgba($color-background, 0.7);
-      transition:  $standard-transition;
+      transition: $standard-transition;
     }
     .cmp-navigation__group {
       display: flex;
@@ -295,6 +303,10 @@
 
 @include respond-to(laptop) {
   header.experiencefragment {
-    
+	&.scrolled{
+		.cmp-navigation__group {
+		  transform: scale(1);
+		}
+	}
   }
 }
