@@ -161,27 +161,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // ERROR HANDLING
     function displayErrorsAlertEmailForm(errorString) {
         let errorAlert = document.querySelector("#alertMessageEmailForm");
-        let alertBocEmailForm = document.querySelector("#alertBoxEmailForm");
+        let alertBoxEmailForm = document.querySelector("#alertBoxEmailForm");      
         if (errorAlert && errorString && errorString !== "") {
             if (errorAlert.classList.contains("d-none")) {
                 errorAlert.innerHTML = errorString;
-                alertBocEmailForm.classList.remove("d-none");
-                alertBocEmailForm.classList.add("d-block");
+                alertBoxEmailForm.classList.remove("d-none");
+                alertBoxEmailForm.classList.add("d-block");
                 errorAlert.classList.remove("d-none");
                 errorAlert.classList.add("d-block");
-            } else {
-                errorAlert.classList.remove("d-block");
-                errorAlert.classList.add("d-none");
-                alertBocEmailForm.classList.remove("d-block");
-                alertBocEmailForm.classList.add("d-none");
             }
         }
+    }
+
+    function hideErrorsAlertEmailForm() {
+        let errorAlert = document.querySelector("#alertMessageEmailForm");
+        let alertBoxEmailForm = document.querySelector("#alertBoxEmailForm");
+        errorAlert.classList.remove("d-block");
+        errorAlert.classList.add("d-none");
+        alertBoxEmailForm.classList.remove("d-block");
+        alertBoxEmailForm.classList.add("d-none");
     }
 
     function displayErrorsAlertCodeForm(errorString) {
         let errorAlert = document.querySelector("#alertMessageCodeForm");
         let alertBocCodeForm = document.querySelector("#alertBoxCodeForm");
-
         if (errorAlert && errorString && errorString !== "") {
             if (errorAlert.classList.contains("d-none")) {
                 errorAlert.innerHTML = errorString;
@@ -189,13 +192,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 alertBocCodeForm.classList.add("d-block");
                 errorAlert.classList.remove("d-none");
                 errorAlert.classList.add("d-block");
-            } else {
-                errorAlert.classList.remove("d-block");
-                errorAlert.classList.add("d-none");
-                alertBocCodeForm.classList.remove("d-block");
-                alertBocCodeForm.classList.add("d-none");
             }
         }
+    }
+
+    function hideErrorsAlertCodeForm() {
+        let errorAlert = document.querySelector("#alertMessageCodeForm");
+        let alertBocCodeForm = document.querySelector("#alertBoxCodeForm");
+        errorAlert.classList.remove("d-block");
+        errorAlert.classList.add("d-none");
+        alertBocCodeForm.classList.remove("d-block");
+        alertBocCodeForm.classList.add("d-none");
     }
 
     function resetErrorMessages() {
@@ -216,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 email: formData.get('emailFieldResetPassword')
             }
             resetPasswordEmail = tmpFormData.email;
+            hideErrorsAlertEmailForm();
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
             if (validateEmail()) {
@@ -230,8 +238,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         body: JSON.stringify(tmpFormData)
                     });
                     const responseData = await signIResponse.json();
-                    if (responseData.success === false) {
-                        displayErrorsAlertEmailForm("Wrong email")
+                    if (!signIResponse.ok) {                        
+                        displayErrorsAlertEmailForm(Granite.I18n.get('error_sanding_code'));
                     } else {
                         displayEmailForm();
                     }
@@ -248,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetPasswordForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             resetErrorMessages();
+            hideErrorsAlertCodeForm();
             const formData = new FormData(resetPasswordForm);
             let tmpFormDataValidation = {
                 code: formData.get('codeField'),

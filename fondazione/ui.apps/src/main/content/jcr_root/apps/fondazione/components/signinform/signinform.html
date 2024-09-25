@@ -60,13 +60,16 @@
                             id="emailFieldResetPassword" aria-describedby="emailFieldResetPasswordHelp" required>
                         <div class="mt-2 cmp-signinform__customError" id="emailErrorString"></div>
                     </div>
+
+                    <div class="alert alert-danger collapse mt-4" role="alert" id="alertBoxEmailForm">
+                        <div id="alertMessageEmailForm" class="d-none"></div>
+                    </div>
+
                     <div class="mt-4">
                         <button id="resetPasswordEmailSubmit" class="btn btn-primary cmp-signinform__cta text-uppercase"
                             type="click">${'reset_password' @ i18n}</button>
                     </div>
-                    <div class="alert alert-danger collapse mt-4" role="alert" id="alertBoxEmailForm">
-                        <div id="alertMessageEmailForm"></div>
-                    </div>
+                    
                     <div class="mt-4 mb-5 mb-lg-0">
                         <button id="signinLink" class="text-decoration-none signin-link cmp-signinform__forgotPassword"
                             type="submit">${'signin' @
