@@ -233,6 +233,82 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         //return null;
     }
 
+    @Override
+    public ForgetPasswordResponseDto forgetPassword(ForgetPasswordDto forgetPasswordDto) {
+        ForgetPasswordResponseDto forgetPasswordResponseDto = new ForgetPasswordResponseDto();
+        Gson gson = new Gson();
+        Date now = new Date();
+        String dateStr = new SimpleDateFormat("yyyyMMdd'T'HHmmssZ").format(now);
+        HttpPost httpPost = new HttpPost(this.idpUrl);
+        httpPost.setHeader("Content-Type", "application/x-amz-json-1.1");
+        httpPost.setHeader("X-Amz-Target", "AWSCognitoIdentityProviderService.ForgotPassword");
+        httpPost.setHeader("X-Amz-Date", dateStr);
+        String authString = generateAuthString();
+        httpPost.setHeader("Authorization", authString);
+        String secretHash = calculateSecretHash(forgetPasswordDto.getEmail());
+        CognitoForgetPasswordDto cognitoForgetPasswordDto = new CognitoForgetPasswordDto();
+        cognitoForgetPasswordDto.setClientId(clientId);
+        cognitoForgetPasswordDto.setSecretHash(secretHash);
+        cognitoForgetPasswordDto.setUsername(forgetPasswordDto.getEmail());
+        httpPost.setEntity(new StringEntity(gson.toJson(cognitoForgetPasswordDto), StandardCharsets.UTF_8));
+        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)) {
+            StringBuffer responseString = readHttpResponse(httpResponse);
+            if(httpResponse.getStatusLine().getStatusCode() == 200) {
+                CognitoForgetPasswordResponseDto cognitoResponse =
+                        gson.fromJson(responseString.toString(), CognitoForgetPasswordResponseDto.class);
+                        forgetPasswordResponseDto.setCognitoForgetPasswordResponseDto(cognitoResponse);
+                        forgetPasswordResponseDto.setSuccess(Boolean.TRUE);
+                        return forgetPasswordResponseDto;
+            }
+            forgetPasswordResponseDto.setSuccess(Boolean.FALSE);
+            CognitoSignInErrorResponseDto cognitoSignInErrorResponseDto =
+                    gson.fromJson(responseString.toString(),CognitoSignInErrorResponseDto.class);
+            forgetPasswordResponseDto.setCognitoError(cognitoSignInErrorResponseDto);
+            return forgetPasswordResponseDto;
+        }catch (java.io.IOException io) {
+            throw new RuntimeException(io);
+        }
+    }
+
+    @Override
+    public ConfirmForgetPasswordResponseDto confirmForgetPassword(ConfirmForgetPasswordDto forgetPassword) {
+        ConfirmForgetPasswordResponseDto confirmForgetPasswordResponseDto = new ConfirmForgetPasswordResponseDto();
+        Gson gson = new Gson();
+        Date now = new Date();
+        String dateStr = new SimpleDateFormat("yyyyMMdd'T'HHmmssZ").format(now);
+        HttpPost httpPost = new HttpPost(this.idpUrl);
+        httpPost.setHeader("Content-Type", "application/x-amz-json-1.1");
+        httpPost.setHeader("X-Amz-Target", "AWSCognitoIdentityProviderService.ConfirmForgotPassword");
+        httpPost.setHeader("X-Amz-Date", dateStr);
+        String authString = generateAuthString();
+        httpPost.setHeader("Authorization", authString);
+        String secretHash = calculateSecretHash(forgetPassword.getEmail());
+        CognitoConfirmForgetPassword cognitoConfirmForgetPassword = new CognitoConfirmForgetPassword();
+        cognitoConfirmForgetPassword.setClientId(clientId);
+        cognitoConfirmForgetPassword.setSecretHash(secretHash);
+        cognitoConfirmForgetPassword.setUsername(forgetPassword.getEmail());
+        cognitoConfirmForgetPassword.setPassword(forgetPassword.getPassword());
+        cognitoConfirmForgetPassword.setConfirmationCode(forgetPassword.getConfirmCode());
+        httpPost.setEntity(new StringEntity(gson.toJson(cognitoConfirmForgetPassword), StandardCharsets.UTF_8));
+        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)){
+            StringBuffer responseString = readHttpResponse(httpResponse);
+            if(httpResponse.getStatusLine().getStatusCode() == 200) {
+                LOGGER.error("=========== RESET COMPLETE =========");
+                confirmForgetPasswordResponseDto.setSuccess(Boolean.TRUE);
+                return confirmForgetPasswordResponseDto;
+            }
+            confirmForgetPasswordResponseDto.setSuccess(Boolean.FALSE);
+            CognitoSignInErrorResponseDto error =
+                    gson.fromJson(responseString.toString(),CognitoSignInErrorResponseDto.class);
+            LOGGER.error("=======  RESET ERROR =======");
+            LOGGER.error(gson.toJson(error));
+            return confirmForgetPasswordResponseDto;
+        }catch (java.io.IOException io) {
+            throw new RuntimeException(io);
+        }
+    }
+
+
     private StringBuffer readHttpResponse(CloseableHttpResponse httpResponse) throws IOException, java.io.IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 httpResponse.getEntity().getContent()));
