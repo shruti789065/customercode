@@ -309,6 +309,35 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     }
 
 
+    public ResetPasswordResponseDto resetPassword(ResetPasswordDto resetPasswordDto) {
+        ResetPasswordResponseDto awsResponse = new ResetPasswordResponseDto();
+        Gson gson = new Gson();
+        Date now = new Date();
+        String dateStr = new SimpleDateFormat("yyyyMMdd'T'HHmmssZ").format(now);
+        HttpPost httpPost = new HttpPost(this.idpUrl);
+        httpPost.setHeader("Content-Type", "application/x-amz-json-1.1");
+        httpPost.setHeader("X-Amz-Target", "AWSCognitoIdentityProviderService.ChangePassword");
+        httpPost.setHeader("X-Amz-Date", dateStr);
+        httpPost.setEntity(new StringEntity(gson.toJson(resetPasswordDto), StandardCharsets.UTF_8));
+        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)){
+            StringBuffer responseString = readHttpResponse(httpResponse);
+            if(httpResponse.getStatusLine().getStatusCode() == 200) {
+                awsResponse.setSuccess(Boolean.TRUE);
+                return awsResponse;
+            }
+            awsResponse.setSuccess(Boolean.FALSE);
+            CognitoSignInErrorResponseDto error = gson.fromJson(
+                    responseString.toString(),CognitoSignInErrorResponseDto.class
+            );
+            awsResponse.setError(error);
+            return awsResponse;
+        }catch (java.io.IOException io) {
+            throw new RuntimeException(io);
+        }
+
+    }
+
+
     private StringBuffer readHttpResponse(CloseableHttpResponse httpResponse) throws IOException, java.io.IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 httpResponse.getEntity().getContent()));
