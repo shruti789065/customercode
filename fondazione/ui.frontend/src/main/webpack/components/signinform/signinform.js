@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let resetPasswordCodeCta = document.querySelector('#resetPasswordCodeCta');
     let resetPasswordEmail = "";
 
+    // TOGGLE FORMS
     forgotPasswordToggle.addEventListener('click', () => {
         signInForm.classList.remove('d-block');
         signInForm.classList.add('d-none');
@@ -38,6 +39,22 @@ document.addEventListener('DOMContentLoaded', function () {
         signupSection.classList.remove('d-none');
         signupSection.classList.add('d-block');
     })
+
+    function backToSigninPage() {
+        resetPasswordForm.classList.remove('d-block');
+        resetPasswordForm.classList.add('d-none');
+        signInForm.classList.add('d-block');
+        signInForm.classList.remove('d-none');
+        signupSection.classList.remove('d-none');
+        signupSection.classList.add('d-block');
+    }
+
+    function displayEmailForm() {
+        resetPasswordEmailForm.classList.remove('d-block');
+        resetPasswordEmailForm.classList.add('d-none');
+        resetPasswordForm.classList.remove('d-none');
+        resetPasswordForm.classList.add('d-block');
+    }
 
     // DATA VALIDATION
     function validateEmail() {
@@ -141,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return regex.test(str);
     }
 
+    // ERROR HANDLING
     function displayErrorsAlertEmailForm(errorString) {
         let errorAlert = document.querySelector("#alertMessageEmailForm");
         let alertBocEmailForm = document.querySelector("#alertBoxEmailForm");
@@ -180,21 +198,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function resetErrorMessages() {
+        let errorElementPasswordConfirmation = document.querySelector('#passwordConfirmationErrorString');
+        let errorElementPassword = document.querySelector('#passwordErrorString');
+        let errorElementCode = document.querySelector('#codeErrorString');
+        if (errorElementPasswordConfirmation) { errorElementPasswordConfirmation.innerHTML = "" }
+        if (errorElementPassword) { errorElementPassword.innerHTML = "" }
+        if (errorElementCode) { errorElementCode.innerHTML = "" }
+    }
+
     // FORM SUBMISSION
     if (resetPasswordEmailForm) {
         resetPasswordEmailForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             const formData = new FormData(resetPasswordEmailForm);
-
             let tmpFormData = {
                 email: formData.get('emailFieldResetPassword')
             }
-
             resetPasswordEmail = tmpFormData.email;
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
-
-            if (validateEmail()) {                
+            if (validateEmail()) {
                 resetPasswordEmailSubmit.disabled = true;
                 try {
                     const signIResponse = await fetch("/bin/api/forgetPassword", {
@@ -205,16 +229,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         },
                         body: JSON.stringify(tmpFormData)
                     });
-
                     const responseData = await signIResponse.json();
-
                     if (responseData.success === false) {
                         displayErrorsAlertEmailForm("Wrong email")
                     } else {
-                        resetPasswordEmailForm.classList.remove('d-block');
-                        resetPasswordEmailForm.classList.add('d-none');
-                        resetPasswordForm.classList.remove('d-none');
-                        resetPasswordForm.classList.add('d-block');
+                        displayEmailForm();
                     }
                 } catch (error) {
                     console.log("ERROR: ", error);
@@ -222,41 +241,29 @@ document.addEventListener('DOMContentLoaded', function () {
                     resetPasswordEmailSubmit.disabled = false;
                 }
             }
-
         })
     }
 
     if (resetPasswordForm) {
         resetPasswordForm.addEventListener('submit', async (event) => {
             event.preventDefault();
+            resetErrorMessages();
             const formData = new FormData(resetPasswordForm);
-
-            let errorElementPasswordConfirmation = document.querySelector('#passwordConfirmationErrorString');
-            let errorElementPassword = document.querySelector('#passwordErrorString');
-            let errorElementCode = document.querySelector('#codeErrorString');
-            if (errorElementPasswordConfirmation) { errorElementPasswordConfirmation.innerHTML = "" }
-            if (errorElementPassword) { errorElementPassword.innerHTML = "" }
-            if (errorElementCode) { errorElementCode.innerHTML = "" }
-
             let tmpFormDataValidation = {
                 code: formData.get('codeField'),
                 password: formData.get('passwordField'),
                 passwordConfirmation: formData.get('passwordConfirmationField')
             }
-
             let isCodeValid = validateCode(tmpFormDataValidation);
             let isPasswordValid = validatePassword(tmpFormDataValidation);
             let isPasswordConfirmationValid = validatePasswordConfirmation(tmpFormDataValidation);
-
             let tmpFormData = {
                 email: resetPasswordEmail,
                 confirmCode: formData.get('codeField'),
                 password: formData.get('passwordField'),
             }
-
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
-
             if (isPasswordValid && isPasswordConfirmationValid && isCodeValid) {
                 try {
                     resetPasswordCodeCta.disabled = true;
@@ -268,20 +275,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         },
                         body: JSON.stringify(tmpFormData)
                     });
-
-
-                    
                     if (!signIResponse.ok) {
                         displayErrorsAlertCodeForm("Wrong code or password");
                     } else {
-                        resetPasswordForm.classList.remove('d-block');
-                        resetPasswordForm.classList.add('d-none');
-                        signInForm.classList.add('d-block');
-                        signInForm.classList.remove('d-none');
-                        signupSection.classList.remove('d-none');
-                        signupSection.classList.add('d-block');
+                        backToSigninPage();
                     }
-
                 } catch (error) {
                     console.log("ERROR: ", error);
                 } finally {
@@ -341,7 +339,6 @@ if (alertBtn) {
 }
 
 if (signInForm) {
-
     signInForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
