@@ -10,5 +10,6 @@ public interface AwsCognitoServiceInterface {
     public SignUpDtoResponse registerOnCognito(SignUpDto registrationData);
     public ForgetPasswordResponseDto forgetPassword(ForgetPasswordDto forgetPasswordDto);
     public ConfirmForgetPasswordResponseDto confirmForgetPassword(ConfirmForgetPasswordDto forgetPassword);
+    public ResetPasswordResponseDto resetPassword(ResetPasswordDto resetPasswordDto);
 
 }
