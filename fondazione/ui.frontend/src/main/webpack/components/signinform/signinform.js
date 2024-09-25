@@ -1,7 +1,6 @@
 let signInForm = document.querySelector('#signInForm');
 let alertBtn = document.querySelector('#alertBtn');
 
-
 document.addEventListener('DOMContentLoaded', function () {
     let forgotPasswordToggle = document.querySelector('#forgotPasswordLink');
     let signinToggle = document.querySelector('#signinLink');
@@ -10,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let resetPasswordEmailSubmit = document.querySelector('#resetPasswordEmailSubmit');
     let resetPasswordForm = document.querySelector('#resetPasswordForm');
     let signupSection = document.querySelector('#signupSection');
+    let resetPasswordCodeCta = document.querySelector('#resetPasswordCodeCta');
+    let resetPasswordEmail = "";
 
     forgotPasswordToggle.addEventListener('click', () => {
         signInForm.classList.remove('d-block');
@@ -38,54 +39,25 @@ document.addEventListener('DOMContentLoaded', function () {
         signupSection.classList.add('d-block');
     })
 
-    resetPasswordEmailSubmit.addEventListener('click', () => {
-        if (validateEmail()) {
-            resetPasswordEmailForm.classList.remove('d-block');
-            resetPasswordEmailForm.classList.add('d-none');
-            resetPasswordForm.classList.remove('d-none');
-            resetPasswordForm.classList.add('d-block');
-        }
-    })
-
-    resetPasswordForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const formData = new FormData(resetPasswordForm);
-
-        let tmpFormData = {
-            code: formData.get('codeField'),
-            password: formData.get('passwordField'),
-            passwordConfirmation: formData.get('passwordConfirmationField')
-        }
-
-        let isCodeValid = validateCode(tmpFormData)
-        let isPasswordValid = validatePassword(tmpFormData);
-        let isPasswordConfirmationValid = validatePasswordConfirmation(tmpFormData);
-
-        if (isCodeValid && isPasswordValid && isPasswordConfirmationValid) {
-            // LOGIC FOR NEW PASSWORD VALIDATION AND REDIRECT GOES HERE
-            return
-        }
-
-        return
-
-    })
-
+    // DATA VALIDATION
     function validateEmail() {
         let emailField = document.querySelector('#emailFieldResetPassword');
-        if (emailField && emailField.value.toString().includes("@")) {
-            return true;
+        let errorElement = document.querySelector('#emailErrorString');
+
+        if (emailField && !emailField.value.toString().includes("@")) {
+            errorElement.innerHTML = Granite.I18n.get('email_not_valid');
+            return false;
+        } else if (!emailField || emailField.value === "") {
+            errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+            return false;
         }
-        return false
+        return true;
     }
 
     function validateCode(data) {
-        const TMP_CODE = "123" // CHANGE THIS WITH THE CODE GIVEN BACK BY THE BACK END
         let errorElement = document.querySelector('#codeErrorString');
         if (!data.code) {
             errorElement.innerHTML = Granite.I18n.get('mandatory_field');
-            return false
-        } else if (data.code !== TMP_CODE) {
-            errorElement.innerHTML = Granite.I18n.get('code_error');
             return false
         }
         return true;
@@ -93,29 +65,232 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validatePassword(data) {
         let errorElement = document.querySelector('#passwordErrorString');
+
         if ((data.password && data.password !== data.passwordConfirmation) || (data.password && !data.passwordConfirmation)) {
             errorElement.innerHTML = Granite.I18n.get('password_form_error');
+            return false;
+        } else if (data.password && data.password.length < 8) {
+            errorElement.innerHTML = Granite.I18n.get('password_length_error');
+            return false;
+        } else if (data.password && !containsNumber(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_number_error');
+            return false;
+        } else if (data.password && !containsSpecialCharacter(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_special_character_error');
+            return false;
+        } else if (data.password && !containsUppercase(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_uppercase_error');
+            return false;
+        } else if (data.password && !containsLowercase(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_lowercase_error');
             return false;
         } else if (!data.password) {
             errorElement.innerHTML = Granite.I18n.get('mandatory_field');
             return false
         }
+
         return true
     }
 
     function validatePasswordConfirmation(data) {
         let errorElement = document.querySelector('#passwordConfirmationErrorString');
+
         if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) || (data.passwordConfirmation && !data.password)) {
             errorElement.innerHTML = Granite.I18n.get('password_form_error');
             return false
+        } else if (data.passwordConfirmation && data.passwordConfirmation.length < 8) {
+            errorElement.innerHTML = Granite.I18n.get('password_length_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsNumber(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_number_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsSpecialCharacter(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_special_character_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsUppercase(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_uppercase_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsLowercase(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_lowercase_error');
+            return false;
         } else if (!data.passwordConfirmation) {
             errorElement.innerHTML = Granite.I18n.get('mandatory_field');
             return false;
         }
+
         return true;
     }
-})
 
+    function containsNumber(str) {
+        const regex = /\d/;
+        return regex.test(str);
+    }
+
+    function containsSpecialCharacter(str) {
+        const regex = /[^a-zA-Z0-9]/;
+        return regex.test(str);
+    }
+
+    function containsUppercase(str) {
+        const regex = /[A-Z]/;
+        return regex.test(str);
+    }
+
+    function containsLowercase(str) {
+        const regex = /[a-z]/;
+        return regex.test(str);
+    }
+
+    function displayErrorsAlertEmailForm(errorString) {
+        let errorAlert = document.querySelector("#alertMessageEmailForm");
+        let alertBocEmailForm = document.querySelector("#alertBoxEmailForm");
+        if (errorAlert && errorString && errorString !== "") {
+            if (errorAlert.classList.contains("d-none")) {
+                errorAlert.innerHTML = errorString;
+                alertBocEmailForm.classList.remove("d-none");
+                alertBocEmailForm.classList.add("d-block");
+                errorAlert.classList.remove("d-none");
+                errorAlert.classList.add("d-block");
+            } else {
+                errorAlert.classList.remove("d-block");
+                errorAlert.classList.add("d-none");
+                alertBocEmailForm.classList.remove("d-block");
+                alertBocEmailForm.classList.add("d-none");
+            }
+        }
+    }
+
+    function displayErrorsAlertCodeForm(errorString) {
+        let errorAlert = document.querySelector("#alertMessageCodeForm");
+        let alertBocCodeForm = document.querySelector("#alertBoxCodeForm");
+
+        if (errorAlert && errorString && errorString !== "") {
+            if (errorAlert.classList.contains("d-none")) {
+                errorAlert.innerHTML = errorString;
+                alertBocCodeForm.classList.remove("d-none");
+                alertBocCodeForm.classList.add("d-block");
+                errorAlert.classList.remove("d-none");
+                errorAlert.classList.add("d-block");
+            } else {
+                errorAlert.classList.remove("d-block");
+                errorAlert.classList.add("d-none");
+                alertBocCodeForm.classList.remove("d-block");
+                alertBocCodeForm.classList.add("d-none");
+            }
+        }
+    }
+
+    // FORM SUBMISSION
+    if (resetPasswordEmailForm) {
+        resetPasswordEmailForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(resetPasswordEmailForm);
+
+            let tmpFormData = {
+                email: formData.get('emailFieldResetPassword')
+            }
+
+            resetPasswordEmail = tmpFormData.email;
+            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+            const csrfToken = await responseCsrf.json();
+
+            if (validateEmail()) {                
+                resetPasswordEmailSubmit.disabled = true;
+                try {
+                    const signIResponse = await fetch("/bin/api/forgetPassword", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json", // Aggiunto Content-Type
+                            "CSRF-Token": csrfToken.token,
+                        },
+                        body: JSON.stringify(tmpFormData)
+                    });
+
+                    const responseData = await signIResponse.json();
+
+                    if (responseData.success === false) {
+                        displayErrorsAlertEmailForm("Wrong email")
+                    } else {
+                        resetPasswordEmailForm.classList.remove('d-block');
+                        resetPasswordEmailForm.classList.add('d-none');
+                        resetPasswordForm.classList.remove('d-none');
+                        resetPasswordForm.classList.add('d-block');
+                    }
+                } catch (error) {
+                    console.log("ERROR: ", error);
+                } finally {
+                    resetPasswordEmailSubmit.disabled = false;
+                }
+            }
+
+        })
+    }
+
+    if (resetPasswordForm) {
+        resetPasswordForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(resetPasswordForm);
+
+            let errorElementPasswordConfirmation = document.querySelector('#passwordConfirmationErrorString');
+            let errorElementPassword = document.querySelector('#passwordErrorString');
+            let errorElementCode = document.querySelector('#codeErrorString');
+            if (errorElementPasswordConfirmation) { errorElementPasswordConfirmation.innerHTML = "" }
+            if (errorElementPassword) { errorElementPassword.innerHTML = "" }
+            if (errorElementCode) { errorElementCode.innerHTML = "" }
+
+            let tmpFormDataValidation = {
+                code: formData.get('codeField'),
+                password: formData.get('passwordField'),
+                passwordConfirmation: formData.get('passwordConfirmationField')
+            }
+
+            let isCodeValid = validateCode(tmpFormDataValidation);
+            let isPasswordValid = validatePassword(tmpFormDataValidation);
+            let isPasswordConfirmationValid = validatePasswordConfirmation(tmpFormDataValidation);
+
+            let tmpFormData = {
+                email: resetPasswordEmail,
+                confirmCode: formData.get('codeField'),
+                password: formData.get('passwordField'),
+            }
+
+            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+            const csrfToken = await responseCsrf.json();
+
+            if (isPasswordValid && isPasswordConfirmationValid && isCodeValid) {
+                try {
+                    resetPasswordCodeCta.disabled = true;
+                    const signIResponse = await fetch("/bin/api/confirmForgetPassword", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "CSRF-Token": csrfToken.token,
+                        },
+                        body: JSON.stringify(tmpFormData)
+                    });
+
+
+                    
+                    if (!signIResponse.ok) {
+                        displayErrorsAlertCodeForm("Wrong code or password");
+                    } else {
+                        resetPasswordForm.classList.remove('d-block');
+                        resetPasswordForm.classList.add('d-none');
+                        signInForm.classList.add('d-block');
+                        signInForm.classList.remove('d-none');
+                        signupSection.classList.remove('d-none');
+                        signupSection.classList.add('d-block');
+                    }
+
+                } catch (error) {
+                    console.log("ERROR: ", error);
+                } finally {
+                    resetPasswordCodeCta.disabled = false;
+                }
+            }
+        })
+    }
+})
 
 async function sendData(logInData) {
     const responseCsrf = await fetch('/libs/granite/csrf/token.json');

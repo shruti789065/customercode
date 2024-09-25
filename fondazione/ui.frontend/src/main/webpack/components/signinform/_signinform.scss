@@ -23,6 +23,8 @@
 
     .cmp-signinform__forgotPassword {
         color: $fm-color-blue-link;
+        border: none;
+        background-color: transparent;
 
         &:hover {
             cursor: pointer;
@@ -32,6 +34,7 @@
     .cmp-signinform__customError {
         color: $fm-form-error;
         font-size: .875em;
+        font-family: $font-arimo;
     }
 
     .cmp-signinform__borderRed {
