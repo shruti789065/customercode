@@ -2,10 +2,10 @@
 
 .cmp-section_banner--container-wave {
   transition: $standard-transition;
-  min-height: clamp(15.625rem, 27.96vw + 9.072rem, 45rem);
-  background-size: cover !important;
-  padding: 0rem 0 0rem 0;
-  height: 40rem;
+  min-height: clamp(11.75rem, 34.045vw + 3.771rem, 44.625rem);
+  background-size: contain !important;
+  //padding: 0rem 0 0rem 0;
+  //height: clamp(11.75rem, 32.875vw + 5.175rem, 44.625rem);
 
   .cmp-banner--content {
     display: flex;
@@ -35,7 +35,7 @@
 			}
 
             .cmp-button__text {
-              font-size: 0.75rem;
+              font-size: 1rem;
             }
           }
         }
@@ -43,13 +43,13 @@
 
       &:nth-child(1) {
         .cmp-shape--container {
-          transform: translate(calc(-50% + 10vw), 60%); // Adjust the value as needed
+          transform: translate(calc(-30% + 10vw), 40%); // Adjust the value as needed
         }
       }
 
       &:nth-child(2) {
         .cmp-shape--container {
-          transform: translate(calc(-50% - 10vw), 50%); // Adjust the value as needed
+          transform: translate(calc(-40% - 10vw), 30%); // Adjust the value as needed
         }
       }
     }
@@ -66,13 +66,13 @@
         }
         &:nth-child(1) {
           .cmp-shape--container {
-            transform: translate(calc(50% + 10vw), 60%);
+            transform: translate(calc(30% + 10vw), 40%);
           }
         }
 
         &:nth-child(2) {
           .cmp-shape--container {
-            transform: translate(calc(0% - 10vw), 60%);
+            transform: translate(calc(-10% - 10vw), 30%);
           }
         }
       }
@@ -141,6 +141,7 @@
 
 @include respond-to(desktop) {
   .cmp-section_banner--container-wave {
+	background-size: cover !important;
     padding: 2rem 0 2rem 0;
     height: unset;
     .cmp-banner--content {

@@ -18,7 +18,7 @@ if (document.querySelector("body").dataset.wcmMode != 'EDIT') {
       pag = s.parentElement.querySelector(".swiper-pagination"),
       slidesNumber = s.parentElement.querySelector(".slides-number").value,
       slideMode = s.parentElement.querySelector(".slide-mode").value,
-      tabletSlidesNumber = slidesNumber == 1 ? 1 : 2,
+      //tabletSlidesNumber = slidesNumber == 1 ? 1 : 2,
       desktopSlidesNumber = slideMode == "gallery" ? 1 : slidesNumber,
       $thumbs = null;
 
@@ -43,7 +43,7 @@ if (document.querySelector("body").dataset.wcmMode != 'EDIT') {
         spaceBetween: 5,
         slidesPerView: 8,
         breakpoints: {
-          768: {
+          992: {
             slidesPerView: 10,
           },
           1200: {
@@ -75,8 +75,8 @@ if (document.querySelector("body").dataset.wcmMode != 'EDIT') {
         enabled: true,
       },
       breakpoints: {
-        768: {
-          slidesPerView: tabletSlidesNumber,
+        992: {
+          slidesPerView: 2,
           spaceBetween: 50,
           navigation: {
             enabled: true,
@@ -89,7 +89,7 @@ if (document.querySelector("body").dataset.wcmMode != 'EDIT') {
             enabled: true,
           },
         },
-        1550: {
+        1440: {
           slidesPerView: desktopSlidesNumber,
           spaceBetween: 50,
           navigation: {

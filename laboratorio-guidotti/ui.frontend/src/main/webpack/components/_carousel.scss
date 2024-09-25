@@ -13,16 +13,16 @@
         max-width: 100%;
         padding: 0;
         margin: 0 auto;
-  
+
         @media (min-width: 100rem) {
           max-width: 96.875rem;
         }
-  
+
         .swiper-wrapper {
           max-height: 100%;
           height: 100%;
           display: flex;
-  
+
           .swiper-slide {
             width: 100%;
             min-width: 21.875rem;
@@ -98,18 +98,24 @@
 
         .swiper-slide {
           width: 100%;
-          min-width: 21.875rem;
+          /*min-width: 21.875rem; */
           flex-shrink: 0;
           display: flex;
           align-items: center;
           overflow: hidden;
           border-radius: 3.125rem;
+          height: clamp(13.875rem, 4.984vw + 12.707rem, 18.688rem);
+          max-width: clamp(16.313rem, 5.89vw + 14.932rem, 22rem);
           .image {
             .cmp-image {
-              height: 20.625rem;
+              //height: 20.625rem;
+              /*  height: 100%;
+			  width: 100%; */
+              //height: clamp(13.875rem, 4.984vw + 12.707rem, 18.688rem);
+              //width: clamp(16.313rem, 5.89vw + 14.932rem, 22rem);
               &__image {
-                width: auto;
-                height: 20.625rem;
+                /* width: 100%;
+                height: 100%; */
               }
             }
           }
@@ -147,14 +153,10 @@
       }
     }
 
-    
-
     .swiper-button-prev,
     .swiper-button-next {
-      height: 4rem;
-      width: 4rem;
-      height: 4rem;
-      width: 4rem;
+      height: 3rem;
+      width: 3rem;
       position: absolute;
       bottom: -8.5rem;
       top: auto;
@@ -162,8 +164,6 @@
       &::after {
         content: "";
         display: flex;
-        height: 4rem;
-        width: 4rem;
         align-items: end;
         justify-content: end;
       }
@@ -173,16 +173,18 @@
       left: 60%;
       -webkit-transform: translate(-50%, 0%);
       transform: translate(-50%, 0%);
+      background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-carousel-arrow-right.svg")
+        center center no-repeat;
       background-size: contain;
-      background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-carousel-arrow-right.svg") center center no-repeat;
     }
 
     .swiper-button-prev {
       left: 40%;
       -webkit-transform: translate(-50%, 0%);
       transform: translate(-50%, 0%);
+      background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-carousel-arrow-left.svg")
+        center center no-repeat;
       background-size: contain;
-      background: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/icons/icon-carousel-arrow-left.svg") center center no-repeat;
     }
 
     &.swiper-preview {
@@ -199,7 +201,8 @@
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
   margin: 0 !important;
 }
 
@@ -208,12 +211,15 @@
   height: 0.3rem;
   .swiper-pagination-bullet {
     width: 6.25rem !important;
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 10px)) !important;
-    background: #E8E8E8 !important;
+    height: var(
+      --swiper-pagination-bullet-height,
+      var(--swiper-pagination-bullet-size, 10px)
+    ) !important;
+    background: #e8e8e8 !important;
     border-radius: 0 !important;
     margin: 0 !important;
     transition: $standard-transition;
-  
+
     &.swiper-pagination-bullet-active {
       background: $lightGray !important;
     }
@@ -228,18 +234,14 @@
   opacity: 1 !important;
 }
 
-
 @include respond-to(tablet) {
   .cmp-men-carousel {
     margin: 4rem 0;
     .swiper-container {
-  
       .swiper-button-prev,
       .swiper-button-next {
-        height: 4rem;
-        width: 4rem;
         top: 50%;
-  
+
         &::after {
           content: "";
           display: flex;
@@ -250,12 +252,12 @@
         }
       }
       .swiper-button-prev {
-        left: -2%;
+        left: -3%;
         -webkit-transform: translate(-50%, 0%);
         transform: translate(-50%, 0%);
       }
       .swiper-button-next {
-        left: 102%;
+        left: 103%;
         -webkit-transform: translate(-50%, 0%);
         transform: translate(-50%, 0%);
       }
@@ -267,12 +269,36 @@
 }
 @include respond-to(laptop) {
   .cmp-men-carousel {
-    .swiper-container {  
+    .swiper-container {
+      .swiper-button-prev {
+        //left: -3%;
+      }
+      .swiper-button-next {
+        //left: 103%;
+      }
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .cmp-men-carousel {
+    .swiper-container {
+      .swiper {
+        .swiper-wrapper {
+          .swiper-slide {
+            max-width: fit-content;
+          }
+        }
+      }
       .swiper-button-prev {
         left: -4%;
+        height: 4rem;
+        width: 4rem;
       }
       .swiper-button-next {
         left: 104%;
+        height: 4rem;
+        width: 4rem;
       }
     }
   }

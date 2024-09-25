@@ -79,7 +79,7 @@ body {
       position: absolute;
       background-size: cover;
       bottom: 0;
-      left: 0;
+      left: 2px;
       background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-left-wave.svg');
       width: clamp(0px, calc(182px + (455 - 182) * ((100vw - 768px) / (1920 - 768))), 455px);
       height: clamp(0px, calc(648px + (1620 - 648) * ((100vw - 768px) / (1920 - 768))), 1620px);
@@ -90,7 +90,7 @@ body {
       content: '';
       position: absolute;
       background-size: cover;
-      bottom: 0;
+      bottom: -1px;
       right: 0;      
       background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-right-wave-small.svg');
       transition: background-image 0.5s ease; 
@@ -107,6 +107,7 @@ body {
       height: 0px;
       &::before {
         opacity: 1;    
+		left:1px;
       }
       &::after {
         background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-right-wave.svg');
