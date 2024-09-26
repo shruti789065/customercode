@@ -79,11 +79,12 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         ArrayList<String> topicsUser = (ArrayList<String>) TopicUtils.getTopicsRefForUser(user.getId(), create);
         if(topicsUser != null && !topicsUser.isEmpty()) {
             ArrayList<RegisteredUserTopicDto> topics = new ArrayList<>();
-            ArrayList<TopicDto> listTopics = (ArrayList<TopicDto>) TopicUtils.getTopics();
-            listTopics.removeIf(topic -> !topicsUser.contains(topic.getId()));
-            for(TopicDto topic : listTopics) {
+            for(String topic :  topicsUser) {
+                TopicDto topicData = new TopicDto();
+                topicData.setId(topic);
+                topicData.setName(null);
                 RegisteredUserTopicDto topicDto = new RegisteredUserTopicDto();
-                topicDto.setTopic(topic);
+                topicDto.setTopic(topicData);
                 topics.add(topicDto);
             }
             user.setRegisteredUserTopics(topics);
@@ -106,27 +107,19 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             connection = dataSource.getConnection();
             savepoint = connection.setSavepoint();
             DSLContext create = DSL.using(connection);
-            LOGGER.error("------ Start Prepare Query --------");
             Record dataSet = this.setUpdateQuery(user, create);
-            LOGGER.error("------ End Prepare Query --------");
-            LOGGER.error("------ Start Update --------");
             int x = create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
                     .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
-            LOGGER.error("------ rows --------");
-            LOGGER.error(""+x);
-            LOGGER.error("------ End Update --------");
+
             if(!updateTopics.isEmpty()) {
-                LOGGER.error("------ on Update topic --------");
-                ArrayList<TopicDto> listTopics = (ArrayList<TopicDto>) TopicUtils.getTopics();
+
                 List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
                 List<String> topicToSaveRefers =  new ArrayList<String>();
-                updateTopics = this.convertTopicsNameToId(updateTopics,listTopics);
                 for(String topic : updateTopics) {
                     if(!oldTopicRefs.contains(topic)) {
                         topicToSaveRefers.add(topic);
                     }
                 }
-                LOGGER.error("------ Start delete topic --------");
                 boolean isDeleted = this.deleteTopics(user.getId(),updateTopics,oldTopicRefs,create,connection,savepoint);
                 if(!isDeleted) {
                     response.setSuccess(false);
@@ -135,8 +128,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     return response;
 
                 }
-                LOGGER.error("------ End delete topic --------");
-                LOGGER.error("------ Start add topic --------");
                 for(String topicRef : topicToSaveRefers) {
                     LOGGER.error("id topics to save: "+topicRef);
                 }
@@ -147,7 +138,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     response.setErrorMessage(errorMessage);
                     return response;
                 }
-                LOGGER.error("------ End add topic --------");
             }
             connection.close();
             response.setSuccess(true);
