@@ -2,7 +2,7 @@
 
 .cmp-section_banner--container-wave {
   transition: $standard-transition;
-  min-height: clamp(11.75rem, 23.482vw + 7.054rem, 44.625rem);
+  min-height: clamp(11.75rem, 30vw + 5.75rem, 53.75rem);
   background-size: contain !important;
   //padding: 0rem 0 0rem 0;
   //height: clamp(11.75rem, 32.875vw + 5.175rem, 44.625rem);
@@ -87,6 +87,7 @@
 
 @include respond-to(tablet) {
   .cmp-section_banner--container-wave {
+	
     .cmp-banner--content {
       .shape_container {
         .text {
@@ -152,7 +153,6 @@
 
 @include respond-to(desktop) {
   .cmp-section_banner--container-wave {
-    background-size: cover !important;
     padding: 2rem 0 2rem 0;
     height: unset;
     .cmp-banner--content {
@@ -178,6 +178,7 @@
 
 @include respond-to(high-definition) {
   .cmp-section_banner--container-wave {
+	background-size: cover !important;
     padding: 1rem 0 1rem 0;
     .cmp-banner--content {
       .shape_container {
