@@ -2,6 +2,7 @@ import moment from 'moment';
 
 document.addEventListener('DOMContentLoaded', function () {
     let selectedTab = "";
+    let token = null;
     let successAlert = document.querySelector("#cmp-editprofileform__successAlert");
     let errorAlert = document.querySelector("#cmp-editprofileform__errorsAlert");
     let userProfileTab = document.querySelector('#userProfileTab');
@@ -51,10 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // SET TOKEN AND FILL FORM WITH USER DATA
     async function setToken() {
         let storedToken = localStorage.getItem('token');
-        let token = null;
 
         if (storedToken) {
-
             if (localStorage.getItem('remember_me') === "false") {
                 let tokenObject = JSON.parse(storedToken);
                 token = tokenObject.token;
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     selectedProfession = dataResponse.updatedUser.occupation;
                     updateDropdownTextProfession()
                 }
-                if (areaOfIntersts && dataResponse.updatedUser.registeredUserTopics.length > 0) {
+                if (areaOfIntersts && dataResponse?.updatedUser?.registeredUserTopics?.length > 0) {
                     const valuesArray = Array.from(checkboxes).map(checkbox => checkbox.value);
                     dataResponse.updatedUser.registeredUserTopics.forEach(topic => {
                         selectedItemsMultipleSelect.push(valuesArray[topic.topic.id - 1])
@@ -382,6 +381,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function hideErrorAlertChangePassword() {
+        let element = document.querySelector("#errorAlertChangePassword");
+        element.classList.remove("d-block");
+        element.classList.add("d-none");
+    }
+
+    function displaySuccessAlertChangePassword() {
+        let element = document.querySelector("#successAlertChangePassword");
+        element.classList.remove("d-none");
+        element.classList.add("d-block");
+    }
+
+    function hideSuccessAlertChangePassword() {
+        let element = document.querySelector("#successAlertChangePassword");
+        element.classList.remove("d-block");
+        element.classList.add("d-none");
+    }
+
+    function displayErrorAlertChangePassword() {
+        let element = document.querySelector("#errorAlertChangePassword");
+        element.classList.remove("d-none");
+        element.classList.add("d-block");
+    }
+
     // FORM DATA VALIDATION FUNCTIONS
     function validateProfession() {
         let errorElement = document.querySelector("#professionErrorString");
@@ -441,46 +464,58 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function validatePassword(data) {
-        let errorElement = document.querySelector("#newPasswordErrorString");
-
-        if (
-            (data.newPassword && data.newPassword !== data.newPasswordConfirmation) ||
-            (data.newPassword && !data.newPasswordConfirmation)
-        ) {
-            errorElement.innerHTML = Granite.I18n.get("password_form_error");
-            erroeMessagges.push({
-                id: "newPassword",
-                message: Granite.I18n.get("password_form_error"),
-            });
-        } else if (!data.newPassword) {
-            errorElement.innerHTML = Granite.I18n.get("mandatory_field");
-            erroeMessagges.push({
-                id: "newPassword",
-                message: Granite.I18n.get("mandatory_field"),
-            });
+    function validatePassword(data) {        
+        let errorElement = document.querySelector('#passwordErrorString');
+        if ((data.password && data.password !== data.passwordConfirmation) || (data.password && !data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_form_error');
+            return false;
+        } else if (data.password && data.password.length < 8) {
+            errorElement.innerHTML = Granite.I18n.get('password_length_error');
+            return false;
+        } else if (data.password && !containsNumber(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_number_error');
+            return false;
+        } else if (data.password && !containsSpecialCharacter(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_special_character_error');
+            return false;
+        } else if (data.password && !containsUppercase(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_uppercase_error');
+            return false;
+        } else if (data.password && !containsLowercase(data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_lowercase_error');
+            return false;
+        } else if (!data.password) {
+            errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+            return false
         }
+        return true
     }
 
     function validatePasswordConfirmation(data) {
-        let errorElement = document.querySelector("#newPasswordConfirmationErrorString");
-        if (
-            (data.newPasswordConfirmation &&
-                data.newPasswordConfirmation !== data.newPassword) ||
-            (data.newPasswordConfirmation && !data.newPassword)
-        ) {
-            errorElement.innerHTML = Granite.I18n.get("password_form_error");
-            erroeMessagges.push({
-                id: "newPasswordConfirmation",
-                message: Granite.I18n.get("password_form_error"),
-            });
-        } else if (!data.newPasswordConfirmation) {
-            errorElement.innerHTML = Granite.I18n.get("mandatory_field");
-            erroeMessagges.push({
-                id: "newPasswordConfirmation",
-                message: Granite.I18n.get("mandatory_field"),
-            });
+        let errorElement = document.querySelector('#passwordConfirmationErrorString');
+        if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) || (data.passwordConfirmation && !data.password)) {
+            errorElement.innerHTML = Granite.I18n.get('password_form_error');
+            return false
+        } else if (data.passwordConfirmation && data.passwordConfirmation.length < 8) {
+            errorElement.innerHTML = Granite.I18n.get('password_length_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsNumber(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_number_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsSpecialCharacter(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_special_character_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsUppercase(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_uppercase_error');
+            return false;
+        } else if (data.passwordConfirmation && !containsLowercase(data.passwordConfirmation)) {
+            errorElement.innerHTML = Granite.I18n.get('password_lowercase_error');
+            return false;
+        } else if (!data.passwordConfirmation) {
+            errorElement.innerHTML = Granite.I18n.get('mandatory_field');
+            return false;
         }
+        return true;
     }
 
     function validateGdpr(data) {
@@ -534,9 +569,35 @@ document.addEventListener('DOMContentLoaded', function () {
         validateNewsLetter(tmpFormData);
     }
 
+    function containsNumber(str) {
+        const regex = /\d/;
+        return regex.test(str);
+    }
+
+    function containsSpecialCharacter(str) {
+        const regex = /[^a-zA-Z0-9]/;
+        return regex.test(str);
+    }
+
+    function containsUppercase(str) {
+        const regex = /[A-Z]/;
+        return regex.test(str);
+    }
+
+    function containsLowercase(str) {
+        const regex = /[a-z]/;
+        return regex.test(str);
+    }
+
+    function resetErrorMessagesPasswordForm() {
+        let passwordError = document.querySelector("#passwordErrorString");
+        let passwordConfirmationError = document.querySelector("#passwordConfirmationErrorString");
+        passwordError.innerHTML = "";
+        passwordConfirmationError.innerHTML = "";
+    }
+
     // SUBMIT FORM USER PROFILE
     async function sendDataUserProfile(registrationData) {
-        const token = localStorage.getItem('token') !== null ? localStorage.getItem('token') : sessionStorage.getItem('token');
         const responseCsrf = await fetch("/libs/granite/csrf/token.json");
         const csrfToken = await responseCsrf.json();
         const regResponse = await fetch("/private/api/user", {
@@ -549,6 +610,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         const dataResponse = await regResponse.json();
         return dataResponse;
+    }
+
+    async function sendDataPassword(newPasswordData) {
+        let ctaSave = document.querySelector("#ctaSavePassword");
+        ctaSave.disabled = true;
+        try {
+            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+            const csrfToken = await responseCsrf.json();
+            const regResponse = await fetch("/private/api/resetPassword", {
+                method: "POST",
+                headers: {
+                    "CSRF-Token": csrfToken.token,
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify(newPasswordData),
+            });
+            const dataResponse = await regResponse.json();
+
+            if (dataResponse.success === true) {
+                displaySuccessAlertChangePassword();
+                hideErrorAlertChangePassword();
+            } else {
+                displayErrorAlertChangePassword();
+                hideSuccessAlertChangePassword();
+            }
+            return dataResponse;
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            ctaSave.disabled = false;
+        }
     }
 
     let formUserProfile = document.querySelector("#userProfileForm");
@@ -617,32 +709,30 @@ document.addEventListener('DOMContentLoaded', function () {
     let formPassword = document.querySelector("#passwordForm");
     if (formPassword) {
         formPassword.addEventListener("submit", async (event) => {
+            hideErrorAlertChangePassword();
+            hideSuccessAlertChangePassword();
+            resetErrorMessagesPasswordForm();
             erroeMessagges = [];
             event.preventDefault();
             const formData = new FormData(formPassword);
             let tmpFormData = {};
-
             for (let [key, value] of formData.entries()) {
                 tmpFormData = {
                     ...tmpFormData,
                     [`${key}`]: value,
                 };
             }
-
             let newPasswordData = {
-                currentPassword: tmpFormData.currentPassword,
-                newPassword: tmpFormData.newPassword,
-                newPasswordConfirmation: tmpFormData.newPasswordConfirmation
+                PreviousPassword: tmpFormData.currentPassword,
+                ProposedPassword: tmpFormData.newPassword,
+                AccessToken: localStorage.getItem('accessToken') !== null ? localStorage.getItem('accessToken') : sessionStorage.getItem('accessToken')
             };
 
-            validatePassword(tmpFormData);
-            validatePasswordConfirmation(tmpFormData);
+            let isPasswordValid = validatePassword(tmpFormData);
+            let isPasswordConfirmationValid = validatePasswordConfirmation(tmpFormData);
 
-            if (erroeMessagges.length === 0) {
-                const responseReg = await sendDataUserProfile(newPasswordData);
-                if (responseReg.cognitoSignUpErrorResponseDto) {
-                    displayErrorsAlert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
-                }
+            if (isPasswordValid && isPasswordConfirmationValid) {
+                sendDataPassword(newPasswordData);
             }
         });
     }

@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ERROR HANDLING
     function displayErrorsAlertEmailForm(errorString) {
         let errorAlert = document.querySelector("#alertMessageEmailForm");
-        let alertBoxEmailForm = document.querySelector("#alertBoxEmailForm");      
+        let alertBoxEmailForm = document.querySelector("#alertBoxEmailForm");
         if (errorAlert && errorString && errorString !== "") {
             if (errorAlert.classList.contains("d-none")) {
                 errorAlert.innerHTML = errorString;
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         body: JSON.stringify(tmpFormData)
                     });
                     const responseData = await signIResponse.json();
-                    if (!signIResponse.ok) {                        
+                    if (!signIResponse.ok) {
                         displayErrorsAlertEmailForm(Granite.I18n.get('error_sanding_code'));
                     } else {
                         displayEmailForm();
@@ -300,18 +300,36 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 async function sendData(logInData) {
-    const responseCsrf = await fetch('/libs/granite/csrf/token.json');
-    const csrfToken = await responseCsrf.json();
-    const signIResponse = await fetch("/bin/api/awsSignIn", {
-        method: "POST",
-        headers: {
-            'CSRF-Token': csrfToken.token
-        },
-        body: JSON.stringify(logInData)
+    let submiyBtn = document.querySelector("#submitBtnSignin");
+    submiyBtn.disabled = true;
+    resetLocalStorage();
+    try {
+        const responseCsrf = await fetch('/libs/granite/csrf/token.json');
+        const csrfToken = await responseCsrf.json();
+        const signIResponse = await fetch("/bin/api/awsSignIn", {
+            method: "POST",
+            headers: {
+                'CSRF-Token': csrfToken.token
+            },
+            body: JSON.stringify(logInData)
+        });
+        const dataResponse = await signIResponse.json();
+        if (dataResponse.AuthenticationResult?.AccessToken) {
+            localStorage.setItem("accessToken", dataResponse.AuthenticationResult?.AccessToken);
+        }
+        return dataResponse;
+    } catch (error) {
+        console.log("ERROR: ", error);
+    } finally {
+        submiyBtn.disabled = false;
+    }
+}
 
-    });
-    const dataResponse = await signIResponse.json();
-    return dataResponse;
+function resetLocalStorage() {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("remember_me");
 }
 
 function showAlert(message) {
@@ -361,8 +379,8 @@ if (signInForm) {
         }
         const responseSig = await sendData(singIdData);
 
-        if (responseSig.cognitoSignInErrorResponseDto) {
-            showAlert(responseSig.cognitoSignInErrorResponseDto.message);
+        if (responseSig.cognitoSignInErrorResponseDto?.message) {
+            showAlert(responseSig.cognitoSignInErrorResponseDto?.message !== undefined ? responseSig.cognitoSignInErrorResponseDto.message : "Error");
         } else {
             updateTokens(responseSig, rememberCheck.checked);
             const redirectUrl = sessionStorage.getItem('redirectUrl');
