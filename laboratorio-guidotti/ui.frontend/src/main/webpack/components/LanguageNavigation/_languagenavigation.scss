@@ -1,35 +1,67 @@
-.cmp-languagenavigation {
-  &.is-open {
-    .toggle-icon {
-      transform: rotate(180deg);
-      transition: $standard-transition;;
-    }
-    .cmp-languagenavigation__group {
-      visibility: visible;
-      transition: $standard-transition;;
-	  position: relative;
-	  //top: 2rem;
-    }
-  }
-  & > .cmp-languagenavigation__group {
-    visibility: hidden;
-    transition-delay: 0.3s;
-    width: 100%;
-    padding: 0 .5rem;
-    border-top: 0;
-    background-color: transparent;
-    text-align: end;
-    .cmp-languagenavigation__item--level-0 {
-      .cmp-languagenavigation__item-link {
-        color: $black;
-		text-decoration: none;
-        &:hover {
-          color: $color-hover;
+header.experiencefragment {
+  .cmp-languagenavigation {
+  
+    & > .cmp-languagenavigation__group {
+      transition: $standard-transition;
+      visibility: hidden;
+      transition-delay: 0.3s;
+      width: 100%;
+      padding: 0 .5rem;
+      border-top: 0;
+      background-color: transparent;
+      text-align: end;
+      .cmp-languagenavigation__item--level-0 {
+        .cmp-languagenavigation__item-link {
+          color: $black;
+          text-decoration: none;
+          &:hover {
+            color: $color-hover;
+          }
         }
+      }
+    }
+    &.is-open {
+      .toggle-icon {
+        transform: rotate(180deg);
+        transition: $standard-transition;
+      }
+      .cmp-languagenavigation__group {
+        visibility: visible;
+        transition: $standard-transition;
+        position: absolute;
+        background-color: $white !important;
+        width: 3rem;
+        top: 2rem;
+        right: 0rem;
+        border-radius: 0rem;
+        box-shadow: 1px 1px 3px $black;
+  
+        .cmp-languagenavigation__item-link {
+          color: $black !important;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: .5rem 0;
+        }
+  
+        //top: 2rem;
       }
     }
   }
 }
+header.experiencefragment.scrolled  {
+  .cmp-languagenavigation {
+    .cmp-languagenavigation__group {
+      top: 6rem !important;
+    }
+    &.is-open {
+      .cmp-languagenavigation__group {
+        top: 6rem !important;
+      }
+    }
+  }
+}
+
 //.cmp-languagenavigation--countrycode-US
 //.cmp-languagenavigation--langcode-en-US
 .cmp-languagenavigation__label {

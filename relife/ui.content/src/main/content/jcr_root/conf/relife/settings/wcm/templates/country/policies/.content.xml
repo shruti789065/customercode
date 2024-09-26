@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-09-03T08:59:17.156Z"
+        cq:lastReplicated_publish="{Date}2024-09-03T08:59:17.156Z"
+        cq:lastReplicatedBy="a.messori@adiacent.com"
+        cq:lastReplicatedBy_publish="a.messori@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:policy="relife/components/page/policy"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="nt:unstructured"
+        jcr:uuid="060af969-12a3-470e-8d6b-08e95f2f9234"
+        sling:resourceType="wcm/core/components/policies/mappings">
+        <root
+            cq:policy="relife/components/container/policy_1574694950110"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping">
+            <container
+                cq:policy="relife/components/container/policy_1574695586800"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
+        </root>
+    </jcr:content>
+</jcr:root>

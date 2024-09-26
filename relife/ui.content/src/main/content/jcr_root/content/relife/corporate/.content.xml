@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="/conf/relife/settings/wcm/templates/page-content"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-08-08T07:57:09.433Z"
+        cq:lastModifiedBy="d.mariotti@adiacent.com"
+        cq:lastReplicated="{Date}2024-09-05T09:28:23.789Z"
+        cq:lastReplicated_publish="{Date}2024-09-05T09:28:23.789Z"
+        cq:lastReplicatedBy="d.mariotti@adiacent.com"
+        cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/relife/settings/wcm/templates/country"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Corporate"
+        jcr:uuid="dad0de85-cb86-4c2d-863d-7fdf650a3d5d"
+        sling:resourceType="relife/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="relife/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="relife/components/container"
+                layout="responsiveGrid">
+                <countryselector
+                    jcr:created="{Date}2024-08-08T07:56:46.470Z"
+                    jcr:createdBy="d.mariotti@adiacent.com"
+                    jcr:lastModified="{Date}2024-08-08T07:57:09.429Z"
+                    jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="relife/components/countryselector"
+                    label="Select your country"
+                    navigationRoot="/content/relife"
+                    structureDepth="1"/>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-08-01T11:16:33.207+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+    <en/>
+</jcr:root>

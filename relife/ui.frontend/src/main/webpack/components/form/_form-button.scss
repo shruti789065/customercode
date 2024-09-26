@@ -1,0 +1,30 @@
+.cmp-form-button {	
+		border: $btn-border-style $btn-border-size;
+		width: $btn-width;
+		height: $btn-height;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		line-height: $btn-height;
+		display: inline-block;
+		padding: $btn-padding;
+		font-family: $title-light;
+		font-size: $font-size-btn;
+		text-transform: uppercase;
+		cursor: pointer;
+	
+		color: $charcoal;
+		border-color: $charcoal;
+		background-color: $white;   
+		
+		transition: $standard-transition;
+		&:hover {
+			color: $white;
+			background-color: $charcoal;
+		}
+}
+.cq-Editable-dom{
+	.cmp-form-button{
+		visibility: visible;
+	}
+}

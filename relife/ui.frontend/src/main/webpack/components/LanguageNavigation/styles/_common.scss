@@ -1,0 +1,110 @@
+.cmp-languagenavigation {
+  position: relative;
+
+  & > .cmp-languagenavigation__group {
+    transition: $standard-transition;
+    display: none;
+    transition-delay: 0.3s;
+    width: 100%;
+    padding: 0 0.5rem;
+    border-top: 0;
+    background-color: transparent;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .cmp-languagenavigation__item--level-0 {
+      .cmp-languagenavigation__item-link {
+        color: $color-text;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &.is-open {
+    .toggle-icon {
+      transform: rotate(180deg);
+      transition: $standard-transition;
+    }
+    .cmp-languagenavigation__group {
+      display: block;
+      transition: $standard-transition;
+      position: absolute;
+      background-color: $white;
+      width: 15rem;
+      top: 2.5rem;
+      right: 0rem;
+      box-shadow: 1px 1px 3px $black;
+      z-index: 9;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 12rem;
+      scrollbar-width: thin;
+      scrollbar-color: $charcoal transparent;
+      .cmp-languagenavigation__item-link {
+        color: $black !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.cmp-languagenavigation__label {
+  display: flex;
+  font-size: 1rem;
+  font-family: $title-light;
+  gap: 0.3rem;
+  align-items: center;
+  .cmp-languagenavigation__label-text {
+    color: $charcoal;
+  }
+}
+.toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  background: url("/etc.clientlibs/relife/clientlibs/clientlib-site/resources/icons/chevron-down.svg")
+    center center no-repeat;
+  cursor: pointer;
+}
+
+.cmp-languagenavigation__item-link {
+  font-family: $title-book;
+  text-transform: capitalize;
+}
+.cmp-languagenavigation__item-title {
+  text-transform: capitalize;
+}
+
+
+@include respond-to(tablet) {
+  .cmp-languagenavigation {
+    &.is-open {
+      .cmp-languagenavigation__group {
+        overflow: unset;
+        max-height: unset;
+      }
+    }
+  }
+}
+/*
+  
+  **MEDIA QUERIES DA UTILIZZARE**
+  
+  
+  @include respond-to(small-devices) {}
+  
+  @include respond-to(mobile) {}
+  
+  @include respond-to(tablet) {}
+  
+  @include respond-to(laptop) {}
+  
+  @include respond-to(desktop) {}
+  
+  */

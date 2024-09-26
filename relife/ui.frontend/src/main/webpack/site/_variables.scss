@@ -1,0 +1,145 @@
+//== Font
+
+$font-family-text: "Vermiglione", sans-serif;
+
+
+// Font weight variables for Gotham
+$title-light: "GothamLight"; //corrisponde a font-weight: 325
+$title-book: "GothamBook"; //corrisponde a font-weight: 350
+$title-medium: "GothamMedium"; //corrisponde a font-weight: 400
+$title-bold: "GothamBold"; //corrisponde a font-weight: 700
+
+
+// Font weight variables for Vermiglione
+$text-extra-light: 200;
+$text-light: 300;
+$text-regular: 400;
+$text-news: 450;
+$text-medium: 500;
+$text-semi-bold: 600;
+$text-bold: 700;
+
+// Font size
+$font-height: 1.5;
+
+$size-10: 0.714rem;
+$size-12: 0.857rem;
+$size-14: 1rem;
+$size-16: 1.143rem;
+$size-18: 1.286rem;
+$size-20: 1.429rem;
+$size-22: 1.571rem;
+$size-24: 1.714rem;
+
+$font-size-min: $size-14;
+$font-size-med: $size-16;
+$font-size-max: $size-18;
+
+$font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))), 18px);
+
+$font-size-small-min: $size-12;
+$font-size-small-max: $size-16;
+$font-size-small: clamp(12px, calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320))), 16px);
+
+$font-size-extra-small-min: $size-10;
+$font-size-extra-small-max: $size-14;
+$font-size-extra-small: clamp(10px, calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320))), 14px);
+
+//title varaibles
+$title-size-min: 26px;
+$title-size-max: 56px;
+$title-size: clamp($title-size-min, 50vw, $title-size-max);
+$title-letter-spacing: 2px;
+
+$h1-title-size: clamp(26px, calc(26px + (44 - 26) * ((100vw - 320px) / (1920 - 320))), 44px); // min: 26px, max: 44px //H1
+$h2-title-size: clamp(20px, calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320))), 32px); // min: 20px, max: 32px //H2
+$h3-title-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320))), 24px); // min: 16px, max: 24px //H3
+$h4-title-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))), 18px); // min: 14px, max: 18px //H4
+$h5-title-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320))), 14px); // min: 12px, max: 14px // complimentary header
+$h6-title-size: clamp(11px, calc(11px + (12 - 11) * ((100vw - 320px) / (1920 - 320))), 12px); // min: 11px, max: 12px // patient name
+$h7-title-size: clamp(10px, calc(10px + (11 - 10) * ((100vw - 320px) / (1920 - 320))), 11px); // min: 10px, max: 11px
+
+$line-heigt: $size-20;
+$text-letter-spacing: 0.013rem;
+// Color
+$black: #000000;
+$white: #FFFFFF;   
+$midnightBlue: #0d1d2c;
+$darkCyanBlue: #0b1d2c;
+$charcoal:#1C1D1D;
+$deepTeal: #031D2D;  
+$white: #ffffff;
+$lightGrey: #E6E9EA;
+$grey: #CDD2D5;
+$mediumGrey: #6B6C6C;
+$red: #ff00009a;
+$standard-transition: all 0.3s ease-in;
+$lightTerracotta: #FEF4EF;
+$paleGray: #ECE8E7;
+// ColorOpacity
+$midnightBlue30:rgba(13, 29, 44, 0.3);
+$charcoal30:rgba(28, 29, 29, 0.3);
+$lightTerracotta30: rgba(254, 244, 239, 0.3);
+$white30: rgba(255, 255, 255, 0.3);
+$grey30: hsla(203, 9%, 82%, 0.3);
+
+// Normal mode
+$color-background: $white;
+$color-title: $midnightBlue;
+$color-text: $darkCyanBlue;
+
+//Media Queries 
+$breakpoint-small-devices: 320px;
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 992px;
+$breakpoint-laptop: 1200px;
+$breakpoint-desktop: 1440px;
+$breakpoint-high-definition: 1920px;
+
+
+/*BUTTON STYLES*/
+
+// Type primary or secondary
+$font-size-btn-min: 0.786rem;
+$font-size-btn-max: 1rem;
+$font-size-btn: clamp($font-size-btn-min, 0.188vw + 0.743rem, $font-size-btn-max);
+$btn-border-size: 1px;
+$btn-border-style: solid;
+$btn-line-height: 22px;
+$btn-padding: 0 16px;
+$width-btn-min: 10.714rem;
+$width-btn-max: 17.143rem;
+$btn-width: clamp($width-btn-min, 5.625vw + 9.429rem, $width-btn-max);
+$heigh-btn-min: 2.429rem;
+$heigh-btn-max: 3.429rem;
+$btn-height: clamp($heigh-btn-min, 0.875vw + 2.229rem, $heigh-btn-max);
+
+// Type topic
+$font-size-topic-min: 11px;
+$font-size-topic-max: 12px;
+$font-size-topic: clamp($font-size-topic-min, 0.188vw + 0.743rem, $font-size-topic-max);
+$width-topic-min: 7.714rem;
+$width-topic-max: 10.643rem;
+$topic-width: clamp($width-topic-min, 2.563vw + 7.129rem, $width-topic-max);
+$heigh-topic-min: 2.286rem;
+$heigh-topic-max: 2.786rem;
+$topic-height: clamp($heigh-topic-min, 0.438vw + 2.186rem, $heigh-topic-max);
+
+
+/* BORDERS */
+$lightgrey-border-color: rgba(11, 29, 44, 0.2);
+$darkgrey-border-color: $deepTeal;
+
+/*TABS STYLES*/
+$tab-font-size: clamp(1rem, 0.25vw + 0.943rem, 1.286rem);
+$tab-width: clamp(14.286rem, 2.5vw + 13.714rem, 17.143rem);
+$tab-height: clamp(3.429rem, 0.5vw + 3.314rem, 4rem);
+$tab-padding-top: clamp(0.286rem, 0.25vw + 0.229rem, 0.571rem);
+$tab-padding-bottom: clamp(1.714rem, -0.25vw + 1.771rem, 1.429rem);
+$tab-padding-lateral: clamp($font-size-med, -0.25vw + 1.2rem, 0.857rem);
+$tab-panel-width:clamp(23.929rem, 60.313vw + 10.143rem, 92.857rem);
+$max-tab-panel-width: calc($breakpoint-laptop + 100px);
+
+/*ACCORDION STYLES*/
+$accordion-button-font-size: clamp($font-size-med, 0.125vw + 1.114rem, 1.286rem);
+$accordion-button-line-height:  clamp(1.714rem, 0.25vw + 1.657rem, 2rem);

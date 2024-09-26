@@ -1,0 +1,8 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.CityListingModel">
+    <ul data-sly-list.city="${model.cities}">
+        <option value="${city.id}">
+            ${city.name}
+        </option>
+    </ul>
+    <p data-sly-test="${!model.cities}">No cities found.</p>
+</sly>

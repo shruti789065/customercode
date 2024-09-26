@@ -1,0 +1,3341 @@
+{
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+    "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:mixinTypes": [
+            "cq:ReplicationStatus2",
+            "mix:versionable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:title": "Home",
+        "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+        "cq:isDelivered": false,
+        "cq:lastReplicationAction": "Activate",
+        "jcr:versionHistory": "ebb7b024-c57a-45ba-b595-aaa615610ca6",
+        "pwaOrientation": "any",
+        "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+        "cq:lastReplicatedBy": "m.papini@adiacent.com",
+        "cq:lastReplicationAction_publish": "Activate",
+        "jcr:predecessors": [
+            "c2761e0c-2a62-4794-aa96-141fddc4eb88"
+        ],
+        "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+        "pwaDisplay": "standalone",
+        "cq:lastReplicated": "Thu Sep 05 2024 10:13:26 GMT+0000",
+        "cq:lastModified": "Thu Sep 05 2024 10:12:49 GMT+0000",
+        "pwaCachestrategy": "staleWhileRevalidate",
+        "jcr:baseVersion": "c2761e0c-2a62-4794-aa96-141fddc4eb88",
+        "jcr:isCheckedOut": true,
+        "jcr:uuid": "47d493bd-880f-495c-8af3-3defa7c997f0",
+        "sling:resourceType": "laboratorio-guidotti/components/page",
+        "cq:lastReplicated_publish": "Thu Sep 05 2024 10:13:26 GMT+0000",
+        "cq:lastModifiedBy": "m.papini@adiacent.com",
+        "navTitle": "Italiano",
+        "root": {
+            "jcr:primaryType": "nt:unstructured",
+            "layout": "responsiveGrid",
+            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+            "container": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "title": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "sling:resourceType": "laboratorio-guidotti/components/title"
+                },
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "hero": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "admin",
+                        "jcr:title": "come missione",
+                        "imageFromPageImage": "false",
+                        "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-homepage.png",
+                        "pretitle": "Da sempre, La salute",
+                        "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                        "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                        "titleFromPage": "false",
+                        "jcr:description": "<p><b>Laboratori Guidot</b>ti <b>s.p.a.</b> è un’azienda farmaceutica italiana fondata a Pisa nel 1914 specializzata nel campo della ricerca e della produzione di farmaci e integratori alimentari. Dal 1983 è parte del gruppo Menarini.&nbsp;</p>\r\n",
+                        "linkTarget": "_self",
+                        "jcr:lastModified": "Mon Sep 02 2024 15:36:32 GMT+0000",
+                        "descriptionFromPage": "false",
+                        "sling:resourceType": "laboratorio-guidotti/components/hero",
+                        "isDecorative": "true",
+                        "textIsRich": "true",
+                        "cq:styleIds": [
+                            "1717487375684"
+                        ],
+                        "actions": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "item0": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "link": "/content/laboratorio-guidotti/it/chi-siamo",
+                                "text": "Chi Siamo",
+                                "linkTarget": "_self"
+                            }
+                        }
+                    },
+                    "section": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "admin",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                        "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                        "wrapper": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper",
+                            "spacer_copy": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "spacer": "20",
+                                "jcr:created": "Mon Jun 17 2024 08:51:19 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 08:52:57 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/spacer"
+                            },
+                            "title": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:title": "Aree terapeutiche",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 08:41:54 GMT+0000",
+                                "type": "h2",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 08:42:14 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/title",
+                                "cq:styleIds": [
+                                    "1715868178818",
+                                    "1715868241176"
+                                ]
+                            },
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "layout": "responsiveGrid",
+                                "jcr:created": "Mon Jun 03 2024 10:18:05 GMT+0200",
+                                "jcr:lastModified": "Mon Jun 03 2024 10:19:14 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/container"
+                            },
+                            "spacer_copy_595593721": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "spacer": "100",
+                                "jcr:created": "Mon Jul 01 2024 10:58:18 GMT+0000",
+                                "jcr:lastModified": "Thu Jul 11 2024 13:24:27 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/spacer"
+                            }
+                        }
+                    },
+                    "section_753360117_co": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "d.mariotti@adiacent.com",
+                        "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                        "jcr:created": "Mon Jun 17 2024 09:34:15 GMT+0000",
+                        "jcr:lastModified": "Mon Jun 17 2024 09:34:15 GMT+0000",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                        "wrapper": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "d.mariotti@adiacent.com",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Mon Jun 17 2024 09:34:21 GMT+0000",
+                            "jcr:lastModified": "Mon Jun 17 2024 09:34:21 GMT+0000",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper",
+                            "experiencefragment_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/full-banner/master2",
+                                "jcr:created": "Mon Jul 01 2024 12:49:57 GMT+0000",
+                                "jcr:lastModified": "Mon Jul 01 2024 12:58:06 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                            }
+                        }
+                    },
+                    "section_753360117": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "d.mariotti@adiacent.com",
+                        "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                        "jcr:created": "Mon Jun 17 2024 09:34:15 GMT+0000",
+                        "jcr:lastModified": "Mon Jun 17 2024 09:34:15 GMT+0000",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                        "wrapper": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "d.mariotti@adiacent.com",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "layout": "responsiveGrid",
+                            "jcr:created": "Mon Jun 17 2024 09:34:21 GMT+0000",
+                            "jcr:lastModified": "Mon Jul 01 2024 10:55:05 GMT+0000",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper",
+                            "experiencefragment": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "a.messori@adiacent.com",
+                                "jcr:lastModifiedBy": "a.messori@adiacent.com",
+                                "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/full-banner/master1",
+                                "jcr:created": "Mon Jul 08 2024 13:40:12 GMT+0000",
+                                "jcr:lastModified": "Mon Jul 08 2024 13:40:27 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                            },
+                            "spacer_copy_59559372": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "spacer": "100",
+                                "jcr:created": "Mon Jul 01 2024 10:58:18 GMT+0000",
+                                "jcr:lastModified": "Thu Jul 11 2024 13:24:27 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/spacer"
+                            }
+                        }
+                    },
+                    "experiencefragment_c": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "d.mariotti@adiacent.com",
+                        "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                        "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/section-banner/master",
+                        "jcr:created": "Mon Jul 01 2024 12:49:57 GMT+0000",
+                        "jcr:lastModified": "Thu Sep 05 2024 10:12:49 GMT+0000",
+                        "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                    }
+                }
+            }
+        },
+        "cq:featuredimage": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:lastModified": "Tue May 28 2024 10:41:12 GMT+0200",
+            "sling:resourceType": "core/wcm/components/image/v3/image",
+            "altValueFromDAM": "false"
+        }
+    },
+    "chi-siamo": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Chi siamo",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "a5b7f97b-e37b-417a-b97c-8e7793a1cdfa",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "602850ab-1c67-48f6-93f1-0fdc477f2fbc"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Thu Aug 01 2024 12:06:27 GMT+0000",
+            "jcr:baseVersion": "602850ab-1c67-48f6-93f1-0fdc477f2fbc",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "39372218-fae0-4907-8efd-aa2f422371f2",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "m.papini@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-chi-siamo.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Mon Jun 17 2024 09:45:12 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1717487378562"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        },
+                        "experiencefragment": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "d.mariotti@adiacent.com",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/section-banner/master",
+                            "jcr:created": "Mon Jul 01 2024 12:49:57 GMT+0000",
+                            "jcr:lastModified": "Wed Jul 31 2024 13:11:44 GMT+0000",
+                            "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                        },
+                        "section_1277377830_c_1562381782": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "d.mariotti@adiacent.com",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Mon Jul 01 2024 12:36:05 GMT+0000",
+                            "jcr:lastModified": "Mon Jul 01 2024 12:36:05 GMT+0000",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jul 01 2024 12:58:13 GMT+0000",
+                                "jcr:lastModified": "Mon Jul 01 2024 12:58:13 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "chi-siamo": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Chi siamo",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "0379d6e1-61e3-4c6b-9f19-5832e6b28146",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "f8f20e79-771b-4336-8c10-d075d41dafac"
+                ],
+                "cq:redirectTarget": "/content/laboratorio-guidotti/it/chi-siamo",
+                "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Thu Jul 11 2024 08:52:45 GMT+0000",
+                "jcr:baseVersion": "f8f20e79-771b-4336-8c10-d075d41dafac",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "b796cef6-3079-482f-bc5d-9ecf61b132f9",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero"
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "la-nostra-storia": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "La nostra storia",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "cc447f92-ae6e-4ebf-a6e3-52dec14fff35",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "5f72b9aa-af8b-468a-90ce-96f665d15a20"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:16 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Fri Aug 02 2024 13:41:24 GMT+0000",
+                "jcr:baseVersion": "5f72b9aa-af8b-468a-90ce-96f665d15a20",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "3ce81334-1ee1-4b8d-af0c-70ba59d4ff11",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-nostra-storia.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 10:19:31 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487378562"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "la-nostra-mission": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "La nostra mission",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "67b3c243-4937-4a39-971b-7214eb025ac9",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "aa14091b-fd94-429b-b444-c815e40de075"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Thu Jul 25 2024 12:35:53 GMT+0000",
+                "jcr:baseVersion": "aa14091b-fd94-429b-b444-c815e40de075",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "a22dffde-1bbc-47b4-bad4-145c0c838791",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-nostra-mission.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 10:21:32 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "diffusione-del-sapere": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Diffusione del sapere",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "d9704674-24b1-4a45-937c-a5727fde4527",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "b17dfc3b-fbf9-46c1-b2da-e62b64292887"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Thu Jul 25 2024 12:58:16 GMT+0000",
+                "jcr:baseVersion": "b17dfc3b-fbf9-46c1-b2da-e62b64292887",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "41fde584-2c29-4673-b590-e43f29f9cfa3",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-diffusione-sapere.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 10:31:36 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487379117"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "business-ethics-and-compliance": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Business Ethics and Compliance",
+                "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "929c63cf-3364-42ca-a4dd-9de0f93e828c",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "m.papini@adiacent.com",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "4bff34fe-cbc5-4d97-a4f2-14b881e78100"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Fri Sep 06 2024 09:15:16 GMT+0000",
+                "cq:lastModified": "Fri Sep 06 2024 09:17:24 GMT+0000",
+                "jcr:baseVersion": "4bff34fe-cbc5-4d97-a4f2-14b881e78100",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "f75b918b-5cf6-42ed-9891-7c1fbcf8552f",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Fri Sep 06 2024 09:15:16 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-business-ethics.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 10:43:33 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487378562"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_1461539729": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 12:20:03 GMT+0000",
+                                "jcr:lastModified": "Fri Jun 28 2024 08:34:16 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_995529684": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 12:25:49 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 12:25:49 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_1461539729_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 12:20:03 GMT+0000",
+                                "jcr:lastModified": "Fri Jun 28 2024 08:34:23 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "borse-di-studio": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Borse di Studio",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "0edf8866-5c51-4c10-a121-74ce78182e27",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "90373201-6e23-4b79-8b87-efab597a0bf0"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Mon Sep 02 2024 14:11:41 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "90373201-6e23-4b79-8b87-efab597a0bf0",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "b92c5990-9472-4860-b299-6e2af727c9f5",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-borse-studio.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Fri Jun 28 2024 08:43:28 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                    "jcr:lastModified": "Mon Sep 02 2024 14:11:41 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        }
+    },
+    "aree-terapeutiche": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:lockable",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Aree Terapeutiche",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "ff93eedd-f6d6-4b1f-a4b7-1b073d55830e",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "da6ceca4-ba03-42d0-8125-ab3284af8a76"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Thu Jul 11 2024 14:16:41 GMT+0000",
+            "jcr:baseVersion": "da6ceca4-ba03-42d0-8125-ab3284af8a76",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "56e8d6ae-9fad-47e4-8415-435873a93903",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-aree-terapeutiche.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Mon Jun 17 2024 12:41:10 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1718808576316"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        },
+                        "section_192201215": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "d.mariotti@adiacent.com",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Thu Jul 04 2024 11:01:52 GMT+0000",
+                            "jcr:lastModified": "Thu Jul 04 2024 11:01:52 GMT+0000",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Thu Jul 04 2024 11:01:56 GMT+0000",
+                                "jcr:lastModified": "Thu Jul 04 2024 11:01:56 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "aree-terapeutiche": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Aree terapeutiche",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "b1a9fe38-82c8-4a71-a43f-13c766daac15",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "ff32dc37-cf38-46ac-8ec1-67aa9f0181b7"
+                ],
+                "cq:redirectTarget": "/content/laboratorio-guidotti/it/aree-terapeutiche",
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Thu Jul 11 2024 09:32:57 GMT+0000",
+                "jcr:baseVersion": "ff32dc37-cf38-46ac-8ec1-67aa9f0181b7",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "68a608e3-745d-43ed-8016-e5f0caf66366",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero"
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "area-respiratoria": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Area Respiratoria",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "4990c220-91fe-4188-bfac-96741a0cc43c",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "f743c462-cd12-4cce-a0e0-0d09303e3cd9"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Fri Aug 02 2024 09:06:28 GMT+0000",
+                "jcr:baseVersion": "f743c462-cd12-4cce-a0e0-0d09303e3cd9",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "02d684cb-7a25-4c1c-a301-cfba97885b9d",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-malattie-respiratorie.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 12:59:44 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1718808576316"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_1343677530": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:05:27 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:05:27 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_1538430420": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:08:20 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:08:20 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_1538430420_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:08:20 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:08:20 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_1343677530_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:05:27 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:05:27 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "experiencefragment": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/disclaimer-aree-terapeutiche/master",
+                                "jcr:created": "Mon Jun 17 2024 13:37:21 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:37:35 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "area-ipertensione": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Area Ipertensione",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "369f620e-0db9-4fe8-8a83-ad196bbecde7",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "98139275-b49b-40f6-9f43-87ae05273bd2"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Fri Aug 02 2024 09:17:04 GMT+0000",
+                "jcr:baseVersion": "98139275-b49b-40f6-9f43-87ae05273bd2",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "20811ba6-f7b6-47fd-8e96-943d60374607",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-ipertensione-arteriosa.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:51:00 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_900106532_co": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_1679472707": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:54:46 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:54:46 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "experiencefragment_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/disclaimer-aree-terapeutiche/master",
+                                "jcr:created": "Mon Jun 17 2024 13:37:21 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:37:35 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "area-diabetologia": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Area Diabetologia",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "d8d0a9c8-9955-441d-88b7-71488bf45263",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "559a3345-70a0-406f-bd56-ca7d896b5f9b"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Fri Aug 02 2024 09:18:51 GMT+0000",
+                "jcr:baseVersion": "559a3345-70a0-406f-bd56-ca7d896b5f9b",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "038e62a7-6820-4f5f-bee0-c1ed7fede0b6",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-diabetologia.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:27:16 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1718808574506"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_900106532": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_900106532_co": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "experiencefragment_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/disclaimer-aree-terapeutiche/master",
+                                "jcr:created": "Mon Jun 17 2024 13:37:21 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:37:35 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "area-dislipidemia": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Area Dislipidemia",
+                "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "65ca1748-f874-4b6e-8a90-38b7a5dad4fd",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "m.papini@adiacent.com",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "2238f106-d225-4861-9483-4fee90b79c7c"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 12:53:56 GMT+0000",
+                "cq:lastModified": "Wed Sep 04 2024 12:53:52 GMT+0000",
+                "jcr:baseVersion": "2238f106-d225-4861-9483-4fee90b79c7c",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "d58048ad-5abd-458a-9812-c3a02292cc94",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 12:53:56 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-displipidemia.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:39:52 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1718808575064"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_900106532_co": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_900106532_co_291505636": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:31:46 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "experiencefragment_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/disclaimer-aree-terapeutiche/master",
+                                "jcr:created": "Mon Jun 17 2024 13:37:21 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:37:35 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "altre-aree-terapeutiche": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Altre aree terapeutiche",
+                "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "97c4b2b7-0075-406e-bcaf-f1e3c284cf78",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "m.papini@adiacent.com",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "3beb1b6a-b703-4b21-88a5-fbcd592301ef"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+                "cq:lastReplicated": "Wed Sep 04 2024 12:55:51 GMT+0000",
+                "cq:lastModified": "Mon Jul 22 2024 14:22:54 GMT+0000",
+                "jcr:baseVersion": "3beb1b6a-b703-4b21-88a5-fbcd592301ef",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "52451408-7d16-46c4-ae28-b62555cc9dc8",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 12:55:51 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/altre-aree-terapeutiche.jpg",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Thu Jul 11 2024 15:56:40 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487380505"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "experiencefragment_c": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "fragmentVariationPath": "/content/experience-fragments/laboratorio-guidotti/it/site/disclaimer-aree-terapeutiche/master",
+                                "jcr:created": "Mon Jun 17 2024 13:37:21 GMT+0000",
+                                "jcr:lastModified": "Mon Jun 17 2024 13:37:35 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/experiencefragment"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "prodotti": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Prodotti",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "8e41c5d1-fd35-4016-b513-45bb20783b4c",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "a6c8163e-b2aa-463d-bfb8-5ce88a12780f"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:17 GMT+0200",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Fri Jul 12 2024 07:20:01 GMT+0000",
+            "jcr:baseVersion": "a6c8163e-b2aa-463d-bfb8-5ce88a12780f",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "15c412f3-5878-4ba5-8109-08b659ef66f4",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-farmaci.jpg",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Thu Jul 11 2024 14:14:41 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1718808575689"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        },
+                        "section_copy": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "carriere": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Carriere",
+            "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "bf6b566b-36a0-47cd-8bce-611b2afdfab6",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "m.papini@adiacent.com",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "3bf87573-49d6-4182-894b-e74472d8968f"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastReplicated": "Wed Sep 04 2024 14:44:38 GMT+0000",
+            "cq:lastModified": "Wed Sep 04 2024 14:42:00 GMT+0000",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "3bf87573-49d6-4182-894b-e74472d8968f",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "0ffb1a38-2572-4834-8c4a-1f36c1e24e1c",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 14:44:38 GMT+0000",
+            "cq:lastModifiedBy": "m.papini@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-carriere.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Mon Jun 17 2024 14:30:16 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1717487379664"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                "jcr:lastModified": "Thu Jul 11 2024 13:11:17 GMT+0000",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false"
+            }
+        },
+        "posizione-aperta-1": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Posizione Aperta 1",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Thu Jun 27 2024 13:12:31 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "hideInNav": "true",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-carriere.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:09:11 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Thu Jun 27 2024 13:12:31 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        },
+        "invio-cv": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Invio CV",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "c91997b2-9275-4b45-ba43-f71d2f48ab12",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "5bf5de58-5b15-4807-85e7-8077484c43fb"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Thu Jul 11 2024 13:48:24 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "5bf5de58-5b15-4807-85e7-8077484c43fb",
+                "jcr:isCheckedOut": true,
+                "hideInNav": "true",
+                "jcr:uuid": "5167b506-c05b-4631-84fc-70b717d8a758",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "reference-adjustment-service",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-carriere.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:10:05 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            },
+                            "section_copy": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Thu Jun 27 2024 13:12:39 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        }
+    },
+    "contattaci": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Contattaci",
+            "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "4e309b71-9fb5-41b5-b456-4b6b69f6ed8a",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "m.papini@adiacent.com",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "3cd3bc2c-60e9-4b3e-b52c-6b9d5aed0132"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:18 GMT+0200",
+            "cq:lastReplicated": "Wed Sep 04 2024 14:54:23 GMT+0000",
+            "cq:lastModified": "Wed Sep 04 2024 14:54:19 GMT+0000",
+            "jcr:baseVersion": "3cd3bc2c-60e9-4b3e-b52c-6b9d5aed0132",
+            "jcr:isCheckedOut": true,
+            "jcr:uuid": "7c9bc655-163b-4d56-a5f9-7121af606ff1",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 14:54:23 GMT+0000",
+            "cq:lastModifiedBy": "m.papini@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-contattaci.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Fri Jun 28 2024 07:40:32 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1718808576316"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "privacy": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Privacy",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "8f3bd0f0-8c83-4a0b-ad16-5542a6764733",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "d0b6b84f-cd0b-4be8-b563-ede5ec3e9272"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Mon Jul 22 2024 14:00:51 GMT+0000",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "d0b6b84f-cd0b-4be8-b563-ede5ec3e9272",
+            "jcr:isCheckedOut": true,
+            "hideInNav": "true",
+            "jcr:uuid": "82704743-f3fa-4619-85f1-806c919041f1",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "m.papini@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1717487377935"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                "jcr:lastModified": "Thu Jun 27 2024 13:03:45 GMT+0000",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false"
+            }
+        },
+        "privacy-policy": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Privacy policy",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "deb0141b-b2df-4b4c-9b0c-e867f96edb64",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "dd527f3e-2b75-4af1-b505-0d0b068b3aca"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Mon Sep 02 2024 15:23:31 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "dd527f3e-2b75-4af1-b505-0d0b068b3aca",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "b31d6474-51b9-41de-a242-ff6fb2125fae",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Mon Jun 17 2024 15:21:10 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        },
+        "cookie-policy": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Cookie policy",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "0769b97d-e718-42c1-87f4-25db4a6b4228",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "5e84d49e-72f5-4893-be68-539eda9421ab"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Mon Sep 02 2024 15:23:45 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "5e84d49e-72f5-4893-be68-539eda9421ab",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "a76bdf4c-e03d-4a91-8cd4-e35e22729863",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Mon Jun 17 2024 15:21:03 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        },
+        "informativa-privacy-alla-classe-medica": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Informativa privacy alla classe medica",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "b2045f17-985f-43ef-b80a-71b058c74a92",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "8ee81912-770a-43b9-b131-c1460e6bbea2"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Mon Sep 02 2024 15:23:58 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "8ee81912-770a-43b9-b131-c1460e6bbea2",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "dd36b91f-7410-4123-be82-1072b0abc4ac",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Mon Jun 17 2024 15:20:56 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        },
+        "informativa-privacy-alla-classe-farmacisti": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Informativa privacy alla classe farmacisti",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "7d1a2899-2e88-4a61-bef0-8c0f9bdb10a4",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "b8704548-ed07-451f-a825-037e8cc50b75"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Mon Sep 02 2024 15:23:15 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "b8704548-ed07-451f-a825-037e8cc50b75",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "5be3045a-1b0b-4a28-ad57-b4f1a60f4718",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Mon Jun 17 2024 15:20:49 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        },
+        "informativa-privacy-sul-trattamento-dei-dai-Farmacovigilanza": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Informativa privacy sul trattamento dei dati Farmacovigilanza",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "1dd05008-e27c-4272-84d3-e1f578ca8312",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "53ee338d-2084-4f0d-a3c3-8439fc2684ea"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Wed Sep 04 2024 09:27:35 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "53ee338d-2084-4f0d-a3c3-8439fc2684ea",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "55797660-f2a7-4610-882e-f5905e68c058",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                    "jcr:lastModified": "Wed Sep 04 2024 09:27:35 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        },
+        "informativa-Privacy-per-gli-utenti-del-centralino": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Informativa Privacy per gli utenti del centralino",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "1a6830ae-7ad8-4812-8144-336f20e12dd1",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "a4826378-9810-459e-8336-8615e45c749e"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Mon Sep 02 2024 15:22:44 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "a4826378-9810-459e-8336-8615e45c749e",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "e3258987-9e83-4471-a14a-39476d2200da",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Mon Jun 17 2024 15:35:09 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        },
+        "informativa-privacy": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Informativa Privacy",
+                "cq:lastReplicatedBy_publish": "workflow-process-service",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "5dae42ef-a9bf-4afe-80ff-f519dfe90619",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "746308fa-a427-4b05-9508-b00b2605a500"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModified": "Thu Jul 11 2024 16:05:02 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "746308fa-a427-4b05-9508-b00b2605a500",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "8bba2991-c4e5-4a21-b407-d08a0b54517e",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+                "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Mon Jun 17 2024 16:12:04 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        }
+    },
+    "termini-e-condizioni": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Termini e condizioni",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "b0df9720-5c47-4fd8-bd2a-93591dccc50c",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "e85ad189-6fec-4004-b0e8-5e641f07bb4d"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Thu Jul 11 2024 15:19:43 GMT+0000",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "e85ad189-6fec-4004-b0e8-5e641f07bb4d",
+            "jcr:isCheckedOut": true,
+            "hideInNav": "true",
+            "jcr:uuid": "f96468c1-a872-41f6-8834-ec9961d0c150",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "m.papini@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Mon Jun 17 2024 15:18:51 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1717487377935"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                "jcr:lastModified": "Thu Jun 27 2024 13:04:17 GMT+0000",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false"
+            }
+        }
+    },
+    "farmacovigilanza": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Farmacovigilanza",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "6b1687bd-3c06-4c62-9e14-2cefb56e7fc0",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "0059f851-bd59-48a8-a015-b4364b43c88d"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Fri Aug 02 2024 09:23:10 GMT+0000",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "0059f851-bd59-48a8-a015-b4364b43c88d",
+            "jcr:isCheckedOut": true,
+            "hideInNav": "true",
+            "jcr:uuid": "6562bb59-52af-4689-bc73-2d77a583f7ca",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-farmacovigilanza.jpg",
+                            "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Thu Jul 11 2024 15:29:40 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1717487377935"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                "jcr:lastModified": "Thu Jun 27 2024 13:12:02 GMT+0000",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false"
+            }
+        },
+        "form-farmacovigilanza": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                    "cq:ReplicationStatus2",
+                    "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Form Farmacovigilanza",
+                "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+                "cq:isDelivered": false,
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "eeabc730-0f34-4761-8da9-0ba43bedf568",
+                "pwaOrientation": "any",
+                "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+                "cq:lastReplicatedBy": "m.papini@adiacent.com",
+                "cq:lastReplicationAction_publish": "Activate",
+                "jcr:predecessors": [
+                    "56242e9d-9475-4576-9f9b-8a76b64438fe"
+                ],
+                "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+                "pwaDisplay": "standalone",
+                "cq:lastReplicated": "Wed Sep 04 2024 14:24:05 GMT+0000",
+                "cq:lastModified": "Wed Sep 04 2024 14:24:01 GMT+0000",
+                "pwaCachestrategy": "staleWhileRevalidate",
+                "jcr:baseVersion": "56242e9d-9475-4576-9f9b-8a76b64438fe",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "3c2f11af-1fd2-4bc4-a265-32df58a8dee2",
+                "sling:resourceType": "laboratorio-guidotti/components/page",
+                "cq:lastReplicated_publish": "Wed Sep 04 2024 14:24:05 GMT+0000",
+                "cq:lastModifiedBy": "m.papini@adiacent.com",
+                "root": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "title": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "sling:resourceType": "laboratorio-guidotti/components/title"
+                        },
+                        "container": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "layout": "responsiveGrid",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                            "hero": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "imageFromPageImage": "false",
+                                "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-farmacovigilanza.jpg",
+                                "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                                "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                                "titleFromPage": "true",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Thu Jul 11 2024 15:30:32 GMT+0000",
+                                "descriptionFromPage": "true",
+                                "sling:resourceType": "laboratorio-guidotti/components/hero",
+                                "isDecorative": "true",
+                                "textIsRich": "true",
+                                "cq:styleIds": [
+                                    "1717487377935"
+                                ]
+                            },
+                            "section": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/section"
+                            }
+                        }
+                    }
+                },
+                "cq:featuredimage": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                    "jcr:lastModified": "Mon Jun 17 2024 16:02:12 GMT+0000",
+                    "sling:resourceType": "core/wcm/components/image/v3/image",
+                    "altValueFromDAM": "false"
+                }
+            }
+        }
+    },
+    "transparency": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Transparency",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "4ce5d47e-cbd6-48ba-ab40-02f51762c3bc",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "6011510c-f69a-487f-a1e1-28bad32eef0d"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Thu Jul 11 2024 15:45:30 GMT+0000",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "6011510c-f69a-487f-a1e1-28bad32eef0d",
+            "jcr:isCheckedOut": true,
+            "hideInNav": "true",
+            "jcr:uuid": "b6478ae6-726a-486c-ba73-a68702ab6cc9",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "d.mariotti@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Fri Jul 05 2024 07:17:13 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1717487377935"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        },
+                        "section_copy": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                "jcr:lastModified": "Thu Jun 27 2024 13:04:39 GMT+0000",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false"
+            }
+        }
+    },
+    "sitemap": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Sitemap",
+            "cq:lastReplicatedBy_publish": "workflow-process-service",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "59c7ef39-d283-4523-8db2-84541d44d36f",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "1ca05f2d-c019-41e0-81b3-7b0271d14348"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModified": "Mon Sep 02 2024 15:32:10 GMT+0000",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "1ca05f2d-c019-41e0-81b3-7b0271d14348",
+            "jcr:isCheckedOut": true,
+            "hideInNav": "true",
+            "jcr:uuid": "fd79d448-4a3b-4da2-b613-b9597e5c56d7",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+            "cq:lastModifiedBy": "m.papini@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-standard.png",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Mon Jun 17 2024 14:09:31 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1717487377935"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "m.papini@adiacent.com",
+                "jcr:lastModified": "Mon Sep 02 2024 15:32:10 GMT+0000",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false"
+            }
+        }
+    },
+    "premio-internazionale-fair-play-menarini": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+                "cq:ReplicationStatus2",
+                "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "Premio Internazionale Fair Play Menarini",
+            "cq:lastReplicatedBy_publish": "m.papini@adiacent.com",
+            "cq:isDelivered": false,
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "94c0009d-87e8-4ac0-871f-ba24fc3dbb45",
+            "pwaOrientation": "any",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "cq:lastReplicatedBy": "m.papini@adiacent.com",
+            "cq:lastReplicationAction_publish": "Activate",
+            "jcr:predecessors": [
+                "ec12b41f-2b11-4956-acfb-932a1745b619"
+            ],
+            "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+            "pwaDisplay": "standalone",
+            "cq:lastReplicated": "Fri Sep 06 2024 09:00:40 GMT+0000",
+            "cq:lastModified": "Fri Sep 06 2024 08:49:16 GMT+0000",
+            "pwaCachestrategy": "staleWhileRevalidate",
+            "jcr:baseVersion": "ec12b41f-2b11-4956-acfb-932a1745b619",
+            "jcr:isCheckedOut": true,
+            "hideInNav": "true",
+            "jcr:uuid": "956d3bc1-aca6-411e-8c1b-3c4c568e8c81",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastReplicated_publish": "Fri Sep 06 2024 09:00:40 GMT+0000",
+            "cq:lastModifiedBy": "m.papini@adiacent.com",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "imageFromPageImage": "false",
+                            "fileReference": "/content/dam/laboratorio-guidotti/assets/fair-play-menarini/header_fair_play.jpg",
+                            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "titleFromPage": "true",
+                            "linkTarget": "_self",
+                            "jcr:lastModified": "Fri Jul 12 2024 07:37:02 GMT+0000",
+                            "descriptionFromPage": "true",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero",
+                            "isDecorative": "true",
+                            "textIsRich": "true",
+                            "cq:styleIds": [
+                                "1718808576316"
+                            ]
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        }
+                    }
+                }
+            },
+            "cq:featuredimage": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                "jcr:lastModified": "Fri Jul 05 2024 07:57:16 GMT+0000",
+                "sling:resourceType": "core/wcm/components/image/v3/image",
+                "altValueFromDAM": "false"
+            }
+        }
+    },
+    "search": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Tue Sep 10 2024 12:18:40 GMT+0200",
+        "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:createdBy": "admin",
+            "jcr:title": "search",
+            "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+            "jcr:created": "Tue Sep 10 2024 12:18:40 GMT+0200",
+            "cq:lastModified": "Tue Sep 10 2024 12:19:02 GMT+0200",
+            "sling:resourceType": "laboratorio-guidotti/components/page",
+            "cq:lastModifiedBy": "admin",
+            "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "title": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "sling:resourceType": "laboratorio-guidotti/components/title"
+                    },
+                    "container": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "layout": "responsiveGrid",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                        "hero": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:14 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/hero"
+                        },
+                        "section": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                            "wrapper": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "admin",
+                                "jcr:lastModifiedBy": "admin",
+                                "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper"
+                            }
+                        },
+                        "search": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue Sep 10 2024 12:19:02 GMT+0200",
+                            "jcr:lastModified": "Tue Sep 10 2024 12:19:02 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/search"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

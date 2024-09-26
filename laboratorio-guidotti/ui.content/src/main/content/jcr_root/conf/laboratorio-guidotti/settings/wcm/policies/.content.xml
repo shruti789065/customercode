@@ -12,8 +12,17 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content Form"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/laboratorio-guidotti/components/form/button,/apps/laboratorio-guidotti/components/form/hidden,/apps/laboratorio-guidotti/components/form/options,/apps/laboratorio-guidotti/components/form/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        components="[/apps/laboratorio-guidotti/components/form/button,/apps/laboratorio-guidotti/components/form/hidden,/apps/laboratorio-guidotti/components/form/options,/apps/laboratorio-guidotti/components/form/text,/apps/laboratorio-guidotti/components/efpia,/apps/laboratorio-guidotti/components/text,/apps/laboratorio-guidotti/components/form/recaptcha,/apps/laboratorio-guidotti/components/button]">
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicatedBy="m.papini@adiacent.com"
+                            cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
                     </form-container>
                 </container>
             </form>
@@ -43,7 +52,16 @@
                     jpegQuality="{Long}85"
                     titleValueFromDAM="true"
                     uuidDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <plugins jcr:primaryType="nt:unstructured">
                         <crop
                             jcr:primaryType="nt:unstructured"
@@ -78,12 +96,21 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
-                    jcr:lastModified="{Date}2024-05-29T14:42:28.604+02:00"
+                    jcr:lastModified="{Date}2024-06-19T16:30:37.808+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Text"
+                    jcr:title="Content Text Guidotti policy"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <rtePlugins jcr:primaryType="nt:unstructured">
                         <paraformat
                             jcr:primaryType="nt:unstructured"
@@ -107,7 +134,7 @@
                         </paraformat>
                         <misctools
                             jcr:primaryType="nt:unstructured"
-                            features="sourceedit">
+                            features="sourceedit,specialchars">
                             <specialCharsConfig jcr:primaryType="nt:unstructured">
                                 <chars
                                     jcr:primaryType="nt:unstructured"
@@ -163,8 +190,132 @@
                             features="modifylink,unlink,anchor"/>
                         <subsuperscript
                             jcr:primaryType="nt:unstructured"
-                            features="-"/>
+                            features="*"/>
                     </rtePlugins>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="text-center"
+                                    cq:styleId="1718789060566"
+                                    cq:styleLabel="Center"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="text-right"
+                                    cq:styleId="1718789061146"
+                                    cq:styleLabel="Right"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Padding"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1718789089317"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1718789090314"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1718789090971"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1718789091490"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                        <item2
+                            cq:styleGroupLabel="Margin"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1718789129689"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1718789130172"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1718789130682"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1718789131626"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
+                        <item3
+                            cq:styleGroupLabel="Text Cut"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-cut cmp-cut--1-row"
+                                    cq:styleId="1718789197367"
+                                    cq:styleLabel="cut 1 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-cut cmp-cut--2-row"
+                                    cq:styleId="1718789197999"
+                                    cq:styleLabel="cut 2 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-cut cmp-cut--3-row"
+                                    cq:styleId="1718789198515"
+                                    cq:styleLabel="cut 3 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-cut cmp-cut--4-row"
+                                    cq:styleId="1718789200606"
+                                    cq:styleLabel="cut 4 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item3>
+                        <item4
+                            cq:styleGroupLabel="Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-color--white"
+                                    cq:styleId="1718807408514"
+                                    cq:styleLabel="White"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-color--azure"
+                                    cq:styleId="1718806178595"
+                                    cq:styleLabel="Azure"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-color--blue"
+                                    cq:styleId="1718806179120"
+                                    cq:styleLabel="Blue"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-color--gray"
+                                    cq:styleId="1718806179642"
+                                    cq:styleLabel="Gray"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item4>
+                    </cq:styleGroups>
                 </policy_641562756958017>
             </text>
             <title jcr:primaryType="nt:unstructured">
@@ -176,11 +327,20 @@
                     allowedTypes="h1"
                     linkDisabled="true"
                     type="h1">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_641475696923109>
                 <policy_641528232375303
                     jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:lastModified="{Date}2024-06-06T10:53:20.383+02:00"
+                    jcr:lastModified="{Date}2024-07-03T12:15:41.128+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Title policy"
@@ -188,7 +348,16 @@
                     allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="false"
                     type="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Color"
@@ -205,6 +374,11 @@
                                     cq:styleLabel="Blue"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item2
+                                    cq:styleClasses="cmp-color--white"
+                                    cq:styleId="1720001641592"
+                                    cq:styleLabel="White"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
                                     cq:styleClasses="cmp-color--default"
                                     cq:styleId="1715868182256"
                                     cq:styleLabel="Default"
@@ -227,6 +401,102 @@
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
+                        <item2
+                            cq:styleGroupLabel="Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="text-center"
+                                    cq:styleId="1718788715972"
+                                    cq:styleLabel="Center"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="text-right"
+                                    cq:styleId="1718788721867"
+                                    cq:styleLabel="Right"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
+                        <item3
+                            cq:styleGroupLabel="Padding"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1718788755732"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1718788756381"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1718788757392"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1718788758000"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item3>
+                        <item4
+                            cq:styleGroupLabel="Margin"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1718788818978"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1718788819543"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1718788820094"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1718788820721"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item4>
+                        <item5
+                            cq:styleGroupLabel="Text Cut"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-cut--1-row"
+                                    cq:styleId="1718788914499"
+                                    cq:styleLabel="cut 1 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-cut--2-row"
+                                    cq:styleId="1718788915630"
+                                    cq:styleLabel="cut 2 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-cut--3-row"
+                                    cq:styleId="1718788930402"
+                                    cq:styleLabel="cut 3 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-cut--4-row"
+                                    cq:styleId="1718788935260"
+                                    cq:styleLabel="cut 4 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item5>
                     </cq:styleGroups>
                 </policy_641528232375303>
             </title>
@@ -240,7 +510,16 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Header"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_header>
                 <policy_footer
                     cq:styleDefaultClasses="footer-desktop"
@@ -251,7 +530,16 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Footer"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_footer>
                 <policy_1715847064586
                     cq:styleDefaultClasses="footer-mobile"
@@ -262,7 +550,16 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Footer Mobile"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1715847064586>
                 <policy_1715847204876
                     cq:styleDefaultClasses="header-mobile"
@@ -273,7 +570,16 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Header Mobile"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1715847204876>
                 <policy_1715847224626
                     jcr:lastModified="{Date}2024-05-16T10:13:56.997+02:00"
@@ -281,7 +587,16 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Lightbox Policy"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1715847224626>
             </experiencefragment>
             <container jcr:primaryType="nt:unstructured">
@@ -391,7 +706,16 @@
                     jcr:title="Content Teaser"
                     sling:resourceType="wcm/core/components/policy/policy"
                     titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1575031387650>
             </teaser>
             <download jcr:primaryType="nt:unstructured">
@@ -405,7 +729,16 @@
                     displayFormat="true"
                     displaySize="true"
                     titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                 </policy_1575032193319>
             </download>
             <page jcr:primaryType="nt:unstructured">
@@ -419,7 +752,16 @@
                     clientlibs="[laboratorio-guidotti.dependencies,laboratorio-guidotti.site]"
                     clientlibsAsync="false"
                     clientlibsJsHead="laboratorio-guidotti.dependencies">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Right Shapes"
@@ -469,14 +811,23 @@
             <containers jcr:primaryType="nt:unstructured">
                 <container jcr:primaryType="nt:unstructured">
                     <policy_1715698026050
-                        jcr:lastModified="{Date}2024-05-14T16:47:37.505+02:00"
+                        jcr:lastModified="{Date}2024-07-04T16:50:27.860+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content Page Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Structure]"
+                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Structure,group:Menarini Laboratorio Guidotti - Timeline]"
                         layoutDisabled="false">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicatedBy="m.papini@adiacent.com"
+                            cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
                     </policy_1715698026050>
                     <policy_720308196812800
                         jcr:lastModified="{Date}2024-05-14T17:28:51.237+02:00"
@@ -486,7 +837,16 @@
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Structure]"
                         layoutDisabled="false">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicatedBy="m.papini@adiacent.com"
+                            cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
                     </policy_720308196812800>
                     <policy_453888387334500
                         jcr:lastModified="{Date}2024-05-23T10:08:49.150+02:00"
@@ -500,34 +860,140 @@
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_453888387334500>
+                    <policy_787266077077700
+                        jcr:lastModified="{Date}2024-07-10T13:23:15.780Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Guidotti container policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedColorSwatches="[#00adf2,#007fff,#EEEEE4,#EBEBEB]"
+                        backgroundColorEnabled="true"
+                        backgroundImageEnabled="true"
+                        layoutDisabled="false">
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-10T13:23:57.139Z"
+                            cq:lastReplicated_publish="{Date}2024-07-10T13:23:57.139Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Layout"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-container--border"
+                                        cq:styleId="1718789303382"
+                                        cq:styleLabel="border box"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                            <item1
+                                cq:styleGroupLabel="Padding"
+                                cq:styleGroupMultiple="true"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="ps-3"
+                                        cq:styleId="1718808489989"
+                                        cq:styleLabel="left small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="pe-3"
+                                        cq:styleId="1718808490863"
+                                        cq:styleLabel="right small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="ps-5"
+                                        cq:styleId="1718808491472"
+                                        cq:styleLabel="left big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="pe-5"
+                                        cq:styleId="1718808492082"
+                                        cq:styleLabel="right big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item1>
+                            <item2
+                                cq:styleGroupLabel="Margin"
+                                cq:styleGroupMultiple="true"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="ms-3"
+                                        cq:styleId="1718808500592"
+                                        cq:styleLabel="left small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="me-3"
+                                        cq:styleId="1718808501177"
+                                        cq:styleLabel="right small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="ms-5"
+                                        cq:styleId="1718808501711"
+                                        cq:styleLabel="left big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="me-5"
+                                        cq:styleId="1718808502374"
+                                        cq:styleLabel="right big"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item2>
+                        </cq:styleGroups>
+                    </policy_787266077077700>
                 </container>
                 <wrapper jcr:primaryType="nt:unstructured">
                     <policy_1716385274999
-                        jcr:lastModified="{Date}2024-05-22T15:44:09.572+02:00"
+                        jcr:lastModified="{Date}2024-07-04T16:56:14.267+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Wrapper policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         backgroundColorEnabled="true"
                         backgroundImageEnabled="true"
-                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Form,group:Menarini Laboratorio Guidotti - Structure]"
+                        components="[group:Menarini Laboratorio Guidotti - Content,group:Menarini Laboratorio Guidotti - Form,group:Menarini Laboratorio Guidotti - Structure,/apps/laboratorio-guidotti/components/timeline]"
                         layout="responsiveGrid"
                         layoutDisabled="false">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicatedBy="m.papini@adiacent.com"
+                            cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
                     </policy_1716385274999>
                 </wrapper>
                 <section jcr:primaryType="nt:unstructured">
                     <policy_1716385346770
-                        jcr:lastModified="{Date}2024-05-22T15:44:29.469+02:00"
+                        jcr:lastModified="{Date}2024-07-19T10:41:13.291+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Section policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         backgroundColorEnabled="true"
                         backgroundImageEnabled="true"
-                        components="/apps/laboratorio-guidotti/components/containers/wrapper"
+                        components="[/apps/laboratorio-guidotti/components/experiencefragment,/apps/laboratorio-guidotti/components/separator,/apps/laboratorio-guidotti/components/spacer,/apps/laboratorio-guidotti/components/containers/wrapper]"
                         layoutDisabled="false">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicatedBy="m.papini@adiacent.com"
+                            cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
                     </policy_1716385346770>
                 </section>
             </containers>
@@ -539,7 +1005,16 @@
                     jcr:title="Footer policy"
                     sling:resourceType="wcm/core/components/policy/policy"
                     clientlibs="[laboratorio-guidotti.dependencies,laboratorio-guidotti.site]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="type"
@@ -562,12 +1037,21 @@
             </xfpage>
             <button jcr:primaryType="nt:unstructured">
                 <policy_1715873438168
-                    jcr:lastModified="{Date}2024-05-16T17:33:09.746+02:00"
+                    jcr:lastModified="{Date}2024-06-19T11:53:14.045+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Button policy"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Styles"
@@ -576,21 +1060,95 @@
                                 <item0
                                     cq:styleClasses="cmp-button--first-style"
                                     cq:styleId="1715873454853"
-                                    cq:styleLabel="Style 1"
+                                    cq:styleLabel="Primary"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="cmp-button--second-style"
                                     cq:styleId="1715873459918"
-                                    cq:styleLabel="Style 2"
+                                    cq:styleLabel="Secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-button--link-style"
+                                    cq:styleId="1718790780227"
+                                    cq:styleLabel="Link"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
+                        <item1
+                            cq:styleGroupLabel="Size"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-button--small"
+                                    cq:styleId="1718790308961"
+                                    cq:styleLabel="small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-text-center"
+                                    cq:styleId="1718790309517"
+                                    cq:styleLabel="text center"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                        <item2
+                            cq:styleGroupLabel="Margin"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ms-3"
+                                    cq:styleId="1718790362383"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="me-3"
+                                    cq:styleId="1718790362920"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ms-5"
+                                    cq:styleId="1718790363439"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="me-5"
+                                    cq:styleId="1718790364135"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
+                        <item3
+                            cq:styleGroupLabel="Padding"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="ps-3"
+                                    cq:styleId="1718790377869"
+                                    cq:styleLabel="left small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="pe-3"
+                                    cq:styleId="1718790378399"
+                                    cq:styleLabel="right small"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="ps-5"
+                                    cq:styleId="1718790379009"
+                                    cq:styleLabel="left big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="pe-5"
+                                    cq:styleId="1718790379951"
+                                    cq:styleLabel="right big"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item3>
                     </cq:styleGroups>
                 </policy_1715873438168>
             </button>
             <hero jcr:primaryType="nt:unstructured">
                 <policy_1717487352842
-                    jcr:lastModified="{Date}2024-06-04T09:52:17.849+02:00"
+                    jcr:lastModified="{Date}2024-06-19T16:50:29.745+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="header shaper guidotti"
@@ -598,7 +1156,16 @@
                     allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
                     showTitleType="false"
                     titleType="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Tipology"
@@ -634,6 +1201,31 @@
                                     cq:styleId="1717487380505"
                                     cq:styleLabel="shape 5"
                                     jcr:primaryType="nt:unstructured"/>
+                                <item6
+                                    cq:styleClasses="cmp-shape cmp-shape-six"
+                                    cq:styleId="1718808574506"
+                                    cq:styleLabel="shape 6"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item7
+                                    cq:styleClasses="cmp-shape cmp-shape-seven"
+                                    cq:styleId="1718808575064"
+                                    cq:styleLabel="shape 7"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item8
+                                    cq:styleClasses="cmp-shape cmp-shape-eight"
+                                    cq:styleId="1718808575689"
+                                    cq:styleLabel="shape 8"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item9
+                                    cq:styleClasses="cmp-shape cmp-shape-nine"
+                                    cq:styleId="1718808576316"
+                                    cq:styleLabel="shape 9"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item10
+                                    cq:styleClasses="cmp-shape cmp-shape-ten"
+                                    cq:styleId="1718808577236"
+                                    cq:styleLabel="shape 10"
+                                    jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
                     </cq:styleGroups>
@@ -648,7 +1240,16 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedHeadingElements="h2"
                     headingElement="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Tipology"
@@ -690,6 +1291,406 @@
                     </cq:styleGroups>
                 </policy_1717664755116>
             </accordion>
+            <separator jcr:primaryType="nt:unstructured">
+                <policy_1717685925905
+                    jcr:lastModified="{Date}2024-06-06T17:00:25.625+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Separator Guidotti policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    isDecorative="false">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-separator--primary"
+                                    cq:styleId="1717685955560"
+                                    cq:styleLabel="Primary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-separator--secondary"
+                                    cq:styleId="1717685956186"
+                                    cq:styleLabel="Secondary"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-separator--default"
+                                    cq:styleId="1717685966033"
+                                    cq:styleLabel="Default"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1717685925905>
+            </separator>
+            <popup jcr:primaryType="nt:unstructured">
+                <policy_1718284883118
+                    jcr:lastModified="{Date}2024-06-13T15:38:17.852+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="POPUP policy Guidotti"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    layoutDisabled="false">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Tipology"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-popup cmp-popup--persistance"
+                                    cq:styleId="1718285062030"
+                                    cq:styleLabel="persistance"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-popup cmp-popup--session"
+                                    cq:styleId="1718285062540"
+                                    cq:styleLabel="session"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-popup cmp-popup--cookie"
+                                    cq:styleId="1718285063065"
+                                    cq:styleLabel="cookie"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1718284883118>
+            </popup>
+            <tables jcr:primaryType="nt:unstructured">
+                <table jcr:primaryType="nt:unstructured">
+                    <policy_1718805503049
+                        cq:styleDefaultClasses="cmp-table"
+                        jcr:lastModified="{Date}2024-06-20T09:33:41.390+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Table container Guidotti Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/laboratorio-guidotti/components/tables/table_row"
+                        layoutDisabled="false">
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicatedBy="m.papini@adiacent.com"
+                            cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Tipology"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-table cmp-table--2-column"
+                                        cq:styleId="1718868747798"
+                                        cq:styleLabel="2 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-table cmp-table--3-column"
+                                        cq:styleId="1718868748405"
+                                        cq:styleLabel="3 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="cmp-table cmp-table--4-column"
+                                        cq:styleId="1718868757639"
+                                        cq:styleLabel="4 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="cmp-table cmp-table--5-column"
+                                        cq:styleId="1718868763501"
+                                        cq:styleLabel="5 column"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1718805503049>
+                </table>
+                <table_row jcr:primaryType="nt:unstructured">
+                    <policy_1718805530037
+                        cq:styleDefaultClasses="cmp-table--row"
+                        jcr:lastModified="{Date}2024-06-19T16:00:15.271+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Table row guidotti policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/laboratorio-guidotti/components/tables/table_cell"
+                        layoutDisabled="false">
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                            cq:lastReplicatedBy="m.papini@adiacent.com"
+                            cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Tipology"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-table--row-header"
+                                        cq:styleId="1718805589228"
+                                        cq:styleLabel="Table Header"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1718805530037>
+                </table_row>
+                <table_cell jcr:primaryType="nt:unstructured">
+                    <policy_1718805636225
+                        cq:styleDefaultClasses="cmp-table--cell"
+                        jcr:lastModified="{Date}2024-07-11T14:09:29.543Z"
+                        jcr:lastModifiedBy="d.mariotti@adiacent.com"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Table cell Guidotti policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/laboratorio-guidotti/components/spacer,/apps/laboratorio-guidotti/components/text,/apps/laboratorio-guidotti/components/title]"
+                        layoutDisabled="false">
+                        <jcr:content
+                            cq:isDelivered="{Boolean}false"
+                            cq:lastReplicated="{Date}2024-07-11T14:10:26.000Z"
+                            cq:lastReplicated_publish="{Date}2024-07-11T14:10:26.000Z"
+                            cq:lastReplicatedBy="d.mariotti@adiacent.com"
+                            cq:lastReplicatedBy_publish="d.mariotti@adiacent.com"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                            jcr:primaryType="nt:unstructured"/>
+                    </policy_1718805636225>
+                </table_cell>
+            </tables>
+            <card jcr:primaryType="nt:unstructured">
+                <policy_1718808670395
+                    jcr:lastModified="{Date}2024-06-19T16:53:39.683+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="card Guidotti Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                    showTitleType="false"
+                    titleType="h2">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Text cut"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-cut cmp-cut--1-row"
+                                    cq:styleId="1718808694389"
+                                    cq:styleLabel="cut 1 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-cut cmp-cut--2-row"
+                                    cq:styleId="1718808695129"
+                                    cq:styleLabel="cut 2 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-cut cmp-cut--3-row"
+                                    cq:styleId="1718808695761"
+                                    cq:styleLabel="cut 3 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-cut cmp-cut--4-row"
+                                    cq:styleId="1718808726045"
+                                    cq:styleLabel="cut 4 row"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_1718808670395>
+            </card>
+            <shape_container jcr:primaryType="nt:unstructured">
+                <policy_1718265530169
+                    jcr:lastModified="{Date}2024-07-08T13:14:16.607Z"
+                    jcr:lastModifiedBy="a.messori@adiacent.com"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Shape Container Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="[/apps/laboratorio-guidotti/components/containers/container,/apps/laboratorio-guidotti/components/banners/wrapper-banner/container_typo,/apps/laboratorio-guidotti/components/image,/apps/laboratorio-guidotti/components/separator,/apps/laboratorio-guidotti/components/teaser,/apps/laboratorio-guidotti/components/text,/apps/laboratorio-guidotti/components/title,/apps/laboratorio-guidotti/components/button]"
+                    layoutDisabled="true">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Shape Style"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-shape--style-1"
+                                    cq:styleId="1718272106764"
+                                    cq:styleLabel="Style 1"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-shape--style-2"
+                                    cq:styleId="1718272114156"
+                                    cq:styleLabel="Style 2"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-shape--style-3"
+                                    cq:styleId="1718272116561"
+                                    cq:styleLabel="Style 3"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="cmp-shape--style-4"
+                                    cq:styleId="1718272118098"
+                                    cq:styleLabel="Style 4"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item4
+                                    cq:styleClasses="cmp-shape--style-5"
+                                    cq:styleId="1718272130523"
+                                    cq:styleLabel="Style 5"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item5
+                                    cq:styleClasses="cmp-shape--style-6"
+                                    cq:styleId="1718272132409"
+                                    cq:styleLabel="Style 6"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item6
+                                    cq:styleClasses="cmp-shape--style-7"
+                                    cq:styleId="1718272141380"
+                                    cq:styleLabel="Style 7"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item7
+                                    cq:styleClasses="cmp-shape--style-8"
+                                    cq:styleId="1720079823291"
+                                    cq:styleLabel="Style 8"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Size"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="cmp-shape--container-big"
+                                    cq:styleId="1718265626464"
+                                    cq:styleLabel="Big"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="cmp-shape--container-regular"
+                                    cq:styleId="1718265630605"
+                                    cq:styleLabel="Regular"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="cmp-shape--container-small"
+                                    cq:styleId="1718265636534"
+                                    cq:styleLabel="Small"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
+                </policy_1718265530169>
+            </shape_container>
+            <timeline jcr:primaryType="nt:unstructured">
+                <policy_1720102217417
+                    jcr:lastModified="{Date}2024-07-04T16:49:48.550+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Timeline policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/laboratorio-guidotti/components/timeline_row"
+                    layoutDisabled="false">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
+                </policy_1720102217417>
+            </timeline>
+            <timeline_row jcr:primaryType="nt:unstructured">
+                <policy_1720102217528
+                    jcr:lastModified="{Date}2024-07-04T16:50:09.337+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Timeline Row policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/laboratorio-guidotti/components/timeline_object"
+                    layoutDisabled="false">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
+                </policy_1720102217528>
+            </timeline_row>
+            <timeline_object jcr:primaryType="nt:unstructured">
+                <policy_1720102217639
+                    jcr:lastModified="{Date}2024-07-04T16:47:04.334+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Timeline Object policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[/apps/laboratorio-guidotti/components/shape_container,/apps/laboratorio-guidotti/components/text,/apps/laboratorio-guidotti/components/title]"
+                    layoutDisabled="false">
+                    <jcr:content
+                        cq:isDelivered="{Boolean}false"
+                        cq:lastReplicated="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicated_publish="{Date}2024-07-09T15:28:26.193Z"
+                        cq:lastReplicatedBy="m.papini@adiacent.com"
+                        cq:lastReplicatedBy_publish="m.papini@adiacent.com"
+                        cq:lastReplicationAction="Activate"
+                        cq:lastReplicationAction_publish="Activate"
+                        jcr:mixinTypes="[cq:ReplicationStatus,cq:ReplicationStatus2]"
+                        jcr:primaryType="nt:unstructured"/>
+                </policy_1720102217639>
+            </timeline_object>
         </components>
     </laboratorio-guidotti>
     <wcm jcr:primaryType="nt:unstructured">

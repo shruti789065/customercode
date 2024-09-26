@@ -1,0 +1,86 @@
+.table {
+    .table_row {
+        position: relative;
+        padding: 1.25rem;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0.0625rem;
+            background-image: repeating-linear-gradient(to right, $vibrant-azure, $vibrant-azure 0.25rem, transparent 0.25rem, transparent 0.625rem);
+        }
+        &.cmp-table--row-header {
+            display: none;
+            &::after {
+                display: none;
+            }
+        }
+        .cmp-table--cell {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .cmp-mobile-header {
+                position: relative;
+                font-family: $font-family-arimo;
+                font-weight: $arimo-weight-light;
+                text-transform: uppercase;
+                font-size: calc(18px + (35 - 18) * ((100vw - 390px) / (1920 - 390)));
+                color: $vibrant-azure;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .cmp-text {
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        &:nth-child(even) {
+            background-color: unset;
+          }
+        &:nth-child(odd) {
+            background-color: rgba($vibrant-azure, 0.1);
+          }
+    }
+}
+
+
+
+
+
+@include respond-to(tablet) {
+    .table {
+        .table_row {
+            padding: 0;
+            &.cmp-table--row-header {
+                display: block;
+                border-bottom: 0.0625rem solid $vibrant-azure;
+            }
+            .cmp-table--cell {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                .cmp-mobile-header {
+                    display: none;
+                }
+                .cmp-text {
+                    p {
+                        margin: 1rem;
+                    }
+                }
+            }
+            &:nth-child(even) {
+                background-color: unset;
+              }
+            &:nth-child(odd) {
+                background-color: unset;
+              }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+main {
+  padding-top: clamp(5.143rem, 3vw + 4.457rem, 8.571rem);
+}
+.section {
+  container-type: inline-size;
+  container-name: section-container;
+  z-index: 3;
+  position: relative;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0 $size-20;
+  margin: 0 auto;
+  container-type: inherit;
+  container-name: wrapper-container;
+  transition: $standard-transition;
+}
+
+@include respond-to(tablet) {
+  .wrapper {
+    max-width: 117.143rem;
+  }
+}
+@include respond-to($breakpoint-high-definition) {
+  .wrapper {
+    padding: 0;
+  }
+}

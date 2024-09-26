@@ -53,15 +53,14 @@
                     </properties>
                     <group>com.jakala.menarini</group>
                     <name>fondazione.ui.apps</name>
-                    <packageType>application</packageType>
+                    <packageType>mixed</packageType>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>com.jakala.menarini</groupId>
                             <artifactId>fondazione.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
-                    <dependencies>
-                    </dependencies>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
                 </configuration>
             </plugin>
             <plugin>

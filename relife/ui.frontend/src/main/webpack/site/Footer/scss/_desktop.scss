@@ -1,0 +1,13 @@
+footer.cmp-experiencefragment--footer-desktop {
+  .cmp-languagenavigation {
+   
+    &.is-open {
+      .cmp-languagenavigation__group {
+        left: 0;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -100%);
+      }
+    }
+  }
+}

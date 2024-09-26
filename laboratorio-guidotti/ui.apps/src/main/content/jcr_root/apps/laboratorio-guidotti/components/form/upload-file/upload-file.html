@@ -1,0 +1,15 @@
+
+<div data-sly-test="${ wcmmode.edit || wcmmode.preview }" data-emptytext="upload file" class="cq-placeholder"></div>
+<div class="cmp-form-text" data-cmp-required-message="${properties.requiredMessage}">
+    <label class="${properties.required ? 'required-field' : ''}">${!properties.label ? 'Upload File' : properties.label }</label>
+    <sly data-sly-test="${properties.description}">
+        <div class="label-info cmp-text">${properties.description}</div>
+    </sly>    
+    <div class="cmp-input--container">
+        <input data-sly-test="${!properties.required}" type="file" id="myfile" name="myfile">
+        <input data-sly-test="${properties.required}" required type="file" id="myfile" name="myfile" >
+        <label class="buttonText" for="myfile"><span>+</span> ${!properties.buttonText ? 'Upload' : properties.buttonText}</label>
+        <span id="myFiles"></span>
+    </div>
+</div>
+

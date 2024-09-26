@@ -1,7 +1,7 @@
 .hero {
     display: flex;
     position: relative;
-    z-index: 1;
+    z-index: 1;    
 
     .cmp-teaser {
         display: flex;
@@ -16,6 +16,7 @@
             text-align: center;
             padding: 0 2rem;
             transition: $standard-transition;
+            
             .cmp-teaser__pretitle {
                 font-family: $font-family-oswald;
                 font-weight: $oswald-weight-bold;
@@ -77,6 +78,8 @@
 
         &__image {
             order: 1;
+            overflow: hidden;
+            aspect-ratio: 2.26 / 1;
             .cmp-image {
                 &::after {
                     content: "";
@@ -97,15 +100,16 @@
     }
 
     &.cmp-shape {
-        &-header {
+        &-header {            
             .cmp-teaser__image {
+                aspect-ratio: 1.92 / 1;
                 .cmp-image:after {
                     background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-0.png');
                 }
             }
         }
 
-        &-one {
+        &-one {            
             .cmp-teaser__image {
                 .cmp-image:after {
                     background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/header-shape-1.png');
@@ -191,7 +195,7 @@
         .cmp-teaser {
             &__content {
                 position: absolute;
-                left: 45%;
+                left: 37%;
                 top: 55%;
                 -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);

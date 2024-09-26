@@ -1,0 +1,65 @@
+.cmp-form-text {
+  display: block;
+  padding: 0 0.9375rem; 
+  margin-bottom: 1.6875rem; 
+
+  label {
+    font-family: $font-family-oswald;
+    font-size: 1.875rem; 
+    font-weight: $oswald-weight-regular;
+    color: $deep-blue;
+    margin-bottom: 1.125rem; 
+    display: none;
+  }
+
+  .cmp-form-text__textarea {
+    max-height: 11.25rem; 
+    width: 100%;
+    border-radius: 0.625rem; 
+    padding: 1rem;
+  
+    &:focus {
+      border-color: $deep-blue;
+      outline: 0;
+    }
+  }
+
+  .cmp-form-text__text {
+    display: block;
+    width: 100%;
+    height: 2.125rem; 
+    padding: 0.375rem 0.75rem; 
+    font-size: 0.875rem; 
+    line-height: 1.42857143;
+    color: $deep-blue;
+    background-color: $white;
+    background-image: none;
+    border: 0.063rem solid $deep-blue;
+    border-radius: 0.625rem; 
+    box-shadow: inset 0 0.0625rem 0.0625rem rgb(0 0 0 / 8%); 
+    transition: $standard-transition;
+    font-family: $font-family-arimo;
+    font-size: 1.25rem; 
+    font-weight: $arimo-weight-regular;
+    color: $deep-blue;
+    border: 0rem;
+    background: $white;
+    box-shadow: none;
+    height: 4.0625rem; 
+    padding-left: 1.25rem; 
+    border-radius: 0.625rem;
+    border: 0.063rem solid $deep-blue;
+  
+    &:focus {
+      border-color: $vibrant-azure;
+      outline: 0;
+    }
+  }
+}
+.form-container {
+  .cmp-text {
+    a {
+      color: $vibrant-azure;
+    }
+  }
+}
