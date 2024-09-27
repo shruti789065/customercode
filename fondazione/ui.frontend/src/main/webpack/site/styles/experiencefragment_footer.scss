@@ -177,19 +177,45 @@
         padding: 30px 15px;
         min-width: 100%;
         &>.cmp-container{
+            display: flex;
+            flex-direction: column;
             &>.container{
+                &.responsivegrid{
+                    float: left;
+                    .text:first-child{
+                        min-width: 100%;
+                        @include media-breakpoint-up(lg) {
+                            min-width: unset;
+                        }
+                    }
+                    .image{
+                        margin-left: 0;
+                        min-width: 211px;
+                        max-width: 211px;
+                    }
+                }
                 &>.cmp-container{
-                    .aem-Grid{
+                    &>.aem-Grid{
                         &::before{
                             display: none;
                         }
                         &::after{
                             display: none;
                         }
-                        @include media-breakpoint-up(lg) {
-                            width: 100%;
-                            display: grid;
-                            grid-template-columns: calc(100% - 218px) 218px;
+                        .aem-Grid{
+                            display: flex;
+                            flex-direction: column;
+                            @include media-breakpoint-up(lg) {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                            }
+                            &::before{
+                                display: none;
+                            }
+                            &::after{
+                                display: none;
+                            }
                         }
                         .text{
                             &:last-child{
@@ -202,6 +228,9 @@
                     }
                 }
             }
+            &>.text{
+                max-width: 100%;
+            }
         }
         p{
             @include text-type(text-super-small-light);
@@ -209,9 +238,6 @@
             @include media-breakpoint-up(lg) {
                 @include text-type(text-small-light); 
             }
-        }
-        .image{
-            max-width: 211px;
         }
     }
     .button{
