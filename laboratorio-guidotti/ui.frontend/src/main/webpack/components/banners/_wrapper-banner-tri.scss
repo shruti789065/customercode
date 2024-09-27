@@ -32,7 +32,7 @@
       }
       .shape_container_1 {
         .cmp-shape--container {
-          transform: translate(-70%, -70%);
+          transform: translate(-90%, -70%);
           height: clamp(14.125rem, 9vw + 12.325rem, 23.125rem);
           width: clamp(13.125rem, 8.125vw + 11.5rem, 21.25rem);
         }
@@ -47,6 +47,32 @@
       .shape_container_3 {
         .cmp-shape--container {
           transform: translate(100%, -70%);
+        }
+      }
+    }
+  }
+}
+@include respond-to(mobile) {
+  .cmp-wrapper_banner--container-tri {
+    &.cmp-wrapper_banner--container {
+
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container_1 {
+            .cmp-shape--container {
+              transform: translate(-100%, -70%);
+            }
+          }
+          .shape_container_2 {
+            .cmp-shape--container {
+              transform: translate(-30%, -50%);
+            }
+          }
+          .shape_container_3 {
+            .cmp-shape--container {
+              transform: translate(40%, -80%);
+            }
+          }
         }
       }
     }
@@ -82,12 +108,12 @@
           }
           .shape_container_2 {
             .cmp-shape--container {
-              transform: translate(-20%, -50%);
+              transform: translate(-30%, -50%);
             }
           }
           .shape_container_3 {
             .cmp-shape--container {
-              transform: translate(60%, -60%);
+              transform: translate(40%, -60%);
             }
           }
         }
@@ -103,12 +129,12 @@
         &.cmp-banner--content--shapes {
           .shape_container_1 {
             .cmp-shape--container {
-              transform: translate(-150%, -100%);
+              transform: translate(-140%, -100%);
             }
           }
           .shape_container_2 {
             .cmp-shape--container {
-              transform: translate(-50%, -50%);
+              transform: translate(-40%, -50%);
             }
           }
           .shape_container_3 {
@@ -130,12 +156,12 @@
         &.cmp-banner--content--shapes {
           .shape_container_1 {
             .cmp-shape--container {
-              transform: translate(-150%, -100%);
+              transform: translate(-140%, -100%);
             }
           }
           .shape_container_2 {
             .cmp-shape--container {
-              transform: translate(-50%, -50%);
+              transform: translate(-40%, -50%);
             }
           }
           .shape_container_3 {
@@ -155,12 +181,12 @@
         &.cmp-banner--content--shapes {
           .shape_container_1 {
             .cmp-shape--container {
-              transform: translate(-150%, -100%);
+              transform: translate(-140%, -100%);
             }
           }
           .shape_container_2 {
             .cmp-shape--container {
-              transform: translate(-50%, -50%);
+              transform: translate(-40%, -50%);
             }
           }
           .shape_container_3 {
