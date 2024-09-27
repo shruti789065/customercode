@@ -62,7 +62,8 @@ public class DataMigrationService {
 
     private static String eventModelPath = BASE_MODEL + "/event";
     private static String eventParentPath = ROOT_DATA + "/events";
-    private static String[] eventSingleFields = {"id", "data_inizio", "data_fine", "ref_citta", "ref_nazione", "sede", "ref_iscrizione", "immagine_evidenza_url", "program_cover", "program_pdf"};
+    private static String[] eventSingleFields = {"id", "data_inizio", "data_fine", "ref_citta", "ref_nazione", "sede", "ref_iscrizione", 
+                                                    "immagine_evidenza_url", "program_cover", "program_pdf", "address", "eventType"};
     private static final Map<String, Object> eventFieldIndexMap = new HashMap<>();
     static {
         eventFieldIndexMap.put("id", 0);
@@ -78,6 +79,8 @@ public class DataMigrationService {
         eventFieldIndexMap.put("immagine_evidenza_url", 11);
         eventFieldIndexMap.put("program_cover", 14);
         eventFieldIndexMap.put("program_pdf", 15);
+        eventFieldIndexMap.put("address", 16);
+        eventFieldIndexMap.put("eventType", 17);
     }
     private static String[] eventTopicsSingleFields = {"id", "ref_topics"};
     private static final Map<String, Object> eventTopicsFieldIndexMap = new HashMap<>();
@@ -138,7 +141,8 @@ public class DataMigrationService {
 
     private static String mediaModelPath = BASE_MODEL + "/media";
     private static String mediaParentPath = ROOT_DATA + "/media";
-    private static String[] mediaSingleFields = {"id", "ref_evento", "ref_relatore", "ordine", "data_relazione", "code_video", "path_video", "path_mini", "tipo", "ref_disciplina"};
+    private static String[] mediaSingleFields = {"id", "ref_evento", "ref_relatore", "ordine", "data_relazione", "code_video", 
+                                                 "path_video", "path_mini", "tipo", "ref_disciplina"};
     private static final Map<String, Object> mediaFieldIndexMap = new HashMap<>();
     static {
         mediaFieldIndexMap.put("id", 0);
