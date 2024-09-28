@@ -34,9 +34,9 @@
   }
 
   .cmp-shape--container {
-    display: block;
+    display: block !important;
     .cmp-container {
-      display: block;
+      display: block !important;
     }
   }
   .cmp-wrapper_banner--container {
@@ -113,6 +113,21 @@
       }
     }
     &.cmp-section_banner--container-wave {
+      .cmp-banner--content {
+        &.cmp-banner--content--shapes {
+          .shape_container {
+            min-height: 32rem;
+            position: relative;
+            .cmp-shape--container {
+              display: block;
+              max-height: 32rem;
+              height: 32rem;
+              position: relative;
+              min-width: 100%;
+            }
+          }
+        }
+      }
     }
   }
 }
