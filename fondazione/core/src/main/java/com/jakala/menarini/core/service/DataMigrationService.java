@@ -8,6 +8,8 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
@@ -51,6 +53,8 @@ public class DataMigrationService {
 
     @Reference
     private SlingRepository slingRepository;
+
+    private static final Logger LOG = LoggerFactory.getLogger(DataMigrationService.class);
 
     private static String SERVICE = "data-migration-service";
     private static String CSV_PATH = "/csv/";
@@ -172,26 +176,47 @@ public class DataMigrationService {
      * Main method to initiate the data migration process.
      * Calls individual migration methods for different content types.
      */
-    public void migrateData(String object) throws Exception {
-          
+    public void migrateData(String object, String exclusions) throws Exception {
+        String[] exclusionList = exclusions == null ? new String[0] : exclusions.split(",");
+
         try (ResourceResolver resolver = getResourceResolver()) {
             currentResolver = resolver;
             queryManager = resolver.adaptTo(Session.class).getWorkspace().getQueryManager();
 
-            if (object.isBlank()) {
-                migrateTopics();
-                migrateSpeakers();
-                migrateNations();
-                migrateSubscriptionTypes();
-                migrateCities(); // nations
-                migrateEvents(); // subscriptionTypes cities nations
-                try {
-                    connectEventsTopics();
-                } catch (Exception e) {
-                    Thread.sleep(2000); // Wait for 2 seconds
-                    connectEventsTopics();
+            if (object == null || object.isBlank()) {
+                if (!Arrays.asList(exclusionList).contains("topics")) {
+                    migrateTopics();
                 }
-                migrateMedia(); // speakers topics events
+                if (!Arrays.asList(exclusionList).contains("speakers")) {
+                    migrateSpeakers();
+                }
+                if (!Arrays.asList(exclusionList).contains("nations")) {
+                    migrateNations();
+                }
+                if (!Arrays.asList(exclusionList).contains("subscriptiontypes")) {
+                    migrateSubscriptionTypes();
+                }
+                if (!Arrays.asList(exclusionList).contains("cities")) {
+                    migrateCities(); // nations
+                }
+                if (!Arrays.asList(exclusionList).contains("events")) {
+                    migrateEvents(); // subscriptionTypes cities nations
+                    try {
+                        connectEventsTopics();
+                    } catch (Exception e) {
+                        Thread.sleep(2000); // Wait for 2 seconds
+                        connectEventsTopics();
+                    }
+                }
+                if (!Arrays.asList(exclusionList).contains("media")) {
+                    migrateMedia(); // speakers topics events
+                }
+                if (!Arrays.asList(exclusionList).contains("speakerimages")) {
+                    loadLinkSpeakerImages();
+                }
+                if (!Arrays.asList(exclusionList).contains("eventimages")) {
+                    loadLinkEventImages(); 
+                }
             } else if (Arrays.asList(OBJECTS).contains(object.toLowerCase())) {
                 switch (object.toLowerCase()) {
                     case "events":
@@ -775,6 +800,8 @@ public class DataMigrationService {
      */
     private void processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource) throws Exception {
 
+        LOG.info("ID: " + id + " Name: " + name);
+            
         ContentFragment cfm = findFragmentById(id, currentParentPath);
         
         if (cfm == null && name != null) { //controllo per i job di associazione che non devono creare fragments
