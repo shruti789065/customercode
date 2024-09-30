@@ -51,7 +51,7 @@
                         sling:resourceType="fondazione/components/container"
                         id="footerNavigation"
                         layout="responsiveGrid">
-                        <list_1196583146
+                        <list_1
                             jcr:created="{Date}2024-09-17T15:33:56.626+02:00"
                             jcr:createdBy="admin"
                             jcr:lastModified="{Date}2024-09-20T12:29:35.928+03:00"
@@ -71,10 +71,10 @@
                                 <default
                                     jcr:primaryType="nt:unstructured"
                                     offset="0"
-                                    width="2"/>
+                                    width="3"/>
                             </cq:responsive>
-                        </list_1196583146>
-                        <list
+                        </list_1>
+                        <list_2
                             jcr:created="{Date}2024-09-11T14:17:01.348+02:00"
                             jcr:createdBy="admin"
                             jcr:lastModified="{Date}2024-09-20T12:29:08.511+03:00"
@@ -85,7 +85,7 @@
                             displayItemAsTeaser="false"
                             linkItems="true"
                             listFrom="static"
-                            pages="[/content/fondazione/en,/content/fondazione,/content/fondazione/en]"
+                            pages="[/content/fondazione/en,/content/fondazione/en,/content/fondazione/en]"
                             parentPage="/content/fondazione/us/en"
                             showDescription="false"
                             showModificationDate="false"
@@ -95,9 +95,33 @@
                                 <default
                                     jcr:primaryType="nt:unstructured"
                                     offset="1"
-                                    width="2"/>
+                                    width="3"/>
                             </cq:responsive>
-                        </list>
+                        </list_2>
+                        <list_3
+                            jcr:created="{Date}2024-09-11T14:17:01.348+02:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-09-20T12:29:08.511+03:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="fondazione/components/list"
+                            childDepth="1"
+                            displayItemAsTeaser="false"
+                            linkItems="true"
+                            listFrom="static"
+                            pages="[/content/fondazione/en,/content/fondazione/en,/content/fondazione/en]"
+                            parentPage="/content/fondazione/us/en"
+                            showDescription="false"
+                            showModificationDate="false"
+                            sortOrder="asc"
+                            tagsMatch="any">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="3"/>
+                            </cq:responsive>
+                        </list_3>
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"

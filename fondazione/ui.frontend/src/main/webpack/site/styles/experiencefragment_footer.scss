@@ -22,7 +22,7 @@
                     &>div.aem-Grid{
                         display: flex !important;
                         flex-direction: column;
-                        @include media-breakpoint-up(lg) {
+                        @include media-breakpoint-up(xl) {
                             justify-content: space-between;
                             align-items: center;
                             flex-direction: row;
@@ -63,7 +63,7 @@
                 div.aem-Grid{
                     display: flex;
                     justify-content: flex-start;
-                    @include media-breakpoint-up(lg) {
+                    @include media-breakpoint-up(xl) {
                         justify-content: flex-end;
                     }
                     .button{
@@ -78,7 +78,8 @@
                 @extend %h2-extralight;
                 color: $white;
                 font-size: $title-font-size;
-                @include media-breakpoint-up(lg) {
+                margin-bottom: 16px;
+                @include media-breakpoint-up(xl) {
                     text-align: right;
                 }
             }
@@ -130,7 +131,6 @@
                 margin: 0;
                 line-height: $heading-h3-line-height;
                 @include media-breakpoint-up(lg) {
-                    max-height: 175px;
                     width: 100%;
                     min-width: 100%;
                     display: flex;
@@ -149,7 +149,6 @@
                         justify-content: space-between;
                         padding-right: 40px;
                         margin-bottom: 10px;
-                        height: 45px;
                         user-select: all;
                         pointer-events: all;
                         font-size: $title-extra-small-font-size;
@@ -166,6 +165,9 @@
                             background-size: contain;
                             background-position: center;
                             background-repeat: no-repeat;
+                        }
+                        .cmp-list__item-title {
+                            line-height: 1.5;
                         }
                     }
                 }
@@ -192,6 +194,12 @@
                         margin-left: 0;
                         min-width: 211px;
                         max-width: 211px;
+                        margin-top: 1rem;
+                        margin-bottom: 30px;
+                        @include media-breakpoint-up(lg) {
+                            margin-top: 0;
+                            margin-bottom: 36px;
+                        }
                     }
                 }
                 &>.cmp-container{
@@ -219,7 +227,6 @@
                         }
                         .text{
                             &:last-child{
-                                margin-top: 30px;
                                 @include media-breakpoint-up(lg) {
                                     margin-top: 0
                                 }
@@ -235,6 +242,7 @@
         p{
             @include text-type(text-super-small-light);
             color: $fm-color-text;
+            margin: 0;
             @include media-breakpoint-up(lg) {
                 @include text-type(text-small-light); 
             }
