@@ -1,0 +1,303 @@
+.timeline {
+    position: relative;
+    .cmp-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline_row {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0rem;
+        
+        // Per le righe dispari
+        &:nth-child(odd) {
+            .timeline_object:nth-child(1) {
+                order: 1;
+                padding: 0 2rem;
+                background-color: $white;
+            }
+            .timeline_object:nth-child(2) {
+                order: 2;
+                padding: 1rem 0rem;
+            }
+            .timeline_object:nth-child(3) {
+                order: 3;
+                padding: 0 2rem;
+                background-color: $white;
+            }
+        }
+
+        // Per le righe pari
+        &:nth-child(even) {
+            .timeline_object:nth-child(1) {
+                order: 1;
+                padding: 0 2rem;
+                background-color: $white;
+            }
+            .timeline_object:nth-child(2) {
+                order: 2;
+                padding: 1rem 0rem;
+            }
+            .timeline_object:nth-child(3) {
+                order: 3;
+                padding: 0 2rem;
+                background-color: $white;
+            }
+        }
+
+        .timeline_object {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            .title {
+                width: 100%;
+                text-align: center;
+            }
+            .text {
+                text-align: center;
+            }
+            // Stili comuni a tutti gli oggetti
+            .shape_container {
+                display: contents;
+            }
+
+            .cmp-shape--style-1 {
+                .cmp-shape--container {
+                  height: clamp(15rem, 25vw, 25rem);
+                  width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+              .cmp-shape--style-2 {
+                .cmp-shape--container {
+                    height: clamp(15rem, 25vw, 25rem);
+                    width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+              .cmp-shape--style-3 {
+                .cmp-shape--container {
+                    height: clamp(15rem, 25vw, 25rem);
+                    width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+              .cmp-shape--style-4 {
+                .cmp-shape--container {
+                    height: clamp(15rem, 25vw, 25rem);
+                    width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+              .cmp-shape--style-5 {
+                .cmp-shape--container {
+                    height: clamp(15rem, 25vw, 25rem);
+                    width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+              .cmp-shape--style-6 {
+                .cmp-shape--container {
+                    height: clamp(15rem, 25vw, 25rem);
+                    width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+              .cmp-shape--style-7 {
+                .cmp-shape--container {
+                    height: clamp(15rem, 25vw, 25rem);
+                    width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+              .cmp-shape--style-8 {
+                .cmp-shape--container {
+                    height: clamp(15rem, 25vw, 25rem);
+                    width: clamp(15rem, 25vw, 25rem);
+                }
+              }
+
+        }
+
+        .timeline_object:nth-child(1) {
+            // Stili specifici per il primo oggetto
+        }
+
+        .timeline_object:nth-child(2) {
+            // Stili specifici per il secondo oggetto
+        }
+
+        .timeline_object:nth-child(3) {
+            // Stili specifici per il terzo oggetto
+        }
+
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 6px;
+        background-color: $vibrant-azure;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+}
+
+@include respond-to(tablet) {
+    .timeline {
+        .timeline_row {
+            display: flex;
+            flex-direction: row;
+            padding: 0rem 0rem;            
+
+            // Per le righe dispari
+            &:nth-child(odd) {
+                .timeline_object:nth-child(1) {
+                    order: 1;
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 3;
+                }
+            }
+
+            // Per le righe pari
+            &:nth-child(even) {
+                .timeline_object:nth-child(1) {
+                    order: 3;
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 1;
+                }
+            }
+
+            .timeline_object {
+                width: 33%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .title {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .text {
+                    text-align: unset;
+                }
+                
+            }
+    
+            .timeline_object:nth-child(1) {
+                // Stili specifici per il primo oggetto
+            }
+    
+            .timeline_object:nth-child(2) {
+                // Stili specifici per il secondo oggetto
+            }
+    
+            .timeline_object:nth-child(3) {
+                // Stili specifici per il terzo oggetto
+            }
+            
+        }
+    }
+}
+
+@include respond-to(desktop) {
+    .timeline {
+        .timeline_row {
+            display: flex;
+            flex-direction: row;
+            padding: 1rem 0rem;  
+
+            // Per le righe dispari
+            &:nth-child(odd) {
+                .timeline_object:nth-child(1) {
+                    order: 1;
+                    .title {
+                        text-align: right;
+                    }
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 3;
+                    .title {
+                        text-align: left;
+                    }
+                }
+            }
+
+            // Per le righe pari
+            &:nth-child(even) {
+                .timeline_object:nth-child(1) {
+                    order: 3;
+                    .title {
+                        text-align: left;
+                    }
+                }
+                .timeline_object:nth-child(2) {
+                    order: 2;
+                }
+                .timeline_object:nth-child(3) {
+                    order: 1;
+                    .title {
+                        text-align: right;
+                    }
+                }
+            }
+
+            .timeline_object {
+                width: 33%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .text {
+                    text-align: unset;
+                }
+            }
+    
+            .timeline_object:nth-child(1) {
+                // Stili specifici per il primo oggetto
+            }
+    
+            .timeline_object:nth-child(2) {
+                // Stili specifici per il secondo oggetto
+            }
+    
+            .timeline_object:nth-child(3) {
+                // Stili specifici per il terzo oggetto
+            }
+
+        }
+    }
+}
+
+
+
+
+/*
+
+**MEDIA QUERIES DA UTILIZZARE**
+
+
+@include respond-to(small-devices) {}
+
+@include respond-to(mobile) {}
+
+@include respond-to(tablet) {}
+
+@include respond-to(laptop) {}
+
+@include respond-to(desktop) {}
+
+*/

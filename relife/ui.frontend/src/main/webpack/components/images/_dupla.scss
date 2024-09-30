@@ -1,0 +1,47 @@
+.dupla_image {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 1.91vw - 0.048rem, 2.571rem);
+  max-width: clamp(26.786rem, 21.127vw + 21.127rem, 42.857rem);
+  max-height: clamp(24.286rem, 37.277vw + 14.301rem, 40.714rem);
+  margin: 0 auto;
+  transition: $standard-transition;
+
+  .first_image {
+    .cmp-image {
+      img {
+        height: auto;
+        width: clamp(15rem, 16.964vw + 11.122rem, 28.571rem);
+      }
+    }
+  }
+
+  .second_image {
+    display: flex;
+    align-self: flex-end;
+    transform: translateY(-50%);
+    position: relative;
+    z-index: 3;
+    .cmp-image {
+      img {
+        width: clamp(13.714rem, 10vw + 11.429rem, 21.714rem);
+        height: auto;
+      }
+    }
+  }
+
+  &.dupla_image--mirrored {
+    .first_image {
+      align-self: flex-end;
+    }
+
+    .second_image {
+      align-self: flex-start;
+    }
+  }
+}
+@include respond-to(tablet) {
+	.dupla_image {
+		max-height: clamp(40.714rem, 22.629vw + 24.68rem, 55.714rem);
+	}
+}

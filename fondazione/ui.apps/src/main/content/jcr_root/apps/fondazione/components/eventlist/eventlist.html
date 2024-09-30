@@ -1,0 +1,12 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.EventListingModel">
+    <ul data-sly-list.event="${model.events}">
+        <li>
+            <a href="${event.path}.html">
+                <h5>${event.title}</h5>
+                <p>${event.description}</p>
+                <p>${event.startDateText}-${event.endDateText}</p>
+            </a>
+        </li>
+    </ul>
+    <p data-sly-test="${!model.events}">No events found.</p>
+</sly>

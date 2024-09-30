@@ -1,0 +1,144 @@
+.upload-file {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .cq-placeholder {
+    display: none;
+  }
+  .cmp-form-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    gap: 0.5rem;
+    label {
+      display: flex;
+      margin: 0px;
+      font-size: $font-size-min;
+      order: 1;
+    }
+    .cmp-input--container {
+      display: flex;
+      flex-direction: row-reverse;
+      order: 3;
+      justify-content: center;
+    }
+    .buttonText {
+      background-color: rgba(125, 125, 125, 0.2);
+      color: $darkGray;
+      cursor: pointer;
+      font-family: $font-family-oswald;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: $oswald-weight-regular;
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      border-radius: 5rem 0 0 5rem;
+      border: 1px solid $darkGray;
+      line-height: 20px;
+      width: fit-content;
+      margin-left: 1rem;
+      span {
+        margin-right: 0.3rem;
+      }
+    }
+    .label-info {
+      display: flex;
+      order: 2;
+      font-size: $font-size-min;
+    }
+    .label_error {
+      order: 4;
+    }
+
+    #myfile {
+      visibility: hidden;
+      width: 0;
+      //display: none;
+    }
+    #myFiles {
+      display: flex;
+      justify-content: space-between;
+      background-color: $white;
+      width: fit-content;
+      overflow-x: auto;
+      font-family: $font-family-arimo;
+      font-weight: $arimo-weight-medium;
+      font-size: $font-size-min;
+      color: $black;
+      padding: 1rem 2rem 1rem 2rem;
+      border: 1px solid $darkGray;
+      border-left: 0px;
+      border-radius: 0 5rem 5rem 0;
+      height: 56px;
+      margin: 0 1rem 0 0;
+      position: relative;
+      overflow: hidden;
+      min-width: auto;
+      &.empty {
+        color: rgba(125, 125, 125, 0.2);
+      }
+      .cmp-close__icon {
+        position: absolute;
+        right: 10%;
+        top: 55%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        &::after {
+          content: "X";
+          font-size: 15px;
+          font-weight: $arimo-weight-bold;
+          color: $deep-blue;
+          cursor: pointer;
+          font-style: normal;
+        }
+      }
+    }
+
+    .buttonText:after {
+      content: none;
+    }
+  }
+}
+
+@include respond-to(mobile) {
+  .upload-file {
+    .cmp-form-text {
+		.buttonText {
+			.buttonText {
+				padding: 1rem 2rem;
+			}
+			#myFiles {
+				padding: 1rem 2.5rem 1rem 2rem;
+				min-width: fit-content;
+			}
+		}
+    }
+  }
+}
+@include respond-to(laptop) {
+  .upload-file {
+    .cmp-form-text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      width: 70%;
+      label {
+        display: flex;
+        margin: 0px;
+        font-size: $font-size-min;
+        order: 1;
+      }
+      .label-info {
+        width: 30%;
+      }
+    }
+  }
+}

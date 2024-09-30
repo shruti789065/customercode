@@ -860,7 +860,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="pharmaceutical template policies"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Menarini MT - Content,/apps/menarinimaster/components/productleafleftcontainer]"
+                    components="[group:Menarini MT - Content,/apps/menarinimaster/components/productleafletcontainer]"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-03-29T15:40:16.254Z"
@@ -1242,14 +1242,14 @@
                     </cq:styleGroups>
                 </policy_1657117722738>
             </productlist>
-            <productleafleftcontainer jcr:primaryType="nt:unstructured">
+            <productleafletcontainer jcr:primaryType="nt:unstructured">
                 <policy_1657183629541
                     jcr:lastModified="{Date}2022-07-07T10:50:14.810+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="leaflet policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="/apps/menarinimaster/components/productleafleft"
+                    components="/apps/menarinimaster/components/productleaflet"
                     layoutDisabled="false">
                     <jcr:content
                         cq:lastReplicated="{Date}2023-03-29T15:40:16.254Z"
@@ -1261,7 +1261,7 @@
                         jcr:mixinTypes="[cq:ReplicationStatus]"
                         jcr:primaryType="nt:unstructured"/>
                 </policy_1657183629541>
-            </productleafleftcontainer>
+            </productleafletcontainer>
             <customTeaser jcr:primaryType="nt:unstructured">
                 <policy_1657527731660
                     cq:styleDefaultClasses="cmp-custom-teaser"

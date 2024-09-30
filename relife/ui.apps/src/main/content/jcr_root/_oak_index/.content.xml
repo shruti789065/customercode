@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:oak="http://jackrabbit.apache.org/oak/ns/1.0" xmlns:slingevent="http://sling.apache.org/jcr/event/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cm="http://www.adobe.com/aemfd/cm/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:social="http://www.adobe.com/social/1.0"
+          xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+          jcr:mixinTypes="[rep:AccessControllable]"
+          jcr:primaryType="nt:unstructured">
+    <relife-fulltext-1-custom-page-1
+            jcr:primaryType="oak:QueryIndexDefinition"
+            async="[async,nrt]"
+            compatVersion="{Long}2"
+            evaluatePathRestrictions="{Boolean}true"
+            excludedPaths="[/var,/etc/replication,/etc/workflow/instances,/jcr:system,/etc/packages]"
+            includedPaths="[/content/relife]"
+            queryPaths="[/content/relife]"
+            reindex="{Boolean}false"
+            reindexCount="{Long}1"
+            seed="{Long}-6146516853337668993"
+            type="lucene">
+        <aggregates jcr:primaryType="nt:unstructured">
+            <cq:Page jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="jcr:content"
+                        relativeNode="{Boolean}true"/>
+            </cq:Page>
+            <cq:PageContent jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="*"/>
+                <include1
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*"/>
+                <include2
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*"/>
+                <include3
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*/*"/>
+                <include4
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*/*/*"/>
+            </cq:PageContent>
+        </aggregates>
+        <indexRules jcr:primaryType="nt:unstructured">
+            <cq:Page jcr:primaryType="nt:unstructured">
+                <properties jcr:primaryType="nt:unstructured">
+                    <jcrTitle
+                            jcr:primaryType="nt:unstructured"
+                            name="jcr:content/jcr:title"
+                            nodeScopeIndex="{Boolean}true"
+                            propertyIndex="{Boolean}true"
+                            type="String"
+                            useInSpellcheck="{Boolean}true"
+                            useInSuggest="{Boolean}true"/>
+                    <jcrDescription
+                            jcr:primaryType="nt:unstructured"
+                            name="jcr:content/jcr:description"
+                            nodeScopeIndex="{Boolean}true"
+                            propertyIndex="{Boolean}true"
+                            type="String"
+                            useInSpellcheck="{Boolean}true"
+                            useInSuggest="{Boolean}true"/>
+                    <text
+                            jcr:primaryType="nt:unstructured"
+                            name="jcr:content/text"
+                            nodeScopeIndex="{Boolean}true"
+                            propertyIndex="{Boolean}true"
+                            type="String"
+                            useInSpellcheck="{Boolean}true"
+                            useInSuggest="{Boolean}true"/>
+                </properties>
+            </cq:Page>
+        </indexRules>
+    </relife-fulltext-1-custom-page-1>
+    <relife-fulltext-1-custom-ntunstructured-1
+            jcr:primaryType="oak:QueryIndexDefinition"
+            async="[async,nrt]"
+            compatVersion="{Long}2"
+            evaluatePathRestrictions="{Boolean}true"
+            excludedPaths="[/var,/etc/replication,/etc/workflow/instances,/jcr:system,/etc/packages]"
+            includedPaths="[/content/relife]"
+            queryPaths="[/content/relife]"
+            reindex="{Boolean}false"
+            reindexCount="{Long}1"
+            seed="{Long}-6146516853337668993"
+            type="lucene">
+        <aggregates jcr:primaryType="nt:unstructured">
+            <cq:Page jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="jcr:content"
+                        relativeNode="{Boolean}true"/>
+            </cq:Page>
+            <nt:unstructured jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="jcr:content"
+                        relativeNode="{Boolean}true"/>
+            </nt:unstructured>
+            <cq:PageContent jcr:primaryType="nt:unstructured">
+                <include0
+                        jcr:primaryType="nt:unstructured"
+                        path="*"/>
+                <include1
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*"/>
+                <include2
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*"/>
+                <include3
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*/*"/>
+                <include4
+                        jcr:primaryType="nt:unstructured"
+                        path="*/*/*/*/*"/>
+            </cq:PageContent>
+        </aggregates>
+        <indexRules jcr:primaryType="nt:unstructured">
+            <nt:unstructured
+                    jcr:primaryType="nt:unstructured">
+                <properties jcr:primaryType="nt:unstructured">
+                    <jcrTitle
+                            jcr:primaryType="nt:unstructured"
+                            name="jcr:title"
+                            nodeScopeIndex="{Boolean}true"
+                            ordered="{Boolean}true"
+                            propertyIndex="{Boolean}true"/>
+                    <jcrDescription
+                            jcr:primaryType="nt:unstructured"
+                            name="jcr:description"
+                            nodeScopeIndex="{Boolean}true"
+                            ordered="{Boolean}true"
+                            propertyIndex="{Boolean}true"/>
+                    <text
+                            jcr:primaryType="nt:unstructured"
+                            name="text"
+                            nodeScopeIndex="{Boolean}true"
+                            propertyIndex="{Boolean}true"
+                            type="String"
+                            useInSpellcheck="{Boolean}true"
+                            useInSuggest="{Boolean}true"/>
+                </properties>
+            </nt:unstructured>
+        </indexRules>
+    </relife-fulltext-1-custom-ntunstructured-1>
+</jcr:root>

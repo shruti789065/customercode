@@ -31,7 +31,6 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
@@ -148,10 +147,11 @@ class MailServletTest {
 
         lenient().doReturn(c).when(spy(request)).getResource();
         lenient().doReturn(ctx.resourceResolver()).when(c).getResourceResolver();
-        Resource p = ctx.resourceResolver().getResource("/content/menarinimaster/language-masters/en/contacts.html/jcr:content/root/container/container/container");
-        doReturn(p).when(servlet).getParentResource(any(ResourceResolver.class), any(String.class));
+//        Resource p = ctx.resourceResolver().getResource("/content/menarinimaster/language-masters/en/contacts.html/jcr:content/root/container/container/container");
+//        doReturn(p).when(servlet).getParentResource(any(ResourceResolver.class), any(String.class));
 
         //doReturn(true).when(servlet).checkRecaptcha(any(String.class), any(String.class));
+        doReturn("SAMPLE_PRIVATE_KEY").when(servlet).getSecretKey(any());
         //oppure:
         CloseableHttpClient httpclient =  mock(CloseableHttpClient.class);
         doReturn(httpclient).when(servlet).getHttpClient();

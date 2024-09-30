@@ -1,1 +1,12 @@
-.cmp-container {}
+.container {
+    .cmp-container--border{
+        border: 0.125rem solid $vibrant-azure;
+        border-radius: 0.625rem;
+        padding: 1.5rem;
+        .cmp-text {
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

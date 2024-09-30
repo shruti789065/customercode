@@ -1,0 +1,33 @@
+.cmp-form-button {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-family: $font-family-oswald;
+    font-weight: $oswald-weight-regular;
+    border: none;
+    border-radius: 5rem;
+    cursor: pointer;
+    background-color: transparent;
+    padding: clamp(1rem, 1vw + .5rem, 1.5rem) clamp(0.25rem, 1vw + .25rem, 2rem);
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.375rem);
+    width: clamp(16.875rem, 1.5vw + 0.5rem, 23rem);
+    margin: 1rem auto;
+    transition: $standard-transition;
+    color: $white;
+    background-color: $vibrant-azure;
+	margin-top: 3rem;
+    
+    &:hover {
+        box-shadow: 2px 2px 5px lightgray;
+        background-color: darken($vibrant-azure, 10%);
+      }
+    &:active {
+        background-color: darken($vibrant-azure, 20%);
+    }
+}
+.cq-Editable-dom{
+	.cmp-form-button{
+		visibility: visible;
+	}
+}

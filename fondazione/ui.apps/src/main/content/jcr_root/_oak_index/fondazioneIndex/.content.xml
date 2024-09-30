@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:oak="http://jackrabbit.apache.org/oak/ns/1.0" xmlns:dam="http://www.day.com/dam/1.0"
+    jcr:primaryType="oak:QueryIndexDefinition"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    async="async"
+    compatVersion="{Long}2"
+    evaluatePathRestrictions="{Boolean}true"
+    includedPaths="[/content/dam/fondazione]"
+    queryPaths="[/content/dam/fondazione//*]"
+    type="lucene"
+    selectionPolicy="tag"
+    tags="[fondazioneIndex]">
+    <indexRules jcr:primaryType="nt:unstructured">
+        <dam:Asset jcr:primaryType="nt:unstructured">
+            <properties jcr:primaryType="nt:unstructured">
+                <id
+                    jcr:primaryType="nt:unstructured"
+                    name="jcr:content/data/master/id"
+                    propertyIndex="{Boolean}true"/>
+            </properties>
+        </dam:Asset>
+    </indexRules>
+</jcr:root>

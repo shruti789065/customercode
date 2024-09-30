@@ -1,0 +1,159 @@
+{
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+    "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:mixinTypes": [
+            "cq:ReplicationStatus2",
+            "mix:versionable"
+        ],
+        "jcr:createdBy": "admin",
+        "jcr:title": "Transparency",
+        "cq:lastReplicatedBy_publish": "workflow-process-service",
+        "cq:isDelivered": false,
+        "cq:lastReplicationAction": "Activate",
+        "jcr:versionHistory": "4ce5d47e-cbd6-48ba-ab40-02f51762c3bc",
+        "pwaOrientation": "any",
+        "cq:template": "/conf/laboratorio-guidotti/settings/wcm/templates/page-content",
+        "cq:lastReplicatedBy": "workflow-process-service",
+        "cq:lastReplicationAction_publish": "Activate",
+        "jcr:predecessors": [
+            "6011510c-f69a-487f-a1e1-28bad32eef0d"
+        ],
+        "jcr:created": "Mon Sep 09 2024 14:54:19 GMT+0200",
+        "pwaDisplay": "standalone",
+        "cq:lastReplicated": "Wed Sep 04 2024 09:34:01 GMT+0000",
+        "cq:lastModified": "Tue Sep 10 2024 12:39:09 GMT+0200",
+        "pwaCachestrategy": "staleWhileRevalidate",
+        "jcr:baseVersion": "6011510c-f69a-487f-a1e1-28bad32eef0d",
+        "jcr:isCheckedOut": true,
+        "hideInNav": "true",
+        "jcr:uuid": "b6478ae6-726a-486c-ba73-a68702ab6cc9",
+        "sling:resourceType": "laboratorio-guidotti/components/page",
+        "cq:lastReplicated_publish": "Wed Sep 04 2024 09:34:01 GMT+0000",
+        "cq:lastModifiedBy": "admin",
+        "root": {
+            "jcr:primaryType": "nt:unstructured",
+            "layout": "responsiveGrid",
+            "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+            "container": {
+                "jcr:primaryType": "nt:unstructured",
+                "layout": "responsiveGrid",
+                "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                "title": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "sling:resourceType": "laboratorio-guidotti/components/title"
+                },
+                "container": {
+                    "jcr:primaryType": "nt:unstructured",
+                    "layout": "responsiveGrid",
+                    "sling:resourceType": "laboratorio-guidotti/components/containers/container",
+                    "hero": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "admin",
+                        "imageFromPageImage": "false",
+                        "fileReference": "/content/dam/laboratorio-guidotti/assets/header/header-privacy.png",
+                        "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                        "jcr:created": "Tue May 14 2024 16:48:14 GMT+0200",
+                        "titleFromPage": "true",
+                        "linkTarget": "_self",
+                        "jcr:lastModified": "Fri Jul 05 2024 07:17:13 GMT+0000",
+                        "descriptionFromPage": "true",
+                        "sling:resourceType": "laboratorio-guidotti/components/hero",
+                        "isDecorative": "true",
+                        "textIsRich": "true",
+                        "cq:styleIds": [
+                            "1717487377935"
+                        ]
+                    },
+                    "section": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "admin",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                        "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                        "wrapper": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper",
+                            "title": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:title": "Transparency",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Fri Jul 05 2024 07:18:42 GMT+0000",
+                                "type": "h1",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Fri Jul 05 2024 07:19:03 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/title",
+                                "cq:styleIds": [
+                                    "1715868178818"
+                                ]
+                            },
+                            "spacer": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "spacer": "20",
+                                "jcr:created": "Fri Jul 05 2024 07:19:41 GMT+0000",
+                                "jcr:lastModified": "Fri Jul 05 2024 07:19:47 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/spacer"
+                            },
+                            "title_copy": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:title": "Codice di Trasparenza Efpia - Report",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Fri Jul 05 2024 07:18:42 GMT+0000",
+                                "type": "h2",
+                                "linkTarget": "_self",
+                                "jcr:lastModified": "Fri Jul 05 2024 07:19:37 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/title",
+                                "cq:styleIds": [
+                                    "1715868173423",
+                                    "1715868241176"
+                                ]
+                            }
+                        }
+                    },
+                    "section_copy": {
+                        "jcr:primaryType": "nt:unstructured",
+                        "jcr:createdBy": "admin",
+                        "jcr:lastModifiedBy": "admin",
+                        "jcr:created": "Tue May 14 2024 16:48:23 GMT+0200",
+                        "jcr:lastModified": "Tue May 14 2024 16:48:23 GMT+0200",
+                        "sling:resourceType": "laboratorio-guidotti/components/containers/section",
+                        "wrapper": {
+                            "jcr:primaryType": "nt:unstructured",
+                            "jcr:createdBy": "admin",
+                            "jcr:lastModifiedBy": "admin",
+                            "jcr:created": "Tue May 14 2024 16:48:29 GMT+0200",
+                            "jcr:lastModified": "Tue May 14 2024 16:48:29 GMT+0200",
+                            "sling:resourceType": "laboratorio-guidotti/components/containers/wrapper",
+                            "container": {
+                                "jcr:primaryType": "nt:unstructured",
+                                "jcr:createdBy": "d.mariotti@adiacent.com",
+                                "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+                                "jcr:created": "Fri Jul 05 2024 07:20:45 GMT+0000",
+                                "jcr:lastModified": "Fri Jul 05 2024 07:20:45 GMT+0000",
+                                "sling:resourceType": "laboratorio-guidotti/components/containers/container"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "cq:featuredimage": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:lastModifiedBy": "d.mariotti@adiacent.com",
+            "jcr:lastModified": "Thu Jun 27 2024 13:04:39 GMT+0000",
+            "sling:resourceType": "core/wcm/components/image/v3/image",
+            "altValueFromDAM": "false"
+        }
+    }
+}

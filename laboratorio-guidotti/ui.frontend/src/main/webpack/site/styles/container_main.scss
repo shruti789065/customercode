@@ -7,6 +7,8 @@ main.container {
 .section {
   container-type: inline-size;
   container-name: section-container;
+  z-index: 3;
+  position: relative;
 }
 
 .wrapper {
@@ -54,7 +56,7 @@ main.container {
 
 @include respond-to(tablet) {
   .wrapper {
-    max-width: 90rem;
+    max-width: 85rem;
     padding: 0 4rem;
   }
 }

@@ -1,4 +1,4 @@
-<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!--
   ~ Copyright 2021 Adobe
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,13 +12,12 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+-->
 <template data-sly-template.cardEvent="">
 	<div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
 	     data-sly-test.hasContent="${properties.icon || properties.title > 0}"
 	     id="${properties.id}"
 	     class="cmp-business_card cmp-business_card--${properties.cardType} ">
-
 
 		<a class="cmp-link">
 			<div class="cmp-business_card--icon">
@@ -34,15 +33,17 @@
 				</div>
 
 				<hr>
-				<div>
-					<span><i class="cmp-icon cmp-icon__pin"></i>${properties.location}</span>
-					<span><i class="cmp-icon cmp-icon__calendar"></i>${properties.datepicker}</span>
+				<div class="cmp-business_card-event__info">
+					<span><i class="cmp-icon cmp-icon__pin"></i>${properties.luogo}</span>
+					<span>
+                        <i class="cmp-icon cmp-icon__calendar"></i>
+                        ${'dd-MM-yyyy' @ format=properties.datepicker}
+                    </span>
 				</div>
 			</div>
 		</a>
 
 	</div>
-
 
 	<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend=''}"></sly>
 </template>

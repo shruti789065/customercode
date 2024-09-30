@@ -1,0 +1,18 @@
+<sly data-sly-test="${properties.bannerType == 'central-shape'}"
+     data-sly-use.bannerCentralTemplate="central-shape.html"
+     data-sly-call="${bannerCentralTemplate.bannerCentralShape @ isInverted=properties.invertPosition}"></sly>
+
+<sly data-sly-test="${properties.bannerType == 'mono-shape'}"
+     data-sly-use.bannerMonoTemplate="mono-shape.html"
+     data-sly-call="${bannerMonoTemplate.bannerMonoShape @ isInverted=properties.invertPosition}"></sly>
+
+<sly data-sly-test="${properties.bannerType == 'bi-shape'}"
+     data-sly-use.bannerDoubleTemplate="bi-shape.html"
+     data-sly-call="${bannerDoubleTemplate.bannerBiShape @ isInverted=properties.invertPosition}"></sly>
+
+<sly data-sly-test="${properties.bannerType == 'tri-shape'}"
+     data-sly-use.bannerTrebleTemplate="tri-shape.html"
+     data-sly-call="${bannerTrebleTemplate.bannerTriShape @ isInverted=properties.invertPosition}"></sly>
+
+<div data-sly-test="${!properties.bannerType}" data-emptytext="Wrapper Banner" class="cq-placeholder"></div>
+

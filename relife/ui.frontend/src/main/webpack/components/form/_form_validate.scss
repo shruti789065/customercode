@@ -1,0 +1,37 @@
+.cmp-form {
+  background-color: $white;
+  padding: 60px 0;
+  margin: 0 auto;
+
+  .label_required,
+  .label_error {
+    margin-top: .5rem;
+    color: $red;
+    font-family: $title-medium;
+    font-size: 1rem;
+    height: 1.5rem;
+  }
+  .no_error_label {
+    height: 1.5rem;
+    display: block;
+  }
+
+  .button {
+    .cmp-form-button:hover {
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+
+  #myFiles {
+    width: 100%;
+    padding: 1%;
+    margin: 0rem;
+    display: inline-block;
+
+    &:not(:empty) {
+      background: $charcoal;
+      margin-bottom: 1%;
+    }
+  }
+}

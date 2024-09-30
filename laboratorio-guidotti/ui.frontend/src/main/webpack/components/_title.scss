@@ -5,12 +5,13 @@
 	.cmp-title {
 		font-family: $font-family-oswald;
 		font-weight: $oswald-weight-bold;
-		h1 { font-size: 48px; }
-		h2 { font-size: 30px; }
-		h3 { font-size: 24px; }
-		h4 { font-size: 18px; }
-		h5 { font-size: 15px; }
-		h6 { font-size: 15px; }
+		line-height: 1.35;
+		h1 { font-size: 3rem; }
+		h2 { font-size: 1.875rem; }
+		h3 { font-size: 1.5rem; }
+		h4 { font-size: 1.125rem; }
+		h5 { font-size: 0.938rem; }
+		h6 { font-size: 0.938rem; }
 		h1,h2,h3,h4,h5,h6 {margin: auto;}
 	}
 	&.cmp-font-weight--regular {
@@ -18,6 +19,12 @@
 	}
 	&.cmp-font-weight--light {
 		.cmp-title .cmp-title__text { font-weight: $oswald-weight-light; }
+	}
+	&.text-center {
+		.cmp-title .cmp-title__text { text-align: center; }
+	}
+	&.text-right {
+		.cmp-title .cmp-title__text { text-align: right; }
 	}
 }
 
@@ -37,12 +44,24 @@
 @include respond-to(desktop) {
 	.title {
 		.cmp-title {
-			h1 { font-size: 100px; }
-			h2 { font-size: 60px; }
-			h3 { font-size: 42px; }
-			h4 { font-size: 35px; }
-			h5 { font-size: 25px; }
-			h6 { font-size: 20px; }
+			h1 { font-size: 6.25rem; }
+			h2 { font-size: 3.7rem; }
+			h3 { font-size: 2.625rem; }
+			h4 { font-size: 2.188rem; }
+			h5 { font-size: 1.563rem; }
+			h6 { font-size: 1.25rem; }
+		}
+	}
+}
+@include respond-to(high-definition) {
+	.title {
+		.cmp-title {
+			h1 { font-size: 6rem; }
+			h2 { font-size: 3.5rem; }
+			h3 { font-size: 2.5rem; }
+			h4 { font-size: 2.188rem; }
+			h5 { font-size: 1.563rem; }
+			h6 { font-size: 1.25rem; }
 		}
 	}
 }
