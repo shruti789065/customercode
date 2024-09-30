@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-12-02T17:37:24.544+01:00"
+        cq:lastModified="{Date}2024-09-13T17:38:37.237+03:00"
         cq:lastModifiedBy="admin"
         cq:policy="fondazione/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -53,6 +53,36 @@
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <download
                                 cq:policy="fondazione/components/download/policy_1575032193319"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <banner-app jcr:primaryType="nt:unstructured">
+                                <banner-app-container
+                                    cq:policy="fondazione/components/banner-app/banner-app-container/policy_69283547620834"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </banner-app>
+                            <banner-mobile-app jcr:primaryType="nt:unstructured">
+                                <banner-mobile-app-container
+                                    cq:policy="fondazione/components/banner-mobile-app/banner-mobile-app-container/policy_1726061095737"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </banner-mobile-app>
+                            <horizontal-teaser
+                                cq:policy="fondazione/components/horizontal-teaser/policy_1726149355415"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <card-grid jcr:primaryType="nt:unstructured">
+                                <card-grid-container
+                                    cq:policy="fondazione/components/card-grid/card-grid-container/policy_1726213078559"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <card-grid-item
+                                    cq:policy="fondazione/components/card-grid/card-grid-item/policy_1726213170851"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </card-grid>
+                            <container
+                                cq:policy="fondazione/components/container/policy_34977012579416"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                         </components>
