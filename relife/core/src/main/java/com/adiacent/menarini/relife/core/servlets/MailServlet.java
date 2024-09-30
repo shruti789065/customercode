@@ -86,7 +86,7 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 	/**
 	 * @scr.property name="sling.servlet.selectors"
 	 */
-	protected static final String SELECTOR = "customMailLab";
+	protected static final String SELECTOR = "customMailRel";
 
 	protected static final String MAILTO_PROPERTY = "mailto";
 
