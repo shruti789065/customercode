@@ -1,10 +1,13 @@
 package com.jakala.menarini.core.service;
 
 
+import com.jakala.menarini.core.dto.RegisteredUserRoleDto;
 import com.jakala.menarini.core.dto.RoleDto;
+import com.jakala.menarini.core.entities.RegisteredUser;
+import com.jakala.menarini.core.entities.RegisteredUserRole;
+import com.jakala.menarini.core.entities.Role;
 import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
-import org.jooq.DSLContext;
-import org.jooq.SQLDialect;
+import org.jooq.*;
 import org.jooq.impl.DSL;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -37,4 +40,26 @@ public class RoleService implements RoleServiceInterface {
             return null;
         }
     }
+
+
+    @Override
+    public List<RoleDto> getRolesUser(long id) {
+        try (Connection connection = dataSource.getConnection()) {
+            DSLContext context = DSL.using(connection, SQLDialect.MYSQL);
+            SelectConditionStep<Record> roleQuery = context
+                    .select().from(Role.ROLE)
+                    .where(Role.ROLE.ID.eq(
+                            context.select(RegisteredUserRole.REGISTERED_USER_ROLE.ROLE_ID)
+                                    .from(RegisteredUserRole.REGISTERED_USER_ROLE)
+                                    .where(RegisteredUserRole.REGISTERED_USER_ROLE.REGISTERED_USER_ID.eq(id))
+                    ));
+            List<RoleDto> results = roleQuery.fetch().into(RoleDto.class);
+            return results;
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

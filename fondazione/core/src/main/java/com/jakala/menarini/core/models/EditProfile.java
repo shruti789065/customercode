@@ -44,7 +44,7 @@ public class EditProfile extends RegisteredUserServletDto {
             String email = authorities.keySet().iterator().next();
             RoleDto[] roles = authorities.get(email);
             final Set<Acl> acls = AclRolePermissions.transformRolesToAcl(Arrays.asList(roles));
-            final RegisteredUserDto userData = userRegisteredService.getUserByEmail(email, acls);
+            final RegisteredUserDto userData = userRegisteredService.getUserByEmail(email, acls,roles);
             this.setValues(userData);
             this.isAuthorized = true;
         } catch (SQLException e) {

@@ -5,7 +5,9 @@ import com.google.gson.Gson;
 import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.dto.RegisteredUserServletDto;
 import com.jakala.menarini.core.dto.RegisteredUseServletResponseDto;
+import com.jakala.menarini.core.dto.RoleDto;
 import com.jakala.menarini.core.security.Acl;
+import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -32,16 +34,17 @@ public class UserRegisteredServlet extends  BaseRestServlet {
         @Reference
         private UserRegisteredServiceInterface userService;
 
-
         @Override
         protected void doGet(SlingHttpServletRequest request,  SlingHttpServletResponse response) throws ServletException, IOException {
                 Gson gson = new Gson();
+                RoleDto[] roles = (RoleDto[]) request.getSession().getAttribute("roles");
+
                 final Set<Acl> acls = getAcls(request);
                 String userMail = (String)request.getSession().getAttribute("userEmail");
                 RegisteredUserServletDto getData = gson.fromJson(request.getReader(), RegisteredUserServletDto.class);
                 try {
                         RegisteredUseServletResponseDto responseDto = new RegisteredUseServletResponseDto();
-                        final RegisteredUserDto user = userService.getUserByEmail(userMail, acls);
+                        final RegisteredUserDto user = userService.getUserByEmail(userMail, acls,roles);
                         if (user == null) {
                              response.setStatus(404);
                              response.setContentType("application/json");
@@ -51,6 +54,9 @@ public class UserRegisteredServlet extends  BaseRestServlet {
                             response.setStatus(200);
                             response.setContentType("application/json");
                             responseDto.setSuccess(true);
+                            responseDto.setUserPermission(
+                                    userService.generateUserPermission(roles[0],user.getCountry())
+                            );
                             responseDto.setUpdatedUser(user);
                         }
                         response.getWriter().write(gson.toJson(responseDto));
@@ -73,6 +79,7 @@ public class UserRegisteredServlet extends  BaseRestServlet {
         protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
                 Gson gson = new Gson();
                 final Set<Acl> acls = getAcls(request);
+                RoleDto[] roles = (RoleDto[]) request.getSession().getAttribute("roles");
                 String userMail = (String)request.getSession().getAttribute("userEmail");
                 RegisteredUserServletDto updateData = gson.fromJson(request.getReader(), RegisteredUserServletDto.class);
                 try {
@@ -80,7 +87,8 @@ public class UserRegisteredServlet extends  BaseRestServlet {
                                 userMail,
                                 updateData.generateRegisteredUserForUpdate(),
                                 updateData.getInterests(),
-                                acls);
+                                acls,
+                                roles);
                         if (result.isSuccess()) {
                                 response.setStatus(200);
                                 response.setContentType("application/json");

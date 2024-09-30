@@ -5,6 +5,7 @@ public class RegisteredUseServletResponseDto {
 
     private boolean success;
     private RegisteredUserDto updatedUser;
+    private RegisteredUserPermissionDto userPermission;
     private String errorMessage;
 
     public boolean isSuccess() {
@@ -21,6 +22,14 @@ public class RegisteredUseServletResponseDto {
 
     public void setUpdatedUser(RegisteredUserDto updatedUser) {
         this.updatedUser = updatedUser;
+    }
+
+    public RegisteredUserPermissionDto getUserPermission() {
+        return userPermission;
+    }
+
+    public void setUserPermission(RegisteredUserPermissionDto userPermission) {
+        this.userPermission = userPermission;
     }
 
     public String getErrorMessage() {

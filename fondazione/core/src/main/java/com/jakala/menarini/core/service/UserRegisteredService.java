@@ -17,6 +17,7 @@ import com.jakala.menarini.core.entities.RegisteredUser;
 import com.jakala.menarini.core.entities.RegisteredUserTopic;
 import com.jakala.menarini.core.entities.records.RegisteredUserRoleRecord;
 import com.jakala.menarini.core.entities.records.RegisteredUserTopicRecord;
+import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.SQLDialect;
@@ -36,10 +37,15 @@ import org.slf4j.LoggerFactory;
 @Component(service = UserRegisteredServiceInterface.class)
 public class UserRegisteredService implements UserRegisteredServiceInterface {
 
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserRegisteredService.class);
+    private static final String COUNTRY_ID_ITALY = "1";
 
     @Reference(target = "(datasource.name=fondazione-mysql)")
     private DataSource dataSource;
+
+    @Reference
+    private RoleServiceInterface roleService;
 
 
     @Override
@@ -62,7 +68,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
 
     @Override
-    public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls) throws AccessDeniedException, SQLException {
+    public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls, RoleDto[] roles) throws AccessDeniedException, SQLException {
 
         AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
         Connection connection = dataSource.getConnection();
@@ -95,22 +101,24 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
     }
 
     @Override
-    public RegisteredUseServletResponseDto updateUserData(String email, RegisteredUserDto user, List<String> updateTopics, Set<Acl> acls) throws AccessDeniedException, SQLException {
+    public RegisteredUseServletResponseDto updateUserData(String email, RegisteredUserDto user, List<String> updateTopics, Set<Acl> acls, RoleDto[] roles) throws AccessDeniedException, SQLException {
         RegisteredUseServletResponseDto response = new RegisteredUseServletResponseDto();
         String errorMessage = "";
         Connection connection = null;
         Savepoint savepoint = null;
+        long idUser = -1;
         AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
         try {
-            RegisteredUserDto oldData = this.getUserByEmail(email, acls);
+            RegisteredUserDto oldData = this.getUserByEmail(email, acls, roles);
             user.setId(oldData.getId());
+            idUser = oldData.getId();
             connection = dataSource.getConnection();
             savepoint = connection.setSavepoint();
             DSLContext create = DSL.using(connection);
             Record dataSet = this.setUpdateQuery(user, create);
             int x = create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
                     .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
-
+            String country = user.getCountry() == null ? oldData.getCountry() : user.getCountry();
             if(!updateTopics.isEmpty()) {
 
                 List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
@@ -128,9 +136,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     return response;
 
                 }
-                for(String topicRef : topicToSaveRefers) {
-                    LOGGER.error("id topics to save: "+topicRef);
-                }
                 boolean isCreated = this.saveNewTopic(topicToSaveRefers,user,create,connection,savepoint);
                 if(!isCreated) {
                     response.setSuccess(false);
@@ -140,6 +145,14 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                 }
             }
             connection.close();
+            ArrayList<RoleDto> actualRoles = (ArrayList<RoleDto>)roleService.getRolesUser(idUser);
+            RoleDto[] arrayRoles = new RoleDto[actualRoles.size()];
+            actualRoles.toArray(arrayRoles);
+            for(RoleDto role : arrayRoles) {
+                LOGGER.error("id role: "+role.getId() + "name: "+role.getName());
+            }
+            RegisteredUserPermissionDto permissions = this.generateUserPermission(arrayRoles[0],country);
+            response.setUserPermission(permissions);
             response.setSuccess(true);
             response.setUpdatedUser(user);
             return response;
@@ -159,17 +172,28 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         }
     }
 
-    private List<String> convertTopicsNameToId(List<String> topics, List<TopicDto> topicsRefs) {
-        List<String> convertedTopics = new ArrayList<>();
-        for(String topic : topics) {
-            for(TopicDto topicRef : topicsRefs) {
-                if(topicRef.getName().equals(topic)) {
-                    convertedTopics.add(topicRef.getId());
-                    break;
-                }
-            }
+    @Override
+    public RegisteredUserPermissionDto generateUserPermission(RoleDto role, String idCountry) {
+        RegisteredUserPermissionDto permissionDto = new RegisteredUserPermissionDto();
+        String roleName = role.getName();
+        switch (roleName) {
+            case "UserHealthCare":
+                permissionDto.setEventSubscription(true);
+                permissionDto.setMaterialAccess(true);
+                permissionDto.setMagazineSubscription(false);
+                break;
+            case "UserDoctor":
+                permissionDto.setEventSubscription(true);
+                permissionDto.setMaterialAccess(true);
+                permissionDto.setMagazineSubscription(idCountry.equals(COUNTRY_ID_ITALY));
+                break;
+            default:
+                permissionDto.setEventSubscription(true);
+                permissionDto.setMaterialAccess(false);
+                permissionDto.setMagazineSubscription(false);
+
         }
-        return convertedTopics;
+        return permissionDto;
     }
 
     private boolean deleteTopics(Long idUser,
@@ -181,10 +205,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
         oldTopic.removeIf(topic -> updateTopics.contains(topic));
         List<String> deleteTopics = new ArrayList<>(oldTopic);
-        LOGGER.error("------- on Delete topic func --------");
-        for(String topic : oldTopic) {
-            LOGGER.error("id topic to delete"+topic);
-        }
         try{
             if(!deleteTopics.isEmpty()) {
                 create.deleteFrom(RegisteredUserTopic.REGISTERED_USER_TOPIC).
