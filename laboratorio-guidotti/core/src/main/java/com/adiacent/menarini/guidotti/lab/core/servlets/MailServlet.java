@@ -347,8 +347,8 @@ public class MailServlet extends SlingAllMethodsServlet implements OptingServlet
 				}
 				builder.append(request.getRequestURI());
 
-				String text = resBundle.getString("You've received a new form based mail from {0}.");//testo editoriale
-				text = text.replace("{0}", builder.toString());
+				String text = resBundle.getString("You've received a new form based mail from www.labguidotti.it ");//testo editoriale
+				//text = text.replace("{0}", builder.toString());
 				buffer.append(text);
 				buffer.append("\n\n");
 			}
