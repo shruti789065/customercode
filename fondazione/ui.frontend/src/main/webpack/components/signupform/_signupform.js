@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownMenuCountry = document.querySelector("#countryList");
   const countryItems = document.querySelectorAll("#countryList li div");
   let selectedCountry = "";
+  let selectedCountryId = "";
 
   let erroeMessagges = [];
 
@@ -130,14 +131,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   countryItems.forEach((element) => {
-    let fiscalCodeInput = document.querySelector("#fiscalCodeInput");
+    let fiscalCodeInput = document.querySelector("#fiscalCodeInput");    
     element.addEventListener("click", function () {
+      let currestSelectedCountryId = element.getAttribute("data-country-id");         
       selectedCountry = element.textContent.trim();
       dropdownMenuCountry.style.display = "none";
       displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
       updateDropdownTextCountry();
 
-      if (selectedCountry.toLowerCase() === "it") {
+      if (currestSelectedCountryId.toLowerCase() === "1") {
         fiscalCodeInput.classList.remove("d-none");
         fiscalCodeInput.classList.add("d-block");
       } else {

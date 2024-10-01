@@ -78,10 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (lastName && dataResponse.updatedUser.lastname !== "") {
                     lastName.value = dataResponse.updatedUser.lastname;
                 }
-                if (linkedinProfile && dataResponse.updatedUser.linkedinProfile !== "") {
+                if (linkedinProfile && dataResponse.updatedUser.linkedinProfile && dataResponse.updatedUser.linkedinProfile !== "") {
                     linkedinProfile.value = dataResponse.updatedUser.linkedinProfile;
                 }
-                if (taxIdCode && dataResponse.updatedUser.taxIdCode !== "") {
+                if (taxIdCode && dataResponse.updatedUser.taxIdCode && dataResponse.updatedUser.taxIdCode !== "") {
+                    console.log(dataResponse.updatedUser);
+                    
                     taxIdCode.value = dataResponse.updatedUser.taxIdCode;
                 }
                 if (gender && dataResponse.updatedUser.gender !== "") {
@@ -295,18 +297,24 @@ document.addEventListener('DOMContentLoaded', function () {
     countryItems.forEach((element) => {
         let fiscalCodeInput = document.querySelector("#taxIdCode");
         element.addEventListener("click", function () {
+            let currestSelectedCountryId = element.getAttribute("data-country-id");
+            let userProfileFiscalCodeTitle = document.querySelector("#fiscalCodeUserProfileTitle");
             selectedCountry = element.textContent.trim();
             dropdownMenuCountry.classList.add("d-none");
             dropdownMenuCountry.classList.remove("d-block");
             displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
             updateDropdownTextCountry();
 
-            if (selectedCountry.toLowerCase() === "it") {
+            if (currestSelectedCountryId.toLowerCase() === "1") {
                 fiscalCodeInput.classList.remove("d-none");
                 fiscalCodeInput.classList.add("d-block");
+                userProfileFiscalCodeTitle.classList.add("d-block");
+                userProfileFiscalCodeTitle.classList.remove("d-none");
             } else {
                 fiscalCodeInput.classList.add("d-none");
                 fiscalCodeInput.classList.remove("d-block");
+                userProfileFiscalCodeTitle.classList.add("d-none");
+                userProfileFiscalCodeTitle.classList.remove("d-block");
             }
         });
     });

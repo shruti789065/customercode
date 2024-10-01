@@ -1,7 +1,6 @@
-<div class="container">
+<div class="container" role="${properties.roleAttribute @ context='html'}" aria-label="${properties.accessibilityLabel @ context='html'}" id="${properties.id @ context='html'}">
     <div class="customform">
-        <div class="row">
-
+        <div class="row">            
             <!-- FORM SIGN IN -->
             <form id="signInForm" class="needs-validation col-12 col-lg-6 pe-lg-5 customform__signincol d-block"
                 method="post" novalidate>
