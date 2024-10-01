@@ -732,7 +732,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             let newPasswordData = {
                 PreviousPassword: tmpFormData.currentPassword,
-                ProposedPassword: tmpFormData.newPassword,
+                ProposedPassword: tmpFormData.password,
                 AccessToken: localStorage.getItem('accessToken') !== null ? localStorage.getItem('accessToken') : sessionStorage.getItem('accessToken')
             };
 
