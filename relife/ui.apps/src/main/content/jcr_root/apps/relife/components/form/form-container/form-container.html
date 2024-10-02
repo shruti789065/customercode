@@ -15,7 +15,7 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <form data-sly-use.container="com.adobe.cq.wcm.core.components.models.form.Container"
       data-sly-use.grid="com.day.cq.wcm.foundation.model.responsivegrid.ResponsiveGrid"
-      method="${container.method}" action="${container.action @ selectors='customMail'}" id="${container.id}" name="${container.name}"
+      method="${container.method}" action="${container.action @ addSelectors='customMailRel'}" id="${container.id}" name="${container.name}"
       enctype="${container.enctype}" novalidate
       class="cmp-form ${grid.cssClass}">
     <div data-sly-test="${container.errorMessages}"
@@ -23,8 +23,9 @@
          class="cmp-form-error">
         <p class="cmp-form-error__item">${item}</p>
     </div>
-    <input type="hidden" name=":formstart" value="${resource.path}"/>
+    <input data-sly-test="${properties.actionType != 'foundation/components/form/actions/mail'}" type="hidden" name=":formstart" value="${resource.path}"/>
     <input type="hidden" name="_charset_" value="utf-8"/>
+    <input type="hidden" name="resourcePath" value="${resource.path}"/>
     <input type="hidden" name="_crypted-value_" value=""/>
     <input data-sly-test="${container.redirect}" type="hidden" name=":redirect" value="${container.redirect @ extension='html'}"/>
     <sly data-sly-repeat.paragraph="${grid.paragraphs}"
@@ -32,3 +33,6 @@
     <sly data-sly-resource="${resource.path @ resourceType=container.resourceTypeForDropArea, appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
          data-sly-test="${wcmmode.edit || wcmmode.preview}"></sly>
 </form>
+
+
+
