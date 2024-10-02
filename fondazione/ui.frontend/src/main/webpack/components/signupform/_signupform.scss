@@ -71,19 +71,23 @@
 
     .cmp-signupform__customError {
         font-family: $font-arimo;
-        color: #dc3545;
+        color: $fm-form-error;
         font-size: .875em;
     }
 
     .cmp-signupform__borderRed {
-        border-color: #dc3545 !important;
+        border-color: $fm-form-error !important;
     }
 
     .cmp-signupform__borderGreen {
-        border-color: #198754 !important;
+        border-color: $fm-form-success !important;
     }
 
     .invalid-feedback {
         font-family: $font-arimo;
+    }
+
+    #thankyouComponent {
+        padding-top: 90px;
     }
 }

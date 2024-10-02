@@ -1,0 +1,23 @@
+<div class="cmp-editprofileform container">
+    <h2 class="text-primary h2 h2-light mb-0 cmp-editprofileform__title">Edit your Fondazione Menarini acoount</h2>
+    <p class="cmp-editprofileform__subtitle mt-3 mb-5">${'fields_marked_with' @ i18n}<span> ${'mandatory' @ i18n}</span>
+        ${'are_mandatory_to_process_your_queries' @ i18n}</p>
+
+    <div class="cmp-editprofileform__tabsWrapper w-100 border-bottom">
+        <button id="userProfileTab" type="button" class="cmp-editprofileform__tabsButton border-0 active">
+            <h2 class="h2 cmp-editprofileform__tabsButtonText">${'user_profile' @ i18n}</h2>
+        </button>
+        <button id="passwordTab" type="button" class="cmp-editprofileform__tabsButton border-0 ms-3">
+            <h2 class="h2 cmp-editprofileform__tabsButtonText">${'password' @ i18n}</h2>
+        </button>
+    </div>
+
+    <div id="userProfileComponent" class="d-block">
+        <div data-sly-resource="${'userprofile' @ resourceType='fondazione/components/editprofileform/userprofile'}"></div>
+    </div>
+
+    <div id="passwordComponent" class="d-none mt-4">
+        <div data-sly-resource="${'password' @ resourceType='fondazione/components/editprofileform/password'}"></div>
+    </div>
+
+</div>

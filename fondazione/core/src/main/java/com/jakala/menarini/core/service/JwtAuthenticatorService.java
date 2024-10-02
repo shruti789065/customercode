@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.interfaces.RSAPublicKey;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -49,6 +48,23 @@ import com.jakala.menarini.core.dto.RoleDto;
 
         protected void activate(Map<String, Object> properties) {
             //
+        }
+
+        public Map<String, RoleDto[]> extractCredentialsForComponent(String token) {
+            JWTReader reader = new JWTReader();
+            JWT jwt = reader.read(token);
+
+            if (token == null || !isValidToken(token)) {
+                return null;
+            }
+
+            String userEmail = jwt.getClaimsSet().getCustomField("email", String.class);
+            String userRolesStr = jwt.getClaimsSet().getCustomField("aemRoles", String.class);
+            Gson gson = new Gson();
+            RoleDto[] roles = gson.fromJson(userRolesStr, RoleDto[].class);
+            HashMap<String, RoleDto[]> authData = new HashMap<String, RoleDto[]>();
+            authData.put(userEmail, roles);
+            return authData;
         }
     
         @Override

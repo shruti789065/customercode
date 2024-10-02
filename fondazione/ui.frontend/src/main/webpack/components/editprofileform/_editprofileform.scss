@@ -1,0 +1,118 @@
+.cmp-editprofileform {
+
+    .cmp-editprofileform__subtitle {
+        color: $fm-color-text;
+
+        span {
+            color: $primary;
+        }
+    }
+
+    .cmp-editprofileform__tabsWrapper {
+        color: $fm-color-text;
+        margin-top: 48px;
+
+        .active {
+            border-bottom: solid $secondary 4px !important;
+            color: $secondary !important;
+
+        }
+
+        .cmp-editprofileform__tabsButton {
+            background-color: transparent;
+            color: $fm-color-text;
+
+            .cmp-editprofileform__tabsButtonText {
+                font-weight: 200;
+            }
+        }
+    }
+
+    .cmp-editprofileform__editProfileTitle {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-weight: 200 !important;
+        color: $secondary;
+    }
+
+    .cmp-editprofileform__editProfileLabel {
+        color: $fm-color-text;
+    }
+
+    .cmp-editprofileform__editProfileValue {
+        color: $fm-color-text;
+        font-weight: 200 !important;
+    }
+
+    .cmp-editprofile__privacywrapper {
+
+        h6 {
+            color: $fm-color-text;
+        }
+
+        p {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0.25px;
+
+            a {
+                color: $fm-color-blue-link;
+            }
+
+            span {
+                color: $primary;
+            }
+        }
+
+        label {
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 25px;
+        }
+
+        span {
+            color: $primary;
+        }
+    }
+
+    .cmp-editprofile__customError {
+        color: $fm-form-error;
+        font-size: .875em;
+        font-weight: 300;
+        font-family: $font-arimo;
+    }
+
+    .cmp-editprofileform__formItemTitle {
+        color: $fm-color-text;
+
+        span {
+            color: $primary;
+        }
+
+        // .cmp-editprofileform__formItemLabel {
+        //     margin-bottom: 12px;
+        //     font-family: $font-family-base;
+        //     font-weight: 400;
+        //     font-size: 18px;
+        //     line-height: 25px;
+        //     color: $body-color;
+        // }
+    }
+
+    // .cmp-editprofileform__professionItem {
+    //     margin-top: 10px;
+    // }
+
+    // .cmp-editprofileform__countryItem {
+    //     margin-top: 10px;
+    // }
+
+    .cmp-userprofileform__borderRed {
+        border-color: $fm-form-error !important;
+    }
+
+    .cmp-userprofileform__borderGreen {
+        border-color: $fm-form-success !important;
+    }
+}

@@ -156,18 +156,14 @@
                                 </button>
                                 <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
                                     id="countryList">
-                                    <li class="d-flex align-items-center">
-                                        <input type="hidden" value="it">
-                                        <div class="dropdown-item d-flex align-items-center">IT</div>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="hidden" value="de">
-                                        <div class="dropdown-item d-flex align-items-center">DE</div>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="hidden" value="fr">
-                                        <div class="dropdown-item d-flex align-items-center">FR</div>
-                                    </li>
+                                    <sly data-sly-use.model="com.jakala.menarini.core.models.NationListingModel">
+                                        <sly data-sly-list.nation="${model.nations}">
+                                            <li class="d-flex align-items-center">
+                                                <input type="hidden" value="${nation.id}">
+                                                <div data-country-id="${nation.id}" class="dropdown-item d-flex align-items-center">${nation.name}</div>
+                                            </li>
+                                        </sly>
+                                    </sly>
                                 </ul>
                             </div>
                         </div>
@@ -335,8 +331,7 @@
                         <p>${'profiling' @ i18n}</p>
                         <fieldset class="ps-0">
                             <label>
-                                <input required type="radio" name="personalDataProcessing" value="yes"
-                                    class="me-1">
+                                <input required type="radio" name="personalDataProcessing" value="yes" class="me-1">
                                 ${'yes_label' @ i18n}
                             </label>
                             <label>
@@ -364,7 +359,7 @@
                         <div id="newsletterErrorString" class="mt-2 cmp-signupform__customError"></div>
                     </div>
 
-                    <p class="mt-5 small-text small-text-light">${'security_code' @ i18n} <span>${'mandatory' @
+                    <p class="mt-5 small-text small-text-light">${'security_code' @ i18n}<span>${'mandatory' @
                             i18n}</span></p>
 
                     <!-- <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div> -->
