@@ -1,0 +1,14 @@
+<sly data-sly-use.btnLink="${'com.jakala.menarini.core.models.LinkFormatter' @ authoredLink=properties.link}">
+	<a class="cmp-link cmp-link--${properties.linkType}" href="${btnLink.formattedLink @ context='uri'}" target="${properties.target}">
+		<sly data-sly-test="${properties.linkType != 'standard'}">
+			<sly data-sly-test.isIconLink="${properties.linkType == 'icon'}">
+				<i class="cmp-link__icon-asset" style="background: url('${properties.iconLink @ context='uri'}');"></i>
+				<span class="cmp-link__final-arrow"></span>
+			</sly>
+			<sly data-sly-test="${!isIconLink}">
+				<i class="cmp-link__icon-asset"></i>
+			</sly>
+		</sly>
+		<span class="cmp-link--text">${properties.label || 'LINK TITLE'}</span>
+	</a>
+</sly>

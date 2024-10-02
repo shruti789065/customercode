@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-09-26T14:09:15.632+03:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/fondazione/settings/wcm/templates/fondazione---homepage"
+        jcr:language="sq"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Home page"
+        sling:resourceType="fondazione/components/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any"
+        siteName="fondazione">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="fondazione/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:lastModified="{Date}2024-09-17T17:26:32.840+03:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/container"
+                layout="fullWidth">
+                <section
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fondazione/components/section">
+                    <wrapper
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="fondazione/components/wrapper"/>
+                </section>
+                <slideshow
+                    jcr:created="{Date}2024-09-17T17:08:40.207+03:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-09-26T13:50:27.519+03:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fondazione/components/slideshow"
+                    accessibilityAutoItemTitles="false"
+                    autopauseDisabled="false"
+                    autoplay="false"
+                    delay="5000">
+                    <item_1726585525900
+                        cq:panelTitle="About us"
+                        jcr:description="&lt;p>&lt;i>Sergio Gorini, First President of Fondazione Menarini&lt;/i>&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2024-09-26T10:28:19.886+03:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="A meeting place for all with ideas towards the progress of science for the benefit of mankind."
+                        sling:resourceType="fondazione/components/teaser"
+                        descriptionFromPage="false"
+                        fileName="slider-primaryandsecondarycare.jpeg"
+                        imageFromPageImage="false"
+                        isDecorative="true"
+                        linkTarget="_self"
+                        pretitle="About us"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <file/>
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="/content/fondazione/en"
+                                linkTarget="_self"
+                                text="Discover more"/>
+                        </actions>
+                    </item_1726585525900>
+                    <item_1727347822406
+                        cq:panelTitle="Some title"
+                        jcr:description="&lt;p>Some description&lt;/p>&#xd;&#xa;"
+                        jcr:lastModified="{Date}2024-09-26T14:09:15.602+03:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Home page"
+                        sling:resourceType="fondazione/components/teaser"
+                        descriptionFromPage="false"
+                        fileReference="/content/dam/menarini-fr/assets/home/cardhover_precisionmedicine.jpg"
+                        imageFromPageImage="false"
+                        isDecorative="true"
+                        linkTarget="_self"
+                        pretitle="Some title"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <actions jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                link="/content/fondazione/en"
+                                linkTarget="_self"
+                                text="Some link"/>
+                        </actions>
+                    </item_1727347822406>
+                </slideshow>
+                <image
+                    jcr:created="{Date}2024-09-25T12:37:26.732+03:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-09-25T12:37:41.576+03:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fondazione/components/image"
+                    altValueFromDAM="true"
+                    displayPopupTitle="true"
+                    fileReference="/content/dam/menarini-fondazione/assets/about-us/business_ethics.jpg"
+                    imageFromPageImage="false"
+                    isDecorative="false"
+                    linkTarget="_self"
+                    titleValueFromDAM="true"/>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-09-18T11:12:43.899+03:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+    <about-us/>
+    <courses-and-events/>
+    <news/>
+    <contact-us/>
+</jcr:root>
