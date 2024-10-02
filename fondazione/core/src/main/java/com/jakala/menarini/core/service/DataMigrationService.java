@@ -8,6 +8,8 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
@@ -52,6 +54,8 @@ public class DataMigrationService {
     @Reference
     private SlingRepository slingRepository;
 
+    private static final Logger LOG = LoggerFactory.getLogger(DataMigrationService.class);
+
     private static String SERVICE = "data-migration-service";
     private static String CSV_PATH = "/csv/";
     private static String SPEAKER_IMAGES_PATH = "/speakerImages/";
@@ -62,7 +66,8 @@ public class DataMigrationService {
 
     private static String eventModelPath = BASE_MODEL + "/event";
     private static String eventParentPath = ROOT_DATA + "/events";
-    private static String[] eventSingleFields = {"id", "data_inizio", "data_fine", "ref_citta", "ref_nazione", "sede", "ref_iscrizione", "immagine_evidenza_url", "program_cover", "program_pdf"};
+    private static String[] eventSingleFields = {"id", "data_inizio", "data_fine", "ref_citta", "ref_nazione", "sede", "ref_iscrizione", 
+                                                    "immagine_evidenza_url", "program_cover", "program_pdf", "address", "eventType"};
     private static final Map<String, Object> eventFieldIndexMap = new HashMap<>();
     static {
         eventFieldIndexMap.put("id", 0);
@@ -78,6 +83,8 @@ public class DataMigrationService {
         eventFieldIndexMap.put("immagine_evidenza_url", 11);
         eventFieldIndexMap.put("program_cover", 14);
         eventFieldIndexMap.put("program_pdf", 15);
+        eventFieldIndexMap.put("address", 16);
+        eventFieldIndexMap.put("eventType", 17);
     }
     private static String[] eventTopicsSingleFields = {"id", "ref_topics"};
     private static final Map<String, Object> eventTopicsFieldIndexMap = new HashMap<>();
@@ -138,7 +145,8 @@ public class DataMigrationService {
 
     private static String mediaModelPath = BASE_MODEL + "/media";
     private static String mediaParentPath = ROOT_DATA + "/media";
-    private static String[] mediaSingleFields = {"id", "ref_evento", "ref_relatore", "ordine", "data_relazione", "code_video", "path_video", "path_mini", "tipo", "ref_disciplina"};
+    private static String[] mediaSingleFields = {"id", "ref_evento", "ref_relatore", "ordine", "data_relazione", "code_video", 
+                                                 "path_video", "path_mini", "tipo", "ref_disciplina"};
     private static final Map<String, Object> mediaFieldIndexMap = new HashMap<>();
     static {
         mediaFieldIndexMap.put("id", 0);
@@ -168,26 +176,47 @@ public class DataMigrationService {
      * Main method to initiate the data migration process.
      * Calls individual migration methods for different content types.
      */
-    public void migrateData(String object) throws Exception {
-          
+    public void migrateData(String object, String exclusions) throws Exception {
+        String[] exclusionList = exclusions == null ? new String[0] : exclusions.split(",");
+
         try (ResourceResolver resolver = getResourceResolver()) {
             currentResolver = resolver;
             queryManager = resolver.adaptTo(Session.class).getWorkspace().getQueryManager();
 
-            if (object.isBlank()) {
-                migrateTopics();
-                migrateSpeakers();
-                migrateNations();
-                migrateSubscriptionTypes();
-                migrateCities(); // nations
-                migrateEvents(); // subscriptionTypes cities nations
-                try {
-                    connectEventsTopics();
-                } catch (Exception e) {
-                    Thread.sleep(2000); // Wait for 2 seconds
-                    connectEventsTopics();
+            if (object == null || object.isBlank()) {
+                if (!Arrays.asList(exclusionList).contains("topics")) {
+                    migrateTopics();
                 }
-                migrateMedia(); // speakers topics events
+                if (!Arrays.asList(exclusionList).contains("speakers")) {
+                    migrateSpeakers();
+                }
+                if (!Arrays.asList(exclusionList).contains("nations")) {
+                    migrateNations();
+                }
+                if (!Arrays.asList(exclusionList).contains("subscriptiontypes")) {
+                    migrateSubscriptionTypes();
+                }
+                if (!Arrays.asList(exclusionList).contains("cities")) {
+                    migrateCities(); // nations
+                }
+                if (!Arrays.asList(exclusionList).contains("events")) {
+                    migrateEvents(); // subscriptionTypes cities nations
+                    try {
+                        connectEventsTopics();
+                    } catch (Exception e) {
+                        Thread.sleep(2000); // Wait for 2 seconds
+                        connectEventsTopics();
+                    }
+                }
+                if (!Arrays.asList(exclusionList).contains("media")) {
+                    migrateMedia(); // speakers topics events
+                }
+                if (!Arrays.asList(exclusionList).contains("speakerimages")) {
+                    loadLinkSpeakerImages();
+                }
+                if (!Arrays.asList(exclusionList).contains("eventimages")) {
+                    loadLinkEventImages(); 
+                }
             } else if (Arrays.asList(OBJECTS).contains(object.toLowerCase())) {
                 switch (object.toLowerCase()) {
                     case "events":
@@ -771,6 +800,8 @@ public class DataMigrationService {
      */
     private void processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource) throws Exception {
 
+        LOG.info("ID: " + id + " Name: " + name);
+            
         ContentFragment cfm = findFragmentById(id, currentParentPath);
         
         if (cfm == null && name != null) { //controllo per i job di associazione che non devono creare fragments

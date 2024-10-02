@@ -16,13 +16,13 @@ body {
       height: 100%;
     }
     &--one::before {
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/left-shape-1.png');
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/left-shape-1.png");
     }
     &--two::before {
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/left-shape-2.png');
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/left-shape-2.png");
     }
-    &--three::before{
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/left-shape-3.png');
+    &--three::before {
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/left-shape-3.png");
     }
   }
   &.shape-right {
@@ -38,62 +38,77 @@ body {
       top: 50%;
       width: 15%;
       height: 100%;
-	  z-index: 0;
+      z-index: 0;
     }
     &--one::after {
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/right-shape-1.png');
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/right-shape-1.png");
     }
     &--two::after {
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/right-shape-2.png');
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/right-shape-2.png");
     }
-    &--three::after{
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/right-shape-3.png');
+    &--three::after {
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/right-shape-3.png");
     }
   }
-
 
   #upper-shape {
     z-index: 2;
     position: relative;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
-	  z-index:0;
+      z-index: 0;
       background-size: cover;
-      top: 0;
-      right: 0;
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/top-right-wave.svg');
-      width: clamp(115px, calc(115px + (500 - 115) * ((100vw - 390px) / (1920 - 390))), 500px);
-      height: clamp(160px, calc(160px + (705 - 160) * ((100vw - 390px) / (1920 - 390))), 705px);
+      top: -1px;
+      right: -1px;
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/top-right-wave.svg");
+      width: clamp(
+        115px,
+        calc(115px + (500 - 115) * ((100vw - 390px) / (1920 - 390))),
+        500px
+      );
+      height: clamp(
+        160px,
+        calc(160px + (705 - 160) * ((100vw - 390px) / (1920 - 390))),
+        705px
+      );
     }
   }
-  
+
   #lower-shape {
     z-index: 0;
     position: relative;
-    background-color: #00ADF2;
+    background-color: #00adf2;
     height: 2px;
     transition: height 0.5s ease;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       background-size: cover;
       bottom: 0;
       left: 0;
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-left-wave.svg');
-      width: clamp(0px, calc(182px + (455 - 182) * ((100vw - 768px) / (1920 - 768))), 455px);
-      height: clamp(0px, calc(648px + (1620 - 648) * ((100vw - 768px) / (1920 - 768))), 1620px);
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-left-wave.svg");
+      width: clamp(
+        0px,
+        calc(182px + (455 - 182) * ((100vw - 768px) / (1920 - 768))),
+        455px
+      );
+      height: clamp(
+        0px,
+        calc(648px + (1620 - 648) * ((100vw - 768px) / (1920 - 768))),
+        1620px
+      );
       opacity: 0;
-      transition: opacity 0.5s ease;      
+      transition: opacity 0.5s ease;
     }
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       background-size: cover;
-      bottom: 0;
-      right: 0;      
-      background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-right-wave-small.svg');
-      transition: background-image 0.5s ease; 
+      bottom: -1px;
+      right: 0;
+      background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-right-wave-small.svg");
+      transition: background-image 0.5s ease;
       width: 120px;
       height: 160px;
     }
@@ -106,49 +121,47 @@ body {
       margin-top: 12.5rem;
       height: 0px;
       &::before {
-        opacity: 1;    
+        opacity: 1;
       }
       &::after {
-        background-image: url('/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-right-wave.svg');
-        width: clamp(0px, calc(180px + (450 - 180) * ((100vw - 768px) / (1920 - 768))), 450px);
-        height: clamp(0px, calc(170px + (425 - 170) * ((100vw - 768px) / (1920 - 768))), 425px); 
+        background-image: url("/etc.clientlibs/laboratorio-guidotti/clientlibs/clientlib-site/resources/images/shapes/svg/bottom-right-wave.svg");
+        width: clamp(
+          0px,
+          calc(180px + (450 - 180) * ((100vw - 768px) / (1920 - 768))),
+          450px
+        );
+        height: clamp(
+          0px,
+          calc(170px + (425 - 170) * ((100vw - 768px) / (1920 - 768))),
+          425px
+        );
       }
     }
-  }  
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@include respond-to(desktop) {
+  body {
+    #lower-shape {
+      &::before {
+        left: 2px;
+      }
+      &::after {
+        bottom: -2px;
+      }
+    }
+  }
+}
+@include respond-to(laptop) {
+  body {
+    #lower-shape {
+      &::before {
+      }
+      &::after {
+        bottom: 0;
+      }
+    }
+  }
+}
 
 /*
 
