@@ -7,8 +7,6 @@
   data-cmp-is="tabs"
   data-cmp-data-layer="${megamenuTabs.data.json}"
 >
-  <input type="hidden" id="logoFolder" value="${properties.logoFolder}" />
-
   <sly data-sly-test="${(wcmmode.edit || wcmmode.preview)}">
     <div
       class="cmp-container--standard_width aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu"
@@ -45,17 +43,21 @@
         data-sly-resource="${item.name @ decorationTagName='div'}"
         id="${item.id}-tabpanel"
         role="tabpanel"
-        data-cmp-panel-title="${tab.title}"
         aria-labelledby="${item.id}-tab"
         tabindex="0"
-        class="cmp-tabs__tabpanel tabs-menu__container cmp-container--standard_width"
+        class="cmp-tabs__tabpanel${wcmmode.edit && itemList.first ? ' cmp-tabs__tabpanel--active' : ''} tabs-menu__container cmp-container--standard_width"
         data-cmp-hook-tabs="tabpanel"
         data-cmp-data-layer="${item.data.json}"
+        data-cmp-panel-title="${item.data.title}"
       ></div>
     </div>
   </sly>
 
   <sly data-sly-test="${(!wcmmode.edit && !wcmmode.preview)}">
+    <sly
+      data-sly-use.rrh="${'com.jakala.menarini.core.models.ResourceResolverHelper' @ item=tab}"
+      data-sly-test="${rrh.resourceType != 'fondazione/components/header/navigation/components/link'}"
+    />
     <div
       class="cmp-container--standard_width aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 aem-Grid--phone--12 cmp-container__general-megamenu"
     >
@@ -84,7 +86,7 @@
           <li
             role="tab"
             id="${tab.id}-tab"
-            class="cmp-tabs__tab${isActive ? ' cmp-tabs__tab--active' : ''}"
+            class="cmp-tabs__tab${isActive ? 'cmp-tabs__tab--active' : ''}"
             aria-controls="${tab.id}-tabpanel"
             tabindex="${isActive ? '0' : '-1'}"
             data-cmp-hook-tabs="tab"
@@ -103,7 +105,7 @@
     <sly data-sly-list.item="${megamenuTabs.items}">
       <sly
         data-sly-use.rrh="${'com.jakala.menarini.core.models.ResourceResolverHelper' @ item=item}"
-        data-sly-test.toShow="${rrh.resourceType != 'fondazione/components/header/navigation/components/'}"
+        data-sly-test.toShow="${rrh.resourceType != 'fondazione/components/header/navigation/components/link'}"
       />
 
       <div class="cmp-megamenu">
@@ -113,14 +115,14 @@
           role="tabpanel"
           aria-labelledby="${item.id}-tab"
           tabindex="0"
-          class="cmp-tabs__tabpanel tabs-menu__container cmp-container--standard_width ${!toShow ? 'hidden' : ''}"
-          data-cmp-hook-tabs="tabpanel"
+          class="cmp-tabs__tabpanel${wcmmode.edit && itemList.first ? ' cmp-tabs__tabpanel--active' : ''} tabs-menu__container cmp-container--standard_width ${!toShow ? 'hidden' : ''}"
           data-cmp-data-layer="${item.data.json}"
-          data-cmp-panel-title="${item.title}"
+          data-cmp-panel-title="${item.data.title}"
         ></div>
       </div>
     </sly>
   </sly>
+
   <sly
     data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
     data-sly-test="${(wcmmode.edit || wcmmode.preview) && megamenuTabs.items.size < 1}"

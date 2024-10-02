@@ -20,29 +20,49 @@ const MenuTabs = (() => {
     }
 
     $(".tabs-menu__container").removeClass(CONST.ACTIVE_PANEL);
-    $(".cmp-header-navigation__menu .cmp-tabs__tablist").removeClass(
-      "cmp-tabs__tab--active"
-    );
+    $(".menu-nav li")
+      .removeClass(CONST.ACTIVE_TAB)
+      .attr("aria-selected", "false")
+      .attr("tabindex", "-1");
 
-    // $(".cmp-header-navigation__menu .cmp-tabs__tab").on("click", function () {
-    //   if ($(this).hasClass("cmp-tabs__tab--active")) {
-    //     console.log("here");
-    //     $(this).removeClass("cmp-tabs__tab--active");
-    //     $(".cmp-header-navigation__menu .cmp-megamenu").removeClass(
-    //       "cmp-tabs__tabpanel--active"
-    //     );
-    //   } else {
-    //     $(".cmp-header-navigation__menu .cmp-tabs__tabpanel").removeClass(
-    //       "cmp-tabs__tabpanel--active"
-    //     );
-    //     $(this).addClass("cmp-tabs__tab--active");
-    //   }
-    // });
+    $(document).on("click", ".menu-nav li", function (e) {
+      e.preventDefault();
+
+      const tabpanelId = $(this).attr("aria-controls");
+      const tabpanel = $("#" + tabpanelId);
+
+      const isActiveTab = $(this).hasClass(CONST.ACTIVE_TAB);
+
+      if (isActiveTab) {
+        $(this)
+          .removeClass(CONST.ACTIVE_TAB)
+          .attr("aria-selected", "false")
+          .attr("tabindex", "-1");
+
+        $(".tabs-menu__container")
+          .removeClass(CONST.ACTIVE_PANEL)
+          .attr("aria-hidden", "true")
+          .hide();
+      } else {
+        $(this)
+          .addClass(CONST.ACTIVE_TAB)
+          .attr("aria-selected", "true")
+          .attr("tabindex", "0");
+
+        tabpanel
+          .addClass(CONST.ACTIVE_PANEL)
+          .attr("aria-hidden", "false")
+          .show();
+
+        _addWhiteMenu();
+        $whiteMenu = true;
+      }
+    });
 
     $whiteMenu = false;
     $(window).on("scroll", handleScroll);
     $(window).on("resize", handleResize);
-    $(".cmp-tabs__tab").on("click", handleTabClick);
+
     window.addEventListener("resize", _isMobileWindowSize);
 
     $(".cmp-tabs__tab .cmp-link--text").on("click", function (event) {
@@ -80,7 +100,7 @@ const MenuTabs = (() => {
   }
 
   function setupDesktopMenu() {
-    console.log(here);
+    console.log("desktop");
   }
 
   function handleScroll() {

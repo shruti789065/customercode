@@ -71,68 +71,6 @@
 						fieldLabel="Link"
 						name="./link"
 						rootPath="/content" />
-
-					<!--<optionTypes
-							granite:class="cmp-form-options__editor-type cmp-form-options-source cq-dialog-dropdown-showhide"
-							jcr:primaryType="nt:unstructured"
-							sling:resourceType="granite/ui/components/coral/foundation/form/select"
-							fieldDescription="Set the type of the form field."
-							fieldLabel="Type"
-							name="./type">
-						<granite:data
-								jcr:primaryType="nt:unstructured"
-								cq-dialog-dropdown-showhide-target=".list-option-required-showhide-target"/>
-						<items jcr:primaryType="nt:unstructured">
-							<icon
-									jcr:primaryType="nt:unstructured"
-									text="Icon link"
-									value="checkbox"/>
-							<radio
-									jcr:primaryType="nt:unstructured"
-									text="Radio buttons"
-									value="radio"/>
-						</items>
-					</optionTypes>
-
-					<checkboxOptions
-							granite:class="list-option-required-showhide-target foundation-layout-util-vmargin"
-							jcr:primaryType="nt:unstructured"
-							sling:resourceType="granite/ui/components/coral/foundation/container">
-						<granite:data
-								jcr:primaryType="nt:unstructured"
-								showhidetargetvalue="checkbox"/>
-						<items jcr:primaryType="nt:unstructured">
-
-						</items>
-					</checkboxOptions>
-
-					<radioOptions
-							granite:class="hide list-option-required-showhide-target foundation-layout-util-vmargin
-					foundation-nestedcheckboxlist"
-							jcr:primaryType="nt:unstructured"
-							sling:resourceType="granite/ui/components/coral/foundation/container">
-						<granite:data
-								jcr:primaryType="nt:unstructured"
-								showhidetargetvalue="radio"/>
-						<items jcr:primaryType="nt:unstructured">
-							<firstRequired
-									granite:class="cmp-form-radio__required"
-									jcr:primaryType="nt:unstructured"
-									sling:resourceType="granite/ui/components/coral/foundation/form/switch"
-									fieldDescription="Whether the first option must be accepted to proceed with the submit"
-									fieldLabel="First Item Acceptance Required"
-									name="./requiredRadio"
-									value="true"
-									uncheckedValue="false"/>
-						</items>
-					</radioOptions>
-
-					<icon
-							jcr:primaryType="nt:unstructured"
-							sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-							fieldLabel="Icon"
-							name="./icon"
-							rootPath="/content"/>-->
 					<target
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/coral/foundation/form/select"

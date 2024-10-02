@@ -139,7 +139,9 @@ input[type=radio] {
 
 // Sign up form
 
-.cmp-signupform__cta, .cmp-signinform__cta, .cmp-edituserprofileform__cta {
+.cmp-signupform__cta,
+.cmp-signinform__cta,
+.cmp-edituserprofileform__cta {
     padding: 10px 50px;
     font-weight: 600;
     font-size: 18px;
@@ -149,4 +151,17 @@ input[type=radio] {
     @include media-breakpoint-down(lg) {
         width: 100%;
     }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.h-overflow {
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+.hidden-overflow {
+    overflow: hidden;
 }
