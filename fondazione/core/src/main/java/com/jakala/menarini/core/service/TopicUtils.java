@@ -19,17 +19,6 @@ public class TopicUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserRegisteredService.class);
 
-    public static List<TopicDto> getTopics() {
-        List<TopicDto> topics = new ArrayList<>();
-        for(String id : SignUpDtoResponse.MAPPING_MAPPING.keySet()) {
-            TopicDto dto = new TopicDto();
-            dto.setName(id);
-            dto.setId(SignUpDtoResponse.MAPPING_MAPPING.get(id));
-            topics.add(dto);
-        }
-        return topics;
-    }
-
     public static List<String> getTopicsRefForUser(long id, DSLContext create) {
         ArrayList<String> topicsExtId = new ArrayList<>();
         try {
