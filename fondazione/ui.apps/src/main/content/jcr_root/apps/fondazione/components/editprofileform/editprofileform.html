@@ -12,8 +12,14 @@
         </button>
     </div>
 
+    <div id="loaderUserDataComponent" class="w-100 d-flex justify-content-center mt-5">
+        <div class="spinner-border" role="status"></div>
+        <p class="ms-2">LOADING DATA</p>
+    </div>
+
     <div id="userProfileComponent" class="d-block">
-        <div data-sly-resource="${'userprofile' @ resourceType='fondazione/components/editprofileform/userprofile'}"></div>
+        <div class="container" data-sly-resource="${'userprofile' @ resourceType='fondazione/components/editprofileform/userprofile'}">
+        </div>
     </div>
 
     <div id="passwordComponent" class="d-none mt-4">

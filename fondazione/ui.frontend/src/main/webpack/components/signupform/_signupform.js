@@ -131,9 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   countryItems.forEach((element) => {
-    let fiscalCodeInput = document.querySelector("#fiscalCodeInput");    
+    let fiscalCodeInput = document.querySelector("#fiscalCodeInput");
     element.addEventListener("click", function () {
-      let currestSelectedCountryId = element.getAttribute("data-country-id");         
+      let currestSelectedCountryId = element.getAttribute("data-country-id");
       selectedCountry = element.textContent.trim();
       dropdownMenuCountry.style.display = "none";
       displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
@@ -401,17 +401,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // FORM SUBMIT FUNCTIONS
   async function sendData(registrationData) {
-    const responseCsrf = await fetch("/libs/granite/csrf/token.json");
-    const csrfToken = await responseCsrf.json();
-    const regResponse = await fetch("/bin/api/awsSignUp", {
-      method: "POST",
-      headers: {
-        "CSRF-Token": csrfToken.token,
-      },
-      body: JSON.stringify(registrationData),
-    });
-    const dataResponse = await regResponse.json();
-    return dataResponse;
+    let loader = document.querySelector("#signupLoader");
+    let ctaSignUp = document.querySelector("#ctaSignup");
+    try {
+      loader.classList.remove("d-none");
+      loader.classList.add("d-block");
+      ctaSignUp.disabled = true;
+      const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+      const csrfToken = await responseCsrf.json();
+      const regResponse = await fetch("/bin/api/awsSignUp", {
+        method: "POST",
+        headers: {
+          "CSRF-Token": csrfToken.token,
+        },
+        body: JSON.stringify(registrationData),
+      });
+      const dataResponse = await regResponse.json();
+      return dataResponse;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loader.classList.add("d-none");
+      loader.classList.remove("d-block");
+      ctaSignUp.disabled = false;
+    }
+
   }
 
   let form = document.querySelector("#signUpForm");

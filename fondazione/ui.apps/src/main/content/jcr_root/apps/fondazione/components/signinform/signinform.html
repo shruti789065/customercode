@@ -1,6 +1,7 @@
-<div class="container" role="${properties.roleAttribute @ context='html'}" aria-label="${properties.accessibilityLabel @ context='html'}" id="${properties.id @ context='html'}">
+<div class="container" role="${properties.roleAttribute @ context='html'}"
+    aria-label="${properties.accessibilityLabel @ context='html'}" id="${properties.id @ context='html'}">
     <div class="customform">
-        <div class="row">            
+        <div class="row">
             <!-- FORM SIGN IN -->
             <form id="signInForm" class="needs-validation col-12 col-lg-6 pe-lg-5 customform__signincol d-block"
                 method="post" novalidate>
@@ -36,7 +37,12 @@
                         <div id="alertMessage"></div>
                     </div>
                     <div class="mt-5">
-                        <button class="btn btn-primary cmp-signinform__cta" type="submit" id="submitBtnSignin">${'signin' @ i18n}</button>
+                        <button class="btn btn-primary cmp-signinform__cta d-flex align-items-center" type="submit"
+                            id="submitBtnSignin">
+                            ${'signin' @ i18n}
+                            <span id="signinLoader" class="spinner-border spinner-border-sm ms-2 cta-spinner d-none"
+                                role="status" aria-hidden="true"></span>
+                        </button>
                     </div>
                     <div class="mt-4 mb-5 mb-lg-0">
                         <div id="forgotPasswordLink"
@@ -65,10 +71,16 @@
                     </div>
 
                     <div class="mt-4">
-                        <button id="resetPasswordEmailSubmit" class="btn btn-primary cmp-signinform__cta text-uppercase"
-                            type="click">${'reset_password' @ i18n}</button>
+                        <button id="resetPasswordEmailSubmit"
+                            class="btn btn-primary cmp-signinform__cta text-uppercase d-flex align-items-center"
+                            type="click">
+                            ${'reset_password' @ i18n}
+                            <span id="formEmailLoader" class="spinner-border spinner-border-sm ms-2 cta-spinner d-none"
+                                role="status" aria-hidden="true"></span>
+
+                        </button>
                     </div>
-                    
+
                     <div class="mt-4 mb-5 mb-lg-0">
                         <button id="signinLink" class="text-decoration-none signin-link cmp-signinform__forgotPassword"
                             type="submit">${'signin' @
@@ -110,15 +122,18 @@
                 </div>
 
                 <div class="mt-5">
-                    <button id="resetPasswordCodeCta" class="btn btn-primary cmp-signinform__cta"
+                    <button id="resetPasswordCodeCta"
+                        class="btn btn-primary cmp-signinform__cta d-flex align-items-center"
                         type="submit">${'reset_password_uppercase' @
-                        i18n}</button>
+                        i18n}
+                        <span id="formCodeLoader" class="spinner-border spinner-border-sm ms-2 cta-spinner d-none"
+                            role="status" aria-hidden="true"></span>
+                    </button>
                 </div>
 
                 <div class="mt-4 mb-5 mb-lg-0">
                     <div id="signinLinkReset" class="text-decoration-none signin-link cmp-signinform__forgotPassword">
-                        ${'signin' @
-                        i18n}</div>
+                        ${'signin' @ i18n}</div>
                 </div>
             </form>
 
