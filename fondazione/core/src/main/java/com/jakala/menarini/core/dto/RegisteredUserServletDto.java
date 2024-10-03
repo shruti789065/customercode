@@ -12,6 +12,7 @@ public class RegisteredUserServletDto {
     private String profession;
     private String phone;
     private String country;
+    private String taxIdCode;
     private String gender;
     private String linkedinProfile;
     private boolean privacyConsent;
@@ -137,6 +138,7 @@ public class RegisteredUserServletDto {
         registeredUser.setCountry(this.getCountry());
         registeredUser.setBirthDate(this.getBirthDate());
         registeredUser.setPhone(this.getPhone());
+        registeredUser.setTaxIdCode(this.taxIdCode);
         registeredUser.setGender(this.getGender());
         registeredUser.setLinkedinProfile(this.getLinkedinProfile());
         registeredUser.setOccupation(this.getProfession());
