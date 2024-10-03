@@ -17,11 +17,13 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <privacyLink jcr:primaryType="nt:unstructured"
+                            <privacyLink 
+                                jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                name="./privacyLink"
-                                fieldLabel="Privacy information notice link"
                                 fieldDescription="Enter privacy information notice link"
+                                fieldLabel="Privacy information notice link"
+                                name="./privacyLink"
+                                rootPath="/content"
                                 required="{Boolean}true" />
                         </items>
                     </general>
