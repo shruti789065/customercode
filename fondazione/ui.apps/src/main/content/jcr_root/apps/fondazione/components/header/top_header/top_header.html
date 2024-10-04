@@ -1,0 +1,20 @@
+<sly data-sly-use.shareTemplate="share.html">
+  <div
+    class="cmp-top-header container d-flex justify-content-end align-items-center"
+  >
+    <sly
+      data-sly-resource="${parsys @ resourceType='wcm/foundation/components/responsivegrid'}"
+    >
+    </sly>
+    <sly
+      data-sly-test="${properties.showShare}"
+      data-sly-call="${shareTemplate.share @
+        showShare=properties.showShare,
+        shareLabel=properties.shareLabel,
+        facebookLink=properties.facebookLink,
+        linkedinLink=properties.linkedinLink,
+        xLink=properties.xLink}"
+    >
+    </sly>
+  </div>
+</sly>

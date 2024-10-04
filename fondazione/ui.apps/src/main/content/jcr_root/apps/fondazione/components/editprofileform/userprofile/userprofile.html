@@ -172,7 +172,8 @@
                                 <sly data-sly-list.nation="${model.nations}">
                                     <li class="d-flex align-items-center">
                                         <input type="hidden" value="${nation.id}">
-                                        <div data-country-id="${nation.id}" class="dropdown-item d-flex align-items-center">${nation.name}</div>
+                                        <div data-country-id="${nation.id}"
+                                            class="dropdown-item d-flex align-items-center">${nation.name}</div>
                                     </li>
                                 </sly>
                             </sly>
@@ -189,7 +190,7 @@
                     <input required placeholder="${'fiscal_code_placeholder' @ i18n}" type="text" name="taxIdCode"
                         class="form-control cmp-form__textField mt-2 rounded-0" id="taxIdCode"
                         aria-describedby="fiscalCodeHelp">
-                    <div id="fiscalCodeErrorString" class="cmp-editprofile__customError"></div>
+                    <div id="fiscalCodeErrorString" class="invalid-feedback cmp-editprofile__customError d-none"></div>
                 </div>
             </div>
         </div>
@@ -332,10 +333,14 @@
             <!-- <div data-sly-resource="${'recaptcha' @ resourceType='fondazione/components/recaptcha/'}"></div> -->
 
             <div id="cmp-editprofileform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
-            <div id="cmp-editprofileform__successAlert" class="alert alert-success mt-4 d-none" role="alert">${'user_info_update_success' @ i18n}</div>
+            <div id="cmp-editprofileform__successAlert" class="alert alert-success mt-4 d-none" role="alert">
+                ${'user_info_update_success' @ i18n}</div>
 
             <div class="mt-4">
-                <button class="btn btn-primary cmp-edituserprofileform__cta" type="submit">${'save' @ i18n}</button>
+                <button id="ctaSaveUserProfile" class="btn btn-primary cmp-edituserprofileform__cta d-flex align-items-center" type="submit">
+                    ${'save' @ i18n}
+                    <span id="userProfileLoader" class="spinner-border spinner-border-sm ms-2 cta-spinner d-none" role="status" aria-hidden="true"></span>
+                </button>
             </div>
         </div>
     </form>

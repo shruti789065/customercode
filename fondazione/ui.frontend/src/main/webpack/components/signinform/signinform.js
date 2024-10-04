@@ -228,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const csrfToken = await responseCsrf.json();
             if (validateEmail()) {
                 resetPasswordEmailSubmit.disabled = true;
+                let loader = document.querySelector("#formEmailLoader");
+                loader.classList.remove("d-none");
+                loader.classList.add("d-block");
                 try {
                     const signIResponse = await fetch("/bin/api/forgetPassword", {
                         method: "POST",
@@ -247,6 +250,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("ERROR: ", error);
                 } finally {
                     resetPasswordEmailSubmit.disabled = false;
+                    loader.classList.remove("d-block");
+                    loader.classList.add("d-none");
                 }
             }
         })
@@ -275,6 +280,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const csrfToken = await responseCsrf.json();
             if (isPasswordValid && isPasswordConfirmationValid && isCodeValid) {
                 try {
+                    let loaderCode = document.querySelector("#formCodeLoader");
+                    loaderCode.classList.remove("d-none");
+                    loaderCode.classList.add("d-block");
                     resetPasswordCodeCta.disabled = true;
                     const signIResponse = await fetch("/bin/api/confirmForgetPassword", {
                         method: "POST",
@@ -293,6 +301,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("ERROR: ", error);
                 } finally {
                     resetPasswordCodeCta.disabled = false;
+                    loaderCode.classList.remove("d-block");
+                    loaderCode.classList.add("d-none");
                 }
             }
         })
@@ -300,10 +310,13 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 async function sendData(logInData) {
-    let submiyBtn = document.querySelector("#submitBtnSignin");
-    submiyBtn.disabled = true;
+    let submitBtn = document.querySelector("#submitBtnSignin");
+    let loader = document.querySelector("#signinLoader");
+    submitBtn.disabled = true;
     resetLocalStorage();
     try {
+        loader.classList.remove("d-none");
+        loader.classList.add("d-block");
         const responseCsrf = await fetch('/libs/granite/csrf/token.json');
         const csrfToken = await responseCsrf.json();
         const signIResponse = await fetch("/bin/api/awsSignIn", {
@@ -321,7 +334,9 @@ async function sendData(logInData) {
     } catch (error) {
         console.log("ERROR: ", error);
     } finally {
-        submiyBtn.disabled = false;
+        submitBtn.disabled = false;
+        loader.classList.remove("d-block");
+        loader.classList.add("d-none");
     }
 }
 

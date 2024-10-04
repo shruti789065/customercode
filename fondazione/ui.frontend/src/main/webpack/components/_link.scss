@@ -1,0 +1,242 @@
+.link {
+
+	.cmp-link--menu-list {
+		align-items: center;
+		margin: 5px 0;
+
+		.cmp-link--text {
+			color: $fm-color-text;
+			display: block;
+			font-family: $font-default;
+			padding: 0 10px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+		.cmp-link__icon-asset {
+			position: relative;
+			background-image: url('../resources/icons/menu-links-arrow-right.svg');
+			background-repeat: no-repeat;
+			display: inline;
+			width: 10px;
+			height: 10px;
+		}
+	}
+
+	.cmp-link {
+		display: flex;
+		text-decoration: none;
+		margin: 5px 0;
+
+
+		&.cmp-link--icon {
+			display: flex;
+
+			.cmp-link--text {
+				font-family: $font-default;
+				font-weight: 100;
+				text-align: left;
+				color: $fm-color-text;
+				font-size: 30px;
+				float: left;
+				margin-left: 10px;
+				order: 2;
+				bottom: 5px;
+				position: relative;
+				align-self: flex-end;
+				transition: all .3s;
+
+				&:hover {
+					color: $secondary-hover;
+				}
+			}
+
+			.cmp-link__icon-asset {
+				order: 1;
+				display: inline;
+				content: " ";
+				font-weight: 100;
+				width: 60px;
+				height: 60px;
+				display: block;
+			}
+
+			.cmp-link__final-arrow {
+				content: " ";
+				background: url($resources-path + '/images/icons/freccia_left_B.svg') center center no-repeat;
+				width: 40px;
+				height: 50px;
+				order: 3;
+				align-self: flex-end;
+			}
+		}
+
+		&.cmp-link--standard {
+			.cmp-link--text {
+				color: $secondary;
+				font-weight: normal;
+				font-size: 18px;
+			}
+		}
+
+		&.cmp-link--arrow {
+			.cmp-link--text {
+				font-style: normal;
+				color: $fm-color-text;
+				text-transform: uppercase;
+				font-family: $font-default;
+				font-size: 16px;
+				font-weight: normal;
+				position: relative;
+				display: flex;
+				line-height: 25px;
+				border-color: transparent;
+			}
+
+			.cmp-link__icon-asset {
+				background-image: url($resources-path + '/images/icons/freccia_right_big_B.svg');
+				background-repeat: no-repeat;
+				color: $black !important;
+				width: 45px;
+				height: 10px;
+				display: block;
+				top: 6px;
+				right: -10px;
+				position: relative;
+				order: 1;
+				transition: right 0.2s;
+			}
+
+			&:hover {
+				.cmp-link__icon-asset {
+					right: -20px;
+				}
+			}
+		}
+
+		&.cmp-link--list {
+			.cmp-link--text {
+				font-family: $font-default;
+				font-weight: 100;
+				text-align: left;
+				color: $fm-color-text;
+				font-size: 30px;
+				line-height: 38px;
+				float: left;
+				margin-left: 20px;
+			}
+
+			.cmp-link__icon-asset {
+				float: left;
+				display: inline;
+				padding-right: 20px;
+				content: " ";
+				width: 36px;
+				height: 0px;
+				border: 1px solid $fm-color-text;
+				margin-top: 20px;
+				font-weight: 100;
+			}
+		}
+
+
+
+		&.cmp-link--footer-list {
+			display: flex;
+			justify-content: space-between;
+			padding-left: 0px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+
+			.cmp-link--text {
+				display: flex;
+				order: 1;
+				color: $white;
+				font-family: $font-default;
+				font-weight: $font-extra-light;
+				font-size: 25px;
+			}
+
+			.cmp-link__icon-asset {
+				display: flex;
+				order: 2;
+				color: $white;
+				background: url($resources-path + '/icons/arrow-R-W.svg') no-repeat right;
+				text-decoration: none;
+				width: 20px;
+			}
+		}
+	}
+
+	&.cmp-link--primary {
+		.cmp-link {
+			color: $primary;
+
+			&.cmp-link--standard {
+				.cmp-link--text {
+					color: $primary;
+				}
+			}
+		}
+	}
+
+	&.cmp-link--secondary {
+		.cmp-link {
+			color: $secondary;
+
+			&.cmp-link--standard {
+				.cmp-link--text {
+					color: $secondary;
+				}
+			}
+		}
+	}
+
+	&.cmp-link--corporate {
+		.cmp-link {
+			color: $fm-color-text;
+
+			&.cmp-link--standard {
+				.cmp-link--text {
+					color: $secondary;
+				}
+			}
+		}
+	}
+
+	&.cmp-link--default {
+		.cmp-link {
+			color: $black;
+
+			&.cmp-link--standard {
+				.cmp-link--text {
+					color: $black;
+				}
+			}
+		}
+	}
+
+	&.cmp-link--other {
+		.cmp-link {
+			color: $white;
+
+			&.cmp-link--standard {
+				.cmp-link--text {
+					color: $white;
+				}
+			}
+		}
+	}
+
+	&.cmp-link--white {
+		.cmp-link {
+			color: $white;
+
+			&.cmp-link--standard {
+				.cmp-link--text {
+					color: $white;
+				}
+			}
+		}
+	}
+}

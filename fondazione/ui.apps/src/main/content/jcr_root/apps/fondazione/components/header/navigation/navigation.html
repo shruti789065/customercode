@@ -1,0 +1,29 @@
+<div class="cmp-header-navigation">
+  <div class="container">
+    <div class="cmp-header-navigation__logo">
+      <sly data-sly-test="${properties.lightLogo}">
+      <a href="/" title="Home page" alt="Home page">
+        <img
+          class="cmp-header-navigation__logo--light"
+          src="${properties.lightLogo}"
+          alt="Darkogo"
+        />
+      </sly>
+      <sly data-sly-test="${properties.darkLogo}">
+        <img
+          class="cmp-header-navigation__logo--dark"
+          src="${properties.darkLogo}"
+          alt="Light logo"
+        />
+        </a>
+      </sly>
+    </div>
+    <sly data-sly-test="${properties.showMenu}">
+      <div
+        class="cmp-header-navigation__menu tabs-menu"
+        data-sly-resource="${'megamenu' @ resourceType='fondazione/components/header/navigation/components/megamenu'}"
+      ></div>
+    </sly>
+    </div>
+  </div>
+</div>

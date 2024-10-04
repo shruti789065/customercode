@@ -367,7 +367,10 @@
                     <div id="cmp-signupform__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert"></div>
 
                     <div class="mt-4">
-                        <button class="btn btn-primary cmp-signupform__cta" type="submit">${'signup' @ i18n}</button>
+                        <button id="ctaSignup" class="btn btn-primary cmp-signupform__cta d-flex align-items-center" type="submit">
+                            ${'signup' @ i18n}
+                            <span id="signupLoader" class="spinner-border spinner-border-sm ms-2 cta-spinner d-none" role="status" aria-hidden="true"></span>
+                        </button>
                     </div>
                 </div>
             </form>
