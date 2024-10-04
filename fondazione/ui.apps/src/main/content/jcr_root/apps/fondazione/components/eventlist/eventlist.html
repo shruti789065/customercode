@@ -1,12 +1,302 @@
 <sly data-sly-use.model="com.jakala.menarini.core.models.EventListingModel">
-    <ul data-sly-list.event="${model.events}">
-        <li>
-            <a href="${event.path}.html">
-                <h5>${event.title}</h5>
-                <p>${event.description}</p>
-                <p>${event.startDateText}-${event.endDateText}</p>
-            </a>
-        </li>
-    </ul>
+
+    <form class="filter-form" method="POST">
+
+        <label for="topics">Topics</label>
+        <div class="select-wrapper">
+            <sly data-sly-use.modelT="com.jakala.menarini.core.models.TopicListingModel">
+              <select name="topics" id="topicsSelect" multiple size="3">
+                <sly data-sly-list.topic="${modelT.topics}">
+                  <option value="${topic.id}">${topic.name}</option>
+                </sly>
+              </select>
+              <!-- Campo hidden che conterrà i valori concatenati -->
+              <input type="hidden" name="topics" id="topicsHidden" value="">
+              <!-- Aggiunto div per mostrare le selezioni -->
+              <div id="selectedTopics" class="selected-topics"></div>
+            </sly>
+        </div>
+    
+        <label for="eventType">Event Type</label>
+        <div class="select-wrapper">
+            <select name="eventType" size="1">
+                <option value="">-</option>
+                <option value="event">Event</option>
+                <option value="course">Course</option>
+            </select>
+        </div>  
+
+        <label for="location">Location</label>
+        <div class="select-wrapper">
+            <sly data-sly-use.modelC="com.jakala.menarini.core.models.CityListingModel">
+                <select name="location" size="5">
+                    <sly data-sly-list.city="${modelC.cities}">
+                        <option value="${city.id}">${city.name}</option>
+                    </sly>
+                </select>
+            </sly>
+        </div>
+    
+        <label for="dateOrPeriod">Date or Period</label>
+        <input type="text" id="dateOrPeriod" name="dateOrPeriod" placeholder="Seleziona data o intervallo di date"/>
+    
+        <div style="text-align: center; margin-bottom: 20px;">
+            <button type="submit">Apply Filters</button>
+        </div>
+    </form>
+    
+
+    <div class="event-grid">
+        <sly data-sly-list.event="${model.events}">
+            <div class="event-card">
+                <a href="${event.path}.html">
+                    <div class="event-image">
+                        <img src="${event.presentationImage}" alt="Image Description"/>
+                    </div>
+                    <div class="event-details">
+                        <p class="upperTitle">${event.topics}</p>
+                        <h5>${event.title}</h5>
+                        <p class="lowerTitle">${event.location}  |  From ${event.startDateText} to ${event.endDateText}</p>
+                    </div>
+                </a>
+            </div>
+        </sly>
+    </div>
     <p data-sly-test="${!model.events}">No events found.</p>
+
+    <!-- Informazioni sulla paginazione -->
+    <div class="pagination-info">
+        <p>Showing ${model.startIndex} to ${model.endIndex} of ${model.totalResults} results</p>
+    </div>
+
+    <!-- Controlli di paginazione -->
+    <div class="pagination-controls" 
+         data-current-page="${model.currentPage}" 
+         data-total-pages="${model.totalPages}" 
+         data-page-size="${model.pageSize}"
+         data-total-results="${model.totalResults}">
+        <button class="prev-page" 
+                data-sly-test="${model.hasPreviousPage}"
+                data-page="${model.previousPage}"
+                onclick="changePage(this.dataset.page)">Previous</button>
+                
+        <span class="page-info">Page ${model.currentPage} of ${model.totalPages}</span>
+        
+        <button class="next-page" 
+                data-sly-test="${model.hasNextPage}"
+                data-page="${model.nextPage}"
+                onclick="changePage(this.dataset.page)">Next</button>
+    </div>
 </sly>
+
+<style>
+    /*FORM*/
+    .filter-form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .filter-form select {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        /*min-height: 120px !important;*/
+        max-height: 200px !important;
+        overflow-y: auto !important;
+        padding: 8px !important;
+        border: 1px solid #ccc !important;
+        border-radius: 4px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .filter-form select option {
+        display: block !important;
+        padding: 8px !important;
+        margin: 2px 0 !important;
+        white-space: normal !important;
+        float: none !important;
+        width: 100% !important;
+        border-bottom: 1px solid #eee !important;
+    }
+
+    .filter-form input[type="text"] {
+        width: 100% !important;
+        padding: 8px !important;
+        margin-bottom: 15px !important;
+        border: 1px solid #ccc !important;
+        border-radius: 4px !important;
+    }
+
+    .filter-form label {
+        display: block !important;
+        margin-bottom: 5px !important;
+        font-weight: bold !important;
+    }
+
+    .filter-form button {
+        padding: 10px 20px !important;
+        background-color: #007bff !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        cursor: pointer !important;
+    }
+
+    .filter-form button:hover {
+        background-color: #0056b3 !important;
+    }
+
+    /*EVENT GRID*/
+    .lowerTitle {
+        font-size: small;
+    }
+
+    .upperTitle {
+        font-size: xx-small;
+    }
+
+    .event-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .event-card {
+        flex: 1 1 calc(33.33% - 20px);
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .event-card a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .event-image {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .event-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .event-details {
+        flex: 1;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .event-details h5 {
+        font-weight: bold;
+        margin: 0 0 10px 0;
+    }
+
+    .event-details p {
+        margin: 0;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dateOrPeriodInput = document.getElementById('dateOrPeriod');
+        flatpickr(dateOrPeriodInput, {
+            mode: 'range',
+            dateFormat: 'Y-m-d'
+        });
+    });
+    function changePage(pageNumber) {
+        // Ottieni i parametri correnti
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Aggiorna il numero di pagina
+        urlParams.set('page', pageNumber);
+        
+        // Mantieni gli altri parametri di filtro
+        const form = document.querySelector('.filter-form');
+        const formData = new FormData(form);
+        for (let [key, value] of formData.entries()) {
+            if (value) {
+                urlParams.set(key, value);
+            }
+        }
+        
+        // Aggiorna l'URL e ricarica la pagina
+        window.location.search = urlParams.toString();
+    }
+
+    // Funzione per gestire il submit del form di filtro
+    document.querySelector('.filter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const urlParams = new URLSearchParams();
+        urlParams.set('page', 1); // Resetta alla prima pagina quando si applicano i filtri
+        
+        const formData = new FormData(this);
+        for (let [key, value] of formData.entries()) {
+            if (value) {
+                urlParams.set(key, value);
+            }
+        }
+        
+        window.location.search = urlParams.toString();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const select = document.getElementById('topicsSelect');
+        const hiddenInput = document.getElementById('topicsHidden');
+        const selectedTopicsDiv = document.getElementById('selectedTopics');
+        const selectedValues = new Set(); // Uso Set per evitare duplicati
+
+        // Gestione della selezione
+        select.addEventListener('change', function(e) {
+            const options = e.target.options;
+            
+            // Pulisco il Set
+            selectedValues.clear();
+
+            // Array per tenere traccia sia dei valori che dei testi
+            let selectedTexts = [];
+            
+            // Aggiungo tutti i valori selezionati al Set
+            for (let option of options) {
+                if (option.selected) {
+                    selectedValues.add(option.value);
+                    selectedTexts.push(option.text);
+                }
+            }
+
+            // Aggiorno l'input hidden con i valori concatenati
+            hiddenInput.value = Array.from(selectedValues).join(',');
+
+            // Aggiorna la visualizzazione delle selezioni
+            selectedTopicsDiv.innerHTML = selectedTexts.length > 0 ? 
+                'Selected: ' + selectedTexts.join(', ') : 
+                'No topics selected';
+        });
+
+        // Intercetta il submit del form (assicurati di avere l'ID corretto del form)
+        const form = select.closest('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                // Assicurati che l'input hidden sia aggiornato prima del submit
+                hiddenInput.value = Array.from(selectedValues).join(',');
+            });
+        }
+    });
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

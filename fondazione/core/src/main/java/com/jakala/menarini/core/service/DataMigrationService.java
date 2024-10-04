@@ -20,6 +20,10 @@ import com.adobe.cq.dam.cfm.FragmentTemplate;
 import com.adobe.cq.dam.cfm.VariationDef;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.Hit;
+import com.day.cq.search.result.SearchResult;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -173,7 +177,7 @@ public class DataMigrationService {
     private static String currentParentPath;
 
     /**
-     * Main method to initiate the data migration process.
+     * Main method to initiate the data migration process.€
      * Calls individual migration methods for different content types.
      */
     public void migrateData(String object, String exclusions) throws Exception {
@@ -186,18 +190,19 @@ public class DataMigrationService {
             if (object == null || object.isBlank()) {
                 if (!Arrays.asList(exclusionList).contains("topics")) {
                     migrateTopics();
-                }
-                if (!Arrays.asList(exclusionList).contains("speakers")) {
-                    migrateSpeakers();
+                    Thread.sleep(2000); // Wait for 2 seconds
                 }
                 if (!Arrays.asList(exclusionList).contains("nations")) {
                     migrateNations();
+                    Thread.sleep(2000); // Wait for 2 seconds
                 }
                 if (!Arrays.asList(exclusionList).contains("subscriptiontypes")) {
                     migrateSubscriptionTypes();
+                    Thread.sleep(2000); // Wait for 2 seconds
                 }
                 if (!Arrays.asList(exclusionList).contains("cities")) {
                     migrateCities(); // nations
+                    Thread.sleep(2000); // Wait for 2 seconds
                 }
                 if (!Arrays.asList(exclusionList).contains("events")) {
                     migrateEvents(); // subscriptionTypes cities nations
@@ -207,12 +212,19 @@ public class DataMigrationService {
                         Thread.sleep(2000); // Wait for 2 seconds
                         connectEventsTopics();
                     }
+                    Thread.sleep(2000); // Wait for 2 seconds
+                }
+                if (!Arrays.asList(exclusionList).contains("speakers")) {
+                    migrateSpeakers();
+                    Thread.sleep(5000); // Wait for 5 seconds
                 }
                 if (!Arrays.asList(exclusionList).contains("media")) {
                     migrateMedia(); // speakers topics events
+                    Thread.sleep(5000); // Wait for 5 seconds
                 }
                 if (!Arrays.asList(exclusionList).contains("speakerimages")) {
                     loadLinkSpeakerImages();
+                    Thread.sleep(5000); // Wait for 5 seconds
                 }
                 if (!Arrays.asList(exclusionList).contains("eventimages")) {
                     loadLinkEventImages(); 
@@ -302,6 +314,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -349,6 +362,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -396,6 +410,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -448,6 +463,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -507,6 +523,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -554,6 +571,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -595,6 +613,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -657,6 +676,7 @@ public class DataMigrationService {
         } finally {
             if (currentResolver != null) {
                 currentResolver.commit();
+                currentResolver.refresh();
             }
         }
     }
@@ -978,6 +998,7 @@ public class DataMigrationService {
                     Map<String, Object> properties = new HashMap<>();
                     properties.put("jcr:primaryType", "nt:folder");
                     folderResource = currentResolver.create(prevPath, part, properties);
+                    prevPath = folderResource;
                 } else {
                     prevPath = currentResource;
                 }
@@ -1022,7 +1043,7 @@ public class DataMigrationService {
     /**
      * Find the fragment by id field
      */
-    public ContentFragment findFragmentById(String id, String path) throws RepositoryException {
+    public ContentFragment findFragmentByIdOld(String id, String path) throws RepositoryException {
         String queryStr = "SELECT * FROM [dam:Asset] AS s WHERE ISDESCENDANTNODE(s, '" + path + "') AND s.[jcr:content/data/master/id] = '" + id + "'";
 
         Query query = queryManager.createQuery(queryStr, Query.JCR_SQL2);
@@ -1042,6 +1063,32 @@ public class DataMigrationService {
                 if (contentFragment != null) {
                     return contentFragment;
                 }
+            }
+        }
+        
+        return null;
+    }
+
+    /**
+     * Find the fragment by id field
+     */
+    public ContentFragment findFragmentById(String id, String path) throws RepositoryException {
+        QueryBuilder queryBuilder = currentResolver.adaptTo(QueryBuilder.class);
+        Session session = currentResolver.adaptTo(Session.class);
+        Map<String, String> predicate = new HashMap<>();
+
+        predicate.put("type", "dam:Asset");
+        predicate.put("path", path);
+        predicate.put("property", "jcr:content/data/master/id");
+        predicate.put("property.value", id);
+        predicate.put("property.operation", "equals");
+        com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        SearchResult result = query.getResult();
+
+        for (Hit hit : result.getHits()) {
+            ContentFragment contentFragment = hit.getResource().adaptTo(ContentFragment.class);
+            if (contentFragment != null) {
+                return contentFragment;
             }
         }
         

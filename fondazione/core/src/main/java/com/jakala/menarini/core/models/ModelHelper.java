@@ -1,6 +1,10 @@
 package com.jakala.menarini.core.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -44,5 +48,22 @@ public class ModelHelper {
             } 
         }
         return value;
+    }
+
+    public static String convertPredicatesToDebugFormat(Map<String, String> predicates) {
+        StringBuilder queryBuilder = new StringBuilder();
+        
+        // Ordina le chiavi per una migliore leggibilità
+        List<String> keys = new ArrayList<>(predicates.keySet());
+        Collections.sort(keys);
+        String lineSeparator = System.lineSeparator(); 
+        for (String key : keys) {
+            queryBuilder.append(key)
+                       .append("=")
+                       .append(predicates.get(key))
+                       .append(lineSeparator);
+        }
+        
+        return queryBuilder.toString();
     }
 }
