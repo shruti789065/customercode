@@ -12,7 +12,7 @@
               </select>
               <!-- Campo hidden che conterrà i valori concatenati -->
               <input type="hidden" name="topics" id="topicsHidden" value="">
-              <!-- Aggiunto div per mostrare le selezioni -->
+              <!-- div per mostrare le selezioni dei topics -->
               <div id="selectedTopics" class="selected-topics"></div>
             </sly>
         </div>
@@ -219,13 +219,13 @@
         });
     });
     function changePage(pageNumber) {
-        // Ottieni i parametri correnti
+        // Ottiene i parametri correnti
         const urlParams = new URLSearchParams(window.location.search);
         
         // Aggiorna il numero di pagina
         urlParams.set('page', pageNumber);
         
-        // Mantieni gli altri parametri di filtro
+        // Mantiene gli altri parametri di filtro
         const form = document.querySelector('.filter-form');
         const formData = new FormData(form);
         for (let [key, value] of formData.entries()) {
@@ -265,13 +265,13 @@
         select.addEventListener('change', function(e) {
             const options = e.target.options;
             
-            // Pulisco il Set
+            // Pulisce il Set
             selectedValues.clear();
 
             // Array per tenere traccia sia dei valori che dei testi
             let selectedTexts = [];
             
-            // Aggiungo tutti i valori selezionati al Set
+            // Aggiunge tutti i valori selezionati al Set
             for (let option of options) {
                 if (option.selected) {
                     selectedValues.add(option.value);
@@ -279,7 +279,7 @@
                 }
             }
 
-            // Aggiorno l'input hidden con i valori concatenati
+            // Aggiorna l'input hidden con i valori concatenati
             hiddenInput.value = Array.from(selectedValues).join(',');
 
             // Aggiorna la visualizzazione delle selezioni
@@ -288,11 +288,10 @@
                 'No topics selected';
         });
 
-        // Intercetta il submit del form (assicurati di avere l'ID corretto del form)
+        // Intercetta il submit del form
         const form = select.closest('form');
         if (form) {
             form.addEventListener('submit', function(e) {
-                // Assicurati che l'input hidden sia aggiornato prima del submit
                 hiddenInput.value = Array.from(selectedValues).join(',');
             });
         }
