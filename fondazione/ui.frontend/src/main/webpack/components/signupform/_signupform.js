@@ -138,9 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   countryItems.forEach((element) => {
     let fiscalCodeInput = document.querySelector("#fiscalCodeInput");
+    let fiscalCode = document.querySelector("#fiscalCode");
     element.addEventListener("click", function () {
       let currestSelectedCountryId = element.getAttribute("data-country-id");
+      selectedCountryId = element.getAttribute("data-country-id");
       selectedCountry = element.textContent.trim();
+
       dropdownMenuCountry.style.display = "none";
       displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
       updateDropdownTextCountry();
@@ -149,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fiscalCodeInput.classList.remove("d-none");
         fiscalCodeInput.classList.add("d-block");
       } else {
+        fiscalCode.value = "";
         fiscalCodeInput.classList.add("d-none");
         fiscalCodeInput.classList.remove("d-block");
       }
@@ -443,7 +447,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData(form);
       let tmpFormData = {
         profession: selectedProfession,
-        country: selectedCountry,
+        country: selectedCountryId,
         areasOfInterest: selectedTopicsIds
       };
 
@@ -473,9 +477,6 @@ document.addEventListener("DOMContentLoaded", function () {
         newsletterConsent:
           tmpFormData.receiveNewsletter === "yes" ? true : false,
       };
-
-      console.log(registrationData);
-      
 
       validateProfession(tmpFormData);
       validateCountry(tmpFormData);
