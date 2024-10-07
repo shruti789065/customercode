@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     'input[type="checkbox"]'
   );
   let selectedItemsMultipleSelect = [];
-
+  let selectedTopicsIds = [];
   const dropdownButtonProfession = document.querySelector(
     "#dropdownProfessionMenuButton"
   );
@@ -75,26 +75,32 @@ document.addEventListener("DOMContentLoaded", function () {
       if (
         selectedItemsMultipleSelect.length <= 3 &&
         checkbox.checked === true &&
-        !selectedItemsMultipleSelect.includes(checkbox.value)
+        !selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
       ) {
-        selectedItemsMultipleSelect.push(checkbox.value);
+        selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
+        selectedTopicsIds.push(checkbox.dataset.topicId);
       }
 
       //Remove item to selectedItems
       if (
         selectedItemsMultipleSelect.length <= 3 &&
         checkbox.checked === false &&
-        selectedItemsMultipleSelect.includes(checkbox.value)
-      ) {
+        selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
+      ) {      
+
         selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
-          (item) => item !== checkbox.value
+          (item) => item !== checkbox.dataset.topicName
         );
+
+        selectedTopicsIds = selectedTopicsIds.filter((item) => {
+          item !== checkbox.dataset.topicId
+        });
       }
 
-      // Disable every not selected checkbox if user select 3 elements
+      // Disable every not selected checkbox if user select 3 elements      
       checkboxes.forEach((element) => {
         if (
-          !selectedItemsMultipleSelect.includes(element.value) &&
+          !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
           selectedItemsMultipleSelect.length === 3
         ) {
           element.disabled = true;
@@ -438,9 +444,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let tmpFormData = {
         profession: selectedProfession,
         country: selectedCountry,
-        areasOfInterest: selectedItemsMultipleSelect.map((x) =>
-          x.replaceAll(" ", "")
-        ),
+        areasOfInterest: selectedTopicsIds
       };
 
       for (let [key, value] of formData.entries()) {
@@ -470,6 +474,9 @@ document.addEventListener("DOMContentLoaded", function () {
           tmpFormData.receiveNewsletter === "yes" ? true : false,
       };
 
+      console.log(registrationData);
+      
+
       validateProfession(tmpFormData);
       validateCountry(tmpFormData);
       validateInterests(tmpFormData);
@@ -484,7 +491,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
         if (responseReg.cognitoSignUpErrorResponseDto) {
-          // alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
           displayErrorsAlert(
             JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message)
           );
