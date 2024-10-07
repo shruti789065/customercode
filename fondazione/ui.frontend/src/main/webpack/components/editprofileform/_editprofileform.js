@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownMenuInterests = document.querySelector("#interestListUserProfile");
     const checkboxes = dropdownMenuInterests.querySelectorAll('input[type="checkbox"]');
     let selectedItemsMultipleSelect = [];
+    let selectedTopicsIds = [];
 
     const dropdownButtonProfession = document.querySelector("#dropdownProfessionMenuButtonUserProfile");
     const dropdownMenuProfession = document.querySelector("#professionListUserProfile");
@@ -138,11 +139,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     updateDropdownTextProfession()
                 }
                 if (areaOfIntersts && dataResponse?.updatedUser?.registeredUserTopics?.length > 0) {
-                    const valuesArray = Array.from(checkboxes).map(checkbox => checkbox.value);
                     dataResponse.updatedUser.registeredUserTopics.forEach(topic => {
-                        selectedItemsMultipleSelect.push(valuesArray[topic.topic.id - 1])
-                        checkboxes[topic.topic.id - 1].checked = true;
-                    });
+                        checkboxes.forEach(checkbox => {  
+                            if (checkbox.dataset.topicId === topic.topic.id) {
+                                checkbox.checked = true;
+                                selectedItemsMultipleSelect.push(checkbox.dataset.topicName)
+                                selectedTopicsIds.push(topic.topic.id);
+                            }
+                        })
+                    })
                     updateDropdownTextMultiple();
                 }
                 if (privacyYes && dataResponse.updatedUser.personalDataProcessingConsent === "1") {
@@ -244,26 +249,30 @@ document.addEventListener('DOMContentLoaded', function () {
             if (
                 selectedItemsMultipleSelect.length <= 3 &&
                 checkbox.checked === true &&
-                !selectedItemsMultipleSelect.includes(checkbox.value)
+                !selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
             ) {
-                selectedItemsMultipleSelect.push(checkbox.value);
+                selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
+                selectedTopicsIds.push(checkbox.dataset.topicId);
             }
 
             //Remove item to selectedItems
             if (
                 selectedItemsMultipleSelect.length <= 3 &&
                 checkbox.checked === false &&
-                selectedItemsMultipleSelect.includes(checkbox.value)
+                selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
             ) {
                 selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
-                    (item) => item !== checkbox.value
+                    (item) => item !== checkbox.dataset.topicName
                 );
+                selectedTopicsIds = selectedTopicsIds.filter((item) => {
+                    item !== checkbox.dataset.id
+                });
             }
 
             // Disable every not selected checkbox if user select 3 elements
             checkboxes.forEach((element) => {
                 if (
-                    !selectedItemsMultipleSelect.includes(element.value) &&
+                    !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
                     selectedItemsMultipleSelect.length === 3
                 ) {
                     element.disabled = true;
@@ -725,9 +734,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let tmpFormData = {
                 profession: selectedProfession,
                 country: selectedCountry,
-                areasOfInterest: selectedItemsMultipleSelect.map((x) =>
-                    x.replaceAll(" ", "")
-                ),
+                areasOfInterest: selectedTopicsIds
             };
 
             for (let [key, value] of formData.entries()) {
