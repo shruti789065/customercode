@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownMenuCountry = document.querySelector("#countryListUserProfile");
     const countryItems = document.querySelectorAll("#countryListUserProfile li div");
     let selectedCountry = "";
+    let selectedCountryId = "";
 
     let erroeMessagges = [];
 
@@ -117,11 +118,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     let fiscalCodeInput = document.querySelector("#taxIdCode");
                     let fiscalCodeTitle = document.querySelector("#fiscalCodeUserProfileTitle");
                     countryItems.forEach((element) => {
-                        if (dataResponse.updatedUser.country.toLowerCase() === element.textContent.trim().toLowerCase()) {
+                        if (dataResponse.updatedUser.country === element.getAttribute("data-country-id")) {
                             selectedCountry = element.textContent.trim();
+                            selectedCountryId = element.getAttribute("data-country-id");
                         }
                     });
-                    if (selectedCountry.toLowerCase() === "italia") {
+                    if (selectedCountryId === "1") {
                         fiscalCodeInput.classList.remove("d-none");
                         fiscalCodeInput.classList.add("d-block");
                         fiscalCodeTitle.classList.add("d-block");
@@ -329,6 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             dropdownMenuCountry.classList.add("d-none");
             dropdownMenuCountry.classList.remove("d-block");
+            selectedCountryId = element.getAttribute("data-country-id");
             displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
             updateDropdownTextCountry();
 
@@ -638,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validateFiscalCode(data) {
         let errorElement = document.querySelector("#fiscalCodeErrorString");
-        if (selectedCountry.toLowerCase() === "italia" && (!data.taxIdCode || data.taxIdCode === "")) {
+        if (selectedCountry.toLowerCase() === "1" && (!data.taxIdCode || data.taxIdCode === "")) {
             errorElement.classList.add("d-block");
             errorElement.classList.remove("d-none");
             erroeMessagges.push({
@@ -733,7 +736,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData(formUserProfile);
             let tmpFormData = {
                 profession: selectedProfession,
-                country: selectedCountry,
+                country: selectedCountryId,
                 areasOfInterest: selectedTopicsIds
             };
 
@@ -751,7 +754,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 profession: tmpFormData.profession,
                 phone: tmpFormData.telNumber,
                 country: tmpFormData.country,
-                taxIdCode: tmpFormData.taxIdCode ? tmpFormData.taxIdCode : null,
+                taxIdCode: tmpFormData.taxIdCode && selectedCountryId === "1" ? tmpFormData.taxIdCode : "",
                 interests: tmpFormData.areasOfInterest,
                 gender: tmpFormData.gender,
                 privacyConsent: tmpFormData.privacy === "yes" ? true : false,
