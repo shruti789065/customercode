@@ -50,7 +50,7 @@ public class TopicListingModel {
 
                     if (fragment != null) {
                         String id = fragment.getElement("id").getContent();
-                        String nome = ModelHelper.getLocalizedElementValue(fragment, language, "nome_disciplina", fragment.getElement("nome_disciplina").getContent());
+                        String nome = ModelHelper.getLocalizedElementValue(fragment, language, "name", fragment.getElement("name").getContent());
                         String path = fragment.getName();
 
                         topics.add(new Topic(id, nome, TOPICS_PATH + path));

@@ -20,10 +20,7 @@ import com.adobe.cq.dam.cfm.FragmentTemplate;
 import com.adobe.cq.dam.cfm.VariationDef;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
-import com.day.cq.search.PredicateGroup;
-import com.day.cq.search.QueryBuilder;
-import com.day.cq.search.result.Hit;
-import com.day.cq.search.result.SearchResult;
+import com.jakala.menarini.core.models.ModelHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -70,23 +67,23 @@ public class DataMigrationService {
 
     private static String eventModelPath = BASE_MODEL + "/event";
     private static String eventParentPath = ROOT_DATA + "/events";
-    private static String[] eventSingleFields = {"id", "data_inizio", "data_fine", "ref_citta", "ref_nazione", "sede", "ref_iscrizione", 
-                                                    "immagine_evidenza_url", "program_cover", "program_pdf", "address", "eventType"};
+    private static String[] eventSingleFields = {"id", "startDate", "endDate", "ref_city", "ref_nation", "venue", "ref_subscriptionType", 
+                                                    "evidenceImageUrl", "programCover", "programPDF", "address", "eventType"};
     private static final Map<String, Object> eventFieldIndexMap = new HashMap<>();
     static {
         eventFieldIndexMap.put("id", 0);
-        eventFieldIndexMap.put("data_inizio", 3);
-        eventFieldIndexMap.put("data_fine", 4);
-        eventFieldIndexMap.put("citta", 7);
-        eventFieldIndexMap.put("ref_citta", "/content/dam/fondazione/cities/");
-        eventFieldIndexMap.put("nazione", 8);
-        eventFieldIndexMap.put("ref_nazione", "/content/dam/fondazione/nations/");
-        eventFieldIndexMap.put("iscrizione", 9);
-        eventFieldIndexMap.put("ref_iscrizione", "/content/dam/fondazione/subscriptionTypes/");
-        eventFieldIndexMap.put("sede", 10);
-        eventFieldIndexMap.put("immagine_evidenza_url", 11);
-        eventFieldIndexMap.put("program_cover", 14);
-        eventFieldIndexMap.put("program_pdf", 15);
+        eventFieldIndexMap.put("startDate", 3);
+        eventFieldIndexMap.put("endDate", 4);
+        eventFieldIndexMap.put("city", 7);
+        eventFieldIndexMap.put("ref_city", "/content/dam/fondazione/cities/");
+        eventFieldIndexMap.put("nation", 8);
+        eventFieldIndexMap.put("ref_nation", "/content/dam/fondazione/nations/");
+        eventFieldIndexMap.put("subscriptionType", 9);
+        eventFieldIndexMap.put("ref_subscriptionType", "/content/dam/fondazione/subscriptionTypes/");
+        eventFieldIndexMap.put("venue", 10);
+        eventFieldIndexMap.put("evidenceImageUrl", 11);
+        eventFieldIndexMap.put("programCover", 14);
+        eventFieldIndexMap.put("programPDF", 15);
         eventFieldIndexMap.put("address", 16);
         eventFieldIndexMap.put("eventType", 17);
     }
@@ -109,15 +106,15 @@ public class DataMigrationService {
 
     private static String speakerModelPath = BASE_MODEL + "/speaker";
     private static String speakerParentPath = ROOT_DATA + "/speakers";
-    private static String[] speakerSingleFields = {"id", "nome", "cognome", "societa", "ruolo", "foto"};
+    private static String[] speakerSingleFields = {"id", "name", "surname", "company", "role", "photo"};
     private static final Map<String, Object> speakerFieldIndexMap = new HashMap<>();
     static {
         speakerFieldIndexMap.put("id", 0);
-        speakerFieldIndexMap.put("nome", 1);
-        speakerFieldIndexMap.put("cognome", 2);
-        speakerFieldIndexMap.put("societa", 3);
-        speakerFieldIndexMap.put("ruolo", 4);
-        speakerFieldIndexMap.put("foto", 5);
+        speakerFieldIndexMap.put("name", 1);
+        speakerFieldIndexMap.put("surname", 2);
+        speakerFieldIndexMap.put("company", 3);
+        speakerFieldIndexMap.put("role", 4);
+        speakerFieldIndexMap.put("photo", 5);
     }
     private static String speakerImagesParentPath = ROOT_DATA + "/images/speakers";
 
@@ -149,23 +146,23 @@ public class DataMigrationService {
 
     private static String mediaModelPath = BASE_MODEL + "/media";
     private static String mediaParentPath = ROOT_DATA + "/media";
-    private static String[] mediaSingleFields = {"id", "ref_evento", "ref_relatore", "ordine", "data_relazione", "code_video", 
-                                                 "path_video", "path_mini", "tipo", "ref_disciplina"};
+    private static String[] mediaSingleFields = {"id", "ref_event", "ref_speaker", "order", "date", "videoCode", 
+                                                 "videoPath", "miniaturePath", "type", "ref_topic"};
     private static final Map<String, Object> mediaFieldIndexMap = new HashMap<>();
     static {
         mediaFieldIndexMap.put("id", 0);
-        mediaFieldIndexMap.put("evento", 1);
-        mediaFieldIndexMap.put("ref_evento", "/content/dam/fondazione/events/");
-        mediaFieldIndexMap.put("relatore", 2);
-        mediaFieldIndexMap.put("ref_relatore", "/content/dam/fondazione/speakers/");
-        mediaFieldIndexMap.put("ordine", 3);
-        mediaFieldIndexMap.put("data_relazione", 4);
-        mediaFieldIndexMap.put("code_video", 9);
-        mediaFieldIndexMap.put("path_video", 10);
-        mediaFieldIndexMap.put("path_mini", 11);
-        mediaFieldIndexMap.put("tipo", 12);
-        mediaFieldIndexMap.put("disciplina", 13);
-        mediaFieldIndexMap.put("ref_disciplina", "/content/dam/fondazione/topics/");
+        mediaFieldIndexMap.put("event", 1);
+        mediaFieldIndexMap.put("ref_event", "/content/dam/fondazione/events/");
+        mediaFieldIndexMap.put("speaker", 2);
+        mediaFieldIndexMap.put("ref_speaker", "/content/dam/fondazione/speakers/");
+        mediaFieldIndexMap.put("order", 3);
+        mediaFieldIndexMap.put("date", 4);
+        mediaFieldIndexMap.put("videoCode", 9);
+        mediaFieldIndexMap.put("videoPath", 10);
+        mediaFieldIndexMap.put("miniaturePath", 11);
+        mediaFieldIndexMap.put("type", 12);
+        mediaFieldIndexMap.put("topic", 13);
+        mediaFieldIndexMap.put("ref_topic", "/content/dam/fondazione/topics/");
     }
 
     private static ResourceResolver currentResolver;
@@ -175,13 +172,15 @@ public class DataMigrationService {
     private static boolean appendRef;
     private static QueryManager queryManager;
     private static String currentParentPath;
+    private static boolean delete;
 
     /**
      * Main method to initiate the data migration process.€
      * Calls individual migration methods for different content types.
      */
-    public void migrateData(String object, String exclusions) throws Exception {
+    public void migrateData(String object, String exclusions, String deleteInput) throws Exception {
         String[] exclusionList = exclusions == null ? new String[0] : exclusions.split(",");
+        delete = (deleteInput != null && deleteInput.equals("true")) ? true : false;
 
         try (ResourceResolver resolver = getResourceResolver()) {
             currentResolver = resolver;
@@ -271,6 +270,25 @@ public class DataMigrationService {
     }
 
     /**
+     * Removes all fragments from the parent Path.
+     */
+    private void removeAll() throws PersistenceException {
+        if (!delete) {
+            return;
+        }
+        Resource parentResource = currentResolver.getResource(currentParentPath);
+        if (parentResource != null) {
+            for (Resource resource : parentResource.getChildren()) {
+                currentResolver.delete(resource);
+            }
+            currentResolver.commit();
+            LOG.info("All fragments removed from: " + currentParentPath);
+        } else {
+            LOG.warn("Parent path does not exist: " + currentParentPath);
+        }
+    }
+
+    /**
      * Migrates topic data from CSV to Content Fragments.
      */
     private void migrateTopics() throws Exception {
@@ -283,6 +301,7 @@ public class DataMigrationService {
 
         appendRef = false;
         currentParentPath = topicParentPath;
+        removeAll(); // Remove all existing fragments, to be done after currentParentPath is set
         currentSingleFields = topicSingleFields;
         currentFieldIndexMap = topicFieldIndexMap;
         Resource parentResource = ensureFolderExists();
@@ -301,8 +320,8 @@ public class DataMigrationService {
                 String[] fields = parseCsvLine(line);
 
                 currentVariationData = new HashMap<>();
-                currentVariationData.put("nome_disciplina_it", fields[1]);
-                currentVariationData.put("nome_disciplina_en", fields[2]);
+                currentVariationData.put("name_it", fields[1]);
+                currentVariationData.put("name_en", fields[2]);
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource);
 
@@ -331,6 +350,7 @@ public class DataMigrationService {
 
         appendRef = false;
         currentParentPath = speakerParentPath;
+        removeAll(); // Remove all existing fragments, to be done after currentParentPath is set
         currentSingleFields = speakerSingleFields;
         currentFieldIndexMap = speakerFieldIndexMap;
         Resource parentResource = ensureFolderExists();
@@ -379,6 +399,7 @@ public class DataMigrationService {
 
         appendRef = false;
         currentParentPath = nationParentPath;
+        removeAll(); // Remove all existing fragments, to be done after currentParentPath is set
         currentSingleFields = nationSingleFields;
         currentFieldIndexMap = nationFieldIndexMap;
         Resource parentResource = ensureFolderExists();
@@ -432,6 +453,7 @@ public class DataMigrationService {
 
         appendRef = false;
         currentParentPath = cityParentPath;
+        removeAll(); // Remove all existing fragments, to be done after currentParentPath is set
         currentSingleFields = citySingleFields;
         currentFieldIndexMap = cityFieldIndexMap;
         Resource parentResource = ensureFolderExists();
@@ -488,6 +510,7 @@ public class DataMigrationService {
 
         appendRef = false;
         currentParentPath = eventParentPath;
+        removeAll(); // Remove all existing fragments, to be done after currentParentPath is set
         currentSingleFields = eventSingleFields;
         currentFieldIndexMap = eventFieldIndexMap;
         Resource parentResource = ensureFolderExists();
@@ -506,12 +529,12 @@ public class DataMigrationService {
                 String[] fields = parseCsvLine(line);
 
                 currentVariationData = new HashMap<>();
-                currentVariationData.put("titolo_it", fields[1]);
-                currentVariationData.put("titolo_en", fields[2]);
-                currentVariationData.put("descrizione_it", fields[5]);
-                currentVariationData.put("descrizione_en", fields[6]);
-                currentVariationData.put("presentation_description_it", fields[12]);
-                currentVariationData.put("presentation_description_en", fields[13]);
+                currentVariationData.put("title_it", fields[1]);
+                currentVariationData.put("title_en", fields[2]);
+                currentVariationData.put("description_it", fields[5]);
+                currentVariationData.put("description_en", fields[6]);
+                currentVariationData.put("presentationDescription_it", fields[12]);
+                currentVariationData.put("presentationDescription_en", fields[13]);
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource);
                 
@@ -540,6 +563,7 @@ public class DataMigrationService {
 
         appendRef = false;
         currentParentPath = subscriptionParentPath;
+        removeAll(); // Remove all existing fragments, to be done after currentParentPath is set
         currentSingleFields = subscriptionSingleFields;
         currentFieldIndexMap = subscriptionFieldIndexMap;
         Resource parentResource = ensureFolderExists();
@@ -639,6 +663,7 @@ public class DataMigrationService {
 
         appendRef = false;
         currentParentPath = mediaParentPath;
+        removeAll(); // Remove all existing fragments, to be done after currentParentPath is set
         currentSingleFields = mediaSingleFields;
         currentFieldIndexMap = mediaFieldIndexMap;
         Resource parentResource = ensureFolderExists();
@@ -657,10 +682,10 @@ public class DataMigrationService {
                 String[] fields = parseCsvLine(line);
 
                 currentVariationData = new HashMap<>();
-                currentVariationData.put("titolo_it", fields[5]);
-                currentVariationData.put("titolo_en", fields[6]);
-                currentVariationData.put("descrizione_it", fields[7]);
-                currentVariationData.put("descrizione_en", fields[8]);
+                currentVariationData.put("title_it", fields[5]);
+                currentVariationData.put("title_en", fields[6]);
+                currentVariationData.put("description_it", fields[7]);
+                currentVariationData.put("description_en", fields[8]);
 
                 try {
                     processCsvRow(fields, fields[0], fields[5], template, parentResource);
@@ -782,7 +807,7 @@ public class DataMigrationService {
             }
 
             String assetReference = asset.getPath();
-            ContentElement photoElement = cfm.getElement("presentation_image");
+            ContentElement photoElement = cfm.getElement("presentationImage");
             if (photoElement != null) {
                 photoElement.setContent(assetReference, photoElement.getContentType());
                 currentResolver.commit();
@@ -822,10 +847,11 @@ public class DataMigrationService {
 
         LOG.info("ID: " + id + " Name: " + name);
             
-        ContentFragment cfm = findFragmentById(id, currentParentPath);
+        ContentFragment cfm = ModelHelper.findFragmentById(currentResolver, id, currentParentPath);
         
         if (cfm == null && name != null) { //controllo per i job di associazione che non devono creare fragments
-            cfm = template.createFragment(parentResource, slugify(id, name), name);
+            // cfm = template.createFragment(parentResource, slugify(id, name), name);
+            cfm = template.createFragment(parentResource, slugify(name), name);
         } 
 
         if (cfm == null) {
@@ -901,7 +927,7 @@ public class DataMigrationService {
                         continue;
                     }
                     String refPath = (String)currentFieldIndexMap.get(field);
-                    ContentFragment refFragment = findFragmentById(newVal, refPath);
+                    ContentFragment refFragment = ModelHelper.findFragmentById(currentResolver, newVal, refPath);
                     if (refFragment == null) {
                         continue;
                     } else {
@@ -1017,11 +1043,10 @@ public class DataMigrationService {
         param.put(ResourceResolverFactory.SUBSERVICE, SERVICE);
         return resolverFactory.getServiceResourceResolver(param);
     }
-
     /**
      * Build the slug value for fragment name
      */
-    private static String slugify(String id, String name) {
+    private static String slugifyOld(String id, String name) {
         // Normalization
         String slug = name.toLowerCase()
                 .replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}\\s]", "")
@@ -1038,6 +1063,26 @@ public class DataMigrationService {
         idSlug = idSlug.replaceAll("-$", "");
 
         return idSlug;
+    }
+
+    /**
+     * Build the slug value for fragment name
+     */
+    private static String slugify(String name) {
+        // Normalization
+        String slug = name.toLowerCase()
+                .replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}\\s]", "")
+                .replaceAll("\\s+", "-");
+
+        // Max 40 chars
+        if (slug.length() > 40) {
+            slug = slug.substring(0, 40);
+        }
+
+        // Remove final cut
+        slug = slug.replaceAll("-$", "");
+
+        return slug;
     }
 
     /**
@@ -1063,32 +1108,6 @@ public class DataMigrationService {
                 if (contentFragment != null) {
                     return contentFragment;
                 }
-            }
-        }
-        
-        return null;
-    }
-
-    /**
-     * Find the fragment by id field
-     */
-    public ContentFragment findFragmentById(String id, String path) throws RepositoryException {
-        QueryBuilder queryBuilder = currentResolver.adaptTo(QueryBuilder.class);
-        Session session = currentResolver.adaptTo(Session.class);
-        Map<String, String> predicate = new HashMap<>();
-
-        predicate.put("type", "dam:Asset");
-        predicate.put("path", path);
-        predicate.put("property", "jcr:content/data/master/id");
-        predicate.put("property.value", id);
-        predicate.put("property.operation", "equals");
-        com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
-        SearchResult result = query.getResult();
-
-        for (Hit hit : result.getHits()) {
-            ContentFragment contentFragment = hit.getResource().adaptTo(ContentFragment.class);
-            if (contentFragment != null) {
-                return contentFragment;
             }
         }
         
