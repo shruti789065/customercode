@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     'input[type="checkbox"]'
   );
   let selectedItemsMultipleSelect = [];
-
+  let selectedTopicsIds = [];
   const dropdownButtonProfession = document.querySelector(
     "#dropdownProfessionMenuButton"
   );
@@ -75,26 +75,32 @@ document.addEventListener("DOMContentLoaded", function () {
       if (
         selectedItemsMultipleSelect.length <= 3 &&
         checkbox.checked === true &&
-        !selectedItemsMultipleSelect.includes(checkbox.value)
+        !selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
       ) {
-        selectedItemsMultipleSelect.push(checkbox.value);
+        selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
+        selectedTopicsIds.push(checkbox.dataset.topicId);
       }
 
       //Remove item to selectedItems
       if (
         selectedItemsMultipleSelect.length <= 3 &&
         checkbox.checked === false &&
-        selectedItemsMultipleSelect.includes(checkbox.value)
-      ) {
+        selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
+      ) {      
+
         selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
-          (item) => item !== checkbox.value
+          (item) => item !== checkbox.dataset.topicName
         );
+
+        selectedTopicsIds = selectedTopicsIds.filter((item) => {
+          item !== checkbox.dataset.topicId
+        });
       }
 
-      // Disable every not selected checkbox if user select 3 elements
+      // Disable every not selected checkbox if user select 3 elements      
       checkboxes.forEach((element) => {
         if (
-          !selectedItemsMultipleSelect.includes(element.value) &&
+          !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
           selectedItemsMultipleSelect.length === 3
         ) {
           element.disabled = true;
@@ -132,9 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   countryItems.forEach((element) => {
     let fiscalCodeInput = document.querySelector("#fiscalCodeInput");
+    let fiscalCode = document.querySelector("#fiscalCode");
     element.addEventListener("click", function () {
       let currestSelectedCountryId = element.getAttribute("data-country-id");
+      selectedCountryId = element.getAttribute("data-country-id");
       selectedCountry = element.textContent.trim();
+
       dropdownMenuCountry.style.display = "none";
       displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
       updateDropdownTextCountry();
@@ -143,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fiscalCodeInput.classList.remove("d-none");
         fiscalCodeInput.classList.add("d-block");
       } else {
+        fiscalCode.value = "";
         fiscalCodeInput.classList.add("d-none");
         fiscalCodeInput.classList.remove("d-block");
       }
@@ -437,10 +447,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData(form);
       let tmpFormData = {
         profession: selectedProfession,
-        country: selectedCountry,
-        areasOfInterest: selectedItemsMultipleSelect.map((x) =>
-          x.replaceAll(" ", "")
-        ),
+        country: selectedCountryId,
+        areasOfInterest: selectedTopicsIds
       };
 
       for (let [key, value] of formData.entries()) {
@@ -484,7 +492,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
         if (responseReg.cognitoSignUpErrorResponseDto) {
-          // alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
           displayErrorsAlert(
             JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message)
           );
