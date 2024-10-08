@@ -30,8 +30,9 @@ public class DataMigrationServlet extends SlingSafeMethodsServlet {
         PrintWriter out = response.getWriter();
         String object = request.getParameter("object");
         String exclusions = request.getParameter("exclusions");
+        String delete = request.getParameter("delete");
         try {
-            migrationService.migrateData(object, exclusions);
+            migrationService.migrateData(object, exclusions, delete);
             out.write("{\"status\":\"success\"}");
         } catch (Exception e) {
             response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);

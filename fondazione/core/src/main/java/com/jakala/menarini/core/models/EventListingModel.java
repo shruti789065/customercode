@@ -65,7 +65,7 @@ public class EventListingModel {
         predicate.put("type", "dam:Asset");
         predicate.put("path", EVENT_PATH);
         predicate.put("p.limit", "-1");
-        predicate.put("orderby", "@jcr:content/data/master/data_fine");
+        predicate.put("orderby", "@jcr:content/data/master/endDate");
         predicate.put("orderby.sort", "desc");
 
         return predicate;
@@ -80,9 +80,18 @@ public class EventListingModel {
         if (topicsFilter != null && topicsFilter.length > 0) {
             boolean addOr = false;
             for (int i = 0; i < topicsFilter.length; i++) {
-                predicate.put("group.1_group." + (i + 1) + "_property.value", TOPIC_PATH + topicsFilter[i] + "-%");
+                Resource topic = null;
+                try {
+                    topic = ModelHelper.findResourceById(resourceResolver, topicsFilter[i], TOPIC_PATH);
+                } catch (RepositoryException e) {
+                    LOG.error(topicsFilter[i] + " not found");
+                }
+                if (topic == null) {
+                    continue;
+                }
                 predicate.put("group.1_group." + (i + 1) + "_property", "jcr:content/data/master/topics");
-                predicate.put("group.1_group." + (i + 1) + "_property.operation", "like");
+                predicate.put("group.1_group." + (i + 1) + "_property.value", topic.getPath());
+                predicate.put("group.1_group." + (i + 1) + "_property.operation", "equals");
                 addOr = true;
             }
             // Imposta l'operatore OR tra i gruppi
@@ -103,9 +112,18 @@ public class EventListingModel {
     private void addCityFilterToPredicate(Map<String, String> predicate) {
         String locationFilter = request.getParameter("location");
         if (locationFilter != null && !locationFilter.isEmpty()) {
-            predicate.put("group.3_property", "jcr:content/data/master/citta");
-            predicate.put("group.3_property.value", CITY_PATH + locationFilter + "-%");
-            predicate.put("group.3_property.operation", "like");
+            Resource city = null;
+            try {
+                city = ModelHelper.findResourceById(resourceResolver, locationFilter, CITY_PATH);
+            } catch (RepositoryException e) {
+                LOG.error(locationFilter + " not found");
+            }
+            if (city == null) {
+                return;
+            }
+            predicate.put("group.3_property", "jcr:content/data/master/city");
+            predicate.put("group.3_property.value", city.getPath());
+            predicate.put("group.3_property.operation", "equals");
         }
     }
 
@@ -118,14 +136,14 @@ public class EventListingModel {
                 String toDate = dates[1];
 
                 // Gruppo 4: L'evento inizia durante il periodo selezionato
-                predicate.put("group.4_group.1_daterange.property", "jcr:content/data/master/data_inizio");
+                predicate.put("group.4_group.1_daterange.property", "jcr:content/data/master/startDate");
                 predicate.put("group.4_group.1_daterange.lowerOperation", ">=");
                 predicate.put("group.4_group.1_daterange.lowerBound", fromDate);
                 predicate.put("group.4_group.1_daterange.upperOperation", "<=");
                 predicate.put("group.4_group.1_daterange.upperBound", toDate);
                 
                 // OPPURE L'evento finisce durante il periodo selezionato
-                predicate.put("group.4_group.2_daterange.property", "jcr:content/data/master/data_fine");
+                predicate.put("group.4_group.2_daterange.property", "jcr:content/data/master/endDate");
                 predicate.put("group.4_group.2_daterange.lowerOperation", ">=");
                 predicate.put("group.4_group.2_daterange.lowerBound", fromDate);
                 predicate.put("group.4_group.2_daterange.upperOperation", "<=");
@@ -138,10 +156,10 @@ public class EventListingModel {
                 String selectedDate = dateOrPeriod;
                 
                 // Gruppo 4: La data selezionata cade tra la data di inizio e fine dell'evento
-                predicate.put("group.1_daterange.property", "jcr:content/data/master/data_inizio");
+                predicate.put("group.1_daterange.property", "jcr:content/data/master/startDate");
                 predicate.put("group.1_daterange.upperOperation", "<=");
                 predicate.put("group.1_daterange.upperBound", selectedDate);
-                predicate.put("group.2_daterange.property", "jcr:content/data/master/data_fine");
+                predicate.put("group.2_daterange.property", "jcr:content/data/master/endDate");
                 predicate.put("group.2_daterange.lowerOperation", ">=");
                 predicate.put("group.2_daterange.lowerBound", selectedDate);
             }
@@ -164,11 +182,11 @@ public class EventListingModel {
         ContentFragment fragment = resource.adaptTo(ContentFragment.class);
         if (fragment != null) {
             String id = fragment.getElement("id").getContent();
-            String title = ModelHelper.getLocalizedElementValue(fragment, language, "titolo", fragment.getTitle());
-            String description = ModelHelper.getLocalizedElementValue(fragment, language, "descrizione", fragment.getDescription());
-            String startDateStr = fragment.getElement("data_inizio").getContent();
-            String endDateStr = fragment.getElement("data_fine").getContent();
-            String presentationImage = fragment.getElement("presentation_image").getContent();
+            String title = ModelHelper.getLocalizedElementValue(fragment, language, "title", fragment.getTitle());
+            String description = ModelHelper.getLocalizedElementValue(fragment, language, "description", fragment.getDescription());
+            String startDateStr = fragment.getElement("startDate").getContent();
+            String endDateStr = fragment.getElement("endDate").getContent();
+            String presentationImage = fragment.getElement("presentationImage").getContent();
             
             FragmentData fragmentData = fragment.getElement("topics").getValue();
             Object elementContent = fragmentData.getValue();
@@ -185,7 +203,7 @@ public class EventListingModel {
                 topics = topicsBuilder.toString();
             } 
             String eventType = fragment.getElement("eventType").getContent();
-            String location = fragment.getElement("citta").getContent();
+            String location = fragment.getElement("city").getContent();
             location = getLocationName(location, language);
 
             return new Event(id, title, description, resource.getPath(), startDateStr, endDateStr, topics, eventType, location, presentationImage);
@@ -382,7 +400,7 @@ public class EventListingModel {
             } else {
                 ContentFragment fragment = findFragmentByPath(topic);
                 if (fragment != null) {
-                    String name = ModelHelper.getLocalizedElementValue(fragment, language, "nome_disciplina", null);
+                    String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
                     topicsMap.put(topic, name);
                     return name;
                 }

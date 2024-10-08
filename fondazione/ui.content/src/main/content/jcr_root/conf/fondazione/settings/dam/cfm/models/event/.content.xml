@@ -4,7 +4,7 @@
     allowedPaths="[/content/entities(/.*)?]"
     ranking="{Long}100">
     <jcr:content
-        cq:lastModified="{Date}2024-09-18T17:09:10.016+02:00"
+        cq:lastModified="{Date}2024-10-08T12:35:49.745+02:00"
         cq:lastModifiedBy="admin"
         cq:scaffolding="/conf/fondazione/settings/dam/cfm/models/event/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
@@ -24,7 +24,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}2024-09-18T17:09:10.016+02:00"
+                    jcr:lastModified="{Date}2024-10-08T12:35:49.745+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
@@ -33,27 +33,28 @@
                         maxGeneratedOrder="20">
                         <_x0031_725379016946
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="ID"
-                            listOrder="1"
-                            maxlength="255"
-                            metaType="text-single"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                            disabled="true"
+                            fieldLabel="ID (auto generated)"
+                            listOrder="3"
+                            metaType="number"
                             name="id"
-                            renderReadOnly="false"
+                            renderReadOnly="true"
                             required="on"
-                            showEmptyInReadOnly="true"
-                            unique="true"
-                            valueType="string">
+                            showEmptyInReadOnly="false"
+                            step="any"
+                            typeHint="long"
+                            valueType="long">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_725379016946>
                         <_x0031_724753537911
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Title"
+                            fieldLabel="Title (localized)"
                             listOrder="1"
                             maxlength="255"
                             metaType="text-single"
-                            name="titolo"
+                            name="title"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string">
@@ -64,10 +65,10 @@
                             sling:resourceType="dam/cfm/models/editor/components/datatypes/datepicker"
                             displayedFormat="YYYY-MM-DD HH:mm"
                             emptyText="YYYY-MM-DD HH:mm:ss"
-                            fieldLabel="Data Inizio"
+                            fieldLabel="Start Date"
                             listOrder="5"
                             metaType="date"
-                            name="data_inizio"
+                            name="startDate"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             type="datetime"
@@ -82,10 +83,10 @@
                             sling:resourceType="dam/cfm/models/editor/components/datatypes/datepicker"
                             displayedFormat="YYYY-MM-DD HH:mm"
                             emptyText="YYYY-MM-DD HH:mm:ss"
-                            fieldLabel="Data Fine"
+                            fieldLabel="End Date"
                             listOrder="5"
                             metaType="date"
-                            name="data_fine"
+                            name="endDate"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             type="datetime"
@@ -98,17 +99,45 @@
                         <_x0031_724753565404
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
-                            cfm-element="Description"
+                            cfm-element="Description (localized)"
                             checked="false"
                             default-mime-type="text/html"
                             listOrder="2"
                             metaType="text-multi"
-                            name="descrizione"
+                            name="description"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string/multiline">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_724753565404>
+                        <_x0031_728314449213
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            emptyOption="{Boolean}true"
+                            fieldLabel="Event Type"
+                            listOrder="6"
+                            metaType="enumeration"
+                            name="eventType"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            value="event"
+                            valueType="string">
+                            <optionsmultifield jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Event"
+                                    fieldValue="event"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Course"
+                                    fieldValue="course"/>
+                            </optionsmultifield>
+                            <datasource
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dam/cfm/admin/components/datasources/optionrendererenumeration"
+                                variant="default"/>
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_728314449213>
                         <_x0031_725732931744
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="dam/cfm/models/editor/components/fragmentreference"
@@ -118,7 +147,7 @@
                             fragmentmodelreference="/conf/fondazione/settings/dam/cfm/models/city"
                             listOrder="8"
                             metaType="fragment-reference"
-                            name="citta"
+                            name="city"
                             nameSuffix="contentReference"
                             renderReadOnly="false"
                             rootPath="/content/dam/fondazione/cities"
@@ -138,7 +167,7 @@
                             fragmentmodelreference="/conf/fondazione/settings/dam/cfm/models/nation"
                             listOrder="8"
                             metaType="fragment-reference"
-                            name="nazione"
+                            name="nation"
                             nameSuffix="contentReference"
                             renderReadOnly="false"
                             rootPath="/content/dam/fondazione/nations"
@@ -156,12 +185,25 @@
                             listOrder="1"
                             maxlength="255"
                             metaType="text-single"
-                            name="sede"
+                            name="venue"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_725379282719>
+                        <_x0031_728383422073
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Address"
+                            listOrder="1"
+                            maxlength="255"
+                            metaType="text-single"
+                            name="address"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_728383422073>
                         <_x0031_725733015975
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="dam/cfm/models/editor/components/fragmentreference"
@@ -171,7 +213,7 @@
                             fragmentmodelreference="/conf/fondazione/settings/dam/cfm/models/subscription"
                             listOrder="8"
                             metaType="fragment-reference"
-                            name="iscrizione"
+                            name="subscriptionType"
                             nameSuffix="contentReference"
                             renderReadOnly="false"
                             rootPath="/content/dam/fondazione/subscriptiontypes"
@@ -210,11 +252,11 @@
                         <_x0031_725379309097
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Evidence Image"
+                            fieldLabel="Evidence Image URL"
                             listOrder="1"
                             maxlength="255"
                             metaType="text-single"
-                            name="immagine_evidenza_url"
+                            name="evidenceImageUrl"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string">
@@ -227,7 +269,7 @@
                             filter="hierarchy"
                             listOrder="10"
                             metaType="reference"
-                            name="presentation_image"
+                            name="presentationImage"
                             nameSuffix="contentReference"
                             renderReadOnly="false"
                             rootPath="/content/dam/fondazione/images/events"
@@ -242,12 +284,12 @@
                         <_x0031_725379338904
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
-                            cfm-element="Presentation Description"
+                            cfm-element="Presentation Description (localized)"
                             checked="false"
                             default-mime-type="text/html"
                             listOrder="2"
                             metaType="text-multi"
-                            name="presentation_description"
+                            name="presentationDescription"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string/multiline">
@@ -260,7 +302,7 @@
                             listOrder="1"
                             maxlength="255"
                             metaType="text-single"
-                            name="program_cover"
+                            name="programCover"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string">
@@ -273,7 +315,7 @@
                             listOrder="1"
                             maxlength="255"
                             metaType="text-single"
-                            name="program_pdf"
+                            name="programPDF"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             valueType="string">
