@@ -1,0 +1,44 @@
+.cq-Editable-dom {
+    #footerNavigation {
+        .new {
+            margin-left: 20px;
+            cq {
+                min-width: 160px;
+            }
+        }
+    }
+    #followSection {
+        .container {
+            .cmp-container {
+                .aem-Grid {
+                    flex-wrap: wrap;
+                    .new {
+                        margin-block: 5px;
+                        cq {
+                            min-width: 160px;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section.section.container:first-child {
+        &>.cmp-container {
+            &>.container {
+                &>.cmp-container {
+                    &>div.aem-Grid {
+                        flex-wrap: wrap;
+                        &>.new{
+                            width: 100%;
+                            cq{
+                                min-width: 200px;
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -28,6 +28,10 @@
                 sling:resourceType="fondazione/components/container"
                 editable="{Boolean}true"
                 layout="responsiveGrid"/>
+            <experiencefragment-footer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/fondazione/en/site/footer/master"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
