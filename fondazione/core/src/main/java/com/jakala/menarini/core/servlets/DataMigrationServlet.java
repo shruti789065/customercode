@@ -22,7 +22,7 @@ import java.io.PrintWriter;
 public class DataMigrationServlet extends SlingSafeMethodsServlet {
 
     @Reference
-    private DataMigrationService migrationService;
+    private transient DataMigrationService migrationService;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
@@ -37,7 +37,6 @@ public class DataMigrationServlet extends SlingSafeMethodsServlet {
         } catch (Exception e) {
             response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             out.write("{\"status\":\"error\", \"message\": "+e.getMessage() +"}");
-            //e.getCause().printStackTrace();
         }
    
     }

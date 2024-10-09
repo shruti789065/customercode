@@ -17,7 +17,7 @@ import java.util.List;
 @Model(adaptables = Resource.class)
 public class NationListingModel {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CityListingModel.class);
+    private static final Logger LOG = LoggerFactory.getLogger(NationListingModel.class);
 
     private static final String NATIONS_PATH = "/content/dam/fondazione/nations/";
 
@@ -35,31 +35,28 @@ public class NationListingModel {
 
     @PostConstruct
     protected void init() {
-        this.nations = new ArrayList<Nation>();
-        try {
-            Resource parentResource = resourceResolver.getResource(NATIONS_PATH);
-            if (parentResource != null) {
-                String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
-                Iterator<Resource> children = parentResource.listChildren();
-                while (children.hasNext()) {
-                    Resource child = children.next();
-                    ContentFragment fragmentNation = child.adaptTo(ContentFragment.class);
-                    if (fragmentNation != null) {
-                        Nation nation = new Nation(
-                                fragmentNation.getElement("id").getContent(),
-                                ModelHelper.getLocalizedElementValue(
-                                        fragmentNation, language, "name",
-                                        fragmentNation.getElement("name").getContent()),
-                                NATIONS_PATH + fragmentNation.getName()
-                        );
-                        nations.add(nation);
-                    }
+        this.nations = new ArrayList<>();
+
+        Resource parentResource = resourceResolver.getResource(NATIONS_PATH);
+        if (parentResource != null) {
+            String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
+            Iterator<Resource> children = parentResource.listChildren();
+            while (children.hasNext()) {
+                Resource child = children.next();
+                ContentFragment fragmentNation = child.adaptTo(ContentFragment.class);
+                if (fragmentNation != null) {
+                    Nation nation = new Nation(
+                            fragmentNation.getElement("id").getContent(),
+                            ModelHelper.getLocalizedElementValue(
+                                    fragmentNation, language, "name",
+                                    fragmentNation.getElement("name").getContent()),
+                            NATIONS_PATH + fragmentNation.getName()
+                    );
+                    nations.add(nation);
                 }
             }
-            nations.sort((nation1,nation2) ->nation1.getName().compareToIgnoreCase(nation2.getName()));
-        } catch (Exception e) {
-            LOG.error("Error retrieving nation content fragments", e);
         }
+        nations.sort((nation1,nation2) ->nation1.getName().compareToIgnoreCase(nation2.getName()));
 
     }
 
