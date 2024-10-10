@@ -48,9 +48,9 @@ public class SignInServlet extends SlingAllMethodsServlet {
             String accessToken = encryptDataService.encrypt(awsResponse.getCognitoAuthResultDto().getAccessToken());
             String refreshToken = encryptDataService.encrypt(awsResponse.getCognitoAuthResultDto().getAccessToken());
             HashMap<String,String> mapCookie = new HashMap<>();
-            mapCookie.put("__Secure-p-idToken", idToken);
-            mapCookie.put("__Secure-p-aToken", accessToken);
-            mapCookie.put("__Secure-p-rToken", refreshToken);
+            mapCookie.put("p-idToken", idToken);
+            mapCookie.put("p-aToken", accessToken);
+            mapCookie.put("p-rToken", refreshToken);
             cookieService.setCookie(response,mapCookie, signInDto.getRememberMe());
             response.getWriter().println(stringResponse);
         } else {

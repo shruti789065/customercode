@@ -41,7 +41,7 @@ public class ResetPasswordServlet extends SlingAllMethodsServlet {
         boolean tokenIsPresent = false;
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("__Secure-p-aToken")) {
+                if (cookie.getName().equals("p-aToken")) {
                     String decodedToken = encryptDataService.decrypt(cookie.getValue());
                     resetPasswordDto.setAccessToken(decodedToken);
                     tokenIsPresent = true;

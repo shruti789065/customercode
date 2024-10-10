@@ -46,7 +46,7 @@ import com.jakala.menarini.core.dto.RoleDto;
     public class JwtAuthenticatorService implements AuthenticationHandler {
 
         private static final String AUTH_TYPE = "Bearer";
-        private static final String AUTH_COOKIE_NAME = "__Secure-p-idToken";
+        private static final String AUTH_COOKIE_NAME = "p-idToken";
         private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticatorService.class);
 
         @Reference
