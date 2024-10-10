@@ -37,31 +37,28 @@ public class TopicListingModel {
     protected void init() {
         topics = new ArrayList<>();
 
-        try {
-            Resource parentResource = resourceResolver.getResource(TOPICS_PATH);
-        
-            String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
+        Resource parentResource = resourceResolver.getResource(TOPICS_PATH);
+    
+        String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
 
-            if (parentResource != null) {
-                Iterator<Resource> children = parentResource.listChildren();
-                while (children.hasNext()) {
-                    Resource child = children.next();
-                    ContentFragment fragment = child.adaptTo(ContentFragment.class);
+        if (parentResource != null) {
+            Iterator<Resource> children = parentResource.listChildren();
+            while (children.hasNext()) {
+                Resource child = children.next();
+                ContentFragment fragment = child.adaptTo(ContentFragment.class);
 
-                    if (fragment != null) {
-                        String id = fragment.getElement("id").getContent();
-                        String nome = ModelHelper.getLocalizedElementValue(fragment, language, "nome_disciplina", fragment.getElement("nome_disciplina").getContent());
-                        String path = fragment.getName();
+                if (fragment != null) {
+                    String id = fragment.getElement("id").getContent();
+                    String nome = ModelHelper.getLocalizedElementValue(fragment, language, "name", fragment.getElement("name").getContent());
+                    String path = fragment.getName();
 
-                        topics.add(new Topic(id, nome, TOPICS_PATH + path));
-                    }
+                    topics.add(new Topic(id, nome, TOPICS_PATH + path));
                 }
             }
-
-            topics.sort((topic1, topic2) -> topic1.getName().compareToIgnoreCase(topic2.getName()));
-        } catch (Exception e) {
-            LOG.error("Error retrieving topic content fragments", e);
         }
+
+        topics.sort((topic1, topic2) -> topic1.getName().compareToIgnoreCase(topic2.getName()));
+
     }
 
     // Inner class to represent each topic
