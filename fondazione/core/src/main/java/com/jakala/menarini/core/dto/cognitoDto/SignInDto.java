@@ -4,6 +4,7 @@ public class SignInDto {
 
     private String email;
     private String password;
+    private boolean rememberMe;
 
     public String getEmail() {
         return email;
@@ -19,5 +20,13 @@ public class SignInDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean getRememberMe() {
+        return rememberMe;
+    }
+
+    public void setRememberMe(boolean rememberMe) {
+        this.rememberMe = rememberMe;
     }
 }
