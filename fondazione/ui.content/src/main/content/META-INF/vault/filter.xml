@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/conf/fondazione" mode="merge"/>
+    <filter root="/conf/fondazione/settings/dam/cfm/models" mode="replace">
+        <include pattern="/conf/fondazione/settings/dam/cfm/models(/.*)?"/>
+    </filter>
+    <filter root="/conf/fondazione" mode="merge">
+        <exclude pattern="/conf/fondazione/settings/dam/cfm/models(/.*)?"/>
+    </filter>
     <filter root="/content/fondazione" mode="merge"/>
     <filter root="/content/dam/fondazione" mode="merge">
         <exclude pattern="/content/dam/fondazione(/.*)?"/>
