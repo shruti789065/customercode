@@ -41,8 +41,6 @@ public class FragmentCreateListener implements ResourceChangeListener {
     @Reference
     private ResourceResolverFactory resolverFactory;
 
-    private ResourceResolver resolver;
-
     @Activate
     protected void activate() {
         LOGGER.info("FragmentCreateListener activated");
@@ -51,6 +49,8 @@ public class FragmentCreateListener implements ResourceChangeListener {
     @Override
     public void onChange(List<ResourceChange> changes) {
         LOGGER.info("onChange called with {} changes", changes.size());
+
+        ResourceResolver resolver = null;
 
         try {
             resolver = getResourceResolver();
@@ -64,27 +64,13 @@ public class FragmentCreateListener implements ResourceChangeListener {
                         ContentElement idElement = fragment.getElement("id");
                         String id = idElement.getContent();
                         String path = resource.getParent().getPath();
-                        //String path = fragment.getName();
-                        // String pathNumberPart = path.contains("-") ? path.substring(0, path.lastIndexOf('-')) : "";
 
-                        // boolean isPathNumberValid = pathNumberPart.matches("\\d+");
                         boolean isIdEmptyOrZero = id.isEmpty() || id.equals("0");
-                        // boolean isIdDifferentFromPathNumber = !id.equals(pathNumberPart);
 
                         try {
-                            //if (isIdEmptyOrZero || !isPathNumberValid || isIdDifferentFromPathNumber) {
                             if (isIdEmptyOrZero) {
                                 String newSequence = ModelHelper.nextSequence(resolver, path);
                                 idElement.setContent(newSequence, idElement.getContentType());
-                                //  Don't move anymore
-                                // String pathStringPart = isPathNumberValid && path.contains("-") ? path.substring(path.lastIndexOf('-') + 1) : path;
-                                // String newPath = newSequence + "-" + pathStringPart;
-                                // resolver.commit();
-                                // resolver.refresh();
-                                
-                                // Move the resource to the new path
-                                // this.moveContentFragment(resource, newPath);
-                                // this.createVariations(resource, newPath);
 
                                 this.createVariations(fragment);
                                 resolver.commit();
@@ -109,73 +95,13 @@ public class FragmentCreateListener implements ResourceChangeListener {
         }
     }
 
-    // private void moveContentFragment(Resource resource, String newPath) {
-    //     Session session = null;
-    //     try {
-    //         session = resolver.adaptTo(Session.class);
-    //         if (session == null) {
-    //             LOGGER.error("Could not obtain JCR session");
-    //             return;
-    //         }
-            
-    //         String oldPath = resource.getPath();
-    //         String parentPath = resource.getParent().getPath();
-    //         String newResourcePath = parentPath + "/" + newPath;
-            
-    //         LOGGER.info("Attempting to move {} to {}", oldPath, newResourcePath);
-
-    //         if (resolver.getResource(newResourcePath) != null) {
-    //             LOGGER.error("Destination path already exists: {}", newResourcePath);
-    //             throw new RepositoryException("Destination path already exists");
-    //         }
-
-    //         session.move(oldPath, newResourcePath);
-    //         session.save();
-            
-    //         resolver.commit();
-    //         resolver.refresh();
-            
-    //         LOGGER.info("Successfully moved content fragment to: {}", newResourcePath);
-            
-    //     } catch (RepositoryException e) {
-    //         LOGGER.error("Repository exception during move operation", e);
-    //         try {
-    //             if (session != null) {
-    //                 session.refresh(false);
-    //             }
-    //             resolver.revert();
-    //             resolver.refresh();
-    //         } catch (RepositoryException re) {
-    //             LOGGER.error("Error reverting changes", re);
-    //         }
-    //         throw new RuntimeException("Failed to move content fragment", e);
-    //     } catch (PersistenceException e) {
-    //         LOGGER.error("Persistence exception during move operation", e);
-    //         resolver.revert();
-    //         resolver.refresh();
-    //         throw new RuntimeException("Failed to persist changes", e);
-    //     }
-    // }
-
-    // private ContentFragment reloadContentFragment(Resource resource, String newPath) {
-    //     String parentPath = resource.getParent().getPath();
-    //     String newResourcePath = parentPath + "/" + newPath;
-    //     Resource resourceNew = resolver.getResource(newResourcePath);
-    //     if (resourceNew != null && resourceNew.getResourceType().equals("dam:Asset")) {
-    //         ContentFragment fragment = resourceNew.adaptTo(ContentFragment.class);
-    //         return fragment;
-    //     }
-    //     return null;
-    // }
-
-    //private void createVariations(Resource resource, String newName) throws ContentFragmentException{
+    /**
+     * Create the variations for the given ContentFragment.
+     */
     private void createVariations(ContentFragment fragment) throws ContentFragmentException{
         String[] languages = {"it", "en"};
-
-        //ContentFragment fragment = reloadContentFragment(resource, newName);
         
         for (String language : languages) {
-            //String variationName = newName + "_" + language;
             String variationName = fragment.getName() + "_" + language;
             Iterator<VariationDef> variations = fragment.listAllVariations();
             boolean variationExists = false;
