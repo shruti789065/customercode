@@ -28,7 +28,7 @@ import java.io.IOException;
 public class ImageProfileServlet extends SlingAllMethodsServlet {
 
     @Reference
-    private ImageProfileServiceInterface imageProfileService;
+    private transient ImageProfileServiceInterface imageProfileService;
 
 
     @Override

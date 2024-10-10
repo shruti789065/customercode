@@ -36,8 +36,8 @@ import java.util.*;
 )
 public class AwsCognitoService implements AwsCognitoServiceInterface {
 
-    public static String USER_MAIL_NOT_CONFIRMED = "waiting_confirm";
-    private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticatorService.class);
+    public static final String USER_MAIL_NOT_CONFIRMED = "waiting_confirm";
+    private static final Logger LOGGER = LoggerFactory.getLogger(AwsCognitoService.class);
 
     @Reference
     private UserRegisteredServiceInterface userRegisteredService;
