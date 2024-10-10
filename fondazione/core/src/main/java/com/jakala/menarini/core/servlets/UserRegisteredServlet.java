@@ -30,7 +30,7 @@ import java.util.Set;
 public class UserRegisteredServlet extends  BaseRestServlet {
 
         @Reference
-        private UserRegisteredServiceInterface userService;
+        private transient UserRegisteredServiceInterface userService;
 
 
         @Override

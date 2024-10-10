@@ -62,98 +62,98 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
 
     @Override
-    public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls) throws AccessDeniedException, SQLException {
-
+    public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls) throws AccessDeniedException {
         AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
-        Connection connection = dataSource.getConnection();
-        DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
-        RegisteredUserDto user = (RegisteredUserDto) Objects.requireNonNull(create
-                .select()
-                .from(RegisteredUserDto.table)
-                .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email))
-                .fetchOne()).into(RegisteredUserDto.class);
-        if(user == null) {
+        try(Connection connection = dataSource.getConnection()) {
+            DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
+            RegisteredUserDto user = (RegisteredUserDto) Objects.requireNonNull(create
+                    .select()
+                    .from(RegisteredUserDto.table)
+                    .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email))
+                    .fetchOne()).into(RegisteredUserDto.class);
+            if(user == null) {
+                connection.close();
+                return null;
+            }
+            ArrayList<String> topicsUser = (ArrayList<String>) TopicUtils.getTopicsRefForUser(user.getId(), create);
+            if(topicsUser != null && !topicsUser.isEmpty()) {
+                ArrayList<RegisteredUserTopicDto> topics = new ArrayList<>();
+                for(String topic :  topicsUser) {
+                    TopicDto topicData = new TopicDto();
+                    topicData.setId(topic);
+                    topicData.setName(null);
+                    RegisteredUserTopicDto topicDto = new RegisteredUserTopicDto();
+                    topicDto.setTopic(topicData);
+                    topics.add(topicDto);
+                }
+                user.setRegisteredUserTopics(topics);
+            }
             connection.close();
+            return user;
+        }catch (SQLException e) {
             return null;
         }
-        ArrayList<String> topicsUser = (ArrayList<String>) TopicUtils.getTopicsRefForUser(user.getId(), create);
-        if(topicsUser != null && !topicsUser.isEmpty()) {
-            ArrayList<RegisteredUserTopicDto> topics = new ArrayList<>();
-            for(String topic :  topicsUser) {
-                TopicDto topicData = new TopicDto();
-                topicData.setId(topic);
-                topicData.setName(null);
-                RegisteredUserTopicDto topicDto = new RegisteredUserTopicDto();
-                topicDto.setTopic(topicData);
-                topics.add(topicDto);
-            }
-            user.setRegisteredUserTopics(topics);
-        }
-        connection.close();
-        return user;
-
     }
 
     @Override
     public RegisteredUseServletResponseDto updateUserData(String email, RegisteredUserDto user, List<String> updateTopics, Set<Acl> acls) throws AccessDeniedException, SQLException {
         RegisteredUseServletResponseDto response = new RegisteredUseServletResponseDto();
         String errorMessage = "";
-        Connection connection = null;
         Savepoint savepoint = null;
         AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
         try {
             RegisteredUserDto oldData = this.getUserByEmail(email, acls);
             user.setId(oldData.getId());
-            connection = dataSource.getConnection();
-            savepoint = connection.setSavepoint();
-            DSLContext create = DSL.using(connection);
-            Record dataSet = this.setUpdateQuery(user, create);
-            int x = create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
-                    .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
 
-            if(!updateTopics.isEmpty()) {
+            try(Connection connection = dataSource.getConnection()) {
+                savepoint = connection.setSavepoint();
+                DSLContext create = DSL.using(connection);
+                Record dataSet = this.setUpdateQuery(user, create);
+                int x = create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
+                        .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
 
-                List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
-                List<String> topicToSaveRefers =  new ArrayList<String>();
-                for(String topic : updateTopics) {
-                    if(!oldTopicRefs.contains(topic)) {
-                        topicToSaveRefers.add(topic);
+                if(!updateTopics.isEmpty()) {
+
+                    List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
+                    List<String> topicToSaveRefers =  new ArrayList<String>();
+                    for(String topic : updateTopics) {
+                        if(!oldTopicRefs.contains(topic)) {
+                            topicToSaveRefers.add(topic);
+                        }
+                    }
+                    boolean isDeleted = this.deleteTopics(user.getId(),updateTopics,oldTopicRefs,create,connection,savepoint);
+                    if(!isDeleted) {
+                        response.setSuccess(false);
+                        errorMessage = "Error on delete topics";
+                        response.setErrorMessage(errorMessage);
+                        return response;
+
+                    }
+                    for(String topicRef : topicToSaveRefers) {
+                        LOGGER.error("id topics to save: "+topicRef);
+                    }
+                    boolean isCreated = this.saveNewTopic(topicToSaveRefers,user,create,connection,savepoint);
+                    if(!isCreated) {
+                        response.setSuccess(false);
+                        errorMessage = "Error on add topics";
+                        response.setErrorMessage(errorMessage);
+                        return response;
                     }
                 }
-                boolean isDeleted = this.deleteTopics(user.getId(),updateTopics,oldTopicRefs,create,connection,savepoint);
-                if(!isDeleted) {
-                    response.setSuccess(false);
-                    errorMessage = "Error on delete topics";
-                    response.setErrorMessage(errorMessage);
-                    return response;
-
-                }
-                for(String topicRef : topicToSaveRefers) {
-                    LOGGER.error("id topics to save: "+topicRef);
-                }
-                boolean isCreated = this.saveNewTopic(topicToSaveRefers,user,create,connection,savepoint);
-                if(!isCreated) {
-                    response.setSuccess(false);
-                    errorMessage = "Error on add topics";
-                    response.setErrorMessage(errorMessage);
-                    return response;
-                }
+                connection.close();
+                response.setSuccess(true);
+                response.setUpdatedUser(user);
+                return response;
+            }catch (SQLException e) {
+                response.setSuccess(false);
+                errorMessage = e.getMessage();
+                response.setErrorMessage(errorMessage);
+                return response;
             }
-            connection.close();
-            response.setSuccess(true);
-            response.setUpdatedUser(user);
-            return response;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            //connection.rollback(savepoint);
-            //connection.close();
-            errorMessage = e.getMessage();
-            response.setSuccess(false);
-            response.setErrorMessage(errorMessage);
-            return response;
+
         } catch (Exception e) {
-            errorMessage = e.getMessage();
             response.setSuccess(false);
+            errorMessage = e.getMessage();
             response.setErrorMessage(errorMessage);
             return response;
         }
@@ -337,11 +337,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
     @Override
     public boolean addUserForSignUp(RegisteredUserDto user, ArrayList<RoleDto> roles, ArrayList<TopicDto> topics){
-        Connection connection = null;
-        Savepoint savepoint = null;
-        try  {
-            connection = dataSource.getConnection();
-            savepoint = connection.setSavepoint();
+        try(Connection connection = dataSource.getConnection();)  {
             DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
             RegisteredUserRecord rur = create.newRecord(com.jakala.menarini.core.entities.RegisteredUser.REGISTERED_USER, user);
             rur.store();
@@ -391,15 +387,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            if(connection != null && savepoint != null) {
-                try {
-                    connection.rollback(savepoint);
-                } catch (SQLException ex) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
             return false;
         }
     }

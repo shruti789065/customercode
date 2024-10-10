@@ -25,7 +25,7 @@ import java.io.IOException;
 public class SignupServlet extends SlingAllMethodsServlet {
 
     @Reference
-    private AwsCognitoServiceInterface awsCognitoService;
+    private transient AwsCognitoServiceInterface awsCognitoService;
 
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {

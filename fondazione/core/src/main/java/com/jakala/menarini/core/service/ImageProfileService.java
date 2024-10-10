@@ -9,6 +9,7 @@ import com.jakala.menarini.core.dto.aswLambdaDto.LambdaPutFileDto;
 import com.jakala.menarini.core.service.interfaces.ImageProfileServiceInterface;
 import io.jsonwebtoken.io.IOException;
 import org.apache.http.HttpHeaders;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -16,6 +17,7 @@ import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
@@ -28,6 +30,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
 
@@ -93,7 +96,14 @@ public class ImageProfileService implements ImageProfileServiceInterface {
     private ImageProfileServiceResponseDto parseResponse(HttpUriRequest request)  {
         ImageProfileServiceResponseDto response = new ImageProfileServiceResponseDto();
         response.setSuccess(Boolean.TRUE);
-        try(CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(5000)
+                .setConnectionRequestTimeout(5000)
+                .setSocketTimeout(5000)
+                .build();
+        try(CloseableHttpClient httpClient = HttpClients.custom()
+                .setDefaultRequestConfig(requestConfig).build()) {
+
             final CloseableHttpResponse awsResponse = httpClient.execute(request);
             StringBuffer responseString = this.readHttpResponse(awsResponse);
             if(awsResponse.getStatusLine().getStatusCode() != 200) {
