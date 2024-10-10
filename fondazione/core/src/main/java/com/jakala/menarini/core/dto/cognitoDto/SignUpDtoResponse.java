@@ -104,7 +104,7 @@ public class SignUpDtoResponse  extends SignUpDto {
             sourceData.getInterests().forEach(interest -> {
                 TopicDto topic = new TopicDto();
                 topic.setName(interest);
-                topic.setId(MAPPING_MAPPING.get(interest));
+                topic.setId(interest);
                 topics.add(topic);
             });
         }
