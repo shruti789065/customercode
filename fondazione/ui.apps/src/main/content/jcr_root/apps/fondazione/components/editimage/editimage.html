@@ -1,0 +1,40 @@
+<div class="cmp-editimage d-flex align-items-end">
+    <div class="cmp-editimage__imgWrapper position-relative">
+        <div id="editImageImgWrapper" class="position-absolute h-100 w-100 d-none">
+            <img id="editImageImg" class="w-100 h-100 object-fit-cover" src="" alt="Edit Image">
+        </div>
+    </div>
+
+    <div class="mt-3 mt-lg-0">
+        <div id="loadImageCta" class="cmp-editimage__addEdit ms-0 ms-lg-3 mb-3 position-relative" data-sly-test="${properties.optionsType == 'reservedArea'}">
+            <input type="file" id="fileInputEditImage" style="display: none;" accept=".jpeg,.jpg,.png" />
+            <p class="text text-bold mb-0">
+                ${'add_edit_photo' @ i18n}
+            </p>
+        </div>
+
+        <button data-sly-test="${properties.optionsType == 'reservedArea'}" class="btn btn-primary d-flex align-items-center ms-0 ms-lg-3 cmp-editimage__cta" type="button"
+            id="ctaSaveEditImage">${'save' @ i18n}
+            <span id="editImageLoader" class="spinner-border spinner-border-sm ms-2 cta-spinner d-none" role="status"
+                aria-hidden="true"></span>
+        </button>
+
+        <p data-sly-test="${properties.optionsType == 'editProfile'}" id="editImageUserName" class="ms-lg-3 text text-bold mt-lg-2 mb-lg-0"></p>
+        <p data-sly-test="${properties.optionsType == 'editProfile'}" id="editImageUserEmail" class="ms-lg-3"></p>
+        <div data-sly-test="${properties.optionsType == 'editProfile'}" id="editProfileCta" class="cmp-editimage__addEdit mb-1 ms-0 ms-lg-3 position-relative">
+            <input type="file" id="fileInputEditImage" style="display: none;" accept=".jpeg,.jpg,.png" />
+            <a href="${properties.redirectLink}" id="editProfileLink" class="text text-bold mb-0 text-decoration-none">
+                ${'edit_profile' @ i18n}
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="cmp-editImage__successAlert" class="alert alert-success mt-4 d-none" role="alert">
+    ${'user_image_success' @ i18n}
+</div>
+
+<div id="cmp-editImage__errorsAlert" class="alert alert-danger mt-4 d-none" role="alert">
+    <ul id="cmp-editImage__errorsList">
+    </ul>
+</div>
