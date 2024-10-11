@@ -52,16 +52,14 @@ document.addEventListener('DOMContentLoaded', function () {
     let taxIdCode = document.querySelector('#taxIdCode');
     let fiscalCode = document.querySelector('#fiscalCodeInput');
 
-    // SET TOKEN AND FILL FORM WITH USER DATA
+    // FILL FORM WITH USER DATA
     async function fillForm() {
         userProfileComponent.classList.add('d-none');
         userProfileComponent.classList.remove('d-block');
         loaderUserData.classList.add('d-block');
         loaderUserData.classList.remove('d-none');
         let isUserLoggedIn = false;
-        try {
-            console.log("ENTRATO");
-            
+        try {            
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
             const regResponse = await fetch("/private/api/isSignIn", {
