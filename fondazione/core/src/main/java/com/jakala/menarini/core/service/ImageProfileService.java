@@ -69,6 +69,10 @@ public class ImageProfileService implements ImageProfileServiceInterface {
         Map imageResponseMap = gson.fromJson(imgResponse.getImageData(), Map.class);
         String body = imageResponseMap.get("body").toString();
         Map imageBodyMap = gson.fromJson(body, Map.class);
+        if(imageBodyMap.get("imageData") == null) {
+            imgResponse.setImageData("");
+            return imgResponse;
+        }
         LambdaImageDataDto imageDataDto = gson.fromJson(imageBodyMap.get("imageData").toString(), LambdaImageDataDto.class);
         imgResponse.setImageData(new String(imageDataDto.getData(), StandardCharsets.UTF_8));
         return imgResponse;
