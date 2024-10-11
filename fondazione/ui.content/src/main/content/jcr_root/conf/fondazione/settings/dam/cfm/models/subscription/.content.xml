@@ -4,7 +4,7 @@
     allowedPaths="[/content/entities(/.*)?]"
     ranking="{Long}100">
     <jcr:content
-        cq:lastModified="{Date}2024-09-09T18:19:58.560+02:00"
+        cq:lastModified="{Date}2024-10-08T11:58:43.426+02:00"
         cq:lastModifiedBy="admin"
         cq:scaffolding="/conf/fondazione/settings/dam/cfm/models/subscription/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
@@ -24,7 +24,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}2024-09-09T18:19:58.560+02:00"
+                    jcr:lastModified="{Date}2024-10-08T11:58:43.426+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
@@ -33,23 +33,24 @@
                         maxGeneratedOrder="20">
                         <_x0031_725726267383
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="ID"
-                            listOrder="1"
-                            maxlength="255"
-                            metaType="text-single"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                            disabled="true"
+                            fieldLabel="ID (auto generated)"
+                            listOrder="3"
+                            metaType="number"
                             name="id"
-                            renderReadOnly="false"
+                            renderReadOnly="true"
                             required="on"
-                            showEmptyInReadOnly="true"
-                            unique="true"
-                            valueType="string">
+                            showEmptyInReadOnly="false"
+                            step="any"
+                            typeHint="long"
+                            valueType="long">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_725726267383>
                         <_x0031_725726290471
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Type"
+                            fieldLabel="Type (localized)"
                             listOrder="1"
                             maxlength="255"
                             metaType="text-single"

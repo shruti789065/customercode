@@ -2,7 +2,6 @@ import moment from 'moment';
 
 document.addEventListener('DOMContentLoaded', function () {
     let selectedTab = "";
-    let token = null;
     let successAlert = document.querySelector("#cmp-editprofileform__successAlert");
     let errorAlert = document.querySelector("#cmp-editprofileform__errorsAlert");
     let userProfileTab = document.querySelector('#userProfileTab');
@@ -53,28 +52,36 @@ document.addEventListener('DOMContentLoaded', function () {
     let taxIdCode = document.querySelector('#taxIdCode');
     let fiscalCode = document.querySelector('#fiscalCodeInput');
 
-    // SET TOKEN AND FILL FORM WITH USER DATA
-    async function setToken() {
-        let storedToken = localStorage.getItem('token');
+    // FILL FORM WITH USER DATA
+    async function fillForm() {
         userProfileComponent.classList.add('d-none');
         userProfileComponent.classList.remove('d-block');
         loaderUserData.classList.add('d-block');
         loaderUserData.classList.remove('d-none');
-        if (storedToken) {
-            if (localStorage.getItem('remember_me') === "false") {
-                let tokenObject = JSON.parse(storedToken);
-                token = tokenObject.token;
-            } else {
-                token = storedToken
+        let isUserLoggedIn = false;
+        try {            
+            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+            const csrfToken = await responseCsrf.json();
+            const regResponse = await fetch("/private/api/isSignIn", {
+                method: "GET",
+                headers: {
+                    "CSRF-Token": csrfToken.token,
+                },
+            });
+            if (regResponse.status === 200) {
+                isUserLoggedIn = true;
             }
+        } catch (error) {
+            console.log("Error: ", error);
+        }
 
+        if (isUserLoggedIn) {
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
             const regResponse = await fetch("/private/api/user", {
                 method: "GET",
                 headers: {
                     "CSRF-Token": csrfToken.token,
-                    'Authorization': 'Bearer ' + token
                 },
             });
             const dataResponse = await regResponse.json();
@@ -142,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 if (areaOfIntersts && dataResponse?.updatedUser?.registeredUserTopics?.length > 0) {
                     dataResponse.updatedUser.registeredUserTopics.forEach(topic => {
-                        checkboxes.forEach(checkbox => {  
+                        checkboxes.forEach(checkbox => {
                             if (checkbox.dataset.topicId === topic.topic.id) {
                                 checkbox.checked = true;
                                 selectedItemsMultipleSelect.push(checkbox.dataset.topicName)
@@ -175,12 +182,11 @@ document.addEventListener('DOMContentLoaded', function () {
             userProfileComponent.classList.remove('d-none');
             loaderUserData.classList.add('d-none');
             loaderUserData.classList.remove('d-block');
-        } else {
-            console.log("No token found in local storage.");
         }
 
     }
-    setToken();
+
+    fillForm();
 
     // STYLE FUNCTIONS AND CUSTOM COMPONENT FUNCTIONS
     function toggleTab(tabName) {
@@ -670,7 +676,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: "POST",
                 headers: {
                     "CSRF-Token": csrfToken.token,
-                    'Authorization': 'Bearer ' + token
                 },
                 body: JSON.stringify(registrationData),
             });
@@ -678,7 +683,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return dataResponse;
         } catch (error) {
             console.log(error);
-
         } finally {
             ctaSave.disabled = false;
             loader.classList.add("d-none");
@@ -700,7 +704,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: "POST",
                 headers: {
                     "CSRF-Token": csrfToken.token,
-                    'Authorization': 'Bearer ' + token
                 },
                 body: JSON.stringify(newPasswordData),
             });
@@ -802,7 +805,6 @@ document.addEventListener('DOMContentLoaded', function () {
             let newPasswordData = {
                 PreviousPassword: tmpFormData.currentPassword,
                 ProposedPassword: tmpFormData.password,
-                AccessToken: localStorage.getItem('accessToken') !== null ? localStorage.getItem('accessToken') : sessionStorage.getItem('accessToken')
             };
 
             let isPasswordValid = validatePassword(tmpFormData);

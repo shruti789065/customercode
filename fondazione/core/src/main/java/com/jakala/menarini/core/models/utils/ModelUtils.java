@@ -138,7 +138,7 @@ public class ModelUtils {
 
 				Iterator<Resource> iter = resource.listChildren();
 				while (iter.hasNext()) {
-					p = findChildComponentByResourceType((Resource) iter.next(), resourceType);
+					p = findChildComponentByResourceType(iter.next(), resourceType);
 					if (p != null)
 						break;
 				}
@@ -150,14 +150,14 @@ public class ModelUtils {
 		return p;
 	}
 
-	public static Locale getResourceLocale(Page currentPage) throws RepositoryException {
+	public static Locale getResourceLocale(Page currentPage) {
 		if (currentPage != null) {
 			return currentPage.getLanguage(false);
 		}
 		return null;
 	}
 
-	public static String getFormat(Locale local) throws RepositoryException {
+	public static String getFormat(Locale local) {
 		if (local != null) {
 			if (local.getCountry().equals("us")) {
 				return Constants.FORMAT_ANNO_MESE_GIORNO;
@@ -170,10 +170,22 @@ public class ModelUtils {
 	}
 
 	public static String getModifiedLink(String link) {
-		if (StringUtils.isNotEmpty(link) && !link.equals("#") && !(link.startsWith("/") && link.contains(".pdf")) && !link.contains("@")) {
-			link = link.startsWith("/") && link.contains(".html") ? link : link.startsWith("/") && !link.contains(".html") ? link + ".html" : link.contains("https://") ?
-					link : link.contains("http://") ? link :  "http://" + link;
+		if (StringUtils.isEmpty(link) || link.equals("#") || link.contains("@")) {
+			return link;
 		}
+
+		if (link.startsWith("/") && link.contains(".pdf")) {
+			return link;
+		}
+
+		if (link.startsWith("/") && !link.contains(".html")) {
+			return link + ".html";
+		}
+
+		if (!link.contains("https://") && !link.contains("http://")) {
+			return "http://" + link;
+		}
+
 		return link;
 	}
 
