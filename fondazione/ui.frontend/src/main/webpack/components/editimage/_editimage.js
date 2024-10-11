@@ -160,14 +160,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                 "CSRF-Token": csrfToken.token,
             },
         });
-        const dataResponse = await regResponse.json();
-
-        if (dataResponse.success === true && image && imgWrapper) {
+        const dataResponse = await regResponse.json();        
+        if (dataResponse.imageData !== "" && image && imgWrapper) {
             image.src = "data:image/jpeg;base64," + dataResponse.imageData;
             imgWrapper.classList.add('d-block');
             imgWrapper.classList.remove('d-none');
-        } else {
-            console.log("Error:  " + dataResponse.errorMessage);
         }
     }
 
