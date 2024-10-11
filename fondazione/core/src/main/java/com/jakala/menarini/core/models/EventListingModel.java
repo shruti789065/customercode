@@ -103,15 +103,23 @@ public class EventListingModel {
 
     private void addEventTypeFilterToPredicate(Map<String, String> predicate) {
         String eventTypeFilter = request.getParameter("eventType");
-        if (eventTypeFilter != null && !eventTypeFilter.isEmpty()) {
-            predicate.put("group.2_property", "jcr:content/data/master/eventType");
-            predicate.put("group.2_property.value", eventTypeFilter);
+        if (eventTypeFilter != null && !eventTypeFilter.isEmpty() && !eventTypeFilter.equals("-")) {
+            if (eventTypeFilter.equals("liveStreaming") || eventTypeFilter.equals("residential")) {
+                predicate.put("group.2_group.1_property", "jcr:content/data/master/format");
+                predicate.put("group.2_group.1_property.value", eventTypeFilter);
+                predicate.put("group.2_group.2_property", "jcr:content/data/master/format");
+                predicate.put("group.2_group.2_property.value", "inSiteAndStreaming");
+                predicate.put("group.2_group.p.or", "true");
+            } else {
+                predicate.put("group.2_property", "jcr:content/data/master/eventType");
+                predicate.put("group.2_property.value", eventTypeFilter);
+            }
         }
     }
 
     private void addCityFilterToPredicate(Map<String, String> predicate) {
         String locationFilter = request.getParameter("location");
-        if (locationFilter != null && !locationFilter.isEmpty()) {
+        if (locationFilter != null && !locationFilter.isEmpty() && !locationFilter.equals("-")) {
             Resource city = null;
             try {
                 city = ModelHelper.findResourceById(resourceResolver, locationFilter, CITY_PATH);
@@ -124,6 +132,22 @@ public class EventListingModel {
             predicate.put("group.3_property", "jcr:content/data/master/city");
             predicate.put("group.3_property.value", city.getPath());
             predicate.put("group.3_property.operation", "equals");
+        }
+    }
+
+    private void addScheduledFilterToPredicate(Map<String, String> predicate) {
+        String eventStatus = request.getParameter("eventStatus");
+        if (eventStatus != null && !eventStatus.isEmpty()) {
+            String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            if (eventStatus.equals("scheduled")) {               
+                predicate.put("group.3_daterange.property", "jcr:content/data/master/startDate");
+                predicate.put("group.3_daterange.lowerOperation", ">=");
+                predicate.put("group.3_daterange.lowerBound", today);
+            } else {
+                predicate.put("group.3_daterange.property", "jcr:content/data/master/endDate");
+                predicate.put("group.3_daterange.upperOperation", "<=");
+                predicate.put("group.3_daterange.upperBound", today);
+            }
         }
     }
 
@@ -212,6 +236,38 @@ public class EventListingModel {
         }
     }
 
+    /**
+     * Retrieves a list of event selections based on the current page language.
+     * 
+     * @return a list of EventSelection objects
+     */
+    public List<EventSelection> getEventSelections() {
+        String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
+        List<EventSelection> selections = new ArrayList<>();
+
+        //selections.add(new EventSelection("", "-"));
+        if (language == "it") {
+            selections.add(new EventSelection("course", "Corso"));
+            selections.add(new EventSelection("event", "Evento"));
+            selections.add(new EventSelection("webinar", "Webinar"));
+            selections.add(new EventSelection("liveStreaming", "Streaming Live"));
+            selections.add(new EventSelection("residential", "Residenziale"));
+        } else {
+            selections.add(new EventSelection("course", "Course"));
+            selections.add(new EventSelection("event", "Event"));
+            selections.add(new EventSelection("webinar", "Webinar"));
+            selections.add(new EventSelection("liveStreaming", "Live Streaming"));
+            selections.add(new EventSelection("residential", "Residential"));
+        }
+
+        return selections;
+    }
+
+    /**
+     * Retrieves a list of events based on the current filters and pagination settings.
+     * 
+     * @return a list of Event objects
+     */
     public List<Event> getEvents() {
 
         String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
@@ -228,6 +284,9 @@ public class EventListingModel {
 
         // Filter by location (citta/nazione)
         addCityFilterToPredicate(predicate);
+
+        // Filter by scheduled or past events
+        addScheduledFilterToPredicate(predicate);
 
         // Filter by date range
         addDateFilterToPredicate(predicate);
@@ -261,6 +320,24 @@ public class EventListingModel {
         totalPages = (int) Math.ceil((double) totalResults / pageSize);
 
         return filteredEvents;
+    }
+
+    public static class EventSelection {
+        private String id;
+        private String name;
+
+        public EventSelection(String id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 
     public static class Event {
@@ -349,7 +426,7 @@ public class EventListingModel {
         }
     }
     
-    // Getter per i dati della paginazione
+    // Getter pagination data
     public int getCurrentPage() {
         return currentPage;
     }
@@ -366,7 +443,7 @@ public class EventListingModel {
         return totalResults;
     }
 
-    // Metodi per la navigazione
+    // Navigation Methods
     public int getPreviousPage() {
         return currentPage - 1;
     }
@@ -383,7 +460,7 @@ public class EventListingModel {
         return currentPage < totalPages;
     }
 
-    // Metodi per il calcolo degli indici
+    // Pagination indexes
     public int getStartIndex() {
         return (currentPage - 1) * pageSize + 1;
     }
