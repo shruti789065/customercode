@@ -1,10 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     const loadImageCta = document.getElementById('loadImageCta');
     const fileInputEditImage = document.getElementById('fileInputEditImage');
     const errorMessage = document.getElementById('errorMessage');
-    let userData = {};
     let imgWrapper = document.querySelector('#editImageImgWrapper');
-    let editProfileLinkElement = document.querySelector('#editProfileLink');
     let ctaSave = document.querySelector('#ctaSaveEditImage');
     let loader = document.querySelector('#editImageLoader');
     let image = document.querySelector('#editImageImg');
@@ -13,9 +11,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     getUserProfileImage();
 
-    // editProfileLinkElement?.addEventListener('click', function () {
-        // GET OF USER'S DATA HERE
-    // })
+    let isUserLoggedIn = false;
+
+    try {
+        const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+        const csrfToken = await responseCsrf.json();
+        const regResponse = await fetch("/private/api/isSignIn", {
+            method: "GET",
+            headers: {
+                "CSRF-Token": csrfToken.token,
+            },
+        });
+        if (regResponse.status === 200) {
+            isUserLoggedIn = true;
+        }
+    } catch (error) {
+        console.log("Error: ", error);
+    }
+
+    if (isUserLoggedIn) {
+        const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+        const csrfToken = await responseCsrf.json();
+        const regResponse = await fetch("/private/api/user", {
+            method: "GET",
+            headers: {
+                "CSRF-Token": csrfToken.token,
+            },
+        });
+        const dataResponse = await regResponse.json();
+        let userData = dataResponse;
+        let userNameField = document.querySelector('#editImageUserName');
+        let userEmailField = document.querySelector('#editImageUserEmail');
+        if (userData && userEmailField && userNameField) {
+            userEmailField.textContent = userData.updatedUser.email;
+            userNameField.textContent = userData.updatedUser.firstname + " " + userData.updatedUser.lastname
+        }
+    }
 
     loadImageCta?.addEventListener('click', function () {
         if (fileInputEditImage) {
@@ -121,32 +152,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     async function getUserProfileImage() {
-        let storedToken = localStorage.getItem('token');
-        if (storedToken) {
-            if (localStorage.getItem('remember_me') === "false") {
-                let tokenObject = JSON.parse(storedToken);
-                token = tokenObject.token;
-            } else {
-                token = storedToken
-            }
-            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
-            const csrfToken = await responseCsrf.json();
-            const regResponse = await fetch("/private/api/profile/image", {
-                method: "GET",
-                headers: {
-                    "CSRF-Token": csrfToken.token,
-                    'Authorization': 'Bearer ' + token
-                },
-            });
-            const dataResponse = await regResponse.json();
+        const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+        const csrfToken = await responseCsrf.json();
+        const regResponse = await fetch("/private/api/profile/image", {
+            method: "GET",
+            headers: {
+                "CSRF-Token": csrfToken.token,
+            },
+        });
+        const dataResponse = await regResponse.json();
 
-            if (dataResponse.success === true && image && imgWrapper) {
-                image.src = "data:image/jpeg;base64," + dataResponse.imageData;
-                imgWrapper.classList.add('d-block');
-                imgWrapper.classList.remove('d-none');
-            } else {
-                console.log("Error:  " + dataResponse.errorMessage);
-            }
+        if (dataResponse.success === true && image && imgWrapper) {
+            image.src = "data:image/jpeg;base64," + dataResponse.imageData;
+            imgWrapper.classList.add('d-block');
+            imgWrapper.classList.remove('d-none');
+        } else {
+            console.log("Error:  " + dataResponse.errorMessage);
         }
     }
 
@@ -197,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } catch (error) {
                 console.log("Error: ", error);
             } finally {
-                if(ctaSave && loader){
+                if (ctaSave && loader) {
                     ctaSave.disabled = false;
                     loader.classList.add('d-none');
                     loader.classList.remove('d-block');
