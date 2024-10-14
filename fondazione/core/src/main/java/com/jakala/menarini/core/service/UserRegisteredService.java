@@ -22,6 +22,7 @@ import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.SQLDialect;
+import org.jooq.exception.DataAccessException;
 import org.jooq.impl.DSL;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -78,10 +79,9 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             return create.select().from(RegisteredUserDto.table).fetch().into(RegisteredUserDto.class);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            return users;
         }
 
-        return users;
     }
 
 
@@ -129,8 +129,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             RegisteredUserDto oldData = this.getUserByEmail(email, acls,roles);
             user.setId(oldData.getId());
             return this.updateUser(user,oldData,updateTopics,email,roles);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (AccessDeniedException e) {
             response.setSuccess(false);
             errorMessage = e.getMessage();
             response.setErrorMessage(errorMessage);
@@ -231,7 +230,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                 rowData.store();
             });
             return true;
-        }catch (Exception e) {
+        }catch (DataAccessException e) {
             connection.rollback(savepoint);
             connection.close();
             return false;
@@ -258,8 +257,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                         .execute();
             }
             return true;
-          }catch (Exception e) {
-            e.printStackTrace();
+          }catch (DataAccessException e) {
             connection.rollback(savepoint);
             connection.close();
             return false;
@@ -292,8 +290,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                 rowData.store();
             });
             return true;
-        }catch (Exception e) {
-            e.printStackTrace();
+        }catch (DataAccessException e) {
             connection.rollback(savepoint);
             connection.close();
             return false;
@@ -370,8 +367,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
-
             return false;
         }
     }
@@ -388,8 +383,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     .where(RegisteredUser.REGISTERED_USER.USERNAME.eq(username))
                     .fetchOne()).into(RegisteredUserDto.class);
             return Objects.equals(userDto.getRegistrationStatus(), "confirmed");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException | DataAccessException e) {
             return false;
         }
     }
@@ -397,7 +391,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
     @Override
     public boolean addUserForSignUp(RegisteredUserDto user, List<RoleDto> roles, List<TopicDto> topics){
-        try(Connection connection = dataSource.getConnection();)  {
+        try(Connection connection = dataSource.getConnection())  {
             DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
             RegisteredUserRecord rur = create.newRecord(com.jakala.menarini.core.entities.RegisteredUser.REGISTERED_USER, user);
             rur.store();

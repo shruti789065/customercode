@@ -28,6 +28,7 @@ public class RefreshTokenServlet  extends SlingAllMethodsServlet {
     @Reference
     private transient AwsCognitoServiceInterface awsCognitoService;
 
+    @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
         Gson gson = new Gson();
         RefreshDto refreshDto = gson.fromJson(request.getReader(), RefreshDto.class);

@@ -909,7 +909,7 @@ public class DataMigrationService {
                 asset = assetManager.createAsset(assetPath, inputStream, "image/jpeg", true);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+           return null;
         }
         return asset;
     }
@@ -1049,10 +1049,8 @@ public class DataMigrationService {
 
                 fragmentData.setValue(calendar);
                 element.setValue(fragmentData);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            } catch (ContentFragmentException e) {
-                e.printStackTrace();
+            } catch (ParseException | ContentFragmentException e) {
+                return false;
             }
             return true;
         }
