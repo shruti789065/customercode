@@ -313,7 +313,6 @@ async function sendData(logInData) {
     let submitBtn = document.querySelector("#submitBtnSignin");
     let loader = document.querySelector("#signinLoader");
     submitBtn.disabled = true;
-    resetLocalStorage();
     try {
         loader.classList.remove("d-none");
         loader.classList.add("d-block");
@@ -327,9 +326,6 @@ async function sendData(logInData) {
             body: JSON.stringify(logInData)
         });
         const dataResponse = await signIResponse.json();
-        if (dataResponse.AuthenticationResult?.AccessToken) {
-            localStorage.setItem("accessToken", dataResponse.AuthenticationResult?.AccessToken);
-        }
         return dataResponse;
     } catch (error) {
         console.log("ERROR: ", error);
@@ -340,13 +336,6 @@ async function sendData(logInData) {
     }
 }
 
-function resetLocalStorage() {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("token");
-    localStorage.removeItem("refresh_token");
-    localStorage.removeItem("remember_me");
-}
-
 function showAlert(message) {
     let alert = $("#alertBox");
     if (alert) {
@@ -354,21 +343,6 @@ function showAlert(message) {
         alert.show();
     }
 
-}
-
-function updateTokens(signInResponse, rememberCheck) {
-    localStorage.setItem("remember_me", rememberCheck);
-    if (rememberCheck) {
-        localStorage.setItem("token", signInResponse.AuthenticationResult.IdToken);
-        localStorage.setItem("refresh_token", signInResponse.AuthenticationResult.RefreshToken);
-    } else {
-        const ttl = signInResponse.AuthenticationResult.ExpiresIn;
-        const item = {
-            token: signInResponse.AuthenticationResult.IdToken,
-            expiry: ttl,
-        };
-        localStorage.setItem("token", JSON.stringify(item));
-    }
 }
 
 if (alertBtn) {
@@ -383,21 +357,19 @@ if (alertBtn) {
 if (signInForm) {
     signInForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-
+        const formData = new FormData(signInForm);
+        let remembrerMe = formData.get('rememberCheck') === "on" ? true : false;        
         let emailForm = document.querySelector("#emailField");
         let passForm = document.querySelector("#passField");
-        let rememberCheck = document.querySelector("#rememberCheck");
-
         let singIdData = {
             email: emailForm.value,
             password: passForm.value,
-        }
+            rememberMe: remembrerMe
+        }        
         const responseSig = await sendData(singIdData);
-
         if (responseSig.cognitoSignInErrorResponseDto?.message) {
             showAlert(responseSig.cognitoSignInErrorResponseDto?.message !== undefined ? responseSig.cognitoSignInErrorResponseDto.message : "Error");
         } else {
-            updateTokens(responseSig, rememberCheck.checked);
             const redirectUrl = sessionStorage.getItem('redirectUrl');
             document.location.href = redirectUrl;
         }

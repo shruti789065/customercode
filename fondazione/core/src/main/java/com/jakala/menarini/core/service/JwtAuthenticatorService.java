@@ -5,11 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.interfaces.RSAPublicKey;
 import java.util.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.jakala.menarini.core.exceptions.JwtServiceException;
+import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Jwk;
 import io.jsonwebtoken.security.Jwks;
@@ -17,6 +21,7 @@ import io.jsonwebtoken.security.SignatureException;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.core.spi.AuthenticationInfo;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -43,28 +48,38 @@ import com.jakala.menarini.core.dto.RoleDto;
     public class JwtAuthenticatorService implements AuthenticationHandler {
 
         private static final String AUTH_TYPE = "Bearer";
+        private static final String AUTH_COOKIE_NAME = "p-idToken";
         private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticatorService.class);
+
+        @Reference
+        private EncryptDataServiceInterface encryptDataService;
 
 
         protected void activate(Map<String, Object> properties) {
             //
         }
 
-        public Map<String, RoleDto[]> extractCredentialsForComponent(String token) {
-            JWTReader reader = new JWTReader();
-            JWT jwt = reader.read(token);
+        public Map<String, RoleDto[]> extractCredentialsForComponent(HttpServletRequest request) {
+            try {
+                String token = this.getToken(request);
+                JWTReader reader = new JWTReader();
+                JWT jwt = reader.read(token);
 
-            if (token == null || !isValidToken(token)) {
+                if (token == null || !isValidToken(token)) {
+                    return null;
+                }
+
+                String userEmail = jwt.getClaimsSet().getCustomField("email", String.class);
+                String userRolesStr = jwt.getClaimsSet().getCustomField("aemRoles", String.class);
+                Gson gson = new Gson();
+                RoleDto[] roles = gson.fromJson(userRolesStr, RoleDto[].class);
+                HashMap<String, RoleDto[]> authData = new HashMap<>();
+                authData.put(userEmail, roles);
+                return authData;
+            } catch (Exception e) {
                 return null;
             }
 
-            String userEmail = jwt.getClaimsSet().getCustomField("email", String.class);
-            String userRolesStr = jwt.getClaimsSet().getCustomField("aemRoles", String.class);
-            Gson gson = new Gson();
-            RoleDto[] roles = gson.fromJson(userRolesStr, RoleDto[].class);
-            HashMap<String, RoleDto[]> authData = new HashMap<String, RoleDto[]>();
-            authData.put(userEmail, roles);
-            return authData;
         }
     
         @Override
@@ -72,8 +87,6 @@ import com.jakala.menarini.core.dto.RoleDto;
             try {
                 LOGGER.info("Extracting credentials");
                 String token = this.getToken(request);
-                //LOGGER.info("Token: {}", token);
-
                 if (token == null || !isValidToken(token)) {
                     LOGGER.warn("Invalid or missing token");
                     sendUnauthorizedResponse(response);
@@ -108,8 +121,7 @@ import com.jakala.menarini.core.dto.RoleDto;
                 try {
                     sendUnauthorizedResponse(response);
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    LOGGER.error("Failed to send unauthorized response", e);
                 }
             } 
             return AuthenticationInfo.DOING_AUTH;
@@ -121,14 +133,23 @@ import com.jakala.menarini.core.dto.RoleDto;
         }
         
         private String getToken(HttpServletRequest request) throws Exception {
-            String authString = request.getHeader("Authorization");
-            if (authString == null || !authString.startsWith("Bearer ")) {
-                throw new Exception("Authorization header not found or not in the expected format");
+            String authString = null;
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (AUTH_COOKIE_NAME.equals(cookie.getName())) {
+                        authString = this.encryptDataService.decrypt(cookie.getValue());
+                    }
+                }
             }
-            return authString.substring(7);
+            if (authString == null) {
+                throw new JwtServiceException("Authorization header not found or not in the expected format");
+            }
+            return authString;
         }
     
         private boolean isValidToken(String token) {
+
             try {
                 JWTReader reader = new JWTReader();
                 JWT jwt = reader.read(token);
@@ -152,8 +173,6 @@ import com.jakala.menarini.core.dto.RoleDto;
 
                 final JsonObject jwkJsonObj = JsonParser.parseString(jwkString).getAsJsonObject();
                 String singleKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).toString();
-                //LOGGER.info("JWK JSON KEY 0: {}", singleKey);
-
 
                 final Jwk<?> jwk = Jwks.parser().build().parse(singleKey);
                 RSAPublicKey rsaKey = (RSAPublicKey)jwk.toKey();
@@ -174,7 +193,7 @@ import com.jakala.menarini.core.dto.RoleDto;
                     return false; // Manca username
                 }
                 return true;
-            } catch (Exception e) {
+            } catch (JwtException e) {
                 LOGGER.warn("Token validation failed", e);
                 return false;
             }
@@ -194,25 +213,27 @@ import com.jakala.menarini.core.dto.RoleDto;
         }
         
         private String getTokenJwk(String urlJwk) {
-            CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpGet httpGet = new HttpGet(urlJwk);
-            try(CloseableHttpResponse httpResponse = httpClient.execute(httpGet)) {
-                if(httpResponse.getStatusLine().getStatusCode() == 200 ) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    httpResponse.getEntity().getContent()));
+            try(CloseableHttpClient httpClient = HttpClients.createDefault()){
+                HttpGet httpGet = new HttpGet(urlJwk);
+                try(CloseableHttpResponse httpResponse = httpClient.execute(httpGet)) {
+                    if(httpResponse.getStatusLine().getStatusCode() == 200 ) {
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(
+                                httpResponse.getEntity().getContent()));
 
-                    String inputBuffer;
-                    StringBuffer jwkString = new StringBuffer();
+                        String inputBuffer;
+                        StringBuffer jwkString = new StringBuffer();
 
-                    while ((inputBuffer = reader.readLine()) != null) {
-                        jwkString.append(inputBuffer);
+                        while ((inputBuffer = reader.readLine()) != null) {
+                            jwkString.append(inputBuffer);
+                        }
+                        return jwkString.toString();
                     }
-                    return jwkString.toString();
-                }  
+                    return null;
+                } catch(IOException clientEx) {
+                    return null;
+                }
+            }catch (IOException e){
                 return null;
-            } catch(IOException clientEx) {
-                return null;
-            } 
+            }
         }
-
     }

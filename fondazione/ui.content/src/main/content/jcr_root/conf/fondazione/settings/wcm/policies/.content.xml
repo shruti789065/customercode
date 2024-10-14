@@ -577,25 +577,41 @@
                     </policy_69377665109750>
                 </banner-app-container>
             </banner-app>
-                        <banner-mobile-app jcr:primaryType="nt:unstructured">
+            <banner-mobile-app jcr:primaryType="nt:unstructured">
                 <banner-mobile-app-container jcr:primaryType="nt:unstructured">
                     <policy_1726061095737
-                        jcr:lastModified="{Date}2024-09-11T16:25:24.026+03:00"
+                        jcr:lastModified="{Date}2024-10-02T17:19:14.858+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Banner mobile app"
                         sling:resourceType="wcm/core/components/policy/policy"
                         backgroundImageEnabled="true"
                         components="/apps/fondazione/components/banner-mobile-app/banner-mobile-app-teaser"
-                        layoutDisabled="false">
+                        layoutDisabled="true">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_1726061095737>
                 </banner-mobile-app-container>
+                <banner-mobile-app-teaser jcr:primaryType="nt:unstructured">
+                    <policy_1727882700034
+                        jcr:lastModified="{Date}2024-10-02T17:37:42.394+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Banner mobile app teaser"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        actionsDisabled="true"
+                        allowedHeadingElements="[h1,h2,h3,h4,h5]"
+                        pretitleHidden="true"
+                        showTitleType="true"
+                        titleType="h2"
+                        imageDelegate="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1727882700034>
+                </banner-mobile-app-teaser>
             </banner-mobile-app>
             <horizontal-teaser jcr:primaryType="nt:unstructured">
                 <policy_1726149355415
                     cq:styleDefaultClasses="cmp-horizontal-teaser-left"
-                    jcr:lastModified="{Date}2024-09-12T17:10:54.012+03:00"
+                    jcr:lastModified="{Date}2024-10-02T15:43:10.003+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Horizontal Teaser"
@@ -607,18 +623,18 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
-                            cq:styleGroupLabel="Custom"
+                            cq:styleGroupLabel="Text Position"
                             jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleClasses="cmp-horizontal-teaser-left"
                                     cq:styleId="1726149359810"
-                                    cq:styleLabel="left"
+                                    cq:styleLabel="Text Left"
                                     jcr:primaryType="nt:unstructured"/>
                                 <item1
                                     cq:styleClasses="cmp-horizontal-teaser-right"
                                     cq:styleId="1726149422099"
-                                    cq:styleLabel="right"
+                                    cq:styleLabel="Text Right"
                                     jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
@@ -647,8 +663,8 @@
                         jcr:title="Card Grid Item"
                         sling:resourceType="wcm/core/components/policy/policy"
                         actionsDisabled="true"
-                        allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
-                        pretitleHidden="true"
+                        allowedHeadingElements="[h1,h2,h3,h4,h5]"
+                        pretitleHidden="false"
                         showTitleType="true"
                         titleType="h2">
                         <jcr:content jcr:primaryType="nt:unstructured"/>

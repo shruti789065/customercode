@@ -8,19 +8,6 @@ import java.util.*;
 
 public class SignUpDtoResponse  extends SignUpDto {
 
-    public static HashMap<String, String> MAPPING_MAPPING = new HashMap<>(
-            Map.ofEntries(
-                    new AbstractMap.SimpleEntry<String, String>("Algology", "1"),
-                    new AbstractMap.SimpleEntry<String, String>("AllergologyandClinicalImmunology", "2"),
-                    new AbstractMap.SimpleEntry<String, String>("AnaestesiaandIntensiveCare", "3"),
-                    new AbstractMap.SimpleEntry<String, String>("Analyst", "4"),
-                    new AbstractMap.SimpleEntry<String, String>("Andrology", "5"),
-                    new AbstractMap.SimpleEntry<String, String>("Biochemistry", "6"),
-                    new AbstractMap.SimpleEntry<String, String>("Cardiology", "7"),
-                    new AbstractMap.SimpleEntry<String, String>("Dentistry", "8")
-            )
-    );
-
     private CognitoSignInErrorResponseDto cognitoSignUpErrorResponseDto;
 
     private String UserConfirmed;
@@ -78,7 +65,6 @@ public class SignUpDtoResponse  extends SignUpDto {
 
     public void copyRegistrationData(SignUpDto sourceData, List<RoleDto> rolesData) {
         setEmail(sourceData.getEmail());
-        //setPassword(sourceData.getPassword());
         setRegistrationStatus(sourceData.getRegistrationStatus());
         setFirstName(sourceData.getFirstName());
         setLastName(sourceData.getLastName());
@@ -104,7 +90,7 @@ public class SignUpDtoResponse  extends SignUpDto {
             sourceData.getInterests().forEach(interest -> {
                 TopicDto topic = new TopicDto();
                 topic.setName(interest);
-                topic.setId(MAPPING_MAPPING.get(interest));
+                topic.setId(interest);
                 topics.add(topic);
             });
         }

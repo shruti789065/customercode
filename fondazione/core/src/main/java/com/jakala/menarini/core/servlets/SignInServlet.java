@@ -3,8 +3,9 @@ package com.jakala.menarini.core.servlets;
 import com.google.gson.Gson;
 import com.jakala.menarini.core.dto.cognitoDto.SignInDto;
 import com.jakala.menarini.core.dto.cognitoDto.SignInResponseDto;
-import com.jakala.menarini.core.dto.cognitoDto.SignUpDtoResponse;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
+import com.jakala.menarini.core.service.interfaces.CookieServiceInterface;
+import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
@@ -13,6 +14,7 @@ import org.osgi.service.component.annotations.Reference;
 
 import javax.servlet.Servlet;
 import java.io.IOException;
+import java.util.HashMap;
 
 @Component(
         service = {Servlet.class},
@@ -26,7 +28,11 @@ import java.io.IOException;
 public class SignInServlet extends SlingAllMethodsServlet {
 
     @Reference
-    private AwsCognitoServiceInterface awsCognitoService;
+    private transient AwsCognitoServiceInterface awsCognitoService;
+    @Reference
+    private transient CookieServiceInterface cookieService;
+    @Reference
+    private transient EncryptDataServiceInterface encryptDataService;
 
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
@@ -36,6 +42,14 @@ public class SignInServlet extends SlingAllMethodsServlet {
         String stringResponse = gson.toJson(awsResponse);
         if (awsResponse.getCognitoSignInErrorResponseDto() == null) {
             response.setContentType("application/json");
+            String idToken =  encryptDataService.encrypt(awsResponse.getCognitoAuthResultDto().getIdToken());
+            String accessToken = encryptDataService.encrypt(awsResponse.getCognitoAuthResultDto().getAccessToken());
+            String refreshToken = encryptDataService.encrypt(awsResponse.getCognitoAuthResultDto().getRefreshToken());
+            HashMap<String,String> mapCookie = new HashMap<>();
+            mapCookie.put("p-idToken", idToken);
+            mapCookie.put("p-aToken", accessToken);
+            mapCookie.put("p-rToken", refreshToken);
+            cookieService.setCookie(response,mapCookie, signInDto.getRememberMe());
             response.getWriter().println(stringResponse);
         } else {
             response.setContentType("application/json");

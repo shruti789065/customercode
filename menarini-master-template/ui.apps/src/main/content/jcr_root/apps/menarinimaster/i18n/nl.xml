@@ -8,4 +8,14 @@
             jcr:primaryType="nt:folder"
             sling:key="read more"
             sling:message="ONTDEK MEER"/>
+    <search_placeholder
+            jcr:mixinTypes="[sling:Message]"
+            jcr:primaryType="nt:folder"
+            sling:key="Search..."
+            sling:message="Zoeken..."/>
+    <search_button
+            jcr:mixinTypes="[sling:Message]"
+            jcr:primaryType="nt:folder"
+            sling:key="Search"
+            sling:message="Zoeken"/>
 </jcr:root>
