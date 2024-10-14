@@ -1,0 +1,9 @@
+{
+  "externalizer.domains":[
+    "production  $[env:AEM_EXTERNALIZER_PRODUCTION;default=http://localhost:8000]",
+    "local $[env:AEM_EXTERNALIZER_LOCAL;default=http://localhost:4502]",
+    "author $[env:AEM_EXTERNALIZER_AUTHOR;default=http://localhost:4502]",
+    "publish $[env:AEM_EXTERNALIZER_PUBLISH;default=http://localhost:4503]",
+    "preview $[env:AEM_EXTERNALIZER_PREVIEW;default=http://localhost:4503]"
+  ]
+}
