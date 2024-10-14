@@ -10,9 +10,9 @@
                   <option value="${topic.id}">${topic.name}</option>
                 </sly>
               </select>
-              <!-- Campo hidden che conterrà i valori concatenati -->
+              <!-- Hidden field to contain concatenated values -->
               <input type="hidden" name="topics" id="topicsHidden" value="">
-              <!-- div per mostrare le selezioni dei topics -->
+              <!-- Div to display selected topics -->
               <div id="selectedTopics" class="selected-topics"></div>
             </sly>
         </div>
@@ -20,25 +20,34 @@
         <label for="eventType">Event Type</label>
         <div class="select-wrapper">
             <select name="eventType" size="1">
-                <option value="">-</option>
-                <option value="event">Event</option>
-                <option value="course">Course</option>
+                <option value="-">-</option>
+                <sly data-sly-list.eventSelection="${model.eventSelections}">
+                    <option value="${eventSelection.id}">${eventSelection.name}</option>
+                </sly>
             </select>
-        </div>  
+        </div> 
 
         <label for="location">Location</label>
         <div class="select-wrapper">
             <sly data-sly-use.modelC="com.jakala.menarini.core.models.CityListingModel">
-                <select name="location" size="5">
-                    <sly data-sly-list.city="${modelC.cities}">
-                        <option value="${city.id}">${city.name}</option>
-                    </sly>
-                </select>
+            <select name="location" size="1">
+                <option value="-">-</option>
+                <sly data-sly-list.city="${modelC.cities}">
+                    <option value="${city.id}">${city.name}</option>
+                </sly>
+            </select>
             </sly>
         </div>
     
         <label for="dateOrPeriod">Date or Period</label>
-        <input type="text" id="dateOrPeriod" name="dateOrPeriod" placeholder="Seleziona data o intervallo di date"/>
+        <input type="text" id="dateOrPeriod" name="dateOrPeriod" placeholder="Select date or date range"/>
+
+        <!-- New section for Scheduled and Finished Events buttons -->
+        <div class="event-status-buttons" style="text-align: center; margin-bottom: 20px;">
+            <button type="button" id="scheduledEventsButton">Scheduled Events</button>
+            <button type="button" id="finishedEventsButton">Finished Events</button>
+            <input type="hidden" name="eventStatus" id="eventStatusHidden" value="">
+        </div>
     
         <div style="text-align: center; margin-bottom: 20px;">
             <button type="submit">Apply Filters</button>
@@ -64,12 +73,12 @@
     </div>
     <p data-sly-test="${!model.events}">No events found.</p>
 
-    <!-- Informazioni sulla paginazione -->
+    <!-- Pagination information -->
     <div class="pagination-info">
         <p>Showing ${model.startIndex} to ${model.endIndex} of ${model.totalResults} results</p>
     </div>
 
-    <!-- Controlli di paginazione -->
+    <!-- Pagination controls -->
     <div class="pagination-controls" 
          data-current-page="${model.currentPage}" 
          data-total-pages="${model.totalPages}" 
@@ -101,7 +110,6 @@
         display: block !important;
         width: 100% !important;
         height: auto !important;
-        /*min-height: 120px !important;*/
         max-height: 200px !important;
         overflow-y: auto !important;
         padding: 8px !important;
@@ -218,14 +226,15 @@
             dateFormat: 'Y-m-d'
         });
     });
+
     function changePage(pageNumber) {
-        // Ottiene i parametri correnti
+        // Get current parameters
         const urlParams = new URLSearchParams(window.location.search);
         
-        // Aggiorna il numero di pagina
+        // Update page number
         urlParams.set('page', pageNumber);
         
-        // Mantiene gli altri parametri di filtro
+        // Keep other filter parameters
         const form = document.querySelector('.filter-form');
         const formData = new FormData(form);
         for (let [key, value] of formData.entries()) {
@@ -234,16 +243,16 @@
             }
         }
         
-        // Aggiorna l'URL e ricarica la pagina
+        // Update URL and reload page
         window.location.search = urlParams.toString();
     }
 
-    // Funzione per gestire il submit del form di filtro
+    // Function to handle filter form submission
     document.querySelector('.filter-form').addEventListener('submit', function(e) {
         e.preventDefault();
         
         const urlParams = new URLSearchParams();
-        urlParams.set('page', 1); // Resetta alla prima pagina quando si applicano i filtri
+        urlParams.set('page', 1); // Reset to first page when filters are applied
         
         const formData = new FormData(this);
         for (let [key, value] of formData.entries()) {
@@ -259,19 +268,19 @@
         const select = document.getElementById('topicsSelect');
         const hiddenInput = document.getElementById('topicsHidden');
         const selectedTopicsDiv = document.getElementById('selectedTopics');
-        const selectedValues = new Set(); // Uso Set per evitare duplicati
+        const selectedValues = new Set(); // Use Set to avoid duplicates
 
-        // Gestione della selezione
+        // Handle selection
         select.addEventListener('change', function(e) {
             const options = e.target.options;
             
-            // Pulisce il Set
+            // Clear the Set
             selectedValues.clear();
 
-            // Array per tenere traccia sia dei valori che dei testi
+            // Array to keep track of both values and texts
             let selectedTexts = [];
             
-            // Aggiunge tutti i valori selezionati al Set
+            // Add all selected values to the Set
             for (let option of options) {
                 if (option.selected) {
                     selectedValues.add(option.value);
@@ -279,22 +288,43 @@
                 }
             }
 
-            // Aggiorna l'input hidden con i valori concatenati
+            // Update hidden input with concatenated values
             hiddenInput.value = Array.from(selectedValues).join(',');
 
-            // Aggiorna la visualizzazione delle selezioni
+            // Update display of selected topics
             selectedTopicsDiv.innerHTML = selectedTexts.length > 0 ? 
                 'Selected: ' + selectedTexts.join(', ') : 
                 'No topics selected';
         });
 
-        // Intercetta il submit del form
+        // Intercept form submission
         const form = select.closest('form');
         if (form) {
             form.addEventListener('submit', function(e) {
                 hiddenInput.value = Array.from(selectedValues).join(',');
             });
         }
+
+        // Handle event status buttons
+        const scheduledButton = document.getElementById('scheduledEventsButton');
+        const finishedButton = document.getElementById('finishedEventsButton');
+        const eventStatusHidden = document.getElementById('eventStatusHidden');
+
+        scheduledButton.addEventListener('click', function() {
+            eventStatusHidden.value = 'scheduled';
+            scheduledButton.classList.add('active');
+            finishedButton.classList.remove('active');
+            finishedButton.style.setProperty('background-color', 'gray', 'important');
+            scheduledButton.style.setProperty('background-color', '', 'important');
+        });
+
+        finishedButton.addEventListener('click', function() {
+            eventStatusHidden.value = 'finished';
+            finishedButton.classList.add('active');
+            scheduledButton.classList.remove('active');
+            scheduledButton.style.setProperty('background-color', 'gray', 'important');
+            finishedButton.style.setProperty('background-color', '', 'important');
+        });
     });
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
