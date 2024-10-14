@@ -45,7 +45,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     private RoleServiceInterface roleService;
 
 
-    private static final HashMap<String,String> MAP_PROFESSION_TO_ROLE;
+    private static final Map<String,String> MAP_PROFESSION_TO_ROLE;
     static {
         MAP_PROFESSION_TO_ROLE  = new HashMap<>();
         MAP_PROFESSION_TO_ROLE .put("Biologist", "UserHealthCare");
