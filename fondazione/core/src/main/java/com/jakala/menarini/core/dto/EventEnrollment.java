@@ -17,7 +17,7 @@ public class EventEnrollment implements Serializable {
 	private Timestamp createdOn;
 
 	@Field(name="in_person_participation_date_list")
-	private Object inPersonParticipationDateList;
+	private transient Object inPersonParticipationDateList;
 
 	@Field(name="is_live_stream")
 	private String isLiveStream;
