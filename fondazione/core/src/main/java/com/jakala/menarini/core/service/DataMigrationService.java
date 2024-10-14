@@ -1,6 +1,7 @@
 package com.jakala.menarini.core.service;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -18,14 +19,18 @@ import com.adobe.cq.dam.cfm.ContentVariation;
 import com.adobe.cq.dam.cfm.FragmentData;
 import com.adobe.cq.dam.cfm.FragmentTemplate;
 import com.adobe.cq.dam.cfm.VariationDef;
+import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
+import com.jakala.menarini.core.exceptions.RowProcessException;
 import com.jakala.menarini.core.models.ModelHelper;
+import com.jakala.menarini.core.service.interfaces.FileReaderServiceInterface;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -55,7 +60,27 @@ public class DataMigrationService {
     @Reference
     private SlingRepository slingRepository;
 
-    private static final Logger LOG = LoggerFactory.getLogger(DataMigrationService.class);
+    @Reference
+    private FileReaderServiceInterface fileReaderService;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataMigrationService.class);
+
+    private static final String EVENTS = "events";
+    private static final String CITIES = "cities";
+    private static final String NATIONS = "nations";
+    private static final String SUB_TYPES = "subscriptiontypes";
+    private static final String SPEAKERS = "speakers";
+    private static final String MEDIA = "media";
+    private static final String TOPICS = "topics";
+    private static final String SUPPLIERS = "suppliers";
+    private static final String SPEAK_IMAGES = "speakerimages";
+    private static final String EVENT_IMAGES = "eventimages";
+
+    private static final String NAME_IT = "name_it";
+    private static final String NAME_EN = "name_en";
+    private static final String PATH_SEPARATOR = "/";
+
+
 
     private static final String SERVICE = "data-migration-service";
     private static final String CSV_PATH = "/csv/";
@@ -63,8 +88,8 @@ public class DataMigrationService {
     private static final String EVENT_IMAGES_PATH = "/eventImages/";
     private static final String ROOT_DATA = "/content/dam/fondazione";
     private static final String BASE_MODEL = "/conf/fondazione/settings/dam/cfm/models";
-    private static final String[] OBJECTS = {"events", "cities", "nations", "subscriptiontypes", "speakers", "media", "topics", "speakerimages", "eventimages", "suppliers"};
-
+    private static final String[] OBJECTS = {EVENTS, CITIES, NATIONS, SUB_TYPES, SPEAKERS, MEDIA, TOPICS, SPEAK_IMAGES, EVENT_IMAGES, SUPPLIERS};
+    private static final String TEMPLATE_NOT_FOUND = "Template not found: ";
 
     private static String eventModelPath = BASE_MODEL + "/event";
     private static String eventParentPath = ROOT_DATA + "/events";
@@ -98,8 +123,8 @@ public class DataMigrationService {
     private static String[] eventTopicsSingleFields = {"id", "ref_topics"};
     private static final Map<String, Object> eventTopicsFieldIndexMap = new HashMap<>();
     static {
-        eventTopicsFieldIndexMap.put("id", 2);
-        eventTopicsFieldIndexMap.put("topics", 1);
+        eventTopicsFieldIndexMap.put("id", 0);
+        eventTopicsFieldIndexMap.put(TOPICS, 1);
         eventTopicsFieldIndexMap.put("ref_topics", "/content/dam/fondazione/topics/");
     }
     private static String eventImagesParentPath = ROOT_DATA + "/images/events";
@@ -206,27 +231,27 @@ public class DataMigrationService {
             queryManager = resolver.adaptTo(Session.class).getWorkspace().getQueryManager();
 
             if (object == null || object.isBlank()) {
-                if (!Arrays.asList(exclusionList).contains("topics")) {
+                if (!Arrays.asList(exclusionList).contains(TOPICS)) {
                     migrateTopics(resolver);
                     Thread.sleep(2000); // Wait for 2 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("suppliers")) {
+                if (!Arrays.asList(exclusionList).contains(SUPPLIERS)) {
                     migrateSuppliers(resolver);
                     Thread.sleep(2000); // Wait for 2 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("nations")) {
+                if (!Arrays.asList(exclusionList).contains(NATIONS)) {
                     migrateNations(resolver);
                     Thread.sleep(2000); // Wait for 2 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("subscriptiontypes")) {
+                if (!Arrays.asList(exclusionList).contains(SUB_TYPES)) {
                     migrateSubscriptionTypes(resolver);
                     Thread.sleep(2000); // Wait for 2 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("cities")) {
+                if (!Arrays.asList(exclusionList).contains(CITIES)) {
                     migrateCities(resolver); // nations
                     Thread.sleep(2000); // Wait for 2 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("events")) {
+                if (!Arrays.asList(exclusionList).contains(EVENTS)) {
                     migrateEvents(resolver); // subscriptionTypes cities nations
                     try {
                         connectEventsTopics(resolver);
@@ -236,52 +261,52 @@ public class DataMigrationService {
                     }
                     Thread.sleep(2000); // Wait for 2 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("speakers")) {
+                if (!Arrays.asList(exclusionList).contains(SPEAKERS)) {
                     migrateSpeakers(resolver);
                     Thread.sleep(5000); // Wait for 5 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("media")) {
+                if (!Arrays.asList(exclusionList).contains(MEDIA)) {
                     migrateMedia(resolver); // speakers topics events
                     Thread.sleep(5000); // Wait for 5 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("speakerimages")) {
+                if (!Arrays.asList(exclusionList).contains(SPEAK_IMAGES)) {
                     loadLinkSpeakerImages(resolver);
                     Thread.sleep(5000); // Wait for 5 seconds
                 }
-                if (!Arrays.asList(exclusionList).contains("eventimages")) {
+                if (!Arrays.asList(exclusionList).contains(EVENT_IMAGES)) {
                     loadLinkEventImages(resolver); 
                 }
             } else if (Arrays.asList(OBJECTS).contains(object.toLowerCase())) {
                 switch (object.toLowerCase()) {
-                    case "events":
+                    case EVENTS:
                         migrateEvents(resolver); // subscriptionTypes cities nations suppliers
                         connectEventsTopics(resolver);
                         break;
-                    case "suppliers":
+                    case SUPPLIERS:
                         migrateSuppliers(resolver);
                         break;
-                    case "cities":
+                    case CITIES:
                         migrateCities(resolver); // nations
                         break;
-                    case "nations":
+                    case NATIONS:
                         migrateNations(resolver);
                         break;
-                    case "subscriptiontypes":
+                    case SUB_TYPES:
                         migrateSubscriptionTypes(resolver);
                         break;
-                    case "speakers":
+                    case SPEAKERS:
                         migrateSpeakers(resolver);
                         break;
-                    case "media":
+                    case MEDIA:
                         migrateMedia(resolver); // speakers topics events
                         break;
-                    case "topics":
+                    case TOPICS:
                         migrateTopics(resolver);
                         break;
-                    case "speakerimages":
+                    case SPEAK_IMAGES:
                         loadLinkSpeakerImages(resolver);
                         break;
-                    case "eventimages":
+                    case EVENT_IMAGES:
                         loadLinkEventImages(resolver);
                         break;
                     default:
@@ -308,21 +333,24 @@ public class DataMigrationService {
                 currentResolver.delete(resource);
             }
             currentResolver.commit();
-            LOG.info("All fragments removed from: " + currentParentPath);
+            LOGGER.info("All fragments removed from: {}", currentParentPath);
         } else {
-            LOG.warn("Parent path does not exist: " + currentParentPath);
+            LOGGER.warn("Parent path does not exist: {}", currentParentPath);
         }
     }
 
     /**
      * Migrates suppliers data from CSV to Content Fragments.
+     * @throws IOException 
+     * @throws ContentFragmentException 
+     * @throws RepositoryException 
      */
-    private static void migrateSuppliers(ResourceResolver currentResolver) throws Exception {
+    private void migrateSuppliers(ResourceResolver currentResolver) throws IOException, RepositoryException, ContentFragmentException {
 
         Resource modelResource = currentResolver.getResource(supplierModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + supplierModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + supplierModelPath);
         }
 
         appendRef = false;
@@ -332,7 +360,7 @@ public class DataMigrationService {
         currentFieldIndexMap = supplierFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "fornitori.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "fornitori.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -364,13 +392,16 @@ public class DataMigrationService {
 
     /**
      * Migrates topic data from CSV to Content Fragments.
+     * @throws IOException 
+     * @throws ContentFragmentException 
+     * @throws RepositoryException 
      */
-    private static void migrateTopics(ResourceResolver currentResolver) throws Exception {
+    private void migrateTopics(ResourceResolver currentResolver) throws IOException, RepositoryException, ContentFragmentException {
 
         Resource modelResource = currentResolver.getResource(topicModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + topicModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + topicModelPath);
         }
 
         appendRef = false;
@@ -380,7 +411,7 @@ public class DataMigrationService {
         currentFieldIndexMap = topicFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "topics.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "topics.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -394,8 +425,8 @@ public class DataMigrationService {
                 String[] fields = parseCsvLine(line);
 
                 currentVariationData = new HashMap<>();
-                currentVariationData.put("name_it", fields[1]);
-                currentVariationData.put("name_en", fields[2]);
+                currentVariationData.put(NAME_IT, fields[1]);
+                currentVariationData.put(NAME_EN, fields[2]);
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource, currentResolver);
 
@@ -414,12 +445,15 @@ public class DataMigrationService {
 
     /**
      * Migrates speaker data from CSV to Content Fragments.
+     * @throws IOException 
+     * @throws ContentFragmentException 
+     * @throws RepositoryException 
      */
-    private static void migrateSpeakers(ResourceResolver currentResolver) throws Exception {
+    private void migrateSpeakers(ResourceResolver currentResolver) throws IOException, RepositoryException, ContentFragmentException {
         Resource modelResource = currentResolver.getResource(speakerModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + speakerModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + speakerModelPath);
         }
 
         appendRef = false;
@@ -429,7 +463,7 @@ public class DataMigrationService {
         currentFieldIndexMap = speakerFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "speakers.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "speakers.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -463,12 +497,15 @@ public class DataMigrationService {
 
     /**
      * Migrates nation data from CSV to Content Fragments.
+     * @throws IOException 
+     * @throws ContentFragmentException 
+     * @throws RepositoryException 
      */
-    private static void migrateNations(ResourceResolver currentResolver) throws Exception {
+    private void migrateNations(ResourceResolver currentResolver) throws IOException, RepositoryException, ContentFragmentException {
         Resource modelResource = currentResolver.getResource(nationModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + nationModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + nationModelPath);
         }
 
         appendRef = false;
@@ -478,7 +515,7 @@ public class DataMigrationService {
         currentFieldIndexMap = nationFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "nazioni.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "nazioni.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -492,8 +529,8 @@ public class DataMigrationService {
                 String[] fields = parseCsvLine(line);
 
                 currentVariationData = new HashMap<>();
-                currentVariationData.put("name_it", fields[1]);
-                currentVariationData.put("name_en", fields[2]);
+                currentVariationData.put(NAME_IT, fields[1]);
+                currentVariationData.put(NAME_EN, fields[2]);
 
                 processCsvRow(fields, fields[0], fields[1], template, parentResource, currentResolver);
                 
@@ -512,8 +549,11 @@ public class DataMigrationService {
 
     /**
      * Migrates city data from CSV to Content Fragments.
+     * @throws RepositoryException 
+     * @throws IOException 
+     * @throws ContentFragmentException 
      */
-    private static void migrateCities(ResourceResolver currentResolver) throws Exception {
+    private void migrateCities(ResourceResolver currentResolver) throws RepositoryException, IOException, ContentFragmentException {
 
         if (!checkReferencesExist("/content/dam/fondazione/nations", currentResolver)) {
             throw new RepositoryException("Missing references. Migrate nations before cities.");
@@ -522,7 +562,7 @@ public class DataMigrationService {
         Resource modelResource = currentResolver.getResource(cityModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + cityModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + cityModelPath);
         }
 
         appendRef = false;
@@ -532,7 +572,7 @@ public class DataMigrationService {
         currentFieldIndexMap = cityFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "citta.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "citta.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -546,8 +586,8 @@ public class DataMigrationService {
                 String[] fields = parseCsvLine(line);
 
                 currentVariationData = new HashMap<>();
-                currentVariationData.put("name_it", fields[2]);
-                currentVariationData.put("name_en", fields[3]);
+                currentVariationData.put(NAME_IT, fields[2]);
+                currentVariationData.put(NAME_EN, fields[3]);
 
                 processCsvRow(fields, fields[0], fields[2], template, parentResource, currentResolver);
                 
@@ -566,8 +606,11 @@ public class DataMigrationService {
 
     /**
      * Migrates event data from CSV to Content Fragments.
+     * @throws RepositoryException 
+     * @throws IOException 
+     * @throws ContentFragmentException 
      */
-    private static void migrateEvents(ResourceResolver currentResolver) throws Exception {
+    private void migrateEvents(ResourceResolver currentResolver) throws RepositoryException, IOException, ContentFragmentException {
 
         if (!checkReferencesExist("/content/dam/fondazione/nations", currentResolver) ||
             !checkReferencesExist("/content/dam/fondazione/cities", currentResolver) ||
@@ -579,7 +622,7 @@ public class DataMigrationService {
         Resource modelResource = currentResolver.getResource(eventModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + eventModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + eventModelPath);
         }
 
         appendRef = false;
@@ -589,7 +632,7 @@ public class DataMigrationService {
         currentFieldIndexMap = eventFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "events.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "events.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -627,12 +670,15 @@ public class DataMigrationService {
     
     /**
      * Migrates subscription data from CSV to Content Fragments.
+     * @throws IOException 
+     * @throws ContentFragmentException 
+     * @throws RepositoryException 
      */
-    private static void migrateSubscriptionTypes(ResourceResolver currentResolver) throws Exception {
+    private void migrateSubscriptionTypes(ResourceResolver currentResolver) throws IOException, RepositoryException, ContentFragmentException {
         Resource modelResource = currentResolver.getResource(subscriptionModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + subscriptionModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + subscriptionModelPath);
         }
 
         appendRef = false;
@@ -642,7 +688,7 @@ public class DataMigrationService {
         currentFieldIndexMap = subscriptionFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "subscriptions.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "subscriptions.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -676,13 +722,16 @@ public class DataMigrationService {
 
     /**
      * Connects events with their corresponding topics.
+     * @throws IOException 
+     * @throws ContentFragmentException 
+     * @throws RepositoryException 
      */
-    private static void connectEventsTopics(ResourceResolver currentResolver) throws Exception {
+    private void connectEventsTopics(ResourceResolver currentResolver) throws IOException, RepositoryException, ContentFragmentException {
 
         Resource modelResource = currentResolver.getResource(eventModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + eventModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + eventModelPath);
         }
 
         appendRef = true;
@@ -691,7 +740,7 @@ public class DataMigrationService {
         currentFieldIndexMap = eventTopicsFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "events_topics.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "events_topics.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -705,7 +754,7 @@ public class DataMigrationService {
 
                 currentVariationData = new HashMap<>();
 
-                processCsvRow(fields, fields[2], null, template, parentResource, currentResolver);
+                processCsvRow(fields, fields[0], null, template, parentResource, currentResolver);
                 
             }
         } finally {
@@ -720,7 +769,7 @@ public class DataMigrationService {
     /**
      * Migrates topic data from CSV to Content Fragments.
      */
-    private static void migrateMedia(ResourceResolver currentResolver) throws Exception {
+    private void migrateMedia(ResourceResolver currentResolver) throws Exception {
 
         if (!checkReferencesExist("/content/dam/fondazione/speakers", currentResolver) ||
             !checkReferencesExist("/content/dam/fondazione/topics", currentResolver) ||
@@ -732,7 +781,7 @@ public class DataMigrationService {
         Resource modelResource = currentResolver.getResource(mediaModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + mediaModelPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + mediaModelPath);
         }
 
         appendRef = false;
@@ -742,7 +791,7 @@ public class DataMigrationService {
         currentFieldIndexMap = mediaFieldIndexMap;
         Resource parentResource = ensureFolderExists(currentResolver);
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(CSV_PATH + "media.csv");
+        try (InputStream inputStream = fileReaderService.getFileAsStream(CSV_PATH + "media.csv");
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
@@ -764,7 +813,7 @@ public class DataMigrationService {
                 try {
                     processCsvRow(fields, fields[0], fields[5], template, parentResource, currentResolver);
                 } catch (Exception e) {
-                    throw new Exception("Id: " + fields[0], e);
+                    throw new RowProcessException("Id: " + fields[0], e);
                 }
 
                 count++;
@@ -782,8 +831,11 @@ public class DataMigrationService {
 
     /**
      * Loads speaker images from a specified directory and links them to speaker content fragments.
+     * @throws RepositoryException 
+     * @throws PersistenceException 
+     * @throws ContentFragmentException 
      */
-    private static void loadLinkSpeakerImages(ResourceResolver currentResolver) throws Exception {
+    private void loadLinkSpeakerImages(ResourceResolver currentResolver) throws RepositoryException, PersistenceException, ContentFragmentException {
 
         if (!checkReferencesExist("/content/dam/fondazione/speakers", currentResolver)) {
             throw new RepositoryException("Migrate speakers before loading images.");
@@ -797,11 +849,15 @@ public class DataMigrationService {
         Resource modelResource = currentResolver.getResource(speakerModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + speakerParentPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + speakerParentPath);
         }
 
         currentParentPath = speakerParentPath;
         Resource parentResource = ensureFolderExists(currentResolver);
+        if (parentResource == null) {
+            throw new IllegalStateException("Parent resource could not be created or retrieved.");
+        }
+
         String replace = ".PhotoContent";
 
         Asset defaultAsset = loadAsset("default.PhotoContent.png", SPEAKER_IMAGES_PATH, speakerImagesParentPath, replace, assetManager, currentResolver);
@@ -829,7 +885,7 @@ public class DataMigrationService {
             }
 
             String assetReference = asset.getPath();
-            ContentElement photoElement = cfm.getElement("foto");
+            ContentElement photoElement = cfm.getElement("photo");
             if (photoElement != null) {
                 photoElement.setContent(assetReference, photoElement.getContentType());
                 currentResolver.commit();
@@ -839,8 +895,11 @@ public class DataMigrationService {
 
     /**
      * Loads event images from a specified directory and links them to event content fragments.
+     * @throws RepositoryException 
+     * @throws PersistenceException 
+     * @throws ContentFragmentException 
      */
-    private static void loadLinkEventImages(ResourceResolver currentResolver) throws Exception {
+    private void loadLinkEventImages(ResourceResolver currentResolver) throws RepositoryException, PersistenceException, ContentFragmentException {
 
         if (!checkReferencesExist("/content/dam/fondazione/events", currentResolver)) {
             throw new RepositoryException("Migrate events before loading images.");
@@ -854,11 +913,15 @@ public class DataMigrationService {
         Resource modelResource = currentResolver.getResource(eventModelPath);
         FragmentTemplate template = modelResource.adaptTo(FragmentTemplate.class);
         if (template == null) {
-            throw new IllegalArgumentException("Template not found: " + speakerParentPath);
+            throw new IllegalArgumentException(TEMPLATE_NOT_FOUND + speakerParentPath);
         }
 
         currentParentPath = eventParentPath;
         Resource parentResource = ensureFolderExists(currentResolver);
+        if (parentResource == null) {
+            throw new IllegalStateException("Parent resource could not be created or retrieved.");
+        }
+
         String replace = ".FileContent";
 
         Iterator<Resource> fragments = parentResource.listChildren();
@@ -894,9 +957,9 @@ public class DataMigrationService {
      * If the asset does not exist in the repository, it attempts to create it.
      */
     @SuppressWarnings("deprecation")
-    private static Asset loadAsset(String fileName, String fromPath, String toPath, String replace, AssetManager assetManager, ResourceResolver currentResolver) {
+    private Asset loadAsset(String fileName, String fromPath, String toPath, String replace, AssetManager assetManager, ResourceResolver currentResolver) {
         Asset asset = null;
-        String assetPath = toPath + "/" + fileName.replace(replace, "");
+        String assetPath = Paths.get(toPath, fileName.replace(replace, "")).toString();
         Resource assetResource = currentResolver.getResource(assetPath);
         
         if (assetResource != null) {
@@ -904,27 +967,40 @@ public class DataMigrationService {
             return asset;
         }
 
-        try (InputStream inputStream = DataMigrationService.class.getClassLoader().getResourceAsStream(fromPath + fileName)) {
+        try (InputStream inputStream = fileReaderService.getFileAsStream(fromPath + fileName)) {
             if (inputStream != null) {
                 asset = assetManager.createAsset(assetPath, inputStream, "image/jpeg", true);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Failed to load asset: " + fileName, e);
         }
         return asset;
     }
 
     /**
-     * Processes a single row from the CSV file and creates or updates a Content Fragment.
+     * Processes a CSV row and performs creates or updates a Content Fragment.
+     *
+     * @param fields          An array of strings representing the fields in the CSV row.
+     * @param id              The unique identifier for the content fragment.
+     * @param name            The name of the content fragment.
+     * @param template        The fragment template used to create new content fragments.
+     * @param parentResource  The parent resource under which the content fragment will be created.
+     * @param currentResolver The resource resolver used to access and modify resources.
+     * @throws RepositoryException 
+     * @throws ContentFragmentException 
+     * @throws Exception      If an error occurs during the processing of the CSV row.
+     *
+     * This method logs the ID and name, attempts to find an existing content fragment by ID,
+     * and creates a new content fragment if it does not exist and the name is provided.
+     * It then updates the fields of the content fragment and its variations.
      */
-    private static void processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource, ResourceResolver currentResolver) throws Exception {
+    private static void processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource, ResourceResolver currentResolver) throws RepositoryException, ContentFragmentException {
 
-        LOG.info("ID: " + id + " Name: " + name);
+        LOGGER.info("ID: {} Name: {}", id, name);
             
         ContentFragment cfm = ModelHelper.findFragmentById(currentResolver, id, currentParentPath);
         
-        if (cfm == null && name != null) { //controllo per i job di associazione che non devono creare fragments
-            // cfm = template.createFragment(parentResource, slugify(id, name), name);
+        if (cfm == null && name != null) { // check for association jobs that should not create fragments
             cfm = template.createFragment(parentResource, slugify(name), name);
         } 
 
@@ -936,14 +1012,13 @@ public class DataMigrationService {
         
         updateContentFragmentVariations(cfm);
 
-        // aggiunto commit ogni 100 elementi nel chiamante
-        // currentResolver.commit();
     }
 
     /**
      * Updates Content Fragment variations for different languages.
+     * @throws ContentFragmentException 
      */
-    private static void updateContentFragmentVariations(ContentFragment cfm) throws Exception {
+    private static void updateContentFragmentVariations(ContentFragment cfm) throws ContentFragmentException {
         String[] languages = {"it", "en"};
         
         for (String language : languages) {
@@ -1011,9 +1086,9 @@ public class DataMigrationService {
 
                     FragmentData fragmentData = elementRef.getValue();
                     Object elementContent = fragmentData.getValue();
-                    boolean isArray = elementContent == null ? false : elementContent.getClass().isArray();
+                    boolean isArray = elementContent != null && elementContent.getClass().isArray();
                     List<String> oldVals = null;
-                    if (elementContent != null && elementContent instanceof String[] && ((String[])elementContent).length > 0) {
+                    if (elementContent instanceof String[] && ((String[])elementContent).length > 0) {
                         oldVals = new ArrayList<>(Arrays.asList((String[])elementContent));
                     } else {
                         oldVals = new ArrayList<>();
@@ -1050,10 +1125,10 @@ public class DataMigrationService {
                 fragmentData.setValue(calendar);
                 element.setValue(fragmentData);
             } catch (ParseException e) {
-                e.printStackTrace();
+                LOGGER.error("{} is not a valid date", val);
             } catch (ContentFragmentException e) {
-                e.printStackTrace();
-            }
+                LOGGER.error("Error setting date value", e);
+            } 
             return true;
         }
         return false;
@@ -1093,16 +1168,16 @@ public class DataMigrationService {
         Resource prevPath = null;
         if (folderResource == null) {
             String parentPath = StringUtils.remove(currentParentPath, ROOT_DATA);
-            String[] parts = parentPath.split("/");
+            String[] parts = parentPath.split(PATH_SEPARATOR);
             StringBuilder pathBuilder = new StringBuilder();
             pathBuilder.append(ROOT_DATA);
             for (String part : parts) {
-                pathBuilder.append(part).append("/");
+                pathBuilder.append(part).append(PATH_SEPARATOR);
                 String currentPath = pathBuilder.toString();
                 Resource currentResource = currentResolver.getResource(currentPath);
                 if ( currentResource == null) {
                     Map<String, Object> properties = new HashMap<>();
-                    properties.put("jcr:primaryType", "nt:folder");
+                    properties.put(JcrConstants.JCR_PRIMARYTYPE, JcrConstants.NT_FOLDER);
                     folderResource = currentResolver.create(prevPath, part, properties);
                     prevPath = folderResource;
                 } else {
@@ -1117,8 +1192,9 @@ public class DataMigrationService {
 
     /**
      * Retrieves a ResourceResolver for the data migration service.
+     * @throws LoginException 
      */
-    private ResourceResolver getResourceResolver() throws Exception {
+    private ResourceResolver getResourceResolver() throws LoginException {
         Map<String, Object> param = new HashMap<>();
         param.put(ResourceResolverFactory.SUBSERVICE, SERVICE);
         return resolverFactory.getServiceResourceResolver(param);
@@ -1146,9 +1222,10 @@ public class DataMigrationService {
 
     /**
      * Find the fragment by id field
+     * @throws RepositoryException 
      */
     public ContentFragment findFragmentByIdOld(String id, String path, ResourceResolver currentResolver) throws RepositoryException {
-        String queryStr = "SELECT * FROM [dam:Asset] AS s WHERE ISDESCENDANTNODE(s, '" + path + "') AND s.[jcr:content/data/master/id] = '" + id + "'";
+        String queryStr = "SELECT * FROM [dam:Asset] AS s WHERE ISDESCENDANTNODE(s, '" + path + "') AND s.[" + JcrConstants.JCR_CONTENT + "/data/master/id] = '" + id + "'";
 
         Query query = queryManager.createQuery(queryStr, Query.JCR_SQL2);
         QueryResult result = query.execute();
@@ -1156,8 +1233,8 @@ public class DataMigrationService {
         while (result.getRows().hasNext()) {
             String nodePath = result.getRows().nextRow().getPath();
             // using s.[jcr:content/data/master/id] instead of s.[id] in the query returns only the master, the statement below might be unnecessary
-            if (nodePath.contains("/jcr:content/")) {
-                nodePath = nodePath.substring(0, nodePath.indexOf("/jcr:content"));
+            if (nodePath.contains(PATH_SEPARATOR + JcrConstants.JCR_CONTENT + PATH_SEPARATOR)) {
+                nodePath = nodePath.substring(0, nodePath.indexOf(PATH_SEPARATOR + JcrConstants.JCR_CONTENT));
             }
             Resource fragmentResource = currentResolver.getResource(nodePath);
 
