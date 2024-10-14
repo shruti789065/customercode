@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Topic Content List"
+    componentGroup="Fondazione - Content"
+    sling:resourceType="fondazione/components/topics/topics-list">
+
+    <cq:dialog
+        jcr:primaryType="cq:Dialog"
+        xmlns:cq="http://www.day.com/jcr/cq/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        cq:dialogMode="edit"
+    >
+
+        <content jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+
+            <items jcr:primaryType="nt:unstructured">
+
+                <parentPath
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                    fieldLabel="Parent Path"
+                    name="./parentPath"
+                    rootPath="/content/dam/fondazione/topics"
+                    required="{Boolean}true"
+                    emptyText="Select a parent path" />
+
+            </items>
+        </content>
+
+    </cq:dialog>
+</jcr:root>
