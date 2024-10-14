@@ -1,0 +1,15 @@
+<section class="topics-container">
+  <sly data-sly-test="${properties['jcr:title']}">
+    <h2 class="topics-container__title">${properties['jcr:title']}</h2>
+  </sly>
+  <sly data-sly-test="${properties['jcr:description']}">
+    <p class="topics-container__description">
+      ${properties['jcr:description']}
+    </p>
+  </sly>
+  <div class="topics-container__wrapper">
+    <sly
+      data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}"
+    ></sly>
+  </div>
+</section>
