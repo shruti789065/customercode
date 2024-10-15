@@ -253,6 +253,7 @@ public class DataMigrationService {
                 if (!Arrays.asList(exclusionList).contains(EVENTS)) {
                     migrateEvents(resolver); // subscriptionTypes cities nations
                     try {
+                        Thread.sleep(2000); // Wait for 2 seconds
                         connectEventsTopics(resolver);
                     } catch (IOException | RepositoryException | ContentFragmentException e) {
                         Thread.sleep(2000); // Wait for 2 seconds
