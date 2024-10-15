@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.tika.config.Field;
 
-
+@SuppressWarnings("squid:S2384")
 public class RegisteredUserDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -1,5 +1,6 @@
 package com.jakala.menarini.core.dto.aswLambdaDto;
 
+@SuppressWarnings("squid:S2384")
 public class LambdaImageDataDto {
 
     private String type;

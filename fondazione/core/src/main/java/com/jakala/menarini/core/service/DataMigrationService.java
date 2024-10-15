@@ -221,8 +221,14 @@ public class DataMigrationService {
     /**
      * Main method to initiate the data migration process.€
      * Calls individual migration methods for different content types.
+     * @throws LoginException 
+     * @throws RepositoryException 
+     * @throws ContentFragmentException 
+     * @throws IOException 
+     * @throws InterruptedException 
+     * @throws RowProcessException 
      */
-    public void migrateData(String object, String exclusions, String deleteInput) throws Exception {
+    public void migrateData(String object, String exclusions, String deleteInput) throws LoginException, RepositoryException, IOException, ContentFragmentException, InterruptedException, RowProcessException {
         String[] exclusionList = exclusions == null ? new String[0] : exclusions.split(",");
         delete = (deleteInput != null && deleteInput.equals("true")) ? true : false;
 

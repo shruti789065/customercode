@@ -399,11 +399,11 @@ public class EventListingModel {
         }
 
         public Date getStartDate() {
-            return startDate;
+            return startDate != null ? new Date(startDate.getTime()) : null;
         }
 
         public Date getEndDate() {
-            return endDate;
+            return endDate != null ? new Date(endDate.getTime()) : null;
         }
 
         public String getStartDateText() {

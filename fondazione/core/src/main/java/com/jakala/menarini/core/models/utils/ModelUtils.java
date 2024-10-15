@@ -52,6 +52,8 @@ public class ModelUtils {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(ModelUtils.class);
 
+	private static final String ERROR_CREATING_TAG = "Error in creating tag ";
+
 	public static String getNodeName(String label){
 		if(StringUtils.isBlank(label))
 			return null;
@@ -383,15 +385,23 @@ public class ModelUtils {
 			TagManager tagManager =  resolver.adaptTo(TagManager.class);
 			if(tag == null){
 				try{
-					tag = tagManager.createTag(namespace+(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath+"/":"")+tagName, title, null,true);
+					StringBuilder tagPathBuilder = new StringBuilder();
+					if (StringUtils.isNotBlank(namespace)) {
+						tagPathBuilder.append(namespace);
+					}
+					if (StringUtils.isNotBlank(nestedTagPath)) {
+						tagPathBuilder.append(nestedTagPath).append("/");
+					}
+					tagPathBuilder.append(tagName);
+					tag = tagManager.createTag(tagPathBuilder.toString(), title, null,true);
 					if(tag == null){
-						throw new CreateTagException("Error in creating tag " + title);
+						throw new CreateTagException(ERROR_CREATING_TAG + title);
 					} else {
 						session.save();
 					}
 				} catch (InvalidTagFormatException | RepositoryException e) {
-					LOGGER.error("Error in creating tag " + title, e);
-					throw new CreateTagException("Error in creating tag " + tag);
+					LOGGER.error(ERROR_CREATING_TAG + title, e);
+					throw new CreateTagException(ERROR_CREATING_TAG + tag);
 				}
 			}
 			return tag;

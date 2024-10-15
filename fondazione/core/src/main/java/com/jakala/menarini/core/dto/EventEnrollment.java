@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import org.apache.tika.config.Field;
 
 
+@SuppressWarnings("squid:S2384")
 public class EventEnrollment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
