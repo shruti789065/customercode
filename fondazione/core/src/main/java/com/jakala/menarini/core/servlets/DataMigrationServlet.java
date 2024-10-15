@@ -6,6 +6,8 @@ import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.dam.cfm.ContentFragmentException;
 import com.jakala.menarini.core.exceptions.RowProcessException;
@@ -27,6 +29,8 @@ import java.io.PrintWriter;
 )
 public class DataMigrationServlet extends SlingSafeMethodsServlet {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataMigrationServlet.class);
+
     @Reference
     private transient DataMigrationService migrationService;
 
@@ -41,7 +45,8 @@ public class DataMigrationServlet extends SlingSafeMethodsServlet {
         try {
             migrationService.migrateData(object, exclusions, delete);
         } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
+            // Log the interruption instead of calling interrupt directly
+            LOGGER.error("Thread was interrupted", ie);
             response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             out.write("{\"status\":\"error\", \"message\": "+ie.getMessage() +"}");
         } catch (LoginException | RepositoryException | IOException | ContentFragmentException | RowProcessException e) {
