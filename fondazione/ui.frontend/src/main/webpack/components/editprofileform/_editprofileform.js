@@ -701,34 +701,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // SUBMIT FORM USER PROFILE
-    async function sendDataUserProfile(registrationData) {
-
-        console.log("DATA: ",registrationData);
-        
-        // let ctaSave = document.querySelector("#ctaSaveUserProfile");
-        // let loader = document.querySelector("#userProfileLoader");
-        // try {
-        //     ctaSave.disabled = true;
-        //     loader.classList.remove("d-none");
-        //     loader.classList.add("d-block");
-        //     const responseCsrf = await fetch("/libs/granite/csrf/token.json");
-        //     const csrfToken = await responseCsrf.json();
-        //     const regResponse = await fetch("/private/api/user", {
-        //         method: "POST",
-        //         headers: {
-        //             "CSRF-Token": csrfToken.token,
-        //         },
-        //         body: JSON.stringify(registrationData),
-        //     });
-        //     const dataResponse = await regResponse.json();
-        //     return dataResponse;
-        // } catch (error) {
-        //     console.log(error);
-        // } finally {
-        //     ctaSave.disabled = false;
-        //     loader.classList.add("d-none");
-        //     loader.classList.remove("d-block");
-        // }
+    async function sendDataUserProfile(registrationData) {        
+        let ctaSave = document.querySelector("#ctaSaveUserProfile");
+        let loader = document.querySelector("#userProfileLoader");
+        try {
+            ctaSave.disabled = true;
+            loader.classList.remove("d-none");
+            loader.classList.add("d-block");
+            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+            const csrfToken = await responseCsrf.json();
+            const regResponse = await fetch("/private/api/user", {
+                method: "POST",
+                headers: {
+                    "CSRF-Token": csrfToken.token,
+                },
+                body: JSON.stringify(registrationData),
+            });
+            const dataResponse = await regResponse.json();
+            return dataResponse;
+        } catch (error) {
+            console.log(error);
+        } finally {
+            ctaSave.disabled = false;
+            loader.classList.add("d-none");
+            loader.classList.remove("d-block");
+        }
 
     }
 
@@ -808,11 +805,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     tmpFormData.receiveNewsletter === "yes" ? true : false,
                 linkedinProfile: tmpFormData.linkedinProfile ? tmpFormData.linkedinProfile : null
             };
-
-            console.log(registrationData);
-
             editUserDataValidation(tmpFormData);
-
             if (erroeMessagges.length === 0) {
                 const responseReg = await sendDataUserProfile(registrationData);
                 if (responseReg.cognitoSignUpErrorResponseDto) {
