@@ -10,7 +10,7 @@ import org.apache.tika.config.Field;
 public class SpeakerDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "SPEAKER";
+	public static final String table = "SPEAKER";
 
 	private long id;
 

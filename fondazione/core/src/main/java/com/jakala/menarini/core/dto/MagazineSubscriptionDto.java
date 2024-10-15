@@ -9,7 +9,7 @@ import org.apache.tika.config.Field;
 public class MagazineSubscriptionDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "MAGAZINE_SUBSCRIPTION";
+	public static final String table = "MAGAZINE_SUBSCRIPTION";
 
 	private long id;
 

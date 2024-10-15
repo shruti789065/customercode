@@ -11,7 +11,7 @@ import org.apache.tika.config.Field;
 public class EventDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "EVENT";
+	public static final String table = "EVENT";
 
 	private long id;
 

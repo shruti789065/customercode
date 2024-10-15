@@ -10,7 +10,7 @@ import org.apache.tika.config.Field;
 public class EventEnrollment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "EVENT_ENROLLMENT";
+	public static final String table = "EVENT_ENROLLMENT";
 
 	private long id;
 

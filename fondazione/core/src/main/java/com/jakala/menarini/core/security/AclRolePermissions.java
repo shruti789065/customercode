@@ -11,7 +11,7 @@ import com.jakala.menarini.core.dto.RoleDto;
 
 public class AclRolePermissions {
 
-    public static final Map<String, List<Acl>> rolePermissions = new HashMap<>();
+    protected static final Map<String, List<Acl>> rolePermissions = new HashMap<>();
 
     public static final String VIEW_REGISTERED_USERS = "view_registered_users";
     public static final String UPDATE_REGISTERED_USERS = "update_registered_users";
