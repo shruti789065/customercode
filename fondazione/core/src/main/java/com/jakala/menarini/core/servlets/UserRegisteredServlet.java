@@ -52,6 +52,7 @@ public class UserRegisteredServlet extends  BaseRestServlet {
         private transient EncryptDataServiceInterface encryptDataService;
 
         private static final String APP_CONTENT = "application/json";
+        private static final String REF_TOKEN_NAME = "p-rToken";
 
 
         @Override
@@ -107,14 +108,14 @@ public class UserRegisteredServlet extends  BaseRestServlet {
                         if (result.isSuccess()) {
                                 if(Boolean.TRUE.equals(result.getIslogOut())) {
                                         Cookie[] cookies = request.getCookies();
-                                        ArrayList<String> toDelete = new ArrayList<>();
                                         if (cookies != null) {
-                                                for (Cookie cookie : cookies) {
-                                                        toDelete.add(cookie.getName());
-                                                }
+                                                ArrayList<String> toDelete = new ArrayList<>();
+                                                toDelete.add("p-idToken");
+                                                toDelete.add("p-aToken");
+                                                toDelete.add(REF_TOKEN_NAME);
+                                                cookieService.removeCookie(response,toDelete);
+                                                this.relog(cookies,userMail,response);
                                         }
-                                        cookieService.removeCookie(response,toDelete);
-                                        this.relog(cookies,userMail,response);
                                 }
                                 response.setStatus(200);
                                 response.setContentType(APP_CONTENT);
@@ -140,7 +141,7 @@ public class UserRegisteredServlet extends  BaseRestServlet {
 
         private void relog(Cookie[] cookies, String email, SlingHttpServletResponse response) {
                 for(Cookie cookie : cookies) {
-                        if(cookie.getName().equals("p-rToken")) {
+                        if(cookie.getName().equals(REF_TOKEN_NAME)) {
                                 String token = encryptDataService.decrypt(cookie.getValue());
                                 RefreshDto refreshDto = new RefreshDto();
                                 refreshDto.setRefreshToken(token);
@@ -153,7 +154,7 @@ public class UserRegisteredServlet extends  BaseRestServlet {
                                                 encryptDataService.encrypt(signInResponseDto.getCognitoAuthResultDto().getIdToken()));
                                         mapCookie.put("p-aToken",
                                                 encryptDataService.encrypt(signInResponseDto.getCognitoAuthResultDto().getAccessToken()));
-                                        mapCookie.put("p-rToken",
+                                        mapCookie.put(REF_TOKEN_NAME,
                                                 encryptDataService.encrypt(signInResponseDto.getCognitoAuthResultDto().getRefreshToken()));
                                         cookieService.setCookie(response,mapCookie,true);
                                 }

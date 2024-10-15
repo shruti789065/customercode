@@ -28,13 +28,14 @@ public class SignOutServlet extends SlingAllMethodsServlet {
     @Reference
     private transient CookieServiceInterface cookieService;
 
+    @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
         Cookie[] cookies = request.getCookies();
-        ArrayList<String> toDelete = new ArrayList<String>();
         if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                toDelete.add(cookie.getName());
-            }
+            ArrayList<String> toDelete = new ArrayList<>();
+            toDelete.add("p-idToken");
+            toDelete.add("p-aToken");
+            toDelete.add("p-rToken");
             cookieService.removeCookie(response, toDelete);
         }
 
