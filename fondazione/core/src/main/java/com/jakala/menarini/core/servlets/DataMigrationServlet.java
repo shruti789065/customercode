@@ -15,6 +15,8 @@ import com.jakala.menarini.core.service.DataMigrationService;
 
 import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
+import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -47,10 +49,10 @@ public class DataMigrationServlet extends SlingSafeMethodsServlet {
         } catch (InterruptedException ie) {
             // Log the interruption instead of calling interrupt directly
             LOGGER.error("Thread was interrupted", ie);
-            response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             out.write("{\"status\":\"error\", \"message\": "+ie.getMessage() +"}");
         } catch (LoginException | RepositoryException | IOException | ContentFragmentException | RowProcessException e) {
-            response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             out.write("{\"status\":\"error\", \"message\": "+e.getMessage() +"}");
         }
 
