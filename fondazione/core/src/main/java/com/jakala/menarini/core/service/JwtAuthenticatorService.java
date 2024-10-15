@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.jakala.menarini.core.exceptions.JwtServiceException;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import io.jsonwebtoken.JwtException;
@@ -117,7 +118,7 @@ import com.jakala.menarini.core.dto.RoleDto;
                 return authData;
     
 
-            } catch (Exception e) {
+            } catch (JwtException | JwtServiceException | IOException | JsonSyntaxException e) {
                 LOGGER.error("Failed to extract credentials", e);
                 try {
                     sendUnauthorizedResponse(response);
