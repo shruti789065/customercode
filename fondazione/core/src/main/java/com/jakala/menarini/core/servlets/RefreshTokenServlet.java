@@ -14,6 +14,7 @@ import org.osgi.service.component.annotations.Reference;
 import javax.servlet.Servlet;
 import java.io.IOException;
 
+@SuppressWarnings("CQRules:CQBP-75")
 @Component(
         service = {Servlet.class},
         property = {
@@ -28,6 +29,7 @@ public class RefreshTokenServlet  extends SlingAllMethodsServlet {
     @Reference
     private transient AwsCognitoServiceInterface awsCognitoService;
 
+    @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
         Gson gson = new Gson();
         RefreshDto refreshDto = gson.fromJson(request.getReader(), RefreshDto.class);

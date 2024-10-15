@@ -121,7 +121,7 @@ public class ModelHelper {
         predicate.put("property", "jcr:content/data/master/id");
         predicate.put("property.value", id);
         predicate.put("property.operation", "equals");
-        com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
         SearchResult result = query.getResult();
 
         for (Hit hit : result.getHits()) {

@@ -13,6 +13,7 @@ import org.osgi.service.component.annotations.Reference;
 import javax.servlet.Servlet;
 import java.io.IOException;
 
+@SuppressWarnings("CQRules:CQBP-75")
 @Component(
         service = {Servlet.class},
         property = {
