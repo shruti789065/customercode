@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         loaderUserData.classList.add('d-block');
         loaderUserData.classList.remove('d-none');
         let isUserLoggedIn = false;
-        try {            
+        try {
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
             const regResponse = await fetch("/private/api/isSignIn", {
@@ -145,6 +145,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 if (profession && dataResponse.updatedUser.occupation !== "") {
                     selectedProfession = dataResponse.updatedUser.occupation;
+
+                    if (selectedProfession === Granite.I18n.get("no_healthcare")) {
+                        selectedItemsMultipleSelect = [];
+                        selectedTopicsIds = [];
+                        updateDropdownTextMultiple();
+                        checkboxes.forEach(checkbox => {
+                            if (checkbox.checked) {
+                                checkbox.checked = false;
+                                checkbox.disabled = false;
+                            }
+                        });
+                    }
+
+                    
                     updateDropdownTextProfession()
                 }
                 if (areaOfIntersts && dataResponse?.updatedUser?.registeredUserTopics?.length > 0) {
@@ -154,6 +168,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                 checkbox.checked = true;
                                 selectedItemsMultipleSelect.push(checkbox.dataset.topicName)
                                 selectedTopicsIds.push(topic.topic.id);
+                            }
+                        })
+
+                        checkboxes.forEach((element) => { 
+                            if(element.checked === false) {
+                                element.disabled = true;
                             }
                         })
                     })
@@ -271,10 +291,12 @@ document.addEventListener('DOMContentLoaded', function () {
             ) {
                 selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
                     (item) => item !== checkbox.dataset.topicName
-                );
-                selectedTopicsIds = selectedTopicsIds.filter((item) => {
-                    item !== checkbox.dataset.id
-                });
+                );  
+                selectedTopicsIds.forEach((element, index) => {
+                    if (element === checkbox.dataset.topicId) {
+                        selectedTopicsIds.splice(index, 1);
+                    }
+                })
             }
 
             // Disable every not selected checkbox if user select 3 elements
@@ -373,8 +395,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateDropdownTextProfession() {
-        let innerString =
-            selectedProfession === "" ? "Select Profession" : selectedProfession;
+        let innerString = selectedProfession === "" ? "Select Profession" : selectedProfession;
+        let areaOfInterestsElement = document.querySelector("#areaOfInterestsComponentUserProfile");
+        if (selectedProfession === Granite.I18n.get("no_healthcare")) {
+            areaOfInterestsElement.classList.add("d-none");
+            areaOfInterestsElement.classList.remove("d-block");
+            selectedItemsMultipleSelect = [];
+            selectedTopicsIds = [];
+            updateDropdownTextMultiple();
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            });
+        } else {
+            areaOfInterestsElement.classList.add("d-block");
+            areaOfInterestsElement.classList.remove("d-none");
+        }
         if (innerString !== "Select Profession") {
             dropdownButtonProfession.classList.add("dropdown-toggle-filled");
         } else {
@@ -497,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "#dropdownMultiselectMenuButtonUserProfile"
         );
 
-        if (!data.areasOfInterest || data.areasOfInterest.length === 0) {
+        if ((!data.areasOfInterest || data.areasOfInterest.length === 0) && selectedProfession !== Granite.I18n.get("no_healthcare")) {
             erroeMessagges.push({
                 id: "areasOfInterest",
                 message: Granite.I18n.get("mandatory_field"),
@@ -664,30 +702,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // SUBMIT FORM USER PROFILE
     async function sendDataUserProfile(registrationData) {
-        let ctaSave = document.querySelector("#ctaSaveUserProfile");
-        let loader = document.querySelector("#userProfileLoader");
-        try {
-            ctaSave.disabled = true;
-            loader.classList.remove("d-none");
-            loader.classList.add("d-block");
-            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
-            const csrfToken = await responseCsrf.json();
-            const regResponse = await fetch("/private/api/user", {
-                method: "POST",
-                headers: {
-                    "CSRF-Token": csrfToken.token,
-                },
-                body: JSON.stringify(registrationData),
-            });
-            const dataResponse = await regResponse.json();
-            return dataResponse;
-        } catch (error) {
-            console.log(error);
-        } finally {
-            ctaSave.disabled = false;
-            loader.classList.add("d-none");
-            loader.classList.remove("d-block");
-        }
+
+        console.log("DATA: ",registrationData);
+        
+        // let ctaSave = document.querySelector("#ctaSaveUserProfile");
+        // let loader = document.querySelector("#userProfileLoader");
+        // try {
+        //     ctaSave.disabled = true;
+        //     loader.classList.remove("d-none");
+        //     loader.classList.add("d-block");
+        //     const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+        //     const csrfToken = await responseCsrf.json();
+        //     const regResponse = await fetch("/private/api/user", {
+        //         method: "POST",
+        //         headers: {
+        //             "CSRF-Token": csrfToken.token,
+        //         },
+        //         body: JSON.stringify(registrationData),
+        //     });
+        //     const dataResponse = await regResponse.json();
+        //     return dataResponse;
+        // } catch (error) {
+        //     console.log(error);
+        // } finally {
+        //     ctaSave.disabled = false;
+        //     loader.classList.add("d-none");
+        //     loader.classList.remove("d-block");
+        // }
 
     }
 
@@ -740,7 +781,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let tmpFormData = {
                 profession: selectedProfession,
                 country: selectedCountryId,
-                areasOfInterest: selectedTopicsIds
+                areasOfInterest: selectedProfession !== Granite.I18n.get("no_healthcare") ? selectedTopicsIds : []
             };
 
             for (let [key, value] of formData.entries()) {
@@ -767,6 +808,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     tmpFormData.receiveNewsletter === "yes" ? true : false,
                 linkedinProfile: tmpFormData.linkedinProfile ? tmpFormData.linkedinProfile : null
             };
+
+            console.log(registrationData);
 
             editUserDataValidation(tmpFormData);
 
