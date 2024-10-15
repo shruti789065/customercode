@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.FragmentData;
 import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.dam.api.DamConstants;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -68,7 +69,7 @@ public class EventListingModel {
 
     private Map<String, String> buildBasePredicate() {
         Map<String, String> predicate = new HashMap<>();
-        predicate.put("type", "dam:Asset");
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", EVENT_PATH);
         predicate.put("p.limit", "-1");
         predicate.put("orderby", "@" + JcrConstants.JCR_CONTENT + Q_END_DATE);
