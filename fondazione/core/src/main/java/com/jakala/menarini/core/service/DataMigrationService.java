@@ -30,7 +30,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -255,7 +254,7 @@ public class DataMigrationService {
                     migrateEvents(resolver); // subscriptionTypes cities nations
                     try {
                         connectEventsTopics(resolver);
-                    } catch (Exception e) {
+                    } catch (IOException | RepositoryException | ContentFragmentException e) {
                         Thread.sleep(2000); // Wait for 2 seconds
                         connectEventsTopics(resolver);
                     }
@@ -768,8 +767,11 @@ public class DataMigrationService {
 
     /**
      * Migrates topic data from CSV to Content Fragments.
+     * @throws RepositoryException 
+     * @throws IOException 
+     * @throws RowProcessException 
      */
-    private void migrateMedia(ResourceResolver currentResolver) throws Exception {
+    private void migrateMedia(ResourceResolver currentResolver) throws RepositoryException, IOException, RowProcessException {
 
         if (!checkReferencesExist("/content/dam/fondazione/speakers", currentResolver) ||
             !checkReferencesExist("/content/dam/fondazione/topics", currentResolver) ||
@@ -812,7 +814,7 @@ public class DataMigrationService {
 
                 try {
                     processCsvRow(fields, fields[0], fields[5], template, parentResource, currentResolver);
-                } catch (Exception e) {
+                } catch (RepositoryException | ContentFragmentException e) {
                     throw new RowProcessException("Id: " + fields[0], e);
                 }
 
@@ -959,7 +961,7 @@ public class DataMigrationService {
     @SuppressWarnings("deprecation")
     private Asset loadAsset(String fileName, String fromPath, String toPath, String replace, AssetManager assetManager, ResourceResolver currentResolver) {
         Asset asset = null;
-        String assetPath = Paths.get(toPath, fileName.replace(replace, "")).toString();
+        String assetPath = toPath + PATH_SEPARATOR + fileName.replace(replace, "");
         Resource assetResource = currentResolver.getResource(assetPath);
         
         if (assetResource != null) {

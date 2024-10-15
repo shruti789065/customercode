@@ -304,8 +304,11 @@ public class ModelUtils {
 		return properties;
 	}
 
-	public static String encrypt(String key, String iv, String value, String TRANSFORMATION) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+	public static String encrypt(String key, String iv, String value, String transformation) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+		if (iv == null) {
+			throw new InvalidAlgorithmParameterException("IV parameter cannot be null");
+		}
+		Cipher cipher = Cipher.getInstance(transformation);
 		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
 		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes(StandardCharsets.UTF_8));
 		cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
@@ -314,8 +317,11 @@ public class ModelUtils {
 		return Base64.getEncoder().encodeToString(encrypted);
 	}
 
-	public static String decrypt(String key, String iv, String encryptedValue, String TRANSFORMATION) throws Exception {
-		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+	public static String decrypt(String key, String iv, String encryptedValue, String transformation) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException  {
+		if (iv == null) {
+			throw new InvalidAlgorithmParameterException("IV parameter cannot be null");
+		}
+		Cipher cipher = Cipher.getInstance(transformation);
 		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
 		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes(StandardCharsets.UTF_8));
 		cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
@@ -332,8 +338,9 @@ public class ModelUtils {
 	}
 
 	public static Node createNode(String path, String type, Session session) throws RepositoryException {
-		if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
-				return JcrUtil.createPath(path, type, session);
+		if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type)) {
+			return JcrUtil.createPath(path, type, session);
+		}
 		return null;
 	}
 
@@ -350,19 +357,25 @@ public class ModelUtils {
         }
         return tags;
     }
+
 	public static Tag findTag(String namespace, String nestedTagPath, String tagName, ResourceResolver resolver) {
 		Tag tag = null;
 		if(StringUtils.isNotBlank(tagName)) {
 			TagManager tagManager =  resolver.adaptTo(TagManager.class);
-			tag = tagManager.resolve((StringUtils.isNotBlank(namespace) ? namespace : "") +
-					(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath + "/" : "") +
-					tagName);
+			StringBuilder tagPathBuilder = new StringBuilder();
+			if (StringUtils.isNotBlank(namespace)) {
+				tagPathBuilder.append(namespace);
+			}
+			if (StringUtils.isNotBlank(nestedTagPath)) {
+				tagPathBuilder.append(nestedTagPath).append("/");
+			}
+			tagPathBuilder.append(tagName);
+			tag = tagManager.resolve(tagPathBuilder.toString());
 		}
 		return tag;
 	}
 
 	public static Tag createTag(String namespace, String nestedTagPath, String title, HashMap properties, Session session, ResourceResolver resolver) throws CreateTagException {
-
 
 		if(StringUtils.isNotBlank(title)){
 			String tagName = ModelUtils.getNodeName(title);
@@ -377,7 +390,7 @@ public class ModelUtils {
 						session.save();
 					}
 				} catch (InvalidTagFormatException | RepositoryException e) {
-					e.printStackTrace();
+					LOGGER.error("Error in creating tag " + title, e);
 					throw new CreateTagException("Error in creating tag " + tag);
 				}
 			}

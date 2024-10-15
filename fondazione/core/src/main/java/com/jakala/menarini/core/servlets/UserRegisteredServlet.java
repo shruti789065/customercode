@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
 
+@SuppressWarnings("CQRules:CQBP-75")
 @Component(
     service = {Servlet.class},
     property = {

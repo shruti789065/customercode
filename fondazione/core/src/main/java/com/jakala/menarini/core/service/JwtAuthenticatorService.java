@@ -76,7 +76,8 @@ import com.jakala.menarini.core.dto.RoleDto;
                 HashMap<String, RoleDto[]> authData = new HashMap<>();
                 authData.put(userEmail, roles);
                 return authData;
-            } catch (Exception e) {
+            } catch (JwtServiceException e) {
+                LOGGER.error("Failed to extract credentials", e);
                 return null;
             }
 
@@ -132,7 +133,7 @@ import com.jakala.menarini.core.dto.RoleDto;
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or missing token");
         }
         
-        private String getToken(HttpServletRequest request) throws Exception {
+        private String getToken(HttpServletRequest request) {
             String authString = null;
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {

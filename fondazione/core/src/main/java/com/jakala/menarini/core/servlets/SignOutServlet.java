@@ -12,7 +12,7 @@ import javax.servlet.http.Cookie;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+@SuppressWarnings("CQRules:CQBP-75")
 @Component(
         service = {Servlet.class},
         property = {

@@ -67,8 +67,8 @@ public class FragmentCreateListener implements ResourceChangeListener {
                     }
                 }
             }
-        } catch (Exception e) {
-            LOGGER.error("Error in FragmentCreateListener", e);
+        } catch (LoginException e) {
+            LOGGER.error("Error getting resource resolver", e);
         } finally {
             if (resolver != null && resolver.isLive()) {
                 resolver.close();
@@ -76,7 +76,7 @@ public class FragmentCreateListener implements ResourceChangeListener {
         }
     }
 
-    private void setContent(ContentFragment fragment, Resource resource, ResourceResolver resolver) throws PersistenceException {
+    private void setContent(ContentFragment fragment, Resource resource, ResourceResolver resolver)  {
         ContentElement idElement = fragment.getElement("id");
         String id = idElement.getContent();
         String path = resource.getParent().getPath();
@@ -92,8 +92,12 @@ public class FragmentCreateListener implements ResourceChangeListener {
                 resolver.commit();
                 resolver.refresh();
             }
-        } catch (ContentFragmentException | RepositoryException e) {
-            e.printStackTrace();
+        } catch (ContentFragmentException e) {
+            LOGGER.error("Error creating variations in content fragment", e);
+        } catch (RepositoryException e) {
+            LOGGER.error("Repository error while setting id in content fragment", e);
+        } catch (PersistenceException e) {
+            LOGGER.error("Persistence error while committing changes to the content fragment", e);
         } finally {
             if (resolver != null && resolver.isLive()) {
                 resolver.close();

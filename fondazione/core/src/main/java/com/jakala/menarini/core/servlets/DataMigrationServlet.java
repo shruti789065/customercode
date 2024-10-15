@@ -11,6 +11,7 @@ import javax.servlet.Servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@SuppressWarnings("CQRules:CQBP-75")
 @Component(
     service = {Servlet.class},
     property = {

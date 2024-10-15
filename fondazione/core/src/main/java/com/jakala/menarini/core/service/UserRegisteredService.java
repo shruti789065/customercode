@@ -95,9 +95,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     .from(RegisteredUserDto.table)
                     .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email))
                     .fetchOne()).into(RegisteredUserDto.class);
-            if(user == null) {
-                return null;
-            }
+
             if(this.checkShouldBeHaveToken(roles)) {
                 ArrayList<String> topicsUser = (ArrayList<String>) TopicUtils.getTopicsRefForUser(user.getId(), create);
                 if(topicsUser != null && !topicsUser.isEmpty()) {
