@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let userProfileComponent = document.querySelector('#userProfileComponent');
     let loaderUserData = document.querySelector('#loaderUserDataComponent');
     let passwordComponent = document.querySelector('#passwordComponent');
-    let goToLoginButton = document.querySelector('#cmp-editprofileform__goToLoginCta');
+    let goToLoginButton = document.querySelector('#cmp-editprofileform__modal a');
     userProfileTab.addEventListener('click', () => toggleTab('userProfileTab'));
     passwordTab.addEventListener('click', () => toggleTab('passwordTab'));
 
