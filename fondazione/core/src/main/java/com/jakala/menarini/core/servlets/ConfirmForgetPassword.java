@@ -1,7 +1,6 @@
 package com.jakala.menarini.core.servlets;
 
 import com.google.gson.Gson;
-import com.jakala.menarini.core.dto.cognitoDto.CognitoForgetPasswordResponseDto;
 import com.jakala.menarini.core.dto.cognitoDto.ConfirmForgetPasswordDto;
 import com.jakala.menarini.core.dto.cognitoDto.ConfirmForgetPasswordResponseDto;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
@@ -14,6 +13,7 @@ import org.osgi.service.component.annotations.Reference;
 import javax.servlet.Servlet;
 import java.io.IOException;
 
+@SuppressWarnings("CQRules:CQBP-75")
 @Component(
         service = {Servlet.class},
         property = {
@@ -26,7 +26,7 @@ import java.io.IOException;
 public class ConfirmForgetPassword extends SlingAllMethodsServlet {
 
     @Reference
-    private AwsCognitoServiceInterface awsCognitoService;
+    private transient AwsCognitoServiceInterface awsCognitoService;
 
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {

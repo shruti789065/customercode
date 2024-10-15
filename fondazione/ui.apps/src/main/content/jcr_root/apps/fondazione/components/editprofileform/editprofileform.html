@@ -12,13 +12,13 @@
         </button>
     </div>
 
-    <div id="loaderUserDataComponent" class="w-100 d-flex justify-content-center mt-5">
+    <div id="loaderUserDataComponent" class="w-100 d-flex justify-content-center align-items-center mt-5">
         <div class="spinner-border" role="status"></div>
-        <p class="ms-2">LOADING DATA</p>
+        <p class="ms-2">${'loading_data' @ i18n}</p>
     </div>
 
     <div id="userProfileComponent" class="d-block">
-        <div class="container" data-sly-resource="${'userprofile' @ resourceType='fondazione/components/editprofileform/userprofile'}">
+        <div class="" data-sly-resource="${'userprofile' @ resourceType='fondazione/components/editprofileform/userprofile'}">
         </div>
     </div>
 

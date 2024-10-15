@@ -1,5 +1,6 @@
 package com.jakala.menarini.core.models.utils;
 
+import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -13,23 +14,43 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.WCMException;
 import com.google.gson.JsonObject;
+import com.jakala.menarini.core.exceptions.CreateTagException;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.jcr.resource.api.JcrResourceConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 public class ModelUtils {
+
+	// Private constructor to hide the implicit public one
+	private ModelUtils() {
+		throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+	}
+
+	private static Logger LOGGER = LoggerFactory.getLogger(ModelUtils.class);
 
 	public static String getNodeName(String label){
 		if(StringUtils.isBlank(label))
@@ -83,11 +104,11 @@ public class ModelUtils {
 		if (page.hasContent()) {
 			jcrNode = page.getContentResource().adaptTo(Node.class);
 		} else {
-			jcrNode = pageNode.addNode("jcr:content", "cq:PageContent");
+			jcrNode = pageNode.addNode(JcrConstants.JCR_CONTENT,  "cq:PageContent");
 
 		}
 		if(StringUtils.isNotBlank(resourceType))
-			jcrNode.setProperty("sling:resourceType", resourceType);
+			jcrNode.setProperty(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, resourceType);
 
 		return page;
 	}
@@ -107,15 +128,8 @@ public class ModelUtils {
 				return null;
 			currentParentTemplate = n.getProperty(Constants.TEMPLATE_PROPERTY).getString();
 		} catch (RepositoryException e) {
-			e.printStackTrace();
+			LOGGER.error(currentParentTemplate + " not found", e);
 		}
-
-        /* if(currentPage.getParent().getTemplate() == null ||
-            StringUtils.isBlank(currentPage.getParent().getTemplate().getTitle())
-        )
-            return null;
-
-        String currentParentTemplate  = currentPage.getParent().getTemplate().getTitle(); */
 
 		if (templateName.equals(currentParentTemplate))
 			return currentPage;
@@ -145,7 +159,7 @@ public class ModelUtils {
 			}
 
 		} catch (RepositoryException re) {
-			re.printStackTrace();
+			LOGGER.error(resourceType + " not found", re);
 		}
 		return p;
 	}
@@ -238,9 +252,10 @@ public class ModelUtils {
 		}
 
     }
-	public static Resource findResourceByPredicate(QueryBuilder qBuilder, Map<String, String> predicate, Session session, ResourceResolver resourceResolver){
-		if(qBuilder == null || predicate == null || session == null || resourceResolver == null)
+	public static Resource findResourceByPredicate(QueryBuilder qBuilder, Map<String, String> predicate, Session session, ResourceResolver resourceResolver) throws RepositoryException{
+		if(qBuilder == null || predicate == null || session == null || resourceResolver == null) {
 			return null;
+		}
 
 		/**
 		 * Creating the Query instance
@@ -253,11 +268,9 @@ public class ModelUtils {
 		Resource resource = null;
 		for(Hit hit : searchResult.getHits()) {
 			String path = null;
-			try {
-				path = hit.getPath();
-			} catch (RepositoryException e) {
-				throw new RuntimeException(e);
-			}
+
+			path = hit.getPath();
+
 			resource = resourceResolver.getResource(path);
 		}
 		return resource;
@@ -268,7 +281,7 @@ public class ModelUtils {
 		try {
 			extractedInt = Integer.parseInt(input);
 		} catch (NumberFormatException e) {
-			System.out.println("Impossibile estrarre un intero dalla stringa.");
+			LOGGER.error("Error in extracting int from string", e);
 		}
 		return extractedInt;
 	}
@@ -283,8 +296,6 @@ public class ModelUtils {
 		return result.toString();
 	}
 
-
-
 	public static Map<String, Object> convertJsonObjectToMap(JsonObject jsonObject) {
 		Map<String, Object> properties = new HashMap<>();
 		for (Map.Entry<String, com.google.gson.JsonElement> entry : jsonObject.entrySet()) {
@@ -292,20 +303,27 @@ public class ModelUtils {
 		}
 		return properties;
 	}
-	public static String encrypt(String key, String iv, String value, String TRANSFORMATION) throws Exception {
-		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
-		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes("UTF-8"));
+
+	public static String encrypt(String key, String iv, String value, String transformation) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+		if (iv == null) {
+			throw new InvalidAlgorithmParameterException("IV parameter cannot be null");
+		}
+		Cipher cipher = Cipher.getInstance(transformation);
+		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
+		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes(StandardCharsets.UTF_8));
 		cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
 
 		byte[] encrypted = cipher.doFinal(value.getBytes());
 		return Base64.getEncoder().encodeToString(encrypted);
 	}
 
-	public static String decrypt(String key, String iv, String encryptedValue, String TRANSFORMATION) throws Exception {
-		Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
-		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes("UTF-8"));
+	public static String decrypt(String key, String iv, String encryptedValue, String transformation) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException  {
+		if (iv == null) {
+			throw new InvalidAlgorithmParameterException("IV parameter cannot be null");
+		}
+		Cipher cipher = Cipher.getInstance(transformation);
+		SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
+		IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes(StandardCharsets.UTF_8));
 		cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
 
 		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
@@ -320,13 +338,14 @@ public class ModelUtils {
 	}
 
 	public static Node createNode(String path, String type, Session session) throws RepositoryException {
-		if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type))
-				return JcrUtil.createPath(path, type, session);
+		if(StringUtils.isNotBlank(path) && StringUtils.isNotBlank(type)) {
+			return JcrUtil.createPath(path, type, session);
+		}
 		return null;
 	}
 
     public static List<String> getPageTags(ResourceResolver resourceResolver, String pagePath) {
-        List<String> tags = new ArrayList<String>();
+        List<String> tags = new ArrayList<>();
         TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
         Resource pageContentResource = resourceResolver.getResource(pagePath + "/jcr:content");
 
@@ -338,19 +357,25 @@ public class ModelUtils {
         }
         return tags;
     }
+
 	public static Tag findTag(String namespace, String nestedTagPath, String tagName, ResourceResolver resolver) {
 		Tag tag = null;
 		if(StringUtils.isNotBlank(tagName)) {
 			TagManager tagManager =  resolver.adaptTo(TagManager.class);
-			tag = tagManager.resolve((StringUtils.isNotBlank(namespace) ? namespace : "") +
-					(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath + "/" : "") +
-					tagName);
+			StringBuilder tagPathBuilder = new StringBuilder();
+			if (StringUtils.isNotBlank(namespace)) {
+				tagPathBuilder.append(namespace);
+			}
+			if (StringUtils.isNotBlank(nestedTagPath)) {
+				tagPathBuilder.append(nestedTagPath).append("/");
+			}
+			tagPathBuilder.append(tagName);
+			tag = tagManager.resolve(tagPathBuilder.toString());
 		}
 		return tag;
 	}
 
-	public static Tag createTag(String namespace, String nestedTagPath, String title, HashMap properties, Session session, ResourceResolver resolver) throws Exception {
-
+	public static Tag createTag(String namespace, String nestedTagPath, String title, HashMap properties, Session session, ResourceResolver resolver) throws CreateTagException {
 
 		if(StringUtils.isNotBlank(title)){
 			String tagName = ModelUtils.getNodeName(title);
@@ -360,13 +385,13 @@ public class ModelUtils {
 				try{
 					tag = tagManager.createTag(namespace+(StringUtils.isNotBlank(nestedTagPath) ? nestedTagPath+"/":"")+tagName, title, null,true);
 					if(tag == null){
-						throw new Exception("Error in creating tag " + title);
-					}
-					else
+						throw new CreateTagException("Error in creating tag " + title);
+					} else {
 						session.save();
+					}
 				} catch (InvalidTagFormatException | RepositoryException e) {
-					e.printStackTrace();
-					throw new Exception("Error in creating tag " + tag);
+					LOGGER.error("Error in creating tag " + title, e);
+					throw new CreateTagException("Error in creating tag " + tag);
 				}
 			}
 			return tag;

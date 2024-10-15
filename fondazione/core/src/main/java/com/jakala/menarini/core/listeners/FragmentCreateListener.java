@@ -1,5 +1,7 @@
 package com.jakala.menarini.core.listeners;
 
+import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -61,33 +63,41 @@ public class FragmentCreateListener implements ResourceChangeListener {
                     ContentFragment fragment = resource.adaptTo(ContentFragment.class);
 
                     if (fragment != null) {
-                        ContentElement idElement = fragment.getElement("id");
-                        String id = idElement.getContent();
-                        String path = resource.getParent().getPath();
-
-                        boolean isIdEmptyOrZero = id.isEmpty() || id.equals("0");
-
-                        try {
-                            if (isIdEmptyOrZero) {
-                                String newSequence = ModelHelper.nextSequence(resolver, path);
-                                idElement.setContent(newSequence, idElement.getContentType());
-
-                                this.createVariations(fragment);
-                                resolver.commit();
-                                resolver.refresh();
-                            }
-                        } catch (ContentFragmentException | RepositoryException e) {
-                            e.printStackTrace();
-                        } finally {
-                            if (resolver != null && resolver.isLive()) {
-                                resolver.close();
-                            }
-                        }
+                        setContent (fragment, resource, resolver);
                     }
                 }
             }
-        } catch (Exception e) {
-            LOGGER.error("Error in FragmentCreateListener", e);
+        } catch (LoginException e) {
+            LOGGER.error("Error getting resource resolver", e);
+        } finally {
+            if (resolver != null && resolver.isLive()) {
+                resolver.close();
+            }
+        }
+    }
+
+    private void setContent(ContentFragment fragment, Resource resource, ResourceResolver resolver)  {
+        ContentElement idElement = fragment.getElement("id");
+        String id = idElement.getContent();
+        String path = resource.getParent().getPath();
+
+        boolean isIdEmptyOrZero = id.isEmpty() || id.equals("0");
+
+        try {
+            if (isIdEmptyOrZero) {
+                String newSequence = ModelHelper.nextSequence(resolver, path);
+                idElement.setContent(newSequence, idElement.getContentType());
+
+                this.createVariations(fragment);
+                resolver.commit();
+                resolver.refresh();
+            }
+        } catch (ContentFragmentException e) {
+            LOGGER.error("Error creating variations in content fragment", e);
+        } catch (RepositoryException e) {
+            LOGGER.error("Repository error while setting id in content fragment", e);
+        } catch (PersistenceException e) {
+            LOGGER.error("Persistence error while committing changes to the content fragment", e);
         } finally {
             if (resolver != null && resolver.isLive()) {
                 resolver.close();
@@ -122,8 +132,9 @@ public class FragmentCreateListener implements ResourceChangeListener {
 
     /**
      * Retrieves a ResourceResolver for the data migration service.
+     * @throws LoginException 
      */
-    private ResourceResolver getResourceResolver() throws Exception {
+    private ResourceResolver getResourceResolver() throws LoginException {
         Map<String, Object> param = new HashMap<>();
         param.put(ResourceResolverFactory.SUBSERVICE, SERVICE);
         return resolverFactory.getServiceResourceResolver(param);

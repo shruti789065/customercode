@@ -2,7 +2,6 @@ import moment from 'moment';
 
 document.addEventListener('DOMContentLoaded', function () {
     let selectedTab = "";
-    let token = null;
     let successAlert = document.querySelector("#cmp-editprofileform__successAlert");
     let errorAlert = document.querySelector("#cmp-editprofileform__errorsAlert");
     let userProfileTab = document.querySelector('#userProfileTab');
@@ -17,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownMenuInterests = document.querySelector("#interestListUserProfile");
     const checkboxes = dropdownMenuInterests.querySelectorAll('input[type="checkbox"]');
     let selectedItemsMultipleSelect = [];
+    let selectedTopicsIds = [];
 
     const dropdownButtonProfession = document.querySelector("#dropdownProfessionMenuButtonUserProfile");
     const dropdownMenuProfession = document.querySelector("#professionListUserProfile");
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownMenuCountry = document.querySelector("#countryListUserProfile");
     const countryItems = document.querySelectorAll("#countryListUserProfile li div");
     let selectedCountry = "";
+    let selectedCountryId = "";
 
     let erroeMessagges = [];
 
@@ -51,28 +52,36 @@ document.addEventListener('DOMContentLoaded', function () {
     let taxIdCode = document.querySelector('#taxIdCode');
     let fiscalCode = document.querySelector('#fiscalCodeInput');
 
-    // SET TOKEN AND FILL FORM WITH USER DATA
-    async function setToken() {
-        let storedToken = localStorage.getItem('token');
+    // FILL FORM WITH USER DATA
+    async function fillForm() {
         userProfileComponent.classList.add('d-none');
         userProfileComponent.classList.remove('d-block');
         loaderUserData.classList.add('d-block');
         loaderUserData.classList.remove('d-none');
-        if (storedToken) {
-            if (localStorage.getItem('remember_me') === "false") {
-                let tokenObject = JSON.parse(storedToken);
-                token = tokenObject.token;
-            } else {
-                token = storedToken
+        let isUserLoggedIn = false;
+        try {            
+            const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+            const csrfToken = await responseCsrf.json();
+            const regResponse = await fetch("/private/api/isSignIn", {
+                method: "GET",
+                headers: {
+                    "CSRF-Token": csrfToken.token,
+                },
+            });
+            if (regResponse.status === 200) {
+                isUserLoggedIn = true;
             }
+        } catch (error) {
+            console.log("Error: ", error);
+        }
 
+        if (isUserLoggedIn) {
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
             const regResponse = await fetch("/private/api/user", {
                 method: "GET",
                 headers: {
                     "CSRF-Token": csrfToken.token,
-                    'Authorization': 'Bearer ' + token
                 },
             });
             const dataResponse = await regResponse.json();
@@ -116,11 +125,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     let fiscalCodeInput = document.querySelector("#taxIdCode");
                     let fiscalCodeTitle = document.querySelector("#fiscalCodeUserProfileTitle");
                     countryItems.forEach((element) => {
-                        if (dataResponse.updatedUser.country.toLowerCase() === element.textContent.trim().toLowerCase()) {
+                        if (dataResponse.updatedUser.country === element.getAttribute("data-country-id")) {
                             selectedCountry = element.textContent.trim();
+                            selectedCountryId = element.getAttribute("data-country-id");
                         }
                     });
-                    if (selectedCountry.toLowerCase() === "italia") {
+                    if (selectedCountryId === "1") {
                         fiscalCodeInput.classList.remove("d-none");
                         fiscalCodeInput.classList.add("d-block");
                         fiscalCodeTitle.classList.add("d-block");
@@ -138,11 +148,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     updateDropdownTextProfession()
                 }
                 if (areaOfIntersts && dataResponse?.updatedUser?.registeredUserTopics?.length > 0) {
-                    const valuesArray = Array.from(checkboxes).map(checkbox => checkbox.value);
                     dataResponse.updatedUser.registeredUserTopics.forEach(topic => {
-                        selectedItemsMultipleSelect.push(valuesArray[topic.topic.id - 1])
-                        checkboxes[topic.topic.id - 1].checked = true;
-                    });
+                        checkboxes.forEach(checkbox => {
+                            if (checkbox.dataset.topicId === topic.topic.id) {
+                                checkbox.checked = true;
+                                selectedItemsMultipleSelect.push(checkbox.dataset.topicName)
+                                selectedTopicsIds.push(topic.topic.id);
+                            }
+                        })
+                    })
                     updateDropdownTextMultiple();
                 }
                 if (privacyYes && dataResponse.updatedUser.personalDataProcessingConsent === "1") {
@@ -168,12 +182,11 @@ document.addEventListener('DOMContentLoaded', function () {
             userProfileComponent.classList.remove('d-none');
             loaderUserData.classList.add('d-none');
             loaderUserData.classList.remove('d-block');
-        } else {
-            console.log("No token found in local storage.");
         }
 
     }
-    setToken();
+
+    fillForm();
 
     // STYLE FUNCTIONS AND CUSTOM COMPONENT FUNCTIONS
     function toggleTab(tabName) {
@@ -244,26 +257,30 @@ document.addEventListener('DOMContentLoaded', function () {
             if (
                 selectedItemsMultipleSelect.length <= 3 &&
                 checkbox.checked === true &&
-                !selectedItemsMultipleSelect.includes(checkbox.value)
+                !selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
             ) {
-                selectedItemsMultipleSelect.push(checkbox.value);
+                selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
+                selectedTopicsIds.push(checkbox.dataset.topicId);
             }
 
             //Remove item to selectedItems
             if (
                 selectedItemsMultipleSelect.length <= 3 &&
                 checkbox.checked === false &&
-                selectedItemsMultipleSelect.includes(checkbox.value)
+                selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
             ) {
                 selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
-                    (item) => item !== checkbox.value
+                    (item) => item !== checkbox.dataset.topicName
                 );
+                selectedTopicsIds = selectedTopicsIds.filter((item) => {
+                    item !== checkbox.dataset.id
+                });
             }
 
             // Disable every not selected checkbox if user select 3 elements
             checkboxes.forEach((element) => {
                 if (
-                    !selectedItemsMultipleSelect.includes(element.value) &&
+                    !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
                     selectedItemsMultipleSelect.length === 3
                 ) {
                     element.disabled = true;
@@ -320,6 +337,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             dropdownMenuCountry.classList.add("d-none");
             dropdownMenuCountry.classList.remove("d-block");
+            selectedCountryId = element.getAttribute("data-country-id");
             displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
             updateDropdownTextCountry();
 
@@ -629,7 +647,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validateFiscalCode(data) {
         let errorElement = document.querySelector("#fiscalCodeErrorString");
-        if (selectedCountry.toLowerCase() === "italia" && (!data.taxIdCode || data.taxIdCode === "")) {
+        if (selectedCountry.toLowerCase() === "1" && (!data.taxIdCode || data.taxIdCode === "")) {
             errorElement.classList.add("d-block");
             errorElement.classList.remove("d-none");
             erroeMessagges.push({
@@ -658,7 +676,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: "POST",
                 headers: {
                     "CSRF-Token": csrfToken.token,
-                    'Authorization': 'Bearer ' + token
                 },
                 body: JSON.stringify(registrationData),
             });
@@ -666,7 +683,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return dataResponse;
         } catch (error) {
             console.log(error);
-
         } finally {
             ctaSave.disabled = false;
             loader.classList.add("d-none");
@@ -688,7 +704,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: "POST",
                 headers: {
                     "CSRF-Token": csrfToken.token,
-                    'Authorization': 'Bearer ' + token
                 },
                 body: JSON.stringify(newPasswordData),
             });
@@ -724,10 +739,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData(formUserProfile);
             let tmpFormData = {
                 profession: selectedProfession,
-                country: selectedCountry,
-                areasOfInterest: selectedItemsMultipleSelect.map((x) =>
-                    x.replaceAll(" ", "")
-                ),
+                country: selectedCountryId,
+                areasOfInterest: selectedTopicsIds
             };
 
             for (let [key, value] of formData.entries()) {
@@ -744,7 +757,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 profession: tmpFormData.profession,
                 phone: tmpFormData.telNumber,
                 country: tmpFormData.country,
-                taxIdCode: tmpFormData.taxIdCode ? tmpFormData.taxIdCode : null,
+                taxIdCode: tmpFormData.taxIdCode && selectedCountryId === "1" ? tmpFormData.taxIdCode : "",
                 interests: tmpFormData.areasOfInterest,
                 gender: tmpFormData.gender,
                 privacyConsent: tmpFormData.privacy === "yes" ? true : false,
@@ -792,7 +805,6 @@ document.addEventListener('DOMContentLoaded', function () {
             let newPasswordData = {
                 PreviousPassword: tmpFormData.currentPassword,
                 ProposedPassword: tmpFormData.password,
-                AccessToken: localStorage.getItem('accessToken') !== null ? localStorage.getItem('accessToken') : sessionStorage.getItem('accessToken')
             };
 
             let isPasswordValid = validatePassword(tmpFormData);

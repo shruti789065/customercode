@@ -7,9 +7,12 @@ import com.jakala.menarini.core.dto.cognitoDto.SignUpDtoResponse;
 import com.jakala.menarini.core.entities.RegisteredUserTopic;
 import com.jakala.menarini.core.entities.records.RegisteredUserTopicRecord;
 import org.jooq.DSLContext;
+import org.jooq.exception.DataAccessException;
+import org.jooq.exception.MappingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,8 +36,7 @@ public class TopicUtils {
                 return topicsExtId;
             }
             return topicsExtId;
-        }catch (Exception e) {
-            e.printStackTrace();
+        }catch (DataAccessException e) {
             return topicsExtId;
         }
     }
