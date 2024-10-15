@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let userProfileComponent = document.querySelector('#userProfileComponent');
     let loaderUserData = document.querySelector('#loaderUserDataComponent');
     let passwordComponent = document.querySelector('#passwordComponent');
+    let goToLoginButton = document.querySelector('#cmp-editprofileform__goToLoginCta');
     userProfileTab.addEventListener('click', () => toggleTab('userProfileTab'));
     passwordTab.addEventListener('click', () => toggleTab('passwordTab'));
 
@@ -28,6 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const countryItems = document.querySelectorAll("#countryListUserProfile li div");
     let selectedCountry = "";
     let selectedCountryId = "";
+
+    goToLoginButton?.addEventListener('click', () => {
+        hideRdirectModal();
+    });
 
     let erroeMessagges = [];
 
@@ -51,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let newsletterNo = document.querySelector('#newsletterNo');
     let taxIdCode = document.querySelector('#taxIdCode');
     let fiscalCode = document.querySelector('#fiscalCodeInput');
+    let isUserLoggedIn = false;
+
+
 
     // FILL FORM WITH USER DATA
     async function fillForm() {
@@ -58,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
         userProfileComponent.classList.remove('d-block');
         loaderUserData.classList.add('d-block');
         loaderUserData.classList.remove('d-none');
-        let isUserLoggedIn = false;
         try {
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
@@ -158,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                     }
 
-                    
+
                     updateDropdownTextProfession()
                 }
                 if (areaOfIntersts && dataResponse?.updatedUser?.registeredUserTopics?.length > 0) {
@@ -171,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             }
                         })
 
-                        checkboxes.forEach((element) => { 
-                            if(element.checked === false) {
+                        checkboxes.forEach((element) => {
+                            if (element.checked === false) {
                                 element.disabled = true;
                             }
                         })
@@ -291,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ) {
                 selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
                     (item) => item !== checkbox.dataset.topicName
-                );  
+                );
                 selectedTopicsIds.forEach((element, index) => {
                     if (element === checkbox.dataset.topicId) {
                         selectedTopicsIds.splice(index, 1);
@@ -489,6 +496,24 @@ document.addEventListener('DOMContentLoaded', function () {
         let element = document.querySelector("#errorAlertChangePassword");
         element.classList.remove("d-none");
         element.classList.add("d-block");
+    }
+
+    function showRedirectModal() {
+        let modal = document.querySelector('#cmp-editprofileform__modal .modal');
+        let overlay = document.querySelector("#cmp-editprofileform__overlay");
+        modal.classList.add("d-block");
+        modal.classList.remove("d-none");
+        overlay.classList.add("d-block");
+        overlay.classList.remove("d-none");
+    }
+
+    function hideRdirectModal() {
+        let modal = document.querySelector('#cmp-editprofileform__modal .modal');
+        let overlay = document.querySelector("#cmp-editprofileform__overlay");
+        modal.classList.add("d-none");
+        modal.classList.remove("d-block");
+        overlay.classList.add("d-none");
+        overlay.classList.remove("d-block");
     }
 
     // FORM DATA VALIDATION FUNCTIONS
@@ -701,7 +726,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // SUBMIT FORM USER PROFILE
-    async function sendDataUserProfile(registrationData) {        
+    async function sendDataUserProfile(registrationData) {
         let ctaSave = document.querySelector("#ctaSaveUserProfile");
         let loader = document.querySelector("#userProfileLoader");
         try {
@@ -718,6 +743,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify(registrationData),
             });
             const dataResponse = await regResponse.json();
+            try {
+                const checkUserLogged = await fetch("/private/api/isSignIn", {
+                    method: "GET",
+                    headers: {
+                        "CSRF-Token": csrfToken.token,
+                    },
+                });
+                if (checkUserLogged.status !== 200) {
+                    isUserLoggedIn = true;
+                    showRedirectModal();
+                }
+            } catch (error) {
+                console.log("Error: ", error);
+            }
             return dataResponse;
         } catch (error) {
             console.log(error);
@@ -726,7 +765,6 @@ document.addEventListener('DOMContentLoaded', function () {
             loader.classList.add("d-none");
             loader.classList.remove("d-block");
         }
-
     }
 
     async function sendDataPassword(newPasswordData) {

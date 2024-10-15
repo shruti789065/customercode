@@ -1,24 +1,26 @@
 <div>
-    <h2 class="h2 h2-light cmp-editprofileform__editProfileTitle">Add/edit photo profile</h2>
+    <h2 class="h2 h2-light cmp-editprofileform__editProfileTitle">${'add_edit_photo_profile' @ i18n}</h2>
 
     <div class="mt-4 d-flex">
-        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Email address:</h3>
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">${'email_address' @ i18n}:</h3>
         <h4 id="userProfileEmailAddress" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <div class="mt-2 d-flex">
-        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Creation date:</h3>
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">${'creation_date' @ i18n}:</h3>
         <h4 id="userProfileCreationDate" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <div class="mt-2 d-flex">
-        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Last activity date:</h3>
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">${'last_activity_date' @ i18n}:</h3>
         <h4 id="userProfileLastUpdatedOn" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <div class="mt-4" data-sly-resource="${'userprofile' @ resourceType='fondazione/components/editimage/'}"></div>
 
-    <h2 class="h2 h2-light mt-4 cmp-editprofileform__editProfileTitle">Change of personal information</h2>
+    <h2 class="h2 h2-light mt-4 cmp-editprofileform__editProfileTitle">${'change_of_personal_information' @ i18n}</h2>
+
+    <div id="cmp-editprofileform__modal" data-sly-resource="${'userprofile' @ resourceType='fondazione/components/modal'}"></div>
 
     <form class="customform needs-validation mt-4" id="userProfileForm" method="post" novalidate>
 
@@ -323,4 +325,5 @@
             </div>
         </div>
     </form>
+
 </div>
