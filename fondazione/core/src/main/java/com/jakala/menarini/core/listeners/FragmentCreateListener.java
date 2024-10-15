@@ -17,6 +17,7 @@ import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.ContentFragmentException;
 import com.adobe.cq.dam.cfm.VariationDef;
+import com.day.cq.dam.api.DamConstants;
 import com.jakala.menarini.core.models.ModelHelper;
 
 import java.util.HashMap;
@@ -59,7 +60,7 @@ public class FragmentCreateListener implements ResourceChangeListener {
             for (ResourceChange change : changes) {
                 String resourcePath = change.getPath().replace("/jcr:content", "");
                 Resource resource = resolver.getResource(resourcePath);
-                if (resource != null && resource.getResourceType().equals("dam:Asset")) {
+                if (resource != null && resource.getResourceType().equals(DamConstants.NT_DAM_ASSET)) {
                     ContentFragment fragment = resource.adaptTo(ContentFragment.class);
 
                     if (fragment != null) {

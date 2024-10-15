@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+@SuppressWarnings("squid:S2384")
 public class RegisteredUserServletDto {
 
     private String firstName;

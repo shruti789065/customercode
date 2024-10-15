@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.apache.tika.config.Field;
 
-
+@SuppressWarnings("squid:S2384")
 public class TopicDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "TOPIC";
+	public static final String table = "TOPIC";
 
 	private String id;
 

@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class NationListingModel {
     private List<Nation> nations;
 
     public List<Nation> getNations() {
-        return nations;
+        return Collections.unmodifiableList(nations);
     }
 
     @PostConstruct
@@ -58,10 +59,6 @@ public class NationListingModel {
         }
         nations.sort((nation1,nation2) ->nation1.getName().compareToIgnoreCase(nation2.getName()));
 
-    }
-
-    public void setNations(List<Nation> nations) {
-        this.nations = nations;
     }
 
     public static class Nation {
