@@ -307,7 +307,7 @@ export function validateRadios(form) {
 
 export function validateRecaptcha() {
   const recaptchaElement = document.getElementById("g-recaptcha-response");
-  if (!recaptchaElement) return true; // Se non esiste, restituisci true per non bloccare il form
+  if (!recaptchaElement) {return true;} // Se non esiste, restituisci true per non bloccare il form
 
   const tokenRecaptcha = recaptchaElement.value;
   if (!tokenRecaptcha.trim()) {

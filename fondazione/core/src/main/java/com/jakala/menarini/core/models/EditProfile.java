@@ -37,25 +37,6 @@ public class EditProfile extends RegisteredUserServletDto {
 
     @PostConstruct
     protected void init()  {
-        try {
-            HashMap<String, RoleDto[]> authorities =
-                    (HashMap<String, RoleDto[]>)this.jwtAuthenticatorService
-                            .extractCredentialsForComponent(this.authToken);
-            String email = authorities.keySet().iterator().next();
-            RoleDto[] roles = authorities.get(email);
-            final Set<Acl> acls = AclRolePermissions.transformRolesToAcl(Arrays.asList(roles));
-            final RegisteredUserDto userData = userRegisteredService.getUserByEmail(email, acls,roles);
-            this.setValues(userData);
-            this.isAuthorized = true;
-        } catch (SQLException e) {
-            this.isInError = true;
-            this.isAuthorized = false;
-            this.errorMessage = e.getMessage();
-        } catch (AccessDeniedException e) {
-            this.isInError = false;
-            this.isAuthorized = false;
-            this.errorMessage = e.getMessage();
-        }
 
     }
 

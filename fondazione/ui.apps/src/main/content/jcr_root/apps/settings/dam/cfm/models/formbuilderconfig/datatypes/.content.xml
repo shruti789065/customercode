@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <items jcr:primaryType="nt:unstructured">
+        <id
+            jcr:primaryType="nt:unstructured"
+            fieldIcon="dashboard"
+            fieldMetaTypes="id"
+            fieldProperties="[mvfields,mvminitems,mvmaxitems,disabledcheckbox,labelfield,maptopropertyfield,placeholderfield,numbertypefield,numbervaluefield,requiredfield,numberfieldvalidation,customerrormessage]"
+            fieldPropResourceType="dam/cfm/models/editor/components/datatypes/field"
+            fieldResourceType="[granite/ui/components/coral/foundation/form/numberfield,granite/ui/components/coral/foundation/form/multifield]"
+            fieldTitle="Id"
+            fieldViewResourceType="granite/ui/components/coral/foundation/form/textfield"
+            listOrder="89"
+            renderType="number"
+            validationTypes="[number/max,number/min,number/interval]"
+            valueType="double"/>
+    </items>
+</jcr:root>

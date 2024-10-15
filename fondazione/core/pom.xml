@@ -14,7 +14,8 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -87,16 +88,16 @@
         </plugins>
         <resources>
             <resource>
-            <directory>src/main/resources</directory>
-            <includes>
-                <include>**/*.jar</include>
-                <include>**/*.csv</include>
-                <include>**/*.jpg</include>
-                <include>**/*.png</include>
-            </includes>
-            <excludes>
-                <exclude>**/*.tmp</exclude>
-            </excludes>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.jar</include>
+                    <include>**/*.csv</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.png</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.tmp</exclude>
+                </excludes>
             </resource>
         </resources>
     </build>
@@ -205,6 +206,12 @@
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.testing.caconfig-mock-plugin</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>

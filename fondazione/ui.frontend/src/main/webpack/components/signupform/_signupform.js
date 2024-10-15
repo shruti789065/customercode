@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     'input[type="checkbox"]'
   );
   let selectedItemsMultipleSelect = [];
-
+  let selectedTopicsIds = [];
   const dropdownButtonProfession = document.querySelector(
     "#dropdownProfessionMenuButton"
   );
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownMenuCountry = document.querySelector("#countryList");
   const countryItems = document.querySelectorAll("#countryList li div");
   let selectedCountry = "";
+  let selectedCountryId = "";
 
   let erroeMessagges = [];
 
@@ -74,26 +75,32 @@ document.addEventListener("DOMContentLoaded", function () {
       if (
         selectedItemsMultipleSelect.length <= 3 &&
         checkbox.checked === true &&
-        !selectedItemsMultipleSelect.includes(checkbox.value)
+        !selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
       ) {
-        selectedItemsMultipleSelect.push(checkbox.value);
+        selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
+        selectedTopicsIds.push(checkbox.dataset.topicId);
       }
 
       //Remove item to selectedItems
       if (
         selectedItemsMultipleSelect.length <= 3 &&
         checkbox.checked === false &&
-        selectedItemsMultipleSelect.includes(checkbox.value)
-      ) {
+        selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
+      ) {      
+
         selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
-          (item) => item !== checkbox.value
+          (item) => item !== checkbox.dataset.topicName
         );
+
+        selectedTopicsIds = selectedTopicsIds.filter((item) => {
+          item !== checkbox.dataset.topicId
+        });
       }
 
-      // Disable every not selected checkbox if user select 3 elements
+      // Disable every not selected checkbox if user select 3 elements      
       checkboxes.forEach((element) => {
         if (
-          !selectedItemsMultipleSelect.includes(element.value) &&
+          !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
           selectedItemsMultipleSelect.length === 3
         ) {
           element.disabled = true;
@@ -131,16 +138,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   countryItems.forEach((element) => {
     let fiscalCodeInput = document.querySelector("#fiscalCodeInput");
+    let fiscalCode = document.querySelector("#fiscalCode");
     element.addEventListener("click", function () {
+      let currestSelectedCountryId = element.getAttribute("data-country-id");
+      selectedCountryId = element.getAttribute("data-country-id");
       selectedCountry = element.textContent.trim();
+
       dropdownMenuCountry.style.display = "none";
       displayButtonBorderBottom(dropdownButtonCountry, dropdownMenuCountry);
       updateDropdownTextCountry();
 
-      if (selectedCountry.toLowerCase() === "it") {
+      if (currestSelectedCountryId.toLowerCase() === "1") {
         fiscalCodeInput.classList.remove("d-none");
         fiscalCodeInput.classList.add("d-block");
       } else {
+        fiscalCode.value = "";
         fiscalCodeInput.classList.add("d-none");
         fiscalCodeInput.classList.remove("d-block");
       }
@@ -399,17 +411,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // FORM SUBMIT FUNCTIONS
   async function sendData(registrationData) {
-    const responseCsrf = await fetch("/libs/granite/csrf/token.json");
-    const csrfToken = await responseCsrf.json();
-    const regResponse = await fetch("/bin/api/awsSignUp", {
-      method: "POST",
-      headers: {
-        "CSRF-Token": csrfToken.token,
-      },
-      body: JSON.stringify(registrationData),
-    });
-    const dataResponse = await regResponse.json();
-    return dataResponse;
+    let loader = document.querySelector("#signupLoader");
+    let ctaSignUp = document.querySelector("#ctaSignup");
+    try {
+      loader.classList.remove("d-none");
+      loader.classList.add("d-block");
+      ctaSignUp.disabled = true;
+      const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+      const csrfToken = await responseCsrf.json();
+      const regResponse = await fetch("/bin/api/awsSignUp", {
+        method: "POST",
+        headers: {
+          "CSRF-Token": csrfToken.token,
+        },
+        body: JSON.stringify(registrationData),
+      });
+      const dataResponse = await regResponse.json();
+      return dataResponse;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loader.classList.add("d-none");
+      loader.classList.remove("d-block");
+      ctaSignUp.disabled = false;
+    }
+
   }
 
   let form = document.querySelector("#signUpForm");
@@ -421,10 +447,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData(form);
       let tmpFormData = {
         profession: selectedProfession,
-        country: selectedCountry,
-        areasOfInterest: selectedItemsMultipleSelect.map((x) =>
-          x.replaceAll(" ", "")
-        ),
+        country: selectedCountryId,
+        areasOfInterest: selectedTopicsIds
       };
 
       for (let [key, value] of formData.entries()) {
@@ -468,7 +492,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
         if (responseReg.cognitoSignUpErrorResponseDto) {
-          // alert(JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message));
           displayErrorsAlert(
             JSON.stringify(responseReg.cognitoSignUpErrorResponseDto.message)
           );

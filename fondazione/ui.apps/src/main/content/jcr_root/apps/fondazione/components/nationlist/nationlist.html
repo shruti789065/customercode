@@ -1,0 +1,8 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.NationListingModel">
+    <ul data-sly-list.nation="${model.nations}">
+        <option value="${nation.id}">
+            ${nation.name}
+        </option>
+    </ul>
+    <p data-sly-test="${!model.nations}">No nation found.</p>
+</sly>

@@ -7,6 +7,7 @@ public class RegisteredUseServletResponseDto {
     private RegisteredUserDto updatedUser;
     private RegisteredUserPermissionDto userPermission;
     private String errorMessage;
+    private Boolean islogOut;
 
     public boolean isSuccess() {
         return success;
@@ -38,5 +39,13 @@ public class RegisteredUseServletResponseDto {
 
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
+    }
+
+    public Boolean getIslogOut() {
+        return islogOut;
+    }
+
+    public void setIslogOut(Boolean islogOut) {
+        this.islogOut = islogOut;
     }
 }

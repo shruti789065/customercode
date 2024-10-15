@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+@SuppressWarnings("squid:S2384")
 public class RegisteredUserServletDto {
 
     private String firstName;
@@ -12,6 +13,7 @@ public class RegisteredUserServletDto {
     private String profession;
     private String phone;
     private String country;
+    private String taxIdCode;
     private String gender;
     private String linkedinProfile;
     private boolean privacyConsent;
@@ -137,6 +139,7 @@ public class RegisteredUserServletDto {
         registeredUser.setCountry(this.getCountry());
         registeredUser.setBirthDate(this.getBirthDate());
         registeredUser.setPhone(this.getPhone());
+        registeredUser.setTaxIdCode(this.taxIdCode);
         registeredUser.setGender(this.getGender());
         registeredUser.setLinkedinProfile(this.getLinkedinProfile());
         registeredUser.setOccupation(this.getProfession());

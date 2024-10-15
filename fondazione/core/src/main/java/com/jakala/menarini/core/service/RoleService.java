@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 @Component(service = RoleServiceInterface.class)
@@ -35,8 +36,7 @@ public class RoleService implements RoleServiceInterface {
                     .from(RoleDto.table)
                     .fetch().into(RoleDto.class);
             return roles;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         }
     }

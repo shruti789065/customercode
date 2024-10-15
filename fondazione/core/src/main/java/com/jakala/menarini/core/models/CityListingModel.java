@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -30,38 +31,35 @@ public class CityListingModel {
     private List<City> cities = new ArrayList<>();
 
     public List<City> getCities() {
-        return cities;
+        return Collections.unmodifiableList(cities);
     }
 
     @PostConstruct
     protected void init() {
         cities = new ArrayList<>();
 
-        try {
-            Resource parentResource = resourceResolver.getResource(CITIES_PATH);
-        
-            String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
+        Resource parentResource = resourceResolver.getResource(CITIES_PATH);
+    
+        String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
 
-            if (parentResource != null) {
-                Iterator<Resource> children = parentResource.listChildren();
-                while (children.hasNext()) {
-                    Resource child = children.next();
-                    ContentFragment fragment = child.adaptTo(ContentFragment.class);
+        if (parentResource != null) {
+            Iterator<Resource> children = parentResource.listChildren();
+            while (children.hasNext()) {
+                Resource child = children.next();
+                ContentFragment fragment = child.adaptTo(ContentFragment.class);
 
-                    if (fragment != null) {
-                        String id = fragment.getElement("id").getContent();
-                        String nome = ModelHelper.getLocalizedElementValue(fragment, language, "name", fragment.getElement("name").getContent());
-                        String path = fragment.getName();
+                if (fragment != null) {
+                    String id = fragment.getElement("id").getContent();
+                    String nome = ModelHelper.getLocalizedElementValue(fragment, language, "name", fragment.getElement("name").getContent());
+                    String path = fragment.getName();
 
-                        cities.add(new City(id, nome, CITIES_PATH + path));
-                    }
+                    cities.add(new City(id, nome, CITIES_PATH + path));
                 }
             }
-
-            cities.sort((city1, city2) -> city1.getName().compareToIgnoreCase(city2.getName()));
-        } catch (Exception e) {
-            LOG.error("Error retrieving topic content fragments", e);
         }
+
+        cities.sort((city1, city2) -> city1.getName().compareToIgnoreCase(city2.getName()));
+
     }
 
     // Inner class to represent each city
