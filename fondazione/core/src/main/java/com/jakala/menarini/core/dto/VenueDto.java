@@ -10,7 +10,7 @@ import org.apache.tika.config.Field;
 public class VenueDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "VENUE";
+	public static final String table = "VENUE";
 
 	private long id;
 

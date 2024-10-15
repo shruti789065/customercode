@@ -10,7 +10,7 @@ import org.apache.tika.config.Field;
 public class LocationDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "LOCATION";
+	public static final String table = "LOCATION";
 
 	private long id;
 

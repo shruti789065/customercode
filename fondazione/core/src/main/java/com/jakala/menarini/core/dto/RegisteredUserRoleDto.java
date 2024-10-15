@@ -9,7 +9,7 @@ import org.apache.tika.config.Field;
 public class RegisteredUserRoleDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "REGISTERED_USER_ROLE";
+	public static final String table = "REGISTERED_USER_ROLE";
 
 	private long id;
 

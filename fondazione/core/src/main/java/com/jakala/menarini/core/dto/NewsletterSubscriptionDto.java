@@ -9,7 +9,7 @@ import org.apache.tika.config.Field;
 public class NewsletterSubscriptionDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "NEWSLETTER_SUBSCRIPTION";
+	public static final String table = "NEWSLETTER_SUBSCRIPTION";
 
 	private long id;
 

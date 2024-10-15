@@ -61,10 +61,6 @@ public class NationListingModel {
 
     }
 
-    public void setNations(List<Nation> nations) {
-        this.nations = nations;
-    }
-
     public static class Nation {
         private String id;
         private String name;

@@ -11,7 +11,7 @@ import org.apache.tika.config.Field;
 public class RegisteredUserDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "REGISTERED_USER";
+	public static final String table = "REGISTERED_USER";
 	
 	private long id;
 
