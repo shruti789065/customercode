@@ -10,7 +10,7 @@ public interface ExternalizeUrlServiceInterface {
 
     public String getExternalizeUrl(ResourceResolver resolver, String link);
     public String getExternalizeUrlFromRequest(Boolean isAbsolute, SlingHttpServletRequest request, String link);
-    public String getRedirect(ResourceResolver resolver, String prev);
+    public String getRedirect(ResourceResolver resolver, String prev, String actual);
     public List<ExternalSocialLinkResponseDto> genarateSocialLink(ResourceResolver resolver, String link);
 
 }
