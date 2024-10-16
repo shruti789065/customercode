@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const preSelectedTopics = urlParams?.get('topics').split("_");
+  const preSelectedTopics = urlParams?.get('topics').split("-");
 
   const dropdownButtonMultiple = document.querySelector(
     "#dropdownMultiselectMenuButton"
