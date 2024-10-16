@@ -23,7 +23,7 @@ $(document).ready(function () {
     }
   });
 
-  $(".cmp-button").on("click", function (e) {
+  $(".topics-container .cmp-button").on("click", function (e) {
     e.preventDefault();
 
     let selectedValues = $(".topics__list--item--button.active")
@@ -32,7 +32,7 @@ $(document).ready(function () {
       })
       .get();
 
-    let topicsString = selectedValues.join("_");
+    let topicsString = selectedValues.join("-");
     let currentHref = $(this).attr("href");
     let newHref = currentHref.split("?")[0];
 
