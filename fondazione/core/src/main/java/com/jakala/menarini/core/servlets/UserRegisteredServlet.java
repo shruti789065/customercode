@@ -155,8 +155,10 @@ public class UserRegisteredServlet extends  BaseRestServlet {
                                                 encryptDataService.encrypt(signInResponseDto.getCognitoAuthResultDto().getIdToken()));
                                         mapCookie.put("p-aToken",
                                                 encryptDataService.encrypt(signInResponseDto.getCognitoAuthResultDto().getAccessToken()));
-                                        mapCookie.put(REF_TOKEN_NAME,
-                                                encryptDataService.encrypt(signInResponseDto.getCognitoAuthResultDto().getRefreshToken()));
+                                        if (signInResponseDto.getCognitoAuthResultDto().getRefreshToken() != null) {
+                                                mapCookie.put(REF_TOKEN_NAME,
+                                                        encryptDataService.encrypt(signInResponseDto.getCognitoAuthResultDto().getRefreshToken()));
+                                        }
                                         cookieService.setCookie(response,mapCookie,true);
                                 }
                                 break;
