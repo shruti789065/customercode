@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 
 import org.apache.tika.config.Field;
 
-
+@SuppressWarnings("squid:S2384")
 public class EventSpeakerDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "EVENT_SPEAKER";
+	public static final String table = "EVENT_SPEAKER";
 
 	private long id;
 

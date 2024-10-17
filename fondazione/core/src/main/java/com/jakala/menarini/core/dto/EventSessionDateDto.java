@@ -7,11 +7,11 @@ import org.apache.tika.config.Field;
 
 import java.sql.Timestamp;
 
-
+@SuppressWarnings("squid:S2384")
 public class EventSessionDateDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "EVENT_SESSION_DATE";
+	public static final String table = "EVENT_SESSION_DATE";
 
 	private long id;
 

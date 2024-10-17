@@ -3,6 +3,7 @@ package com.jakala.menarini.core.dto.cognitoDto;
 import java.util.ArrayList;
 import java.util.Date;
 
+@SuppressWarnings("squid:S2384")
 public class SignUpDto {
 
     private String firstName;

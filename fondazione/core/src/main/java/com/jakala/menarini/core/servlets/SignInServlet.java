@@ -3,8 +3,6 @@ package com.jakala.menarini.core.servlets;
 import com.google.gson.Gson;
 import com.jakala.menarini.core.dto.cognitoDto.SignInDto;
 import com.jakala.menarini.core.dto.cognitoDto.SignInResponseDto;
-import com.jakala.menarini.core.dto.cognitoDto.SignUpDtoResponse;
-import com.jakala.menarini.core.service.CookieService;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
 import com.jakala.menarini.core.service.interfaces.CookieServiceInterface;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
@@ -18,6 +16,7 @@ import javax.servlet.Servlet;
 import java.io.IOException;
 import java.util.HashMap;
 
+@SuppressWarnings("CQRules:CQBP-75")
 @Component(
         service = {Servlet.class},
         property = {
@@ -30,11 +29,11 @@ import java.util.HashMap;
 public class SignInServlet extends SlingAllMethodsServlet {
 
     @Reference
-    private AwsCognitoServiceInterface awsCognitoService;
+    private transient AwsCognitoServiceInterface awsCognitoService;
     @Reference
-    private CookieServiceInterface cookieService;
+    private transient CookieServiceInterface cookieService;
     @Reference
-    private EncryptDataServiceInterface encryptDataService;
+    private transient EncryptDataServiceInterface encryptDataService;
 
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {

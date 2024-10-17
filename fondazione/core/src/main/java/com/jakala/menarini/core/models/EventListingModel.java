@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -24,6 +23,8 @@ import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.FragmentData;
+import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.dam.api.DamConstants;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -42,7 +43,7 @@ public class EventListingModel {
     @ScriptVariable
     private SlingHttpServletRequest request;
 
-    private static final Logger LOG = LoggerFactory.getLogger(EventListingModel.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventListingModel.class);
 
     private static Map<String, String> citiesMap = new HashMap<>();
     private static Map<String, String> topicsMap = new HashMap<>();
@@ -50,32 +51,36 @@ public class EventListingModel {
     private static final String EVENT_PATH = "/content/dam/fondazione/events/";
     private static final String TOPIC_PATH = "/content/dam/fondazione/topics/";
     private static final String CITY_PATH = "/content/dam/fondazione/cities/";
+    private static final String ET_EVENT = "event";
+    private static final String ET_COURSE = "course";
+    private static final String ET_WEBINAR = "webinar";
+    private static final String EF_LIVE_STREAM = "liveStreaming";
+    private static final String EF_RESIDENTIAL = "residential";
+
+    private static final String Q_START_DATE = "/data/master/startDate";
+    private static final String Q_END_DATE = "/data/master/endDate";
 
     private int totalResults;
     private int currentPage;
     private int pageSize;
     private int totalPages;
 
-    @PostConstruct
-    protected void init() {
-    }
 
     private Map<String, String> buildBasePredicate() {
         Map<String, String> predicate = new HashMap<>();
-        predicate.put("type", "dam:Asset");
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", EVENT_PATH);
         predicate.put("p.limit", "-1");
-        predicate.put("orderby", "@jcr:content/data/master/endDate");
+        predicate.put("orderby", "@" + JcrConstants.JCR_CONTENT + Q_END_DATE);
         predicate.put("orderby.sort", "desc");
 
         return predicate;
     }
 
-
     private void addTopicFilterToPredicate(Map<String, String> predicate) {
         String[] topicsFilter = request.getParameterValues("topics");
-        if (topicsFilter != null && topicsFilter.length == 1 && topicsFilter[0].contains(",")) {
-            topicsFilter = topicsFilter[0].split(",");
+        if (topicsFilter != null && topicsFilter.length == 1 && topicsFilter[0].contains("-")) {
+            topicsFilter = topicsFilter[0].split("-");
         }
         if (topicsFilter != null && topicsFilter.length > 0) {
             boolean addOr = false;
@@ -84,17 +89,19 @@ public class EventListingModel {
                 try {
                     topic = ModelHelper.findResourceById(resourceResolver, topicsFilter[i], TOPIC_PATH);
                 } catch (RepositoryException e) {
-                    LOG.error(topicsFilter[i] + " not found");
+                    LOGGER.error("{} not found", topicsFilter[i]);
                 }
                 if (topic == null) {
                     continue;
                 }
-                predicate.put("group.1_group." + (i + 1) + "_property", "jcr:content/data/master/topics");
+                predicate.put("group.1_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/topics");
                 predicate.put("group.1_group." + (i + 1) + "_property.value", topic.getPath());
                 predicate.put("group.1_group." + (i + 1) + "_property.operation", "equals");
-                addOr = true;
+                if (i == 1) {
+                    addOr = true;
+                }
             }
-            // Imposta l'operatore OR tra i gruppi
+            // Set OR operator between groups
             if (addOr) {
                 predicate.put("group.1_group.p.or", "true");
             }
@@ -102,36 +109,65 @@ public class EventListingModel {
     }
 
     private void addEventTypeFilterToPredicate(Map<String, String> predicate) {
-        String eventTypeFilter = request.getParameter("eventType");
-        if (eventTypeFilter != null && !eventTypeFilter.isEmpty() && !eventTypeFilter.equals("-")) {
-            if (eventTypeFilter.equals("liveStreaming") || eventTypeFilter.equals("residential")) {
-                predicate.put("group.2_group.1_property", "jcr:content/data/master/format");
-                predicate.put("group.2_group.1_property.value", eventTypeFilter);
-                predicate.put("group.2_group.2_property", "jcr:content/data/master/format");
-                predicate.put("group.2_group.2_property.value", "inSiteAndStreaming");
+        String[] eventTypeFilter = request.getParameterValues("eventTypes");
+        if (eventTypeFilter != null && eventTypeFilter.length == 1 && eventTypeFilter[0].contains("-")) {
+            eventTypeFilter = eventTypeFilter[0].split("-");
+        }
+        if (eventTypeFilter != null && eventTypeFilter.length > 0) {
+            boolean addOr = false;
+            boolean addBothFormats = false;
+            for (int i = 0; i < eventTypeFilter.length; i++) {
+                if (eventTypeFilter[i].equals(EF_LIVE_STREAM) || eventTypeFilter[i].equals(EF_RESIDENTIAL)) {
+                    addBothFormats = true;
+                    predicate.put("group.2_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/format");
+                    predicate.put("group.2_group." + (i + 1) + "_property.value", eventTypeFilter[i]);
+                } else {
+                    predicate.put("group.2_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/eventType");
+                    predicate.put("group.2_group." + (i + 1) + "_property.value", eventTypeFilter[i]);
+                }
+                if (i == 1) {
+                    addOr = true;
+                }
+            }
+            if (addBothFormats) {
+                predicate.put("group.2_group." + (eventTypeFilter.length + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/format");
+                predicate.put("group.2_group." + (eventTypeFilter.length + 1) + "_property.value", "inSiteAndStreaming");
+            }
+            // Set OR operator between groups
+            if (addOr) {
                 predicate.put("group.2_group.p.or", "true");
-            } else {
-                predicate.put("group.2_property", "jcr:content/data/master/eventType");
-                predicate.put("group.2_property.value", eventTypeFilter);
             }
         }
     }
 
     private void addCityFilterToPredicate(Map<String, String> predicate) {
-        String locationFilter = request.getParameter("location");
-        if (locationFilter != null && !locationFilter.isEmpty() && !locationFilter.equals("-")) {
-            Resource city = null;
-            try {
-                city = ModelHelper.findResourceById(resourceResolver, locationFilter, CITY_PATH);
-            } catch (RepositoryException e) {
-                LOG.error(locationFilter + " not found");
+        String[] locationFilter = request.getParameterValues("locations");
+        if (locationFilter != null && locationFilter.length == 1 && locationFilter[0].contains("-")) {
+            locationFilter = locationFilter[0].split("-");
+        }
+        if (locationFilter != null && locationFilter.length > 0) {
+            boolean addOr = false;
+            for (int i = 0; i < locationFilter.length; i++) {
+                Resource city = null;
+                try {
+                    city = ModelHelper.findResourceById(resourceResolver, locationFilter[i], CITY_PATH);
+                } catch (RepositoryException e) {
+                    LOGGER.error("{} not found", locationFilter[i]);
+                }
+                if (city == null) {
+                    continue;
+                }
+                predicate.put("group.3_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/city");
+                predicate.put("group.3_group." + (i + 1) + "_property.value", city.getPath());
+                predicate.put("group.3_group." + (i + 1) + "_property.operation", "equals");
+                if (i == 1) {
+                    addOr = true;
+                }
             }
-            if (city == null) {
-                return;
+            // Set OR operator between groups
+            if (addOr) {
+                predicate.put("group.3_group.p.or", "true");
             }
-            predicate.put("group.3_property", "jcr:content/data/master/city");
-            predicate.put("group.3_property.value", city.getPath());
-            predicate.put("group.3_property.operation", "equals");
         }
     }
 
@@ -140,11 +176,11 @@ public class EventListingModel {
         if (eventStatus != null && !eventStatus.isEmpty()) {
             String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
             if (eventStatus.equals("scheduled")) {               
-                predicate.put("group.3_daterange.property", "jcr:content/data/master/startDate");
+                predicate.put("group.3_daterange.property", JcrConstants.JCR_CONTENT + Q_START_DATE);
                 predicate.put("group.3_daterange.lowerOperation", ">=");
                 predicate.put("group.3_daterange.lowerBound", today);
             } else {
-                predicate.put("group.3_daterange.property", "jcr:content/data/master/endDate");
+                predicate.put("group.3_daterange.property", JcrConstants.JCR_CONTENT + Q_END_DATE);
                 predicate.put("group.3_daterange.upperOperation", "<=");
                 predicate.put("group.3_daterange.upperBound", today);
             }
@@ -154,20 +190,23 @@ public class EventListingModel {
     private void addDateFilterToPredicate(Map<String, String> predicate) {
         String dateOrPeriod = request.getParameter("dateOrPeriod");
         if (dateOrPeriod != null && !dateOrPeriod.isEmpty()) {
+            if (dateOrPeriod.contains("-to-")) {
+                dateOrPeriod = dateOrPeriod.replace("-to-", " to ");
+            }
             if (dateOrPeriod.contains(" to ")) {
                 String[] dates = dateOrPeriod.split(" to ");
                 String fromDate = dates[0];
                 String toDate = dates[1];
 
                 // Gruppo 4: L'evento inizia durante il periodo selezionato
-                predicate.put("group.4_group.1_daterange.property", "jcr:content/data/master/startDate");
+                predicate.put("group.4_group.1_daterange.property", JcrConstants.JCR_CONTENT + Q_START_DATE);
                 predicate.put("group.4_group.1_daterange.lowerOperation", ">=");
                 predicate.put("group.4_group.1_daterange.lowerBound", fromDate);
                 predicate.put("group.4_group.1_daterange.upperOperation", "<=");
                 predicate.put("group.4_group.1_daterange.upperBound", toDate);
                 
                 // OPPURE L'evento finisce durante il periodo selezionato
-                predicate.put("group.4_group.2_daterange.property", "jcr:content/data/master/endDate");
+                predicate.put("group.4_group.2_daterange.property", JcrConstants.JCR_CONTENT + Q_END_DATE);
                 predicate.put("group.4_group.2_daterange.lowerOperation", ">=");
                 predicate.put("group.4_group.2_daterange.lowerBound", fromDate);
                 predicate.put("group.4_group.2_daterange.upperOperation", "<=");
@@ -180,10 +219,10 @@ public class EventListingModel {
                 String selectedDate = dateOrPeriod;
                 
                 // Gruppo 4: La data selezionata cade tra la data di inizio e fine dell'evento
-                predicate.put("group.1_daterange.property", "jcr:content/data/master/startDate");
+                predicate.put("group.1_daterange.property", JcrConstants.JCR_CONTENT + Q_START_DATE);
                 predicate.put("group.1_daterange.upperOperation", "<=");
                 predicate.put("group.1_daterange.upperBound", selectedDate);
-                predicate.put("group.2_daterange.property", "jcr:content/data/master/endDate");
+                predicate.put("group.2_daterange.property", JcrConstants.JCR_CONTENT + Q_END_DATE);
                 predicate.put("group.2_daterange.lowerOperation", ">=");
                 predicate.put("group.2_daterange.lowerBound", selectedDate);
             }
@@ -215,7 +254,7 @@ public class EventListingModel {
             FragmentData fragmentData = fragment.getElement("topics").getValue();
             Object elementContent = fragmentData.getValue();
             String topics = null;
-            if (elementContent != null && elementContent instanceof String[] && ((String[])elementContent).length > 0) {
+            if (elementContent instanceof String[] && ((String[])elementContent).length > 0) {
                 StringBuilder topicsBuilder = new StringBuilder();
                 for (String topic : (String[]) elementContent) {
                     String topicName = getTopicName(topic, language);
@@ -245,19 +284,18 @@ public class EventListingModel {
         String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
         List<EventSelection> selections = new ArrayList<>();
 
-        //selections.add(new EventSelection("", "-"));
-        if (language == "it") {
-            selections.add(new EventSelection("course", "Corso"));
-            selections.add(new EventSelection("event", "Evento"));
-            selections.add(new EventSelection("webinar", "Webinar"));
-            selections.add(new EventSelection("liveStreaming", "Streaming Live"));
-            selections.add(new EventSelection("residential", "Residenziale"));
+        if (language.equals("it")) {
+            selections.add(new EventSelection(ET_COURSE, "Corso"));
+            selections.add(new EventSelection(ET_EVENT, "Evento"));
+            selections.add(new EventSelection(ET_WEBINAR, "Webinar"));
+            selections.add(new EventSelection(EF_LIVE_STREAM, "Streaming Live"));
+            selections.add(new EventSelection(EF_RESIDENTIAL, "Residenziale"));
         } else {
-            selections.add(new EventSelection("course", "Course"));
-            selections.add(new EventSelection("event", "Event"));
-            selections.add(new EventSelection("webinar", "Webinar"));
-            selections.add(new EventSelection("liveStreaming", "Live Streaming"));
-            selections.add(new EventSelection("residential", "Residential"));
+            selections.add(new EventSelection(ET_COURSE, "Course"));
+            selections.add(new EventSelection(ET_EVENT, "Event"));
+            selections.add(new EventSelection(ET_WEBINAR, "Webinar"));
+            selections.add(new EventSelection(EF_LIVE_STREAM, "Live Streaming"));
+            selections.add(new EventSelection(EF_RESIDENTIAL, "Residential"));
         }
 
         return selections;
@@ -298,8 +336,8 @@ public class EventListingModel {
         Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
 
         // DEBUG
-        String debugQuery = ModelHelper.convertPredicatesToDebugFormat(predicate);
-        LOG.info(debugQuery);
+        // String debugQuery = ModelHelper.convertPredicatesToDebugFormat(predicate);
+        // LOGGER.info(debugQuery);
 
         SearchResult result = query.getResult();
 
@@ -312,7 +350,7 @@ public class EventListingModel {
                     filteredEvents.add(event);
                 }
             } catch (RepositoryException e) {
-                e.printStackTrace();
+                LOGGER.error("Error while retrieving event", e);
             }
         }
 
@@ -367,7 +405,7 @@ public class EventListingModel {
                 this.startDateText = (startDate != null) ? stringFormat.format(startDate) : null;
                 this.endDateText = (endDate != null) ? stringFormat.format(endDate) : null;
             } catch (ParseException e) {
-                e.printStackTrace();
+                LOGGER.error("Error while parsing date", e);
                 this.startDate = null;
                 this.endDate = null;
             }
@@ -394,11 +432,11 @@ public class EventListingModel {
         }
 
         public Date getStartDate() {
-            return startDate;
+            return startDate != null ? new Date(startDate.getTime()) : null;
         }
 
         public Date getEndDate() {
-            return endDate;
+            return endDate != null ? new Date(endDate.getTime()) : null;
         }
 
         public String getStartDateText() {

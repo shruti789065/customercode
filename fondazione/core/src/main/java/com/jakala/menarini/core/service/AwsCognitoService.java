@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.dto.RoleDto;
 import com.jakala.menarini.core.dto.cognitoDto.*;
+import com.jakala.menarini.core.exceptions.AwsServiceException;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
 import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
@@ -45,19 +46,23 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     private RoleServiceInterface roleService;
 
 
+    private static final String USER_ROLE_DOCTOR = "UserDoctor";
+    private static final String USER_ROLE_HEALTH = "UserHealthCare";
+
+
     private static final Map<String,String> MAP_PROFESSION_TO_ROLE;
     static {
         MAP_PROFESSION_TO_ROLE  = new HashMap<>();
-        MAP_PROFESSION_TO_ROLE .put("Biologist", "UserHealthCare");
-        MAP_PROFESSION_TO_ROLE .put("Diagnostic Laboratory Technician", "UserHealthCare");
-        MAP_PROFESSION_TO_ROLE .put("Doctor", "UserDoctor");
-        MAP_PROFESSION_TO_ROLE .put("Healthcare Worker", "UserHealthCare");
+        MAP_PROFESSION_TO_ROLE .put("Biologist", USER_ROLE_HEALTH);
+        MAP_PROFESSION_TO_ROLE .put("Diagnostic Laboratory Technician", USER_ROLE_HEALTH);
+        MAP_PROFESSION_TO_ROLE .put("Doctor", USER_ROLE_DOCTOR);
+        MAP_PROFESSION_TO_ROLE .put("Healthcare Worker", USER_ROLE_HEALTH);
         MAP_PROFESSION_TO_ROLE .put("No Healthcare", "User");
-        MAP_PROFESSION_TO_ROLE .put("Nurse", "UserDoctor");
-        MAP_PROFESSION_TO_ROLE .put("Nurse’s Assistant", "UserDoctor");
-        MAP_PROFESSION_TO_ROLE .put("Obstetrician", "UserDoctor");
-        MAP_PROFESSION_TO_ROLE .put("Pharmacist", "UserHealthCare");
-        MAP_PROFESSION_TO_ROLE .put("Psichologist", "UserDoctor");
+        MAP_PROFESSION_TO_ROLE .put("Nurse", USER_ROLE_DOCTOR);
+        MAP_PROFESSION_TO_ROLE .put("Nurse’s Assistant", USER_ROLE_DOCTOR);
+        MAP_PROFESSION_TO_ROLE .put("Obstetrician", USER_ROLE_DOCTOR);
+        MAP_PROFESSION_TO_ROLE .put("Pharmacist", USER_ROLE_HEALTH);
+        MAP_PROFESSION_TO_ROLE .put("Psichologist", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Student", "User");
     }
 
@@ -93,8 +98,6 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         cognitoRequestSignInDto.setAuthParameters(cognitoAuthParametersDto);
         String body = gson.toJson(cognitoRequestSignInDto);
         HttpPost httpPost = new HttpPost(this.idpUrl);
-        Date now = new Date();
-        String dateStr = new SimpleDateFormat("yyyyMMdd'T'HHmmssZ").format(now);
         return handleSignInRequest(body,httpPost);
 
     }
@@ -134,8 +137,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)) {
             String response = readHttpResponse(httpResponse).toString();
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
-                SignInResponseDto sigInResponse =  gson.fromJson(response, SignInResponseDto.class);
-                return sigInResponse;
+                return gson.fromJson(response, SignInResponseDto.class);
             } else {
                 CognitoSignInErrorResponseDto sigInResponse =
                         gson.fromJson(response, CognitoSignInErrorResponseDto.class);
@@ -199,10 +201,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
             LOGGER.error("========== Response ============");
             StringBuffer responseString = readHttpResponse(httpResponse);
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
-                SignUpDtoResponse dataResponse =
-                        (SignUpDtoResponse) gson.fromJson(responseString.toString(), SignUpDtoResponse.class);
-
-
+                SignUpDtoResponse dataResponse = gson.fromJson(responseString.toString(), SignUpDtoResponse.class);
                 List<RoleDto> listOfRoles =  roleService.getRoles();
                 dataResponse.copyRegistrationData(registrationData,listOfRoles);
                 RegisteredUserDto dto = dataResponse.generateRegisteredUser(userName);
@@ -223,14 +222,12 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
                 SignUpDtoResponse errorResponse = new SignUpDtoResponse();
                 errorResponse.setCognitoSignUpErrorResponseDto(cognitoSignInErrorResponseDto);
                 LOGGER.error("========== Invalid Response ============");
-                //LOGGER.error(responseString.toString());
                 return errorResponse;
             }
 
         } catch (java.io.IOException io) {
-            throw new RuntimeException(io);
+            throw new AwsServiceException(io.getMessage());
         }
-        //return null;
     }
 
     @Override
@@ -266,7 +263,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
             forgetPasswordResponseDto.setCognitoError(cognitoSignInErrorResponseDto);
             return forgetPasswordResponseDto;
         }catch (java.io.IOException io) {
-            throw new RuntimeException(io);
+            throw new AwsServiceException(io.getMessage());
         }
     }
 
@@ -304,7 +301,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
             LOGGER.error(gson.toJson(error));
             return confirmForgetPasswordResponseDto;
         }catch (java.io.IOException io) {
-            throw new RuntimeException(io);
+            throw new AwsServiceException(io.getMessage());
         }
     }
 
@@ -332,7 +329,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
             awsResponse.setError(error);
             return awsResponse;
         }catch (java.io.IOException io) {
-            throw new RuntimeException(io);
+            throw new AwsServiceException(io.getMessage());
         }
 
     }
@@ -375,27 +372,27 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
             mac.update(userName.getBytes(StandardCharsets.UTF_8));
             byte[] rawHmac = mac.doFinal(this.clientId.getBytes(StandardCharsets.UTF_8));
             return Base64.getEncoder().encodeToString(rawHmac);
-        } catch (Exception e) {
-            throw new RuntimeException("Error while calculating ");
+        } catch (NoSuchAlgorithmException | InvalidKeyException e) {
+            throw new IllegalArgumentException("Error while calculating ");
         }
     }
 
     private String generateSignature(String dateStr, String authHeader) {
-        String dateKey = HMACSEncoder("AWS"+this.secretKey,dateStr);
-        String regionKey = HMACSEncoder(dateKey,this.awsRegion);
-        String serviceKey = HMACSEncoder(regionKey,"execute-api");
-        String requestKey = HMACSEncoder(serviceKey,"aws4_request");
-        return  HMACSEncoder(requestKey,authHeader);
+        String dateKey = hmacsEncoder("AWS"+this.secretKey,dateStr);
+        String regionKey = hmacsEncoder(dateKey,this.awsRegion);
+        String serviceKey = hmacsEncoder(regionKey,"execute-api");
+        String requestKey = hmacsEncoder(serviceKey,"aws4_request");
+        return  hmacsEncoder(requestKey,authHeader);
     }
 
-    private String HMACSEncoder(String key, String data) {
+    private String hmacsEncoder(String key, String data) {
         try {
             Mac encoder = Mac.getInstance("HmacSHA256");
             SecretKeySpec keyData = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
             encoder.init(keyData);
             return Hex.encodeHexString(encoder.doFinal(data.getBytes(StandardCharsets.UTF_8)));
         } catch (NoSuchAlgorithmException | InvalidKeyException e) {
-            throw new RuntimeException(e);
+            throw new AwsServiceException(e.getMessage());
         }
     }
 

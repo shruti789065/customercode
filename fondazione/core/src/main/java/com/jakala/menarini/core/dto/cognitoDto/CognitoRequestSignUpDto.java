@@ -2,6 +2,7 @@ package com.jakala.menarini.core.dto.cognitoDto;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("squid:S2384")
 public class CognitoRequestSignUpDto {
 
     private String ClientId;

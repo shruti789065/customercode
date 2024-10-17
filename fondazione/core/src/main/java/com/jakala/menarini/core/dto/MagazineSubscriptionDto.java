@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 
 import org.apache.tika.config.Field;
 
-
+@SuppressWarnings("squid:S2384")
 public class MagazineSubscriptionDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "MAGAZINE_SUBSCRIPTION";
+	public static final String table = "MAGAZINE_SUBSCRIPTION";
 
 	private long id;
 

@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class CityListingModel {
     private List<City> cities = new ArrayList<>();
 
     public List<City> getCities() {
-        return cities;
+        return Collections.unmodifiableList(cities);
     }
 
     @PostConstruct

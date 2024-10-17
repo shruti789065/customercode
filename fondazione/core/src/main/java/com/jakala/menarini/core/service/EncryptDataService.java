@@ -6,9 +6,14 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Map;
 
@@ -41,7 +46,8 @@ public class EncryptDataService implements EncryptDataServiceInterface {
             String encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);
             LOGGER.info("Encrypted data: {}", encryptedString);
             return encryptedString;
-        } catch (Exception e) {
+        } catch (NoSuchPaddingException | NoSuchAlgorithmException |
+                 InvalidKeyException | BadPaddingException  | IllegalBlockSizeException e) {
             LOGGER.error("================== ENC ERROR =================");
             LOGGER.error(e.getMessage(), e);
             return "";
@@ -56,7 +62,8 @@ public class EncryptDataService implements EncryptDataServiceInterface {
             cipher.init(Cipher.DECRYPT_MODE,key);
             byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(dataEncrypt));
             return new String(decryptedBytes);
-        } catch (Exception e) {
+        } catch (NoSuchPaddingException | NoSuchAlgorithmException |
+                 InvalidKeyException | BadPaddingException  | IllegalBlockSizeException e) {
             LOGGER.error(e.getMessage(), e);
             return "";
         }

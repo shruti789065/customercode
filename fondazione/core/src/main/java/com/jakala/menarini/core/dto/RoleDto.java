@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.apache.tika.config.Field;
 
-
+@SuppressWarnings("squid:S2384")
 public class RoleDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "ROLE";
+	public static final String table = "ROLE";
 
 	private long id;
 

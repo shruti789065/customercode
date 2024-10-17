@@ -17,6 +17,7 @@ import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.ContentVariation;
 import com.adobe.cq.dam.cfm.FragmentData;
+import com.day.cq.dam.api.DamConstants;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -87,7 +88,7 @@ public class ModelHelper {
         Session session = resourceResolver.adaptTo(Session.class);
         Map<String, String> predicate = new HashMap<>();
 
-        predicate.put("type", "dam:Asset");
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", path);
         predicate.put("orderby", "@jcr:content/data/master/id");
         predicate.put("orderby.sort", "desc");
@@ -116,12 +117,12 @@ public class ModelHelper {
         Session session = resolver.adaptTo(Session.class);
         Map<String, String> predicate = new HashMap<>();
 
-        predicate.put("type", "dam:Asset");
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", path);
         predicate.put("property", "jcr:content/data/master/id");
         predicate.put("property.value", id);
         predicate.put("property.operation", "equals");
-        com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
         SearchResult result = query.getResult();
 
         for (Hit hit : result.getHits()) {
@@ -142,7 +143,7 @@ public class ModelHelper {
         Session session = resolver.adaptTo(Session.class);
         Map<String, String> predicate = new HashMap<>();
 
-        predicate.put("type", "dam:Asset");
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", path);
         predicate.put("property", "jcr:content/data/master/id");
         predicate.put("property.value", id);
