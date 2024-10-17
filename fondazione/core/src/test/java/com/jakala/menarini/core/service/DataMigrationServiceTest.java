@@ -1,4 +1,4 @@
-package com.jakala.menarini.core.services;
+package com.jakala.menarini.core.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -10,14 +10,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.Workspace;
 import javax.jcr.query.QueryManager;
-import javax.jcr.query.Row;
-import javax.jcr.query.RowIterator;
-
-import org.apache.poi.hpsf.Array;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -33,12 +28,10 @@ import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.FragmentTemplate;
 import com.adobe.cq.dam.cfm.VariationDef;
-import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.SearchResult;
-import com.jakala.menarini.core.service.DataMigrationService;
 import com.jakala.menarini.core.service.interfaces.FileReaderServiceInterface;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
