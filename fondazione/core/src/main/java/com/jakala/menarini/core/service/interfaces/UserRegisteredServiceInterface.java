@@ -14,16 +14,16 @@ import com.jakala.menarini.core.security.Acl;
 
 public interface UserRegisteredServiceInterface {
 
-    public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls) throws AccessDeniedException, SQLException;
+    public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls,  List<RoleDto> roles) throws AccessDeniedException, SQLException;
 
     public List<RegisteredUserDto> getUsers(Set<Acl> acls) throws AccessDeniedException;
 
     public boolean addUser(RegisteredUserDto user, Set<Acl> acls) throws AccessDeniedException;
 
-    public boolean addUserForSignUp(RegisteredUserDto user, ArrayList<RoleDto> roles, ArrayList<TopicDto> topics);
+    public boolean addUserForSignUp(RegisteredUserDto user, List<RoleDto> roles, List<TopicDto> topics);
 
     public boolean isActiveUser(String username);
 
-    public RegisteredUseServletResponseDto updateUserData(String email, RegisteredUserDto user, List<String> updateTopics, Set<Acl> acls) throws AccessDeniedException, SQLException;
+    public RegisteredUseServletResponseDto updateUserData(String email, RegisteredUserDto user, List<String> updateTopics, Set<Acl> acls, List<RoleDto> roles) throws AccessDeniedException, SQLException;
     
 }

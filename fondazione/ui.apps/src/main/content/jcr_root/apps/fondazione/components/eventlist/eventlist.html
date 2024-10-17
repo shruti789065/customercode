@@ -19,23 +19,29 @@
     
         <label for="eventType">Event Type</label>
         <div class="select-wrapper">
-            <select name="eventType" size="1">
-                <option value="-">-</option>
+            <select name="eventTypes" id="eventTypesSelect" multiple size="3">
                 <sly data-sly-list.eventSelection="${model.eventSelections}">
                     <option value="${eventSelection.id}">${eventSelection.name}</option>
                 </sly>
             </select>
+            <!-- Hidden field to contain concatenated values -->
+            <input type="hidden" name="eventTypes" id="eventTypesHidden" value="">
+            <!-- Div to display selected eventTypes -->
+            <div id="selectedEventTypes" class="selected-topics"></div>
         </div> 
 
         <label for="location">Location</label>
         <div class="select-wrapper">
             <sly data-sly-use.modelC="com.jakala.menarini.core.models.CityListingModel">
-            <select name="location" size="1">
-                <option value="-">-</option>
-                <sly data-sly-list.city="${modelC.cities}">
-                    <option value="${city.id}">${city.name}</option>
-                </sly>
-            </select>
+                <select name="locations" id="locationsSelect" multiple size="3">
+                    <sly data-sly-list.city="${modelC.cities}">
+                        <option value="${city.id}">${city.name}</option>
+                    </sly>
+                </select>
+                <!-- Hidden field to contain concatenated values -->
+                <input type="hidden" name="locations" id="locationsHidden" value="">
+                <!-- Div to display selected locations -->
+                <div id="selectedLocations" class="selected-topics"></div>
             </sly>
         </div>
     
@@ -265,6 +271,7 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
+        //TOPICS
         const select = document.getElementById('topicsSelect');
         const hiddenInput = document.getElementById('topicsHidden');
         const selectedTopicsDiv = document.getElementById('selectedTopics');
@@ -289,7 +296,7 @@
             }
 
             // Update hidden input with concatenated values
-            hiddenInput.value = Array.from(selectedValues).join(',');
+            hiddenInput.value = Array.from(selectedValues).join('-');
 
             // Update display of selected topics
             selectedTopicsDiv.innerHTML = selectedTexts.length > 0 ? 
@@ -297,11 +304,80 @@
                 'No topics selected';
         });
 
+        // Event Types
+        const selectET = document.getElementById('eventTypesSelect');
+        const hiddenInputET = document.getElementById('eventTypesHidden');
+        const selectedTopicsDivET = document.getElementById('selectedEventTypes');
+        const selectedValuesET = new Set(); // Use Set to avoid duplicates
+
+        // Handle selection
+        selectET.addEventListener('change', function(e) {
+            const options = e.target.options;
+            
+            // Clear the Set
+            selectedValuesET.clear();
+
+            // Array to keep track of both values and texts
+            let selectedTexts = [];
+            
+            // Add all selected values to the Set
+            for (let option of options) {
+                if (option.selected) {
+                    selectedValuesET.add(option.value);
+                    selectedTexts.push(option.text);
+                }
+            }
+
+            // Update hidden input with concatenated values
+            hiddenInputET.value = Array.from(selectedValuesET).join('-');
+
+            // Update display of selected event types
+            selectedTopicsDivET.innerHTML = selectedTexts.length > 0 ? 
+                'Selected: ' + selectedTexts.join(', ') : 
+                'No event types selected';
+        });
+
+        // Locations
+        const selectL = document.getElementById('locationsSelect');
+        const hiddenInputL = document.getElementById('locationsHidden');
+        const selectedTopicsDivL = document.getElementById('selectedLocations');
+        const selectedValuesL = new Set(); // Use Set to avoid duplicates
+
+        // Handle selection
+        selectL.addEventListener('change', function(e) {
+            const options = e.target.options;
+            
+            // Clear the Set
+            selectedValuesL.clear();
+
+            // Array to keep track of both values and texts
+            let selectedTexts = [];
+            
+            // Add all selected values to the Set
+            for (let option of options) {
+                if (option.selected) {
+                    selectedValuesL.add(option.value);
+                    selectedTexts.push(option.text);
+                }
+            }
+
+            // Update hidden input with concatenated values
+            hiddenInputL.value = Array.from(selectedValuesL).join('-');
+
+            // Update display of selected locations
+            selectedTopicsDivL.innerHTML = selectedTexts.length > 0 ? 
+                'Selected: ' + selectedTexts.join(', ') : 
+                'No locations selected';
+        });
+
+
         // Intercept form submission
         const form = select.closest('form');
         if (form) {
             form.addEventListener('submit', function(e) {
-                hiddenInput.value = Array.from(selectedValues).join(',');
+                hiddenInput.value = Array.from(selectedValues).join('-');
+                hiddenInputET.value = Array.from(selectedValuesET).join('-');
+                hiddenInputL.value = Array.from(selectedValuesL).join('-');
             });
         }
 

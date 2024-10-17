@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+import com.jakala.menarini.core.exceptions.JwtServiceException;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Jwk;
 import io.jsonwebtoken.security.Jwks;
@@ -71,10 +74,11 @@ import com.jakala.menarini.core.dto.RoleDto;
                 String userRolesStr = jwt.getClaimsSet().getCustomField("aemRoles", String.class);
                 Gson gson = new Gson();
                 RoleDto[] roles = gson.fromJson(userRolesStr, RoleDto[].class);
-                HashMap<String, RoleDto[]> authData = new HashMap<String, RoleDto[]>();
+                HashMap<String, RoleDto[]> authData = new HashMap<>();
                 authData.put(userEmail, roles);
                 return authData;
-            } catch (Exception e) {
+            } catch (JwtServiceException e) {
+                LOGGER.error("Failed to extract credentials", e);
                 return null;
             }
 
@@ -85,8 +89,6 @@ import com.jakala.menarini.core.dto.RoleDto;
             try {
                 LOGGER.info("Extracting credentials");
                 String token = this.getToken(request);
-                //LOGGER.info("Token: {}", token);
-
                 if (token == null || !isValidToken(token)) {
                     LOGGER.warn("Invalid or missing token");
                     sendUnauthorizedResponse(response);
@@ -116,7 +118,7 @@ import com.jakala.menarini.core.dto.RoleDto;
                 return authData;
     
 
-            } catch (Exception e) {
+            } catch (JwtException | JwtServiceException | IOException | JsonSyntaxException e) {
                 LOGGER.error("Failed to extract credentials", e);
                 try {
                     sendUnauthorizedResponse(response);
@@ -132,7 +134,7 @@ import com.jakala.menarini.core.dto.RoleDto;
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or missing token");
         }
         
-        private String getToken(HttpServletRequest request) throws Exception {
+        private String getToken(HttpServletRequest request) {
             String authString = null;
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
@@ -143,12 +145,13 @@ import com.jakala.menarini.core.dto.RoleDto;
                 }
             }
             if (authString == null) {
-                throw new Exception("Authorization header not found or not in the expected format");
+                throw new JwtServiceException("Authorization header not found or not in the expected format");
             }
             return authString;
         }
     
         private boolean isValidToken(String token) {
+
             try {
                 JWTReader reader = new JWTReader();
                 JWT jwt = reader.read(token);
@@ -172,8 +175,6 @@ import com.jakala.menarini.core.dto.RoleDto;
 
                 final JsonObject jwkJsonObj = JsonParser.parseString(jwkString).getAsJsonObject();
                 String singleKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).toString();
-                //LOGGER.info("JWK JSON KEY 0: {}", singleKey);
-
 
                 final Jwk<?> jwk = Jwks.parser().build().parse(singleKey);
                 RSAPublicKey rsaKey = (RSAPublicKey)jwk.toKey();
@@ -194,7 +195,7 @@ import com.jakala.menarini.core.dto.RoleDto;
                     return false; // Manca username
                 }
                 return true;
-            } catch (Exception e) {
+            } catch (JwtException e) {
                 LOGGER.warn("Token validation failed", e);
                 return false;
             }
