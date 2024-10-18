@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateDropdownTextProfession() {
     let innerString = selectedProfession === "" ? "Select Profession" : selectedProfession;
     let areaOfInterestsElement = document.querySelector("#areaOfInterestsComponent");
-    if (selectedProfession === Granite.I18n.get("no_healthcare")) {
+    if(selectedProfession === Granite.I18n.get("no_healthcare")) {
       areaOfInterestsElement.classList.add("d-none");
       areaOfInterestsElement.classList.remove("d-block");
       selectedItemsMultipleSelect = [];
@@ -267,7 +267,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let dropdownButton = document.querySelector(
       "#dropdownProfessionMenuButton"
     );
-
     if (selectedProfession === "") {
       erroeMessagges.push({
         id: "profession",
@@ -307,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "#dropdownMultiselectMenuButton"
     );
 
-    if (!data.areasOfInterest || data.areasOfInterest.length === 0) {
+    if ((!data.areasOfInterest || data.areasOfInterest.length === 0) && selectedProfession !== Granite.I18n.get("no_healthcare")) {
       erroeMessagges.push({
         id: "areasOfInterest",
         message: Granite.I18n.get("mandatory_field"),
@@ -453,7 +452,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // FORM SUBMIT FUNCTIONS
-  async function sendData(registrationData) {
+  async function sendData(registrationData) {    
     let loader = document.querySelector("#signupLoader");
     let ctaSignUp = document.querySelector("#ctaSignup");
     try {
@@ -478,7 +477,6 @@ document.addEventListener("DOMContentLoaded", function () {
       loader.classList.remove("d-block");
       ctaSignUp.disabled = false;
     }
-
   }
 
   let form = document.querySelector("#signUpForm");
@@ -491,7 +489,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let tmpFormData = {
         profession: selectedProfession,
         country: selectedCountryId,
-        areasOfInterest: selectedTopicsIds
+        areasOfInterest: selectedProfession !== Granite.I18n.get("no_healthcare") ? selectedTopicsIds : []
       };
 
       for (let [key, value] of formData.entries()) {
@@ -531,7 +529,8 @@ document.addEventListener("DOMContentLoaded", function () {
       validateDataProcessing(tmpFormData);
       validateNewsLetter(tmpFormData);
       validateEmailConfirmation(tmpFormData);
-
+      console.log(erroeMessagges);
+      
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
         if (responseReg.cognitoSignUpErrorResponseDto) {

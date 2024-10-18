@@ -104,19 +104,21 @@
         // }
     }
 
-    // .cmp-editprofileform__professionItem {
-    //     margin-top: 10px;
-    // }
-
-    // .cmp-editprofileform__countryItem {
-    //     margin-top: 10px;
-    // }
-
     .cmp-userprofileform__borderRed {
         border-color: $fm-form-error !important;
     }
 
     .cmp-userprofileform__borderGreen {
         border-color: $fm-form-success !important;
+    }
+
+    #cmp-editprofileform__overlay {
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal {
+        margin-top: 100px;
     }
 }

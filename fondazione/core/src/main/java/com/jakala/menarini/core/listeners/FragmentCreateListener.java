@@ -110,7 +110,7 @@ public class FragmentCreateListener implements ResourceChangeListener {
      * Create the variations for the given ContentFragment.
      */
     private void createVariations(ContentFragment fragment) throws ContentFragmentException{
-        String[] languages = {"it", "en"};
+        String[] languages = {"it", "en", "es"};
         
         for (String language : languages) {
             String variationName = fragment.getName() + "_" + language;
