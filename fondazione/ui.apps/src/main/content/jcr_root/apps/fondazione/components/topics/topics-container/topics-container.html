@@ -1,0 +1,19 @@
+<section class="topics-container" id="${properties.id}" aria-label="${properties.accessibilityLabel}" role="${properties.roleAttribute}">
+  <sly data-sly-test="${properties['jcr:title']}">
+    <h2 class="topics-container__title">${properties['jcr:title']}</h2>
+  </sly>
+  <sly data-sly-test="${properties['jcr:description']}">
+    <p class="topics-container__description">
+      ${properties['jcr:description']}
+    </p>
+  </sly>
+  <div class="topics-container__wrapper">
+    <sly data-sly-resource="${resource @ resourceType='fondazione/components/topics/topics-list'}" />
+    <div>
+      <sly data-sly-resource="${'button' @ resourceType='fondazione/components/button'}" />
+    </div> 
+    <div class="mt-5">
+      <sly data-sly-resource="${'text' @ resourceType='fondazione/components/text'}" />
+    </div>
+  </div>
+</section>

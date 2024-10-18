@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const preSelectedTopics = urlParams?.get('topics').split("-");
+
   const dropdownButtonMultiple = document.querySelector(
     "#dropdownMultiselectMenuButton"
   );
@@ -8,6 +13,35 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   let selectedItemsMultipleSelect = [];
   let selectedTopicsIds = [];
+
+  //FILL SELECTED TOPICS IF PRESELECTED
+  if (preSelectedTopics && preSelectedTopics.length > 0) {
+    preSelectedTopics.forEach((topicId) => {
+      selectedTopicsIds.push(topicId);
+      checkboxes?.forEach((checkbox) => {
+        if (checkbox.dataset.topicId === topicId) {
+          checkbox.checked = true;
+          selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
+        }
+        updateDropdownTextMultiple();
+      })
+
+      if(preSelectedTopics.length === 3) {
+        checkboxes.forEach((element) => {
+          if (
+            !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
+            selectedItemsMultipleSelect.length === 3
+          ) {
+            element.disabled = true;
+          } else {
+            element.disabled = false;
+          }
+        });
+      }
+
+    })
+  }
+
   const dropdownButtonProfession = document.querySelector(
     "#dropdownProfessionMenuButton"
   );
