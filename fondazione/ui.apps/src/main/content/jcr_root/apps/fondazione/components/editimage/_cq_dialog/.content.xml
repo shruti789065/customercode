@@ -49,14 +49,14 @@
                                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                         rootPath="/content/fondazione"
                                         required="{Boolean}true"
-                                        fieldLabel="Edit profile link"
+                                        fieldLabel="Link to the edit profile page"
                                         name="./redirectLink" />
                                     <logoutLink
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                         rootPath="/content/fondazione"
                                         required="{Boolean}true"
-                                        fieldLabel="Logout link"
+                                        fieldLabel="Link to the page where the user will be redirected after logout"
                                         name="./logoutLink" />
                                 </items>
                             </option1group>
