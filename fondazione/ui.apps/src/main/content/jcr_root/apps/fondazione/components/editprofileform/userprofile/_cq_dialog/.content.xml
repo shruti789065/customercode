@@ -24,6 +24,13 @@
                                 fieldDescription="Enter privacy information notice link"
                                 rootPath="/content/fondazione"
                                 required="{Boolean}true" />
+                            <loginPageLink jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                name="./loginPageLink"
+                                fieldLabel="Link to login page"
+                                fieldDescription="Enter link to login page"
+                                rootPath="/content/fondazione"
+                                required="{Boolean}true" />
                         </items>
                     </general>
                 </items>

@@ -156,12 +156,17 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
                     .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
             if(!user.getOccupation().equals(oldData.getOccupation())) {
-                ArrayList<Long> oldRoles = new ArrayList<>();
-                for(RoleDto role : roles) {
-                    oldRoles.add(role.getId());
+                ArrayList<Long> toRomove = new ArrayList<>();
+                List<RegisteredUserRoleRecord> oldRoles = create.select().from(RegisteredUserRole.REGISTERED_USER_ROLE).
+                        where(RegisteredUserRole.REGISTERED_USER_ROLE.REGISTERED_USER_ID.eq(oldData.getId()))
+                        .fetch().into(RegisteredUserRoleRecord.class);
+
+                for(RegisteredUserRoleRecord role : oldRoles) {
+                    Long roleID = role.getRoleId();
+                    toRomove.add(roleID);
                 }
 
-                this.updateRole(user,oldRoles,user.getOccupation(),oldData.getId(),create,connection,savepoint);
+                this.updateRole(user,toRomove,user.getOccupation(),oldData.getId(),create,connection,savepoint);
                 response.setIslogOut(true);
             }
             if(!updateTopics.isEmpty() && this.checkShouldBeHaveToken(roles)) {
