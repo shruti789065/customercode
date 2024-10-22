@@ -40,6 +40,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
     private static final String USER_ROLE_DOCTOR = "UserDoctor";
     private static final String USER_ROLE_HEALTH = "UserHealthCare";
+    private static final String COUNTRY_ID_ITALY = "1";
 
 
     private static final Map<String,String> MAP_PROFESSION_TO_ROLE;
@@ -126,7 +127,8 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         try {
             RegisteredUserDto oldData = this.getUserByEmail(email, acls,roles);
             user.setId(oldData.getId());
-            return this.updateUser(user,oldData,updateTopics,email,roles);
+            String country = user.getCountry() == null ? oldData.getCountry() : user.getCountry();
+            return this.updateUser(user,oldData,updateTopics,email,country,roles);
         } catch (AccessDeniedException e) {
             response.setSuccess(false);
             errorMessage = e.getMessage();
@@ -140,7 +142,9 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             RegisteredUserDto oldData,
             List<String> updateTopics,
             String email,
+            String country,
             List<RoleDto> roles) {
+
         RegisteredUseServletResponseDto response = new RegisteredUseServletResponseDto();
         String errorMessage = "";
         Savepoint savepoint = null;
@@ -189,6 +193,11 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     return response;
                 }
             }
+            ArrayList<RoleDto> actualRoles = (ArrayList<RoleDto>)roleService.getRolesUser(oldData.getId());
+            RoleDto[] arrayRoles = new RoleDto[actualRoles.size()];
+            actualRoles.toArray(arrayRoles);
+            RegisteredUserPermissionDto permissions = this.generateUserPermission(arrayRoles[0],country);
+            response.setUserPermission(permissions);
             response.setSuccess(true);
             response.setUpdatedUser(user);
             return response;
@@ -353,6 +362,31 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             dataSet.set(RegisteredUser.REGISTERED_USER.NEWSLETTER_SUBSCRIPTION_TS,now);
         }
         return dataSet;
+    }
+
+
+    @Override
+    public RegisteredUserPermissionDto generateUserPermission(RoleDto role, String idCountry) {
+        RegisteredUserPermissionDto permissionDto = new RegisteredUserPermissionDto();
+        String roleName = role.getName();
+        switch (roleName) {
+            case USER_ROLE_HEALTH:
+                permissionDto.setEventSubscription(true);
+                permissionDto.setMaterialAccess(true);
+                permissionDto.setMagazineSubscription(false);
+                break;
+            case USER_ROLE_DOCTOR:
+                permissionDto.setEventSubscription(true);
+                permissionDto.setMaterialAccess(true);
+                permissionDto.setMagazineSubscription(idCountry.equals(COUNTRY_ID_ITALY));
+                break;
+            default:
+                permissionDto.setEventSubscription(true);
+                permissionDto.setMaterialAccess(false);
+                permissionDto.setMagazineSubscription(false);
+
+        }
+        return permissionDto;
     }
 
 

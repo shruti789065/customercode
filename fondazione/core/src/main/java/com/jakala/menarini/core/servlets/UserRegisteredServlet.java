@@ -74,6 +74,9 @@ public class UserRegisteredServlet extends  BaseRestServlet {
                             response.setStatus(200);
                             response.setContentType(APP_CONTENT);
                             responseDto.setSuccess(true);
+                            responseDto.setUserPermission(
+                                    userService.generateUserPermission(roles[0],user.getCountry())
+                            );
                             responseDto.setUpdatedUser(user);
                         }
                         response.getWriter().write(gson.toJson(responseDto));
