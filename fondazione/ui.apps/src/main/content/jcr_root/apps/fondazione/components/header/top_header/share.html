@@ -1,49 +1,49 @@
 <template
-        data-sly-template.share="${@ showShare, shareLabel, linkedinLink, youtubeLink}"
+  data-sly-template.share="${@ showShare, shareLabel, linkedinLink, youtubeLink}"
 >
-    <div class="cmp-share" data-sly-test="${showShare}">
-        <div class="cmp-share__dropdown position-relative">
-            <button
-                    id="shareIconHeader"
-                    class="cmp-share__button"
-                    aria-label="${shareLabel || 'Share'}"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    data-sly-test="${shareLabel}"
-                    type="button"
-            ></button>
-            <div
-                    id="shareSocialList"
-                    class="cmp-share__links position-absolute p-3 d-none"
-                    aria-label="Share options"
-                    data-sly-test="${linkedinLink || youtubeLink}"
-            >
-                <div class="social_list_title text-center mt-1 mb-2">${shareLabel}</div>
+  <div class="cmp-share ms-2" data-sly-test="${showShare}">
+    <div class="cmp-share__dropdown position-relative">
+      <button
+        id="shareIconHeader"
+        class="cmp-share__button"
+        aria-label="${shareLabel || 'Share'}"
+        aria-haspopup="true"
+        aria-expanded="false"
+        data-sly-test="${shareLabel}"
+        type="button"
+      ></button>
+      <div
+        id="shareSocialList"
+        class="cmp-share__links position-absolute p-3 d-none"
+        aria-label="Share options"
+        data-sly-test="${linkedinLink || youtubeLink}"
+      >
+        <div class="social_list_title text-center mt-1 mb-2">${shareLabel}</div>
 
-                <a
-                        href="${linkedinLink}"
-                        class="cmp-share__link d-flex align-items-center"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-sly-test="${linkedinLink}"
-                >
-                    <span class="cmp-share__icon cmp-share__icon--linkedin me-3"></span>
-                    LINKEDIN
-                </a>
+        <a
+          href="${linkedinLink}"
+          class="cmp-share__link d-flex align-items-center"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-sly-test="${linkedinLink}"
+        >
+          <span class="cmp-share__icon cmp-share__icon--linkedin me-3"></span>
+          LINKEDIN
+        </a>
 
-                <a
-                        href="${properties.youtubeLink}"
-                        class="cmp-share__link d-flex align-items-center"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-sly-test="${properties.youtubeLink}"
-                >
-                    <span class="cmp-share__icon cmp-share__icon--youtube me-3"></span>
-                    YOUTUBE
-                </a>
+        <a
+          href="${properties.youtubeLink}"
+          class="cmp-share__link d-flex align-items-center"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-sly-test="${properties.youtubeLink}"
+        >
+          <span class="cmp-share__icon cmp-share__icon--youtube me-3"></span>
+          YOUTUBE
+        </a>
 
-                <!-- TODO: Implement the other social media platforms once it has been determined which ones will be used and retrieve the respective icons. -->
-            </div>
-        </div>
+        <!-- TODO: Implement the other social media platforms once it has been determined which ones will be used and retrieve the respective icons. -->
+      </div>
     </div>
+  </div>
 </template>

@@ -2,19 +2,43 @@
   <div
     class="cmp-top-header container d-flex justify-content-end align-items-center"
   >
-    <sly
-      data-sly-resource="${parsys @ resourceType='wcm/foundation/components/responsivegrid'}"
+    <div
+      class="cmp-top-header--wrapper d-flex justify-content-end align-items-center"
     >
-    </sly>
-    <sly
-      data-sly-test="${properties.showShare}"
-      data-sly-call="${shareTemplate.share @
+      <div
+        class="button-search ms-4 d-none d-lg-block"
+        data-sly-test="${properties.showSearch}"
+      >
+        <sly
+          data-sly-resource="${'button-search' @ resourceType='fondazione/components/button'}"
+        />
+      </div>
+      <div
+        class="button-profile ms-4 d-none d-lg-block"
+        data-sly-test="${properties.showProfile}"
+      >
+        <sly
+          data-sly-resource="${'button-profile' @ resourceType='fondazione/components/button'}"
+        />
+      </div>
+      <div
+        class="button-language ms-4"
+        data-sly-test="${properties.showLanguage}"
+      >
+        <sly
+          data-sly-resource="${'language-navigation' @ resourceType='fondazione/components/languagenavigation'}"
+        />
+      </div>
+      <sly
+        data-sly-test="${properties.showShare}"
+        data-sly-call="${shareTemplate.share @
         showShare=properties.showShare,
         shareLabel=properties.shareLabel,
         facebookLink=properties.facebookLink,
         linkedinLink=properties.linkedinLink,
         xLink=properties.xLink}"
-    >
-    </sly>
+      >
+      </sly>
+    </div>
   </div>
 </sly>
