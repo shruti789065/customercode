@@ -89,27 +89,27 @@ h6,
 // Text 
 
 p,
-.text {
+.text, .text div p {
     @extend %text;
 }
 
-.text-bold {
+.text-bold, .text-bold div p {
     @extend %text-bold;
 }
 
-.text-small-bold {
+.text-small-bold, .text-small-bold div p {
     @extend %text-small-bold;
 }
 
-.text-small-light {
+.text-small-light, .text-small-light div p {
     @extend %text-small-light;
 }
 
-.text-super-small-bold {
+.text-super-small-bold, .text-super-small-bold div p {
     @extend %text-super-small-bold;
 }
 
-.text-super-small-light {
+.text-super-small-light, .text-super-small-light div p {
     @extend %text-super-small-light;
 }
 
