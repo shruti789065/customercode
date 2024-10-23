@@ -107,7 +107,7 @@ module.exports = {
         },
         {
           from: path.resolve(SOURCE_ROOT, "components/signinform/signinform.js"),
-          to: "clientlib-reservedarea/",
+          to: "clientlib-signin/",
         },
       ],
     }),
