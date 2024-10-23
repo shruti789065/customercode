@@ -610,6 +610,18 @@
 				background-color: transparent;
 				border: 1px solid transparent;
 
+				@include media-breakpoint-down(xl) {
+					right: 5%;
+				}
+
+				@include media-breakpoint-down(md) {
+					right: 0;
+				}
+
+				@include media-breakpoint-down(sm) {
+					right: -5px;
+				}
+
 				&:not(:disabled):not(.disabled) {
 					cursor: pointer;
 				}
