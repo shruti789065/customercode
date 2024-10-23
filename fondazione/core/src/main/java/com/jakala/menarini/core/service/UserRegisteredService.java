@@ -18,6 +18,8 @@ import com.jakala.menarini.core.entities.RegisteredUserRole;
 import com.jakala.menarini.core.entities.RegisteredUserTopic;
 import com.jakala.menarini.core.entities.records.RegisteredUserRoleRecord;
 import com.jakala.menarini.core.entities.records.RegisteredUserTopicRecord;
+import com.jakala.menarini.core.service.interfaces.CacheDataServiceInterface;
+import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
 import org.jooq.DSLContext;
 import org.jooq.Record;
@@ -32,15 +34,19 @@ import com.jakala.menarini.core.security.Acl;
 import com.jakala.menarini.core.security.AclRolePermissions;
 import com.jakala.menarini.core.security.AclValidator;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component(service = UserRegisteredServiceInterface.class)
 public class UserRegisteredService implements UserRegisteredServiceInterface {
 
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserRegisteredService.class);
+
     private static final String USER_ROLE_DOCTOR = "UserDoctor";
     private static final String USER_ROLE_HEALTH = "UserHealthCare";
     private static final String COUNTRY_ID_ITALY = "1";
+    private static final String CACHE_USER_PREFIX = "user_";
 
 
     private static final Map<String,String> MAP_PROFESSION_TO_ROLE;
@@ -66,6 +72,11 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
     @Reference
     private  RoleServiceInterface roleService;
 
+    @Reference
+    private CacheDataServiceInterface cacheService;
+
+    @Reference
+    private EncryptDataServiceInterface encryptDataService;
 
 
     @Override
@@ -88,8 +99,16 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
     @Override
     public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls, List<RoleDto> roles ) throws AccessDeniedException {
+        LOGGER.error("================ CALL GET  =================");
         AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
+        String encryptedMail = CACHE_USER_PREFIX + encryptDataService.encrypt(email);
+        RegisteredUserDto userCacheData = cacheService.getUserCacheData(encryptedMail);
+        if(userCacheData != null) {
+            LOGGER.error("================ CACHE HINTED =================");
+            return userCacheData;
+        }
         try(Connection connection = dataSource.getConnection()) {
+            LOGGER.error("================ RETRIEVE FROM DB =================");
             DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
             RegisteredUserDto user = Objects.requireNonNull(create
                     .select()
@@ -113,6 +132,9 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
                 }
             }
+            if(cacheService.putUserCacheData(encryptedMail,user)){
+                LOGGER.error("================ SAVED IN CACHE =================");
+            }
             return user;
         }catch (SQLException e) {
             return null;
@@ -125,6 +147,8 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         String errorMessage = "";
         AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
         try {
+            String encryptedMail = CACHE_USER_PREFIX + encryptDataService.encrypt(email);
+            cacheService.clearCacheData(encryptedMail);
             RegisteredUserDto oldData = this.getUserByEmail(email, acls,roles);
             user.setId(oldData.getId());
             String country = user.getCountry() == null ? oldData.getCountry() : user.getCountry();
@@ -155,6 +179,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             Record dataSet = this.setUpdateQuery(user, create);
             create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
                     .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
+
             if(!user.getOccupation().equals(oldData.getOccupation())) {
                 ArrayList<Long> toRomove = new ArrayList<>();
                 List<RegisteredUserRoleRecord> oldRoles = create.select().from(RegisteredUserRole.REGISTERED_USER_ROLE).
@@ -169,6 +194,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                 this.updateRole(user,toRomove,user.getOccupation(),oldData.getId(),create,connection,savepoint);
                 response.setIslogOut(true);
             }
+
             if(!updateTopics.isEmpty() && this.checkShouldBeHaveToken(roles)) {
                 List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
                 List<String> topicToSaveRefers =  new ArrayList<>();
@@ -223,7 +249,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                     newRoles.add(aRoles);
                 }
             }
-
             create.deleteFrom(RegisteredUserRole.REGISTERED_USER_ROLE).
                     where(RegisteredUserRole.REGISTERED_USER_ROLE.ROLE_ID.in(rolesToDelete))
                     .and(RegisteredUserRole.REGISTERED_USER_ROLE.REGISTERED_USER_ID.eq(idUser))

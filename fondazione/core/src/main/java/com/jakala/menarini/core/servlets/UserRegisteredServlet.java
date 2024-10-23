@@ -17,6 +17,8 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -39,6 +41,8 @@ import java.util.Set;
     }
 )
 public class UserRegisteredServlet extends  BaseRestServlet {
+
+        private static final Logger LOGGER = LoggerFactory.getLogger(UserRegisteredServlet.class);
 
         @Reference
         private transient UserRegisteredServiceInterface userService;
