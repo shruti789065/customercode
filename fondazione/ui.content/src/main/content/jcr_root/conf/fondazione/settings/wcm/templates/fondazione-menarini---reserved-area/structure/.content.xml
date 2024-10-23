@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2024-10-22T14:56:43.918+02:00"
+        cq:lastModified="{Date}2024-10-23T10:46:53.386+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/fondazione/settings/wcm/templates/fondazione-menarini---reserved-area"
         jcr:primaryType="cq:PageContent"
@@ -24,7 +24,8 @@
                 jcr:lastModified="{Date}2024-10-22T14:23:07.410+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="fondazione/components/heroSlim"/>
+                sling:resourceType="fondazione/components/heroSlim"
+                editable="{Boolean}true"/>
             <breadcrumb
                 jcr:created="{Date}2024-10-22T14:23:41.719+02:00"
                 jcr:createdBy="admin"
@@ -38,12 +39,8 @@
                 jcr:lastModified="{Date}2024-10-22T14:23:59.383+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="fondazione/components/signinform"/>
-            <!-- <container
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="fondazione/components/container"
-                editable="{Boolean}true"
-                layout="responsiveGrid"/> -->
+                sling:resourceType="fondazione/components/signinform"
+                editable="{Boolean}true"/>
         </root>
         <experiencefragment-footer
             jcr:primaryType="nt:unstructured"
