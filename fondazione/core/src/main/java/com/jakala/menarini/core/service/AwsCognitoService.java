@@ -75,7 +75,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     private String idpUrl;
 
     @Activate
-    private void activate(Map<String, Object> properties) {
+    void activate(Map<String, Object> properties) {
         this.clientId = (String) properties.get("clientId");
         this.clientSecret = (String) properties.get("clientSecret");
         this.accessKey = (String) properties.get("accessKey");

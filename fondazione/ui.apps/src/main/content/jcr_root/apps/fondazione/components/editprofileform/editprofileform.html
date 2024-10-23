@@ -1,5 +1,5 @@
-<div class="cmp-editprofileform container">
-    <h2 class="text-primary h2 h2-light mb-0 cmp-editprofileform__title">Edit your Fondazione Menarini acoount</h2>
+<div class="cmp-editprofileform container position-relative">
+    <h2 class="text-primary h2 h2-light mb-0 cmp-editprofileform__title">${'edit_fondazione_accout' @ i18n}</h2>
     <p class="cmp-editprofileform__subtitle mt-3 mb-5">${'fields_marked_with' @ i18n}<span> ${'mandatory' @ i18n}</span>
         ${'are_mandatory_to_process_your_queries' @ i18n}</p>
 
@@ -26,4 +26,5 @@
         <div data-sly-resource="${'password' @ resourceType='fondazione/components/editprofileform/password'}"></div>
     </div>
 
+    <div id="cmp-editprofileform__overlay" class="position-absolute w-100 h-100 d-none"></div>
 </div>

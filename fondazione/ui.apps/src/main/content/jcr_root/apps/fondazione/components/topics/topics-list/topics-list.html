@@ -1,0 +1,12 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.TopicListingModel">
+  <ul class="topics__list" data-sly-list.topic="${model.topics}">
+    <li class="topics__list--item">
+      <button class="topics__list--item--button" value="${topic.id}">
+        ${topic.name}
+      </button>
+    </li>
+  </ul>
+  <p class="topics__list--not-found" data-sly-test="${!model.topics}">
+    No topic found.
+  </p>
+</sly>

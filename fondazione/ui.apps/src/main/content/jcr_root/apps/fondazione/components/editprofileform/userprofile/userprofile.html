@@ -1,24 +1,26 @@
 <div>
-    <h2 class="h2 h2-light cmp-editprofileform__editProfileTitle">Add/edit photo profile</h2>
+    <h2 class="h2 h2-light cmp-editprofileform__editProfileTitle">${'add_edit_photo_profile' @ i18n}</h2>
 
     <div class="mt-4 d-flex">
-        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Email address:</h3>
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">${'email_address' @ i18n}:</h3>
         <h4 id="userProfileEmailAddress" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <div class="mt-2 d-flex">
-        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Creation date:</h3>
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">${'creation_date' @ i18n}:</h3>
         <h4 id="userProfileCreationDate" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
     <div class="mt-2 d-flex">
-        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">Last activity date:</h3>
+        <h3 class="h3 h3-light me-2 cmp-editprofileform__editProfileLabel">${'last_activity_date' @ i18n}:</h3>
         <h4 id="userProfileLastUpdatedOn" class="h4 h4-light cmp-editprofileform__editProfileValue"></h4>
     </div>
 
-    <div class="mt-4" data-sly-resource="${'userprofile' @ resourceType='fondazione/components/editimage/'}"></div>
+    <div class="mt-4" data-sly-resource="${'editimage' @ resourceType='fondazione/components/editimage'}"></div>
 
-    <h2 class="h2 h2-light mt-4 cmp-editprofileform__editProfileTitle">Change of personal information</h2>
+    <h2 class="h2 h2-light mt-4 cmp-editprofileform__editProfileTitle">${'change_of_personal_information' @ i18n}</h2>
+
+    <div id="cmp-editprofileform__modal" data-sly-resource="${'userprofile' @ resourceType='fondazione/components/modal'}"></div>
 
     <form class="customform needs-validation mt-4" id="userProfileForm" method="post" novalidate>
 
@@ -68,49 +70,49 @@
                         <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
                             id="professionListUserProfile">
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Biologist">
-                                <div class="dropdown-item d-flex align-items-center">Biologist</div>
+                                <input type="hidden" value="${'biologist' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'biologist' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Diagnostic Laboratory Technician">
-                                <div class="dropdown-item d-flex align-items-center">Diagnostic Laboratory
-                                    Technician</div>
+                                <input type="hidden" value="${'diagnostic_laboratory_technician' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">
+                                    ${'diagnostic_laboratory_technician' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Doctor">
-                                <div class="dropdown-item d-flex align-items-center">Doctor</div>
+                                <input type="hidden" value="${'doctor' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'doctor' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Healthcare Worker">
-                                <div class="dropdown-item d-flex align-items-center">Healthcare Worker</div>
+                                <input type="hidden" value="${'healthcare_worker' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'healthcare_worker' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="No Healthcare">
-                                <div class="dropdown-item d-flex align-items-center">No Healthcare</div>
+                                <input type="hidden" value="${'no_healthcare' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'no_healthcare' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Nurse">
-                                <div class="dropdown-item d-flex align-items-center">Nurse</div>
+                                <input type="hidden" value="${'nurse' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'nurse' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Nurse’s Assistant">
-                                <div class="dropdown-item d-flex align-items-center">Nurse’s Assistant</div>
+                                <input type="hidden" value="${'nurse_assistant' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'nurse_assistant' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Obstetrician">
-                                <div class="dropdown-item d-flex align-items-center">Obstetrician</div>
+                                <input type="hidden" value="${'obstetrician' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'obstetrician' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Pharmacist">
-                                <div class="dropdown-item d-flex align-items-center">Pharmacist</div>
+                                <input type="hidden" value="${'pharmacist' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'pharmacist' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Psichologist">
-                                <div class="dropdown-item d-flex align-items-center">Psichologist</div>
+                                <input type="hidden" value="${'psichologist' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'psichologist' @ i18n}</div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <input type="hidden" value="Student">
-                                <div class="dropdown-item d-flex align-items-center">Student</div>
+                                <input type="hidden" value="${'student' @ i18n}">
+                                <div class="dropdown-item d-flex align-items-center">${'student' @ i18n}</div>
                             </li>
                         </ul>
                     </div>
@@ -198,7 +200,7 @@
         </div>
 
         <!-- AREAS OF INTERST -->
-        <div class="col-12 px-0 cmp-editProfileform__customMultiSelect mt-4">
+        <div id="areaOfInterestsComponentUserProfile" class="col-12 px-0 cmp-editProfileform__customMultiSelect mt-4">
             <h3 class="cmp-editprofileform__formItemTitle h3 h3-light">
                 ${'area_of_interest' @ i18n} <span>${'mandatory' @ i18n}</span>
             </h3>
@@ -323,4 +325,5 @@
             </div>
         </div>
     </form>
+
 </div>
