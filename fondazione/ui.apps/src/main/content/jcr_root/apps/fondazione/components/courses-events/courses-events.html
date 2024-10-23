@@ -1,0 +1,188 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.EventListingModel">
+  <div class="container">
+    <button class="filter-toggle-button">Filter</button>
+    <form class="filter-form filter-form--hidden" method="POST">
+      <h3 class="mobile-filter-title">Filter</h3>
+      <div class="options-container options-container--hidden">
+        <sly
+          data-sly-use.modelT="com.jakala.menarini.core.models.TopicListingModel"
+        >
+          <div class="filter-top-bar">
+            <h3 class="filter-top-bar__title">Topic</h3>
+            <button
+              onclick="event.preventDefault();"
+              class="minimize-button"
+            ></button>
+          </div>
+          <div class="filter-options">
+            <sly data-sly-list.topic="${modelT.topics}">
+              <button class="filter-button" data-value="${topic.id}">
+                ${topic.name}
+              </button>
+            </sly>
+            <button class="show-more">Show more</button>
+          </div>
+        </sly>
+      </div>
+
+      <div class="options-container options-container--hidden">
+        <div class="filter-top-bar">
+          <h3 class="filter-top-bar__title">Select events</h3>
+          <button
+            onclick="event.preventDefault();"
+            class="minimize-button"
+          ></button>
+        </div>
+        <div class="filter-options">
+          <sly data-sly-list.eventSelection="${model.eventSelections}">
+            <button class="filter-button" data-value="${eventSelection.id}">
+              ${eventSelection.name}
+            </button>
+          </sly>
+          <button class="show-more">Show more</button>
+        </div>
+      </div>
+
+      <div class="options-container options-container--hidden">
+        <sly
+          data-sly-use.modelC="com.jakala.menarini.core.models.CityListingModel"
+        >
+          <div class="filter-top-bar">
+            <h3 class="filter-top-bar__title">Location</h3>
+            <button
+              onclick="event.preventDefault();"
+              class="minimize-button"
+            ></button>
+          </div>
+          <div class="filter-options">
+            <sly data-sly-list.city="${modelC.cities}">
+              <button class="filter-button" data-value="${city.id}">
+                ${city.name}
+              </button>
+            </sly>
+            <button class="show-more">Show more</button>
+          </div>
+        </sly>
+      </div>
+
+      <div class="filters-wrap">
+        <div class="select-wrapper">
+          <button class="filter-dropdown" data-default-text="Topic">
+            Topic
+          </button>
+          <div class="filter-dropdown__clear-container">
+            <button class="clear-button">Clear Topics ✕</button>
+          </div>
+        </div>
+
+        <div class="select-wrapper">
+          <button class="filter-dropdown" data-default-text="Select events">
+            Select events
+          </button>
+          <div class="filter-dropdown__clear-container">
+            <button class="clear-button">Clear Events ✕</button>
+          </div>
+        </div>
+
+        <div class="select-wrapper">
+          <button class="filter-dropdown" data-default-text="Location">
+            Location
+          </button>
+          <div class="filter-dropdown__clear-container">
+            <button class="clear-button">Clear Location ✕</button>
+          </div>
+        </div>
+
+        <div class="flatpickr" id="dateOrPeriodWrapper">
+          <div class="flatpickr-wrap">
+            <input
+              type="text"
+              placeholder="Select Date.."
+              data-input=""
+              class="flatpickr-input filter-dropdown"
+              id="dateOrPeriod"
+              readonly="readonly"
+            />
+          </div>
+          <button
+            id="clearDateOrPeriod"
+            class="flatpickr-clear"
+            title="clear"
+            data-clear=""
+          >
+            Clear date ✕
+          </button>
+        </div>
+      </div>
+      <div class="filters-mobile-buttons">
+        <button class="filters-mobile-buttons__cancel">✕ Cancel</button>
+        <button class="filters-mobile-buttons__confirm">✓ Apply Filters</button>
+      </div>
+    </form>
+
+    <section class="events-cards">
+      <div class="event-grid">
+        <sly data-sly-list="${model.events}">
+          <div class="event-grid__card">
+            <a class="event-grid__card--link" href="${item.path}.html">
+              <div class="event-grid__card--image-wrapper">
+                <img
+                  class="event-grid__card--image"
+                  src="${item.presentationImage ? item.presentationImage : '/content/dam/fondazione/images/default.png'}"
+                  alt="${item.title ? item.title : 'Default Alt Text'}"
+                />
+              </div>
+              <div class="event-grid__card--details">
+                <p class="event-grid__card--topic">
+                  ${item.topics ? item.topics : 'No topic'}
+                </p>
+                <h2 class="event-grid__card--title">${item.title}</h2>
+                <p class="event-grid__card--dates">
+                  ${item.location ? item.location : 'No location'} | From
+                  ${item.startDateText ? item.startDateText : '-:-'} to
+                  ${item.endDateText ? item.endDateText : '-:-'}
+                </p>
+                <a href="${item.path}.html" class="event-grid__card--button">
+                  Discover Course <span class="icon"></span>
+                </a>
+              </div>
+            </a>
+          </div>
+        </sly>
+      </div>
+
+      <sly data-sly-test="${!model.events || model.events.size == 0}">
+        <p class="event-grid__empty-state">No events found.</p>
+      </sly>
+
+      <div class="pagination">
+        <nav
+          class="pagination__controls"
+          aria-label="Pagination Controls"
+          data-current-page="${model.currentPage}"
+          data-total-pages="${model.totalPages}"
+          data-page-size="${model.pageSize}"
+          data-total-results="${model.totalResults}"
+        >
+          <button
+            class="pagination__button pagination__button--prev"
+            data-sly-test="${model.hasPreviousPage}"
+            data-page="${model.previousPage}"
+            aria-label="Previous Page"
+          ></button>
+
+          <span class="pagination__page-info"
+            >Page ${model.currentPage} of ${model.totalPages}</span
+          >
+
+          <button
+            class="pagination__button pagination__button--next"
+            data-sly-test="${model.hasNextPage}"
+            data-page="${model.nextPage}"
+            aria-label="Next Page"
+          ></button>
+        </nav>
+      </div>
+    </section>
+  </div>
+</sly>
