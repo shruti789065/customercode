@@ -147,11 +147,11 @@ public class ReservedAreaBaseModel extends AuthBaseModel implements ReservedArea
         this.email = email;
     }
     @Override
-    public String getFirstname() {
+    public String getFirstName() {
         return firstName;
     }
     @Override
-    public void setFirstname(String firstname) {
+    public void setFirstName(String firstname) {
         this.firstName = firstname;
     }
     @Override
@@ -171,11 +171,11 @@ public class ReservedAreaBaseModel extends AuthBaseModel implements ReservedArea
         this.lastUpdatedOn = lastUpdatedOn;
     }
     @Override
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
     @Override
-    public void setLastname(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
     @Override

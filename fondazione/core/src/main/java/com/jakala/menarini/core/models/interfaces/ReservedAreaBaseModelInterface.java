@@ -28,9 +28,9 @@ public interface ReservedAreaBaseModelInterface {
 
     public void setEmail(String email);
 
-    public String getFirstname();
+    public String getFirstName();
 
-    public void setFirstname(String firstname);
+    public void setFirstName(String firstname);
 
     public String getGender();
 
@@ -40,9 +40,9 @@ public interface ReservedAreaBaseModelInterface {
 
     public void setLastUpdatedOn(Timestamp lastUpdatedOn);
 
-    public String getLastname();
+    public String getLastName();
 
-    public void setLastname(String lastname);
+    public void setLastName(String lastname);
 
     public String getLinkedinProfile();
 
