@@ -1,6 +1,8 @@
 import moment from 'moment';
+console.log("Edit Profile Form Component Loaded");
 
 document.addEventListener('DOMContentLoaded', function () {
+    
     let selectedTab = "";
     let successAlert = document.querySelector("#cmp-editprofileform__successAlert");
     let errorAlert = document.querySelector("#cmp-editprofileform__errorsAlert");
