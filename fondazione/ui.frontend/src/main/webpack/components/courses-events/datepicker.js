@@ -1,10 +1,11 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import "flatpickr/dist/plugins/confirmDate/confirmDate.css";
+import { isMobileDevice } from "../../utils/isMobileDevice";
 
-$(function () {
+document.addEventListener("DOMContentLoaded", () => {
   const dateOrPeriodInput = document.querySelector("#dateOrPeriod");
-  const clearButton = $("#clearDateOrPeriod");
+  const clearButton = document.querySelector("#clearDateOrPeriod");
 
   if (!dateOrPeriodInput) {
     console.error("Element with ID 'dateOrPeriod' not found.");
@@ -20,27 +21,24 @@ $(function () {
     )}-${String(date.getDate()).padStart(2, "0")}`;
   };
 
-  const updateUrl = (startDate, endDate) => {
+  const updateUrl = (startDate = null, endDate = null) => {
     const currentUrl = new URL(window.location.href);
-    const baseUrl = currentUrl.origin + currentUrl.pathname;
-
+    const baseUrl = `${currentUrl.origin}${currentUrl.pathname}`;
     const urlParams = new URLSearchParams(currentUrl.search);
 
     if (startDate && endDate) {
       urlParams.set("dateOrPeriod", `${startDate}-to-${endDate}`);
-
       if (!isMobileDevice()) {
-        clearButton.show();
+        clearButton.style.display = "block";
       }
     } else {
       urlParams.delete("dateOrPeriod");
-      clearButton.hide();
+      clearButton.style.display = "none";
     }
 
-    let finalUrlParams = urlParams.toString();
-
-    const newUrl = finalUrlParams ? `${baseUrl}?${finalUrlParams}` : baseUrl;
-
+    const newUrl = urlParams.toString()
+      ? `${baseUrl}?${urlParams.toString()}`
+      : baseUrl;
     window.history.pushState({ path: newUrl }, "", newUrl);
 
     if (!isMobileDevice() && startDate) {
@@ -54,25 +52,23 @@ $(function () {
       return [];
     }
 
-    clearButton.show();
-
+    clearButton.style.display = "block";
     const [startDate, endDate] = dateOrPeriodParam.split("-to-");
     return startDate ? [startDate, endDate || startDate] : [];
   };
 
-  const fp = flatpickr(dateOrPeriodInput, {
+  const flatpickrInstance = flatpickr(dateOrPeriodInput, {
     mode: "range",
     dateFormat: "Y-m-d",
     altInput: true,
     altFormat: "F j, Y",
     defaultDate: getPreselectedDates(),
-    onClose: function (selectedDates) {
+    onClose: (selectedDates) => {
       if (selectedDates.length > 0) {
         const startDate = getFormattedDate(selectedDates[0]);
         const endDate = selectedDates[1]
           ? getFormattedDate(selectedDates[1])
           : startDate;
-
         updateUrl(startDate, endDate);
       } else {
         updateUrl();
@@ -80,9 +76,9 @@ $(function () {
     },
   });
 
-  $("#clearDateOrPeriod").on("click", (event) => {
+  clearButton.addEventListener("click", (event) => {
     event.preventDefault();
-    fp.clear();
+    flatpickrInstance.clear();
     updateUrl();
   });
 });
