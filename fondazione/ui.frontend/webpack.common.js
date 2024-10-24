@@ -113,6 +113,10 @@ module.exports = {
           from: path.resolve(SOURCE_ROOT, "components/signupform/_signupform.js"),
           to: "clientlib-signup/",
         },
+        {
+          from: path.resolve(SOURCE_ROOT, "components/editprofileform/_editprofileform.js"),
+          to: "clientlib-editprofile/",
+        },
       ],
     }),
   ],

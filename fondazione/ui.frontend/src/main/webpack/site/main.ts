@@ -4,4 +4,4 @@ import "./main.scss";
 // Javascript or Typescript
 import "./**/*.js";
 import "./**/*.ts";
-import "../components/**/!{signinform,signupform}/**/*.js";
+import "../components/**/!{signinform,signupform,editprofileform}/**/*.js";
