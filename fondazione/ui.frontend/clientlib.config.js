@@ -116,6 +116,34 @@ module.exports = {
           ignore: ['**/*.js', '**/*.css']
         }
       }
+    },
+    {
+      ...libsBaseConfig,
+      name: 'clientlib-signup',
+      categories: ['fondazione.signup'],
+      dependencies: ['fondazione.dependencies'],
+      assets: {
+        // Copy entrypoint scripts and stylesheets into the respective ClientLib
+        // directories
+        js: {
+          cwd: 'clientlib-signup',
+          files: ['**/*.js'],
+          flatten: false
+        },
+        css: {
+          cwd: 'clientlib-signup',
+          files: ['**/*.css'],
+          flatten: false
+        },
+
+        // Copy all other files into the `resources` ClientLib directory
+        resources: {
+          cwd: 'clientlib-signup',
+          files: ['**/*.*'],
+          flatten: false,
+          ignore: ['**/*.js', '**/*.css']
+        }
+      }
     }
   ]
 };
