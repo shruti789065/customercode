@@ -144,6 +144,34 @@ module.exports = {
           ignore: ['**/*.js', '**/*.css']
         }
       }
+    },
+    {
+      ...libsBaseConfig,
+      name: 'clientlib-editprofile',
+      categories: ['fondazione.editprofile'],
+      dependencies: ['fondazione.dependencies'],
+      assets: {
+        // Copy entrypoint scripts and stylesheets into the respective ClientLib
+        // directories
+        js: {
+          cwd: 'clientlib-editprofile',
+          files: ['**/*.js'],
+          flatten: false
+        },
+        css: {
+          cwd: 'clientlib-editprofile',
+          files: ['**/*.css'],
+          flatten: false
+        },
+
+        // Copy all other files into the `resources` ClientLib directory
+        resources: {
+          cwd: 'clientlib-editprofile',
+          files: ['**/*.*'],
+          flatten: false,
+          ignore: ['**/*.js', '**/*.css']
+        }
+      }
     }
   ]
 };
