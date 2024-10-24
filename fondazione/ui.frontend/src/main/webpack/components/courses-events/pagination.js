@@ -1,4 +1,4 @@
-$(function () {
+document.addEventListener("DOMContentLoaded", function () {
   function changePage(pageNumber, pageSize, totalPages, totalResults) {
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.set("page", pageNumber);
@@ -6,30 +6,36 @@ $(function () {
     urlParams.set("totalPages", totalPages);
     urlParams.set("totalResults", totalResults);
 
-    const formData = $(".filter-form").serializeArray();
-    $.each(formData, function (index, field) {
-      if (field.value) {
-        urlParams.set(field.name, field.value);
+    const formData = new FormData(document.querySelector(".filter-form"));
+    formData.forEach((value, key) => {
+      if (value) {
+        urlParams.set(key, value);
       }
     });
 
     window.location.search = urlParams.toString();
   }
 
-  $(".pagination__controls").on("click", ".pagination__button", function () {
-    const navElement = $(this).closest(".pagination__controls");
-    const currentPage = parseInt(navElement.data("current-page"));
-    const pageSize = parseInt(navElement.data("page-size"));
-    const totalPages = parseInt(navElement.data("total-pages"));
-    const totalResults = parseInt(navElement.data("total-results"));
+  document
+    .querySelector(".pagination__controls")
+    .addEventListener("click", function (event) {
+      if (event.target.classList.contains("pagination__button")) {
+        const navElement = event.target.closest(".pagination__controls");
+        const currentPage = parseInt(navElement.dataset.currentPage);
+        const pageSize = parseInt(navElement.dataset.pageSize);
+        const totalPages = parseInt(navElement.dataset.totalPages);
+        const totalResults = parseInt(navElement.dataset.totalResults);
 
-    let nextPage = currentPage;
-    if ($(this).hasClass("pagination__button--next")) {
-      nextPage = Math.min(currentPage + 1, totalPages);
-    } else if ($(this).hasClass("pagination__button--prev")) {
-      nextPage = Math.max(currentPage - 1, 1);
-    }
+        let nextPage = currentPage;
+        if (event.target.classList.contains("pagination__button--next")) {
+          nextPage = Math.min(currentPage + 1, totalPages);
+        } else if (
+          event.target.classList.contains("pagination__button--prev")
+        ) {
+          nextPage = Math.max(currentPage - 1, 1);
+        }
 
-    changePage(nextPage, pageSize, totalPages, totalResults);
-  });
+        changePage(nextPage, pageSize, totalPages, totalResults);
+      }
+    });
 });

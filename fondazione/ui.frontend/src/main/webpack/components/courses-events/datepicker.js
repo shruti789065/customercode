@@ -1,7 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import "flatpickr/dist/plugins/confirmDate/confirmDate.css";
-import { isMobileDevice } from "../../utils/isMobileDevice";
 
 $(function () {
   const dateOrPeriodInput = document.querySelector("#dateOrPeriod");

@@ -1,5 +1,3 @@
-import { isMobileDevice } from "../../utils/isMobileDevice";
-
 $(function () {
   const optionContainers = document.querySelectorAll(".options-container");
   const dropdownButtons = document.querySelectorAll(".filter-dropdown");
