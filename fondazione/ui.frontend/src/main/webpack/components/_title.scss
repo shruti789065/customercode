@@ -1,24 +1,20 @@
-.title{
-    h2{
-        font-family: $font-default;
-
+.title {
+    @include make-container();
+    @extend .container;
+    &-blue{
+        .cmp-title {
+            .cmp-title__text, .cmp-title__link {
+                color: $secondary;
+                font-weight: $font-regular;
+            }
+        }    
     }
-    &--blue{
-        h3{
-            font-size: $heading-h3-font-size;
-        }
-        h2, h3, h4, h5, h6{
-            color: $secondary;
-            font-weight: $font-regular;
-        }
-    }
-    &--red{
-        h2{
-            font-size: $heading-h2-font-size;
-        }
-        h2, h3, h4, h5, h6{
-            color: $primary;
-            font-weight: $font-default-light;
+    &-red {
+        .cmp-title {
+            .cmp-title__text, .cmp-title__link {
+                color: $primary;
+                font-weight: $font-default-light;
+            }
         }
     }
 }
