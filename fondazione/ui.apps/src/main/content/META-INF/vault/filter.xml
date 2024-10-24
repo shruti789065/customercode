@@ -6,4 +6,6 @@
     <filter root="/oak:index" mode="merge">
         <include pattern="/oak:index/fondazioneIndex(/.*)?"/>
     </filter>
+    <filter root="/apps/dam"/>
+    <filter root="/apps/settings"/>
 </workspaceFilter>

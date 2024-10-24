@@ -2,6 +2,7 @@ package com.jakala.menarini.core.models;
 
 import com.adobe.cq.dam.cfm.ContentFragment;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
@@ -11,11 +12,16 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-@Model(adaptables = Resource.class)
-public class TopicListingModel {
+@Model(adaptables = {
+        Resource.class,
+        SlingHttpServletRequest.class
+    }
+)
+public class TopicListingModel extends AuthBaseModel {
 
     private static final Logger LOG = LoggerFactory.getLogger(TopicListingModel.class);
 
@@ -30,18 +36,21 @@ public class TopicListingModel {
     private List<Topic> topics = new ArrayList<>();
 
     public List<Topic> getTopics() {
-        return topics;
+        return Collections.unmodifiableList(topics);
     }
 
+    @Override
     @PostConstruct
     protected void init() {
+        super.init();
         topics = new ArrayList<>();
 
+
+        Resource test = resourceResolver.adaptTo(Resource.class);
         Resource parentResource = resourceResolver.getResource(TOPICS_PATH);
     
-        String language = ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource);
-
-        if (parentResource != null) {
+        String language = ModelHelper.getCurrentPageLanguage(resourceResolver, test);
+        if (parentResource != null &&  language != null) {
             Iterator<Resource> children = parentResource.listChildren();
             while (children.hasNext()) {
                 Resource child = children.next();
@@ -51,7 +60,9 @@ public class TopicListingModel {
                     String id = fragment.getElement("id").getContent();
                     String nome = ModelHelper.getLocalizedElementValue(fragment, language, "name", fragment.getElement("name").getContent());
                     String path = fragment.getName();
-
+                    LOG.error(id);
+                    LOG.error(nome);
+                    LOG.error(path);
                     topics.add(new Topic(id, nome, TOPICS_PATH + path));
                 }
             }

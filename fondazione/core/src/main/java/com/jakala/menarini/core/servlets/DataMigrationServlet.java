@@ -2,12 +2,21 @@ package com.jakala.menarini.core.servlets;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.adobe.cq.dam.cfm.ContentFragmentException;
+import com.jakala.menarini.core.exceptions.RowProcessException;
 import com.jakala.menarini.core.service.DataMigrationService;
+
+import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
+import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -22,6 +31,8 @@ import java.io.PrintWriter;
 )
 public class DataMigrationServlet extends SlingSafeMethodsServlet {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataMigrationServlet.class);
+
     @Reference
     private transient DataMigrationService migrationService;
 
@@ -32,13 +43,20 @@ public class DataMigrationServlet extends SlingSafeMethodsServlet {
         String object = request.getParameter("object");
         String exclusions = request.getParameter("exclusions");
         String delete = request.getParameter("delete");
+
         try {
             migrationService.migrateData(object, exclusions, delete);
-            out.write("{\"status\":\"success\"}");
-        } catch (Exception e) {
-            response.setStatus(SlingHttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (InterruptedException ie) {
+            // Log the interruption instead of calling interrupt directly
+            LOGGER.error("Thread was interrupted", ie);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            out.write("{\"status\":\"error\", \"message\": "+ie.getMessage() +"}");
+        } catch (LoginException | RepositoryException | IOException | ContentFragmentException | RowProcessException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             out.write("{\"status\":\"error\", \"message\": "+e.getMessage() +"}");
         }
+
+        out.write("{\"status\":\"success\"}");
    
     }
 

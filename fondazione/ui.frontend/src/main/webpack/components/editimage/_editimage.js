@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     let ctaSave = document.querySelector('#ctaSaveEditImage');
     let loader = document.querySelector('#editImageLoader');
     let image = document.querySelector('#editImageImg');
+    let logoutCta = document.querySelector('#editProfileLinkLogout');
     let file = null;
     let errorMessagges = [];
 
@@ -27,6 +28,27 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     } catch (error) {
         console.log("Error: ", error);
+    }
+
+    if(logoutCta){
+        logoutCta.addEventListener('click', async function(){
+            let redirectLink = logoutCta.dataset.redirectLink;
+            try {
+                const responseCsrf = await fetch("/libs/granite/csrf/token.json");
+                const csrfToken = await responseCsrf.json();
+                const regResponse = await fetch("/private/api/signout", {
+                    method: "POST",
+                    headers: {
+                        "CSRF-Token": csrfToken.token,
+                    },
+                });
+                if (regResponse.status === 200) {
+                    window.location.href = redirectLink
+                }   
+            } catch (error) {
+                console.log("Error: ", error);
+            }
+        });
     }
 
     if (isUserLoggedIn) {

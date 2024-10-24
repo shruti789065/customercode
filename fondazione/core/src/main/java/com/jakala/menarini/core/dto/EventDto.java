@@ -7,11 +7,11 @@ import java.util.List;
 
 import org.apache.tika.config.Field;
 
-
+@SuppressWarnings("squid:S2384")
 public class EventDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "EVENT";
+	public static final String table = "EVENT";
 
 	private long id;
 

@@ -52,49 +52,48 @@
                                 <ul class="dropdown-menu border-secondary border-top-0 position-absolute w-100 rounded-0 p-0 overflow-y-auto"
                                     id="professionList">
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Biologist">
-                                        <div class="dropdown-item d-flex align-items-center">Biologist</div>
+                                        <input type="hidden" value="${'biologist' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'biologist' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Diagnostic Laboratory Technician">
-                                        <div class="dropdown-item d-flex align-items-center">Diagnostic Laboratory
-                                            Technician</div>
+                                        <input type="hidden" value="${'diagnostic_laboratory_technician' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'diagnostic_laboratory_technician' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Doctor">
-                                        <div class="dropdown-item d-flex align-items-center">Doctor</div>
+                                        <input type="hidden" value="${'doctor' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'doctor' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Healthcare Worker">
-                                        <div class="dropdown-item d-flex align-items-center">Healthcare Worker</div>
+                                        <input type="hidden" value="${'healthcare_worker' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'healthcare_worker' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="No Healthcare">
-                                        <div class="dropdown-item d-flex align-items-center">No Healthcare</div>
+                                        <input type="hidden" value="${'no_healthcare' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'no_healthcare' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Nurse">
-                                        <div class="dropdown-item d-flex align-items-center">Nurse</div>
+                                        <input type="hidden" value="${'nurse' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'nurse' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Nurse’s Assistant">
-                                        <div class="dropdown-item d-flex align-items-center">Nurse’s Assistant</div>
+                                        <input type="hidden" value="${'nurse_assistant' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'nurse_assistant' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Obstetrician">
-                                        <div class="dropdown-item d-flex align-items-center">Obstetrician</div>
+                                        <input type="hidden" value="${'obstetrician' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'obstetrician' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Pharmacist">
-                                        <div class="dropdown-item d-flex align-items-center">Pharmacist</div>
+                                        <input type="hidden" value="${'pharmacist' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'pharmacist' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Psichologist">
-                                        <div class="dropdown-item d-flex align-items-center">Psichologist</div>
+                                        <input type="hidden" value="${'psichologist' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'psichologist' @ i18n}</div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <input type="hidden" value="Student">
-                                        <div class="dropdown-item d-flex align-items-center">Student</div>
+                                        <input type="hidden" value="${'student' @ i18n}">
+                                        <div class="dropdown-item d-flex align-items-center">${'student' @ i18n}</div>
                                     </li>
                                 </ul>
                             </div>
@@ -170,7 +169,7 @@
                         </div>
                         <div id="countryErrorString" class="mt-2 cmp-signupform__customError"></div>
                     </div>
-                    <div class="col-12 col-lg-6 px-0 ps-lg-2 cmp-signupform__customMultiSelect">
+                    <div id="areaOfInterestsComponent" class="col-12 col-lg-6 px-0 ps-lg-2 cmp-signupform__customMultiSelect">
                         <h3 class="cmp-signupform__formItemTitle h3">
                             ${'area_of_interest' @ i18n} <span>${'mandatory' @ i18n}</span>
                             <p class="cmp-signupform__formItemLabel text-wrap text-truncate">

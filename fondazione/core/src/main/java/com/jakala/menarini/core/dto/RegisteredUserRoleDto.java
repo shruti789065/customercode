@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 
 import org.apache.tika.config.Field;
 
-
+@SuppressWarnings("squid:S2384")
 public class RegisteredUserRoleDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static String table = "REGISTERED_USER_ROLE";
+	public static final String table = "REGISTERED_USER_ROLE";
 
 	private long id;
 

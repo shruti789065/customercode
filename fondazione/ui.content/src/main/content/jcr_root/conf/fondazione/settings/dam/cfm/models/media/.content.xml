@@ -4,7 +4,7 @@
     allowedPaths="[/content/entities(/.*)?]"
     ranking="{Long}100">
     <jcr:content
-        cq:lastModified="{Date}2024-10-08T12:22:30.590+02:00"
+        cq:lastModified="{Date}2024-10-15T11:01:42.663+02:00"
         cq:lastModifiedBy="admin"
         cq:scaffolding="/conf/fondazione/settings/dam/cfm/models/media/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
@@ -24,29 +24,29 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}2024-10-08T12:22:30.590+02:00"
+                    jcr:lastModified="{Date}2024-10-15T11:01:42.663+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                     <items
                         jcr:primaryType="nt:unstructured"
-                        maxGeneratedOrder="20">
-                        <_x0031_725898747075
+                        maxGeneratedOrder="21">
+                        <_x0031_728982885695
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
                             disabled="true"
                             fieldLabel="ID (auto generated)"
-                            listOrder="3"
-                            metaType="number"
+                            listOrder="21"
+                            metaType="id"
                             name="id"
-                            renderReadOnly="true"
+                            renderReadOnly="false"
                             required="on"
-                            showEmptyInReadOnly="false"
-                            step="any"
+                            showEmptyInReadOnly="true"
+                            step="1"
                             typeHint="long"
                             valueType="long">
                             <granite:data jcr:primaryType="nt:unstructured"/>
-                        </_x0031_725898747075>
+                        </_x0031_728982885695>
                         <_x0031_725898838453
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="dam/cfm/models/editor/components/fragmentreference"

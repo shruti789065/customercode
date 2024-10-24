@@ -6,6 +6,7 @@ import com.jakala.menarini.core.dto.TopicDto;
 import java.sql.Timestamp;
 import java.util.*;
 
+@SuppressWarnings("squid:S2384")
 public class SignUpDtoResponse  extends SignUpDto {
 
     private CognitoSignInErrorResponseDto cognitoSignUpErrorResponseDto;

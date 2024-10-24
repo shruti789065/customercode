@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const preSelectedTopics = urlParams?.get('topics').split("-");
+
   const dropdownButtonMultiple = document.querySelector(
     "#dropdownMultiselectMenuButton"
   );
@@ -8,6 +13,35 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   let selectedItemsMultipleSelect = [];
   let selectedTopicsIds = [];
+
+  //FILL SELECTED TOPICS IF PRESELECTED
+  if (preSelectedTopics && preSelectedTopics.length > 0) {
+    preSelectedTopics.forEach((topicId) => {
+      selectedTopicsIds.push(topicId);
+      checkboxes?.forEach((checkbox) => {
+        if (checkbox.dataset.topicId === topicId) {
+          checkbox.checked = true;
+          selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
+        }
+        updateDropdownTextMultiple();
+      })
+
+      if(preSelectedTopics.length === 3) {
+        checkboxes.forEach((element) => {
+          if (
+            !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
+            selectedItemsMultipleSelect.length === 3
+          ) {
+            element.disabled = true;
+          } else {
+            element.disabled = false;
+          }
+        });
+      }
+
+    })
+  }
+
   const dropdownButtonProfession = document.querySelector(
     "#dropdownProfessionMenuButton"
   );
@@ -86,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedItemsMultipleSelect.length <= 3 &&
         checkbox.checked === false &&
         selectedItemsMultipleSelect.includes(checkbox.dataset.topicName)
-      ) {      
+      ) {
 
         selectedItemsMultipleSelect = selectedItemsMultipleSelect.filter(
           (item) => item !== checkbox.dataset.topicName
@@ -173,8 +207,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updateDropdownTextProfession() {
-    let innerString =
-      selectedProfession === "" ? "Select Profession" : selectedProfession;
+    let innerString = selectedProfession === "" ? "Select Profession" : selectedProfession;
+    let areaOfInterestsElement = document.querySelector("#areaOfInterestsComponent");
+    if(selectedProfession === Granite.I18n.get("no_healthcare")) {
+      areaOfInterestsElement.classList.add("d-none");
+      areaOfInterestsElement.classList.remove("d-block");
+      selectedItemsMultipleSelect = [];
+      selectedTopicsIds = [];
+    } else {
+      areaOfInterestsElement.classList.add("d-block");
+      areaOfInterestsElement.classList.remove("d-none");
+    }
     if (innerString !== "Select Profession") {
       dropdownButtonProfession.classList.add("dropdown-toggle-filled");
     } else {
@@ -224,7 +267,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let dropdownButton = document.querySelector(
       "#dropdownProfessionMenuButton"
     );
-
     if (selectedProfession === "") {
       erroeMessagges.push({
         id: "profession",
@@ -264,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "#dropdownMultiselectMenuButton"
     );
 
-    if (!data.areasOfInterest || data.areasOfInterest.length === 0) {
+    if ((!data.areasOfInterest || data.areasOfInterest.length === 0) && selectedProfession !== Granite.I18n.get("no_healthcare")) {
       erroeMessagges.push({
         id: "areasOfInterest",
         message: Granite.I18n.get("mandatory_field"),
@@ -410,7 +452,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // FORM SUBMIT FUNCTIONS
-  async function sendData(registrationData) {
+  async function sendData(registrationData) {    
     let loader = document.querySelector("#signupLoader");
     let ctaSignUp = document.querySelector("#ctaSignup");
     try {
@@ -435,7 +477,6 @@ document.addEventListener("DOMContentLoaded", function () {
       loader.classList.remove("d-block");
       ctaSignUp.disabled = false;
     }
-
   }
 
   let form = document.querySelector("#signUpForm");
@@ -448,7 +489,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let tmpFormData = {
         profession: selectedProfession,
         country: selectedCountryId,
-        areasOfInterest: selectedTopicsIds
+        areasOfInterest: selectedProfession !== Granite.I18n.get("no_healthcare") ? selectedTopicsIds : []
       };
 
       for (let [key, value] of formData.entries()) {
@@ -488,7 +529,8 @@ document.addEventListener("DOMContentLoaded", function () {
       validateDataProcessing(tmpFormData);
       validateNewsLetter(tmpFormData);
       validateEmailConfirmation(tmpFormData);
-
+      console.log(erroeMessagges);
+      
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
         if (responseReg.cognitoSignUpErrorResponseDto) {

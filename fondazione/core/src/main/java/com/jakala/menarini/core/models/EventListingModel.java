@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -25,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.dam.cfm.FragmentData;
 import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.dam.api.DamConstants;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -68,7 +68,7 @@ public class EventListingModel {
 
     private Map<String, String> buildBasePredicate() {
         Map<String, String> predicate = new HashMap<>();
-        predicate.put("type", "dam:Asset");
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", EVENT_PATH);
         predicate.put("p.limit", "-1");
         predicate.put("orderby", "@" + JcrConstants.JCR_CONTENT + Q_END_DATE);
@@ -77,11 +77,10 @@ public class EventListingModel {
         return predicate;
     }
 
-
     private void addTopicFilterToPredicate(Map<String, String> predicate) {
         String[] topicsFilter = request.getParameterValues("topics");
-        if (topicsFilter != null && topicsFilter.length == 1 && topicsFilter[0].contains(",")) {
-            topicsFilter = topicsFilter[0].split(",");
+        if (topicsFilter != null && topicsFilter.length == 1 && topicsFilter[0].contains("-")) {
+            topicsFilter = topicsFilter[0].split("-");
         }
         if (topicsFilter != null && topicsFilter.length > 0) {
             boolean addOr = false;
@@ -98,9 +97,11 @@ public class EventListingModel {
                 predicate.put("group.1_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/topics");
                 predicate.put("group.1_group." + (i + 1) + "_property.value", topic.getPath());
                 predicate.put("group.1_group." + (i + 1) + "_property.operation", "equals");
-                addOr = true;
+                if (i == 1) {
+                    addOr = true;
+                }
             }
-            // Imposta l'operatore OR tra i gruppi
+            // Set OR operator between groups
             if (addOr) {
                 predicate.put("group.1_group.p.or", "true");
             }
@@ -108,36 +109,65 @@ public class EventListingModel {
     }
 
     private void addEventTypeFilterToPredicate(Map<String, String> predicate) {
-        String eventTypeFilter = request.getParameter("eventType");
-        if (eventTypeFilter != null && !eventTypeFilter.isEmpty() && !eventTypeFilter.equals("-")) {
-            if (eventTypeFilter.equals(EF_LIVE_STREAM) || eventTypeFilter.equals(EF_RESIDENTIAL)) {
-                predicate.put("group.2_group.1_property", JcrConstants.JCR_CONTENT + "/data/master/format");
-                predicate.put("group.2_group.1_property.value", eventTypeFilter);
-                predicate.put("group.2_group.2_property", JcrConstants.JCR_CONTENT + "/data/master/format");
-                predicate.put("group.2_group.2_property.value", "inSiteAndStreaming");
+        String[] eventTypeFilter = request.getParameterValues("eventTypes");
+        if (eventTypeFilter != null && eventTypeFilter.length == 1 && eventTypeFilter[0].contains("-")) {
+            eventTypeFilter = eventTypeFilter[0].split("-");
+        }
+        if (eventTypeFilter != null && eventTypeFilter.length > 0) {
+            boolean addOr = false;
+            boolean addBothFormats = false;
+            for (int i = 0; i < eventTypeFilter.length; i++) {
+                if (eventTypeFilter[i].equals(EF_LIVE_STREAM) || eventTypeFilter[i].equals(EF_RESIDENTIAL)) {
+                    addBothFormats = true;
+                    predicate.put("group.2_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/format");
+                    predicate.put("group.2_group." + (i + 1) + "_property.value", eventTypeFilter[i]);
+                } else {
+                    predicate.put("group.2_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/eventType");
+                    predicate.put("group.2_group." + (i + 1) + "_property.value", eventTypeFilter[i]);
+                }
+                if (i == 1) {
+                    addOr = true;
+                }
+            }
+            if (addBothFormats) {
+                predicate.put("group.2_group." + (eventTypeFilter.length + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/format");
+                predicate.put("group.2_group." + (eventTypeFilter.length + 1) + "_property.value", "inSiteAndStreaming");
+            }
+            // Set OR operator between groups
+            if (addOr) {
                 predicate.put("group.2_group.p.or", "true");
-            } else {
-                predicate.put("group.2_property", JcrConstants.JCR_CONTENT + "/data/master/eventType");
-                predicate.put("group.2_property.value", eventTypeFilter);
             }
         }
     }
 
     private void addCityFilterToPredicate(Map<String, String> predicate) {
-        String locationFilter = request.getParameter("location");
-        if (locationFilter != null && !locationFilter.isEmpty() && !locationFilter.equals("-")) {
-            Resource city = null;
-            try {
-                city = ModelHelper.findResourceById(resourceResolver, locationFilter, CITY_PATH);
-            } catch (RepositoryException e) {
-                LOGGER.error("{} not found", locationFilter);
+        String[] locationFilter = request.getParameterValues("locations");
+        if (locationFilter != null && locationFilter.length == 1 && locationFilter[0].contains("-")) {
+            locationFilter = locationFilter[0].split("-");
+        }
+        if (locationFilter != null && locationFilter.length > 0) {
+            boolean addOr = false;
+            for (int i = 0; i < locationFilter.length; i++) {
+                Resource city = null;
+                try {
+                    city = ModelHelper.findResourceById(resourceResolver, locationFilter[i], CITY_PATH);
+                } catch (RepositoryException e) {
+                    LOGGER.error("{} not found", locationFilter[i]);
+                }
+                if (city == null) {
+                    continue;
+                }
+                predicate.put("group.3_group." + (i + 1) + "_property", JcrConstants.JCR_CONTENT + "/data/master/city");
+                predicate.put("group.3_group." + (i + 1) + "_property.value", city.getPath());
+                predicate.put("group.3_group." + (i + 1) + "_property.operation", "equals");
+                if (i == 1) {
+                    addOr = true;
+                }
             }
-            if (city == null) {
-                return;
+            // Set OR operator between groups
+            if (addOr) {
+                predicate.put("group.3_group.p.or", "true");
             }
-            predicate.put("group.3_property", JcrConstants.JCR_CONTENT + "/data/master/city");
-            predicate.put("group.3_property.value", city.getPath());
-            predicate.put("group.3_property.operation", "equals");
         }
     }
 
@@ -160,6 +190,9 @@ public class EventListingModel {
     private void addDateFilterToPredicate(Map<String, String> predicate) {
         String dateOrPeriod = request.getParameter("dateOrPeriod");
         if (dateOrPeriod != null && !dateOrPeriod.isEmpty()) {
+            if (dateOrPeriod.contains("-to-")) {
+                dateOrPeriod = dateOrPeriod.replace("-to-", " to ");
+            }
             if (dateOrPeriod.contains(" to ")) {
                 String[] dates = dateOrPeriod.split(" to ");
                 String fromDate = dates[0];
@@ -399,11 +432,11 @@ public class EventListingModel {
         }
 
         public Date getStartDate() {
-            return startDate;
+            return startDate != null ? new Date(startDate.getTime()) : null;
         }
 
         public Date getEndDate() {
-            return endDate;
+            return endDate != null ? new Date(endDate.getTime()) : null;
         }
 
         public String getStartDateText() {

@@ -221,8 +221,14 @@ public class DataMigrationService {
     /**
      * Main method to initiate the data migration process.€
      * Calls individual migration methods for different content types.
+     * @throws LoginException 
+     * @throws RepositoryException 
+     * @throws ContentFragmentException 
+     * @throws IOException 
+     * @throws InterruptedException 
+     * @throws RowProcessException 
      */
-    public void migrateData(String object, String exclusions, String deleteInput) throws Exception {
+    public void migrateData(String object, String exclusions, String deleteInput) throws LoginException, RepositoryException, IOException, ContentFragmentException, InterruptedException, RowProcessException {
         String[] exclusionList = exclusions == null ? new String[0] : exclusions.split(",");
         delete = (deleteInput != null && deleteInput.equals("true")) ? true : false;
 
@@ -253,6 +259,7 @@ public class DataMigrationService {
                 if (!Arrays.asList(exclusionList).contains(EVENTS)) {
                     migrateEvents(resolver); // subscriptionTypes cities nations
                     try {
+                        Thread.sleep(2000); // Wait for 2 seconds
                         connectEventsTopics(resolver);
                     } catch (IOException | RepositoryException | ContentFragmentException e) {
                         Thread.sleep(2000); // Wait for 2 seconds
