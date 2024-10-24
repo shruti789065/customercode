@@ -109,6 +109,10 @@ module.exports = {
           from: path.resolve(SOURCE_ROOT, "components/signinform/signinform.js"),
           to: "clientlib-signin/",
         },
+        {
+          from: path.resolve(SOURCE_ROOT, "components/signupform/_signupform.js"),
+          to: "clientlib-signup/",
+        },
       ],
     }),
   ],
