@@ -77,6 +77,8 @@
             </image>
             <text jcr:primaryType="nt:unstructured">
                 <policy_641562756958017
+                    jcr:lastModified="{Date}2024-10-21T14:24:45.001+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Text"
                     sling:resourceType="wcm/core/components/policy/policy">
@@ -162,6 +164,39 @@
                             jcr:primaryType="nt:unstructured"
                             features="-"/>
                     </rtePlugins>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Text style types"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="text"
+                                    cq:styleId="1729512102740"
+                                    cq:styleLabel="Text Light"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="text-bold"
+                                    cq:styleId="1729512183989"
+                                    cq:styleLabel="Text Bold"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="text-small-light"
+                                    cq:styleId="1729512190195"
+                                    cq:styleLabel="Text Small Light"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                    cq:styleClasses="text-small-bold"
+                                    cq:styleId="1729512200084"
+                                    cq:styleLabel="Text Small Bold"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item4
+                                    cq:styleClasses="text-super-small-light"
+                                    cq:styleId="1729512209245"
+                                    cq:styleLabel="Text Extra Small Light"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_641562756958017>
             </text>
             <title jcr:primaryType="nt:unstructured">
@@ -185,6 +220,35 @@
                     type="h2">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_641528232375303>
+                <policy_712751022800750
+                    jcr:lastModified="{Date}2024-10-23T15:20:20.194+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Policy Style Title"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedTypes="[h1,h2,h3,h4,h5,h6]"
+                    linkDisabled="true"
+                    type="h1">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Title colors"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="title-blue"
+                                    cq:styleId="1729587240055"
+                                    cq:styleLabel="Blue title"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="title-red"
+                                    cq:styleId="1729587243957"
+                                    cq:styleLabel="Red title"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_712751022800750>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
                 <policy_header
@@ -425,6 +489,16 @@
                         </item2>
                     </cq:styleGroups>
                 </policy_7319252844625>
+                <policy_34977012579416
+                    jcr:lastModified="{Date}2024-09-17T01:03:58.619+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Container Default Layout"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    layout="responsiveGrid"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_34977012579416>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
@@ -580,7 +654,7 @@
             <banner-mobile-app jcr:primaryType="nt:unstructured">
                 <banner-mobile-app-container jcr:primaryType="nt:unstructured">
                     <policy_1726061095737
-                        jcr:lastModified="{Date}2024-10-02T17:19:14.858+02:00"
+                        jcr:lastModified="{Date}2024-09-11T16:25:24.026+03:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Banner mobile app"
@@ -700,38 +774,6 @@
                     </cq:styleGroups>
                 </policy_1726823395592>
             </section>
-            <horizontal-teaser jcr:primaryType="nt:unstructured">
-                <policy_1728024750840
-                    cq:styleDefaultClasses="cmp-horizontal-teaser-right"
-                    jcr:lastModified="{Date}2024-10-04T09:55:18.190+03:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Horizontal teaser "
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
-                    showTitleType="false"
-                    titleType="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                            cq:styleGroupLabel="Position"
-                            jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleClasses="cmp-horizontal-teaser-right"
-                                    cq:styleId="1728024835721"
-                                    cq:styleLabel="right"
-                                    jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                    cq:styleClasses="cmp-horizontal-teaser-left"
-                                    cq:styleId="1728024843101"
-                                    cq:styleLabel="left"
-                                    jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                    </cq:styleGroups>
-                </policy_1728024750840>
-            </horizontal-teaser>
         </components>
     </fondazione>
     <wcm jcr:primaryType="nt:unstructured">
