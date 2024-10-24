@@ -117,6 +117,10 @@ module.exports = {
           from: path.resolve(SOURCE_ROOT, "components/editprofileform/_editprofileform.js"),
           to: "clientlib-editprofile/",
         },
+        {
+          from: path.resolve(SOURCE_ROOT, "components/editimage/_editimage.js"),
+          to: "clientlib-editimage/",
+        },
       ],
     }),
   ],

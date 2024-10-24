@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", async function () {    
     const loadImageCta = document.getElementById('loadImageCta');
     const fileInputEditImage = document.getElementById('fileInputEditImage');
     const errorMessage = document.getElementById('errorMessage');
