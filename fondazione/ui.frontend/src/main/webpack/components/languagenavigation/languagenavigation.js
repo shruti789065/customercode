@@ -1,69 +1,73 @@
-/*
- *  Copyright 2018 Adobe Systems Incorporated
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+/**
+ * @file
+ * Language navigation in header script.
  */
 
-import jQuery from "jquery";
+document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
 
-// Wrap bindings in anonymous namespace to prevent collisions
-jQuery(function ($) {
-	"use strict";
+    /**
+     * Display the language dropdown.
+     */
+    function displayCurrentLanguage() {
+        const CMP_SELECTOR = '.cmp-languagenavigation--header';
+        const CMP_PROCESSED = 'data-lang-nav-processed';
+        const ACTIVE_LINK_SELECTOR = '.cmp-languagenavigation__item--active > .cmp-languagenavigation__item-link';
+        const ACTIVE_COUNTRY_SELECTOR = '.cmp-languagenavigation__item--level-0.cmp-languagenavigation__item--active';
 
-	function displayCurrentLanguage() {
-		var CMP_SELECTOR = '.cmp-languagenavigation--header',
-			CMP_PROCESSED = 'data-lang-nav-processed',
-			ACTIVE_LINK_SELECTOR = '.cmp-languagenavigation__item--active > .cmp-languagenavigation__item-link',
-			ACTIVE_COUNTRY_SELECTOR = '.cmp-languagenavigation__item--level-0.cmp-languagenavigation__item--active',
-			langNav = $(CMP_SELECTOR).not('[' + CMP_PROCESSED + '=\'true\']'),
-			activeCountryImg,
-			activeLanguage,
-			toggleButton;
+        const languageNavigation = document.querySelector(CMP_SELECTOR + `:not([${CMP_PROCESSED}='true'])`);
+        let activeCountryImg;
+        let activeLanguage;
+        let toggleButton;
 
-		//Top Level Navigation (expected to only be one of these)
-		if (langNav != undefined && langNav.length == 1) {
+        // Top Level Navigation (expected to only be one of these)
+        if (languageNavigation) {
+            // Mark as processed
+            languageNavigation.setAttribute(CMP_PROCESSED, 'true');
 
-			//insert current lnaguage in header
-			$(langNav).attr(CMP_PROCESSED, true);
-			activeLanguage = $(CMP_SELECTOR + ' ' + ACTIVE_LINK_SELECTOR).attr('lang');
-			activeLanguage = activeLanguage !== undefined ? activeLanguage : 'Language';
+            // Get the current language
+            const activeLinkElement = languageNavigation.querySelector(ACTIVE_LINK_SELECTOR);
+            activeLanguage = activeLinkElement ? activeLinkElement.getAttribute('lang') : 'Language';
 
-			activeCountryImg = $(CMP_SELECTOR + ' ' + ACTIVE_COUNTRY_SELECTOR)
-				.css('background-image');
-			activeCountryImg = activeCountryImg !== undefined ?
-				activeCountryImg.replace("\"", "\'").replace("\"", "\'") : 'none';
+            // Get the background image of the active country
+            const activeCountryElement = languageNavigation.querySelector(ACTIVE_COUNTRY_SELECTOR);
+            console.log(activeCountryElement);
 
-			toggleButton = '<div class="cmp-languagenavigation--langnavtoggle">' +
-				'<a id="langNavToggleHeader" style="background-image:' + activeCountryImg +
-				'" href="#langNavToggle" aria-label="Toggle Language">' + activeLanguage + '</a></div>';
-			$(langNav).prepend(toggleButton);
+            activeCountryImg = activeCountryElement ? getComputedStyle(activeCountryElement).backgroundImage : 'none';
 
-			//attach toggle to change languages
-			$('#langNavToggleHeader').click(function () {
-				$(CMP_SELECTOR + ' .cmp-languagenavigation').toggleClass('showMenu');
-				$('#langNavToggleHeader').toggleClass('open');
-			});
+            // Create the toggle button
+            toggleButton = document.createElement("div");
+            toggleButton.className = "cmp-languagenavigation--langnavtoggle";
+            toggleButton.innerHTML =
+                `
+                    <a id="langNavToggleHeader"
+                        style="background-image: ${activeCountryImg}"
+                        href="#langNavToggle"
+                        aria-label="Toggle Language">
+                        ${activeLanguage}
+                    </a>
+                `;
 
-			//allow users to click anywhere to close language switcher
-			window.onclick = function (event) {
-				if (!event.target.matches('#langNavToggleHeader') && $('#langNavToggleHeader').hasClass('open')) {
-					$(CMP_SELECTOR + ' .cmp-languagenavigation').removeClass('showMenu');
-					$('#langNavToggleHeader').removeClass('open');
-				}
-			};
+            languageNavigation.prepend(toggleButton);
 
-		}
-	}
+            // Attach toggle to change languages
+            const langNavToggleHeader = document.getElementById("langNavToggleHeader");
+            langNavToggleHeader.addEventListener("click", function () {
+                const langNavMenu = languageNavigation.querySelector('.cmp-languagenavigation');
+                langNavMenu.classList.toggle("showMenu");
+                langNavToggleHeader.classList.toggle("open");
+            });
 
-	displayCurrentLanguage();
+            // Allow users to click anywhere to close language switcher
+            window.addEventListener("click", function (event) {
+                if (!event.target.matches('#langNavToggleHeader') && langNavToggleHeader.classList.contains('open')) {
+                    const langNavMenu = languageNavigation.querySelector('.cmp-languagenavigation');
+                    langNavMenu.classList.remove("showMenu");
+                    langNavToggleHeader.classList.remove("open");
+                }
+            });
+        }
+    }
+
+    displayCurrentLanguage();
 });
