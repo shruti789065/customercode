@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Get the background image of the active country
             const activeCountryElement = languageNavigation.querySelector(ACTIVE_COUNTRY_SELECTOR);
-            console.log(activeCountryElement);
 
             activeCountryImg = activeCountryElement ? getComputedStyle(activeCountryElement).backgroundImage : 'none';
 
