@@ -45,7 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const getPreselectedDates = () => {
     const dateOrPeriodParam = urlParams.get("dateOrPeriod");
-    if (!dateOrPeriodParam) return [];
+    if (!dateOrPeriodParam) {
+      return [];
+    }
 
     clearButton.style.display = "block";
     const [startDate, endDate] = dateOrPeriodParam.split("-to-");

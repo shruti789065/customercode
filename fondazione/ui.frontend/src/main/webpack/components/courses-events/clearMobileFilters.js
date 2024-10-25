@@ -1,18 +1,20 @@
-$(function () {
+document.addEventListener("DOMContentLoaded", function () {
   const clearFilters = () => {
-    $(".filter-dropdown").each(function () {
-      const defaultText = $(this).data("default-text");
-      $(this).text(defaultText);
+    document.querySelectorAll(".filter-dropdown").forEach((dropdown) => {
+      const defaultText = dropdown.getAttribute("data-default-text");
+      dropdown.textContent = defaultText;
     });
 
-    $("#dateOrPeriod").val("");
-    $(".flatpickr-input").val("");
-
-    $(".clear-button").each(function () {
-      $(this).trigger("click");
+    document.getElementById("dateOrPeriod").value = "";
+    document.querySelectorAll(".flatpickr-input").forEach((input) => {
+      input.value = "";
     });
 
-    $("#clearDateOrPeriod").trigger("click");
+    document.querySelectorAll(".clear-button").forEach((button) => {
+      button.click();
+    });
+
+    document.getElementById("clearDateOrPeriod").click();
   };
 
   const clearUrlQueryStrings = () => {
@@ -25,8 +27,10 @@ $(function () {
     location.reload();
   };
 
-  $(".filters-mobile-buttons__cancel").on("click", function () {
-    clearFilters();
-    clearUrlQueryStrings();
-  });
+  document
+    .querySelector(".filters-mobile-buttons__cancel")
+    .addEventListener("click", function () {
+      clearFilters();
+      clearUrlQueryStrings();
+    });
 });

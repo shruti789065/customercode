@@ -1,4 +1,6 @@
-$(function () {
+import { isMobileDevice } from "../../utils/isMobileDevice";
+
+document.addEventListener("DOMContentLoaded", function () {
   const optionContainers = document.querySelectorAll(".options-container");
   const dropdownButtons = document.querySelectorAll(".filter-dropdown");
   const filterButtons = document.querySelectorAll(".filter-button");
@@ -13,6 +15,7 @@ $(function () {
     ".filters-mobile-buttons__confirm"
   );
   const filterForm = document.querySelector(".filter-form");
+
   let selectedFilters = {
     topics: [],
     eventTypes: [],
@@ -107,7 +110,7 @@ $(function () {
 
     window.history.pushState({ path: newUrl }, "", newUrl);
 
-    if (finalUrlParams && !isMobileDevice()) {
+    if (!isMobileDevice()) {
       location.reload();
     }
   }
@@ -121,7 +124,6 @@ $(function () {
     }
   });
 
-  // set up the initial state of the dropdown containers
   optionContainers.forEach((container) => {
     const buttons = container.querySelectorAll(".filter-button");
     const showMoreButton = container.querySelector(".show-more");
