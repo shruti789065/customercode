@@ -5,11 +5,11 @@
   role="${properties.roleAttribute}"
 >
   <sly data-sly-test="${properties['jcr:title']}">
-    <h2 class="topics-container__title">${properties['jcr:title']}</h2>
+    <h2 class="topics-container__title">${properties.title}</h2>
   </sly>
-  <sly data-sly-test="${properties['jcr:description']}">
+  <sly data-sly-test="${properties.description}">
     <p class="topics-container__description">
-      ${properties['jcr:description']}
+      ${properties.description}
     </p>
   </sly>
   <div class="topics-container__wrapper">
