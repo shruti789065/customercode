@@ -3,6 +3,8 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2024-10-28T11:27:53.929+01:00"
+        cq:lastModifiedBy="admin"
         cq:template="/conf/fondazione/settings/wcm/templates/fondazione---edit-profile"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="fondazione/components/page">
@@ -11,9 +13,11 @@
             sling:resourceType="fondazione/components/container"
             layout="responsiveGrid">
             <experiencefragment-header
+                jcr:lastModified="{Date}2024-10-28T11:27:53.923+01:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/fondazione/us/en/site/header/master"/>
+                fragmentVariationPath="/content/experience-fragments/fondazione/en/site/header/master"/>
             <heroslim
                 jcr:created="{Date}2024-10-22T14:23:07.410+02:00"
                 jcr:createdBy="admin"
