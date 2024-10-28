@@ -21,11 +21,15 @@ const MenuTabs = (() => {
       return;
     }
 
-    document.querySelectorAll(".tabs-menu__container").forEach(container => {
+    const tabsMenuContainers = document.querySelectorAll(".tabs-menu__container");
+    const menuNavTabs = document.querySelectorAll(".menu-nav li");
+    const tabLinks = document.querySelectorAll(".cmp-tabs__tab .cmp-link--text");
+
+    tabsMenuContainers.forEach(container => {
       container.classList.remove(CONST.ACTIVE_PANEL);
     });
 
-    document.querySelectorAll(".menu-nav li").forEach(tab => {
+    menuNavTabs.forEach(tab => {
       tab.classList.remove(CONST.ACTIVE_TAB);
       tab.setAttribute("aria-selected", "false");
       tab.setAttribute("tabindex", "-1");
@@ -39,7 +43,7 @@ const MenuTabs = (() => {
 
     window.addEventListener("resize", isMobileWindowSize);
 
-    document.querySelectorAll(".cmp-tabs__tab .cmp-link--text").forEach(link => {
+    tabLinks.forEach(link => {
       link.addEventListener("click", function (event) {
         event.stopPropagation();
         addWhiteMenu();
@@ -229,31 +233,48 @@ const MenuTabs = (() => {
   /**
    * Toggles the mobile menu state and adjusts UI accordingly.
    */
-  function toggleMobileMenu() {
-    const mobileToggler = document.querySelector(".cmp-button--mobile__toggler_close");
-    if (!mobileToggler) {
-      document.querySelector(".cmp-button--mobile").classList.add("cmp-button--mobile__toggler_close");
-      document.body.classList.add("h-overflow");
-      addWhiteMenu();
-    } else {
-      tablistMobile.classList.remove("cmp-tabs__tablist-opened");
-      document.querySelectorAll(".tabs-menu__container").forEach(container => {
-        container.classList.remove(CONST.ACTIVE_PANEL);
-      });
-      document.querySelector(".cmp-button--mobile").classList.remove("cmp-button--mobile__toggler_close");
-      document.body.classList.remove("h-overflow");
-      document.querySelector(".cmp-navbar-overlayer").style.display = "none";
-      removeWhiteMenu();
-    }
-    tablistMobile.classList.toggle("cmp-tabs__tablist_mobile-active");
-    mobileTabsActive = document.querySelectorAll(".cmp-tabs__tablist_mobile-active .cmp-tabs__tab");
-    mobileTabsActive.forEach(mobItem => {
-      mobItem.addEventListener("click", () => {
-        document.querySelector(".cmp-container--menu_item-mobile").classList
-        .add("cmp-container--menu_item-mobile--active");
-      });
+  /**
+ * Toggles the mobile menu state and adjusts UI accordingly.
+ */
+function toggleMobileMenu() {
+  const mobileButton = document.querySelector(".cmp-button--mobile");
+  const body = document.body;
+  const navbarOverlayer = document.querySelector(".cmp-navbar-overlayer");
+  const isMenuOpen = mobileButton.classList.contains("cmp-button--mobile__toggler_close");
+  const tabsContainers = document.querySelectorAll(".tabs-menu__container");
+
+  if (!isMenuOpen) {
+    // Open mobile menu
+    mobileButton.classList.add("cmp-button--mobile__toggler_close");
+    body.classList.add("h-overflow");
+    addWhiteMenu();
+  } else {
+    // Close mobile menu
+    tablistMobile.classList.remove("cmp-tabs__tablist-opened");
+    tabsContainers.forEach(container => {
+      container.classList.remove(CONST.ACTIVE_PANEL);
     });
+    mobileButton.classList.remove("cmp-button--mobile__toggler_close");
+    body.classList.remove("h-overflow");
+
+    if (navbarOverlayer) {
+      navbarOverlayer.style.display = "none";
+    }
+    removeWhiteMenu();
   }
+
+  // Toggle mobile active class
+  tablistMobile.classList.toggle("cmp-tabs__tablist_mobile-active");
+
+  // Update each mobile tab item with the appropriate click event
+  mobileTabsActive = document.querySelectorAll(".cmp-tabs__tablist_mobile-active .cmp-tabs__tab");
+  mobileTabsActive.forEach(mobItem => {
+    mobItem.addEventListener("click", () => {
+      document.querySelector(".cmp-container--menu_item-mobile").classList.add("cmp-container--menu_item-mobile--active");
+    });
+  });
+}
+
 
   return {
     init: init,
