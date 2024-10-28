@@ -26,8 +26,6 @@ const MenuTabs = (() => {
       .attr("tabindex", "-1");
 
     $(document).on("click", ".menu-nav li", function (e) {
-      e.preventDefault();
-
       const tabpanelId = $(this).attr("aria-controls");
       const tabpanel = $("#" + tabpanelId);
 
@@ -72,8 +70,6 @@ const MenuTabs = (() => {
 
     if (!_isDesktop() || _isMobileWindowSize()) {
       setupMobileMenu();
-    } else {
-      setupDesktopMenu();
     }
   }
 
@@ -81,6 +77,7 @@ const MenuTabs = (() => {
     const tabsMenuContainers = document.querySelectorAll(
       ".tabs-menu__container"
     );
+
     _toggleMenu();
     $tablistMobile = $(".cmp-tabs__tablist_mobile");
     tabsMenuContainers.forEach((mobItem) => {
@@ -97,10 +94,6 @@ const MenuTabs = (() => {
     $(".cmp-button--mobile__toggler").on("click", () => {
       toggleMobileMenu();
     });
-  }
-
-  function setupDesktopMenu() {
-    console.log("desktop");
   }
 
   function handleScroll() {

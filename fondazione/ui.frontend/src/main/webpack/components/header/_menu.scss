@@ -149,6 +149,12 @@
 		}
 	}
 
+	.options-tab {
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+	}
+
 	&__container {
 		background-color: $white;
 	}
@@ -180,7 +186,7 @@
 			background-color: $white;
 			z-index: 999;
 
-			@include media-breakpoint-up(lg) {
+			@include media-breakpoint-up(xl) {
 				background-color: $color-background;
 				position: fixed;
 				left: 0;
@@ -610,16 +616,16 @@
 				background-color: transparent;
 				border: 1px solid transparent;
 
-				@include media-breakpoint-down(xl) {
+				@include media-breakpoint-up(xl) {
 					right: 5%;
 				}
 
-				@include media-breakpoint-down(md) {
-					right: 0;
+				@include media-breakpoint-down(sm) {
+					right: -2%;
 				}
 
-				@include media-breakpoint-down(sm) {
-					right: -5px;
+				@media (min-width: 768px) and (max-width: 1024px) {
+					right: 5%;
 				}
 
 				&:not(:disabled):not(.disabled) {
@@ -808,6 +814,29 @@
 								margin-top: 6px;
 							}
 						}
+					}
+				}
+			}
+
+			.options-tab {
+
+				background-color: $fm-color-bg-section;
+				margin: 0px !important;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				display: list-item;
+
+				.cmp-button {
+					text-transform: uppercase;
+					color: $fm-color-text;
+					font-family: $font-default;
+					font-weight: 500;
+					font-size: 15px;
+					line-height: 16px;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: none;
 					}
 				}
 			}

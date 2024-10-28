@@ -19,6 +19,13 @@
             cursor: pointer;
         }
 
+
+        .cmp-button__text {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+
         .cmp-button__icon--search {
             display: none;
 
@@ -44,6 +51,12 @@
 
         &:hover {
             cursor: pointer;
+        }
+
+        .cmp-button__text {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
         }
 
         .cmp-button__icon--profile {
