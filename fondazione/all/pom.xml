@@ -123,6 +123,14 @@
                         </embedded>
 
                         <embedded>
+                            <groupId>com.github.ben-manes.caffeine</groupId>
+                            <artifactId>caffeine</artifactId>
+                            <target>/apps/fondazione-packages/application/install</target>
+                        </embedded>
+
+
+
+                        <embedded>
                             <groupId>com.jakala.menarini</groupId>
                             <artifactId>fondazione.core</artifactId>
                             <target>/apps/fondazione-packages/application/install</target>
@@ -283,6 +291,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>3.1.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
