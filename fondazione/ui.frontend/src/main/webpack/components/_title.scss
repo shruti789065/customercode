@@ -1,3 +1,20 @@
-.cmp-title {}
-.cmp-title__text {}
-.cmp-title__link {}
+.title {
+    @include make-container();
+    @extend .container;
+    &-blue{
+        .cmp-title {
+            .cmp-title__text, .cmp-title__link {
+                color: $secondary;
+                font-weight: $font-regular;
+            }
+        }    
+    }
+    &-red {
+        .cmp-title {
+            .cmp-title__text, .cmp-title__link {
+                color: $primary;
+                font-weight: $font-default-light;
+            }
+        }
+    }
+}
