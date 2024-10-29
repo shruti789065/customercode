@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2024-10-28T16:27:28.184+01:00"
+        cq:lastModified="{Date}2024-10-29T15:04:04.975+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/fondazione/settings/wcm/templates/fondazione---reserved-area"
         jcr:primaryType="cq:PageContent"
@@ -89,23 +89,6 @@
                     sling:resourceType="fondazione/components/editimage"
                     editable="{Boolean}true"/>
             </container>
-            <spacer_1577273665
-                jcr:created="{Date}2024-10-28T12:43:58.062+01:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2024-10-28T14:36:35.203+01:00"
-                jcr:lastModifiedBy="admin"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="fondazione/components/spacer"
-                spacer="70"/>
-            <title_321052631
-                cq:styleIds="[1729587240055]"
-                jcr:created="{Date}2024-10-28T14:21:55.431+01:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2024-10-28T14:34:58.404+01:00"
-                jcr:lastModifiedBy="admin"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="fondazione/components/title"
-                editable="{Boolean}true"/>
             <spacer_1700274460
                 jcr:created="{Date}2024-10-28T14:24:20.629+01:00"
                 jcr:createdBy="admin"
@@ -145,6 +128,14 @@
                             linkTarget="_self"
                             text="MANAGE SUBSCRIPTION"/>
                     </actions>
+                    <title
+                        jcr:lastModified="{Date}2024-10-29T15:04:04.971+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Your subscriptions"
+                        sling:resourceType="fondazione/components/title"
+                        linkTarget="_self"
+                        type="h2"/>
                 </teaser>
             </container_529419095>
             <spacer_1185859130
