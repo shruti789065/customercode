@@ -1,14 +1,14 @@
 <sly data-sly-use.model="com.jakala.menarini.core.models.EventListingModel">
   <div class="container">
-    <button class="filter-toggle-button">Filter</button>
+    <button class="filter-toggle-button">${'filter' @ i18n}</button>
     <form class="filter-form filter-form--hidden" method="POST">
-      <h3 class="mobile-filter-title">Filter</h3>
+      <h3 class="mobile-filter-title">${'filter' @ i18n}</h3>
       <div class="options-container options-container--hidden">
         <sly
           data-sly-use.modelT="com.jakala.menarini.core.models.TopicListingModel"
         >
           <div class="filter-top-bar">
-            <h3 class="filter-top-bar__title">Topic</h3>
+            <h3 class="filter-top-bar__title">${'topic' @ i18n}</h3>
             <button
               onclick="event.preventDefault();"
               class="minimize-button"
@@ -20,14 +20,14 @@
                 ${topic.name}
               </button>
             </sly>
-            <button class="show-more">Show more</button>
+            <button class="show-more" data-sly-test="${modelT.topics.size > 11}">${'show_more' @ i18n}</button>
           </div>
         </sly>
       </div>
 
       <div class="options-container options-container--hidden">
         <div class="filter-top-bar">
-          <h3 class="filter-top-bar__title">Select events</h3>
+          <h3 class="filter-top-bar__title">${'select_events' @ i18n}</h3>
           <button
             onclick="event.preventDefault();"
             class="minimize-button"
@@ -39,7 +39,7 @@
               ${eventSelection.name}
             </button>
           </sly>
-          <button class="show-more">Show more</button>
+          <button class="show-more" data-sly-test="${model.eventSelections.size > 11}">${'show_more' @ i18n}</button>
         </div>
       </div>
 
@@ -48,7 +48,7 @@
           data-sly-use.modelC="com.jakala.menarini.core.models.CityListingModel"
         >
           <div class="filter-top-bar">
-            <h3 class="filter-top-bar__title">Location</h3>
+            <h3 class="filter-top-bar__title">${'location' @ i18n}</h3>
             <button
               onclick="event.preventDefault();"
               class="minimize-button"
@@ -60,36 +60,42 @@
                 ${city.name}
               </button>
             </sly>
-            <button class="show-more">Show more</button>
+            <button class="show-more" data-sly-test="${modelC.cities.size > 11}">${'show_more' @ i18n}</button>
           </div>
         </sly>
       </div>
 
       <div class="filters-wrap">
         <div class="select-wrapper">
-          <button class="filter-dropdown" data-default-text="Topic">
-            Topic
+          <button class="filter-dropdown" data-default-text="${'topic' @ i18n}">
+            ${'topic' @ i18n}
           </button>
           <div class="filter-dropdown__clear-container">
-            <button class="clear-button">Clear Topics ✕</button>
+            <button class="clear-button align-items-center d-flex">
+              ${'clear_topics' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_topics' @ i18n}"/>
+            </button>
           </div>
         </div>
 
         <div class="select-wrapper">
-          <button class="filter-dropdown" data-default-text="Select events">
-            Select events
+          <button class="filter-dropdown" data-default-text="${'select_events' @ i18n}">
+            ${'select_events' @ i18n}
           </button>
           <div class="filter-dropdown__clear-container">
-            <button class="clear-button">Clear Events ✕</button>
+            <button class="clear-button align-items-center d-flex">
+              ${'clear_events' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_events' @ i18n}"/>
+            </button>
           </div>
         </div>
 
         <div class="select-wrapper">
-          <button class="filter-dropdown" data-default-text="Location">
-            Location
+          <button class="filter-dropdown" data-default-text="${'location' @ i18n}">
+            ${'location' @ i18n}
           </button>
           <div class="filter-dropdown__clear-container">
-            <button class="clear-button">Clear Location ✕</button>
+            <button class="clear-button align-items-center d-flex">
+              ${'clear_location' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_location' @ i18n}"/>
+            </button>
           </div>
         </div>
 
@@ -97,7 +103,7 @@
           <div class="flatpickr-wrap">
             <input
               type="text"
-              placeholder="Select Date.."
+              placeholder="${'select_date' @ i18n}"
               data-input=""
               class="flatpickr-input filter-dropdown"
               id="dateOrPeriod"
@@ -106,24 +112,29 @@
           </div>
           <button
             id="clearDateOrPeriod"
-            class="flatpickr-clear"
-            title="clear"
+            class="flatpickr-clear align-items-center d-flex"
+            title="${'clear_date' @ i18n}"
             data-clear=""
           >
-            Clear date ✕
+            ${'clear_date' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_date' @ i18n}"/>
           </button>
         </div>
       </div>
       <div class="filters-mobile-buttons">
-        <button class="filters-mobile-buttons__cancel">✕ Cancel</button>
-        <button class="filters-mobile-buttons__confirm">✓ Apply Filters</button>
+        <button class="filters-mobile-buttons__cancel align-items-center d-flex">
+          <img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" alt="${'cancel' @ i18n}"/>
+          ${'cancel' @ i18n}
+        </button>  
+        <button class="filters-mobile-buttons__confirm align-items-center d-flex">
+          <img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-check.png" alt="${'apply_filter' @ i18n}"/>
+          ${'apply_filters' @ i18n}</button>
       </div>
     </form>
 
     <section class="events-cards">
       <div class="event-grid">
         <sly data-sly-list="${model.events}">
-          <div class="event-grid__card">
+          <div class="event-grid__card ${model.events.size > 2 ? 'justify-content-between' : 'justify-content-start'}">
             <a class="event-grid__card--link" href="${item.path}.html">
               <div class="event-grid__card--image-wrapper">
                 <img
@@ -138,12 +149,12 @@
                 </p>
                 <h2 class="event-grid__card--title">${item.title}</h2>
                 <p class="event-grid__card--dates">
-                  ${item.location ? item.location : 'No location'} | From
+                  ${item.location ? item.location : 'Online'} | From
                   ${item.startDateText ? item.startDateText : '-:-'} to
                   ${item.endDateText ? item.endDateText : '-:-'}
                 </p>
                 <a href="${item.path}.html" class="event-grid__card--button">
-                  Discover Course <span class="icon"></span>
+                  ${'discover_course' @ i18n} <span class="icon"></span>
                 </a>
               </div>
             </a>
@@ -152,7 +163,7 @@
       </div>
 
       <sly data-sly-test="${!model.events || model.events.size == 0}">
-        <p class="event-grid__empty-state">No events found.</p>
+        <p class="event-grid__empty-state">${'no_events_found' @ i18n}</p>
       </sly>
 
       <div class="pagination">
@@ -172,7 +183,7 @@
           ></button>
 
           <span class="pagination__page-info"
-            >Page ${model.currentPage} of ${model.totalPages}</span
+            >${'page' @ i18n} ${model.currentPage} of ${model.totalPages}</span
           >
 
           <button

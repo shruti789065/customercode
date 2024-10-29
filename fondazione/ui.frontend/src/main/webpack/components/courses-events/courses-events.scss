@@ -232,6 +232,7 @@ form.filter-form {
 
             &--selected {
                 color: $secondary;
+                white-space: nowrap;
             }
 
             &__clear-container {
@@ -241,6 +242,7 @@ form.filter-form {
 
                 @include media-breakpoint-up(lg) {
                     display: flex;
+                    height: 25px;
                 }
 
                 .clear-button {
@@ -253,6 +255,13 @@ form.filter-form {
                     padding: 0;
                     font-size: 0.75rem;
                     font-weight: 300;
+                    @include media-breakpoint-up(lg) {
+                        height: 25px;
+                    }
+
+                    img {
+                        margin-left: 5px;
+                    }
 
                     &:hover {
                         text-decoration: underline;
@@ -301,6 +310,10 @@ form.filter-form {
             border: none;
             cursor: pointer;
             text-transform: capitalize;
+
+            img {
+                margin-right: 5px;
+            }
         }
 
         @include media-breakpoint-up(md) {
