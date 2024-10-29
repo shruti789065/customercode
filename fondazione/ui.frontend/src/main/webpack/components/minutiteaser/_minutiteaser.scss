@@ -1,0 +1,66 @@
+.minutiteaser {
+    $max-image-height: 365px;
+    display: flex;
+    padding: 0px 15px;
+
+    .cmp-teaser {
+        display: flex;
+        flex-direction: row-reverse;
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: column-reverse;
+            width: 100%;
+        }
+    }
+
+    .cmp-teaser__image {
+        width: 402px;
+        height: 240px;
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .cmp-teaser__content {
+        padding-left: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media-breakpoint-down(lg) {
+            padding-left: 0px;
+        }
+
+        .cmp-teaser__title {
+            color: $primary;
+            @extend %h3;
+            @extend .h3-light;
+            @include media-breakpoint-down(lg) {
+                margin-top: 16px;
+            }
+        }
+
+        .cmp-teaser__description {
+            margin-top: 16px;
+        }
+
+        .cmp-teaser__action-container {
+            @extend %btn-primary;
+            width: max-content;
+
+            @include media-breakpoint-down(lg) {
+                width: 100%;
+                text-align: center;
+            }
+
+            .cmp-teaser__action-link {
+                text-decoration: none;
+                color: $white;
+
+            }
+        }
+    }
+}
+
