@@ -15,5 +15,9 @@ public interface HomePageBaseModelInterface {
     public void setEmail(String email);
     public List<RegisteredUserTopicDto> getTopics();
     public void setTopics(List<RegisteredUserTopicDto> topics);
+    public String getYoutubeShareLink();
+    public void setYoutubeShareLink(String youtubeShareLink);
+    public String getLinkedinShareLink();
+    public void setLinkedinShareLink(String linkedinShareLink);
 
 }
