@@ -1,18 +1,16 @@
 <sly data-sly-use.model="com.jakala.menarini.core.models.HomePageBaseModel">
   <section
-    data-sly-test="${model.isAuth}"
+    data-sly-test="${!model.isAuth}"
     class="topics-container"
     id="${properties.id}"
     aria-label="${properties.accessibilityLabel}"
     role="${properties.roleAttribute}"
   >
-    <sly data-sly-test="${properties['jcr:title']}">
-      <h2 class="topics-container__title">${properties['jcr:title']}</h2>
+    <sly data-sly-test="${properties.title}">
+      <h2 class="topics-container__title">${properties.title}</h2>
     </sly>
-    <sly data-sly-test="${properties['jcr:description']}">
-      <p class="topics-container__description">
-        ${properties['jcr:description']}
-      </p>
+    <sly data-sly-test="${properties.description}">
+      <p class="topics-container__description">${properties.description}</p>
     </sly>
     <div class="topics-container__wrapper">
       <sly
