@@ -8,7 +8,7 @@ const MenuTabs = (() => {
     GENERIC_PANEL_CLASS: "cmp-tabs__tabpanel",
   };
 
-  const fragmentMenuClass = ".cmp-experiencefragment--header";
+  const fragmentMenu = document.querySelector(".cmp-experiencefragment--header");
 
   let tabsMenu, whiteMenu, mobileTabsActive, tablistMobile, shareOpened;
 
@@ -163,7 +163,7 @@ const MenuTabs = (() => {
    * Handles the scroll event to adjust the menu appearance.
    */
   function handleScroll() {
-    const isFragmentMenuPresent = document.querySelector(fragmentMenuClass) !== null;
+    const isFragmentMenuPresent = fragmentMenu !== null;
     const isMobileMenuOpen = document.querySelector(".cmp-button--mobile")
                              .classList.contains("cmp-button--mobile__toggler_close");
     const isScrolledPastThreshold = window.scrollY > 40;
@@ -207,7 +207,7 @@ const MenuTabs = (() => {
    */
   function addWhiteMenu() {
     if (!whiteMenu) {
-      document.querySelector(fragmentMenuClass).classList.add("scrolled-page");
+      fragmentMenu?.classList.add("scrolled-page");
       whiteMenu = true;
     }
   }
@@ -217,7 +217,7 @@ const MenuTabs = (() => {
    */
   function removeWhiteMenu() {
     if (whiteMenu) {
-      document.querySelector(fragmentMenuClass).classList.remove("scrolled-page");
+      fragmentMenu?.classList.remove("scrolled-page");
       whiteMenu = false;
     }
   }
@@ -226,8 +226,11 @@ const MenuTabs = (() => {
    * Toggles the menu between mobile and desktop view.
    */
   function toggleMenu() {
-    document.querySelector(".cmp-tabs__tablist_toggler")?.classList.toggle("cmp-tabs__tablist_mobile");
-    document.querySelector(".tabs-menu__container")?.classList.toggle("cmp-container--menu_item-mobile");
+    const tabsToggler = document.querySelector(".cmp-tabs__tablist_toggler");
+    const tabsContainer = document.querySelector(".tabs-menu__container");
+
+    tabsToggler?.classList.toggle("cmp-tabs__tablist_mobile");
+    tabsContainer?.classList.toggle("cmp-container--menu_item-mobile");
   }
 
   /**
