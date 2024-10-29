@@ -1,20 +1,23 @@
-// Top navigation 
-.cq-Editable-dom {
-    .top_header {
-        background-color: $secondary;
-        position: relative;
-        max-height: none;
+.aem-AuthorLayer-Edit {
+
+    .cmp-header-navigation,
+    .cmp-tabs__tabpanel,
+    .cmp-container__general-megamenu {
+        position: relative !important;
+        z-index: 1000;
+        top: auto !important;
+    }
+
+    .cmp-tabs {
+        height: auto !important;
+        margin-top: 20px;
     }
 
     .cmp-header-navigation {
-        position: relative;
-        max-width: 100%;
-        min-width: 100%;
-        top: 0;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
-    .cmp-tabs__tabpanel {
-        position: relative;
+    .cmp-header-navigation__menu {
+        margin-top: 20px;
     }
 }
