@@ -1,6 +1,6 @@
 <sly data-sly-use.model="com.jakala.menarini.core.models.HomePageBaseModel">
   <section
-    data-sly-test="${!model.isAuth}"
+    data-sly-test="${!model.isAuth || wcmmode.edit}"
     class="topics-container"
     id="${properties.id}"
     aria-label="${properties.accessibilityLabel}"
