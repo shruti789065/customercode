@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (startDate && endDate) {
       params.set("dateOrPeriod", `${startDate}-to-${endDate}`);
       if (!isMobileDevice()) {
-        clearButton.style.display = "block";
+        clearButton.style.display = "flex";
       }
     } else {
       params.delete("dateOrPeriod");

@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (selectedFilters.length !== 0) {
       dropdownButtons[index].innerText = selectedFiltersText;
       dropdownButtons[index].classList.add("filter-dropdown--selected");
-      clearButton.style.display = "inline-block";
+      clearButton.style.display = "flex";
     } else {
       dropdownButtons[index].innerText =
         dropdownButtons[index].getAttribute("data-default-text");
