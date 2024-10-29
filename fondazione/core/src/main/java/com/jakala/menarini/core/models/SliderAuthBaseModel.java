@@ -13,7 +13,9 @@ import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import javax.annotation.PostConstruct;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -24,6 +26,8 @@ import java.util.List;
 )
 public class SliderAuthBaseModel extends AuthBaseModel {
 
+
+    private static boolean IS_TEST = true;
 
     @SlingObject
     private ResourceResolver resourceResolver;
@@ -52,22 +56,24 @@ public class SliderAuthBaseModel extends AuthBaseModel {
                     }
 
                 }
+                String today = IS_TEST ? "2021-01-01T00:00:00" :
+                        new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss").format(new Date());
+                EventModelRetrunDto returnDto = eventListingService.getEvents(
+                        resourceResolver,
+                        language,
+                        idTopics,
+                        null,
+                        null,
+                        null,
+                        today,
+                        "",
+                        1,
+                        3
+                );
+                this.events = returnDto.getEvents();
             }
 
         }
-        EventModelRetrunDto returnDto = eventListingService.getEvents(
-                resourceResolver,
-                language,
-                idTopics,
-                null,
-                null,
-                null,
-                "",
-                "",
-                1,
-                3
-        );
-        this.events = returnDto.getEvents();
 
     }
 
