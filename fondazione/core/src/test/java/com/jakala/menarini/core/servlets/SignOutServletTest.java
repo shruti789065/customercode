@@ -39,14 +39,19 @@ class SignOutServletTest {
 
     @Test
     void testDoPostWithCookies() throws IOException {
-        Cookie[] cookies = { new Cookie("cookie1", "value1"), new Cookie("cookie2", "value2") };
+        Cookie[] cookies = {
+                new Cookie("p-idToken", "value1"),
+                new Cookie("p-aToken", "value2"),
+                new Cookie("p-rToken", "value2")
+        };
         when(request.getCookies()).thenReturn(cookies);
 
         signOutServlet.doPost(request, response);
 
         ArrayList<String> expectedCookies = new ArrayList<>();
-        expectedCookies.add("cookie1");
-        expectedCookies.add("cookie2");
+        expectedCookies.add("p-idToken");
+        expectedCookies.add("p-aToken");
+        expectedCookies.add("p-rToken");
 
         verify(cookieService).removeCookie(response, expectedCookies);
     }

@@ -17,6 +17,8 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -39,6 +41,8 @@ import java.util.Set;
     }
 )
 public class UserRegisteredServlet extends  BaseRestServlet {
+
+        private static final Logger LOGGER = LoggerFactory.getLogger(UserRegisteredServlet.class);
 
         @Reference
         private transient UserRegisteredServiceInterface userService;
@@ -74,6 +78,9 @@ public class UserRegisteredServlet extends  BaseRestServlet {
                             response.setStatus(200);
                             response.setContentType(APP_CONTENT);
                             responseDto.setSuccess(true);
+                            responseDto.setUserPermission(
+                                    userService.generateUserPermission(roles[0],user.getCountry())
+                            );
                             responseDto.setUpdatedUser(user);
                         }
                         response.getWriter().write(gson.toJson(responseDto));
