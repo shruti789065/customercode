@@ -1,23 +1,49 @@
 .aem-AuthorLayer-Edit {
-
-    .cmp-header-navigation,
-    .cmp-tabs__tabpanel,
-    .cmp-container__general-megamenu {
-        position: relative !important;
-        z-index: 1000;
-        top: auto !important;
+    // Edit mode header experience fragment
+    .xf-web-container {
+        > div.container:first-of-type {
+            max-width: 100%;
+            padding: 0;
+            .top_header {
+                @include media-breakpoint-up(xl) {
+                    position: static; 
+                }
+             }
+             .cmp-header-navigation {
+                @include media-breakpoint-up(xl) {
+                    position: static; 
+                }
+             }
+        }
     }
 
-    .cmp-tabs {
-        height: auto !important;
-        margin-top: 20px;
+    .cmp-header-navigation__logo--light {
+        display: none;
+    }
+    .cmp-header-navigation__logo--dark {
+        display: block;
     }
 
-    .cmp-header-navigation {
-        margin-top: 20px;
+    .page.basicpage .cmp-header-navigation__menu .tabs-menu {
+        display: none;
     }
 
-    .cmp-header-navigation__menu {
-        margin-top: 20px;
+    // Edit mode page
+    body.page.basicpage .experiencefragment {
+        .cmp-header-navigation {
+            position: fixed;
+            top: 40px;
+            z-index: 900;
+        }
+        .navigation {
+            height: 100px;
+        }
+        .cmp-megamenu {
+            height: 0;
+        }
+        .cmp-tabs__tabpanel {
+            display: none;
+        }
+
     }
 }

@@ -21,7 +21,7 @@
 
 
         .cmp-button__text {
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
                 display: none;
             }
         }
@@ -29,7 +29,7 @@
         .cmp-button__icon--search {
             display: none;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
                 width: 100%;
                 height: 100%;
                 border: none;
@@ -54,7 +54,7 @@
         }
 
         .cmp-button__text {
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
                 display: none;
             }
         }
@@ -62,7 +62,7 @@
         .cmp-button__icon--profile {
             display: none;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
                 width: 100%;
                 height: 100%;
                 border: none;
@@ -78,9 +78,12 @@
     }
 
     .cmp-top-header {
+        @include media-breakpoint-down(xl) {
+            max-width: 100% !important;
+        }
 
         &--wrapper {
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
                 margin-right: 30px;
             }
         }
@@ -89,7 +92,7 @@
             &>div {
                 &>div.aem-Grid {
 
-                    @include media-breakpoint-up(lg) {
+                    @include media-breakpoint-up(xl) {
                         display: grid;
                         grid-template-columns: 155px 80px 80px 100px;
                         justify-items: center;

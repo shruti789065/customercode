@@ -64,7 +64,13 @@
 	min-width: 100vw;
 	background-color: transparent;
 
-	@include media-breakpoint-up(lg) {
+	> div.container:first-of-type {
+		@include media-breakpoint-down(xl) {
+			max-width: 100%;
+		}
+	}
+
+	@include media-breakpoint-up(xl) {
 		display: inline-block;
 	}
 
@@ -73,7 +79,7 @@
 		max-width: 200px;
 		max-height: 50px;
 
-		@include media-breakpoint-up(lg) {
+		@include media-breakpoint-up(xl) {
 			max-height: auto;
 		}
 	}
@@ -87,7 +93,7 @@
 	max-width: 195px;
 	position: absolute;
 
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-up(xl) {
 		max-width: 215px;
 	}
 
@@ -150,7 +156,7 @@
 	}
 
 	.options-tab {
-		@include media-breakpoint-up(lg) {
+		@include media-breakpoint-up(xl) {
 			display: none;
 		}
 	}
@@ -209,7 +215,7 @@
 				display: flex;
 				flex-direction: column-reverse;
 
-				@include media-breakpoint-up(lg) {
+				@include media-breakpoint-up(xl) {
 					flex-direction: row-reverse;
 				}
 
@@ -220,13 +226,13 @@
 						&>div {
 
 
-							@include media-breakpoint-up(lg) {
+							@include media-breakpoint-up(xl) {
 								height: 280px;
 								width: 260px;
 							}
 
 							img {
-								@include media-breakpoint-up(lg) {
+								@include media-breakpoint-up(xl) {
 									height: 100%;
 								}
 							}
@@ -615,22 +621,6 @@
 				line-height: 1;
 				background-color: transparent;
 				border: 1px solid transparent;
-
-				@include media-breakpoint-up(xl) {
-					right: 5%;
-				}
-
-				@include media-breakpoint-down(sm) {
-					right: -2%;
-				}
-
-				@media (min-width: 768px) and (max-width: 1022px) {
-					right: 2%;
-				}
-
-				@media (min-width: 1022px) and (max-width: 1050px) {
-					right: 5%;
-				}
 
 				&:not(:disabled):not(.disabled) {
 					cursor: pointer;
