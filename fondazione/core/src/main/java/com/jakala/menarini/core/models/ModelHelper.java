@@ -60,7 +60,7 @@ public class ModelHelper {
             } 
         }
         if (value == null || value.isEmpty()) {
-            value = fragment.getElement(field).getContent();
+            value = fragment.getElement(field) == null ? "" : fragment.getElement(field).getContent();
         }
         return value;
     }
@@ -156,5 +156,22 @@ public class ModelHelper {
         }
         
         return null;
+    }
+
+    public static List<Hit> findResourceByIds(ResourceResolver resolver, List<String> ids, String path) throws RepositoryException {
+        QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
+        Session session = resolver.adaptTo(Session.class);
+        Map<String, String> predicate = new HashMap<>();
+
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
+        predicate.put("path", path);
+        predicate.put("property", "jcr:content/data/master/id");
+        for(int i = 0;  i < ids.size() ; i++ ) {
+            predicate.put( i + "_property.value", ids.get(i));
+        }
+        predicate.put("property.operation", "equals");
+        com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        SearchResult result = query.getResult();
+        return result.getHits();
     }
 }
