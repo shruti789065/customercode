@@ -1,3 +1,6 @@
+import moment from 'moment';
+window.moment = moment;
+
 export function _isDesktop() {
   if (window.innerWidth <= 1200) {
     return false;
