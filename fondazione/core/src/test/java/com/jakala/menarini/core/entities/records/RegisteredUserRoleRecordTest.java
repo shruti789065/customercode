@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 
-public class RegisteredUserRoleRecordTest {
+class RegisteredUserRoleRecordTest {
 
     @Test
-    public void testSettersAndGetters() {
+    void testSettersAndGetters() {
         RegisteredUserRoleRecord record = new RegisteredUserRoleRecord();
         Long id = 1L;
         Long registeredUserId = 2L;
@@ -29,7 +29,7 @@ public class RegisteredUserRoleRecordTest {
     }
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         Long id = 1L;
         Long registeredUserId = 2L;
         Long roleId = 3L;
