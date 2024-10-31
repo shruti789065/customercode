@@ -12,7 +12,7 @@ import org.osgi.service.metatype.annotations.Designate;
 
 import java.util.concurrent.TimeUnit;
 
-
+@SuppressWarnings("squid:S1696")
 @Component(
         service = CacheDataServiceInterface.class,
         immediate = true
