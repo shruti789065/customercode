@@ -52,8 +52,6 @@ const MenuTabs = (() => {
 
     if (!_isDesktop() || isMobileWindowSize()) {
       setupMobileMenu();
-    } else {
-      setupDesktopMenu();
     }
   }
 
@@ -150,13 +148,6 @@ const MenuTabs = (() => {
     document.querySelector(".cmp-button--mobile__toggler").addEventListener("click", () => {
       toggleMobileMenu();
     });
-  }
-
-  /**
-   * Sets up the desktop version of the menu.
-   */
-  function setupDesktopMenu() {
-    console.log("desktop");
   }
 
   /**

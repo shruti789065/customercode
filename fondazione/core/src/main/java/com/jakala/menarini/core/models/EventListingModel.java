@@ -66,7 +66,7 @@ public class EventListingModel {
     private int totalPages;
 
 
-    private Map<String, String> buildBasePredicate() {
+    protected Map<String, String> buildBasePredicate() {
         Map<String, String> predicate = new HashMap<>();
         predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", EVENT_PATH);
@@ -77,7 +77,7 @@ public class EventListingModel {
         return predicate;
     }
 
-    private void addTopicFilterToPredicate(Map<String, String> predicate) {
+    protected void addTopicFilterToPredicate(Map<String, String> predicate) {
         String[] topicsFilter = request.getParameterValues("topics");
         if (topicsFilter != null && topicsFilter.length == 1 && topicsFilter[0].contains("-")) {
             topicsFilter = topicsFilter[0].split("-");
@@ -108,7 +108,7 @@ public class EventListingModel {
         }
     }
 
-    private void addEventTypeFilterToPredicate(Map<String, String> predicate) {
+    protected void addEventTypeFilterToPredicate(Map<String, String> predicate) {
         String[] eventTypeFilter = request.getParameterValues("eventTypes");
         if (eventTypeFilter != null && eventTypeFilter.length == 1 && eventTypeFilter[0].contains("-")) {
             eventTypeFilter = eventTypeFilter[0].split("-");
@@ -140,7 +140,7 @@ public class EventListingModel {
         }
     }
 
-    private void addCityFilterToPredicate(Map<String, String> predicate) {
+    protected void addCityFilterToPredicate(Map<String, String> predicate) {
         String[] locationFilter = request.getParameterValues("locations");
         if (locationFilter != null && locationFilter.length == 1 && locationFilter[0].contains("-")) {
             locationFilter = locationFilter[0].split("-");
@@ -171,7 +171,7 @@ public class EventListingModel {
         }
     }
 
-    private void addScheduledFilterToPredicate(Map<String, String> predicate) {
+    protected void addScheduledFilterToPredicate(Map<String, String> predicate) {
         String eventStatus = request.getParameter("eventStatus");
         if (eventStatus != null && !eventStatus.isEmpty()) {
             String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
@@ -187,7 +187,7 @@ public class EventListingModel {
         }
     }
 
-    private void addDateFilterToPredicate(Map<String, String> predicate) {
+    protected void addDateFilterToPredicate(Map<String, String> predicate) {
         String dateOrPeriod = request.getParameter("dateOrPeriod");
         if (dateOrPeriod != null && !dateOrPeriod.isEmpty()) {
             if (dateOrPeriod.contains("-to-")) {
@@ -229,7 +229,7 @@ public class EventListingModel {
         }
     }
 
-    private void addPaginationToPredicate(Map<String, String> predicate) {
+    protected void addPaginationToPredicate(Map<String, String> predicate) {
         String pageParam = request.getParameter("page");
         String pageSizeParam = request.getParameter("pageSize");
         int page = (pageParam != null) ? Integer.parseInt(pageParam) : 1;
