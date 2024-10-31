@@ -78,6 +78,7 @@
     }
 
     .cmp-top-header {
+        height: 100%;
         @include media-breakpoint-down(xl) {
             max-width: 100% !important;
         }
@@ -301,7 +302,7 @@
                     display: none;
                 }
 
-                top: 35px;
+                top: 28px;
                 right: 0px;
                 background-color: $white;
             }
