@@ -1,52 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
-          xmlns:cq="http://www.day.com/jcr/cq/1.0"
-          xmlns:jcr="http://www.jcp.org/jcr/1.0"
-          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          jcr:primaryType="nt:unstructured"
-          jcr:title="Top Header"
-          sling:resourceType="cq/gui/components/authoring/dialog">
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Top Header"
+    sling:resourceType="cq/gui/components/authoring/dialog">
     <content jcr:primaryType="nt:unstructured"
-             sling:resourceType="granite/ui/components/coral/foundation/container">
+        sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
             <tabs jcr:primaryType="nt:unstructured"
-                  sling:resourceType="granite/ui/components/coral/foundation/tabs"
-                  maximized="{Boolean}true">
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
                     <general jcr:primaryType="nt:unstructured"
-                             jcr:title="General"
-                             sling:resourceType="granite/ui/components/coral/foundation/container"
-                             margin="{Boolean}true">
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
+
+                            <showSearch
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                text="Show Search button"
+                                name="./showSearch"
+                                value="{Boolean}true" />
+                            <showProfile
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                text="Show Profile button"
+                                name="./showProfile"
+                                value="{Boolean}true" />
+                            <showLanguage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                text="Show Language Navigation"
+                                name="./showLanguage"
+                                value="{Boolean}true" />
                             <showShare
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                    text="Show Share"
-                                    name="./showShare"
-                                    value="{Boolean}true"/>
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                text="Show Social Share"
+                                name="./showShare"
+                                value="{Boolean}true" />
                         </items>
                     </general>
                     <share
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Share"
-                            sling:resourceType="granite/ui/components/coral/foundation/container"
-                            margin="{Boolean}true">
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Share"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
                             <shareLabel
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                    fieldLabel="Share Label"
-                                    name="./shareLabel"/>
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Share Label"
+                                name="./shareLabel" />
                             <linkedinLink
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                    fieldLabel="LinkedIn Link"
-                                    name="./linkedinLink"/>
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="LinkedIn Link"
+                                name="./linkedinLink" />
                             <youtubeLink
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                    fieldLabel="Youtube Link"
-                                    name="./youtubeLink"/>
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Youtube Link"
+                                name="./youtubeLink" />
                         </items>
                     </share>
                 </items>
