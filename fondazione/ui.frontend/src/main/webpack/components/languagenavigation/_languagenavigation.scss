@@ -24,10 +24,11 @@
 		text-align: right;
 		height: 40px;
 		width: 30px;
-		margin-right: 25px;
+		margin-right: 12px;
 
-		@include media-breakpoint-up(lg) {
+		@include media-breakpoint-up(xl) {
 			width: auto;
+			margin-right: 25px;
 		}
 	}
 
@@ -37,7 +38,7 @@
 		a {
 			color: $white;
 			display: block;
-			margin: 1px 10px 0 0;
+			margin: 2px 10px 0 0;
 			text-transform: uppercase;
 			font-family: $font-default;
 			font-style: normal;
