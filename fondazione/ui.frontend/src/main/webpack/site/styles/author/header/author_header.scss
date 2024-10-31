@@ -2,18 +2,33 @@
     // Edit mode header experience fragment
     .xf-web-container {
         > div.container:first-of-type {
-            max-width: 100%;
-            padding: 0;
-            .top_header {
-                @include media-breakpoint-up(xl) {
-                    position: static; 
+            &.cq-Editable-dom--container:first-of-type {
+                max-width: unset;
+                padding: 40px 10px;
+            }
+            .cmp-top-header {
+                max-width: unset;
+                .button-language {
+                    width: 120px;
                 }
-             }
-             .cmp-header-navigation {
-                @include media-breakpoint-up(xl) {
-                    position: static; 
+            }
+            .navigation {
+                max-width: unset;
+                .cmp-header-navigation {
+                    position: relative;
+                    min-width: unset;
+                    top: 0;
+                    > div.container:first-of-type {
+                        max-width: unset;
+                    }
+                    .cmp-tabs__tabpanel {
+                        position: static;
+                        @include media-breakpoint-up(xl) {
+                            position: relative;
+                        }
+                    }
                 }
-             }
+            }
         }
     }
 
@@ -24,26 +39,76 @@
         display: block;
     }
 
-    .page.basicpage .cmp-header-navigation__menu .tabs-menu {
+    // Edit mode page, Edit mode header experience fragment
+    body.page.basicpage .experiencefragment {
+        .button-language {
+            width: auto !important;
+        }
+        .cmp-header-navigation { 
+            background-color: $white;
+            .cmp-tabs__tablist {
+
+                .cmp-tabs__tab,
+                .cmp-link--text {
+                    color: $fm-color-text !important;
+                }
+            }
+        }
+
+    }
+}
+
+// Edit mode template
+.aem-AuthorLayer-Edit, .aem-AuthorLayer-structure {
+    .cmp-header-navigation__logo--light {
         display: none;
     }
+    .cmp-header-navigation__logo--dark {
+        display: block;
+    }
+    
+    .tabs-menu {
+        .cmp-button--mobile {
+            &.cmp-button--mobile__toggler {
+                top: 60px;
+                span {
+                    background-color: $secondary;
+                }
+            }
+        }
+    }
+}
 
-    // Edit mode page
-    body.page.basicpage .experiencefragment {
-        .cmp-header-navigation {
-            position: fixed;
-            top: 40px;
-            z-index: 900;
+// Edit mode template
+.aem-AuthorLayer-structure {
+    .cq-Editable-dom {
+        padding-top: 0;
+        .button-language {
+            width: 100px;
         }
         .navigation {
-            height: 100px;
+            max-width: unset;
         }
-        .cmp-megamenu {
-            height: 0;
+        .cmp-header-navigation {
+            position: relative;
+            min-width: unset;
+            top: 0;
+            .cmp-tabs__tabpanel {
+                position: relative;
+            }
         }
-        .cmp-tabs__tabpanel {
-            display: none;
+        .cmp-header-navigation {
+            margin-top: 42px;
+            background-color: $white;
+            .cmp-tabs__tablist {
+                .cmp-tabs__tab,
+                .cmp-link--text {
+                    color: $fm-color-text !important;
+                }     
+            }
+            .cmp-megamenu {
+                display: none;
+            }
         }
-
     }
 }

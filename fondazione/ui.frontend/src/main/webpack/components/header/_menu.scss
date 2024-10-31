@@ -10,8 +10,7 @@
 	}
 }
 
-.scrolled-page,
-.aem-AuthorLayer-Edit {
+.scrolled-page {
 	.wrapper {
 		#wrapper-menu {
 			background-color: $white;
@@ -68,10 +67,6 @@
 		@include media-breakpoint-down(xl) {
 			max-width: 100%;
 		}
-	}
-
-	@include media-breakpoint-up(xl) {
-		display: inline-block;
 	}
 
 	&--light {
@@ -205,6 +200,12 @@
 				display: none !important;
 			}
 
+			.container {
+				@include media-breakpoint-up(xl) {
+					max-width: unset;
+				}
+			}
+
 			.cmp-title {
 				h2 {
 					margin: 0;
@@ -215,8 +216,13 @@
 				display: flex;
 				flex-direction: column-reverse;
 
-				@include media-breakpoint-up(xl) {
+				@include media-breakpoint-up(md) {
 					flex-direction: row-reverse;
+					border-left: 1px solid $fm-color-gray-devider;
+				}
+				@include media-breakpoint-up(xl) {
+					margin-bottom: 30px;
+					padding-left: 22px;
 				}
 
 				.cmp-teaser {
@@ -335,10 +341,11 @@
 							padding: 0;
 							height: 100px;
 
-							&__img {
+							.cmp-image__image {
 								display: block;
 								width: 100%;
-								height: auto;
+								height: 100%;
+								object-fit: cover;
 							}
 						}
 					}
@@ -864,16 +871,6 @@
 	.aem-AuthorLayer-Edit {
 		.menu-nav {
 			display: none !important;
-		}
-
-		.tabs-menu {
-			.cmp-button--mobile {
-				&.cmp-button--mobile__toggler {
-					span {
-						background-color: $secondary;
-					}
-				}
-			}
 		}
 	}
 
