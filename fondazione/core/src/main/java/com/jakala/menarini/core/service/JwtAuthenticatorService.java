@@ -26,7 +26,6 @@ import com.jakala.menarini.core.dto.RoleDto;
 
 @Component(
     service = AuthenticationHandler.class,
-    immediate = true,
     property = {
         AuthenticationHandler.PATH_PROPERTY + "=/private/api",
         "service.ranking:Integer=60000", 
