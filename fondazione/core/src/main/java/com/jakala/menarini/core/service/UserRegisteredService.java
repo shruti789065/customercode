@@ -12,6 +12,7 @@ import java.util.*;
 
 import javax.sql.DataSource;
 
+import com.day.commons.datasource.poolservice.DataSourcePool;
 import com.jakala.menarini.core.dto.*;
 import com.jakala.menarini.core.entities.RegisteredUser;
 import com.jakala.menarini.core.entities.RegisteredUserRole;
@@ -40,14 +41,13 @@ import org.slf4j.LoggerFactory;
 @Component(service = UserRegisteredServiceInterface.class)
 public class UserRegisteredService implements UserRegisteredServiceInterface {
 
-
     private static final Logger LOGGER = LoggerFactory.getLogger(UserRegisteredService.class);
 
     private static final String USER_ROLE_DOCTOR = "UserDoctor";
     private static final String USER_ROLE_HEALTH = "UserHealthCare";
     private static final String COUNTRY_ID_ITALY = "1";
     private static final String CACHE_USER_PREFIX = "user_";
-
+    private static final String DATA_SOURCE_NAME = "fondazione-mysql";
 
     private static final Map<String,String> MAP_PROFESSION_TO_ROLE;
     static {
@@ -58,16 +58,15 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         MAP_PROFESSION_TO_ROLE .put("Healthcare Worker", USER_ROLE_HEALTH);
         MAP_PROFESSION_TO_ROLE .put("No Healthcare", "User");
         MAP_PROFESSION_TO_ROLE .put("Nurse", USER_ROLE_DOCTOR);
-        MAP_PROFESSION_TO_ROLE .put("Nurse’s Assistant", USER_ROLE_DOCTOR);
+        MAP_PROFESSION_TO_ROLE .put("Nurse's Assistant", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Obstetrician", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Pharmacist", USER_ROLE_HEALTH);
         MAP_PROFESSION_TO_ROLE .put("Psichologist", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Student", "User");
     }
 
-
-    @Reference(target = "(datasource.name=fondazione-mysql)")
-    private DataSource dataSource;
+    @Reference
+    private DataSourcePool dataSourcePool;
 
     @Reference
     private  RoleServiceInterface roleService;
@@ -77,25 +76,21 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
 
     @Reference
     private EncryptDataServiceInterface encryptDataService;
-
-
     @Override
     public List<RegisteredUserDto> getUsers(Set<Acl> acls) throws AccessDeniedException {
         List<RegisteredUserDto> users = new ArrayList<>();
-
         AclValidator.isAccessAllowed(AclRolePermissions.VIEW_REGISTERED_USERS, acls);
 
-        try (Connection connection = dataSource.getConnection()) {
-
-            DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
-            return create.select().from(RegisteredUserDto.table).fetch().into(RegisteredUserDto.class);
-
-        } catch (SQLException e) {
+        try {
+            DataSource dataSource = (DataSource) dataSourcePool.getDataSource(DATA_SOURCE_NAME);
+            try (Connection connection = dataSource.getConnection()) {
+                DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
+                return create.select().from(RegisteredUserDto.table).fetch().into(RegisteredUserDto.class);
+            }
+        } catch (Exception e) {
             return users;
         }
-
     }
-
 
     @Override
     public RegisteredUserDto getUserByEmail(String email, Set<Acl> acls, List<RoleDto> roles ) throws AccessDeniedException {
@@ -107,40 +102,41 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             LOGGER.error("================ CACHE HINTED =================");
             return userCacheData;
         }
-        try(Connection connection = dataSource.getConnection()) {
-            LOGGER.error("================ RETRIEVE FROM DB =================");
-            DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
-            RegisteredUserDto user = Objects.requireNonNull(create
-                    .select()
-                    .from(RegisteredUserDto.table)
-                    .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email))
-                    .fetchOne()).into(RegisteredUserDto.class);
+        try {
+            DataSource dataSource = (DataSource) dataSourcePool.getDataSource(DATA_SOURCE_NAME);
+            try(Connection connection = dataSource.getConnection()) {
+                LOGGER.error("================ RETRIEVE FROM DB =================");
+                DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
+                RegisteredUserDto user = Objects.requireNonNull(create
+                        .select()
+                        .from(RegisteredUserDto.table)
+                        .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email))
+                        .fetchOne()).into(RegisteredUserDto.class);
 
-            if(this.checkShouldBeHaveToken(roles)) {
-                ArrayList<String> topicsUser = (ArrayList<String>) TopicUtils.getTopicsRefForUser(user.getId(), create);
-                if(topicsUser != null && !topicsUser.isEmpty()) {
-                    ArrayList<RegisteredUserTopicDto> topics = new ArrayList<>();
-                    for(String topic :  topicsUser) {
-                        TopicDto topicData = new TopicDto();
-                        topicData.setId(topic);
-                        topicData.setName(null);
-                        RegisteredUserTopicDto topicDto = new RegisteredUserTopicDto();
-                        topicDto.setTopic(topicData);
-                        topics.add(topicDto);
+                if(this.checkShouldBeHaveToken(roles)) {
+                    ArrayList<String> topicsUser = (ArrayList<String>) TopicUtils.getTopicsRefForUser(user.getId(), create);
+                    if(topicsUser != null && !topicsUser.isEmpty()) {
+                        ArrayList<RegisteredUserTopicDto> topics = new ArrayList<>();
+                        for(String topic :  topicsUser) {
+                            TopicDto topicData = new TopicDto();
+                            topicData.setId(topic);
+                            topicData.setName(null);
+                            RegisteredUserTopicDto topicDto = new RegisteredUserTopicDto();
+                            topicDto.setTopic(topicData);
+                            topics.add(topicDto);
+                        }
+                        user.setRegisteredUserTopics(topics);
                     }
-                    user.setRegisteredUserTopics(topics);
-
                 }
+                if(cacheService.putUserCacheData(encryptedMail,user)){
+                    LOGGER.error("================ SAVED IN CACHE =================");
+                }
+                return user;
             }
-            if(cacheService.putUserCacheData(encryptedMail,user)){
-                LOGGER.error("================ SAVED IN CACHE =================");
-            }
-            return user;
-        }catch (SQLException e) {
+        } catch (Exception e) {
             return null;
         }
     }
-
     @Override
     public RegisteredUseServletResponseDto updateUserData(String email, RegisteredUserDto user, List<String> updateTopics, Set<Acl> acls, List<RoleDto> roles) throws AccessDeniedException, SQLException {
         RegisteredUseServletResponseDto response = new RegisteredUseServletResponseDto();
@@ -172,69 +168,70 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         RegisteredUseServletResponseDto response = new RegisteredUseServletResponseDto();
         String errorMessage = "";
         Savepoint savepoint = null;
-        try(Connection connection = dataSource.getConnection()) {
 
-            savepoint = connection.setSavepoint();
-            DSLContext create = DSL.using(connection);
-            Record dataSet = this.setUpdateQuery(user, create);
-            create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
-                    .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
+        try {
+            DataSource dataSource = (DataSource) dataSourcePool.getDataSource(DATA_SOURCE_NAME);
+            try(Connection connection = dataSource.getConnection()) {
+                savepoint = connection.setSavepoint();
+                DSLContext create = DSL.using(connection);
+                Record dataSet = this.setUpdateQuery(user, create);
+                create.update(RegisteredUser.REGISTERED_USER).set(dataSet)
+                        .where(RegisteredUser.REGISTERED_USER.EMAIL.eq(email)).execute();
 
-            if(!user.getOccupation().equals(oldData.getOccupation())) {
-                ArrayList<Long> toRomove = new ArrayList<>();
-                List<RegisteredUserRoleRecord> oldRoles = create.select().from(RegisteredUserRole.REGISTERED_USER_ROLE).
-                        where(RegisteredUserRole.REGISTERED_USER_ROLE.REGISTERED_USER_ID.eq(oldData.getId()))
-                        .fetch().into(RegisteredUserRoleRecord.class);
+                if(!user.getOccupation().equals(oldData.getOccupation())) {
+                    ArrayList<Long> toRomove = new ArrayList<>();
+                    List<RegisteredUserRoleRecord> oldRoles = create.select().from(RegisteredUserRole.REGISTERED_USER_ROLE).
+                            where(RegisteredUserRole.REGISTERED_USER_ROLE.REGISTERED_USER_ID.eq(oldData.getId()))
+                            .fetch().into(RegisteredUserRoleRecord.class);
 
-                for(RegisteredUserRoleRecord role : oldRoles) {
-                    Long roleID = role.getRoleId();
-                    toRomove.add(roleID);
+                    for(RegisteredUserRoleRecord role : oldRoles) {
+                        Long roleID = role.getRoleId();
+                        toRomove.add(roleID);
+                    }
+
+                    this.updateRole(user,toRomove,user.getOccupation(),oldData.getId(),create,connection,savepoint);
+                    response.setIslogOut(true);
                 }
 
-                this.updateRole(user,toRomove,user.getOccupation(),oldData.getId(),create,connection,savepoint);
-                response.setIslogOut(true);
-            }
-
-            if(!updateTopics.isEmpty() && this.checkShouldBeHaveToken(roles)) {
-                List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
-                List<String> topicToSaveRefers =  new ArrayList<>();
-                for(String topic : updateTopics) {
-                    if(!oldTopicRefs.contains(topic)) {
-                        topicToSaveRefers.add(topic);
+                if(!updateTopics.isEmpty() && this.checkShouldBeHaveToken(roles)) {
+                    List<String> oldTopicRefs = TopicUtils.getTopicsRefForUser(oldData.getId(),create);
+                    List<String> topicToSaveRefers =  new ArrayList<>();
+                    for(String topic : updateTopics) {
+                        if(!oldTopicRefs.contains(topic)) {
+                            topicToSaveRefers.add(topic);
+                        }
+                    }
+                    boolean isDeleted = this.deleteTopics(user.getId(),updateTopics,oldTopicRefs,create,connection,savepoint);
+                    if(!isDeleted) {
+                        response.setSuccess(false);
+                        errorMessage = "Error on delete topics";
+                        response.setErrorMessage(errorMessage);
+                        return response;
+                    }
+                    boolean isCreated = this.saveNewTopic(topicToSaveRefers,user,create,connection,savepoint);
+                    if(!isCreated) {
+                        response.setSuccess(false);
+                        errorMessage = "Error on add topics";
+                        response.setErrorMessage(errorMessage);
+                        return response;
                     }
                 }
-                boolean isDeleted = this.deleteTopics(user.getId(),updateTopics,oldTopicRefs,create,connection,savepoint);
-                if(!isDeleted) {
-                    response.setSuccess(false);
-                    errorMessage = "Error on delete topics";
-                    response.setErrorMessage(errorMessage);
-                    return response;
-
-                }
-                boolean isCreated = this.saveNewTopic(topicToSaveRefers,user,create,connection,savepoint);
-                if(!isCreated) {
-                    response.setSuccess(false);
-                    errorMessage = "Error on add topics";
-                    response.setErrorMessage(errorMessage);
-                    return response;
-                }
+                ArrayList<RoleDto> actualRoles = (ArrayList<RoleDto>)roleService.getRolesUser(oldData.getId());
+                RoleDto[] arrayRoles = new RoleDto[actualRoles.size()];
+                actualRoles.toArray(arrayRoles);
+                RegisteredUserPermissionDto permissions = this.generateUserPermission(arrayRoles[0],country);
+                response.setUserPermission(permissions);
+                response.setSuccess(true);
+                response.setUpdatedUser(user);
+                return response;
             }
-            ArrayList<RoleDto> actualRoles = (ArrayList<RoleDto>)roleService.getRolesUser(oldData.getId());
-            RoleDto[] arrayRoles = new RoleDto[actualRoles.size()];
-            actualRoles.toArray(arrayRoles);
-            RegisteredUserPermissionDto permissions = this.generateUserPermission(arrayRoles[0],country);
-            response.setUserPermission(permissions);
-            response.setSuccess(true);
-            response.setUpdatedUser(user);
-            return response;
-        }catch (SQLException e) {
+        } catch (Exception e) {
             response.setSuccess(false);
             errorMessage = e.getMessage();
             response.setErrorMessage(errorMessage);
             return response;
         }
     }
-
     private boolean updateRole(RegisteredUserDto user,
                                List<Long> rolesToDelete,
                                String occupation,
@@ -272,10 +269,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             connection.close();
             return false;
         }
-
     }
-
-
 
     private boolean deleteTopics(Long idUser,
                                  List<String> updateTopics,
@@ -294,7 +288,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                         .execute();
             }
             return true;
-          }catch (DataAccessException e) {
+        }catch (DataAccessException e) {
             connection.rollback(savepoint);
             connection.close();
             return false;
@@ -333,7 +327,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             return false;
         }
     }
-
     private Record setUpdateQuery(RegisteredUserDto user, DSLContext create) {
         LocalDateTime now = LocalDateTime.now();
         Record dataSet = create.newRecord(RegisteredUser.REGISTERED_USER);
@@ -389,7 +382,6 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
         return dataSet;
     }
 
-
     @Override
     public RegisteredUserPermissionDto generateUserPermission(RoleDto role, String idCountry) {
         RegisteredUserPermissionDto permissionDto = new RegisteredUserPermissionDto();
@@ -409,100 +401,99 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
                 permissionDto.setEventSubscription(true);
                 permissionDto.setMaterialAccess(false);
                 permissionDto.setMagazineSubscription(false);
-
         }
         return permissionDto;
     }
-
-
-
     @Override
     public boolean addUser(RegisteredUserDto user, Set<Acl> acls) throws AccessDeniedException {
         AclValidator.isAccessAllowed(AclRolePermissions.ADD_REGISTERED_USERS, acls);
 
-        try (Connection connection = dataSource.getConnection()) {
-
-            DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
-            RegisteredUserRecord rur = create.newRecord(com.jakala.menarini.core.entities.RegisteredUser.REGISTERED_USER, user);
-            rur.store();
-            create.executeInsert(rur);
-            return true;
-
-        } catch (SQLException e) {
+        try {
+            DataSource dataSource = (DataSource) dataSourcePool.getDataSource(DATA_SOURCE_NAME);
+            try (Connection connection = dataSource.getConnection()) {
+                DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
+                RegisteredUserRecord rur = create.newRecord(RegisteredUser.REGISTERED_USER, user);
+                rur.store();
+                create.executeInsert(rur);
+                return true;
+            }
+        } catch (Exception e) {
             return false;
         }
     }
-
-
 
     @Override
     public boolean isActiveUser(String username) {
-        try (Connection connection = dataSource.getConnection()) {
-            DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
-            RegisteredUserDto userDto =  Objects.requireNonNull(create
-                    .select()
-                    .from(RegisteredUserDto.table)
-                    .where(RegisteredUser.REGISTERED_USER.USERNAME.eq(username))
-                    .fetchOne()).into(RegisteredUserDto.class);
-            return Objects.equals(userDto.getRegistrationStatus(), "confirmed");
-        } catch (SQLException | DataAccessException e) {
+        try {
+            DataSource dataSource = (DataSource) dataSourcePool.getDataSource(DATA_SOURCE_NAME);
+            try (Connection connection = dataSource.getConnection()) {
+                DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
+                RegisteredUserDto userDto = Objects.requireNonNull(create
+                        .select()
+                        .from(RegisteredUserDto.table)
+                        .where(RegisteredUser.REGISTERED_USER.USERNAME.eq(username))
+                        .fetchOne()).into(RegisteredUserDto.class);
+                return Objects.equals(userDto.getRegistrationStatus(), "confirmed");
+            }
+        } catch (Exception e) {
             return false;
         }
     }
 
-
     @Override
-    public boolean addUserForSignUp(RegisteredUserDto user, List<RoleDto> roles, List<TopicDto> topics){
-        try(Connection connection = dataSource.getConnection())  {
-            DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
-            RegisteredUserRecord rur = create.newRecord(com.jakala.menarini.core.entities.RegisteredUser.REGISTERED_USER, user);
-            rur.store();
-            if(rur.getId() != null) {
-                final Long id = rur.getId();
-                user.setId(id);
-                ArrayList<RegisteredUserRoleDto> listRoles = new ArrayList<>();
-                roles.forEach(role -> {
-                    RegisteredUserRoleDto ur = new RegisteredUserRoleDto();
-                    ur.setRegisteredUser(user);
-                    ur.setRole(role);
-                    ur.setCreatedOn(new Timestamp(System.currentTimeMillis()));
-                    ur.setLastUpdatedOn(new Timestamp(System.currentTimeMillis()));
-                    listRoles.add(ur);
-                    RegisteredUserRoleRecord roleRecord = create.
-                            newRecord(com.jakala.menarini.core.entities.RegisteredUserRole.REGISTERED_USER_ROLE, ur);
-                    roleRecord.setRegisteredUserId(user.getId());
-                    roleRecord.setRoleId(role.getId());
-                    roleRecord.store();
-                });
-                if(!listRoles.isEmpty()) {
-                    user.setRegisteredUserRoles(listRoles);
-                    rur.store();
-                }
-                if(this.checkShouldBeHaveToken(roles)) {
-                    ArrayList<RegisteredUserTopicDto> listTopics = new ArrayList<>();
-                    topics.forEach(topic -> {
-                        RegisteredUserTopicDto tur = new RegisteredUserTopicDto();
-                        tur.setRegisteredUser(user);
-                        tur.setTopic(topic);
-                        tur.setCreatedOn(new Timestamp(System.currentTimeMillis()));
-                        tur.setLastUpdatedOn(new Timestamp(System.currentTimeMillis()));
-                        listTopics.add(tur);
-                        RegisteredUserTopicRecord topicRecord = create.
-                                newRecord(RegisteredUserTopic.REGISTERED_USER_TOPIC, tur);
-                        topicRecord.setRegisteredUserId(user.getId());
-                        topicRecord.setTopicId(topic.getId());
-                        topicRecord.store();
-                    });
-                    if(!listTopics.isEmpty()) {
-                        user.setRegisteredUserTopics(listTopics);
-                    }
-                }
+    public boolean addUserForSignUp(RegisteredUserDto user, List<RoleDto> roles, List<TopicDto> topics) {
+        try {
+            DataSource dataSource = (DataSource) dataSourcePool.getDataSource(DATA_SOURCE_NAME);
+            try(Connection connection = dataSource.getConnection()) {
+                DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
+                RegisteredUserRecord rur = create.newRecord(RegisteredUser.REGISTERED_USER, user);
                 rur.store();
-                create.executeInsert(rur);
+                if(rur.getId() != null) {
+                    final Long id = rur.getId();
+                    user.setId(id);
+                    ArrayList<RegisteredUserRoleDto> listRoles = new ArrayList<>();
+                    roles.forEach(role -> {
+                        RegisteredUserRoleDto ur = new RegisteredUserRoleDto();
+                        ur.setRegisteredUser(user);
+                        ur.setRole(role);
+                        ur.setCreatedOn(new Timestamp(System.currentTimeMillis()));
+                        ur.setLastUpdatedOn(new Timestamp(System.currentTimeMillis()));
+                        listRoles.add(ur);
+                        RegisteredUserRoleRecord roleRecord = create.
+                                newRecord(RegisteredUserRole.REGISTERED_USER_ROLE, ur);
+                        roleRecord.setRegisteredUserId(user.getId());
+                        roleRecord.setRoleId(role.getId());
+                        roleRecord.store();
+                    });
+                    if(!listRoles.isEmpty()) {
+                        user.setRegisteredUserRoles(listRoles);
+                        rur.store();
+                    }
+                    if(this.checkShouldBeHaveToken(roles)) {
+                        ArrayList<RegisteredUserTopicDto> listTopics = new ArrayList<>();
+                        topics.forEach(topic -> {
+                            RegisteredUserTopicDto tur = new RegisteredUserTopicDto();
+                            tur.setRegisteredUser(user);
+                            tur.setTopic(topic);
+                            tur.setCreatedOn(new Timestamp(System.currentTimeMillis()));
+                            tur.setLastUpdatedOn(new Timestamp(System.currentTimeMillis()));
+                            listTopics.add(tur);
+                            RegisteredUserTopicRecord topicRecord = create.
+                                    newRecord(RegisteredUserTopic.REGISTERED_USER_TOPIC, tur);
+                            topicRecord.setRegisteredUserId(user.getId());
+                            topicRecord.setTopicId(topic.getId());
+                            topicRecord.store();
+                        });
+                        if(!listTopics.isEmpty()) {
+                            user.setRegisteredUserTopics(listTopics);
+                        }
+                    }
+                    rur.store();
+                    create.executeInsert(rur);
+                }
+                return true;
             }
-            return true;
-
-        } catch (SQLException e) {
+        } catch (Exception e) {
             return false;
         }
     }
@@ -512,8 +503,7 @@ public class UserRegisteredService implements UserRegisteredServiceInterface {
             if(role.getName().equals(USER_ROLE_DOCTOR) || role.getName().equals(USER_ROLE_HEALTH)) {
                 return true;
             }
-         }
+        }
         return false;
     }
-
 }
