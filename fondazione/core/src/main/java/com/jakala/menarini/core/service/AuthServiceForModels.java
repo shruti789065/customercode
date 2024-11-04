@@ -19,7 +19,9 @@ import java.util.Map;
 
 
 @Component(
-        service = AuthServiceForModelsInterface.class
+        service = AuthServiceForModelsInterface.class,
+        immediate = true
+
 )
 public class AuthServiceForModels implements  AuthServiceForModelsInterface {
 
