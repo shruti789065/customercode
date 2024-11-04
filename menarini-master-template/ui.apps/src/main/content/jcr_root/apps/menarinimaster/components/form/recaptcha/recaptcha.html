@@ -21,6 +21,8 @@ var onloadCallback = function () {
 	//alert("grecaptcha is ready!");
 	var publicKey = '${properties.publicKey @ context='scriptString'}'
 	grecaptcha.render("g-recaptcha", { sitekey: publicKey });
+  var iframe = document.getElementById("g-recaptcha").querySelector("iframe");
+	iframe.setAttribute("sandbox", iframe.getAttribute("sandbox").replace("allow-scripts", "").trim());
 };
 var onSuccess = function (response) {
 	//alert("grecaptcha is verified !" + response);
