@@ -63,7 +63,7 @@
 	min-width: 100vw;
 	background-color: transparent;
 
-	> div.container:first-of-type {
+	>div.container:first-of-type {
 		@include media-breakpoint-down(xl) {
 			max-width: 100%;
 		}
@@ -220,6 +220,7 @@
 					flex-direction: row-reverse;
 					border-left: 1px solid $fm-color-gray-devider;
 				}
+
 				@include media-breakpoint-up(xl) {
 					margin-bottom: 30px;
 					padding-left: 22px;
