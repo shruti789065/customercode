@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2024-11-05T12:06:52.158+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/fondazione/settings/wcm/templates/experience-fragment-forms"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="fondazione/components/xfpage">
+        <root
+            jcr:lastModified="{Date}2024-11-05T09:10:53.331+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="fondazione/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:created="{Date}2024-11-05T09:10:59.169+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-11-05T09:33:01.262+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/form/container"
+                action="/content/usergenerated/conf/fondazione/settings/wcm/templates/experience-fragment-forms/structure/cq-gen1730790659174/"
+                actionType="foundation/components/form/actions/store">
+                <text
+                    jcr:created="{Date}2024-11-05T09:21:25.003+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T12:05:35.364+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="First name"
+                    sling:resourceType="fondazione/components/form/text"
+                    helpMessage="First name"
+                    name="first_name"
+                    required="true"
+                    requiredMessage="First name is required"
+                    type="text"
+                    usePlaceholder="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"/>
+                    </cq:responsive>
+                </text>
+                <text_2057365255
+                    jcr:created="{Date}2024-11-05T09:34:42.617+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T12:05:48.232+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Surname"
+                    sling:resourceType="fondazione/components/form/text"
+                    helpMessage="Surname"
+                    name="surname"
+                    required="true"
+                    requiredMessage="Surname is required"
+                    rows="2"
+                    type="text"
+                    usePlaceholder="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"/>
+                    </cq:responsive>
+                </text_2057365255>
+                <text_946837083
+                    jcr:created="{Date}2024-11-05T09:37:59.526+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T12:06:21.791+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Email"
+                    sling:resourceType="fondazione/components/form/text"
+                    constraintMessage="Email is required"
+                    helpMessage="Email"
+                    name="email"
+                    required="true"
+                    requiredMessage="Email is required"
+                    rows="2"
+                    type="email"
+                    usePlaceholder="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"/>
+                    </cq:responsive>
+                </text_946837083>
+                <text_1135368098
+                    jcr:created="{Date}2024-11-05T09:38:27.265+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T12:06:29.216+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Subject"
+                    sling:resourceType="fondazione/components/form/text"
+                    helpMessage="Subject"
+                    name="subject"
+                    required="true"
+                    requiredMessage="Subject is required"
+                    rows="2"
+                    type="text"
+                    usePlaceholder="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"/>
+                    </cq:responsive>
+                </text_1135368098>
+                <text_370238858
+                    jcr:created="{Date}2024-11-05T09:38:49.645+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T12:06:38.117+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Please leave your message here"
+                    sling:resourceType="fondazione/components/form/text"
+                    helpMessage="Please leave your message here"
+                    name="message"
+                    required="true"
+                    requiredMessage="Message is required"
+                    rows="8"
+                    type="textarea"
+                    usePlaceholder="true"/>
+                <text_1136894038
+                    jcr:created="{Date}2024-11-05T09:57:36.909+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T09:57:45.237+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fondazione/components/text"
+                    text="&lt;p>Having read the&amp;nbsp;&lt;a>&lt;/a>&lt;a href=&quot;/content/menarini-ch/en/data-privacy/privacy-policy.html&quot;>privacy information&lt;/a>&amp;nbsp;notice I consent to the processing of personal data including sensitive personal data, for the purposes of managing my request pursuant to the GDPR,&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <options
+                    jcr:created="{Date}2024-11-05T11:29:44.157+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T12:06:52.150+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="I accept the terms and conditions"
+                    sling:resourceType="fondazione/components/form/options"
+                    name="privacy"
+                    requiredMessage="Privacy settings are required"
+                    requiredMultiSelect="false"
+                    requiredRadio="true"
+                    requiredSelect="false"
+                    source="local"
+                    type="radio">
+                    <items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            selected="true"
+                            text="Yes"
+                            value="1"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            selected="false"
+                            text="No"
+                            value="0"/>
+                    </items>
+                </options>
+                <recaptcha
+                    jcr:created="{Date}2024-11-05T09:58:54.784+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T09:58:54.784+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fondazione/components/form/recaptcha"/>
+                <button
+                    jcr:created="{Date}2024-11-05T09:59:01.936+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T09:59:01.936+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fondazione/components/form/button"/>
+            </container>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
