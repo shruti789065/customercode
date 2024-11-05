@@ -2,7 +2,7 @@ package com.jakala.menarini.core.dto;
 
 import java.util.List;
 
-public class EventModelRetrunDto {
+public class EventModelReturnDto {
 
     private List<EventModelDto> events;
     private int totalMatches;

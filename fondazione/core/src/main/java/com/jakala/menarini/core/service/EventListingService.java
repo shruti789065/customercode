@@ -10,7 +10,7 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 import com.jakala.menarini.core.dto.EventModelDto;
-import com.jakala.menarini.core.dto.EventModelRetrunDto;
+import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.models.ModelHelper;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
 import com.jakala.menarini.core.service.utils.EventListingServiceConfiguration;
@@ -62,7 +62,7 @@ public class EventListingService implements EventListingServiceInterface {
     }
 
     @Override
-    public EventModelRetrunDto getEvents(
+    public EventModelReturnDto getEvents(
             ResourceResolver resolver,
             String language,
             List<String> topicsFilterIds,
@@ -134,14 +134,14 @@ public class EventListingService implements EventListingServiceInterface {
 
 
 
-    private EventModelRetrunDto getFilteredEvents(
+    private EventModelReturnDto getFilteredEvents(
             Map<String, String> predicate,
             ResourceResolver resolver,
             String language
 
     ){
         int matches = 0;
-        EventModelRetrunDto returnData = new EventModelRetrunDto();
+        EventModelReturnDto returnData = new EventModelReturnDto();
         List<EventModelDto> filteredEvents = new ArrayList<>();
         QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
         Session session = resolver.adaptTo(Session.class);

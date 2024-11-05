@@ -1,7 +1,7 @@
 package com.jakala.menarini.core.models;
 
 import com.jakala.menarini.core.dto.EventModelDto;
-import com.jakala.menarini.core.dto.EventModelRetrunDto;
+import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.dto.RegisteredUserTopicDto;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
@@ -58,7 +58,7 @@ public class SliderAuthBaseModel extends AuthBaseModel {
                 }
                 String today = IS_TEST ? "2021-01-01T00:00:00" :
                         new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss").format(new Date());
-                EventModelRetrunDto returnDto = eventListingService.getEvents(
+                EventModelReturnDto returnDto = eventListingService.getEvents(
                         resourceResolver,
                         language,
                         idTopics,

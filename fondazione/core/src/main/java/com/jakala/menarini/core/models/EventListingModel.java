@@ -5,7 +5,7 @@ import java.util.*;
 import javax.inject.Inject;
 
 import com.jakala.menarini.core.dto.EventModelDto;
-import com.jakala.menarini.core.dto.EventModelRetrunDto;
+import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -167,7 +167,7 @@ public class EventListingModel {
             }
         }
         int[] pagination= this.getPagination();
-        EventModelRetrunDto eventData = eventListingService.getEvents(
+        EventModelReturnDto eventData = eventListingService.getEvents(
                 resourceResolver,
                 language,
                 topicsFilter,
