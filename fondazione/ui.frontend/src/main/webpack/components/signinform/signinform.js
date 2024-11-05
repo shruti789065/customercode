@@ -358,14 +358,14 @@ if (signInForm) {
     signInForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const formData = new FormData(signInForm);
-        let remembrerMe = formData.get('rememberCheck') === "on" ? true : false;        
+        let remembrerMe = formData.get('rememberCheck') === "on" ? true : false;
         let emailForm = document.querySelector("#emailField");
         let passForm = document.querySelector("#passField");
         let singIdData = {
             email: emailForm.value,
             password: passForm.value,
             rememberMe: remembrerMe
-        }        
+        }
         const responseSig = await sendData(singIdData);
         if (responseSig.cognitoSignInErrorResponseDto?.message) {
             showAlert(responseSig.cognitoSignInErrorResponseDto?.message !== undefined ? responseSig.cognitoSignInErrorResponseDto.message : "Error");
