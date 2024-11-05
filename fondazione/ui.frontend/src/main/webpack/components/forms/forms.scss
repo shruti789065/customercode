@@ -3,9 +3,10 @@
 .cmp-form {
     margin: $xl auto;
 
-    input {
+    input,
+    textarea {
         &:focus {
-            border-color: $border-color-primary;
+            border-color: $fm-color-border;
             outline: 0;
         }
     }
@@ -39,17 +40,18 @@
 
         &__text,
         &__textarea {
+            padding: $xs/2 $xs $xs/2 20px;
+            border: 1px solid $fm-color-text;
             font-family: $font-default;
             font-weight: $font-light;
-            padding: $xs/2 $xs $xs/2 20px;
         }
 
         &__text {
             height: 65px;
         }
 
-        &:has(input[required]) {
-            label:after {
+        &:has(input[required], textarea[required], select[required]) {
+            label::after {
                 content: " *";
                 margin: 0 7px;
                 color: $primary;
@@ -59,7 +61,6 @@
     }
 
     .cmp-text {
-        padding: 0 $xs;
         margin-bottom: $s;
 
         p {
@@ -104,6 +105,15 @@
         display: none;
     }
 
+    &__field-label:has(input[required]) {
+      &::after {
+          content: " *";
+          margin: 0 7px;
+          color: $primary;
+          font-weight: $font-semi-bold;
+      }
+    }
+
     &__field-description {
         font-family: $font-arimo;
     }
@@ -143,6 +153,14 @@
                 transform: rotate(45deg);
             }
         }
+    }
 
+    &--radio {
+      display: flex;
+      gap: 1rem;
+
+      label {
+        cursor: pointer;
+      }
     }
 }
