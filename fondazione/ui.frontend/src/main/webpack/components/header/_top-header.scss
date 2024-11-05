@@ -10,7 +10,8 @@
     height: 100%;
     max-width: 100%;
 
-    .button {
+    .button-search {
+
         width: 30px;
         height: 30px;
 
@@ -18,10 +19,17 @@
             cursor: pointer;
         }
 
+
+        .cmp-button__text {
+            @include media-breakpoint-up(xl) {
+                display: none;
+            }
+        }
+
         .cmp-button__icon--search {
             display: none;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
                 width: 100%;
                 height: 100%;
                 border: none;
@@ -35,10 +43,26 @@
             }
         }
 
+    }
+
+    .button-profile {
+        width: 30px;
+        height: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .cmp-button__text {
+            @include media-breakpoint-up(xl) {
+                display: none;
+            }
+        }
+
         .cmp-button__icon--profile {
             display: none;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(xl) {
                 width: 100%;
                 height: 100%;
                 border: none;
@@ -53,14 +77,32 @@
         }
     }
 
+    .logged-user {
+        .cmp-button__icon--profile {
+            @include media-breakpoint-up(xl) {
+                background-image: url("../resources/icons/icon_profile_active.svg");
+            }
+        }
+    }
+
     .cmp-top-header {
+        height: 100%;
+
+        @include media-breakpoint-down(xl) {
+            max-width: 100% !important;
+        }
+
+        &--wrapper {
+            @include media-breakpoint-up(xl) {
+                margin-right: 30px;
+            }
+        }
 
         .container {
-
             &>div {
                 &>div.aem-Grid {
 
-                    @include media-breakpoint-up(lg) {
+                    @include media-breakpoint-up(xl) {
                         display: grid;
                         grid-template-columns: 155px 80px 80px 100px;
                         justify-items: center;
@@ -206,11 +248,6 @@
         background-position: center;
         background-repeat: no-repeat;
 
-
-        @include media-breakpoint-up(lg) {
-            margin-right: 30px;
-        }
-
         &:hover {
             cursor: pointer;
         }
@@ -274,7 +311,7 @@
                     display: none;
                 }
 
-                top: 35px;
+                top: 28px;
                 right: 0px;
                 background-color: $white;
             }

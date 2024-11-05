@@ -18,6 +18,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("squid:S2384")
 @Model(
         adaptables = {
                 SlingHttpServletRequest.class

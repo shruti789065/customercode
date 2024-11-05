@@ -82,7 +82,17 @@ function displayDataEfpia(efpiaData) {
         <div id="modal-content-text">
             ${years
               .map((year) => {
-                const images = efpiaData[year]
+                // Crea l'HTML delle immagini ordinate
+                const sortedEntries = efpiaData[year].sort((a, b) => {
+                  // Estrai il numero dal nome del file usando una regex e converti in intero
+                  const numA = parseInt(a.url.match(/(\d+)(?=\.\w+$)/)[0], 10);
+                  const numB = parseInt(b.url.match(/(\d+)(?=\.\w+$)/)[0], 10);
+                
+                  return numA - numB; // Ordina i numeri in ordine crescente
+                });
+
+                // Crea l'HTML delle immagini ordinate
+                const images = sortedEntries
                   .map((entry) => `<img src="${entry.url}" alt="${year}">`)
                   .join("");
                 return `

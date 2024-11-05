@@ -10,8 +10,7 @@
 	}
 }
 
-.scrolled-page,
-.aem-AuthorLayer-Edit {
+.scrolled-page {
 	.wrapper {
 		#wrapper-menu {
 			background-color: $white;
@@ -64,8 +63,10 @@
 	min-width: 100vw;
 	background-color: transparent;
 
-	@include media-breakpoint-up(lg) {
-		display: inline-block;
+	>div.container:first-of-type {
+		@include media-breakpoint-down(xl) {
+			max-width: 100%;
+		}
 	}
 
 	&--light {
@@ -73,7 +74,7 @@
 		max-width: 200px;
 		max-height: 50px;
 
-		@include media-breakpoint-up(lg) {
+		@include media-breakpoint-up(xl) {
 			max-height: auto;
 		}
 	}
@@ -87,7 +88,7 @@
 	max-width: 195px;
 	position: absolute;
 
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-up(xl) {
 		max-width: 215px;
 	}
 
@@ -149,6 +150,12 @@
 		}
 	}
 
+	.options-tab {
+		@include media-breakpoint-up(xl) {
+			display: none;
+		}
+	}
+
 	&__container {
 		background-color: $white;
 	}
@@ -180,7 +187,7 @@
 			background-color: $white;
 			z-index: 999;
 
-			@include media-breakpoint-up(lg) {
+			@include media-breakpoint-up(xl) {
 				background-color: $color-background;
 				position: fixed;
 				left: 0;
@@ -193,6 +200,12 @@
 				display: none !important;
 			}
 
+			.container {
+				@include media-breakpoint-up(xl) {
+					max-width: unset;
+				}
+			}
+
 			.cmp-title {
 				h2 {
 					margin: 0;
@@ -203,8 +216,14 @@
 				display: flex;
 				flex-direction: column-reverse;
 
-				@include media-breakpoint-up(lg) {
+				@include media-breakpoint-up(md) {
 					flex-direction: row-reverse;
+					border-left: 1px solid $fm-color-gray-devider;
+				}
+
+				@include media-breakpoint-up(xl) {
+					margin-bottom: 30px;
+					padding-left: 22px;
 				}
 
 				.cmp-teaser {
@@ -214,13 +233,13 @@
 						&>div {
 
 
-							@include media-breakpoint-up(lg) {
+							@include media-breakpoint-up(xl) {
 								height: 280px;
 								width: 260px;
 							}
 
 							img {
-								@include media-breakpoint-up(lg) {
+								@include media-breakpoint-up(xl) {
 									height: 100%;
 								}
 							}
@@ -323,10 +342,11 @@
 							padding: 0;
 							height: 100px;
 
-							&__img {
+							.cmp-image__image {
 								display: block;
 								width: 100%;
-								height: auto;
+								height: 100%;
+								object-fit: cover;
 							}
 						}
 					}
@@ -799,6 +819,29 @@
 					}
 				}
 			}
+
+			.options-tab {
+
+				background-color: $fm-color-bg-section;
+				margin: 0px !important;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				display: list-item;
+
+				.cmp-button {
+					text-transform: uppercase;
+					color: $fm-color-text;
+					font-family: $font-default;
+					font-weight: 500;
+					font-size: 15px;
+					line-height: 16px;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
 		}
 	}
 
@@ -829,16 +872,6 @@
 	.aem-AuthorLayer-Edit {
 		.menu-nav {
 			display: none !important;
-		}
-
-		.tabs-menu {
-			.cmp-button--mobile {
-				&.cmp-button--mobile__toggler {
-					span {
-						background-color: $secondary;
-					}
-				}
-			}
 		}
 	}
 

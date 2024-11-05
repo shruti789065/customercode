@@ -1,62 +1,72 @@
 package com.jakala.menarini.core.entities.records;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
-
-import com.jakala.menarini.core.entities.RegisteredUserTopic;
-import com.jakala.menarini.core.entities.utils.DbSchema;
-import com.jakala.menarini.core.entities.utils.Keys;
-
-
-class RegisteredUserTopicTest {
+class RegisteredUserTopicRecordTest {
 
     @Test
-    void testFields() {
-        RegisteredUserTopic table = RegisteredUserTopic.REGISTERED_USER_TOPIC;
+    void testSettersAndGetters() {
+        RegisteredUserTopicRecord record = new RegisteredUserTopicRecord();
+        Long id = 1L;
+        Integer seqNo = 1;
+        String topicId = "topic1";
+        Long registeredUserId = 1L;
+        LocalDateTime createdOn = LocalDateTime.now();
+        LocalDateTime lastUpdatedOn = LocalDateTime.now();
 
-        assertNotNull(table.ID);
-        assertNotNull(table.SEQ_NO);
-        assertNotNull(table.TOPIC_ID);
-        assertNotNull(table.REGISTERED_USER_ID);
-        assertNotNull(table.CREATED_ON);
-        assertNotNull(table.LAST_UPDATED_ON);
+        record.setId(id);
+        record.setSeqNo(seqNo);
+        record.setTopicId(topicId);
+        record.setRegisteredUserId(registeredUserId);
+        record.setCreatedOn(createdOn);
+        record.setLastUpdatedOn(lastUpdatedOn);
+
+        assertEquals(id, record.getId());
+        assertEquals(seqNo, record.getSeqNo());
+        assertEquals(topicId, record.getTopicId());
+        assertEquals(registeredUserId, record.getRegisteredUserId());
+        assertEquals(createdOn, record.getCreatedOn());
+        assertEquals(lastUpdatedOn, record.getLastUpdatedOn());
     }
 
     @Test
-    void testGetRecordType() {
-        RegisteredUserTopic table = RegisteredUserTopic.REGISTERED_USER_TOPIC;
-        assertEquals(RegisteredUserTopicRecord.class, table.getRecordType());
+    void testKey() {
+        RegisteredUserTopicRecord record = new RegisteredUserTopicRecord();
+        record.setId(1L);
+        assertNotNull(record.key());
+        assertEquals(1L, record.key().value1());
     }
 
     @Test
-    void testGetSchema() {
-        RegisteredUserTopic table = RegisteredUserTopic.REGISTERED_USER_TOPIC;
-        assertEquals(DbSchema.MENARINI, table.getSchema());
+    void testFieldsRow() {
+        RegisteredUserTopicRecord record = new RegisteredUserTopicRecord();
+        assertNotNull(record.fieldsRow());
     }
 
     @Test
-    void testGetPrimaryKey() {
-        RegisteredUserTopic table = RegisteredUserTopic.REGISTERED_USER_TOPIC;
-        assertEquals(Keys.KEY_REGISTERED_USER_TOPIC_PRIMARY, table.getPrimaryKey());
+    void testValuesRow() {
+        RegisteredUserTopicRecord record = new RegisteredUserTopicRecord();
+        assertNotNull(record.valuesRow());
     }
 
     @Test
-    void testGetIdentity() {
-        RegisteredUserTopic table = RegisteredUserTopic.REGISTERED_USER_TOPIC;
-        assertNotNull(table.getIdentity());
-    }
+    void testValues() {
+        RegisteredUserTopicRecord record = new RegisteredUserTopicRecord();
+        Long id = 1L;
+        Integer seqNo = 1;
+        String topicId = "topic1";
+        Long registeredUserId = 1L;
+        LocalDateTime createdOn = LocalDateTime.now();
+        LocalDateTime lastUpdatedOn = LocalDateTime.now();
 
-    @Test
-    void testAs() {
-        RegisteredUserTopic table = RegisteredUserTopic.REGISTERED_USER_TOPIC;
-        RegisteredUserTopic alias = table.as("alias");
-        assertEquals("alias", alias.getName());
-    }
+        record.values(id, seqNo, topicId, registeredUserId, createdOn, lastUpdatedOn);
 
-    @Test
-    void testRename() {
-        RegisteredUserTopic table = RegisteredUserTopic.REGISTERED_USER_TOPIC;
-        RegisteredUserTopic renamed = table.rename("new_name");
-        assertEquals("new_name", renamed.getName());
+        assertEquals(id, record.getId());
+        assertEquals(seqNo, record.getSeqNo());
+        assertEquals(topicId, record.getTopicId());
+        assertEquals(registeredUserId, record.getRegisteredUserId());
+        assertEquals(createdOn, record.getCreatedOn());
+        assertEquals(lastUpdatedOn, record.getLastUpdatedOn());
     }
 }
