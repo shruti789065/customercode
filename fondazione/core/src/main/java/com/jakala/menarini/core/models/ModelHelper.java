@@ -158,20 +158,37 @@ public class ModelHelper {
         return null;
     }
 
-    public static List<Hit> findResourceByIds(ResourceResolver resolver, List<String> ids, String path) throws RepositoryException {
+    public static List<Hit> findResourceByIds(ResourceResolver resolver, List<String> ids, String path) {
         QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
         Session session = resolver.adaptTo(Session.class);
         Map<String, String> predicate = new HashMap<>();
 
         predicate.put("type", DamConstants.NT_DAM_ASSET);
         predicate.put("path", path);
-        predicate.put("property", "jcr:content/data/master/id");
-        for(int i = 0;  i < ids.size() ; i++ ) {
-            predicate.put( i + "_property.value", ids.get(i));
+        if(ids.size() == 1) {
+            predicate.put( "property", "jcr:content/data/master/id");
+            predicate.put( "property.value", ids.get(0));
+            predicate.put("property.operation", "equals");
+        } else {
+            boolean addOr = false;
+            for(int i = 0;  i < ids.size() ; i++ ) {
+                predicate.put("group.1_group." +  (i + 1) + "_property", "jcr:content/data/master/id");
+                predicate.put( "group.1_group." +  (i + 1) + "_property.value", ids.get(i));
+                predicate.put("group.1_group." +  (i + 1) + "_property.operation", "equals");
+                if(i == 1) {
+                    addOr = true;
+                }
+            }
+            if(addOr) {
+                predicate.put("group.1_group.p.or", "true");
+            }
+
         }
-        predicate.put("property.operation", "equals");
         com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
         SearchResult result = query.getResult();
         return result.getHits();
     }
+
+
+
 }

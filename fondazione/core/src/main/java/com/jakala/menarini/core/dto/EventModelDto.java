@@ -18,6 +18,7 @@ public class EventModelDto {
     private String eventType;
     private String location;
     private String presentationImage;
+    private String subscription;
 
     public EventModelDto(
              String id,
@@ -29,7 +30,8 @@ public class EventModelDto {
              String topics,
              String eventType,
              String location,
-             String presentationImage
+             String presentationImage,
+             String subscription
     ) {
         this.id = id;
         this.title = title;
@@ -50,6 +52,7 @@ public class EventModelDto {
         this.eventType = eventType;
         this.location = location;
         this.presentationImage = presentationImage;
+        this.subscription = subscription;
     }
 
     public String getId() {
@@ -100,7 +103,11 @@ public class EventModelDto {
         return presentationImage;
     }
 
+    public String getSubscription() {
+        return subscription;
+    }
 
-
-
+    public void setSubscription(String subscription) {
+        this.subscription = subscription;
+    }
 }

@@ -116,12 +116,17 @@ public class EventListingService implements EventListingServiceInterface {
     ) {
         ArrayList<EventModelDto> events = new ArrayList<>();
         try {
+            LOGGER.error("============= ON GET EVENTS ===============");
             List<Hit> hits = ModelHelper.findResourceByIds(resolver,eventIds, eventPath);
-            for (Hit hitData : hits) {
-                Resource resource = hitData.getResource();
-                events.add(buildEvent(resource,language,resolver));
+
+            for(Hit hit : hits) {
+                events.add(this.buildEvent(hit.getResource(),language,resolver));
             }
+
+
         } catch (RepositoryException e) {
+            LOGGER.error("============= error on get event data ===============");
+            LOGGER.error(e.getMessage());
             return events;
         }
         return events;
@@ -365,8 +370,8 @@ public class EventListingService implements EventListingServiceInterface {
             String eventType = fragment.getElement("eventType").getContent();
             String location = fragment.getElement("city").getContent();
             location = getLocationName(location, language,resolver);
-
-            return new EventModelDto(id, title, description, resource.getPath(), startDateStr, endDateStr, topics, eventType, location, presentationImage);
+            String subscription = fragment.getElement("subscription").getContent();
+            return new EventModelDto(id, title, description, resource.getPath(), startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
         } else {
             return null;
         }
