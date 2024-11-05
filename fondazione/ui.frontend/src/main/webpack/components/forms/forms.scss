@@ -26,6 +26,7 @@
     }
 
     .cmp-form-text {
+        position: relative;
         display: block;
         padding-right: $xs;
         margin-bottom: $xl;
@@ -78,5 +79,13 @@
     .button {
         display: flex;
         justify-content: center;
+    }
+
+    .error-message {
+      position: absolute;
+      bottom: -24px;
+      left: 0;
+      font-size: $super-small-text-size;
+      color: $fm-form-error;
     }
 }
