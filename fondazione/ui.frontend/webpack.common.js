@@ -1,5 +1,6 @@
 "use strict";
 
+// @todo: Check if it can be rewritten in ES6 module syntax.
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TSConfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
@@ -7,7 +8,24 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
+// Internal scripts.
+const componentNames = require('./src/main/webpack/config/componentNames');
+
 const SOURCE_ROOT = path.resolve(__dirname, "src/main/webpack");
+
+// Generate SCSS entry points for each component
+const componentScssEntries = componentNames.reduce((entries, name) => {
+  entries[name] = path.join(SOURCE_ROOT, `components/${name}/${name}.scss`);
+  return entries;
+}, {});
+
+// Generate patterns for copying JS.
+const componentPatterns = componentNames.map((name) => {
+  return {
+    from: path.resolve(SOURCE_ROOT, `components/${name}/${name}.js`),
+    to: `clientlib-${name}/`,
+  };
+});
 
 const resolve = {
   extensions: [".js", ".ts"],
@@ -22,6 +40,7 @@ module.exports = {
   resolve,
   entry: {
     site: path.join(SOURCE_ROOT, "site/main.ts"),
+    ...componentScssEntries, // Add component SCSS entries
   },
   output: {
     filename: (chunkData) => {
@@ -59,14 +78,6 @@ module.exports = {
             },
           },
           {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [require("autoprefixer")],
-              },
-            },
-          },
-          {
             loader: "sass-loader",
           },
           {
@@ -97,7 +108,12 @@ module.exports = {
       extensions: ["js", "ts", "tsx"],
     }),
     new MiniCssExtractPlugin({
-      filename: "clientlib-[name]/[name].css",
+      // Output CSS files for each component and the main site
+      filename: (chunkData) => {
+        return chunkData.chunk.name === "site"
+          ? "clientlib-site/[name].css"
+          : `clientlib-[name]/[name].css`;
+      },
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -105,6 +121,7 @@ module.exports = {
           from: path.resolve(SOURCE_ROOT, "resources"),
           to: "clientlib-site/",
         },
+        ...componentPatterns,
       ],
     }),
   ],

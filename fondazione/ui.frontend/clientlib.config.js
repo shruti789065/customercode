@@ -88,6 +88,25 @@ module.exports = {
           ignore: ['**/*.js', '**/*.css']
         }
       }
-    }
+    },
+    {
+      ...libsBaseConfig,
+      name: 'clientlib-forms',
+      categories: ['fondazione.forms'],
+      assets: {
+        // Copy entrypoint scripts and stylesheets into the respective ClientLib
+        // directories
+        js: {
+          cwd: 'clientlib-forms',
+          files: ['**/*.js'],
+          flatten: false
+        },
+        css: {
+          cwd: 'clientlib-forms',
+          files: ['**/*.css'],
+          flatten: false
+        },
+      }
+    },
   ]
 };

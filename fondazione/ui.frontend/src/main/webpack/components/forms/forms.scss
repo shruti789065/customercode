@@ -1,0 +1,148 @@
+@import "../../site/variables/variables";
+
+.cmp-form {
+    margin: $xl auto;
+
+    input {
+        &:focus {
+            border-color: $border-color-primary;
+            outline: 0;
+        }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+    }
+
+    span.text-danger {
+        font-size: 16px;
+        color: $primary;
+        display: block;
+    }
+
+    .cmp-form-text {
+        display: block;
+        padding-right: $xs;
+        margin-bottom: $xl;
+
+        label {
+            display: block;
+            margin-bottom: $s;
+            font-family: $font-default;
+            font-size: $title-small-font-size;
+            line-height: 1.5;
+            font-weight: $font-light;
+            color: $fm-color-text;
+        }
+
+        &__text,
+        &__textarea {
+            font-family: $font-default;
+            font-weight: $font-light;
+            padding: $xs/2 $xs $xs/2 20px;
+        }
+
+        &__text {
+            height: 65px;
+        }
+
+        &:has(input[required]) {
+            label:after {
+                content: " *";
+                margin: 0 7px;
+                color: $primary;
+                font-weight: $font-semi-bold;
+            }
+        }
+    }
+
+    .cmp-text {
+        padding: 0 $xs;
+        margin-bottom: $s;
+
+        p {
+            font-size: $small-text-size;
+        }
+    }
+
+    .options {
+        margin-bottom: $s;
+        padding: 0 16px;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.cmp-form-button {
+    font-family: $font-default;
+    font-size: $text-size;
+    line-height: 1.5;
+    font-weight: $font-medium;
+    background: $primary;
+    padding: 10px 50px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: none;
+    border-radius: 0;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: opacity .3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.cmp-form-options {
+    legend {
+        display: none;
+    }
+
+    &__field-description {
+        font-family: $font-arimo;
+    }
+
+    &--checkbox {
+        label {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+
+    &__field--checkbox {
+        display: flex;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        box-shadow: 0 0 0 1.5px $fm-color-text;
+        appearance: none;
+        cursor: pointer;
+
+        &:focus {
+            box-shadow: 0 0 0 2px $fm-color-blue-link;
+        }
+
+        &:checked {
+            box-shadow: 0 0 0 2px $fm-color-blue-link;
+
+            &::before {
+                content: '';
+                display: block;
+                height: 12px;
+                width: 7px;
+                margin-top: 1px;
+                border-bottom: 2px solid $fm-color-blue-link;
+                border-right: 2px solid $fm-color-blue-link;
+                transform: rotate(45deg);
+            }
+        }
+
+    }
+}
