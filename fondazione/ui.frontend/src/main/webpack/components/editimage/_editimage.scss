@@ -1,5 +1,30 @@
 .cmp-editimage {
 
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .edit-image-cta-wrapper {
+
+        min-width: 500px !important;
+
+        @include media-breakpoint-down(lg) {
+            min-width: 200px !important;
+        }
+
+        .cmp-editimage__addEdit {
+            width: 40%;
+
+            @include media-breakpoint-down(lg) {
+                width: 100%;
+            }
+
+            a, #editProfileLinkLogout {
+                padding-left: 0px;
+            }
+
+
+        }
+    }
 
     @include media-breakpoint-down(lg) {
         flex-direction: column;
