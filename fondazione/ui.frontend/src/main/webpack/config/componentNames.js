@@ -3,6 +3,10 @@
 
 const componentNames = [
   'forms',
+  'signinform',
+  'signupform',
+  'editprofileform',
+  'editimage',
 ];
 
 module.exports = componentNames;

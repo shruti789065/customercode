@@ -5,6 +5,7 @@ $banner-bg-color: rgba($black, 0.5);
     position: relative;
     color: $white;
     height: 270px;
+
     @include media-breakpoint-up(md) {
         height: 480px;
     }
@@ -46,8 +47,55 @@ $banner-bg-color: rgba($black, 0.5);
         &__links {
             @extend %flex-row-center;
             gap: 20px;
+
             @include media-breakpoint-up(md) {
                 margin-top: 40px;
+            }
+
+            &--group {
+                display: inline-block;
+
+                &--google,
+                &--apple {
+                    @extend %flex-row-center;
+                }
+            }
+        }
+    }
+}
+
+.small-banner-mobile-app-teaser {
+    height: auto;
+
+    @include media-breakpoint-up(md) {
+        height: auto;
+    }
+
+    .cmp-teaser {
+
+        &__content {
+            background: transparent;
+
+            @include media-breakpoint-up(md) {
+                padding: 20px 0px;
+            }
+        }
+
+        &__title {
+            color: $primary;
+            font-size: $title-big-font-size;
+            font-weight: $font-default-light;
+            margin-bottom: 40px;
+        }
+
+
+        &__links {
+            @extend %flex-column-center;
+            gap: 20px;
+
+            @include media-breakpoint-up(md) {
+                margin-top: 40px;
+                flex-direction: row;
             }
 
             &--group {

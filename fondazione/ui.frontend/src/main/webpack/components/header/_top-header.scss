@@ -77,8 +77,17 @@
         }
     }
 
+    .logged-user {
+        .cmp-button__icon--profile {
+            @include media-breakpoint-up(xl) {
+                background-image: url("../resources/icons/icon_profile_active.svg");
+            }
+        }
+    }
+
     .cmp-top-header {
         height: 100%;
+
         @include media-breakpoint-down(xl) {
             max-width: 100% !important;
         }
