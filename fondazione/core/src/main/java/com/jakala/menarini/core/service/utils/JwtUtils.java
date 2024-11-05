@@ -3,7 +3,6 @@ package com.jakala.menarini.core.service.utils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.jakala.menarini.core.exceptions.JwtServiceException;
-import com.jakala.menarini.core.service.AuthServiceForModels;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
