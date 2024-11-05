@@ -86,7 +86,7 @@ public class JwtUtils {
         }
     }
 
-    public static String getToken(HttpServletRequest request, EncryptDataServiceInterface encryptDataService) {
+    public static String getToken(HttpServletRequest request, EncryptDataServiceInterface encryptDataService) throws JwtServiceException {
         String authString = null;
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
