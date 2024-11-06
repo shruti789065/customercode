@@ -19,12 +19,11 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-@Model(
-        adaptables = {
-                Resource.class,
-                SlingHttpServletRequest.class
-        }
-)
+@SuppressWarnings("squid:S2384")
+@Model(adaptables = {
+        Resource.class,
+        SlingHttpServletRequest.class
+})
 public class UserEventModel extends AuthBaseModel {
 
     @OSGiService
