@@ -1,0 +1,23 @@
+.cmp-breadcrumb {
+
+  &__list {
+
+      li {
+          min-width: 50px;
+      }
+
+      .cmp-breadcrumb__itemsSeparator {
+          padding-top: 3px;
+      }
+
+      @include media-breakpoint-down(sm) {
+          flex-wrap: wrap;
+      }
+  }
+
+  &__item-link {
+      color: $body-color;
+      text-decoration: none;
+  }
+
+}

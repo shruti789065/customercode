@@ -206,8 +206,6 @@
       name: 'clientlib-forms',
       categories: ['fondazione.forms'],
       assets: {
-        // Copy entrypoint scripts and stylesheets into the respective ClientLib
-        // directories
         js: {
           cwd: 'clientlib-forms',
           files: ['**/*.js'],

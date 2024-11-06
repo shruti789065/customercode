@@ -7,25 +7,41 @@ const TSConfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const glob = require("glob");
 
 // Internal scripts.
-const componentNames = require('./src/main/webpack/config/componentNames');
+// const componentNames = require('./src/main/webpack/config/componentNames');
 
 const SOURCE_ROOT = path.resolve(__dirname, "src/main/webpack");
 
-// Generate SCSS entry points for each component
-const componentScssEntries = componentNames.reduce((entries, name) => {
-  entries[name] = path.join(SOURCE_ROOT, `components/${name}/${name}.scss`);
+// Use glob to get entries for SCSS files named after their parent folder, excluding `site`.
+const scssEntries = glob.sync(`${SOURCE_ROOT}/components/**/!(site)/*.scss`).reduce((entries, filePath) => {
+  const folderName = path.basename(path.dirname(filePath)); // Get the parent folder name
+  const fileName = path.basename(filePath, '.scss'); // Get the file name without extension
+
+  // Only include the file if its name matches its parent folder
+  if (folderName === fileName) {
+    entries[folderName] = filePath;
+  }
+
   return entries;
 }, {});
 
-// Generate patterns for copying JS.
-const componentPatterns = componentNames.map((name) => {
-  return {
-    from: path.resolve(SOURCE_ROOT, `components/${name}/${name}.js`),
-    to: `clientlib-${name}/`,
-  };
-});
+const componentPatterns = glob.sync(`${SOURCE_ROOT}/components/**/!(site)/*.js`, {
+  ignore: [`${SOURCE_ROOT}/components/site/**/*.js`], // Exclude site folder
+}).map((filePath) => {
+  const folderName = path.basename(path.dirname(filePath)); // Get the parent folder name
+  const fileName = path.basename(filePath, '.js'); // Get the file name without extension
+
+  if (folderName === fileName) { // Only process JS files matching their folder name
+    return {
+      from: filePath,
+      to: `clientlib-${folderName}/${fileName}.js`,
+    };
+  }
+
+  return null; // Exclude mismatched files
+}).filter(Boolean); // Remove null values
 
 const resolve = {
   extensions: [".js", ".ts"],
@@ -40,13 +56,13 @@ module.exports = {
   resolve,
   entry: {
     site: path.join(SOURCE_ROOT, "site/main.ts"),
-    ...componentScssEntries, // Add component SCSS entries
+    ...scssEntries, // Add component SCSS entries
   },
   output: {
     filename: (chunkData) => {
       return chunkData.chunk.name === "dependencies"
         ? "clientlib-dependencies/[name].js"
-        : "clientlib-site/[name].js";
+        : "clientlib-[name]/[name].js";
     },
     path: path.resolve(__dirname, "dist"),
   },
@@ -121,7 +137,7 @@ module.exports = {
           from: path.resolve(SOURCE_ROOT, "resources"),
           to: "clientlib-site/",
         },
-        ...componentPatterns,
+        ...componentPatterns
       ],
     }),
   ],

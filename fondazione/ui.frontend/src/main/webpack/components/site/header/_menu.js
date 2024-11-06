@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { _isDesktop, _prependHtml } from "../../site/_util.js";
+import { _isDesktop, _prependHtml } from "../../../site/_util.js";
 
 const MenuTabs = (() => {
   const CONST = {

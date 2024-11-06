@@ -1,4 +1,4 @@
-import { isMobileDevice } from "../../utils/isMobileDevice";
+import { isMobileDevice } from "../../../utils/isMobileDevice";
 
 document.addEventListener("DOMContentLoaded", function () {
   const optionContainers = document.querySelectorAll(".options-container");
