@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2024-11-06T09:41:15.741+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/fondazione/settings/wcm/templates/fondazione-menarini---courses-and-events-listing"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="fondazione/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="fondazione/components/container"
+            layout="responsiveGrid">
+            <experiencefragment-header
+                jcr:lastModified="{Date}2024-11-05T14:52:48.212+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/fondazione/en/site/header/master"/>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid"/>
+            <experiencefragment_908767149
+                jcr:created="{Date}2024-11-05T14:43:04.065+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-11-05T14:43:35.360+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/fondazione/en/site/footer/master"/>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
