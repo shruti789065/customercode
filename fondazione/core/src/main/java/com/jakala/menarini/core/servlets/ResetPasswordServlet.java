@@ -2,9 +2,9 @@ package com.jakala.menarini.core.servlets;
 
 
 import com.google.gson.Gson;
-import com.jakala.menarini.core.dto.cognitoDto.CognitoSignInErrorResponseDto;
-import com.jakala.menarini.core.dto.cognitoDto.ResetPasswordDto;
-import com.jakala.menarini.core.dto.cognitoDto.ResetPasswordResponseDto;
+import com.jakala.menarini.core.dto.cognito.CognitoSignInErrorResponseDto;
+import com.jakala.menarini.core.dto.cognito.ResetPasswordDto;
+import com.jakala.menarini.core.dto.cognito.ResetPasswordResponseDto;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import org.apache.sling.api.SlingHttpServletRequest;

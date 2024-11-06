@@ -48,7 +48,7 @@ public class ExternalizeUrlServlet extends SlingAllMethodsServlet {
                 String shareLink = (requestDto.getTargetLink() != null && !requestDto.getTargetLink().isBlank())
                         ? requestDto.getTargetLink() : request.getHeader("Referer");
                 List<ExternalSocialLinkResponseDto> responseDto = externalizeUrlService.
-                        genarateSocialLink(resolver,shareLink);
+                        generateSocialLink(resolver,shareLink);
                 response.getWriter().println(gson.toJson(responseDto));
                 break;
             case REQUEST:

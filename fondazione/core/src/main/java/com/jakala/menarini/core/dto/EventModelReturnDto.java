@@ -2,6 +2,7 @@ package com.jakala.menarini.core.dto;
 
 import java.util.List;
 
+@SuppressWarnings("squid:S2384")
 public class EventModelReturnDto {
 
     private List<EventModelDto> events;

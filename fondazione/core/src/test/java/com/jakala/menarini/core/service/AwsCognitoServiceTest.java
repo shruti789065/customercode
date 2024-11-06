@@ -1,7 +1,7 @@
 package com.jakala.menarini.core.service;
 
 import com.jakala.menarini.core.dto.RoleDto;
-import com.jakala.menarini.core.dto.cognitoDto.*;
+import com.jakala.menarini.core.dto.cognito.*;
 import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
 

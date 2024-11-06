@@ -7,7 +7,7 @@ import javax.crypto.spec.SecretKeySpec;
 import com.google.gson.Gson;
 import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.dto.RoleDto;
-import com.jakala.menarini.core.dto.cognitoDto.*;
+import com.jakala.menarini.core.dto.cognito.*;
 import com.jakala.menarini.core.exceptions.AwsServiceException;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
 import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;

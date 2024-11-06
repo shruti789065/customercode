@@ -335,13 +335,7 @@ public class EventListingService implements EventListingServiceInterface {
 
     }
 
-
-
-
-
-
-
-
+    
     private EventModelDto buildEvent(Resource resource, String language, ResourceResolver resolver) {
         ContentFragment fragment = resource.adaptTo(ContentFragment.class);
         if (fragment != null) {

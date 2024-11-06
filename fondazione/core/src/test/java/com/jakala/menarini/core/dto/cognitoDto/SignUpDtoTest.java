@@ -2,6 +2,8 @@ package com.jakala.menarini.core.dto.cognitoDto;
 
 import org.junit.jupiter.api.Test;
 
+import com.jakala.menarini.core.dto.cognito.SignUpDto;
+
 import java.util.ArrayList;
 import java.util.Date;
 

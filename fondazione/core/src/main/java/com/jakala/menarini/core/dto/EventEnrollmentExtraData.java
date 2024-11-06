@@ -3,6 +3,7 @@ package com.jakala.menarini.core.dto;
 import java.sql.Timestamp;
 import java.util.List;
 
+@SuppressWarnings("squid:S2384")
 public class EventEnrollmentExtraData {
 
     private List<Timestamp> enrollmentDates;
