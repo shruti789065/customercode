@@ -67,8 +67,6 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function inputCheck(input, event) {
         input.addEventListener(event, () => {
-            let isValid = true;
-
             const value = input.value;
             const inputType = input.getAttribute("type");
             const errorMessage = input.closest("[data-cmp-required-message]").getAttribute("data-cmp-required-message");
@@ -79,14 +77,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // Check if the field is empty
             if (isEmpty(value)) {
                 createErrorMessageElement(input, errorMessage);
-                isValid = false;
             } else if (inputType === "email" && !isValidEmail(value)) {
                 createErrorMessageElement(input, "Please enter a valid email address");
-                isValid = false;
             }
             else if (inputType === "checkbox" && !input.checked) {
                 createErrorMessageElement(input, errorMessage);
-                isValid = false;
             }
         });
     }

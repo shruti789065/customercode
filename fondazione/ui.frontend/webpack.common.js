@@ -9,39 +9,33 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const glob = require("glob");
 
-// Internal scripts.
-// const componentNames = require('./src/main/webpack/config/componentNames');
-
 const SOURCE_ROOT = path.resolve(__dirname, "src/main/webpack");
 
-// Use glob to get entries for SCSS files named after their parent folder, excluding `site`.
-const scssEntries = glob.sync(`${SOURCE_ROOT}/components/**/!(site)/*.scss`).reduce((entries, filePath) => {
-  const folderName = path.basename(path.dirname(filePath)); // Get the parent folder name
-  const fileName = path.basename(filePath, '.scss'); // Get the file name without extension
+const componentEntries = glob.sync(`${SOURCE_ROOT}/components/**/`, {
+  ignore: [`${SOURCE_ROOT}/components/site/**`],
+}).reduce((entries, componentDir) => {
+  const folderName = path.basename(componentDir);
 
-  // Only include the file if its name matches its parent folder
-  if (folderName === fileName) {
-    entries[folderName] = filePath;
+  const jsFile = path.join(componentDir, `${folderName}.js`);
+  const scssFile = path.join(componentDir, `${folderName}.scss`);
+
+  // Check if both JS and SCSS files exist for the component
+  const entryFiles = [];
+  if (glob.sync(jsFile).length) entryFiles.push(jsFile);
+  if (glob.sync(scssFile).length) entryFiles.push(scssFile);
+
+  if (entryFiles.length) {
+    entries[folderName] = entryFiles; // Add entries only if files are present
   }
 
   return entries;
 }, {});
 
-const componentPatterns = glob.sync(`${SOURCE_ROOT}/components/**/!(site)/*.js`, {
-  ignore: [`${SOURCE_ROOT}/components/site/**/*.js`], // Exclude site folder
-}).map((filePath) => {
-  const folderName = path.basename(path.dirname(filePath)); // Get the parent folder name
-  const fileName = path.basename(filePath, '.js'); // Get the file name without extension
-
-  if (folderName === fileName) { // Only process JS files matching their folder name
-    return {
-      from: filePath,
-      to: `clientlib-${folderName}/${fileName}.js`,
-    };
-  }
-
-  return null; // Exclude mismatched files
-}).filter(Boolean); // Remove null values
+// Add `site` entry manually for global assets
+const entries = {
+  site: path.join(SOURCE_ROOT, "site/main.ts"),
+  ...componentEntries,
+};
 
 const resolve = {
   extensions: [".js", ".ts"],
@@ -54,10 +48,7 @@ const resolve = {
 
 module.exports = {
   resolve,
-  entry: {
-    site: path.join(SOURCE_ROOT, "site/main.ts"),
-    ...scssEntries, // Add component SCSS entries
-  },
+  entry: entries,
   output: {
     filename: (chunkData) => {
       return chunkData.chunk.name === "dependencies"
@@ -137,7 +128,6 @@ module.exports = {
           from: path.resolve(SOURCE_ROOT, "resources"),
           to: "clientlib-site/",
         },
-        ...componentPatterns
       ],
     }),
   ],
