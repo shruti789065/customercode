@@ -2,6 +2,12 @@
  * Checks if the current window width is considered desktop size.
  * @returns {boolean} - True if the window width is greater than 1200px, otherwise false.
  */
+
+// @todo: check how to remove moment from here.
+// it should be used in editprofileform.js
+import moment from 'moment';
+window.moment = moment;
+
 export function _isDesktop() {
   if (window.innerWidth <= 1200) {
     return false;

@@ -1,8 +1,8 @@
 package com.jakala.menarini.core.servlets;
 
 import com.google.gson.Gson;
-import com.jakala.menarini.core.dto.cognitoDto.SignInDto;
-import com.jakala.menarini.core.dto.cognitoDto.SignInResponseDto;
+import com.jakala.menarini.core.dto.cognito.SignInDto;
+import com.jakala.menarini.core.dto.cognito.SignInResponseDto;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
 import com.jakala.menarini.core.service.interfaces.CookieServiceInterface;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;

@@ -2,10 +2,10 @@ package com.jakala.menarini.core.service;
 
 
 import com.google.gson.Gson;
-import com.jakala.menarini.core.dto.aswLambdaDto.ImageProfileServiceResponseDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.LambdaGetFileDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.LambdaImageDataDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.LambdaPutFileDto;
+import com.jakala.menarini.core.dto.awslambda.ImageProfileServiceResponseDto;
+import com.jakala.menarini.core.dto.awslambda.LambdaGetFileDto;
+import com.jakala.menarini.core.dto.awslambda.LambdaImageDataDto;
+import com.jakala.menarini.core.dto.awslambda.LambdaPutFileDto;
 import com.jakala.menarini.core.service.interfaces.ImageProfileServiceInterface;
 import io.jsonwebtoken.io.IOException;
 import org.apache.http.HttpHeaders;

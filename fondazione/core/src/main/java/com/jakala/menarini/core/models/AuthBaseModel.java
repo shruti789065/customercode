@@ -50,6 +50,8 @@ public class AuthBaseModel implements AuthBaseModelInterface {
 
     private RegisteredUserDto user;
 
+    protected RoleDto[] rolesData;
+
 
     @PostConstruct
     protected void init()  {
@@ -58,6 +60,7 @@ public class AuthBaseModel implements AuthBaseModelInterface {
           final Optional<String> email = authData.keySet().stream().findFirst();
           if(email.isPresent()) {
               RoleDto[] roles = authData.get(email.get());
+              this.rolesData = roles;
               final Set<Acl> acls = AclRolePermissions.transformRolesToAcl(Arrays.asList(roles));
               try {
                   RegisteredUserDto userData = userService.getUserByEmail(email.get(),acls,Arrays.asList(roles));

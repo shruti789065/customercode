@@ -1,7 +1,7 @@
 package com.jakala.menarini.core.models;
 
-import com.jakala.menarini.core.dto.cognitoDto.SignUpDto;
-import com.jakala.menarini.core.dto.cognitoDto.SignUpDtoResponse;
+import com.jakala.menarini.core.dto.cognito.SignUpDto;
+import com.jakala.menarini.core.dto.cognito.SignUpDtoResponse;
 import com.jakala.menarini.core.service.AwsCognitoService;
 import com.jakala.menarini.core.service.UserRegisteredService;
 import org.apache.sling.api.resource.Resource;

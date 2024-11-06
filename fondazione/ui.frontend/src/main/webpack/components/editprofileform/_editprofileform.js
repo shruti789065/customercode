@@ -1,6 +1,8 @@
-import moment from 'moment';
+// import moment from 'moment';
+// console.log("Edit Profile Form Component Loaded");
 
 document.addEventListener('DOMContentLoaded', function () {
+
     let selectedTab = "";
     let successAlert = document.querySelector("#cmp-editprofileform__successAlert");
     let errorAlert = document.querySelector("#cmp-editprofileform__errorsAlert");
@@ -171,13 +173,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         checkboxes.forEach(checkbox => {
                             if (checkbox.dataset.topicId === topic.topic.id) {
                                 checkbox.checked = true;
+                                checkbox.disabled = false;
                                 selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
                                 selectedTopicsIds.push(topic.topic.id);
                             }
                         });
 
                         checkboxes.forEach((element) => {
-                            if (element.checked === false) {
+                            if (element.checked === false && dataResponse.updatedUser.dataResponse?.updatedUser?.registeredUserTopics?.length >= 3) {
                                 element.disabled = true;
                             }
                         });

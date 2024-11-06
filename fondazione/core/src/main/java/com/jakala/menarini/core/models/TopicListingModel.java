@@ -60,9 +60,7 @@ public class TopicListingModel extends AuthBaseModel {
                     String id = fragment.getElement("id").getContent();
                     String nome = ModelHelper.getLocalizedElementValue(fragment, language, "name", fragment.getElement("name").getContent());
                     String path = fragment.getName();
-                    LOG.error(id);
-                    LOG.error(nome);
-                    LOG.error(path);
+
                     topics.add(new Topic(id, nome, TOPICS_PATH + path));
                 }
             }

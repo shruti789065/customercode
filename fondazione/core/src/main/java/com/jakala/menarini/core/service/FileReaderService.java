@@ -11,7 +11,7 @@ public class FileReaderService implements FileReaderServiceInterface {
 
     @Override
     public InputStream getFileAsStream(String fileName) {
-        return DataMigrationService.class.getResourceAsStream(fileName);
+        return FileReaderService.class.getResourceAsStream(fileName);
     }
 
 }
