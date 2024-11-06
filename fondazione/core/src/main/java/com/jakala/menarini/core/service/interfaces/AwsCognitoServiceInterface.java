@@ -1,6 +1,6 @@
 package com.jakala.menarini.core.service.interfaces;
 
-import com.jakala.menarini.core.dto.cognitoDto.*;
+import com.jakala.menarini.core.dto.cognito.*;
 
 public interface AwsCognitoServiceInterface {
 

@@ -175,17 +175,17 @@
                                     cq:styleClasses="text"
                                     cq:styleId="1729684359095"
                                     cq:styleLabel="Text Medium"
-                                    jcr:primaryType="nt:unstructured"/>
+                                    jcr:primaryType="nt:unstructured" />
                                 <item2
                                     cq:styleClasses="text-small-light"
                                     cq:styleId="1729684368174"
                                     cq:styleLabel="Text Small"
-                                    jcr:primaryType="nt:unstructured"/>
+                                    jcr:primaryType="nt:unstructured" />
                                 <item4
                                     cq:styleClasses="text-super-small-light"
                                     cq:styleId="1729684373685"
                                     cq:styleLabel="Text Extra Small"
-                                    jcr:primaryType="nt:unstructured"/>
+                                    jcr:primaryType="nt:unstructured" />
                             </cq:styles>
                         </item0>
                     </cq:styleGroups>
@@ -221,7 +221,7 @@
                     allowedTypes="[h1,h2,h3,h4,h5,h6]"
                     linkDisabled="true"
                     type="h1">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content jcr:primaryType="nt:unstructured" />
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
                             cq:styleGroupLabel="Title colors"
@@ -231,12 +231,12 @@
                                     cq:styleClasses="title-blue"
                                     cq:styleId="1729587240055"
                                     cq:styleLabel="Blue title"
-                                    jcr:primaryType="nt:unstructured"/>
+                                    jcr:primaryType="nt:unstructured" />
                                 <item1
                                     cq:styleClasses="title-red"
                                     cq:styleId="1729587243957"
                                     cq:styleLabel="Red title"
-                                    jcr:primaryType="nt:unstructured"/>
+                                    jcr:primaryType="nt:unstructured" />
                             </cq:styles>
                         </item0>
                     </cq:styleGroups>
@@ -489,7 +489,7 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     layout="responsiveGrid"
                     layoutDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content jcr:primaryType="nt:unstructured" />
                 </policy_34977012579416>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
@@ -578,6 +578,39 @@
                     clientlibsJsHead="fondazione.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured" />
                 </policy>
+                <policy_1729765043446
+                    jcr:lastModified="{Date}2024-10-24T12:17:57.494+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Sign In Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[fondazione.site,fondazione.dependencies,fondazione.signin]"
+                    clientlibsAsync="false"
+                    clientlibsJsHead="fondazione.dependencies">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_1729765043446>
+                <policy_1729765499727
+                    jcr:lastModified="{Date}2024-10-24T12:25:31.392+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Sign Up Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[fondazione.dependencies,fondazione.site,fondazione.signup]"
+                    clientlibsAsync="false"
+                    clientlibsJsHead="fondazione.dependencies">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_1729765499727>
+                <policy_1729775804120
+                    jcr:lastModified="{Date}2024-10-24T15:17:12.559+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Edit Profile Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[fondazione.dependencies,fondazione.site,fondazione.editprofile]"
+                    clientlibsAsync="false"
+                    clientlibsJsHead="fondazione.dependencies">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_1729775804120>
             </page>
             <slideshow jcr:primaryType="nt:unstructured">
                 <policy_1724932614537
@@ -672,6 +705,21 @@
                         titleType="h2">
                         <jcr:content jcr:primaryType="nt:unstructured" />
                     </policy_1727882700034>
+                    <policy_427789784626166
+                        cq:styleDefaultClasses="small-banner-mobile-app-teaser"
+                        jcr:lastModified="{Date}2024-10-30T16:46:39.026+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Small banner app"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        actionsDisabled="true"
+                        allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                        descriptionHidden="true"
+                        pretitleHidden="true"
+                        showTitleType="false"
+                        titleType="h2">
+                        <jcr:content jcr:primaryType="nt:unstructured" />
+                    </policy_427789784626166>
                 </banner-mobile-app-teaser>
             </banner-mobile-app>
             <horizontal-teaser jcr:primaryType="nt:unstructured">
