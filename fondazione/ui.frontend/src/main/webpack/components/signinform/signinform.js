@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetPasswordEmailForm.classList.add('d-none');
         signupSection.classList.remove('d-none');
         signupSection.classList.add('d-block');
-    })
+    });
 
     signinToggleReset.addEventListener('click', () => {
         signInForm.classList.add('d-block');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetPasswordForm.classList.add('d-none');
         signupSection.classList.remove('d-none');
         signupSection.classList.add('d-block');
-    })
+    });
 
     function backToSigninPage() {
         resetPasswordForm.classList.remove('d-block');
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let errorElement = document.querySelector('#codeErrorString');
         if (!data.code) {
             errorElement.innerHTML = Granite.I18n.get('mandatory_field');
-            return false
+            return false;
         }
         return true;
     }
@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function validatePassword(data) {
         let errorElement = document.querySelector('#passwordErrorString');
 
-        if ((data.password && data.password !== data.passwordConfirmation) || (data.password && !data.passwordConfirmation)) {
+        if ((data.password && data.password !== data.passwordConfirmation) ||
+        (data.password && !data.passwordConfirmation)) {
             errorElement.innerHTML = Granite.I18n.get('password_form_error');
             return false;
         } else if (data.password && data.password.length < 8) {
@@ -103,18 +104,19 @@ document.addEventListener('DOMContentLoaded', function () {
             return false;
         } else if (!data.password) {
             errorElement.innerHTML = Granite.I18n.get('mandatory_field');
-            return false
+            return false;
         }
 
-        return true
+        return true;
     }
 
     function validatePasswordConfirmation(data) {
         let errorElement = document.querySelector('#passwordConfirmationErrorString');
 
-        if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) || (data.passwordConfirmation && !data.password)) {
+        if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) ||
+        (data.passwordConfirmation && !data.password)) {
             errorElement.innerHTML = Granite.I18n.get('password_form_error');
-            return false
+            return false;
         } else if (data.passwordConfirmation && data.passwordConfirmation.length < 8) {
             errorElement.innerHTML = Granite.I18n.get('password_length_error');
             return false;
@@ -209,9 +211,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let errorElementPasswordConfirmation = document.querySelector('#passwordConfirmationErrorString');
         let errorElementPassword = document.querySelector('#passwordErrorString');
         let errorElementCode = document.querySelector('#codeErrorString');
-        if (errorElementPasswordConfirmation) { errorElementPasswordConfirmation.innerHTML = "" }
-        if (errorElementPassword) { errorElementPassword.innerHTML = "" }
-        if (errorElementCode) { errorElementCode.innerHTML = "" }
+        if (errorElementPasswordConfirmation) { errorElementPasswordConfirmation.innerHTML = ""; }
+        if (errorElementPassword) { errorElementPassword.innerHTML = ""; }
+        if (errorElementCode) { errorElementCode.innerHTML = ""; }
     }
 
     // FORM SUBMISSION
@@ -221,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData(resetPasswordEmailForm);
             let tmpFormData = {
                 email: formData.get('emailFieldResetPassword')
-            }
+            };
             resetPasswordEmail = tmpFormData.email;
             hideErrorsAlertEmailForm();
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
@@ -254,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     loader.classList.add("d-none");
                 }
             }
-        })
+        });
     }
 
     if (resetPasswordForm) {
@@ -267,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 code: formData.get('codeField'),
                 password: formData.get('passwordField'),
                 passwordConfirmation: formData.get('passwordConfirmationField')
-            }
+            };
             let isCodeValid = validateCode(tmpFormDataValidation);
             let isPasswordValid = validatePassword(tmpFormDataValidation);
             let isPasswordConfirmationValid = validatePasswordConfirmation(tmpFormDataValidation);
@@ -275,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 email: resetPasswordEmail,
                 confirmCode: formData.get('codeField'),
                 password: formData.get('passwordField'),
-            }
+            };
             const responseCsrf = await fetch("/libs/granite/csrf/token.json");
             const csrfToken = await responseCsrf.json();
             if (isPasswordValid && isPasswordConfirmationValid && isCodeValid) {
@@ -305,9 +307,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     loaderCode.classList.add("d-none");
                 }
             }
-        })
+        });
     }
-})
+});
 
 async function sendData(logInData) {
     let submitBtn = document.querySelector("#submitBtnSignin");
@@ -346,29 +348,30 @@ function showAlert(message) {
 }
 
 if (alertBtn) {
-    alertBtn.addEventListener("click", (event) => {
+    alertBtn.addEventListener("click", () => {
         let alert = $("#alertBox");
         if (alert) {
             alert.hide();
         }
-    })
+    });
 }
 
 if (signInForm) {
     signInForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const formData = new FormData(signInForm);
-        let remembrerMe = formData.get('rememberCheck') === "on" ? true : false;        
+        let rememberMe = formData.get('rememberCheck') === "on" ? true : false;
         let emailForm = document.querySelector("#emailField");
         let passForm = document.querySelector("#passField");
         let singIdData = {
             email: emailForm.value,
             password: passForm.value,
-            rememberMe: remembrerMe
-        }        
+            rememberMe: rememberMe,
+        };
         const responseSig = await sendData(singIdData);
         if (responseSig.cognitoSignInErrorResponseDto?.message) {
-            showAlert(responseSig.cognitoSignInErrorResponseDto?.message !== undefined ? responseSig.cognitoSignInErrorResponseDto.message : "Error");
+            showAlert(responseSig.cognitoSignInErrorResponseDto?.message !== undefined
+              ? responseSig.cognitoSignInErrorResponseDto.message : "Error");
         } else {
             const redirectUrl = sessionStorage.getItem('redirectUrl');
             document.location.href = redirectUrl;
@@ -377,9 +380,9 @@ if (signInForm) {
 }
 
 function setFieldAsNotValid() {
-    var forms = document.getElementsByClassName('needs-validation');
+    const forms = document.getElementsByClassName('needs-validation');
 
-    var validation = Array.prototype.filter.call(forms, function (form) {
+    Array.prototype.filter.call(forms, function (form) {
         form.addEventListener('submit', function (event) {
             if (form.checkValidity() === false) {
                 event.preventDefault();

@@ -1,47 +1,60 @@
-import $ from "jquery";
-
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
   const maxSelectable = 3;
+  const topicButtons = document.querySelectorAll(".topics__list--item--button");
+  const submitButton = document.querySelector(".topics-container .cmp-button");
 
-  $(".topics__list--item--button").on("click", function () {
-    if ($(this).hasClass("active")) {
-      $(this).removeClass("active");
-    } else {
-      let activeCount = $(".topics__list--item--button.active").length;
+  /**
+   * Helper function to count active buttons.
+   * @returns {DOM element} The active buttons count.
+   */
+  function getActiveCount() {
+    return document.querySelectorAll(".topics__list--item--button.active").length;
+  }
 
-      if (activeCount < maxSelectable) {
-        $(this).addClass("active");
+  // Add event listener to each topic button
+  topicButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const isActive = button.classList.contains("active");
+
+      // Toggle active class based on current state
+      if (isActive) {
+        button.classList.remove("active");
+      } else if (getActiveCount() < maxSelectable) {
+        button.classList.add("active");
       }
-    }
 
-    let activeCount = $(".topics__list--item--button.active").length;
-
-    if (activeCount >= maxSelectable) {
-      $(".topics__list--item--button:not(.active)").prop("disabled", true);
-    } else {
-      $(".topics__list--item--button").prop("disabled", false);
-    }
+      // Update disabled state of non-active buttons
+      const activeCount = getActiveCount();
+      topicButtons.forEach(btn => {
+        btn.disabled = !isActive && activeCount >= maxSelectable && !btn.classList.contains("active");
+      });
+    });
   });
 
-  $(".topics-container .cmp-button").on("click", function (e) {
-    e.preventDefault();
+  if (submitButton) {
+    submitButton.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    let selectedValues = $(".topics__list--item--button.active")
-      .map(function () {
-        return $(this).val();
-      })
-      .get();
+      // Gather values of active buttons.
+      const selectedValues = Array.from(document.querySelectorAll(".topics__list--item--button.active"))
+        .map(button => button.value);
 
-    let topicsString = selectedValues.join("-");
-    let currentHref = $(this).attr("href");
-    let newHref = currentHref.split("?")[0];
+      const topicsString = selectedValues.join("-");
+      let currentHref = submitButton.getAttribute("href");
+      let newHref = "";
 
-    if (topicsString) {
-      newHref += `?topics=${encodeURIComponent(topicsString)}`;
-    }
+      // There might be a case with no url, although this is editorial issue,
+      // but for any case.
+      if (currentHref) {
+        newHref = currentHref.split("?")[0];
+      }
 
-    $(this).attr("href", newHref);
+      if (topicsString) {
+        newHref += `?topics=${encodeURIComponent(topicsString)}`;
+      }
 
-    window.location.href = newHref;
-  });
+      submitButton.setAttribute("href", newHref);
+      window.location.href = newHref;
+    });
+  }
 });
