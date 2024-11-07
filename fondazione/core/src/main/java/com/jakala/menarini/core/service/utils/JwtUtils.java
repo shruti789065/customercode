@@ -3,13 +3,11 @@ package com.jakala.menarini.core.service.utils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.jakala.menarini.core.exceptions.JwtServiceException;
-import com.jakala.menarini.core.service.AuthServiceForModels;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Jwk;
-import io.jsonwebtoken.security.Jwks;
-import io.jsonwebtoken.security.SignatureException;
+
+
+import java.nio.charset.StandardCharsets;
+import java.security.SignatureException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -26,7 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.security.interfaces.RSAPublicKey;
+import java.math.BigInteger;
+import java.security.*;
+
+
+import java.security.spec.RSAPublicKeySpec;
+import java.util.Base64;
 import java.util.Date;
 
 public class JwtUtils {
@@ -38,11 +41,9 @@ public class JwtUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtUtils.class);
 
     public static boolean isValidToken(String token) {
-
         try {
             JWTReader reader = new JWTReader();
             JWT jwt = reader.read(token);
-
             ClaimsSet claimsSet = jwt.getClaimsSet();
             Long expirationTime = claimsSet.getExpirationTime();
             if (new Date().getTime() > expirationTime * 1000) {
@@ -58,31 +59,32 @@ public class JwtUtils {
             } else {
                 LOGGER.error("JWK signature: {}", jwkString);
             }
-
-
             final JsonObject jwkJsonObj = JsonParser.parseString(jwkString).getAsJsonObject();
-            String singleKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).toString();
+            PublicKey rsaKey = getRsaKey(jwkJsonObj);
+            String[] jwtParts = token.split("\\.");
+            String header = jwtParts[0];
+            String payload = jwtParts[1];
+            String signature = jwt.getSignature();
+            String toVerifyPayload = header + "." + payload;
 
-            final Jwk<?> jwk = Jwks.parser().build().parse(singleKey);
-            RSAPublicKey rsaKey = (RSAPublicKey)jwk.toKey();
-
-            try {
-
-                Jwts.parser().verifyWith(rsaKey).build().parse(token);
-            } catch (SignatureException e) {
-                LOGGER.error("Invalid JWT signature", e);
-                return false; //wrong signature
+            boolean isValid = verifySignature(
+                    "SHA256withRSA",
+                    rsaKey,
+                    toVerifyPayload.getBytes(StandardCharsets.UTF_8),
+                    Base64.getUrlDecoder().decode(signature)
+            );
+            if(!isValid) {
+                return false;
             }
-
             String email = claimsSet.getCustomField("email", String.class);
             if (email == null || email.isEmpty()) {
                 LOGGER.error("Missing email address");
                 return false; // Manca username
             }
             return true;
-        } catch (JwtException e) {
-            LOGGER.warn("Token validation failed", e);
-            return false;
+        } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
+            LOGGER.error("Invalid JWT signature", e);
+            return false; //wrong signature
         }
     }
 
@@ -125,6 +127,35 @@ public class JwtUtils {
         }catch (IOException e){
             return null;
         }
+    }
+
+    private static PublicKey getRsaKey(JsonObject jwkJsonObj ) {
+        JsonObject jsonKey = jwkJsonObj.get("keys").getAsJsonArray().get(0).getAsJsonObject();
+        String exp = jsonKey.get("e").getAsString().replace("\n","");
+        String mod = jsonKey.get("n").getAsString().replace("\n","");
+
+        try {
+            BigInteger iExp = new BigInteger(1,Base64.getDecoder().decode(exp));
+            BigInteger iMod = new BigInteger(1,Base64.getUrlDecoder().decode(mod));
+            RSAPublicKeySpec spec = new RSAPublicKeySpec(
+                    iMod,
+                    iExp
+            );
+            KeyFactory factory = KeyFactory.getInstance("RSA");
+            return factory.generatePublic(spec);
+
+        } catch (Exception e) {
+            return null;
+        }
+
+
+    }
+
+    private static boolean verifySignature(String algName, PublicKey key, byte[] dataToVerify, byte[] payloadSignature) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        Signature signature = Signature.getInstance(algName);
+        signature.initVerify(key);
+        signature.update(dataToVerify);
+        return signature.verify(payloadSignature);
     }
 
 
