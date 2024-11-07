@@ -4,7 +4,8 @@ import com.day.cq.commons.Externalizer;
 import com.day.cq.wcm.api.Page;
 import com.jakala.menarini.core.dto.ExternalSocialLinkResponseDto;
 import com.jakala.menarini.core.service.interfaces.ExternalizeUrlServiceInterface;
-import com.jakala.menarini.core.service.utlis.ExternalizerUrlConfig;
+import com.jakala.menarini.core.service.utils.ExternalizerUrlConfig;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -98,7 +99,7 @@ public class ExternalizeUrlService implements ExternalizeUrlServiceInterface {
     }
 
     @Override
-    public List<ExternalSocialLinkResponseDto> genarateSocialLink(ResourceResolver resolver, String link) {
+    public List<ExternalSocialLinkResponseDto> generateSocialLink(ResourceResolver resolver, String link) {
         String istance = this.isAuthor ? Externalizer.AUTHOR : Externalizer.PUBLISH;
         ArrayList<ExternalSocialLinkResponseDto> links = new ArrayList<>();
         Pattern pattern = Pattern.compile(LINK_REGEX);

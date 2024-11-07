@@ -1,6 +1,8 @@
-import moment from 'moment';
+// import moment from 'moment';
+// console.log("Edit Profile Form Component Loaded");
 
 document.addEventListener('DOMContentLoaded', function () {
+
     let selectedTab = "";
     let successAlert = document.querySelector("#cmp-editprofileform__successAlert");
     let errorAlert = document.querySelector("#cmp-editprofileform__errorsAlert");
@@ -55,10 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let newsletterYes = document.querySelector('#newsletterYes');
     let newsletterNo = document.querySelector('#newsletterNo');
     let taxIdCode = document.querySelector('#taxIdCode');
-    let fiscalCode = document.querySelector('#fiscalCodeInput');
     let isUserLoggedIn = false;
-
-
 
     // FILL FORM WITH USER DATA
     async function fillForm() {
@@ -99,7 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (lastName && dataResponse.updatedUser.lastname !== "") {
                     lastName.value = dataResponse.updatedUser.lastname;
                 }
-                if (linkedinProfile && dataResponse.updatedUser.linkedinProfile && dataResponse.updatedUser.linkedinProfile !== "") {
+                if (linkedinProfile && dataResponse.updatedUser.linkedinProfile &&
+                  dataResponse.updatedUser.linkedinProfile !== "") {
                     linkedinProfile.value = dataResponse.updatedUser.linkedinProfile;
                 }
                 if (taxIdCode && dataResponse.updatedUser.taxIdCode && dataResponse.updatedUser.taxIdCode !== "") {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     dateOfBirth.value = formattedDate;
                 }
                 if (emailAddress && dataResponse.updatedUser.email !== "") {
-                    emailAddress.textContent = dataResponse.updatedUser.email
+                    emailAddress.textContent = dataResponse.updatedUser.email;
                 }
                 if (userProfileCreationDate && dataResponse.updatedUser.createdOn !== "") {
                     const formattedDate = moment(dataResponse.updatedUser.createdOn).format("L");
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         fiscalCodeTitle.classList.add("d-none");
                         fiscalCodeTitle.classList.remove("d-block");
                     }
-                    updateDropdownTextCountry()
+                    updateDropdownTextCountry();
                 }
                 if (profession && dataResponse.updatedUser.occupation !== "") {
                     selectedProfession = dataResponse.updatedUser.occupation;
@@ -166,24 +166,25 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
 
 
-                    updateDropdownTextProfession()
+                    updateDropdownTextProfession();
                 }
                 if (areaOfIntersts && dataResponse?.updatedUser?.registeredUserTopics?.length > 0) {
                     dataResponse.updatedUser.registeredUserTopics.forEach(topic => {
                         checkboxes.forEach(checkbox => {
                             if (checkbox.dataset.topicId === topic.topic.id) {
                                 checkbox.checked = true;
-                                selectedItemsMultipleSelect.push(checkbox.dataset.topicName)
+                                checkbox.disabled = false;
+                                selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
                                 selectedTopicsIds.push(topic.topic.id);
                             }
-                        })
+                        });
 
                         checkboxes.forEach((element) => {
-                            if (element.checked === false) {
+                            if (element.checked === false && dataResponse.updatedUser.dataResponse?.updatedUser?.registeredUserTopics?.length >= 3) {
                                 element.disabled = true;
                             }
-                        })
-                    })
+                        });
+                    });
                     updateDropdownTextMultiple();
                 }
                 if (privacyYes && dataResponse.updatedUser.personalDataProcessingConsent === "1") {
@@ -303,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (element === checkbox.dataset.topicId) {
                         selectedTopicsIds.splice(index, 1);
                     }
-                })
+                });
             }
 
             // Disable every not selected checkbox if user select 3 elements
@@ -560,7 +561,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "#dropdownMultiselectMenuButtonUserProfile"
         );
 
-        if ((!data.areasOfInterest || data.areasOfInterest.length === 0) && selectedProfession !== Granite.I18n.get("no_healthcare")) {
+        if ((!data.areasOfInterest || data.areasOfInterest.length === 0) &&
+        selectedProfession !== Granite.I18n.get("no_healthcare")) {
             erroeMessagges.push({
                 id: "areasOfInterest",
                 message: Granite.I18n.get("mandatory_field"),
@@ -577,7 +579,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validatePassword(data) {
         let errorElement = document.querySelector('#passwordErrorString');
-        if ((data.password && data.password !== data.passwordConfirmation) || (data.password && !data.passwordConfirmation)) {
+        if ((data.password && data.password !== data.passwordConfirmation) ||
+        (data.password && !data.passwordConfirmation)) {
             errorElement.innerHTML = Granite.I18n.get('password_form_error');
             return false;
         } else if (data.password && data.password.length < 8) {
@@ -597,16 +600,17 @@ document.addEventListener('DOMContentLoaded', function () {
             return false;
         } else if (!data.password) {
             errorElement.innerHTML = Granite.I18n.get('mandatory_field');
-            return false
+            return false;
         }
-        return true
+        return true;
     }
 
     function validatePasswordConfirmation(data) {
         let errorElement = document.querySelector('#passwordConfirmationErrorString');
-        if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) || (data.passwordConfirmation && !data.password)) {
+        if ((data.passwordConfirmation && data.passwordConfirmation !== data.password) ||
+        (data.passwordConfirmation && !data.password)) {
             errorElement.innerHTML = Granite.I18n.get('password_form_error');
-            return false
+            return false;
         } else if (data.passwordConfirmation && data.passwordConfirmation.length < 8) {
             errorElement.innerHTML = Granite.I18n.get('password_length_error');
             return false;
@@ -678,7 +682,7 @@ document.addEventListener('DOMContentLoaded', function () {
         validateGdpr(tmpFormData);
         validateDataProcessing(tmpFormData);
         validateNewsLetter(tmpFormData);
-        validateFiscalCode(tmpFormData)
+        validateFiscalCode(tmpFormData);
     }
 
     function containsNumber(str) {
@@ -889,4 +893,4 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-})
+});

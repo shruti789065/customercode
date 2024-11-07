@@ -2,6 +2,10 @@ package com.jakala.menarini.core.dto.cognitoDto;
 
 import org.junit.jupiter.api.Test;
 
+import com.jakala.menarini.core.dto.cognito.CognitoForgetPasswordResponseDto;
+import com.jakala.menarini.core.dto.cognito.CognitoSignInErrorResponseDto;
+import com.jakala.menarini.core.dto.cognito.ForgetPasswordResponseDto;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ForgetPasswordResponseDtoTest {

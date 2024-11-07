@@ -1,4 +1,7 @@
-<sly data-sly-use.shareTemplate="share.html">
+<sly
+  data-sly-use.shareTemplate="share.html"
+  data-sly-use.model="com.jakala.menarini.core.models.HomePageBaseModel"
+>
   <div
     class="cmp-top-header container d-flex justify-content-end align-items-center"
   >
@@ -13,8 +16,9 @@
           data-sly-resource="${'button-search' @ resourceType='fondazione/components/button'}"
         />
       </div>
+
       <div
-        class="button-profile ms-4 d-none d-xl-block"
+        class="button-profile ms-4 d-none d-xl-block ${model.isAuth ? 'logged-user' : ''}"
         data-sly-test="${properties.showProfile}"
       >
         <sly

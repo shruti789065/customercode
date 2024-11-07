@@ -1,3 +1,13 @@
+/**
+ * Checks if the current window width is considered desktop size.
+ * @returns {boolean} - True if the window width is greater than 1200px, otherwise false.
+ */
+
+// @todo: check how to remove moment from here.
+// it should be used in editprofileform.js
+import moment from 'moment';
+window.moment = moment;
+
 export function _isDesktop() {
   if (window.innerWidth <= 1200) {
     return false;
@@ -6,6 +16,11 @@ export function _isDesktop() {
   }
 }
 
+/**
+ * Prepends HTML content to a specified element.
+ * @param {Element} el - The element to which the HTML string will be prepended.
+ * @param {string} str - The HTML string to prepend.
+ */
 export function _prependHtml(el, str) {
   var div = document.createElement("div");
   div.innerHTML = str;
@@ -14,46 +29,11 @@ export function _prependHtml(el, str) {
   }
 }
 
-export function _findSiblingsWithClass(element, className) {
-  const siblings = [];
-  let sibling = element.parentNode.firstChild;
-  while (sibling) {
-    if (
-      sibling.nodeType === 1 &&
-      sibling !== element &&
-      sibling.classList.contains(className)
-    ) {
-      siblings.push(sibling);
-    }
-    sibling = sibling.nextSibling;
-  }
-  return siblings;
-}
-
-export function _getJsonProperty(jsonData, parameter) {
-  const items = [];
-  for (const key in jsonData) {
-    if (jsonData.hasOwnProperty(key)) {
-      const fragment = jsonData[key];
-      if (fragment.hasOwnProperty(parameter)) {
-        items.push(fragment[parameter]);
-      }
-    }
-  }
-
-  return items;
-}
-
-export function _generateUniqueValue(name, key) {
-  const cleanName = name.toLowerCase().replace(/\s+/g, "-");
-  const cleanKey = key.toLowerCase().replace(/\s+/g, "-");
-  const shortName = cleanName.substring(0, 4);
-  const shortKey = cleanKey.substring(0, 4);
-  const uniqueValue = `${shortName}-${shortKey}`;
-
-  return uniqueValue;
-}
-
+/**
+ * Displays an overlay and a loading spinner on a specified item.
+ * @param {Element} item - The element on which to display the overlay and loader.
+ * @param {boolean} needOverlay - Specifies whether an overlay should be shown.
+ */
 export function showOverlayAndLoader(item, needOverlay) {
   if (needOverlay) {
     const overlay = document.createElement("div");
@@ -66,6 +46,10 @@ export function showOverlayAndLoader(item, needOverlay) {
   item.addClass("loading");
 }
 
+/**
+ * Hides the overlay and loading spinner from a specified item.
+ * @param {Element} item - The element from which to remove the overlay and loader.
+ */
 export function hideOverlayAndLoader(item) {
   item.find(".loader").remove();
   const overlay = item.find(".overlay");
@@ -73,18 +57,4 @@ export function hideOverlayAndLoader(item) {
     overlay.remove();
   }
   item.removeClass("loading");
-}
-
-export function getUrl(endpoint, JSONmock = "") {
-  const { hostname, port, protocol } = window.location;
-
-  if (hostname === "localhost") {
-    if (port === "4502") {
-      return `${protocol}//${hostname}:${port}${endpoint}`;
-    } else {
-      return JSONmock;
-    }
-  } else {
-    return `${protocol}//${hostname}${endpoint}`;
-  }
 }

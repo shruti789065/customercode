@@ -2,6 +2,8 @@ package com.jakala.menarini.core.dto.aswLambdaDto;
 
 import org.junit.jupiter.api.Test;
 
+import com.jakala.menarini.core.dto.awslambda.LambdaImageDataDto;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LambdaImageDataDtoTest {

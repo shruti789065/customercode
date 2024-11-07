@@ -105,6 +105,22 @@ module.exports = {
           from: path.resolve(SOURCE_ROOT, "resources"),
           to: "clientlib-site/",
         },
+        {
+          from: path.resolve(SOURCE_ROOT, "components/signinform/signinform.js"),
+          to: "clientlib-signin/",
+        },
+        {
+          from: path.resolve(SOURCE_ROOT, "components/signupform/_signupform.js"),
+          to: "clientlib-signup/",
+        },
+        {
+          from: path.resolve(SOURCE_ROOT, "components/editprofileform/_editprofileform.js"),
+          to: "clientlib-editprofile/",
+        },
+        {
+          from: path.resolve(SOURCE_ROOT, "components/editimage/_editimage.js"),
+          to: "clientlib-editimage/",
+        },
       ],
     }),
   ],

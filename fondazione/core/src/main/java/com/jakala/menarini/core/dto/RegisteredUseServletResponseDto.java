@@ -1,7 +1,7 @@
 package com.jakala.menarini.core.dto;
 
+@SuppressWarnings("squid:S2384")
 public class RegisteredUseServletResponseDto {
-
 
     private boolean success;
     private RegisteredUserDto updatedUser;

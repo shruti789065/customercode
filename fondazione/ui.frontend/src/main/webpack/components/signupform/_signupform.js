@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const preSelectedTopics = urlParams?.get('topics').split("-");
+  const preSelectedTopics = urlParams?.get('topics')?.split("-");
 
   const dropdownButtonMultiple = document.querySelector(
     "#dropdownMultiselectMenuButton"
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
           selectedItemsMultipleSelect.push(checkbox.dataset.topicName);
         }
         updateDropdownTextMultiple();
-      })
+      });
 
       if(preSelectedTopics.length === 3) {
         checkboxes.forEach((element) => {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
 
-    })
+    });
   }
 
   const dropdownButtonProfession = document.querySelector(
@@ -127,11 +127,11 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         selectedTopicsIds = selectedTopicsIds.filter((item) => {
-          item !== checkbox.dataset.topicId
+          item !== checkbox.dataset.topicId;
         });
       }
 
-      // Disable every not selected checkbox if user select 3 elements      
+      // Disable every not selected checkbox if user select 3 elements
       checkboxes.forEach((element) => {
         if (
           !selectedItemsMultipleSelect.includes(element.dataset.topicName) &&
@@ -306,7 +306,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "#dropdownMultiselectMenuButton"
     );
 
-    if ((!data.areasOfInterest || data.areasOfInterest.length === 0) && selectedProfession !== Granite.I18n.get("no_healthcare")) {
+    if ((!data.areasOfInterest || data.areasOfInterest.length === 0) &&
+    selectedProfession !== Granite.I18n.get("no_healthcare")) {
       erroeMessagges.push({
         id: "areasOfInterest",
         message: Granite.I18n.get("mandatory_field"),
@@ -452,7 +453,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // FORM SUBMIT FUNCTIONS
-  async function sendData(registrationData) {    
+  async function sendData(registrationData) {
     let loader = document.querySelector("#signupLoader");
     let ctaSignUp = document.querySelector("#ctaSignup");
     try {
@@ -530,7 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
       validateNewsLetter(tmpFormData);
       validateEmailConfirmation(tmpFormData);
       console.log(erroeMessagges);
-      
+
       if (erroeMessagges.length === 0) {
         const responseReg = await sendData(registrationData);
         if (responseReg.cognitoSignUpErrorResponseDto) {

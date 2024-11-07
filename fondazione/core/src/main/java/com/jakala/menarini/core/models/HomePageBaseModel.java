@@ -49,7 +49,7 @@ public class HomePageBaseModel extends AuthBaseModel implements HomePageBaseMode
             Page currentPage = manager.getContainingPage(super.request.getResource());
             String path =  currentPage.getPath();
             List<ExternalSocialLinkResponseDto> links =
-                    externalizeService.genarateSocialLink(resolver,path);
+                    externalizeService.generateSocialLink(resolver,path);
             for(ExternalSocialLinkResponseDto link : links) {
                 if(link.getType().equals("youtube")) {
                     this.youtubeShareLink = link.getRedirect();
