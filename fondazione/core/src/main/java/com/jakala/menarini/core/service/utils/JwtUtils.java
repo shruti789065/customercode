@@ -28,6 +28,7 @@ import java.math.BigInteger;
 import java.security.*;
 
 
+import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.Base64;
 import java.util.Date;
@@ -144,7 +145,8 @@ public class JwtUtils {
             KeyFactory factory = KeyFactory.getInstance("RSA");
             return factory.generatePublic(spec);
 
-        } catch (Exception e) {
+        } catch (NumberFormatException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+            LOGGER.error("Error on recreate RSA Public key ",e);
             return null;
         }
 
