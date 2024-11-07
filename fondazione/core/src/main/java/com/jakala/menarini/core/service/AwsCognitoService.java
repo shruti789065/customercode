@@ -12,7 +12,6 @@ import com.jakala.menarini.core.exceptions.AwsServiceException;
 import com.jakala.menarini.core.service.interfaces.AwsCognitoServiceInterface;
 import com.jakala.menarini.core.service.interfaces.RoleServiceInterface;
 import com.jakala.menarini.core.service.interfaces.UserRegisteredServiceInterface;
-import io.jsonwebtoken.io.IOException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -335,7 +334,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     }
 
 
-    private StringBuffer readHttpResponse(CloseableHttpResponse httpResponse) throws IOException, java.io.IOException {
+    private StringBuffer readHttpResponse(CloseableHttpResponse httpResponse) throws  java.io.IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 httpResponse.getEntity().getContent()));
 
