@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                     },
                 });
                 if (regResponse.status === 200) {
-                    window.location.href = redirectLink
-                }   
+                    window.location.href = redirectLink;
+                }
             } catch (error) {
                 console.log("Error: ", error);
             }
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         let userEmailField = document.querySelector('#editImageUserEmail');
         if (userData && userEmailField && userNameField) {
             userEmailField.textContent = userData.updatedUser.email;
-            userNameField.textContent = userData.updatedUser.firstname + " " + userData.updatedUser.lastname
+            userNameField.textContent = userData.updatedUser.firstname + " " + userData.updatedUser.lastname;
         }
     }
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         let li = document.createElement('li');
                         li.textContent = message;
                         errorMessageList.appendChild(li);
-                    })
+                    });
                 }
             }
         }
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     function checkFileSize(file) {
-        if (file.size > 250 * 1024 && fileInputEditImage) { // 250KB                   
+        if (file.size > 250 * 1024 && fileInputEditImage) { // 250KB
             errorMessagges.push(Granite.I18n.get("error_image_size"));
             fileInputEditImage.value = "";
             return false;
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         return true;
     }
 
-    function validateImageDimensions(file, errorMessage) {
+    function validateImageDimensions(file) {
         return new Promise((resolve) => {
             const img = new Image();
             if (img) {
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 "CSRF-Token": csrfToken.token,
             },
         });
-        const dataResponse = await regResponse.json();        
+        const dataResponse = await regResponse.json();
         if (dataResponse.imageData !== "" && image && imgWrapper) {
             image.src = "data:image/jpeg;base64," + dataResponse.imageData;
             imgWrapper.classList.add('d-block');
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 let tokenObject = JSON.parse(storedToken);
                 token = tokenObject.token;
             } else {
-                token = storedToken
+                token = storedToken;
             }
 
             try {

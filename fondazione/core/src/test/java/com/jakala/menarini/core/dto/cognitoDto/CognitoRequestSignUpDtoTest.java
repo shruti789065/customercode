@@ -2,6 +2,9 @@ package com.jakala.menarini.core.dto.cognitoDto;
 
 import org.junit.jupiter.api.Test;
 
+import com.jakala.menarini.core.dto.cognito.CognitoRequestSignUpDto;
+import com.jakala.menarini.core.dto.cognito.CognitoRequestUserAttributeDto;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;

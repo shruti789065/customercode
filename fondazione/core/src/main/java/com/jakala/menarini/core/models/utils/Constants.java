@@ -1,9 +1,14 @@
 package com.jakala.menarini.core.models.utils;
 
-import com.day.cq.wcm.api.NameConstants;
+import com.day.cq.wcm.api.constants.NameConstants;
 import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 
 public class Constants {
+    
+    private Constants() {
+        // Private constructor to prevent instantiation
+    }
+
     public static final String RESOURCE_TYPE_PROPERTY = JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY;
 
     public static final String FEATURE_IMAGE_NODE_NAME = "cq:featuredimage";

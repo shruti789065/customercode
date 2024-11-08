@@ -1,0 +1,15 @@
+.component-divider {
+    width: 100%;
+    padding-inline: 15px;
+    @include media-breakpoint-up(md) {
+        padding: 0;
+    }
+
+    hr {
+        border: none;
+        height: 1px;
+        background-color: $fm-color-text;
+        opacity: 0.2;
+        width: 100%;
+    }
+}
