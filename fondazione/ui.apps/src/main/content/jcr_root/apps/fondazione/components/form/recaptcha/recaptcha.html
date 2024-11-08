@@ -18,12 +18,10 @@
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <script type="text/javascript">
 var onloadCallback = function () {
-	//alert("grecaptcha is ready!");
 	var publicKey = '${properties.publicKey @ context='scriptString'}'
 	grecaptcha.render("g-recaptcha", { sitekey: publicKey });
 };
 var onSuccess = function (response) {
-	//alert("grecaptcha is verified !" + response);
 	$('#g-recaptcha-response').val(response);
 };
 </script>
@@ -31,7 +29,3 @@ var onSuccess = function (response) {
 <div id="g-recaptcha" data-callback="onSuccess"></div>
 <input type="hidden" id="g-recaptcha-response" value=""/>
 <div id="recaptcha-error-message" class="error-captcha"></div>
-
-
-
-
