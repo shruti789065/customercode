@@ -18,6 +18,8 @@ public @interface EventListingServiceConfiguration {
     String startDateProperty();
     @AttributeDefinition(name = "end_date_property")
     String endDateProperty();
+    @AttributeDefinition(name = "base_url")
+    String baseUrl();
 
 
 

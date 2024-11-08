@@ -88,6 +88,11 @@ public class FragmentCreateListener implements ResourceChangeListener {
             if (isIdEmptyOrZero) {
                 String newSequence = ModelHelper.nextSequence(resolver, path);
                 idElement.setContent(newSequence, idElement.getContentType());
+                
+                if (path.contains("events")) {
+                    ContentElement slugElement = fragment.getElement("slug");
+                    slugElement.setContent(fragment.getName(), slugElement.getContentType());
+                }
 
                 this.createVariations(fragment);
                 resolver.commit();

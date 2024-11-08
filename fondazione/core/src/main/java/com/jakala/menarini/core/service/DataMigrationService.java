@@ -659,7 +659,9 @@ public class DataMigrationService {
                 currentVariationData.put("presentationDescription_it", fields[12]);
                 currentVariationData.put("presentationDescription_en", fields[13]);
 
-                processCsvRow(fields, fields[0], fields[1], template, parentResource, currentResolver);
+                ContentFragment cfm = processCsvRow(fields, fields[0], fields[1], template, parentResource, currentResolver);
+                ContentElement slugElement = cfm.getElement("slug");
+                slugElement.setContent(cfm.getName(), slugElement.getContentType());
                 
                 count++;
                 if (count % 100 == 0) {
@@ -1003,7 +1005,7 @@ public class DataMigrationService {
      * and creates a new content fragment if it does not exist and the name is provided.
      * It then updates the fields of the content fragment and its variations.
      */
-    private static void processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource, ResourceResolver currentResolver) throws RepositoryException, ContentFragmentException {
+    private static ContentFragment processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource, ResourceResolver currentResolver) throws RepositoryException, ContentFragmentException {
 
         LOGGER.info("ID: {} Name: {}", id, name);
             
@@ -1021,6 +1023,7 @@ public class DataMigrationService {
         
         updateContentFragmentVariations(cfm);
 
+        return cfm;
     }
 
     /**
@@ -1219,8 +1222,8 @@ public class DataMigrationService {
                 .replaceAll("\\s+", "-");
 
         // Max 40 chars
-        if (slug.length() > 40) {
-            slug = slug.substring(0, 40);
+        if (slug.length() > 100) {
+            slug = slug.substring(0, 100);
         }
 
         // Remove final cut

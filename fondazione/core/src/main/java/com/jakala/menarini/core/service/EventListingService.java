@@ -13,11 +13,13 @@ import com.jakala.menarini.core.dto.EventModelDto;
 import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.models.ModelHelper;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
+import com.jakala.menarini.core.service.interfaces.ExternalizeUrlServiceInterface;
 import com.jakala.menarini.core.service.utils.EventListingServiceConfiguration;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +51,7 @@ public class EventListingService implements EventListingServiceInterface {
 
     private String qStartDate;
     private String qEndDate;
-
+    private String baseUrl;
 
     @Activate
     private void activate(EventListingServiceConfiguration config) {
@@ -58,7 +60,15 @@ public class EventListingService implements EventListingServiceInterface {
         this.cityPath = config.cityPath();
         this.qStartDate = config.startDateProperty();
         this.qEndDate = config.endDateProperty();
+        this.baseUrl = config.baseUrl();
+    }
+    
+    @Reference
+    private ExternalizeUrlServiceInterface externalizeService;
 
+    private void updateBaseUrlLanguage(ResourceResolver resolver, String language) {
+        String parsedUrl = this.baseUrl.replace("LANG", language);
+        this.baseUrl = externalizeService.getExternalizeUrl(resolver, parsedUrl);
     }
 
     @Override
@@ -92,6 +102,7 @@ public class EventListingService implements EventListingServiceInterface {
         }
         int actPage = page <= 0 ? 1 : page;
         int slotSize = pageSlot <= 0 ? 6 : pageSlot;
+
         this.addPaginationToPredicate(predicate,actPage,slotSize);
         return this.getFilteredEvents(predicate,resolver,language);
     }
@@ -115,12 +126,13 @@ public class EventListingService implements EventListingServiceInterface {
             String language
     ) {
         ArrayList<EventModelDto> events = new ArrayList<>();
+        updateBaseUrlLanguage(resolver, language);
         try {
             LOGGER.error("============= ON GET EVENTS ===============");
-            List<Hit> hits = ModelHelper.findResourceByIds(resolver,eventIds, eventPath);
+            List<Hit> hits = ModelHelper.findResourceByIds(resolver, eventIds, eventPath);
 
             for(Hit hit : hits) {
-                events.add(this.buildEvent(hit.getResource(),language,resolver));
+                events.add(this.buildEvent(hit.getResource(), language, resolver));
             }
 
 
@@ -131,8 +143,6 @@ public class EventListingService implements EventListingServiceInterface {
         }
         return events;
     }
-
-
 
     private EventModelReturnDto getFilteredEvents(
             Map<String, String> predicate,
@@ -146,17 +156,19 @@ public class EventListingService implements EventListingServiceInterface {
         QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
         Session session = resolver.adaptTo(Session.class);
         Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        updateBaseUrlLanguage(resolver, language);
+
         if(query != null) {
-            LOGGER.error("============================= GET EVENT : query created ==============");
+            LOGGER.debug("============================= GET EVENT : query created ==============");
             SearchResult result = query.getResult();
-            LOGGER.error("============================= GET EVENT : result size ==============");
+            LOGGER.debug("============================= GET EVENT : result size ==============");
             matches = (int)result.getTotalMatches();
             for (Hit hit : result.getHits()) {
-                LOGGER.error("============================= GET EVENT : on process hits ==============");
+                LOGGER.debug("============================= GET EVENT : on process hits ==============");
 
                 try {
                     Resource resource = hit.getResource();
-                    EventModelDto event = buildEvent(resource, language,resolver);
+                    EventModelDto event = buildEvent(resource, language, resolver);
                     if (event != null) {
                         filteredEvents.add(event);
                     }
@@ -365,7 +377,10 @@ public class EventListingService implements EventListingServiceInterface {
             String location = fragment.getElement("city").getContent();
             location = getLocationName(location, language,resolver);
             String subscription = fragment.getElement("subscription").getContent();
-            return new EventModelDto(id, title, description, resource.getPath(), startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
+
+            String path = baseUrl + fragment.getElement("slug").getContent();
+
+            return new EventModelDto(id, title, description, path, startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
         } else {
             return null;
         }

@@ -26,6 +26,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
+import com.adobe.cq.dam.cfm.FragmentData;
 import com.adobe.cq.dam.cfm.FragmentTemplate;
 import com.adobe.cq.dam.cfm.VariationDef;
 import com.day.cq.dam.api.AssetManager;
@@ -273,7 +274,10 @@ class DataMigrationServiceTest {
 
         // Mock content fragment creation
         when(template.createFragment(any(), anyString(), anyString())).thenReturn(contentFragment);
-    
+        ContentElement anyElement = mock(ContentElement.class);
+        when(contentFragment.getElement(argThat(argument -> !argument.startsWith("ref_")))).thenReturn(anyElement);
+        FragmentData fragmentData = mock(FragmentData.class);
+        when(anyElement.getValue()).thenReturn(fragmentData);
 
         when(fileReaderService.getFileAsStream(anyString())).thenReturn(inputStream);
             

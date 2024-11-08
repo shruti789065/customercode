@@ -7,29 +7,19 @@ import javax.inject.Inject;
 import com.jakala.menarini.core.dto.EventModelDto;
 import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
+import com.jakala.menarini.core.service.interfaces.ExternalizeUrlServiceInterface;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
-import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
-import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 
 @Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = EventListingModel.class, resourceType = "fondazione/components/fragmentlist")
-public class EventListingModel {
-    
-    @Inject
-    private ResourceResolver resourceResolver;
-
-    @SlingObject
-    private Resource currentResource;
-
-    @ScriptVariable
-    private SlingHttpServletRequest request;
+public class EventListingModel extends GenericBaseModel {
 
     @OSGiService
     private EventListingServiceInterface eventListingService;
@@ -133,6 +123,12 @@ public class EventListingModel {
             selections.add(new EventSelection(ET_WEBINAR, "Webinar"));
             selections.add(new EventSelection(EF_LIVE_STREAM, "Streaming Live"));
             selections.add(new EventSelection(EF_RESIDENTIAL, "Residenziale"));
+        } else if (language.equals("es")) {
+            selections.add(new EventSelection(ET_COURSE, "Curso"));
+            selections.add(new EventSelection(ET_EVENT, "Evento"));
+            selections.add(new EventSelection(ET_WEBINAR, "Webinar"));
+            selections.add(new EventSelection(EF_LIVE_STREAM, "Transmisión en Vivo"));
+            selections.add(new EventSelection(EF_RESIDENTIAL, "Residencial"));
         } else {
             selections.add(new EventSelection(ET_COURSE, "Course"));
             selections.add(new EventSelection(ET_EVENT, "Event"));
@@ -158,6 +154,7 @@ public class EventListingModel {
         String startData = "";
         String endDate = "";
         String[] dateFilter = this.getDateFilter();
+        
         if(dateFilter != null) {
             if(dateFilter.length >1) {
                 startData = dateFilter[0];

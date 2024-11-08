@@ -27,6 +27,7 @@ import javax.jcr.Session;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
@@ -59,6 +60,9 @@ class EventListingServiceTest {
     @Mock
     private ContentFragment contentFragment;
 
+    @Mock
+    private ExternalizeUrlService externalizeUrlService;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -68,6 +72,9 @@ class EventListingServiceTest {
         when(config.cityPath()).thenReturn("/content/cities");
         when(config.startDateProperty()).thenReturn("startDate");
         when(config.endDateProperty()).thenReturn("endDate");
+        when(config.baseUrl()).thenReturn("/content/fondazione/LANG/courses-and-events/");
+
+        when(externalizeUrlService.getExternalizeUrl(any(ResourceResolver.class), anyString())).thenAnswer(invocation -> invocation.getArgument(1));
 
         // Use reflection to call the private activate method
         try {
@@ -99,34 +106,37 @@ class EventListingServiceTest {
         when(hit.getResource()).thenReturn(resource);
         when(resource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
 
-        ContentElement contentElementId = mock(ContentElement.class);
-        ContentElement contentElementStartDate = mock(ContentElement.class);
-        ContentElement contentElementEndDate = mock(ContentElement.class);
-        ContentElement contentElementPresentationImage = mock(ContentElement.class);
-        ContentElement contentElementTopics = mock(ContentElement.class);
-        FragmentData   fragmentDataTopics = mock(FragmentData.class);
-        ContentElement contentElementEventType = mock(ContentElement.class);
-        ContentElement contentElementCity = mock(ContentElement.class);
-        ContentElement contentElementSubscription = mock(ContentElement.class);
-        when(contentFragment.getElement("id")).thenReturn(contentElementId);
-        when(contentElementId.getContent()).thenReturn("1");
-        when(contentFragment.getElement("startDate")).thenReturn(contentElementStartDate);
-        when(contentElementStartDate.getContent()).thenReturn("2023-01-01");
-        when(contentFragment.getElement("endDate")).thenReturn(contentElementEndDate);
-        when(contentElementEndDate.getContent()).thenReturn("2023-12-31");
-        when(contentFragment.getElement("presentationImage")).thenReturn(contentElementPresentationImage);
-        when(contentElementPresentationImage.getContent()).thenReturn("image.jpg");
-        when(contentFragment.getElement("topics")).thenReturn(contentElementTopics);
-        when(contentElementTopics.getValue()).thenReturn(fragmentDataTopics);
-        when(fragmentDataTopics.getValue()).thenReturn(new String[]{"topic1", "topic2"});
-        when(contentFragment.getElement("eventType")).thenReturn(contentElementEventType);
-        when(contentElementEventType.getContent()).thenReturn("eventType");
-        when(contentFragment.getElement("city")).thenReturn(contentElementCity);
-        when(contentElementCity.getContent()).thenReturn("city");
-        when(contentFragment.getElement("subscription")).thenReturn(contentElementSubscription);
-        when(contentElementSubscription.getContent()).thenReturn("subscription");
+        ContentElement idElement = mock(ContentElement.class);
+        ContentElement startDateElement = mock(ContentElement.class);
+        ContentElement endDateElement = mock(ContentElement.class);
+        ContentElement presentationImageElement = mock(ContentElement.class);
+        ContentElement topicsElement = mock(ContentElement.class);
+        FragmentData topicsFragmentData = mock(FragmentData.class);
+        ContentElement eventTypeElement = mock(ContentElement.class);
+        ContentElement cityElement = mock(ContentElement.class);
+        ContentElement subscriptionElement = mock(ContentElement.class);
+        ContentElement slugElement = mock(ContentElement.class);
+        when(contentFragment.getElement("id")).thenReturn(idElement);
+        when(idElement.getContent()).thenReturn("1");
+        when(contentFragment.getElement("startDate")).thenReturn(startDateElement);
+        when(startDateElement.getContent()).thenReturn("2023-01-01");
+        when(contentFragment.getElement("endDate")).thenReturn(endDateElement);
+        when(endDateElement.getContent()).thenReturn("2023-12-31");
+        when(contentFragment.getElement("presentationImage")).thenReturn(presentationImageElement);
+        when(presentationImageElement.getContent()).thenReturn("image.jpg");
+        when(contentFragment.getElement("topics")).thenReturn(topicsElement);
+        when(topicsElement.getValue()).thenReturn(topicsFragmentData);
+        when(topicsFragmentData.getValue()).thenReturn(new String[]{"topic1", "topic2"});
+        when(contentFragment.getElement("eventType")).thenReturn(eventTypeElement);
+        when(eventTypeElement.getContent()).thenReturn("eventType");
+        when(contentFragment.getElement("city")).thenReturn(cityElement);
+        when(cityElement.getContent()).thenReturn("city");
+        when(contentFragment.getElement("subscription")).thenReturn(subscriptionElement);
+        when(subscriptionElement.getContent()).thenReturn("subscription");
         when(contentFragment.getTitle()).thenReturn("Event Title");
         when(contentFragment.getDescription()).thenReturn("Event Description");
+        when(contentFragment.getElement("slug")).thenReturn(slugElement);
+        when(slugElement.getContent()).thenReturn("event-slug");
 
         try (MockedStatic<ModelHelper> mockedHelper = mockStatic(ModelHelper.class)) {
             mockedHelper.when(() -> ModelHelper.getCurrentPageLanguage(resourceResolver, null)).thenReturn("en");
