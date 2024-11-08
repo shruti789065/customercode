@@ -3,6 +3,8 @@
  * Basic form validation.
  */
 
+import "./dropdown";
+
 document.addEventListener("DOMContentLoaded", function() {
 
     const formInputs = document.querySelectorAll(

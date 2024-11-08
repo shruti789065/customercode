@@ -61,4 +61,16 @@
       cursor: pointer;
     }
   }
+
+  // Compensate for the help message being absolute.
+  // It is done because of the dropdown position.
+  &--help-message {
+    margin-bottom: 25px;
+  }
+
+  &__help-message {
+    position: absolute;
+    top: 100%;
+    font-size: $super-small-text-size;
+  }
 }

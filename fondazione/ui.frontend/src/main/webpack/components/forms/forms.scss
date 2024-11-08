@@ -1,6 +1,7 @@
 @import "../../site/variables/variables";
 @import "./button";
 @import "./options";
+@import "./dropdown.scss";
 
 .cmp-form {
     margin: $xl auto;
@@ -11,44 +12,44 @@
             border-color: $fm-color-border;
             outline: 0;
         }
+
+        &::placeholder {
+            color: $fm-color-gray-light;
+        }
     }
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
-        width: 100%;
-    }
-
-    span.text-danger {
-        font-size: 16px;
-        color: $primary;
+    label {
         display: block;
+        margin-bottom: $s;
+        font-family: $font-default;
+        font-size: $title-small-font-size;
+        line-height: 1.5;
+        font-weight: $font-light;
+        color: $fm-color-text;
     }
 
+    .cmp-form-options--drop-down,
     .cmp-form-text {
         position: relative;
         display: block;
         padding-right: $xs;
         margin-bottom: $xl;
+    }
 
-        label {
-            display: block;
-            margin-bottom: $s;
-            font-family: $font-default;
-            font-size: $title-small-font-size;
-            line-height: 1.5;
-            font-weight: $font-light;
-            color: $fm-color-text;
-        }
+    .cmp-form-text__text,
+    .cmp-form-text__textarea,
+    .combo-input,
+    select {
+        width: 100%;
+        padding: calc($xs / 2) $xs calc($xs / 2) 20px;
+        border: 1px solid $fm-color-text;
+        font-family: $font-default;
+        font-weight: $font-light;
+        font-size: $title-extra-small-font-size;
+        color: $fm-color-gray-light;
+    }
 
-        &__text,
-        &__textarea {
-            padding: $xs/2 $xs $xs/2 20px;
-            border: 1px solid $fm-color-text;
-            font-family: $font-default;
-            font-weight: $font-light;
-        }
-
+    .cmp-form-text {
         &__text {
             height: 65px;
         }
@@ -82,10 +83,10 @@
     }
 
     .error-message {
-      position: absolute;
-      bottom: -24px;
-      left: 0;
-      font-size: $super-small-text-size;
-      color: $fm-form-error;
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+        font-size: $super-small-text-size;
+        color: $fm-form-error;
     }
 }

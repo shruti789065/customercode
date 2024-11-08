@@ -16,7 +16,9 @@
   <sly data-sly-use.options="com.adobe.cq.wcm.core.components.models.form.Options"
   data-sly-use.template="core/wcm/components/commons/v1/templates.html"
   data-sly-test.isNotEmpty="${options.items.size}">
-<fieldset class="cmp-form-options cmp-form-options--${options.type.value}" data-cmp-required-message="${properties.requiredMessage}">
+<fieldset
+  class="cmp-form-options cmp-form-options--${options.type.value} ${options.helpMessage ? 'cmp-form-options--help-message' : 'cmp-form-options--no-help-message'}"
+  data-cmp-required-message="${properties.requiredMessage}">
  <sly data-sly-test="${options.type.value == 'checkbox' || options.type.value == 'radio'}">
    <legend class="cmp-form-options__legend">${options.title}</legend>
    <label class="cmp-form-options__field-label" data-sly-repeat.optionItem="${options.items}" for="${options.id}_${optionItemList.index}">

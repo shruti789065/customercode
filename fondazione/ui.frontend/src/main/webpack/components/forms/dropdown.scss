@@ -1,0 +1,79 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+.cmp-form-options--drop-down {
+
+  select {
+    appearance: none;
+    background-image: url("../../clientlib-site/resources/icons/icon_dropdown.svg");
+    background-repeat: no-repeat;
+    background-position: 95% center;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  .combo-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    display: none;
+    width: 100%;
+    max-height: 780px;
+    overflow-y: scroll;
+    border: 1px solid $fm-color-text;
+    background-color: $white;
+  }
+
+  &.open {
+    .combo-input {
+      &::after {
+        rotate: 180deg;
+        transform: translateY(50%);
+      }
+    }
+
+    .combo-menu {
+      display: block;
+      border-top: 0 none;
+    }
+  }
+
+  .combo-input,
+  select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 65px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../clientlib-site/resources/icons/icon_dropdown.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:focus {
+      background-color: $fm-color-hover-li;
+      outline: 0;
+    }
+  }
+
+  .combo-option {
+    padding: 20px 25px;
+    font-size: $title-extra-small-font-size;
+    font-weight: $font-light;
+    color: $fm-color-text;
+
+    &--current {
+      background-color: $fm-color-hover-li;
+    }
+  }
+}
