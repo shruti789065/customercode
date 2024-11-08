@@ -93,6 +93,41 @@ The final inclusion of client libraries on the sites page is as follows:
 
 The above inclusion can of course be modified by updating the Page Policy and/or modifying the categories and embed properties of respective client libraries.
 
+### Client libraries separation for performance
+
+#### ;TLDR
+
+- If you need a separate library put your component in the `components` folder.
+- If you need your CSS/JS to go into the global one(clientlib-site), put your code into `components/site`
+- Check `webpack.common.js` for reference.
+
+#### Explanation and tips
+
+- Webpack is configured to create a separate client libraries based on the folder structure.
+- Every component in `components` folder will be generate as a separate clientlib for inclusion.
+- The global clientlib-site is generate from the CSS and JS in `components/site` folder
+
+Example is `components/forms`:
+
+```
+|-- components
+|---- forms
+|------ forms.js
+|------ forms.scss
+
+````
+
+Webpack will generate: `clientlib-forms` library based on the name of the folder and the name of the .js and .scss file.
+
+! It is important to name your files after the folder name. This will be your library name.
+
+For components you need to include the variables.scss and breakpoints scss and every other file you must use:
+
+```
+@import "../../site/variables/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+```
+
 ### Static Webpack Development Server
 
 Included in the ui.frontend module is a [webpack-dev-server](https://github.com/webpack/webpack-dev-server) that provides live reloading for rapid front-end development outside of AEM. The setup leverages the [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) to automatically inject CSS and JS compiled from the ui.frontend module into a static HTML template.
