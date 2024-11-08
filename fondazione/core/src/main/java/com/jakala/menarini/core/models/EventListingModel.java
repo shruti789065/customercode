@@ -85,8 +85,8 @@ public class EventListingModel {
     }
 
     private String getScheduledFilter() {
-        return request.getParameter("eventStatus");
-
+        String status = request.getParameter("eventStatus");
+        return status != null ? status : "scheduled";
     }
 
     private String[] getDateFilter() {
