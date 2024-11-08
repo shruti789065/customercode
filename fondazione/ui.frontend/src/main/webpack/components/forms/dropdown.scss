@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/mixins/breakpoints";
+
 .cmp-form-options--drop-down {
 
   select {
@@ -8,7 +9,7 @@
     background-position: 95% center;
 
     @include media-breakpoint-up(lg) {
-      display: none;
+      display: none !important;
     }
   }
 

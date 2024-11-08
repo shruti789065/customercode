@@ -18,22 +18,22 @@
         }
     }
 
-    label {
-        display: block;
-        margin-bottom: $s;
-        font-family: $font-default;
-        font-size: $title-small-font-size;
-        line-height: 1.5;
-        font-weight: $font-light;
-        color: $fm-color-text;
-    }
-
     .cmp-form-options--drop-down,
     .cmp-form-text {
         position: relative;
         display: block;
         padding-right: $xs;
         margin-bottom: $xl;
+
+        label {
+            display: block;
+            margin-bottom: $s;
+            font-family: $font-default;
+            font-size: $title-small-font-size;
+            line-height: 1.5;
+            font-weight: $font-light;
+            color: $fm-color-text;
+        }
     }
 
     .cmp-form-text__text,
