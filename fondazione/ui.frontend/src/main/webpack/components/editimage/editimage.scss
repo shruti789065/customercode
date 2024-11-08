@@ -41,12 +41,12 @@
         background-repeat: no-repeat;
         color: $fm-color-text;
         background-color: $gray;
-        background-image: url("../resources/icons/icon_profile_black.svg");
+        background-image: url($resources-path + "/icon_profile_black.svg");
     }
 
 
     .cmp-editimage__addEdit {
-        background-image: url("../resources/icons/arrow_long_right.svg");
+        background-image: url($resources-path + "/icons/arrow_long_right.svg"); 
         background-repeat: no-repeat;
         background-position: right;
         border-bottom: solid $fm-color-blue-link 2px;
@@ -58,6 +58,7 @@
 
         p {
             font-family: $font-default !important;
+            padding-left: 0;
         }
     }
 
