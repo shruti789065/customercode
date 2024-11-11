@@ -26,10 +26,15 @@ public class CustomTabsListItem implements ListItem {
 		return wrappedListItem.getDescription();
 	}
 
+	/**
+	 * @deprecated Do not forget to remove this deprecated code someday.
+	 */
+	@Deprecated
 	@Override
 	public String getURL() {
 		return wrappedListItem.getURL();
 	}
+
  	@Override
 	public String getId() {
 		return "megamenu-"+wrappedListItem.getId();

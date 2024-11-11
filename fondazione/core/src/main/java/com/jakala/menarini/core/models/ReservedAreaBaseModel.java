@@ -2,8 +2,8 @@ package com.jakala.menarini.core.models;
 
 import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.dto.RegisteredUserTopicDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.ImageProfileServiceResponseDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.LambdaGetFileDto;
+import com.jakala.menarini.core.dto.awslambda.ImageProfileServiceResponseDto;
+import com.jakala.menarini.core.dto.awslambda.LambdaGetFileDto;
 import com.jakala.menarini.core.models.interfaces.ReservedAreaBaseModelInterface;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import com.jakala.menarini.core.service.interfaces.ImageProfileServiceInterface;

@@ -85,8 +85,8 @@ public class EventListingModel {
     }
 
     private String getScheduledFilter() {
-        return request.getParameter("eventStatus");
-
+        String status = request.getParameter("eventStatus");
+        return status != null ? status : "scheduled";
     }
 
     private String[] getDateFilter() {
@@ -179,7 +179,7 @@ public class EventListingModel {
                 pagination[0],
                 pagination[1]
         );
-        totalResults = (int)eventData.getTotalMatches();
+        totalResults = eventData.getTotalMatches();
         totalPages = (int) Math.ceil((double) totalResults / pageSize);
 
         return eventData.getEvents();

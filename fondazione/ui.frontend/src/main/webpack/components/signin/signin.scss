@@ -1,0 +1,55 @@
+@import "../../site/variables/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.customform {
+
+    .customform__signincol {
+        border-right: solid 1px $fm-color-gray-light;
+
+        @include media-breakpoint-down(lg) {
+            border-right: none;
+            border-bottom: solid 1px $fm-color-gray-light;
+        }
+    }
+
+    h3 {
+        color: $fm-color-text;
+    }
+
+    .cmp-signinform__formItemTitle {
+        font-weight: 300;
+    }
+
+    .forgot-password-link, .signin-link {
+        font-family: $font-arimo;
+    }
+
+    .cmp-signinform__forgotPassword {
+        color: $fm-color-blue-link;
+        border: none;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .cmp-signinform__customError {
+        color: $fm-form-error;
+        font-size: .875em;
+        font-family: $font-arimo;
+    }
+
+    .cmp-signinform__borderRed {
+        border-color: $fm-form-error !important;
+    }
+
+    .cmp-signinform__borderGreen {
+        border-color: $fm-form-success !important;
+    }
+
+    .invalid-feedback {
+        font-family: $font-arimo;
+    }
+
+}

@@ -3,7 +3,7 @@ package com.jakala.menarini.core.service;
 
 import com.jakala.menarini.core.dto.RegisteredUserTopicDto;
 import com.jakala.menarini.core.dto.TopicDto;
-import com.jakala.menarini.core.dto.cognitoDto.SignUpDtoResponse;
+import com.jakala.menarini.core.dto.cognito.SignUpDtoResponse;
 import com.jakala.menarini.core.entities.RegisteredUserTopic;
 import com.jakala.menarini.core.entities.records.RegisteredUserTopicRecord;
 import org.jooq.DSLContext;

@@ -76,7 +76,7 @@ public class UserEventService implements UserEventServiceInterface {
         }
     }
 
-
+    @SuppressWarnings("squid:S1696")
     @Override
     public boolean updateEventEnrollmentDate(String[] newDate, String phone, Long idUser, Long enrollmentId) {
         Gson gson = new Gson();

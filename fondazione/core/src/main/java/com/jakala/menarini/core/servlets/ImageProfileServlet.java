@@ -2,10 +2,10 @@ package com.jakala.menarini.core.servlets;
 
 
 import com.google.gson.Gson;
-import com.jakala.menarini.core.dto.aswLambdaDto.ImageProfileServiceResponseDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.LambdaGetFileDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.LambdaPutFileDto;
-import com.jakala.menarini.core.dto.aswLambdaDto.PutImageDto;
+import com.jakala.menarini.core.dto.awslambda.ImageProfileServiceResponseDto;
+import com.jakala.menarini.core.dto.awslambda.LambdaGetFileDto;
+import com.jakala.menarini.core.dto.awslambda.LambdaPutFileDto;
+import com.jakala.menarini.core.dto.awslambda.PutImageDto;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import com.jakala.menarini.core.service.interfaces.ImageProfileServiceInterface;
 import org.apache.sling.api.SlingHttpServletRequest;

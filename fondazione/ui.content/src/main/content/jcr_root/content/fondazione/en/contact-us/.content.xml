@@ -2,27 +2,30 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-09-24T16:11:05.339+03:00"
+        cq:lastModified="{Date}2024-11-05T10:39:52.334+02:00"
         cq:lastModifiedBy="admin"
-        cq:template="/conf/fondazione/settings/wcm/templates/page-content"
+        cq:template="/conf/fondazione/settings/wcm/templates/contact-us"
         jcr:primaryType="cq:PageContent"
-        jcr:title="contact us"
+        jcr:title="Contact us"
         sling:resourceType="fondazione/components/page">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="fondazione/components/container"
             layout="responsiveGrid">
             <container
+                jcr:lastModified="{Date}2024-11-05T09:14:10.857+02:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/container"
                 layout="responsiveGrid">
-                <title
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/title"/>
                 <container
+                    jcr:created="{Date}2024-11-05T09:47:49.392+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-05T09:49:43.402+02:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/container"
-                    layout="responsiveGrid"/>
+                    layout="responsiveGrid"
+                    sling:resourceType="fondazione/components/container"/>
             </container>
         </root>
     </jcr:content>

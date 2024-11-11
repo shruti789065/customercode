@@ -3,6 +3,10 @@ package com.jakala.menarini.core.dto.cognitoDto;
 import com.jakala.menarini.core.dto.RegisteredUserDto;
 import com.jakala.menarini.core.dto.RoleDto;
 import com.jakala.menarini.core.dto.TopicDto;
+import com.jakala.menarini.core.dto.cognito.CognitoSignInErrorResponseDto;
+import com.jakala.menarini.core.dto.cognito.SignUpDto;
+import com.jakala.menarini.core.dto.cognito.SignUpDtoResponse;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

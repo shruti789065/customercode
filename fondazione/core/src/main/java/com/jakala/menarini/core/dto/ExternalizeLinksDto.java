@@ -2,6 +2,7 @@ package com.jakala.menarini.core.dto;
 
 import com.jakala.menarini.core.dto.enums.ExternalizeOp;
 
+@SuppressWarnings("squid:S2384")
 public class ExternalizeLinksDto {
 
     private ExternalizeOp op;

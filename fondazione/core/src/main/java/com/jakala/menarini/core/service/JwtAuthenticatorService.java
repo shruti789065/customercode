@@ -9,7 +9,6 @@ import com.google.gson.JsonSyntaxException;
 import com.jakala.menarini.core.exceptions.JwtServiceException;
 import com.jakala.menarini.core.service.interfaces.EncryptDataServiceInterface;
 import com.jakala.menarini.core.service.utils.JwtUtils;
-import io.jsonwebtoken.JwtException;
 
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.core.spi.AuthenticationInfo;
@@ -83,7 +82,7 @@ import com.jakala.menarini.core.dto.RoleDto;
                 return authData;
     
 
-            } catch (JwtException | JwtServiceException | IOException | JsonSyntaxException e) {
+            } catch (JwtServiceException | IOException | JsonSyntaxException e) {
                 LOGGER.error("Failed to extract credentials", e);
                 try {
                     sendUnauthorizedResponse(response);

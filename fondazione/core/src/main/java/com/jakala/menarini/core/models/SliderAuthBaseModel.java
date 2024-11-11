@@ -18,12 +18,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+@SuppressWarnings("squid:S2384")
 @Model(adaptables = {
         Resource.class,
         SlingHttpServletRequest.class
-}
-)
+})
 public class SliderAuthBaseModel extends AuthBaseModel {
 
 
