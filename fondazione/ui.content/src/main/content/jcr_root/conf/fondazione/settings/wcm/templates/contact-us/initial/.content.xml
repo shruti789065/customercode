@@ -2,11 +2,8 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2024-11-05T10:39:52.334+02:00"
-        cq:lastModifiedBy="admin"
         cq:template="/conf/fondazione/settings/wcm/templates/contact-us"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Contact us"
         sling:resourceType="fondazione/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -24,7 +21,6 @@
                     jcr:lastModified="{Date}2024-11-05T09:49:43.402+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    layout="responsiveGrid"
                     sling:resourceType="fondazione/components/container"/>
             </container>
         </root>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-11-05T10:28:31.981+02:00"
+        cq:lastModifiedBy="admin"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/fondazione/settings/wcm/templates/experience-fragment-forms"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Contact us"
+        sling:resourceType="fondazione/components/xfpage">
+        <root
+            jcr:lastModified="{Date}2024-11-05T09:10:53.331+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="fondazione/components/container"
+            layout="responsiveGrid"/>
+        <cq:metadata
+            jcr:primaryType="nt:unstructured"
+            max-cols="1"
+            min-cols="1"/>
+    </jcr:content>
+</jcr:root>
