@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/mixins/breakpoints";
 @import "../../site/variables/variables";
 @import "./button";
 @import "./options";
@@ -22,8 +23,11 @@
     .cmp-form-text {
         position: relative;
         display: block;
-        padding-right: $xs;
         margin-bottom: $xl;
+
+        @include media-breakpoint-up(lg) {
+          padding-right: $xs;
+        }
 
         label {
             display: block;
