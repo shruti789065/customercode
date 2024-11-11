@@ -33,16 +33,15 @@
                                 title="Upload desktop image"
                                 uploadUrl="${suffix.path}"
                                 useHTML5="{Boolean}true"/>
-                                 <overlay
+                            <overlay
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                 class="cmp-overlay-checkbox"
                                 fieldDescription="If selected an overlay will be applied to the image."
                                 name="./overlay"
                                 text="Enable overlay"
-                                uncheckedValue="{Boolean}false"
                                 value="{Boolean}true" />
-                                <list
+                            <list
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/select"
                                 class="cq-dialog-dropdown-showhide"
@@ -52,12 +51,12 @@
                                 <items jcr:primaryType="nt:unstructured">
                                     <option1
                                         jcr:primaryType="nt:unstructured"
-                                        text="Quote"
-                                        value="heroSlimQuote"/>
-                                    <option2
-                                        jcr:primaryType="nt:unstructured"
                                         text="Text"
                                         value="heroSlimText"/>
+                                    <option2
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Quote"
+                                        value="heroSlimQuote"/> 
                                 </items>
                             </list>
                             <option1group
