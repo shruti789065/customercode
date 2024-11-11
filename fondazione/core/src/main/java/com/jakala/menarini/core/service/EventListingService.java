@@ -15,6 +15,8 @@ import com.jakala.menarini.core.models.ModelHelper;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
 import com.jakala.menarini.core.service.interfaces.ExternalizeUrlServiceInterface;
 import com.jakala.menarini.core.service.utils.EventListingServiceConfiguration;
+
+import org.apache.commons.text.StringEscapeUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.service.component.annotations.Activate;
@@ -128,7 +130,7 @@ public class EventListingService implements EventListingServiceInterface {
         ArrayList<EventModelDto> events = new ArrayList<>();
         updateBaseUrlLanguage(resolver, language);
         try {
-            LOGGER.error("============= ON GET EVENTS ===============");
+            LOGGER.debug("============= ON GET EVENTS ===============");
             List<Hit> hits = ModelHelper.findResourceByIds(resolver, eventIds, eventPath);
 
             for(Hit hit : hits) {
@@ -143,6 +145,24 @@ public class EventListingService implements EventListingServiceInterface {
         }
         return events;
     }
+
+    @Override
+    public EventModelDto getEventBySlug(String slug, ResourceResolver resolver, String language) {
+        updateBaseUrlLanguage(resolver, language);
+        try {
+            LOGGER.debug("============= ON GET EVENT ===============");
+            Resource event = ModelHelper.findResourceByParam(resolver, slug, "slug", eventPath);
+
+            if (event != null) {
+                return this.buildEventDetail(event, language, resolver);
+            }
+
+        } catch (RepositoryException e) {
+            LOGGER.error("============= error on get event data ===============");
+            LOGGER.error(e.getMessage());
+        }
+        return null;
+    } 
 
     private EventModelReturnDto getFilteredEvents(
             Map<String, String> predicate,
@@ -352,7 +372,7 @@ public class EventListingService implements EventListingServiceInterface {
         ContentFragment fragment = resource.adaptTo(ContentFragment.class);
         if (fragment != null) {
             String id = fragment.getElement("id").getContent();
-            LOGGER.error("=================== GET EVENT: build event ============================");
+            LOGGER.debug("=================== GET EVENT: build event ============================");
             String title = ModelHelper.getLocalizedElementValue(fragment, language, "title", fragment.getTitle());
             String description = ModelHelper.getLocalizedElementValue(fragment, language, "description", fragment.getDescription());
             String startDateStr = fragment.getElement("startDate").getContent();
@@ -381,6 +401,20 @@ public class EventListingService implements EventListingServiceInterface {
             String path = baseUrl + fragment.getElement("slug").getContent();
 
             return new EventModelDto(id, title, description, path, startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
+        } else {
+            return null;
+        }
+    }
+
+    private EventModelDto buildEventDetail(Resource resource, String language, ResourceResolver resolver) {
+        EventModelDto event = this.buildEvent(resource, language, resolver);
+        ContentFragment fragment = resource.adaptTo(ContentFragment.class);
+        if (event != null && fragment != null) {
+
+            String description = ModelHelper.getLocalizedElementValue(fragment, language, "presentationDescription", null);
+            event.setDescription(StringEscapeUtils.unescapeHtml4(description));
+
+            return event;
         } else {
             return null;
         }

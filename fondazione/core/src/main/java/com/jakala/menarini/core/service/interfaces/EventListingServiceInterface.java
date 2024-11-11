@@ -28,5 +28,11 @@ public interface EventListingServiceInterface {
             String language
     );
 
+    public EventModelDto getEventBySlug(
+            String slug,
+            ResourceResolver resolver,
+            String language
+    );
+
 
 }

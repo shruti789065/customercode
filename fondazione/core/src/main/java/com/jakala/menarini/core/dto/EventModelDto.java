@@ -110,4 +110,8 @@ public class EventModelDto {
     public void setSubscription(String subscription) {
         this.subscription = subscription;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

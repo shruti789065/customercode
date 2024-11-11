@@ -2,12 +2,9 @@ package com.jakala.menarini.core.models;
 
 import java.util.*;
 
-import javax.inject.Inject;
-
 import com.jakala.menarini.core.dto.EventModelDto;
 import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
-import com.jakala.menarini.core.service.interfaces.ExternalizeUrlServiceInterface;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -90,7 +87,7 @@ public class EventListingModel extends GenericBaseModel {
                 return dateOrPeriod.split(" to ");
 
             } else {
-                // Singola data
+                // Singole date
                 return new String[] {dateOrPeriod};
             }
         }

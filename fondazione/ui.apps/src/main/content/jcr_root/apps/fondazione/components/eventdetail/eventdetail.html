@@ -1,0 +1,91 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.EventDetailModel">
+
+    <div class="event-grid">
+        <sly data-sly-list.event="${model.detail}">
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="${event.presentationImage}" alt="Image Description"/>
+                </div>
+                <div class="event-details">
+                    <p class="upperTitle">${event.topics}</p>
+                    <h5>${event.title}</h5>
+                    <p>Event Type: ${event.eventType}</p>
+                    <p>Subscription: ${event.subscription}</p>
+                    <p class="lowerTitle">${event.location}  |  From ${event.startDateText} to ${event.endDateText}</p>
+                    <!-- sede indirizzo -->
+                    <div data-sly-unwrap>${event.description @ context='unsafe'}</div>
+                    <!-- <div data-sly-text="${event.description @ context='html'}"></div> -->
+                    <!-- Speakers -->
+                    <!-- Material PDF ? -->
+                </div>
+            </div>
+        </sly>
+    </div>
+    <p data-sly-test="${!model.detail}">No events found.</p>
+
+    
+</sly>
+<style>
+     /*EVENT GRID*/
+     .lowerTitle {
+        font-size: small;
+    }
+
+    .upperTitle {
+        font-size: xx-small;
+    }
+
+    .event-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .event-card {
+        flex: 1 1 calc(33.33% - 20px);
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .event-card a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .event-image {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .event-image img {
+        width: 60%;
+        height: auto;
+        display: block;
+    }
+
+    .event-details {
+        flex: 1;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .event-details h5 {
+        font-weight: bold;
+        margin: 0 0 10px 0;
+    }
+
+    .event-details p {
+        margin: 0;
+    }
+</style>
