@@ -15,12 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const url = new URL(window.location);
       let eventStatus = url.searchParams.get("eventStatus");
 
-      if (!eventStatus) {
-        eventStatus = "scheduled";
-        url.searchParams.set("eventStatus", eventStatus);
-        window.history.replaceState({}, "", url);
-      }
-
       if (eventStatus === "scheduled") {
         scheduledButton.classList.add("active");
         finishedButton.classList.remove("active");
