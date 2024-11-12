@@ -4,7 +4,7 @@
     allowedPaths="[/content/entities(/.*)?]"
     ranking="{Long}100">
     <jcr:content
-        cq:lastModified="{Date}2024-11-06T18:23:30.532+01:00"
+        cq:lastModified="{Date}2024-11-11T19:04:12.896+01:00"
         cq:lastModifiedBy="admin"
         cq:scaffolding="/conf/fondazione/settings/dam/cfm/models/event/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
@@ -24,13 +24,13 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}2024-11-06T18:23:30.532+01:00"
+                    jcr:lastModified="{Date}2024-11-11T19:04:12.896+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                     <items
                         jcr:primaryType="nt:unstructured"
-                        maxGeneratedOrder="21">
+                        maxGeneratedOrder="20">
                         <_x0031_728982804016
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
@@ -51,7 +51,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             fieldLabel="Slug (auto generated) "
-                            listOrder="21"
+                            listOrder="1"
                             maxlength="255"
                             metaType="text-single"
                             name="slug"
@@ -354,6 +354,31 @@
                                 jcr:primaryType="nt:unstructured"
                                 rootPath="/content/dam/fondazione/suppliers"/>
                         </_x0031_728484087364>
+                        <_x0031_731347939612
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="dam/cfm/models/editor/components/fragmentreference/multifield"
+                            allowNew="{Boolean}false"
+                            fieldLabel="Speakers"
+                            filter="hierarchy"
+                            fragmentmodelreference="/conf/fondazione/settings/dam/cfm/models/speaker"
+                            listOrder="8"
+                            metaType="fragment-reference"
+                            name="speakers"
+                            nameSuffix="contentReference"
+                            renderReadOnly="false"
+                            rootPath="/content/dam/fondazione/speakers"
+                            showEmptyInReadOnly="true"
+                            valueType="string/content-fragment[]">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dam/cfm/models/editor/components/fragmentreference"
+                                fragmentmodelreference="/conf/fondazione/settings/dam/cfm/models/speaker"
+                                name="speakers"
+                                renderReadOnly="false">
+                                <granite:data jcr:primaryType="nt:unstructured"/>
+                            </field>
+                        </_x0031_731347939612>
                         <_x0031_725379309097
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -466,20 +491,6 @@
                             valueType="string/multiline">
                             <granite:data jcr:primaryType="nt:unstructured"/>
                         </_x0031_724753624365>
-                        <_x0031_724753768369
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
-                            cfm-element="Speakers"
-                            checked="false"
-                            default-mime-type="text/html"
-                            listOrder="2"
-                            metaType="text-multi"
-                            name="speakers"
-                            renderReadOnly="false"
-                            showEmptyInReadOnly="true"
-                            valueType="string/multiline">
-                            <granite:data jcr:primaryType="nt:unstructured"/>
-                        </_x0031_724753768369>
                         <_x0031_724753858606
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
