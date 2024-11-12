@@ -1,3 +1,6 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../site/variables/variables";
+
 .flatpickr-calendar {
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -17,10 +20,6 @@ button#clearDateOrPeriod {
     width: 100%;
     display: none;
     justify-content: flex-end;
-
-    @include media-breakpoint-up(lg) {
-        // display: flex;
-    }
 
     img {
         margin-left: 5px;

@@ -1,7 +1,11 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../site/variables/variables";
+
 .event-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
     @include media-breakpoint-up(lg) {
         flex-direction: row;
     }
@@ -14,13 +18,15 @@
         flex-direction: column;
         max-height: 450px;
         width: 100%;
+
         @include media-breakpoint-up(md) {
             width: calc(50% - 20px);
         }
+
         @include media-breakpoint-up(lg) {
             width: calc(33.33% - 20px);
         }
-       
+
 
         &--link {
             text-decoration: none;
@@ -40,7 +46,7 @@
                 display: block;
                 object-position: top;
             }
-        } 
+        }
 
         &--details {
             flex: 1;
