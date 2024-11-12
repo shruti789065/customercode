@@ -1,7 +1,9 @@
 %btn-primary {
+    display: inline-flex;
+    align-items: center;
     font-family: $font-default;
     background-color: $primary;
-    font-weight: $font-weight-medium;
+    font-weight: $font-medium;
     font-size: $text-size;
     line-height: $text-line-height;
     text-align: center;
@@ -16,4 +18,17 @@
     &:hover {
         background-color: $primary-hover;
     }
+}
+
+.button-cta {
+  &--primary {
+    a,
+    button {
+      @extend %btn-primary;
+    }
+  }
+}
+
+.cmp-form-button {
+  @extend %btn-primary;
 }
