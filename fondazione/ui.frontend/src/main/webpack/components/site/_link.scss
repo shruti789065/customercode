@@ -1,5 +1,24 @@
 .link {
 
+	.cmp-link__divider {
+		display: inline-block;
+		width: 1px;
+		height: 24px;
+		background-color: $black;
+		margin: 0 8px;
+		vertical-align: middle;
+	}
+
+	.cmp-link__icon-onRadar {
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		max-width: 250px;
+		display: block;
+
+		
+	}
+
 	.cmp-link--menu-list {
 		align-items: center;
 		margin: 5px 0;
@@ -112,6 +131,7 @@
 					right: -20px;
 				}
 			}
+
 		}
 
 		&.cmp-link--list {
@@ -137,6 +157,8 @@
 				margin-top: 20px;
 				font-weight: 100;
 			}
+
+
 		}
 
 
