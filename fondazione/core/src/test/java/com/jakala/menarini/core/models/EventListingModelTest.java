@@ -111,7 +111,7 @@ class EventListingModelTest {
         );
         eventModelReturnDto.setEvents(Collections.singletonList(eventModelDto));
 
-        when(eventListingService.getEvents(any(), anyString(), anyList(), anyList(), anyList(), anyString(), anyString(), anyString(), anyInt(), anyInt()))
+        when(eventListingService.getEvents(any(ResourceResolver.class), anyString(), anyList(), anyList(), anyList(), anyString(), anyString(), anyString(), anyInt(), anyInt()))
                 .thenReturn(eventModelReturnDto);
 
         List<EventModelDto> events = null;
@@ -150,11 +150,12 @@ class EventListingModelTest {
         }
         eventModelReturnDto.setEvents(eventList);
 
-        when(eventListingService.getEvents(any(), anyString(), anyList(), anyList(), anyList(), isNull(), anyString(), anyString(), anyInt(), anyInt()))
-                .thenReturn(eventModelReturnDto);
+        when(eventListingService.getEvents(any(), anyString(), anyList(), anyList(), anyList(), anyString(), anyString(), anyString(), anyInt(), anyInt()))
+            .thenReturn(eventModelReturnDto);
 
         try (MockedStatic<ModelHelper> mockedHelper = mockStatic(ModelHelper.class)) {
             mockedHelper.when(() -> ModelHelper.getCurrentPageLanguage(resourceResolver, currentResource)).thenReturn("en");
+
             eventListingModel.getEvents();
         }
 

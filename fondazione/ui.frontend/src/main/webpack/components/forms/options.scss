@@ -1,0 +1,77 @@
+.cmp-form-options {
+  legend {
+      display: none;
+  }
+
+  &__field-label:has(input[required]) {
+    &::after {
+        content: " *";
+        margin: 0 7px;
+        color: $primary;
+        font-weight: $font-light;
+    }
+  }
+
+  &__field-description {
+      font-family: $font-arimo;
+  }
+
+  &--checkbox {
+      label {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+      }
+  }
+
+  &__field--checkbox {
+      display: flex;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      box-shadow: 0 0 0 1.5px $fm-color-text;
+      appearance: none;
+      cursor: pointer;
+
+      &:focus {
+          box-shadow: 0 0 0 2px $fm-color-blue-link;
+      }
+
+      &:checked {
+          box-shadow: 0 0 0 2px $fm-color-blue-link;
+
+          &::before {
+              content: '';
+              display: block;
+              height: 12px;
+              width: 7px;
+              margin-top: 1px;
+              border-bottom: 2px solid $fm-color-blue-link;
+              border-right: 2px solid $fm-color-blue-link;
+              transform: rotate(45deg);
+          }
+      }
+  }
+
+  &--radio {
+    display: flex;
+    gap: 1rem;
+
+    label {
+      font-size: $small-text-size;
+      cursor: pointer;
+    }
+  }
+
+  // Compensate for the help message being absolute.
+  // It is done because of the dropdown position.
+  &--help-message {
+    margin-bottom: 25px;
+  }
+
+  &__help-message {
+    position: absolute;
+    top: 100%;
+    font-size: $super-small-text-size;
+  }
+}

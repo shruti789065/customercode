@@ -1,0 +1,96 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../site/variables/variables";
+@import "./button";
+@import "./options";
+@import "./dropdown.scss";
+
+.cmp-form {
+    margin: $xl auto;
+
+    input,
+    textarea {
+        &:focus {
+            border-color: $fm-color-border;
+            outline: 0;
+        }
+
+        &::placeholder {
+            color: $fm-color-gray-light;
+        }
+    }
+
+    .cmp-form-options--drop-down,
+    .cmp-form-text {
+        position: relative;
+        display: block;
+        margin-bottom: $xl;
+
+        @include media-breakpoint-up(lg) {
+          padding-right: $xs;
+        }
+
+        label {
+            display: block;
+            margin-bottom: $s;
+            font-family: $font-default;
+            font-size: $title-small-font-size;
+            line-height: 1.5;
+            font-weight: $font-light;
+            color: $fm-color-text;
+        }
+    }
+
+    .cmp-form-text__text,
+    .cmp-form-text__textarea,
+    .combo-input,
+    select {
+        width: 100%;
+        padding: calc($xs / 2) $xs calc($xs / 2) 20px;
+        border: 1px solid $fm-color-text;
+        font-family: $font-default;
+        font-weight: $font-light;
+        font-size: $title-extra-small-font-size;
+        color: $fm-color-gray-light;
+    }
+
+    .cmp-form-text {
+        &__text {
+            height: 65px;
+        }
+
+        &:has(input[required], textarea[required], select[required]) {
+            label::after {
+                content: " *";
+                margin: 0 7px;
+                color: $primary;
+                font-weight: $font-light;
+            }
+        }
+    }
+
+    .cmp-text {
+        margin-bottom: $s;
+
+        p {
+            font-size: $small-text-size;
+        }
+    }
+
+    .options {
+        margin-bottom: $s;
+        padding: 0 16px;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .error-message {
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+        font-size: $super-small-text-size;
+        color: $fm-form-error;
+    }
+}
