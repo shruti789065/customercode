@@ -27,11 +27,11 @@
         font-weight: 300;
 
         &--prev {
-            background-image: url('../resources/icons/pagination-prev.svg');
+            background-image: url($resources-path + '/icons/pagination-prev.svg');
         }
 
         &--next {
-            background-image: url('../resources/icons/pagination-next.svg');
+            background-image: url($resources-path + '/icons/pagination-next.svg');
         }
 
         &:disabled {

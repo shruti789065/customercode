@@ -3,6 +3,8 @@
 @import "./datapicker.scss";
 @import "./events-cards.scss";
 @import "./datapicker";
+@import "./event-toggle-button.scss";
+@import "./pagination.scss";
 
 
 .filter-toggle-button {
@@ -29,7 +31,7 @@
         display: block;
         width: 24px;
         height: 24px;
-        background: url('../resources/icons/icon_filter_toggle.svg') no-repeat center;
+        background: url($resources-path + '/icons/icon_filter_toggle.svg') no-repeat center;
         margin-right: 15px;
     }
 }
@@ -132,7 +134,7 @@ form.filter-form {
                 right: 10px;
                 width: 24px;
                 height: 100%;
-                background: url('../resources/icons/icon_filter_up.svg') no-repeat center;
+                background: url($resources-path + '/icons/icon_filter_up.svg') no-repeat center;
                 border: none;
             }
         }
@@ -230,7 +232,7 @@ form.filter-form {
                 right: 15px;
                 width: 24px;
                 height: 100%;
-                background: url('../resources/icons/icon_filter_down.svg') no-repeat center;
+                background: url($resources-path + '/icons/icon_filter_down.svg') no-repeat center;
 
                 @include media-breakpoint-up(md) {
                     right: 10px;
@@ -265,10 +267,6 @@ form.filter-form {
 
                     @include media-breakpoint-up(lg) {
                         height: 25px;
-                    }
-
-                    img {
-                        margin-left: 5px;
                     }
 
                     &:hover {
@@ -318,10 +316,6 @@ form.filter-form {
             border: none;
             cursor: pointer;
             text-transform: capitalize;
-
-            img {
-                margin-right: 5px;
-            }
         }
 
         @include media-breakpoint-up(md) {
