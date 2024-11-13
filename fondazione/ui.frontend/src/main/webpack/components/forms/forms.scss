@@ -58,10 +58,12 @@
             height: 65px;
         }
 
-        &:has(input[required], textarea[required], select[required]) {
+        &:has(input[required],
+        textarea[required],
+        select[required]) {
             label::after {
-                content: " *";
-                margin: 0 7px;
+                content: "*";
+                margin: 0 10px;
                 color: $primary;
                 font-weight: $font-light;
             }
@@ -78,7 +80,6 @@
 
     .options {
         margin-bottom: $s;
-        padding: 0 16px;
     }
 
     .button {
@@ -92,5 +93,30 @@
         left: 0;
         font-size: $super-small-text-size;
         color: $fm-form-error;
+    }
+
+    .text {
+      padding-left: 0;
+    }
+
+    .recaptcha {
+      &__label {
+        font-family: $font-arimo;
+        font-weight: $font-regular;
+        font-size: $small-text-size;
+
+        &::after {
+          content: "*";
+          margin: 0 5px;
+          color: $primary;
+          font-weight: $font-light;
+        }
+      }
+
+      &__container {
+        display: flex;
+        margin-top: $xs;
+        margin-bottom: $space-between-sections;
+      }
     }
 }
