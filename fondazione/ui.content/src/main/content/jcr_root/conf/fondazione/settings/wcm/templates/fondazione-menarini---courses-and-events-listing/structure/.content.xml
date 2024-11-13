@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2024-11-12T14:31:12.335+02:00"
+        cq:lastModified="{Date}2024-11-13T12:22:46.636+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/fondazione/settings/wcm/templates/fondazione-menarini---courses-and-events-listing"
         jcr:primaryType="cq:PageContent"
@@ -18,29 +18,37 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="fondazione/components/experiencefragment"
                 fragmentVariationPath="/content/experience-fragments/fondazione/en/site/header/master"/>
-            <container
-                jcr:lastModified="{Date}2024-11-12T14:06:20.965+02:00"
-                jcr:lastModifiedBy="admin"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="fondazione/components/container"
-                layout="responsiveGrid">
-                <courses_events
-                    jcr:created="{Date}2024-11-12T14:06:28.051+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-11-12T14:06:28.051+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/courses-events"/>
-            </container>
-            <experiencefragment_908767149
-                jcr:created="{Date}2024-11-05T14:43:04.065+02:00"
+            <heroslim
+                jcr:created="{Date}2024-10-22T14:23:07.410+02:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2024-11-05T14:43:35.360+02:00"
+                jcr:lastModified="{Date}2024-10-22T14:23:07.410+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="fondazione/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/fondazione/en/site/footer/master"/>
+                sling:resourceType="fondazione/components/heroSlim"
+                editable="{Boolean}true"/>
+            <breadcrumb
+                jcr:created="{Date}2024-10-22T14:23:41.719+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-22T14:23:41.719+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/breadcrumb"/>
+            <courses_events
+                jcr:created="{Date}2024-11-13T12:21:25.238+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-11-13T12:21:25.238+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fondazione/components/courses-events"/>
         </root>
+        <experiencefragment_908767149
+            jcr:created="{Date}2024-11-05T14:43:04.065+02:00"
+            jcr:createdBy="admin"
+            jcr:lastModified="{Date}2024-11-05T14:43:35.360+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="fondazione/components/experiencefragment"
+            fragmentVariationPath="/content/experience-fragments/fondazione/en/site/footer/master"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone
