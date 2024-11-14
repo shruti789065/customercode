@@ -243,13 +243,33 @@
                 </policy_712751022800750>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
-                <policy_header
+                  <policy_header
                     cq:styleDefaultElement="header"
                     jcr:description="Sets a &lt;header> element on the page header experience fragment."
+                    jcr:lastModified="{Date}2024-11-14T17:03:34.491+01:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Header"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured" />
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Italian Version"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="no-background"
+                                    cq:styleId="1731599963038"
+                                    cq:styleLabel="Transparent"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="white-header"
+                                    cq:styleId="1731597548642"
+                                    cq:styleLabel="White background"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_header>
                 <policy_footer
                     cq:styleDefaultElement="footer"

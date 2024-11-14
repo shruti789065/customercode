@@ -30,7 +30,8 @@
 						<items jcr:primaryType="nt:unstructured">
 							<standard jcr:primaryType="nt:unstructured" text="Standard"
 								value="standard" />
-							<icon jcr:primaryType="nt:unstructured" text="Icon + link" value="icon" />
+							<icon jcr:primaryType="nt:unstructured" text="On radar"
+								value="onRadar" />
 							<arrow jcr:primaryType="nt:unstructured" text="Link + Arrow"
 								value="arrow" />
 							<list jcr:primaryType="nt:unstructured" text="List" value="list" />
@@ -43,12 +44,12 @@
 					<setIcon jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/foundation/container"
 						class="hide carousel-showhide-target foundation-layout-util-vmargin"
-						showhidetargetvalue="icon">
+						showhidetargetvalue="onRadar">
 						<items jcr:primaryType="nt:unstructured">
 							<heading jcr:primaryType="nt:unstructured"
 								sling:resourceType="granite/ui/components/foundation/heading"
 								class="coral-Heading coral-Heading--4" level="{Long}4"
-								text="Icon Configuration" />
+								text="On Radar Configuration" />
 							<well jcr:primaryType="nt:unstructured"
 								sling:resourceType="granite/ui/components/foundation/container">
 								<layout jcr:primaryType="nt:unstructured"
@@ -57,9 +58,9 @@
 									<asset
 										jcr:primaryType="nt:unstructured"
 										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-										fieldLabel="Icon"
-										rootPath="/content"
-										name="./iconLink" />
+										fieldLabel="On Radar Image"
+										rootPath="/content/dam/fondazione/header"
+										name="./imageLink"/>
 								</items>
 							</well>
 						</items>
@@ -70,7 +71,7 @@
 						sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
 						fieldLabel="Link"
 						name="./link"
-						rootPath="/content" />
+						rootPath="/content/fondazione" />
 					<target
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/coral/foundation/form/select"

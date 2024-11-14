@@ -94,6 +94,12 @@
                                                 fieldLabel="Label"
                                                 name="./accessibilityLabel"
                                                 value="" />
+                                            <showOnradar
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                text="Show Onradar"
+                                                name="./showOnradar"
+                                                value="{Boolean}true" />
                                         </items>
                                     </column>
                                 </items>

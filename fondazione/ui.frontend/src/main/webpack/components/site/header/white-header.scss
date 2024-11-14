@@ -1,0 +1,23 @@
+.white-header {
+
+    @include media-breakpoint-up(lg) {
+        .cmp-header-navigation {
+            background-color: $white;
+        }
+    }
+
+    .tabs-menu {
+        .cmp-tabs {
+            &__tab {
+                color: $fm-color-text !important;
+            }
+
+            .cmp-link {
+                .cmp-link--text {
+                    color: $fm-color-text !important;
+
+                }
+            }
+        }
+    }
+}

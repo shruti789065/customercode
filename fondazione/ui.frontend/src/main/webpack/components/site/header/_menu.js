@@ -8,7 +8,9 @@ const MenuTabs = (() => {
     GENERIC_PANEL_CLASS: "cmp-tabs__tabpanel",
   };
 
-  const fragmentMenu = document.querySelector(".cmp-experiencefragment--header");
+  const fragmentMenu = document.querySelector(
+    ".cmp-experiencefragment--header"
+  );
 
   let tabsMenu, whiteMenu, mobileTabsActive, tablistMobile, shareOpened;
 
@@ -21,15 +23,17 @@ const MenuTabs = (() => {
       return;
     }
 
-    const tabsMenuContainers = document.querySelectorAll(".tabs-menu__container");
+    const tabsMenuContainers = document.querySelectorAll(
+      ".tabs-menu__container"
+    );
     const menuNavTabs = document.querySelectorAll(".menu-nav li");
-    const tabLinks = document.querySelectorAll(".cmp-tabs__tab .cmp-link--text");
+    const tabLinks = document.querySelectorAll(".cmp-tabs__tab .cmp-link");
 
-    tabsMenuContainers.forEach(container => {
+    tabsMenuContainers.forEach((container) => {
       container.classList.remove(CONST.ACTIVE_PANEL);
     });
 
-    menuNavTabs.forEach(tab => {
+    menuNavTabs.forEach((tab) => {
       tab.classList.remove(CONST.ACTIVE_TAB);
       tab.setAttribute("aria-selected", "false");
       tab.setAttribute("tabindex", "-1");
@@ -43,7 +47,7 @@ const MenuTabs = (() => {
 
     window.addEventListener("resize", isMobileWindowSize);
 
-    tabLinks.forEach(link => {
+    tabLinks.forEach((link) => {
       link.addEventListener("click", function (event) {
         event.stopPropagation();
         addWhiteMenu();
@@ -115,18 +119,22 @@ const MenuTabs = (() => {
    * Deactivates all panel elements.
    */
   function deactivatePanel() {
-    document.querySelectorAll(`.${CONST.GENERIC_PANEL_CLASS}`).forEach(panel => {
-      panel.classList.remove(CONST.ACTIVE_PANEL);
-      panel.setAttribute("aria-hidden", "true");
-      panel.style.display = "none";
-    });
+    document
+      .querySelectorAll(`.${CONST.GENERIC_PANEL_CLASS}`)
+      .forEach((panel) => {
+        panel.classList.remove(CONST.ACTIVE_PANEL);
+        panel.setAttribute("aria-hidden", "true");
+        panel.style.display = "none";
+      });
   }
 
   /**
    * Sets up the mobile version of the menu.
    */
   function setupMobileMenu() {
-    const tabsMenuContainers = document.querySelectorAll(".tabs-menu__container");
+    const tabsMenuContainers = document.querySelectorAll(
+      ".tabs-menu__container"
+    );
     toggleMenu();
     tablistMobile = document.querySelector(".cmp-tabs__tablist_mobile");
 
@@ -137,17 +145,19 @@ const MenuTabs = (() => {
       _prependHtml(mobItem, html);
     });
 
-    document.querySelectorAll(".panel-menu-toggler").forEach(toggler => {
+    document.querySelectorAll(".panel-menu-toggler").forEach((toggler) => {
       toggler.addEventListener("click", () => {
-        tabsMenuContainers.forEach(container => {
+        tabsMenuContainers.forEach((container) => {
           container.classList.remove(CONST.ACTIVE_PANEL);
         });
       });
     });
 
-    document.querySelector(".cmp-button--mobile__toggler").addEventListener("click", () => {
-      toggleMobileMenu();
-    });
+    document
+      .querySelector(".cmp-button--mobile__toggler")
+      .addEventListener("click", () => {
+        toggleMobileMenu();
+      });
   }
 
   /**
@@ -155,10 +165,12 @@ const MenuTabs = (() => {
    */
   function handleScroll() {
     const isFragmentMenuPresent = fragmentMenu !== null;
-    const isMobileMenuOpen = document.querySelector(".cmp-button--mobile")
-                             .classList.contains("cmp-button--mobile__toggler_close");
+    const isMobileMenuOpen = document
+      .querySelector(".cmp-button--mobile")
+      .classList.contains("cmp-button--mobile__toggler_close");
     const isScrolledPastThreshold = window.scrollY > 40;
-    const isActiveTabPanelAbsent = document.querySelector("header .cmp-tabs__tabpanel--active") === null;
+    const isActiveTabPanelAbsent =
+      document.querySelector("header .cmp-tabs__tabpanel--active") === null;
 
     if (isFragmentMenuPresent && !isMobileMenuOpen) {
       if (isScrolledPastThreshold) {
@@ -228,47 +240,52 @@ const MenuTabs = (() => {
    * Toggles the mobile menu state and adjusts UI accordingly.
    */
   /**
- * Toggles the mobile menu state and adjusts UI accordingly.
- */
-function toggleMobileMenu() {
-  const mobileButton = document.querySelector(".cmp-button--mobile");
-  const body = document.body;
-  const navbarOverlayer = document.querySelector(".cmp-navbar-overlayer");
-  const isMenuOpen = mobileButton.classList.contains("cmp-button--mobile__toggler_close");
-  const tabsContainers = document.querySelectorAll(".tabs-menu__container");
+   * Toggles the mobile menu state and adjusts UI accordingly.
+   */
+  function toggleMobileMenu() {
+    const mobileButton = document.querySelector(".cmp-button--mobile");
+    const body = document.body;
+    const navbarOverlayer = document.querySelector(".cmp-navbar-overlayer");
+    const isMenuOpen = mobileButton.classList.contains(
+      "cmp-button--mobile__toggler_close"
+    );
+    const tabsContainers = document.querySelectorAll(".tabs-menu__container");
 
-  if (!isMenuOpen) {
-    // Open mobile menu
-    mobileButton.classList.add("cmp-button--mobile__toggler_close");
-    body.classList.add("h-overflow");
-    addWhiteMenu();
-  } else {
-    // Close mobile menu
-    tablistMobile.classList.remove("cmp-tabs__tablist-opened");
-    tabsContainers.forEach(container => {
-      container.classList.remove(CONST.ACTIVE_PANEL);
-    });
-    mobileButton.classList.remove("cmp-button--mobile__toggler_close");
-    body.classList.remove("h-overflow");
+    if (!isMenuOpen) {
+      // Open mobile menu
+      mobileButton.classList.add("cmp-button--mobile__toggler_close");
+      body.classList.add("h-overflow");
+      addWhiteMenu();
+    } else {
+      // Close mobile menu
+      tablistMobile.classList.remove("cmp-tabs__tablist-opened");
+      tabsContainers.forEach((container) => {
+        container.classList.remove(CONST.ACTIVE_PANEL);
+      });
+      mobileButton.classList.remove("cmp-button--mobile__toggler_close");
+      body.classList.remove("h-overflow");
 
-    if (navbarOverlayer) {
-      navbarOverlayer.style.display = "none";
+      if (navbarOverlayer) {
+        navbarOverlayer.style.display = "none";
+      }
+      removeWhiteMenu();
     }
-    removeWhiteMenu();
-  }
 
-  // Toggle mobile active class
-  tablistMobile.classList.toggle("cmp-tabs__tablist_mobile-active");
+    // Toggle mobile active class
+    tablistMobile.classList.toggle("cmp-tabs__tablist_mobile-active");
 
-  // Update each mobile tab item with the appropriate click event
-  mobileTabsActive = document.querySelectorAll(".cmp-tabs__tablist_mobile-active .cmp-tabs__tab");
-  mobileTabsActive.forEach(mobItem => {
-    mobItem.addEventListener("click", () => {
-      document.querySelector(".cmp-container--menu_item-mobile").classList.add("cmp-container--menu_item-mobile--active");
+    // Update each mobile tab item with the appropriate click event
+    mobileTabsActive = document.querySelectorAll(
+      ".cmp-tabs__tablist_mobile-active .cmp-tabs__tab"
+    );
+    mobileTabsActive.forEach((mobItem) => {
+      mobItem.addEventListener("click", () => {
+        document
+          .querySelector(".cmp-container--menu_item-mobile")
+          .classList.add("cmp-container--menu_item-mobile--active");
+      });
     });
-  });
-}
-
+  }
 
   return {
     init: init,
