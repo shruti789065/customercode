@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2024-11-05T12:06:52.158+02:00"
+        cq:lastModified="{Date}2024-11-13T10:15:52.497+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/fondazione/settings/wcm/templates/experience-fragment-forms"
         jcr:primaryType="cq:PageContent"
@@ -146,7 +146,14 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="fondazione/components/text"
                     text="&lt;p>Having read the&amp;nbsp;&lt;a>&lt;/a>&lt;a href=&quot;/content/menarini-ch/en/data-privacy/privacy-policy.html&quot;>privacy information&lt;/a>&amp;nbsp;notice I consent to the processing of personal data including sensitive personal data, for the purposes of managing my request pursuant to the GDPR,&lt;/p>&#xd;&#xa;"
-                    textIsRich="true"/>
+                    textIsRich="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="10"/>
+                    </cq:responsive>
+                </text_1136894038>
                 <options
                     jcr:created="{Date}2024-11-05T11:29:44.157+02:00"
                     jcr:createdBy="admin"
@@ -175,14 +182,13 @@
                             value="0"/>
                     </items>
                 </options>
-                <!-- Recaptcha to be configured properly. -->
-                <!-- <recaptcha
-                    jcr:created="{Date}2024-11-05T09:58:54.784+02:00"
+                <recaptcha
+                    jcr:created="{Date}2024-11-13T09:37:14.898+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2024-11-05T09:58:54.784+02:00"
+                    jcr:lastModified="{Date}2024-11-13T09:37:14.898+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fondazione/components/form/recaptcha"/> -->
+                    sling:resourceType="fondazione/components/form/recaptcha"/>
                 <button
                     jcr:created="{Date}2024-11-05T09:59:01.936+02:00"
                     jcr:createdBy="admin"
