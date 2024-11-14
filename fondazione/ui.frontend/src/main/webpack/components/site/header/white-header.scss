@@ -1,4 +1,4 @@
-#white-header {
+.white-header {
 
     @include media-breakpoint-up(lg) {
         .cmp-header-navigation {
@@ -9,12 +9,12 @@
     .tabs-menu {
         .cmp-tabs {
             &__tab {
-                color: $fm-color-text;
+                color: $fm-color-text !important;
             }
 
             .cmp-link {
                 .cmp-link--text {
-                    color: $fm-color-text;
+                    color: $fm-color-text !important;
 
                 }
             }

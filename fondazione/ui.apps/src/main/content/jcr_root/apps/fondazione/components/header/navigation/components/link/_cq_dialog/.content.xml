@@ -59,8 +59,8 @@
 										jcr:primaryType="nt:unstructured"
 										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
 										fieldLabel="On Radar Image"
-										rootPath="/content/dam/"
-										name="./imageLink" />
+										rootPath="/content/dam/fondazione/header"
+										name="./imageLink"/>
 								</items>
 							</well>
 						</items>
@@ -71,7 +71,7 @@
 						sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
 						fieldLabel="Link"
 						name="./link"
-						rootPath="/content" />
+						rootPath="/content/fondazione" />
 					<target
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="granite/ui/components/coral/foundation/form/select"
