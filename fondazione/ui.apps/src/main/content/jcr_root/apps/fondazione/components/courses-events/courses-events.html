@@ -20,7 +20,12 @@
                 ${topic.name}
               </button>
             </sly>
-            <button class="show-more" data-sly-test="${modelT.topics.size > 11}">${'show_more' @ i18n}</button>
+            <button
+              class="show-more"
+              data-sly-test="${modelT.topics.size > 11}"
+            >
+              ${'show_more' @ i18n}
+            </button>
           </div>
         </sly>
       </div>
@@ -39,7 +44,12 @@
               ${eventSelection.name}
             </button>
           </sly>
-          <button class="show-more" data-sly-test="${model.eventSelections.size > 11}">${'show_more' @ i18n}</button>
+          <button
+            class="show-more"
+            data-sly-test="${model.eventSelections.size > 11}"
+          >
+            ${'show_more' @ i18n}
+          </button>
         </div>
       </div>
 
@@ -60,7 +70,12 @@
                 ${city.name}
               </button>
             </sly>
-            <button class="show-more" data-sly-test="${modelC.cities.size > 11}">${'show_more' @ i18n}</button>
+            <button
+              class="show-more"
+              data-sly-test="${modelC.cities.size > 11}"
+            >
+              ${'show_more' @ i18n}
+            </button>
           </div>
         </sly>
       </div>
@@ -72,29 +87,54 @@
           </button>
           <div class="filter-dropdown__clear-container">
             <button class="clear-button align-items-center">
-              ${'clear_topics' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_topics' @ i18n}"/>
+              ${'clear_topics' @ i18n}
+              <img
+                src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg"
+                width="20"
+                width="22"
+                alt="${'clear_topics' @ i18n}"
+                loading="lazy"
+              />
             </button>
           </div>
         </div>
 
         <div class="select-wrapper">
-          <button class="filter-dropdown" data-default-text="${'select_events' @ i18n}">
+          <button
+            class="filter-dropdown"
+            data-default-text="${'select_events' @ i18n}"
+          >
             ${'select_events' @ i18n}
           </button>
           <div class="filter-dropdown__clear-container">
             <button class="clear-button align-items-center">
-              ${'clear_events' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_events' @ i18n}"/>
+              ${'clear_events' @ i18n}
+              <img
+                src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg"
+                width="20"
+                width="22"
+                alt="${'clear_events' @ i18n}"
+              />
             </button>
           </div>
         </div>
 
         <div class="select-wrapper">
-          <button class="filter-dropdown" data-default-text="${'location' @ i18n}">
+          <button
+            class="filter-dropdown"
+            data-default-text="${'location' @ i18n}"
+          >
             ${'location' @ i18n}
           </button>
           <div class="filter-dropdown__clear-container">
             <button class="clear-button align-items-center">
-              ${'clear_location' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_location' @ i18n}"/>
+              ${'clear_location' @ i18n}
+              <img
+                src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg"
+                width="20"
+                width="22"
+                alt="${'clear_location' @ i18n}"
+              />
             </button>
           </div>
         </div>
@@ -116,31 +156,60 @@
             title="${'clear_date' @ i18n}"
             data-clear=""
           >
-            ${'clear_date' @ i18n}<img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" width="10" height="12" alt="${'clear_date' @ i18n}"/>
+            ${'clear_date' @ i18n}
+            <img
+              src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg"
+              width="20"
+              width="22"
+              alt="${'clear_date' @ i18n}"
+            />
           </button>
         </div>
       </div>
       <div class="filters-mobile-buttons">
-        <button class="filters-mobile-buttons__cancel align-items-center d-flex">
-          <img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg" alt="${'cancel' @ i18n}"/>
+        <button
+          class="filters-mobile-buttons__cancel align-items-center d-flex"
+        >
+          <img
+            src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-close.svg"
+            width="25"
+            height="25"
+            alt="${'cancel' @ i18n}"
+          />
           ${'cancel' @ i18n}
-        </button>  
-        <button class="filters-mobile-buttons__confirm align-items-center d-flex">
-          <img src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-check.png" alt="${'apply_filter' @ i18n}"/>
-          ${'apply_filters' @ i18n}</button>
+        </button>
+        <button
+          class="filters-mobile-buttons__confirm align-items-center d-flex"
+        >
+          <img
+            src="/etc.clientlibs/fondazione/clientlibs/clientlib-site/resources/icons/icon-check.png"
+            alt="${'apply_filter' @ i18n}"
+          />
+          ${'apply_filters' @ i18n}
+        </button>
       </div>
     </form>
-
+    <section class="event-toggle">
+      <button id="scheduledEvents" class="event-toggle__btn active">
+        ${'Scheduled events' @ i18n}
+      </button>
+      <button id="finishedEvents" class="event-toggle__btn">
+        ${'Finished events' @ i18n}
+      </button>
+    </section>
     <section class="events-cards">
       <div class="event-grid">
         <sly data-sly-list="${model.events}">
-          <div class="event-grid__card ${model.events.size > 2 ? 'justify-content-between' : 'justify-content-start'}">
+          <div
+            class="event-grid__card ${model.events.size > 2 ? 'justify-content-between' : 'justify-content-start'}"
+          >
             <a class="event-grid__card--link" href="${item.path}.html">
               <div class="event-grid__card--image-wrapper">
                 <img
                   class="event-grid__card--image"
                   src="${item.presentationImage ? item.presentationImage : '/content/dam/fondazione/images/default.png'}"
                   alt="${item.title ? item.title : 'Default Alt Text'}"
+                  loading="lazy"
                 />
               </div>
               <div class="event-grid__card--details">
