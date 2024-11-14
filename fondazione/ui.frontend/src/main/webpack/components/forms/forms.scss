@@ -1,11 +1,13 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 @import "../../site/variables/variables";
-@import "./button";
+
 @import "./options";
 @import "./dropdown.scss";
 
 .cmp-form {
     margin: $xl auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     input,
     textarea {
@@ -80,11 +82,6 @@
 
     .options {
         margin-bottom: $s;
-    }
-
-    .button {
-        display: flex;
-        justify-content: center;
     }
 
     .error-message {
