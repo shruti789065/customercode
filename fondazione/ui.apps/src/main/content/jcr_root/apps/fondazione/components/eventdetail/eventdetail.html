@@ -1,34 +1,49 @@
 <sly data-sly-use.model="com.jakala.menarini.core.models.EventDetailModel">
 
     <div class="event-grid">
-        <sly data-sly-list.event="${model.detail}">
-            <div class="event-card">
-                <div class="event-image">
-                    <img src="${event.presentationImage}" alt="Image Description"/>
-                </div>
-                <div class="event-details">
-                    <p class="upperTitle">${event.topics}</p>
-                    <h5>${event.title}</h5>
-                    <p>Event Type: ${event.eventType}</p>
-                    <p>Subscription: ${event.subscription}</p>
-                    <p class="lowerTitle">${event.location}  |  From ${event.startDateText} to ${event.endDateText}</p>
-                    <!-- sede indirizzo -->
-                    <div data-sly-unwrap>${event.description @ context='unsafe'}</div>
-                    <!-- <div data-sly-text="${event.description @ context='html'}"></div> -->
-                    <!-- Speakers -->
-                    <!-- Material PDF ? -->
-                </div>
+        <div class="event-card">
+            <div class="event-image">
+                <img src="${model.detail.presentationImage}" alt="Image Description"/>
             </div>
-        </sly>
+            <div class="event-details">
+                <label class="lowerTitle">Title:</label>
+                <h5>${model.detail.title}</h5>
+                <br>
+                <label class="lowerTitle">Topics:</label>
+                <p>${model.detail.topics}</p>
+                <br>
+                <label class="lowerTitle">Event Type:</label>
+                <p>${model.detail.eventType}</p>
+                <br>
+                <label class="lowerTitle">Subscription:</label>
+                <p>${model.detail.subscription}</p>
+                <br>
+                <label class="lowerTitle">Location:</label>
+                <p>${model.detail.location}</p>
+                <br>
+                <label class="lowerTitle">Dates:</label>
+                <p>From ${model.detail.startDateText} to ${model.detail.endDateText}</p>
+                <br>
+                <label class="lowerTitle">Presentation:</label>
+                <div data-sly-text="${model.detail.presentationDescription @ context='html'}"></div>
+                <br>
+                <label class="lowerTitle">Speakers:</label>
+                <p>${model.detail.speakers}</p>
+                <br>
+                <label class="lowerTitle">isAuth:</label>
+                <p>${model.isAuth}</p>
+            </div>
+        </div>
     </div>
     <p data-sly-test="${!model.detail}">No events found.</p>
 
-    
 </sly>
 <style>
      /*EVENT GRID*/
-     .lowerTitle {
+    .lowerTitle {
         font-size: small;
+        font-style: italic;
+        font-weight: normal;
     }
 
     .upperTitle {

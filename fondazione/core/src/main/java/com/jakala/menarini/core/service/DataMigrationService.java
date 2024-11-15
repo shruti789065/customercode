@@ -41,6 +41,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
@@ -73,6 +75,11 @@ public class DataMigrationService {
     private static final String TOPICS = "topics";
     private static final String SUPPLIERS = "suppliers";
 
+    private static final String EVENTS_TOPICS = "eventstopics";
+    private static final String EVENTS_IMAGES = "eventsimages";
+    private static final String EVENTS_SPEAKERS = "eventsspeakers";
+    private static final String SPEAKER_IMAGES = "speakerimages";
+
     private static final String NAME_IT = "name_it";
     private static final String NAME_EN = "name_en";
     private static final String PATH_SEPARATOR = "/";
@@ -85,7 +92,8 @@ public class DataMigrationService {
     private static final String EVENT_IMAGES_PATH = "/eventImages/";
     private static final String ROOT_DATA = "/content/dam/fondazione";
     private static final String BASE_MODEL = "/conf/fondazione/settings/dam/cfm/models";
-    private static final String[] OBJECTS = {EVENTS, CITIES, NATIONS, SUB_TYPES, SPEAKERS, MEDIA, TOPICS, SUPPLIERS};
+    private static final String[] OBJECTS = {EVENTS, CITIES, NATIONS, SUB_TYPES, SPEAKERS, MEDIA, TOPICS, SUPPLIERS,
+        EVENTS_TOPICS, EVENTS_IMAGES, EVENTS_SPEAKERS, SPEAKER_IMAGES};
     private static final String TEMPLATE_NOT_FOUND = "Template not found: ";
 
     private static String eventModelPath = BASE_MODEL + "/event";
@@ -198,6 +206,18 @@ public class DataMigrationService {
             case TOPICS:
                 migrateTopics(resolver);
                 break;
+            case EVENTS_TOPICS:
+                connectEventsTopics(resolver);
+                break;
+            case EVENTS_IMAGES:
+                loadLinkEventImages(resolver);
+                break;
+            case EVENTS_SPEAKERS:
+                connectEventsSpeakers(resolver);
+                break;
+            case SPEAKER_IMAGES:
+                loadLinkSpeakerImages(resolver);
+                break;
             default:
                 break;
         } 
@@ -206,63 +226,63 @@ public class DataMigrationService {
     private void migrateAllContentsWithExclusions(ResourceResolver resolver, String[] exclusionList) throws IOException, RepositoryException, ContentFragmentException, InterruptedException, RowProcessException {
         if (!Arrays.asList(exclusionList).contains(TOPICS)) {
             migrateTopics(resolver);
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
         }
         if (!Arrays.asList(exclusionList).contains(SUPPLIERS)) {
             migrateSuppliers(resolver);
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
         }
         if (!Arrays.asList(exclusionList).contains(NATIONS)) {
             migrateNations(resolver);
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
         }
         if (!Arrays.asList(exclusionList).contains(SUB_TYPES)) {
             migrateSubscriptionTypes(resolver);
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
         }
         if (!Arrays.asList(exclusionList).contains(CITIES)) {
             migrateCities(resolver); // nations
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
         }
         if (!Arrays.asList(exclusionList).contains(EVENTS)) {
             migrateEvents(resolver); // subscriptionTypes cities nations
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
             try {
                 connectEventsTopics(resolver);
             } catch (IOException | RepositoryException | ContentFragmentException e) {
-                Thread.sleep(2000); // Wait for 2 seconds
+                //Thread.sleep(2000); // Wait for 2 seconds
                 connectEventsTopics(resolver);
             }
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
             try {
                 loadLinkEventImages(resolver);
             } catch (IOException | RepositoryException | ContentFragmentException e) {
-                Thread.sleep(2000); // Wait for 2 seconds
+                //Thread.sleep(2000); // Wait for 2 seconds
                 loadLinkEventImages(resolver);
             }
-            Thread.sleep(2000); // Wait for 2 seconds
+            //Thread.sleep(2000); // Wait for 2 seconds
         }
         if (!Arrays.asList(exclusionList).contains(SPEAKERS)) {
             migrateSpeakers(resolver);
-            Thread.sleep(5000); // Wait for 5 seconds
+            //Thread.sleep(5000); // Wait for 5 seconds
             try {
                 connectEventsSpeakers(resolver);
             } catch (IOException | RepositoryException | ContentFragmentException e) {
-                Thread.sleep(2000); // Wait for 2 seconds
+                //Thread.sleep(2000); // Wait for 2 seconds
                 connectEventsSpeakers(resolver);
             }
-            Thread.sleep(5000); // Wait for 5 seconds
+            //Thread.sleep(5000); // Wait for 5 seconds
             try {
                 loadLinkSpeakerImages(resolver);
             } catch (IOException | RepositoryException | ContentFragmentException e) {
-                Thread.sleep(2000); // Wait for 2 seconds
+                //Thread.sleep(2000); // Wait for 2 seconds
                 loadLinkSpeakerImages(resolver);
             }
-            Thread.sleep(5000); // Wait for 5 seconds
+            //Thread.sleep(5000); // Wait for 5 seconds
         }
         if (!Arrays.asList(exclusionList).contains(MEDIA)) {
             migrateMedia(resolver); // speakers topics events
-            Thread.sleep(5000); // Wait for 5 seconds
+            //Thread.sleep(5000); // Wait for 5 seconds
         }
     }
 
@@ -273,13 +293,41 @@ public class DataMigrationService {
         if (!delete) {
             return;
         }
+        // int batchSize = 250;
         Resource parentResource = currentResolver.getResource(currentParentPath);
         if (parentResource != null) {
             for (Resource resource : parentResource.getChildren()) {
                 currentResolver.delete(resource);
             }
-            currentResolver.commit();
-            LOGGER.info("All fragments removed from: {}", currentParentPath);
+            // try {
+                // Session session = currentResolver.adaptTo(Session.class);
+                // if (session != null) {
+                //     Node parentNode = parentResource.adaptTo(Node.class);
+                //     if (parentNode != null && parentNode.hasNodes()) {
+                //         NodeIterator children = parentNode.getNodes();
+                //         int count = 0;
+    
+                //         while (children.hasNext()) {
+                //             Node childNode = children.nextNode();
+                //             childNode.remove();
+                //             count++;
+    
+                //             if (count % batchSize == 0) {
+                //                 session.save();
+                //                 LOGGER.info("Committed deletion of {} nodes", count);
+                //             }
+                //         }
+    
+                //         session.save();
+
+                //         LOGGER.info("All nodes removed from parent: {}", currentParentPath);
+                //     } else {
+                //         LOGGER.warn("Parent node does not exist or has no children for path: {}", currentParentPath);
+                //     }
+                // }
+            // } catch (RepositoryException e) {
+            //     throw new PersistenceException("Error while removing nodes in batches", e);
+            // }
         } else {
             LOGGER.warn("Parent path does not exist: {}", currentParentPath);
         }
@@ -431,6 +479,7 @@ public class DataMigrationService {
                 count++;
                 if (count % 100 == 0) {
                     currentResolver.commit();
+                    currentResolver.refresh();
                 }
             }
         } finally {
@@ -606,6 +655,7 @@ public class DataMigrationService {
                 count++;
                 if (count % 100 == 0) {
                     currentResolver.commit();
+                    currentResolver.refresh();
                 }
             }
         } finally {
@@ -692,6 +742,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -704,6 +755,10 @@ public class DataMigrationService {
 
                 processCsvRow(fields, fields[0], null, template, parentResource, currentResolver);
                 
+                if(count % 100 == 0) {
+                    currentResolver.commit();
+                    currentResolver.refresh();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -711,6 +766,13 @@ public class DataMigrationService {
                 currentResolver.refresh();
             }
         }
+
+        List<ContentFragment> fragments = ModelHelper.findAllFragmentsByPath(currentResolver, eventParentPath);
+        for (ContentFragment fragment : fragments) {
+            updateVariationReferences(fragment, "topics");
+        }
+        currentResolver.commit();
+        currentResolver.refresh();
     }
 
     /**
@@ -737,6 +799,7 @@ public class DataMigrationService {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             boolean isFirstLine = true;
+            int count = 0;
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -749,6 +812,10 @@ public class DataMigrationService {
 
                 processCsvRow(fields, fields[0], null, template, parentResource, currentResolver);
                 
+                if(count % 100 == 0) {
+                    currentResolver.commit();
+                    currentResolver.refresh();
+                }
             }
         } finally {
             if (currentResolver != null) {
@@ -756,6 +823,13 @@ public class DataMigrationService {
                 currentResolver.refresh();
             }
         }
+
+        List<ContentFragment> fragments = ModelHelper.findAllFragmentsByPath(currentResolver, eventParentPath);
+        for (ContentFragment fragment : fragments) {
+            updateVariationReferences(fragment, "speakers");
+        }
+        currentResolver.commit();
+        currentResolver.refresh();
     }
 
 
@@ -815,6 +889,7 @@ public class DataMigrationService {
                 count++;
                 if (count % 100 == 0) {
                     currentResolver.commit();
+                    currentResolver.refresh();
                 }
             }
         } finally {
@@ -992,16 +1067,19 @@ public class DataMigrationService {
      */
     private ContentFragment processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource, ResourceResolver currentResolver) throws RepositoryException, ContentFragmentException {
 
-        LOGGER.info("ID: {} Name: {}", id, name);
+        LOGGER.info("Processing ID: {}", id);
             
         ContentFragment cfm = ModelHelper.findFragmentById(currentResolver, id, currentParentPath);
         
         if (cfm == null && name != null) { // check for association jobs that should not create fragments
             cfm = template.createFragment(parentResource, slugify(name), name);
-        } 
-
-        if (cfm == null) {
-            throw new IllegalStateException("Failed to create or retrieve content fragment for ID: " + id);
+            if (cfm == null) {
+                LOGGER.error("Unable to create ContentFragment {} for ID: {}", name, id);
+                throw new IllegalStateException("Failed to create or retrieve content fragment for ID: " + id);
+            }
+            LOGGER.info("Created ContentFragment {} for ID: {}", cfm.getName(), id);
+        } else {
+            LOGGER.info("Retrieved ContentFragment {} for ID: {}", cfm.getName(), id);
         }
 
         updateFields(cfm, fields, currentResolver);
@@ -1045,7 +1123,7 @@ public class DataMigrationService {
                 if (currentVariationData.containsKey(key)) {
                     fragmentData.setValue(currentVariationData.get(key));
                     cv.setValue(fragmentData);
-                }
+                } 
             }
         }
     }
@@ -1101,6 +1179,23 @@ public class DataMigrationService {
                         elementRef.setContent(newValPath, elementRef.getContentType());
                     }
                 } 
+            }
+        }
+    }
+
+    private void updateVariationReferences(ContentFragment fragment, String field) throws ContentFragmentException {
+        ContentElement element = fragment.getElement(field);
+        if (element != null) {
+            FragmentData fragmentData = element.getValue();
+
+            if (fragmentData != null && fragmentData.getValue() != null) {
+                Iterator<VariationDef> variations = fragment.listAllVariations();
+                while (variations.hasNext()) {
+                    VariationDef variation = variations.next();
+                    String variationName = variation.getName();
+                    ContentVariation cv = element.getVariation(variationName);
+                    cv.setValue(fragmentData);
+                }
             }
         }
     }

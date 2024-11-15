@@ -9,6 +9,7 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.jakala.menarini.core.dto.EventDetailDto;
 import com.jakala.menarini.core.dto.EventModelDto;
 import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.models.ModelHelper;
@@ -44,6 +45,7 @@ public class EventListingService implements EventListingServiceInterface {
 
     private final  Map<String, String> citiesMap = new HashMap<>();
     private final  Map<String, String> topicsMap = new HashMap<>();
+    private final  Map<String, String> speakersMap = new HashMap<>();
 
     private String eventPath;
     private String topicPath;
@@ -147,7 +149,7 @@ public class EventListingService implements EventListingServiceInterface {
     }
 
     @Override
-    public EventModelDto getEventBySlug(String slug, ResourceResolver resolver, String language) {
+    public EventDetailDto getEventBySlug(String slug, ResourceResolver resolver, String language) {
         updateBaseUrlLanguage(resolver, language);
         try {
             LOGGER.debug("============= ON GET EVENT ===============");
@@ -400,21 +402,36 @@ public class EventListingService implements EventListingServiceInterface {
 
             String path = baseUrl + fragment.getElement("slug").getContent();
 
-            return new EventModelDto(id, title, description, path, startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
+            return new EventDetailDto(id, title, description, path, startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
         } else {
             return null;
         }
     }
 
-    private EventModelDto buildEventDetail(Resource resource, String language, ResourceResolver resolver) {
-        EventModelDto event = this.buildEvent(resource, language, resolver);
+    private EventDetailDto buildEventDetail(Resource resource, String language, ResourceResolver resolver) {
+        EventDetailDto dto = (EventDetailDto)this.buildEvent(resource, language, resolver);
         ContentFragment fragment = resource.adaptTo(ContentFragment.class);
-        if (event != null && fragment != null) {
-
+        if (dto != null && fragment != null) {
             String description = ModelHelper.getLocalizedElementValue(fragment, language, "presentationDescription", null);
-            event.setDescription(StringEscapeUtils.unescapeHtml4(description));
-
-            return event;
+            //dto.setPresentationDescription(StringEscapeUtils.unescapeHtml4(description));
+            dto.setPresentationDescription(description);
+            FragmentData fragmentData = fragment.getElement("speakers").getValue();
+            Object elementContent = fragmentData.getValue();
+            List<String> speakers = new ArrayList<>();
+            if (elementContent instanceof String[] && ((String[]) elementContent).length > 0) {
+                //StringBuilder speakerBuilder = new StringBuilder();
+                for (String speaker : (String[]) elementContent) {
+                    String speakerName = getSpeakerName(speaker, language, resolver);
+                    // if (speakerBuilder.length() > 0) {
+                    //     speakerBuilder.append(" / ");
+                    // }
+                    // speakerBuilder.append(speakerName);
+                    speakers.add(speakerName);
+                }
+                //speakers = speakerBuilder.toString();
+                dto.setSpeakers(speakers.toArray(new String[0]));
+            }
+            return dto;
         } else {
             return null;
         }
@@ -446,6 +463,23 @@ public class EventListingService implements EventListingServiceInterface {
                 if (fragment != null) {
                     String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
                     topicsMap.put(topic, name);
+                    return name;
+                }
+            }
+        }
+        return "";
+    }
+
+    private String getSpeakerName(String speaker, String language, ResourceResolver resolver) {
+        if (speaker != null && !speaker.isEmpty()) {
+            if (speakersMap.containsKey(speaker)) { 
+                return speakersMap.get(speaker); 
+            } else {
+                ContentFragment fragment = findFragmentByPath(speaker, resolver);
+                if (fragment != null) {
+                    String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
+                    String surname = ModelHelper.getLocalizedElementValue(fragment, language, "surname", null);
+                    speakersMap.put(speaker, name + " " + surname); 
                     return name;
                 }
             }

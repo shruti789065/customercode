@@ -6,19 +6,19 @@ import java.util.Date;
 
 public class EventModelDto {
 
-    private String id;
-    private String title;
-    private String description;
-    private String path;
-    private Date startDate;
-    private Date endDate;
-    private String startDateText;
-    private String endDateText;
-    private String topics;
-    private String eventType;
-    private String location;
-    private String presentationImage;
-    private String subscription;
+    protected String id;
+    protected String title;
+    protected String description;
+    protected String path;
+    protected Date startDate;
+    protected Date endDate;
+    protected String startDateText;
+    protected String endDateText;
+    protected String topics;
+    protected String eventType;
+    protected String location;
+    protected String presentationImage;
+    protected String subscription;
 
     public EventModelDto(
              String id,

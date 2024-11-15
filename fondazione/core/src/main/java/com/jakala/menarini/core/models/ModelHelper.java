@@ -135,6 +135,32 @@ public class ModelHelper {
         return null;
     }
 
+
+    /**
+     * Find all the fragments by path
+     */
+    public static List<ContentFragment> findAllFragmentsByPath(ResourceResolver resolver, String path) throws RepositoryException {
+        QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
+        Session session = resolver.adaptTo(Session.class);
+        Map<String, String> predicate = new HashMap<>();
+
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
+        predicate.put("path", path);
+        predicate.put("p.limit", "-1");
+        Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        SearchResult result = query.getResult();
+        List<ContentFragment> fragments = new ArrayList<>();
+
+        for (Hit hit : result.getHits()) {
+            ContentFragment contentFragment = hit.getResource().adaptTo(ContentFragment.class);
+            if (contentFragment != null) {
+                fragments.add(contentFragment);
+            }
+        }
+        
+        return fragments;
+    }
+
     /**
      * Find the resource by id field
      */
