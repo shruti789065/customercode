@@ -1,5 +1,6 @@
 package com.jakala.menarini.core.service.interfaces;
 
+import com.jakala.menarini.core.dto.EventDetailDto;
 import com.jakala.menarini.core.dto.EventModelDto;
 import com.jakala.menarini.core.dto.EventModelReturnDto;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -24,6 +25,12 @@ public interface EventListingServiceInterface {
 
     public List<EventModelDto> getEventsByIds(
             List<String> eventIds,
+            ResourceResolver resolver,
+            String language
+    );
+
+    public EventDetailDto getEventBySlug(
+            String slug,
             ResourceResolver resolver,
             String language
     );

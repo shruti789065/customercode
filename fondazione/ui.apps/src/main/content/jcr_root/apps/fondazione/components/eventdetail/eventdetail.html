@@ -1,0 +1,109 @@
+<sly data-sly-use.model="com.jakala.menarini.core.models.EventDetailModel">
+
+    <div class="event-grid">
+        <div class="event-card">
+            <div class="event-image">
+                <img src="${model.detail.presentationImage}" alt="Image Description"/>
+            </div>
+            <div class="event-details">
+                <label class="lowerTitle">Title:</label>
+                <h5>${model.detail.title}</h5>
+                <br>
+                <label class="lowerTitle">Topics:</label>
+                <p>${model.detail.topics}</p>
+                <br>
+                <label class="lowerTitle">Event Type:</label>
+                <p>${model.detail.eventType}</p>
+                <br>
+                <label class="lowerTitle">Subscription:</label>
+                <p>${model.detail.subscription}</p>
+                <br>
+                <label class="lowerTitle">Location:</label>
+                <p>${model.detail.location}</p>
+                <br>
+                <label class="lowerTitle">Nation:</label>
+                <p>${model.detail.nation}</p>
+                <br>
+                <label class="lowerTitle">Dates:</label>
+                <p>From ${model.detail.startDateText} to ${model.detail.endDateText}</p>
+                <br>
+                <label class="lowerTitle">Presentation:</label>
+                <div data-sly-text="${model.detail.presentationDescription @ context='html'}"></div>
+                <br>
+                <label class="lowerTitle">Speakers:</label>
+                <p>${model.detail.speakers}</p>
+                <br>
+                <label class="lowerTitle">isAuth:</label>
+                <p>${model.isAuth}</p>
+            </div>
+        </div>
+    </div>
+    <p data-sly-test="${!model.detail}">No events found.</p>
+
+</sly>
+<style>
+     /*EVENT GRID*/
+    .lowerTitle {
+        font-size: small;
+        font-style: italic;
+        font-weight: normal;
+    }
+
+    .upperTitle {
+        font-size: xx-small;
+    }
+
+    .event-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .event-card {
+        flex: 1 1 calc(33.33% - 20px);
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .event-card a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .event-image {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .event-image img {
+        width: 60%;
+        height: auto;
+        display: block;
+    }
+
+    .event-details {
+        flex: 1;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .event-details h5 {
+        font-weight: bold;
+        margin: 0 0 10px 0;
+    }
+
+    .event-details p {
+        margin: 0;
+    }
+</style>

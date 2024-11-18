@@ -10,6 +10,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import javax.annotation.PostConstruct;
@@ -31,10 +32,9 @@ public class SliderAuthBaseModel extends AuthBaseModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
-
     @OSGiService
     private EventListingServiceInterface eventListingService;
-
+   
     private List<RegisteredUserTopicDto> topics = new ArrayList<>();
     private List<EventModelDto> events = new ArrayList<>();
 
@@ -57,6 +57,7 @@ public class SliderAuthBaseModel extends AuthBaseModel {
                 }
                 String today = IS_TEST ? "2021-01-01T00:00:00" :
                         new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss").format(new Date());
+
                 EventModelReturnDto returnDto = eventListingService.getEvents(
                         resourceResolver,
                         language,

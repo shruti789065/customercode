@@ -9,15 +9,20 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.jakala.menarini.core.dto.EventDetailDto;
 import com.jakala.menarini.core.dto.EventModelDto;
 import com.jakala.menarini.core.dto.EventModelReturnDto;
 import com.jakala.menarini.core.models.ModelHelper;
 import com.jakala.menarini.core.service.interfaces.EventListingServiceInterface;
+import com.jakala.menarini.core.service.interfaces.ExternalizeUrlServiceInterface;
 import com.jakala.menarini.core.service.utils.EventListingServiceConfiguration;
+
+import org.apache.commons.text.StringEscapeUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +44,9 @@ public class EventListingService implements EventListingServiceInterface {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventListingService.class);
 
     private final  Map<String, String> citiesMap = new HashMap<>();
+    private final  Map<String, String> nationsMap = new HashMap<>();
     private final  Map<String, String> topicsMap = new HashMap<>();
+    private final  Map<String, String> speakersMap = new HashMap<>();
 
     private String eventPath;
     private String topicPath;
@@ -49,7 +56,7 @@ public class EventListingService implements EventListingServiceInterface {
 
     private String qStartDate;
     private String qEndDate;
-
+    private String baseUrl;
 
     @Activate
     private void activate(EventListingServiceConfiguration config) {
@@ -58,7 +65,15 @@ public class EventListingService implements EventListingServiceInterface {
         this.cityPath = config.cityPath();
         this.qStartDate = config.startDateProperty();
         this.qEndDate = config.endDateProperty();
+        this.baseUrl = config.baseUrl();
+    }
+    
+    @Reference
+    private ExternalizeUrlServiceInterface externalizeService;
 
+    private void updateBaseUrlLanguage(ResourceResolver resolver, String language) {
+        String parsedUrl = this.baseUrl.replace("LANG", language);
+        this.baseUrl = externalizeService.getExternalizeUrl(resolver, parsedUrl);
     }
 
     @Override
@@ -92,6 +107,7 @@ public class EventListingService implements EventListingServiceInterface {
         }
         int actPage = page <= 0 ? 1 : page;
         int slotSize = pageSlot <= 0 ? 6 : pageSlot;
+
         this.addPaginationToPredicate(predicate,actPage,slotSize);
         return this.getFilteredEvents(predicate,resolver,language);
     }
@@ -115,12 +131,13 @@ public class EventListingService implements EventListingServiceInterface {
             String language
     ) {
         ArrayList<EventModelDto> events = new ArrayList<>();
+        updateBaseUrlLanguage(resolver, language);
         try {
-            LOGGER.error("============= ON GET EVENTS ===============");
-            List<Hit> hits = ModelHelper.findResourceByIds(resolver,eventIds, eventPath);
+            LOGGER.debug("============= ON GET EVENTS ===============");
+            List<Hit> hits = ModelHelper.findResourceByIds(resolver, eventIds, eventPath);
 
             for(Hit hit : hits) {
-                events.add(this.buildEvent(hit.getResource(),language,resolver));
+                events.add(this.buildEvent(hit.getResource(), language, resolver));
             }
 
 
@@ -132,7 +149,23 @@ public class EventListingService implements EventListingServiceInterface {
         return events;
     }
 
+    @Override
+    public EventDetailDto getEventBySlug(String slug, ResourceResolver resolver, String language) {
+        updateBaseUrlLanguage(resolver, language);
+        try {
+            LOGGER.debug("============= ON GET EVENT ===============");
+            Resource event = ModelHelper.findResourceByParam(resolver, slug, "slug", eventPath);
 
+            if (event != null) {
+                return this.buildEventDetail(event, language, resolver);
+            }
+
+        } catch (RepositoryException e) {
+            LOGGER.error("============= error on get event data ===============");
+            LOGGER.error(e.getMessage());
+        }
+        return null;
+    } 
 
     private EventModelReturnDto getFilteredEvents(
             Map<String, String> predicate,
@@ -146,17 +179,19 @@ public class EventListingService implements EventListingServiceInterface {
         QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
         Session session = resolver.adaptTo(Session.class);
         Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        updateBaseUrlLanguage(resolver, language);
+
         if(query != null) {
-            LOGGER.error("============================= GET EVENT : query created ==============");
+            LOGGER.debug("============================= GET EVENT : query created ==============");
             SearchResult result = query.getResult();
-            LOGGER.error("============================= GET EVENT : result size ==============");
+            LOGGER.debug("============================= GET EVENT : result size ==============");
             matches = (int)result.getTotalMatches();
             for (Hit hit : result.getHits()) {
-                LOGGER.error("============================= GET EVENT : on process hits ==============");
+                LOGGER.debug("============================= GET EVENT : on process hits ==============");
 
                 try {
                     Resource resource = hit.getResource();
-                    EventModelDto event = buildEvent(resource, language,resolver);
+                    EventModelDto event = buildEvent(resource, language, resolver);
                     if (event != null) {
                         filteredEvents.add(event);
                     }
@@ -340,7 +375,7 @@ public class EventListingService implements EventListingServiceInterface {
         ContentFragment fragment = resource.adaptTo(ContentFragment.class);
         if (fragment != null) {
             String id = fragment.getElement("id").getContent();
-            LOGGER.error("=================== GET EVENT: build event ============================");
+            LOGGER.debug("=================== GET EVENT: build event ============================");
             String title = ModelHelper.getLocalizedElementValue(fragment, language, "title", fragment.getTitle());
             String description = ModelHelper.getLocalizedElementValue(fragment, language, "description", fragment.getDescription());
             String startDateStr = fragment.getElement("startDate").getContent();
@@ -363,12 +398,62 @@ public class EventListingService implements EventListingServiceInterface {
             }
             String eventType = fragment.getElement("eventType").getContent();
             String location = fragment.getElement("city").getContent();
-            location = getLocationName(location, language,resolver);
+            location = getLocationName(location, language, resolver);
             String subscription = fragment.getElement("subscription").getContent();
-            return new EventModelDto(id, title, description, resource.getPath(), startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
+
+            String path = baseUrl + fragment.getElement("slug").getContent();
+
+            return new EventDetailDto(id, title, description, path, startDateStr, endDateStr, topics, eventType, location, presentationImage,subscription);
         } else {
             return null;
         }
+    }
+
+    private EventDetailDto buildEventDetail(Resource resource, String language, ResourceResolver resolver) {
+        EventDetailDto dto = (EventDetailDto)this.buildEvent(resource, language, resolver);
+        ContentFragment fragment = resource.adaptTo(ContentFragment.class);
+        if (dto != null && fragment != null) {
+            String description = ModelHelper.getLocalizedElementValue(fragment, language, "presentationDescription", null);
+            dto.setPresentationDescription(description);
+            String nation = fragment.getElement("nation").getContent();
+            nation = getNationName(nation, language, resolver);
+            dto.setNation(nation);
+            FragmentData fragmentData = fragment.getElement("speakers").getValue();
+            Object elementContent = fragmentData.getValue();
+            List<String> speakers = new ArrayList<>();
+            if (elementContent instanceof String[] && ((String[]) elementContent).length > 0) {
+                //StringBuilder speakerBuilder = new StringBuilder();
+                for (String speaker : (String[]) elementContent) {
+                    String speakerName = getSpeakerName(speaker, language, resolver);
+                    // if (speakerBuilder.length() > 0) {
+                    //     speakerBuilder.append(" / ");
+                    // }
+                    // speakerBuilder.append(speakerName);
+                    speakers.add(speakerName);
+                }
+                //speakers = speakerBuilder.toString();
+                dto.setSpeakers(speakers.toArray(new String[0]));
+            }
+            return dto;
+        } else {
+            return null;
+        }
+    }
+
+    private String getNationName(String location, String language, ResourceResolver resolver) {
+        if (location != null && !location.isEmpty()) {
+            if (nationsMap.containsKey(location)) {
+                return nationsMap.get(location);
+            } else {
+                ContentFragment fragment = findFragmentByPath(location, resolver);
+                if (fragment != null) {
+                    String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
+                    nationsMap.put(location, name);
+                    return name;
+                }
+            }
+        }
+        return "";
     }
 
     private String getLocationName(String location, String language, ResourceResolver resolver) {
@@ -376,7 +461,7 @@ public class EventListingService implements EventListingServiceInterface {
             if (citiesMap.containsKey(location)) {
                 return citiesMap.get(location);
             } else {
-                ContentFragment fragment = findFragmentByPath(location,resolver);
+                ContentFragment fragment = findFragmentByPath(location, resolver);
                 if (fragment != null) {
                     String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
                     citiesMap.put(location, name);
@@ -397,6 +482,23 @@ public class EventListingService implements EventListingServiceInterface {
                 if (fragment != null) {
                     String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
                     topicsMap.put(topic, name);
+                    return name;
+                }
+            }
+        }
+        return "";
+    }
+
+    private String getSpeakerName(String speaker, String language, ResourceResolver resolver) {
+        if (speaker != null && !speaker.isEmpty()) {
+            if (speakersMap.containsKey(speaker)) { 
+                return speakersMap.get(speaker); 
+            } else {
+                ContentFragment fragment = findFragmentByPath(speaker, resolver);
+                if (fragment != null) {
+                    String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
+                    String surname = ModelHelper.getLocalizedElementValue(fragment, language, "surname", null);
+                    speakersMap.put(speaker, name + " " + surname); 
                     return name;
                 }
             }

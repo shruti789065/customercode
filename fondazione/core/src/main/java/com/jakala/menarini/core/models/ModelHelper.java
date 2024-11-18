@@ -135,6 +135,32 @@ public class ModelHelper {
         return null;
     }
 
+
+    /**
+     * Find all the fragments by path
+     */
+    public static List<ContentFragment> findAllFragmentsByPath(ResourceResolver resolver, String path) throws RepositoryException {
+        QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
+        Session session = resolver.adaptTo(Session.class);
+        Map<String, String> predicate = new HashMap<>();
+
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
+        predicate.put("path", path);
+        predicate.put("p.limit", "-1");
+        Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        SearchResult result = query.getResult();
+        List<ContentFragment> fragments = new ArrayList<>();
+
+        for (Hit hit : result.getHits()) {
+            ContentFragment contentFragment = hit.getResource().adaptTo(ContentFragment.class);
+            if (contentFragment != null) {
+                fragments.add(contentFragment);
+            }
+        }
+        
+        return fragments;
+    }
+
     /**
      * Find the resource by id field
      */
@@ -147,6 +173,29 @@ public class ModelHelper {
         predicate.put("path", path);
         predicate.put("property", "jcr:content/data/master/id");
         predicate.put("property.value", id);
+        predicate.put("property.operation", "equals");
+        com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
+        SearchResult result = query.getResult();
+
+        for (Hit hit : result.getHits()) {
+            return  hit.getResource();
+        }
+        
+        return null;
+    }
+
+    /**
+     * Find the resource by param field
+     */
+    public static Resource findResourceByParam(ResourceResolver resolver, String value, String param, String path) throws RepositoryException {
+        QueryBuilder queryBuilder = resolver.adaptTo(QueryBuilder.class);
+        Session session = resolver.adaptTo(Session.class);
+        Map<String, String> predicate = new HashMap<>();
+
+        predicate.put("type", DamConstants.NT_DAM_ASSET);
+        predicate.put("path", path);
+        predicate.put("property", "jcr:content/data/master/" + param);
+        predicate.put("property.value", value);
         predicate.put("property.operation", "equals");
         com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicate), session);
         SearchResult result = query.getResult();

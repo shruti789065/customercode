@@ -19,6 +19,7 @@ public class ResourceResolverHelper {
     @Inject
     @Optional
     private ListItem item;
+    
     @SlingObject
     private static ResourceResolver resourceResolver;
 

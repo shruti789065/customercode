@@ -26,8 +26,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
+import com.adobe.cq.dam.cfm.FragmentData;
 import com.adobe.cq.dam.cfm.FragmentTemplate;
 import com.adobe.cq.dam.cfm.VariationDef;
+import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -212,10 +214,32 @@ class DataMigrationServiceTest {
         // Mock CSV content
         String csvContent = "\"id_relatore\",\"name\",\"surname\",\"company\",\"role\",\"photo\",\"curriculum\"\n\"1\",\"Alan John\",\"Camm\",\"\",\"\",\"\",\"\"";
         InputStream inputStream = new ByteArrayInputStream(csvContent.getBytes());
-
+        
         // Mock resource creation
         when(resourceResolver.getResource(anyString())).thenReturn(modelResource);
         when(modelResource.adaptTo(FragmentTemplate.class)).thenReturn(template);
+
+        // Pass validation
+        when(modelResource.hasChildren()).thenReturn(true);
+        List<Resource> children = new ArrayList<>();
+        children.add(parentResource);
+        when(modelResource.getChildren()).thenReturn(children);
+        when(parentResource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
+
+        // Mock asset loading
+        Asset asset = mock(Asset.class);
+        when(resourceResolver.adaptTo(AssetManager.class)).thenReturn(assetManager);
+        when(modelResource.adaptTo(Asset.class)).thenReturn(asset);
+
+        // Mock existing content fragments
+        Resource fragmentResource = mock(Resource.class);
+        when(modelResource.listChildren()).thenReturn(Collections.singletonList(fragmentResource).iterator());
+        when(fragmentResource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
+        ContentElement anyElement = mock(ContentElement.class);
+        when(contentFragment.getElement(anyString())).thenReturn(anyElement);
+        FragmentData fragmentData = mock(FragmentData.class);
+        when(anyElement.getValue()).thenReturn(fragmentData);
+        when(fragmentData.getValue()).thenReturn("test");
 
         // Mock content fragment creation
         when(template.createFragment(any(), anyString(), anyString())).thenReturn(contentFragment);
@@ -273,7 +297,22 @@ class DataMigrationServiceTest {
 
         // Mock content fragment creation
         when(template.createFragment(any(), anyString(), anyString())).thenReturn(contentFragment);
-    
+        ContentElement anyElement = mock(ContentElement.class);
+        when(contentFragment.getElement(argThat(argument -> !argument.startsWith("ref_")))).thenReturn(anyElement);
+        FragmentData fragmentData = mock(FragmentData.class);
+        when(anyElement.getValue()).thenReturn(fragmentData);
+
+        // Mock asset loading
+        Asset asset = mock(Asset.class);
+        when(resourceResolver.adaptTo(AssetManager.class)).thenReturn(assetManager);
+        when(modelResource.adaptTo(Asset.class)).thenReturn(asset);
+
+        // Mock existing content fragments
+        Resource fragmentResource = mock(Resource.class);
+        when(modelResource.listChildren()).thenReturn(Collections.singletonList(fragmentResource).iterator());
+        when(fragmentResource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
+        when(contentFragment.getElement("id")).thenReturn(anyElement);
+        when(fragmentData.getValue()).thenReturn("test");
 
         when(fileReaderService.getFileAsStream(anyString())).thenReturn(inputStream);
             
@@ -472,53 +511,5 @@ class DataMigrationServiceTest {
         verify(template).createFragment(any(), anyString(), anyString());
         verify(contentFragment, atLeastOnce()).getElement(anyString());
     }
-
-    // @Test
-    // void testLoadLinkSpeakerImages() throws Exception {
-    //     // Mock existing content fragments
-    //     Resource fragmentResource = mock(Resource.class);
-    //     when(parentResource.listChildren()).thenReturn(Collections.singletonList(fragmentResource).iterator());
-    //     when(fragmentResource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
-
-    //     // Mock asset loading
-    //     Asset asset = mock(Asset.class);
-    //     when(resourceResolver.adaptTo(AssetManager.class)).thenReturn(assetManager);
-    //     when(assetManager.createAsset(anyString(), any(InputStream.class), anyString(), anyBoolean())).thenReturn(asset);
-
-    //     // Execute the method
-    //     dataMigrationService.migrateData("speakerimages", null, null);
-
-    //     // Verify that assets were created and linked to content fragments
-    //     verify(assetManager).createAsset(anyString(), any(InputStream.class), anyString(), anyBoolean());
-    //     verify(contentFragment).getElement("photo");
-    // }
-
-    // @Test
-    // void testFindFragmentById() throws Exception {
-    //     // Mock query execution
-    //     Query query = mock(Query.class);
-    //     QueryResult queryResult = mock(QueryResult.class);
-    //     RowIterator rowIterator = mock(RowIterator.class);
-    //     Row row = mock(Row.class);
-
-    //     when(queryManager.createQuery(anyString(), anyString())).thenReturn(query);
-    //     when(query.execute()).thenReturn(queryResult);
-    //     when(queryResult.getRows()).thenReturn(rowIterator);
-    //     when(rowIterator.hasNext()).thenReturn(true, false);
-    //     when(rowIterator.nextRow()).thenReturn(row);
-    //     when(row.getPath()).thenReturn("/content/dam/test/fragment");
-
-    //     // Mock resource resolution
-    //     Resource fragmentResource = mock(Resource.class);
-    //     when(resourceResolver.getResource("/content/dam/test/fragment")).thenReturn(fragmentResource);
-    //     when(fragmentResource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
-
-    //     // Execute the method
-    //     ContentFragment result = dataMigrationService.findFragmentByIdOld("testId", "/content/dam/test", resourceResolver);
-
-    //     // Verify the result
-    //     assertNotNull(result);
-    //     assertEquals(contentFragment, result);
-    // }
 
 }
