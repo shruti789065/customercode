@@ -31,6 +31,8 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static com.adobe.granite.workflow.event.WorkflowEvent.USER;
+
 @Component(
         service = AwsCognitoServiceInterface.class
 )
@@ -45,7 +47,6 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     private RoleServiceInterface roleService;
 
 
-    private static final String USER_VALUE = "User";
     private static final String USER_ROLE_DOCTOR = "UserDoctor";
     private static final String USER_ROLE_HEALTH = "UserHealthCare";
 
@@ -57,13 +58,13 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         MAP_PROFESSION_TO_ROLE .put("Diagnostic Laboratory Technician", USER_ROLE_HEALTH);
         MAP_PROFESSION_TO_ROLE .put("Doctor", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Healthcare Worker", USER_ROLE_HEALTH);
-        MAP_PROFESSION_TO_ROLE .put("No Healthcare", USER_VALUE);
+        MAP_PROFESSION_TO_ROLE .put("No Healthcare", USER);
         MAP_PROFESSION_TO_ROLE .put("Nurse", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Nurse’s Assistant", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Obstetrician", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Pharmacist", USER_ROLE_HEALTH);
         MAP_PROFESSION_TO_ROLE .put("Psichologist", USER_ROLE_DOCTOR);
-        MAP_PROFESSION_TO_ROLE .put("Student", USER_VALUE);
+        MAP_PROFESSION_TO_ROLE .put("Student", USER);
     }
 
 
