@@ -7,14 +7,13 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-import com.day.cq.tagging.InvalidTagFormatException;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.WCMException;
+import com.day.cq.wcm.api.constants.NameConstants;
 import com.google.gson.JsonObject;
-import com.jakala.menarini.core.exceptions.CreateTagException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
@@ -211,7 +210,8 @@ public class ModelUtils {
 			return null;
 		pageManager.getPage(currentPage).getDepth();
 		int pathIndex = 3;
-		String cqTemplate = pageManager.getPage(currentPage).getAbsoluteParent(pathIndex).getProperties().get("cq:template",String.class);
+		
+		String cqTemplate = pageManager.getPage(currentPage).getAbsoluteParent(pathIndex).getProperties().get(NameConstants.NN_TEMPLATE,String.class);
 		if(!cqTemplate.toLowerCase().contains("homepage")){
 			pathIndex = 2;
 		}
@@ -225,7 +225,7 @@ public class ModelUtils {
 		//si controlla se la pagina ha uno dei template per i quali occorre eseguire la logica dell'evento
 		if(page != null) {
 			ValueMap properties = page.getProperties();
-			String template = properties.get("cq:template", String.class);
+			String template = properties.get(NameConstants.NN_TEMPLATE, String.class);
 
 			Pattern p = Pattern.compile(Constants.INTERNAL_MENU_TEMPLATE_REGEXP); // Create a regex
 			Matcher m = p.matcher(template);  // Our string for matching
@@ -233,7 +233,7 @@ public class ModelUtils {
 				Page homepage = ModelUtils.getHomePage(resourceResolver, page.getPath());
 				if(homepage!=null) {
 					properties = homepage.getProperties();
-					template = properties.containsKey("cq:template") ? properties.get("cq:template", String.class) : "";
+					template = properties.containsKey(NameConstants.NN_TEMPLATE) ? properties.get(NameConstants.NN_TEMPLATE, String.class) : "";
 
 					Page parentPage = ModelUtils.findPageByParentTemplate(page, template);
 					Page navigationRoot = parentPage;
@@ -359,55 +359,5 @@ public class ModelUtils {
         }
         return tags;
     }
-
-	public static Tag findTag(String namespace, String nestedTagPath, String tagName, ResourceResolver resolver) {
-		Tag tag = null;
-		if(StringUtils.isNotBlank(tagName)) {
-			TagManager tagManager =  resolver.adaptTo(TagManager.class);
-			StringBuilder tagPathBuilder = new StringBuilder();
-			if (StringUtils.isNotBlank(namespace)) {
-				tagPathBuilder.append(namespace);
-			}
-			if (StringUtils.isNotBlank(nestedTagPath)) {
-				tagPathBuilder.append(nestedTagPath).append("/");
-			}
-			tagPathBuilder.append(tagName);
-			tag = tagManager.resolve(tagPathBuilder.toString());
-		}
-		return tag;
-	}
-
-	public static Tag createTag(String namespace, String nestedTagPath, String title, HashMap properties, Session session, ResourceResolver resolver) throws CreateTagException {
-
-		if(StringUtils.isNotBlank(title)){
-			String tagName = ModelUtils.getNodeName(title);
-			Tag tag = ModelUtils.findTag(namespace, nestedTagPath, tagName, resolver);
-			TagManager tagManager =  resolver.adaptTo(TagManager.class);
-			if(tag == null){
-				try{
-					StringBuilder tagPathBuilder = new StringBuilder();
-					if (StringUtils.isNotBlank(namespace)) {
-						tagPathBuilder.append(namespace);
-					}
-					if (StringUtils.isNotBlank(nestedTagPath)) {
-						tagPathBuilder.append(nestedTagPath).append("/");
-					}
-					tagPathBuilder.append(tagName);
-					tag = tagManager.createTag(tagPathBuilder.toString(), title, null,true);
-					if(tag == null){
-						throw new CreateTagException(ERROR_CREATING_TAG + title);
-					} else {
-						session.save();
-					}
-				} catch (InvalidTagFormatException | RepositoryException e) {
-					LOGGER.error(ERROR_CREATING_TAG + title, e);
-					throw new CreateTagException(ERROR_CREATING_TAG + tag);
-				}
-			}
-			return tag;
-		}
-		return null;
-	}
-
 
 }

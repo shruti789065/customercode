@@ -45,6 +45,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
     private RoleServiceInterface roleService;
 
 
+    private static final String USER_VALUE = "User";
     private static final String USER_ROLE_DOCTOR = "UserDoctor";
     private static final String USER_ROLE_HEALTH = "UserHealthCare";
 
@@ -56,13 +57,13 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         MAP_PROFESSION_TO_ROLE .put("Diagnostic Laboratory Technician", USER_ROLE_HEALTH);
         MAP_PROFESSION_TO_ROLE .put("Doctor", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Healthcare Worker", USER_ROLE_HEALTH);
-        MAP_PROFESSION_TO_ROLE .put("No Healthcare", "User");
+        MAP_PROFESSION_TO_ROLE .put("No Healthcare", USER_VALUE);
         MAP_PROFESSION_TO_ROLE .put("Nurse", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Nurse’s Assistant", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Obstetrician", USER_ROLE_DOCTOR);
         MAP_PROFESSION_TO_ROLE .put("Pharmacist", USER_ROLE_HEALTH);
         MAP_PROFESSION_TO_ROLE .put("Psichologist", USER_ROLE_DOCTOR);
-        MAP_PROFESSION_TO_ROLE .put("Student", "User");
+        MAP_PROFESSION_TO_ROLE .put("Student", USER_VALUE);
     }
 
 
@@ -133,7 +134,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         String authString = generateAuthString();
         httpPost.setHeader("Authorization", authString);
         httpPost.setEntity(new StringEntity(body, StandardCharsets.UTF_8));
-        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)) {
+        try(CloseableHttpResponse httpResponse = (HttpClients.createSystem()).execute(httpPost)) {
             String response = readHttpResponse(httpResponse).toString();
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
                 return gson.fromJson(response, SignInResponseDto.class);
@@ -196,7 +197,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         String payload = gson.toJson(cognitoRequest);
         httpPost.setEntity(new StringEntity(payload, StandardCharsets.UTF_8));
         LOGGER.error("====== on call aws =====");
-        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)) {
+        try(CloseableHttpResponse httpResponse = (HttpClients.createSystem()).execute(httpPost)) {
             LOGGER.error("========== Response ============");
             StringBuffer responseString = readHttpResponse(httpResponse);
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
@@ -247,7 +248,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         cognitoForgetPasswordDto.setSecretHash(secretHash);
         cognitoForgetPasswordDto.setUsername(forgetPasswordDto.getEmail());
         httpPost.setEntity(new StringEntity(gson.toJson(cognitoForgetPasswordDto), StandardCharsets.UTF_8));
-        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)) {
+        try(CloseableHttpResponse httpResponse = (HttpClients.createSystem()).execute(httpPost)) {
             StringBuffer responseString = readHttpResponse(httpResponse);
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
                 CognitoForgetPasswordResponseDto cognitoResponse =
@@ -286,7 +287,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         cognitoConfirmForgetPassword.setPassword(forgetPassword.getPassword());
         cognitoConfirmForgetPassword.setConfirmationCode(forgetPassword.getConfirmCode());
         httpPost.setEntity(new StringEntity(gson.toJson(cognitoConfirmForgetPassword), StandardCharsets.UTF_8));
-        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)){
+        try(CloseableHttpResponse httpResponse = (HttpClients.createSystem()).execute(httpPost)){
             StringBuffer responseString = readHttpResponse(httpResponse);
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
                 LOGGER.error("=========== RESET COMPLETE =========");
@@ -315,7 +316,7 @@ public class AwsCognitoService implements AwsCognitoServiceInterface {
         httpPost.setHeader("X-Amz-Target", "AWSCognitoIdentityProviderService.ChangePassword");
         httpPost.setHeader("X-Amz-Date", dateStr);
         httpPost.setEntity(new StringEntity(gson.toJson(resetPasswordDto), StandardCharsets.UTF_8));
-        try(CloseableHttpResponse httpResponse = (HttpClients.createDefault()).execute(httpPost)){
+        try(CloseableHttpResponse httpResponse = (HttpClients.createSystem()).execute(httpPost)){
             StringBuffer responseString = readHttpResponse(httpResponse);
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
                 awsResponse.setSuccess(Boolean.TRUE);

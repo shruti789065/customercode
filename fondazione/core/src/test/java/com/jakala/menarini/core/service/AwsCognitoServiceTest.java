@@ -76,7 +76,7 @@ class AwsCognitoServiceTest {
 
         try (MockedStatic<HttpClients> mockedHttpClients = mockStatic(HttpClients.class);
              MockedStatic<EntityUtils> mockedEntityUtils = mockStatic(EntityUtils.class)) {
-            mockedHttpClients.when(HttpClients::createDefault).thenReturn(httpClient);
+            mockedHttpClients.when(HttpClients::createSystem).thenReturn(httpClient);
             when(httpClient.execute(any(HttpPost.class))).thenReturn(httpResponse);
             when(httpResponse.getStatusLine()).thenReturn(statusLine);
             when(statusLine.getStatusCode()).thenReturn(200);
@@ -101,7 +101,7 @@ class AwsCognitoServiceTest {
 
         try (MockedStatic<HttpClients> mockedHttpClients = mockStatic(HttpClients.class);
              MockedStatic<EntityUtils> mockedEntityUtils = mockStatic(EntityUtils.class)) {
-            mockedHttpClients.when(HttpClients::createDefault).thenReturn(httpClient);
+            mockedHttpClients.when(HttpClients::createSystem).thenReturn(httpClient);
             when(httpClient.execute(any(HttpPost.class))).thenReturn(httpResponse);
             when(httpResponse.getStatusLine()).thenReturn(statusLine);
             when(statusLine.getStatusCode()).thenReturn(200);
@@ -129,7 +129,7 @@ class AwsCognitoServiceTest {
 
         try (MockedStatic<HttpClients> mockedHttpClients = mockStatic(HttpClients.class);
              MockedStatic<EntityUtils> mockedEntityUtils = mockStatic(EntityUtils.class)) {
-            mockedHttpClients.when(HttpClients::createDefault).thenReturn(httpClient);
+            mockedHttpClients.when(HttpClients::createSystem).thenReturn(httpClient);
             when(httpClient.execute(any(HttpPost.class))).thenReturn(httpResponse);
             when(httpResponse.getStatusLine()).thenReturn(statusLine);
             when(statusLine.getStatusCode()).thenReturn(200);
@@ -155,7 +155,7 @@ class AwsCognitoServiceTest {
 
         try (MockedStatic<HttpClients> mockedHttpClients = mockStatic(HttpClients.class);
              MockedStatic<EntityUtils> mockedEntityUtils = mockStatic(EntityUtils.class)) {
-            mockedHttpClients.when(HttpClients::createDefault).thenReturn(httpClient);
+            mockedHttpClients.when(HttpClients::createSystem).thenReturn(httpClient);
             when(httpClient.execute(any(HttpPost.class))).thenReturn(httpResponse);
             when(httpResponse.getStatusLine()).thenReturn(statusLine);
             when(statusLine.getStatusCode()).thenReturn(200);
@@ -182,7 +182,7 @@ class AwsCognitoServiceTest {
 
         try (MockedStatic<HttpClients> mockedHttpClients = mockStatic(HttpClients.class);
              MockedStatic<EntityUtils> mockedEntityUtils = mockStatic(EntityUtils.class)) {
-            mockedHttpClients.when(HttpClients::createDefault).thenReturn(httpClient);
+            mockedHttpClients.when(HttpClients::createSystem).thenReturn(httpClient);
             when(httpClient.execute(any(HttpPost.class))).thenReturn(httpResponse);
             when(httpResponse.getStatusLine()).thenReturn(statusLine);
             when(statusLine.getStatusCode()).thenReturn(200);
@@ -210,7 +210,7 @@ class AwsCognitoServiceTest {
 
         try (MockedStatic<HttpClients> mockedHttpClients = mockStatic(HttpClients.class);
              MockedStatic<EntityUtils> mockedEntityUtils = mockStatic(EntityUtils.class)) {
-            mockedHttpClients.when(HttpClients::createDefault).thenReturn(httpClient);
+            mockedHttpClients.when(HttpClients::createSystem).thenReturn(httpClient);
             when(httpClient.execute(any(HttpPost.class))).thenReturn(httpResponse);
             when(httpResponse.getStatusLine()).thenReturn(statusLine);
             when(statusLine.getStatusCode()).thenReturn(200);
