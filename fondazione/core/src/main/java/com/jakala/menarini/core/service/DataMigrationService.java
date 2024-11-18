@@ -1078,8 +1078,10 @@ public class DataMigrationService {
                 throw new IllegalStateException("Failed to create or retrieve content fragment for ID: " + id);
             }
             LOGGER.info("Created ContentFragment {} for ID: {}", cfm.getName(), id);
-        } else {
+        } else if (cfm != null) {
             LOGGER.info("Retrieved ContentFragment {} for ID: {}", cfm.getName(), id);
+        } else {
+            LOGGER.error("ContentFragment for ID: {} does not exist and the mandatory \"name\" parameter for creation is missing", id);
         }
 
         updateFields(cfm, fields, currentResolver);

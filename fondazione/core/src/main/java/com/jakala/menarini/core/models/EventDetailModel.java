@@ -43,8 +43,12 @@ public class EventDetailModel extends AuthBaseModel {
                 return eventListingService.getEventBySlug(path, resourceResolver, language);
             }
 
+        } catch (NullPointerException e) {
+            LOGGER.error("Null pointer exception in EventDetailModel.getDetail", e);
+        } catch (IllegalArgumentException e) {
+            LOGGER.error("Illegal argument exception in EventDetailModel.getDetail", e);
         } catch (Exception e) {
-            LOGGER.error("Error in EventDetailModel.init", e);
+            LOGGER.error("General exception in EventDetailModel.getDetail", e);
         }
         return null;
     }

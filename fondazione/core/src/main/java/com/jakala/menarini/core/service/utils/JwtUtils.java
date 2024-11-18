@@ -106,7 +106,7 @@ public class JwtUtils {
     }
 
     public static String getTokenJwk(String urlJwk) {
-        try(CloseableHttpClient httpClient = HttpClients.createDefault()){
+        try(CloseableHttpClient httpClient = HttpClients.createSystem()){
             HttpGet httpGet = new HttpGet(urlJwk);
             try(CloseableHttpResponse httpResponse = httpClient.execute(httpGet)) {
                 if(httpResponse.getStatusLine().getStatusCode() == 200 ) {
