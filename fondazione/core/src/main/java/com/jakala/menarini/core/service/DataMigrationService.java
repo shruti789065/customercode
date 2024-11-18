@@ -41,8 +41,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
@@ -1065,7 +1063,7 @@ public class DataMigrationService {
      * and creates a new content fragment if it does not exist and the name is provided.
      * It then updates the fields of the content fragment and its variations.
      */
-    private ContentFragment processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource, ResourceResolver currentResolver) throws RepositoryException, ContentFragmentException {
+    private ContentFragment processCsvRow(String[] fields,  String id, String name, FragmentTemplate template, Resource parentResource, ResourceResolver currentResolver) throws RepositoryException, ContentFragmentException, NullPointerException {
 
         LOGGER.info("Processing ID: {}", id);
             
@@ -1082,6 +1080,7 @@ public class DataMigrationService {
             LOGGER.info("Retrieved ContentFragment {} for ID: {}", cfm.getName(), id);
         } else {
             LOGGER.error("ContentFragment for ID: {} does not exist and the mandatory \"name\" parameter for creation is missing", id);
+            return null;
         }
 
         updateFields(cfm, fields, currentResolver);

@@ -9,6 +9,8 @@ import java.util.Set;
 
 import com.jakala.menarini.core.dto.RoleDto;
 
+import static com.adobe.granite.workflow.event.WorkflowEvent.USER;
+
 public class AclRolePermissions {
 
     protected static final Map<String, List<Acl>> rolePermissions = new HashMap<>();
@@ -30,7 +32,7 @@ public class AclRolePermissions {
         // ));
 
         // utente registrato
-        rolePermissions.put("User", Arrays.asList(
+        rolePermissions.put(USER, Arrays.asList(
             new Acl(VIEW_ART_AND_SCIENCE),
                 new Acl(VIEW_REGISTERED_USERS),
                 new Acl(UPDATE_REGISTERED_USERS)

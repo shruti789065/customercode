@@ -1,6 +1,6 @@
 package com.jakala.menarini.core.dto;
 
-
+@SuppressWarnings("squid:S2384")
 public class EventDetailDto extends EventModelDto{
 
     public EventDetailDto(
