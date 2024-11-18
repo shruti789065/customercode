@@ -3,6 +3,7 @@
  * Basic form validation.
  */
 
+import { createErrorMessageElement, removeErrorMessageElement } from './handle-error-messages';
 import "./dropdown";
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -31,35 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /**
-     * Create error message element.
-     * @param {DOM Element} input
-     * @param {string} message
+     * Check if the email matches.
+     * @param {Element} email
+     * @param {Element} confirmEmail
+     * @returns boolean
      */
-    function createErrorMessageElement(input, message) {
-        let errorMessageElement = input.nextElementSibling;
+    function isEmailMatch(email, confirmEmail) {
+      const isMatch = email.value === confirmEmail.value;
+      if (!isMatch) {
+        removeErrorMessageElement(confirmEmail);
 
-        // Check if the next sibling is an error message element
-        if (!errorMessageElement || !errorMessageElement.classList.contains("error-message")) {
-            // Create a new error message element
-            errorMessageElement = document.createElement("div");
-            errorMessageElement.classList.add("error-message");
-            input.insertAdjacentElement("afterend", errorMessageElement);
-        }
+        const errorMessage = confirmEmail.closest("[data-cmp-required-message]").getAttribute("data-cmp-constraint-message");
+        createErrorMessageElement(confirmEmail, errorMessage);
+      }
 
-        // Set the error message text
-        errorMessageElement.textContent = message;
-        errorMessageElement.style.display = "block";
-    }
-
-    /**
-     * Remove the error message.
-     * @param {DOM Element} input
-     */
-    function removeErrorMessageElement(input) {
-        let errorMessageElement = input.nextElementSibling;
-        if (errorMessageElement && errorMessageElement.classList.contains("error-message")) {
-            errorMessageElement.style.display = "none";
-        }
+      return isMatch;
     }
 
     /**
@@ -72,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const value = input.value;
             const inputType = input.getAttribute("type");
             const errorMessage = input.closest("[data-cmp-required-message]").getAttribute("data-cmp-required-message");
+            const emailConfirmForm = input.closest('#js-email-confirm-form');
 
             // Remove existing error messages
             removeErrorMessageElement(input);
@@ -85,10 +73,29 @@ document.addEventListener("DOMContentLoaded", function() {
             else if (inputType === "checkbox" && !input.checked) {
                 createErrorMessageElement(input, errorMessage);
             }
+
+
+            if (emailConfirmForm && input.getAttribute('name') === 'email_confirm') {
+              const emailInput = emailConfirmForm.querySelector('input[type="email"]');
+              isEmailMatch(emailInput, input);
+            }
         });
     }
 
     formInputs.forEach((input) => {
       inputCheck(input, 'focusout');
     });
+
+  const emailConfirmForm = document.querySelector('#js-email-confirm-form');
+
+  if (emailConfirmForm) {
+    emailConfirmForm.addEventListener('submit', (event) => {
+      const emailInput = emailConfirmForm.querySelector('input[type="email"]');
+      const confirmEmail = emailConfirmForm.querySelectorAll('input[type="email"]')[1];
+
+      if (!isEmailMatch(emailInput, confirmEmail)) {
+        event.preventDefault();
+      }
+    });
+  }
 });

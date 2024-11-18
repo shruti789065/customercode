@@ -13,8 +13,8 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content Form"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/fondazione/components/form/button,/apps/fondazione/components/form/hidden,/apps/fondazione/components/form/options,/apps/fondazione/components/form/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured" />
+                        components="[/apps/fondazione/components/form/button,/apps/fondazione/components/form/hidden,/apps/fondazione/components/form/options,/apps/fondazione/components/form/text,/apps/fondazione/components/form/recaptcha]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
                     </form-container>
                 </container>
             </form>
@@ -243,13 +243,33 @@
                 </policy_712751022800750>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
-                <policy_header
+                  <policy_header
                     cq:styleDefaultElement="header"
                     jcr:description="Sets a &lt;header> element on the page header experience fragment."
+                    jcr:lastModified="{Date}2024-11-14T17:03:34.491+01:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Header"
                     sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured" />
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Italian Version"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="no-background"
+                                    cq:styleId="1731599963038"
+                                    cq:styleLabel="Transparent"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="white-header"
+                                    cq:styleId="1731597548642"
+                                    cq:styleLabel="White background"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_header>
                 <policy_footer
                     cq:styleDefaultElement="footer"
@@ -586,7 +606,7 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     clientlibs="[fondazione.dependencies,fondazione.site,fondazione.forms]"
                     clientlibsAsync="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content jcr:primaryType="nt:unstructured" />
                 </policy_1730807646899>
                 <policy_1729765043446
                     jcr:lastModified="{Date}2024-10-24T12:17:57.494+02:00"
@@ -621,6 +641,16 @@
                     clientlibsJsHead="fondazione.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured" />
                 </policy_1729775804120>
+                <policy_1731414228354
+                    jcr:lastModified="{Date}2024-11-12T14:24:13.901+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page courses and events"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[fondazione.dependencies,fondazione.site,fondazione.courses-events]"
+                    clientlibsAsync="true">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_1731414228354>
                 <policy_1730989739220
                     jcr:lastModified="{Date}2024-11-07T15:29:33.805+01:00"
                     jcr:lastModifiedBy="admin"
@@ -630,8 +660,29 @@
                     clientlibs="[fondazione.dependencies,fondazione.site,fondazione.editimage]"
                     clientlibsAsync="false"
                     clientlibsJsHead="fondazione.dependencies">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content jcr:primaryType="nt:unstructured" />
                 </policy_1730989739220>
+                <policy_1731332821478
+                    jcr:description="Includes the fondazione.forms library"
+                    jcr:lastModified="{Date}2024-11-12T15:00:08.816+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Generic Form Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[fondazione.dependencies,fondazione.site,fondazione.forms]"
+                    clientlibsAsync="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1731332821478>
+                <policy_1731413136871
+                    jcr:lastModified="{Date}2024-11-12T14:07:06.383+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Courses and events template policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/fondazione/components/courses-events"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_1731413136871>
             </page>
             <slideshow jcr:primaryType="nt:unstructured">
                 <policy_1724932614537
@@ -872,7 +923,7 @@
                     jcr:title="Web Forms Experience Fragment "
                     sling:resourceType="wcm/core/components/policy/policy"
                     clientlibs="[fondazione.dependencies,fondazione.site,fondazione.forms]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content jcr:primaryType="nt:unstructured" />
                 </policy_1730741245428>
                 <policy_337619871216375
                     jcr:lastModified="{Date}2024-11-05T09:12:08.386+02:00"
@@ -881,9 +932,57 @@
                     jcr:title="Forms"
                     sling:resourceType="wcm/core/components/policy/policy"
                     clientlibs="[fondazione.dependencies,fondazione.site,fondazione.forms]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content jcr:primaryType="nt:unstructured" />
                 </policy_337619871216375>
             </xfpage>
+            <button jcr:primaryType="nt:unstructured">
+                <policy_1731428325611
+                    jcr:lastModified="{Date}2024-11-12T18:21:42.179+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Button Policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="CTA Type"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="button-cta--primary"
+                                    cq:styleId="1731428340935"
+                                    cq:styleLabel="Primary"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Alignment"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="d-flex justify-content-center&quot;"
+                                    cq:styleId="1731428379806"
+                                    cq:styleLabel="Center"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                        <item2
+                            cq:styleGroupLabel="Padding"
+                            cq:styleGroupMultiple="true"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="container-padding-x"
+                                    cq:styleId="1731428482898"
+                                    cq:styleLabel="Horizontal padding"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
+                    </cq:styleGroups>
+                </policy_1731428325611>
+            </button>
         </components>
     </fondazione>
     <wcm jcr:primaryType="nt:unstructured">

@@ -21,10 +21,13 @@ body {
     padding: 0px;
 }
 
+// @todo: check if this selector can be reduced.
+// It is too complex.
 .container.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 {
     float: unset;
     clear: both;
-    padding: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .cq-Overlay--placeholder {
@@ -86,7 +89,7 @@ h6,
     }
 }
 
-// Text 
+// Text
 
 p,
 .text {
@@ -170,4 +173,14 @@ input[type=radio] {
 
 .cta-spinner {
     color: $white !important;
+}
+
+.container-padding-x {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }

@@ -1,5 +1,5 @@
 
-.text {
+.text:has(.cmp-text) {
     @include make-container();
     @extend .container;
     .cmp-text {
@@ -10,12 +10,10 @@
             @extend %text-small-light;
         }
     }
-    
+
     &.text-super-small-light {
         .cmp-text {
             @extend %text-super-small-light;
         }
     }
 }
-
-.cmp-text__paragraph {}
