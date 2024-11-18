@@ -20,6 +20,7 @@ public class EventDetailDto extends EventModelDto{
     }
     
     private String presentationDescription;
+    private String nation;
     private String [] speakers;
     private String [] topicList;
 
@@ -29,6 +30,14 @@ public class EventDetailDto extends EventModelDto{
 
     public void setPresentationDescription(String presentationDescription) {
         this.presentationDescription = presentationDescription;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
     }
 
     public void setTopicList(String[] topicList) {

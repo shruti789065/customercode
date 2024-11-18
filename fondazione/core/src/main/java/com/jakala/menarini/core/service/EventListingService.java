@@ -44,6 +44,7 @@ public class EventListingService implements EventListingServiceInterface {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventListingService.class);
 
     private final  Map<String, String> citiesMap = new HashMap<>();
+    private final  Map<String, String> nationsMap = new HashMap<>();
     private final  Map<String, String> topicsMap = new HashMap<>();
     private final  Map<String, String> speakersMap = new HashMap<>();
 
@@ -397,7 +398,7 @@ public class EventListingService implements EventListingServiceInterface {
             }
             String eventType = fragment.getElement("eventType").getContent();
             String location = fragment.getElement("city").getContent();
-            location = getLocationName(location, language,resolver);
+            location = getLocationName(location, language, resolver);
             String subscription = fragment.getElement("subscription").getContent();
 
             String path = baseUrl + fragment.getElement("slug").getContent();
@@ -413,8 +414,10 @@ public class EventListingService implements EventListingServiceInterface {
         ContentFragment fragment = resource.adaptTo(ContentFragment.class);
         if (dto != null && fragment != null) {
             String description = ModelHelper.getLocalizedElementValue(fragment, language, "presentationDescription", null);
-            //dto.setPresentationDescription(StringEscapeUtils.unescapeHtml4(description));
             dto.setPresentationDescription(description);
+            String nation = fragment.getElement("nation").getContent();
+            nation = getNationName(nation, language, resolver);
+            dto.setNation(nation);
             FragmentData fragmentData = fragment.getElement("speakers").getValue();
             Object elementContent = fragmentData.getValue();
             List<String> speakers = new ArrayList<>();
@@ -437,12 +440,28 @@ public class EventListingService implements EventListingServiceInterface {
         }
     }
 
+    private String getNationName(String location, String language, ResourceResolver resolver) {
+        if (location != null && !location.isEmpty()) {
+            if (nationsMap.containsKey(location)) {
+                return nationsMap.get(location);
+            } else {
+                ContentFragment fragment = findFragmentByPath(location, resolver);
+                if (fragment != null) {
+                    String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
+                    nationsMap.put(location, name);
+                    return name;
+                }
+            }
+        }
+        return "";
+    }
+
     private String getLocationName(String location, String language, ResourceResolver resolver) {
         if (location != null && !location.isEmpty()) {
             if (citiesMap.containsKey(location)) {
                 return citiesMap.get(location);
             } else {
-                ContentFragment fragment = findFragmentByPath(location,resolver);
+                ContentFragment fragment = findFragmentByPath(location, resolver);
                 if (fragment != null) {
                     String name = ModelHelper.getLocalizedElementValue(fragment, language, "name", null);
                     citiesMap.put(location, name);
